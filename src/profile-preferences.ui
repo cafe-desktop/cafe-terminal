@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.20.0 
 
-Copyright (C) MATE developers
+Copyright (C) CAFE developers
 
 This file is part of mate-terminal.
 
@@ -27,7 +27,7 @@ Author: Wolfgang Ulbrich
   <!-- interface-license-type gplv3 -->
   <!-- interface-name mate-terminal -->
   <!-- interface-description preferences of mate-terminal -->
-  <!-- interface-copyright MATE developers -->
+  <!-- interface-copyright CAFE developers -->
   <!-- interface-authors Wolfgang Ulbrich -->
   <object class="GtkAdjustment" id="adjustment1">
     <property name="lower">1</property>

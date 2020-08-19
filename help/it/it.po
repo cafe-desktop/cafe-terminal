@@ -28,14 +28,14 @@ msgstr " "
 
 #. (itstool) path: info/title
 #: C/index.docbook:9
-msgid "MATE Terminal Manual"
-msgstr "Manuale del Terminale di MATE"
+msgid "CAFE Terminal Manual"
+msgstr "Manuale del Terminale di CAFE"
 
 #. (itstool) path: info/copyright
 #: C/index.docbook:11
-msgid "<year>2015-2020</year> <holder>MATE Documentation Project</holder>"
+msgid "<year>2015-2020</year> <holder>CAFE Documentation Project</holder>"
 msgstr ""
-"<year>2015-2020</year> <holder>Progetto Documentazione di MATE</holder>"
+"<year>2015-2020</year> <holder>Progetto Documentazione di CAFE</holder>"
 
 #. (itstool) path: info/copyright
 #: C/index.docbook:15
@@ -73,18 +73,18 @@ msgstr "<year>2000</year> <holder>Alexander Kirillov</holder>"
 
 #. (itstool) path: publisher/publishername
 #: C/index.docbook:43
-msgid "MATE Documentation Project"
-msgstr "progetto Documentazione di  MATE"
+msgid "CAFE Documentation Project"
+msgstr "progetto Documentazione di  CAFE"
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:49
 msgid ""
-"<personname><surname>MATE Documentation "
-"Team</surname></personname><affiliation> <orgname>MATE DESKTOP</orgname> "
+"<personname><surname>CAFE Documentation "
+"Team</surname></personname><affiliation> <orgname>CAFE DESKTOP</orgname> "
 "</affiliation>"
 msgstr ""
 "<personname><surname>Team Documentazione di "
-"MATE</surname></personname><affiliation> <orgname>MATE DESKTOP</orgname> "
+"CAFE</surname></personname><affiliation> <orgname>CAFE DESKTOP</orgname> "
 "</affiliation>"
 
 #. (itstool) path: authorgroup/author
@@ -239,13 +239,13 @@ msgstr ""
 
 #. (itstool) path: info/releaseinfo
 #: C/index.docbook:191
-msgid "This manual describes version 1.22 of MATE Terminal."
-msgstr "Questo manuale descrive la versione 1.22 di Terminale di MATE."
+msgid "This manual describes version 1.22 of CAFE Terminal."
+msgstr "Questo manuale descrive la versione 1.22 di Terminale di CAFE."
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:195
-msgid "<primary>MATE Terminal</primary>"
-msgstr "<primary>Terminale di MATE</primary>"
+msgid "<primary>CAFE Terminal</primary>"
+msgstr "<primary>Terminale di CAFE</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:198
@@ -260,30 +260,30 @@ msgstr "Introduzione"
 #. (itstool) path: section/para
 #: C/index.docbook:204
 msgid ""
-"<application>MATE Terminal</application> is a terminal emulation application"
+"<application>CAFE Terminal</application> is a terminal emulation application"
 " that you can use to perform the following tasks:"
 msgstr ""
-"<application>Terminale di MATE</application> è un'applicazione per "
+"<application>Terminale di CAFE</application> è un'applicazione per "
 "l'emulazione del terminale che può essere utilizzata per per svolgere le "
 "seguenti attività:"
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:209
-msgid "Access a UNIX shell in the MATE environment"
-msgstr "Accedere a una shell UNIX nell'ambiente MATE"
+msgid "Access a UNIX shell in the CAFE environment"
+msgstr "Accedere a una shell UNIX nell'ambiente CAFE"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:211
 msgid ""
 "A shell is a program that interprets and executes the commands that you type"
-" at a command line prompt. When you start <application>MATE "
+" at a command line prompt. When you start <application>CAFE "
 "Terminal</application>, the application starts the default shell that is "
 "specified in your system account. You can switch to a different shell at any"
 " time."
 msgstr ""
 "Una shell è un programma che interpreta ed esegue i comandi che si scrivono "
 "da un prompt dei comandi. Quando si avvia <application>Terminale di "
-"MATE</application>, l'applicazione avvia la shell predefinita che è "
+"CAFE</application>, l'applicazione avvia la shell predefinita che è "
 "specificata nel vostro account di sistema. Potete cambiare con una shell "
 "differente in qualsiasi momento."
 
@@ -299,21 +299,21 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:219
 msgid ""
-"<application>MATE Terminal</application> emulates the "
+"<application>CAFE Terminal</application> emulates the "
 "<application>xterm</application> application developed by the X Consortium. "
 "In turn, the <application>xterm</application> application emulates the DEC "
 "VT102 terminal and also supports the DEC VT220 escape sequences. An escape "
 "sequence is a series of characters that starts with the <keycap>Esc</keycap>"
-" character. <application>MATE Terminal</application> accepts all of the "
+" character. <application>CAFE Terminal</application> accepts all of the "
 "escape sequences that the VT102 and VT220 terminals use for functions such "
 "as to position the cursor and to clear the screen."
 msgstr ""
-"<application>Terminale di MATE</application> emula l'applicazione "
+"<application>Terminale di CAFE</application> emula l'applicazione "
 "<application>xterm</application> sviluppata da X Consortium. A sua volta, "
 "l'applicazione <application>xterm</application> emula il terminale DEC VT102"
 " e supporta inoltre le sequenze di escape del DEC VT220. Una sequenza de "
 "escape è una sequenza di caratteri che iniziano col carattere "
-"<keycap>Esc</keycap>. <application>Terminale di MATE</application> accetta "
+"<keycap>Esc</keycap>. <application>Terminale di CAFE</application> accetta "
 "tutte sequenze di escape che utilizzano i terminali VT102 e VT220 per "
 "unzioni come il posizionamento del cursore o la pulizia dello schermo. "
 
@@ -325,24 +325,24 @@ msgstr "Per Iniziare"
 #. (itstool) path: section/para
 #: C/index.docbook:230
 msgid ""
-"The following sections describe how to start <application>MATE "
+"The following sections describe how to start <application>CAFE "
 "Terminal</application>."
 msgstr ""
 "Le sezioni seguenti descrivono come avviare <application>Terminale di "
-"MATE</application>."
+"CAFE</application>."
 
 #. (itstool) path: info/title
 #: C/index.docbook:234
-msgid "Starting MATE Terminal"
-msgstr "Avviare Terminale di MATE"
+msgid "Starting CAFE Terminal"
+msgstr "Avviare Terminale di CAFE"
 
 #. (itstool) path: section/para
 #: C/index.docbook:235
 msgid ""
-"You can start <application>MATE Terminal</application> in the following "
+"You can start <application>CAFE Terminal</application> in the following "
 "ways:"
 msgstr ""
-"È possibile avviare il <application>Terminale di MATE</application> nei "
+"È possibile avviare il <application>Terminale di CAFE</application> nei "
 "seguenti modi:"
 
 #. (itstool) path: varlistentry/term
@@ -373,39 +373,39 @@ msgstr "Eseguire il seguente comando: <command>mate-terminal</command>"
 #: C/index.docbook:252
 msgid ""
 "You can use command line options to modify the way in which you run "
-"<application>MATE Terminal</application>. To view the command line options, "
+"<application>CAFE Terminal</application>. To view the command line options, "
 "execute the following command: <command>mate-terminal --help</command>"
 msgstr ""
 "È possibile utilizzare opzioni da riga di comando per modificare il modo in "
-"cui si esegue <application>Terminale di MATE</application>. Per vedere "
+"cui si esegue <application>Terminale di CAFE</application>. Per vedere "
 "l'elenco delle opzioni  da riga di comando, eseguire il seguente comando: "
 "<command>mate-terminal --help</command>"
 
 #. (itstool) path: info/title
 #: C/index.docbook:260
-msgid "When You First Start MATE Terminal"
-msgstr "Quando si Avvia Terminale di MATE per la Prima Volta"
+msgid "When You First Start CAFE Terminal"
+msgstr "Quando si Avvia Terminale di CAFE per la Prima Volta"
 
 #. (itstool) path: section/para
 #: C/index.docbook:261
 msgid ""
-"When you start <application>MATE Terminal</application> for the first time, "
+"When you start <application>CAFE Terminal</application> for the first time, "
 "the application opens a terminal window with a group of default settings. "
 "The group of default settings is called the Default profile."
 msgstr ""
-"Quando si avvia Terminale di MATE per la prima volta, l'applicazione apre "
+"Quando si avvia Terminale di CAFE per la prima volta, l'applicazione apre "
 "una finestra di terminale con un gruppo di impostazioni predefinite. Il "
 "gruppo di impostazioni predefinite è chiamato il profilo Predefinito."
 
 #. (itstool) path: info/title
 #: C/index.docbook:263
-msgid "Example of a Default MATE Terminal Window"
-msgstr "Esempio di una Finestra Terminale di MATE Predefinita"
+msgid "Example of a Default CAFE Terminal Window"
+msgstr "Esempio di una Finestra Terminale di CAFE Predefinita"
 
 #. (itstool) path: abstract/para
 #: C/index.docbook:265 C/index.docbook:324
-msgid "MATE Terminal default window"
-msgstr "Finestra predefinita di Terminale di MATE"
+msgid "CAFE Terminal default window"
+msgstr "Finestra predefinita di Terminale di CAFE"
 
 #. (itstool) path: imageobject/imagedata
 #. This is a reference to an external file such as an image or video. When
@@ -425,12 +425,12 @@ msgstr ""
 #: C/index.docbook:266
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-default.png\" "
-"format=\"PNG\"/> </imageobject> <textobject> <phrase>MATE Terminal default "
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>CAFE Terminal default "
 "window</phrase> </textobject>"
 msgstr ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-default.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>finestra predefinita di"
-" Terminale di MATE</phrase> </textobject>"
+" Terminale di CAFE</phrase> </textobject>"
 
 #. (itstool) path: section/para
 #: C/index.docbook:276
@@ -439,7 +439,7 @@ msgid ""
 "commands. The command prompt can be a %, #, &gt;, $, or any other special "
 "character. The cursor is positioned at the command prompt. When you type a "
 "UNIX command and press <keycap>Return</keycap>, the computer executes the "
-"command. By default, <application>MATE Terminal</application> uses the "
+"command. By default, <application>CAFE Terminal</application> uses the "
 "default shell specified for the user who starts the application."
 msgstr ""
 "La finestra del terminale mostra un prompt dei comandi in cui si può "
@@ -447,17 +447,17 @@ msgstr ""
 " &gt;, $, o un qualsiasi altro carattere speciale. Il cursore è posizionato "
 "subito dopo il prompt dei comandi. Quando si scrive un comando UNIX e si "
 "pressa <keycap>Invio</keycap>, il computer esegue il comando. Per "
-"impostazione di default, <application>Terminale di MATE</application> "
+"impostazione di default, <application>Terminale di CAFE</application> "
 "utilizza la shell predefinita specificata per l'utente che avvia "
 "l'applicazione."
 
 #. (itstool) path: section/para
 #: C/index.docbook:279
 msgid ""
-"<application>MATE Terminal</application> also sets the following environment"
+"<application>CAFE Terminal</application> also sets the following environment"
 " variables:"
 msgstr ""
-"<application>Terminale di MATE</application> imposta anche le seguenti "
+"<application>Terminale di CAFE</application> imposta anche le seguenti "
 "variabili di ambiente:"
 
 #. (itstool) path: varlistentry/term
@@ -491,14 +491,14 @@ msgid ""
 "You can create a new profile, and apply the new profile to the terminal to "
 "modify characteristics such as font, color and effects, scroll behavior, "
 "window title, and compatibility. You can also specify a command that runs "
-"automatically when you start <application>MATE Terminal</application> in the"
+"automatically when you start <application>CAFE Terminal</application> in the"
 " profile."
 msgstr ""
 "È possibile creare un nuovo profilo, ed applicarlo al terminale per "
 "modificare caratteristiche come ad esempio il carattere, il colore e gli "
 "effetti, il comportamento dello scorrimento, il titolo della finestra e la "
 "compatibilità. Si può anche specificare un comando che venga eseguito "
-"automaticamente quando si avvia <application>Terminale di MATE</application>"
+"automaticamente quando si avvia <application>Terminale di CAFE</application>"
 " dal profilo ."
 
 #. (itstool) path: section/para
@@ -534,11 +534,11 @@ msgstr ""
 #: C/index.docbook:311
 msgid ""
 "The name of the current profile appears in the titlebar of the "
-"<application>MATE Terminal</application>, unless you specify a different "
+"<application>CAFE Terminal</application>, unless you specify a different "
 "titlebar name in the <guilabel>Editing Profile</guilabel> dialog."
 msgstr ""
 "Il nome del profilo corrente appare nella barra del titolo di "
-"<application>Terminale di MATE</application>, almeno che non si sia "
+"<application>Terminale di CAFE</application>, almeno che non si sia "
 "specificato un nome per la barra del titolo nel dialogo <guilabel>Modifiche "
 "del Profilo</guilabel>."
 
@@ -559,14 +559,14 @@ msgstr "Lavorare con Più Terminali"
 #. (itstool) path: section/para
 #: C/index.docbook:318
 msgid ""
-"<application>MATE Terminal</application> provides a tab feature that enables"
+"<application>CAFE Terminal</application> provides a tab feature that enables"
 " you to open several terminals in a single window. Each terminal opens in a "
 "separate tab. Click on the appropriate tab to display the terminal in the "
 "window. Each tabbed terminal in a window is a separate subprocess, so you "
 "can use each terminal for different tasks. You can apply a different profile"
 " to each tabbed terminal in the window."
 msgstr ""
-"<application>Terminale di MATE</application> fornisce la possibilità di "
+"<application>Terminale di CAFE</application> fornisce la possibilità di "
 "avere le schede che permettono di aprire più terminali in una singola "
 "finestra. Ciascun terminale viene aperto in una nuova finestra. Fare click "
 "sulla scheda appropriata per mostrare il terminale nella finestra. Ciascuna "
@@ -579,14 +579,14 @@ msgstr ""
 msgid ""
 "The titlebar of the terminal window shows either the name of the current "
 "profile, or the name specified by the current profile. <xref linkend=\"mate-"
-"terminal-tabbed\"/> shows a <application>MATE Terminal</application> window "
+"terminal-tabbed\"/> shows a <application>CAFE Terminal</application> window "
 "with four tabs. In this case, each of the four tabs has a different profile."
 " The name of the profile in the active tab, Profile 1, appears in the "
 "titlebar."
 msgstr ""
 "La barra del titolo mostrerà il nome del profilo corrente, o il nome "
 "specificato dal profilo attuale. <xref linkend=\"mate-terminal-tabbed\"/> "
-"mostra un <application>Terminale di MATE</application> con quattro schede, "
+"mostra un <application>Terminale di CAFE</application> con quattro schede, "
 "in questo caso ciascuna di esse ha un suo profilo differente. Il nome del "
 "profilo della scheda attiva, Profilo 1, compare nella barra del titolo."
 
@@ -613,11 +613,11 @@ msgstr ""
 #: C/index.docbook:325
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-tabbed.png\" "
-"format=\"PNG\"/> </imageobject> <textobject> <phrase>MATE Terminal window "
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>CAFE Terminal window "
 "with four tabs</phrase> </textobject>"
 msgstr ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-tabbed.png\" "
-"format=\"PNG\"/> </imageobject> <textobject> <phrase>Terminale di MATE con "
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>Terminale di CAFE con "
 "quattro schede</phrase> </textobject>"
 
 #. (itstool) path: section/para
@@ -680,12 +680,12 @@ msgstr ""
 #: C/index.docbook:362
 msgid ""
 "This action closes the terminal and any subprocesses that you opened from "
-"the terminal. If you close the last terminal window, the <application>MATE "
+"the terminal. If you close the last terminal window, the <application>CAFE "
 "Terminal</application> application exits."
 msgstr ""
 "Questa azione chiude il terminale e ogni sottoprocesso che si è aperto da "
 "quel terminale. Se si chiude l'ultima finestra d del terminale, "
-"l'applicazione <application>Terminale di MATE</application> si chide."
+"l'applicazione <application>Terminale di CAFE</application> si chide."
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:367
@@ -802,13 +802,13 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:429
 msgid ""
-"Click <guibutton>Close</guibutton>. <application>MATE Terminal</application>"
+"Click <guibutton>Close</guibutton>. <application>CAFE Terminal</application>"
 " adds the profile to the "
 "<menuchoice><guimenu>Terminal</guimenu><guisubmenu>Change "
 "Profile</guisubmenu></menuchoice> submenu."
 msgstr ""
 "Fare click su <guibutton>Chiudi</guibutton>. <application>Terminale di "
-"MATE</application> aggiunge il profilo al sottomenu "
+"CAFE</application> aggiunge il profilo al sottomenu "
 "<menuchoice><guimenu>Terminale</guimenu><guisubmenu>Cambia "
 "Profilo</guisubmenu></menuchoice>."
 
@@ -966,10 +966,10 @@ msgstr ""
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:518
 msgid ""
-"To display the <application>MATE Terminal</application> window in full-"
+"To display the <application>CAFE Terminal</application> window in full-"
 "screen mode:"
 msgstr ""
-"Per mostrare la finestra <application>Terminale di MATE</application> in "
+"Per mostrare la finestra <application>Terminale di CAFE</application> in "
 "modalità schermo intero:"
 
 #. (itstool) path: listitem/para
@@ -1113,13 +1113,13 @@ msgstr ""
 #: C/index.docbook:575
 msgid ""
 "These actions select all text between the first and last items. For all text"
-" selections, <application>MATE Terminal</application> copies the selected "
+" selections, <application>CAFE Terminal</application> copies the selected "
 "text into the clipboard when you release the mouse button. To explicitly "
 "copy the selected text, choose "
 "<menuchoice><guimenu>Edit</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
 msgstr ""
 "Queste azioni selezionano tutto il testo compreso tra il primo e l'ultimo "
-"oggetto. In qualsiasi caso, <application>Terminale di MATE</application> "
+"oggetto. In qualsiasi caso, <application>Terminale di CAFE</application> "
 "copia il testo selezionato negli appunti quando si rilascia il pulsante del "
 "mouse. Per copiare il testo in modo esplicito, selezionare "
 "<menuchoice><guimenu>Modifica</guimenu><guimenuitem>Copia</guimenuitem></menuchoice>."
@@ -1217,13 +1217,13 @@ msgstr "Visualizzare le Impostazioni delle Scorciatoie da Tastiera"
 #: C/index.docbook:628
 msgid ""
 "To view the keyboard shortcut settings that are defined for "
-"<application>MATE Terminal</application>, choose "
+"<application>CAFE Terminal</application>, choose "
 "<menuchoice><guimenu>Edit</guimenu><guimenuitem>Keyboard "
 "Shortcuts</guimenuitem></menuchoice>. The <guilabel>Keyboard "
 "Shortcuts</guilabel> dialog contains the following items:"
 msgstr ""
 "Per visualizzare le scorciatoie da tastiera che sono definite per "
-"<application>Terminale di MATE</application>, selezionare "
+"<application>Terminale di CAFE</application>, selezionare "
 "<menuchoice><guimenu>Modifica</guimenu><guimenuitem>Scorciatoie da "
 "Tastiera</guimenuitem></menuchoice>.  La finestra di dialogo "
 "<guilabel>Scorciatoie da Tastiera</guilabel> contiene i seguenti oggetti: "
@@ -1264,12 +1264,12 @@ msgstr ""
 #: C/index.docbook:641
 msgid ""
 "Deselect this option to disable the shortcut key that is defined to enable "
-"you to access the <application>MATE Terminal</application> menus. The "
+"you to access the <application>CAFE Terminal</application> menus. The "
 "default shortcut key to access the menus is <keycap>F10</keycap>."
 msgstr ""
 "Deselezionare questa opzione per disabilitare la combinazione di tasti "
 "scorciatoia definita per accedere ai menu di <application>Terminale di "
-"MATE</application>. Il tasto predefinito scorciatoia di accesso ai menu è "
+"CAFE</application>. Il tasto predefinito scorciatoia di accesso ai menu è "
 "<keycap>F10</keycap>."
 
 #. (itstool) path: varlistentry/term
@@ -1302,10 +1302,10 @@ msgstr "Dimensione del Testo"
 #. (itstool) path: section/para
 #: C/index.docbook:657
 msgid ""
-"You can use the following methods to resize the text in the MATE Terminal "
+"You can use the following methods to resize the text in the CAFE Terminal "
 "window:"
 msgstr ""
-"Per ridimensionare il testo in una finestra di Terminale MATE, si possono "
+"Per ridimensionare il testo in una finestra di Terminale CAFE, si possono "
 "utilizzare i seguenti procedimenti:"
 
 #. (itstool) path: listitem/para
@@ -1368,10 +1368,10 @@ msgstr ""
 #: C/index.docbook:676
 msgid ""
 "Type the new title in the <guilabel>Title</guilabel> text box. "
-"<application>MATE Terminal</application> applies the change immediately."
+"<application>CAFE Terminal</application> applies the change immediately."
 msgstr ""
 "Inserite il nuovo titolo nella casella di testo <guilabel>Titolo</guilabel>."
-" <application>Terminale di MATE</application> applicherà le modifiche "
+" <application>Terminale di CAFE</application> applicherà le modifiche "
 "immediatamente."
 
 #. (itstool) path: listitem/para
@@ -1507,7 +1507,7 @@ msgstr "Preferenze"
 #. (itstool) path: section/para
 #: C/index.docbook:744
 msgid ""
-"To configure <application>MATE Terminal</application>, choose "
+"To configure <application>CAFE Terminal</application>, choose "
 "<menuchoice><guimenu>Edit</guimenu><guimenuitem>Current "
 "Profile</guimenuitem></menuchoice>. To configure another profile that you "
 "set up choose "
@@ -1515,7 +1515,7 @@ msgid ""
 " select the profile you want to edit, then click "
 "<guibutton>Edit</guibutton>."
 msgstr ""
-"Per configurare <application>Terminale di MATE</application>, selezionare "
+"Per configurare <application>Terminale di CAFE</application>, selezionare "
 "<menuchoice><guimenu>Modifica</guimenu><guimenuitem>Preferenze del "
 "Profilo</guimenuitem></menuchoice>. Per configurare un profilo che si è "
 "impostato precedentemente, selezionare "
@@ -1527,12 +1527,12 @@ msgstr ""
 #: C/index.docbook:746
 msgid ""
 "The <guilabel>Editing Profile</guilabel> dialog contains the following "
-"tabbed sections that you can use to configure <application>MATE "
+"tabbed sections that you can use to configure <application>CAFE "
 "Terminal</application>:"
 msgstr ""
 "La finestra di dialogo <guilabel>Modificare il Profilo</guilabel> contiene "
 "le seguenti sezioni a schede che possono essere utilizate per configurare "
-"<application>Terminale di MATE</application>."
+"<application>Terminale di CAFE</application>."
 
 #. (itstool) path: info/title
 #: C/index.docbook:763
@@ -1630,12 +1630,12 @@ msgstr "<guilabel>Caratteri selezionabili come parola</guilabel>"
 #: C/index.docbook:823
 msgid ""
 "Use this text box to specify characters or groups of characters that "
-"<application>MATE Terminal</application> considers to be words when you "
+"<application>CAFE Terminal</application> considers to be words when you "
 "select text by word. See <xref linkend=\"mate-terminal-contents\"/> for more"
 " information about how to select text by word."
 msgstr ""
 "Utilizzare questo campo di testo per specificare i caratterio i gruoppi di "
-"caratteri che <application>Terminale di MATE</application> considera essere "
+"caratteri che <application>Terminale di CAFE</application> considera essere "
 "parole quando si seleziona il testo per parole. Vedere <xref linkend=\"mate-"
 "terminal-contents\"/> per maggiori informazioni su come selezionare il testo"
 " per parole."
@@ -1755,13 +1755,13 @@ msgstr "<guilabel>Colori del Primopiano e dello Sfondo</guilabel>"
 #: C/index.docbook:898
 msgid ""
 "Select the <guilabel>Use colours from system theme</guilabel> option to use "
-"the colors that are specified in the MATE Desktop theme that is selected in "
+"the colors that are specified in the CAFE Desktop theme that is selected in "
 "the <guilabel>Theme</guilabel> tab of the <link xlink:href=\"help:mate-user-"
 "guide/prefs-theme\"><application>Appearance</application> preference "
 "tool</link>."
 msgstr ""
 "Seleziona l'opzione <guilabel>Usa i colori del tema di sistema</guilabel> "
-"per utilizzare i colori che sono specificati nel tema desktop MATE che è "
+"per utilizzare i colori che sono specificati nel tema desktop CAFE che è "
 "selezionato nella scheda <guilabel>Tema</guilabel> della sezione <link "
 "xlink:href=\"help:mate-user-guide/prefs-"
 "theme\"><application>Aspetto</application> dello strumento "
@@ -1771,13 +1771,13 @@ msgstr ""
 #: C/index.docbook:901
 msgid ""
 "Use the <guilabel>Built-in schemes</guilabel> drop-down list to specify the "
-"foreground and background colors for the terminal. <application>MATE "
+"foreground and background colors for the terminal. <application>CAFE "
 "Terminal</application> supports the following foreground and background "
 "color combinations:"
 msgstr ""
 "Utilizzare la lista a tendina <guilabel>Schemi incorporati</guilabel> per "
 "specificare i colori di primopiano e di sfondo per il terminale. "
-"<application>Terminale di MATE</application> supporta le seguenti "
+"<application>Terminale di CAFE</application> supporta le seguenti "
 "combinazioni per i colori di primo-piano e dello sfondo:"
 
 #. (itstool) path: listitem/para
@@ -2156,12 +2156,12 @@ msgstr ""
 #. (itstool) path: legalnotice/para
 #: C/legal.xml:13
 msgid ""
-"This manual is part of a collection of MATE manuals distributed under the "
+"This manual is part of a collection of CAFE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the license to the manual, as described in"
 " section 6 of the license."
 msgstr ""
-"Questo manuale fa parte di una raccolta di manuali MATE distribuita in "
+"Questo manuale fa parte di una raccolta di manuali CAFE distribuita in "
 "conformità con la GFDL. Per poter distribuire questo manuale separatamente, "
 "è necessario inserirvi una copia della licenza, come descritto nella sezione"
 " 6 della licenza."
@@ -2170,14 +2170,14 @@ msgstr ""
 #: C/legal.xml:20
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any MATE "
-"documentation, and the members of the MATE Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any CAFE "
+"documentation, and the members of the CAFE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
 "Molti dei nomi usati dalle aziende per distinguere i propri prodotti e "
 "servizi sono rivendicati come marchi registrati. Quando questi nomi "
-"compaiono nella documentazione di MATE, e i partecipanti al MATE "
+"compaiono nella documentazione di CAFE, e i partecipanti al CAFE "
 "Documentation Project sono consapevoli del loro utilizzo, essi vengono "
 "scritti in lettere maiuscole o con l'iniziale maiuscola."
 
@@ -2234,7 +2234,7 @@ msgstr ""
 "PERDITA DI AVVIAMENTO, INTERRUZIONE DEL LAVORO, GUASTO O MALFUNZIONAMENTO "
 "DEL COMPUTER O QUALUNQUE ALTRO DANNO O PERDITA DERIVANTE O CORRELATA ALL'USO"
 " DEL DOCUMENTO O DI UNA SUA VERSIONE MODIFICATA, ANCHE QUALORA LE PERSONE "
-"CITATE FOSSERO STATE INFORMATE DELLA POSSIBILITÀ DI TALI DANNI."
+"CITATE FOSSERO STATE INFORCAFE DELLA POSSIBILITÀ DI TALI DANNI."
 
 #. (itstool) path: legalnotice/para
 #: C/legal.xml:29
@@ -2255,10 +2255,10 @@ msgstr "Commenti"
 #. (itstool) path: formalpara/para
 #: C/legal.xml:78
 msgid ""
-"To report a bug or make a suggestion regarding the MATE Terminal application"
+"To report a bug or make a suggestion regarding the CAFE Terminal application"
 " or this manual, follow the directions in the <link xlink:href=\"help:mate-"
-"user-guide/feedback\">MATE Feedback Page</link>."
+"user-guide/feedback\">CAFE Feedback Page</link>."
 msgstr ""
-"Per segnalare un malfunzionamento o un suggerimento per Terminale di MATE o "
+"Per segnalare un malfunzionamento o un suggerimento per Terminale di CAFE o "
 "questo manuale, segui le indicazioni nella <link xlink:href=\"help:mate-"
-"user-guide/feedback\">Pagina di feedback di MATE</link>."
+"user-guide/feedback\">Pagina di feedback di CAFE</link>."

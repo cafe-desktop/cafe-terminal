@@ -235,7 +235,7 @@ sm_client_xsmp_set_initial_properties (gpointer user_data)
 		if (xsmp->restart_style == SmRestartIfRunning)
 		{
 			if (egg_desktop_file_get_boolean (desktop_file,
-			                                  "X-MATE-AutoRestart", NULL))
+			                                  "X-CAFE-AutoRestart", NULL))
 				xsmp->restart_style = SmRestartImmediately;
 		}
 

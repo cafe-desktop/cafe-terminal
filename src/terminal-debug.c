@@ -27,7 +27,7 @@ TerminalDebugFlags _terminal_debug_flags;
 void
 _terminal_debug_init(void)
 {
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	const GDebugKey keys[] =
 	{
 		{ "accels",    TERMINAL_DEBUG_ACCELS    },
@@ -39,8 +39,8 @@ _terminal_debug_init(void)
 		{ "profile",   TERMINAL_DEBUG_PROFILE   }
 	};
 
-	_terminal_debug_flags = g_parse_debug_string (g_getenv ("MATE_TERMINAL_DEBUG"),
+	_terminal_debug_flags = g_parse_debug_string (g_getenv ("CAFE_TERMINAL_DEBUG"),
 	                        keys, G_N_ELEMENTS (keys));
-#endif /* MATE_ENABLE_DEBUG */
+#endif /* CAFE_ENABLE_DEBUG */
 }
 

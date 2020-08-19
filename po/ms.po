@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-terminal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -23,34 +23,34 @@ msgstr ""
 
 #: mate-terminal.appdata.xml.in:7 mate-terminal.desktop.in.in:3
 #: src/terminal-options.c:189 src/terminal-window.c:4466
-msgid "MATE Terminal"
-msgstr "Terminal MATE"
+msgid "CAFE Terminal"
+msgstr "Terminal CAFE"
 
 #: mate-terminal.appdata.xml.in:8
-msgid "A terminal emulator for the MATE desktop environment"
-msgstr "Emulator terminal untuk persekitaran desktop MATE"
+msgid "A terminal emulator for the CAFE desktop environment"
+msgstr "Emulator terminal untuk persekitaran desktop CAFE"
 
 #: mate-terminal.appdata.xml.in:10
 msgid ""
-"MATE Terminal is a terminal emulation application that you can use to access"
-" a UNIX shell in the MATE environment. MATE Terminal emulates the xterm "
+"CAFE Terminal is a terminal emulation application that you can use to access"
+" a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
 "program developed by the X Consortium. It supports translucent backgrounds, "
 "opening multiple terminals in a single window (tabs) and clickable URLs."
 msgstr ""
-"Terminal MATE adalah aplikasi emulasi yang membolehkan anda capai shell UNIX"
-" di dalam persekitaran MATE. Terminal MATE emulasikan program xterm yang "
+"Terminal CAFE adalah aplikasi emulasi yang membolehkan anda capai shell UNIX"
+" di dalam persekitaran CAFE. Terminal CAFE emulasikan program xterm yang "
 "telah dibangunkan oleh X Consortium. Ia menyokong latar belakang lutsinar, "
 "pembukaan terminal berbilang dalam satu tinggal (tab) dan URL boleh klik."
 
 #: mate-terminal.appdata.xml.in:17
 msgid ""
-"MATE Terminal is a fork of GNOME Terminal and part of the MATE Desktop "
-"Environment. If you would like to know more about MATE and MATE Terminal, "
+"CAFE Terminal is a fork of GNOME Terminal and part of the CAFE Desktop "
+"Environment. If you would like to know more about CAFE and CAFE Terminal, "
 "please visit the project's home page."
 msgstr ""
-"Terminal MATE merupakan cabang dari GNOME Terminal dan sebahagian dari "
-"Persekitaran Atas Meja MATE. Jika anda mahu ketahui lebih lanjut mengenai "
-"MATE dan Terminal MATE, sila lawati laman sesawang projek."
+"Terminal CAFE merupakan cabang dari GNOME Terminal dan sebahagian dari "
+"Persekitaran Atas Meja CAFE. Jika anda mahu ketahui lebih lanjut mengenai "
+"CAFE dan Terminal CAFE, sila lawati laman sesawang projek."
 
 #: mate-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
 #: src/terminal-profile.c:161 src/terminal-window.c:2214
@@ -2455,12 +2455,12 @@ msgid "ZOOM"
 msgstr "ZUM"
 
 #: src/terminal-options.c:1365 src/terminal-options.c:1368
-msgid "MATE Terminal Emulator"
-msgstr "Emulator Terminal MATE"
+msgid "CAFE Terminal Emulator"
+msgstr "Emulator Terminal CAFE"
 
 #: src/terminal-options.c:1369
-msgid "Show MATE Terminal options"
-msgstr "Tunjuk pilihan Terminal MATE"
+msgid "Show CAFE Terminal options"
+msgstr "Tunjuk pilihan Terminal CAFE"
 
 #: src/terminal-options.c:1379
 msgid ""
@@ -2547,24 +2547,24 @@ msgstr "Tidak dapat buka alamat \"%s\""
 
 #: src/terminal-util.c:325
 msgid ""
-"MATE Terminal is free software; you can redistribute it and/or modify it "
+"CAFE Terminal is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
 "Software Foundation; either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"Terminal MATE merupakan perisian percuma; and boleh mengedarkannya dan/atau "
+"Terminal CAFE merupakan perisian percuma; and boleh mengedarkannya dan/atau "
 "mengubahnya dibawah terma GNU Genaral Public License sebagimana yang telah "
 "dikeluarkan oleh Free Software Foundation; samada versi ke-2 lesen, atau "
 "(mengikut pilihan anda) sebarang versi terkemudian."
 
 #: src/terminal-util.c:329
 msgid ""
-"MATE Terminal is distributed in the hope that it will be useful, but WITHOUT"
+"CAFE Terminal is distributed in the hope that it will be useful, but WITHOUT"
 " ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
 "FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
 "more details."
 msgstr ""
-"Terminal MATE ini diedarkan dengan harapan ianya berguna tetapi TANPA "
+"Terminal CAFE ini diedarkan dengan harapan ianya berguna tetapi TANPA "
 "SEBARANG JAMINAN; tanpa sebarang implakasi jaminan KEBOLEHDAGANGAN atau "
 "KESESUAIAN UNTUK SESUATU TUJUAN. Sila rujuk GNU General Public LIcense untuk"
 " keterangan lanjut."
@@ -2572,11 +2572,11 @@ msgstr ""
 #: src/terminal-util.c:333
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" MATE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
+" CAFE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
 "Anda seharusnya menerima satu salinan Lesen Awam Am GNU bersama-sama dengan "
-"Terminal MATE; jika tiada, laporkan ke Free Software Foundation, Inc., 51 "
+"Terminal CAFE; jika tiada, laporkan ke Free Software Foundation, Inc., 51 "
 "Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA"
 
 #. Translators: This is the label of a menu item to choose a profile.
@@ -2870,8 +2870,8 @@ msgid "Contributors:"
 msgstr "Penyumbang:"
 
 #: src/terminal-window.c:4468
-msgid "About MATE Terminal"
-msgstr "Perihal Terminal MATE"
+msgid "About CAFE Terminal"
+msgstr "Perihal Terminal CAFE"
 
 #: src/terminal-window.c:4469
 msgid ""
@@ -2880,18 +2880,18 @@ msgid ""
 "Copyright © 2006 Guilherme de S. Pastore\n"
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
-"Copyright © 2012-2020 MATE developers"
+"Copyright © 2012-2020 CAFE developers"
 msgstr ""
 "Hak Cipta © 2002–2004 Havoc Pennington\n"
 "Hak Cipta © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
 "Hak Cipta © 2006 Guilherme de S. Pastore\n"
 "Hak Cipta © 2007–2010 Christian Persch\n"
 "Hak Cipta © 2011 Perberos\n"
-"Hak Cipta © 2012-2020 Pembangun MATE"
+"Hak Cipta © 2012-2020 Pembangun CAFE"
 
 #: src/terminal-window.c:4475
-msgid "A terminal emulator for the MATE desktop"
-msgstr "Emulator terminal untuk desktop MATE"
+msgid "A terminal emulator for the CAFE desktop"
+msgstr "Emulator terminal untuk desktop CAFE"
 
 #: src/terminal-window.c:4481
 msgid "translator-credits"

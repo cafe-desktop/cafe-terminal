@@ -6,7 +6,7 @@
   <!-- interface-license-type gplv3 -->
   <!-- interface-name mate-terminal -->
   <!-- interface-description keybindings-editor of mate-terminal -->
-  <!-- interface-copyright MATE Developers -->
+  <!-- interface-copyright CAFE Developers -->
   <!-- interface-authors Wolfgang Ulbrich -->
   <object class="GtkDialog" id="keybindings-dialog">
     <property name="can_focus">False</property>

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-terminal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -31,30 +31,30 @@ msgstr ""
 
 #: mate-terminal.appdata.xml.in:7 mate-terminal.desktop.in.in:3
 #: src/terminal-options.c:189 src/terminal-window.c:4466
-msgid "MATE Terminal"
-msgstr "MATE 终端"
+msgid "CAFE Terminal"
+msgstr "CAFE 终端"
 
 #: mate-terminal.appdata.xml.in:8
-msgid "A terminal emulator for the MATE desktop environment"
-msgstr "用于 MATE 桌面的终端模拟器"
+msgid "A terminal emulator for the CAFE desktop environment"
+msgstr "用于 CAFE 桌面的终端模拟器"
 
 #: mate-terminal.appdata.xml.in:10
 msgid ""
-"MATE Terminal is a terminal emulation application that you can use to access"
-" a UNIX shell in the MATE environment. MATE Terminal emulates the xterm "
+"CAFE Terminal is a terminal emulation application that you can use to access"
+" a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
 "program developed by the X Consortium. It supports translucent backgrounds, "
 "opening multiple terminals in a single window (tabs) and clickable URLs."
 msgstr ""
-"MATE 终端是一个终端模拟应用程序，让你可在 MATE 桌面环境下访问 UNIX 命令提示符。MATE 终端可模拟 X 协会的 xterm "
+"CAFE 终端是一个终端模拟应用程序，让你可在 CAFE 桌面环境下访问 UNIX 命令提示符。CAFE 终端可模拟 X 协会的 xterm "
 "程序。它还支持透明背景、在同一窗口下开启多个终端模拟器（标签页）以及 URL 浏览。"
 
 #: mate-terminal.appdata.xml.in:17
 msgid ""
-"MATE Terminal is a fork of GNOME Terminal and part of the MATE Desktop "
-"Environment. If you would like to know more about MATE and MATE Terminal, "
+"CAFE Terminal is a fork of GNOME Terminal and part of the CAFE Desktop "
+"Environment. If you would like to know more about CAFE and CAFE Terminal, "
 "please visit the project's home page."
 msgstr ""
-"MATE 终端是一个 GNOME Terminal 的 fork，也是 MATE 桌面环境的一部分。欲知更多关于 MATE 及 MATE "
+"CAFE 终端是一个 GNOME Terminal 的 fork，也是 CAFE 桌面环境的一部分。欲知更多关于 CAFE 及 CAFE "
 "终端的信息，请访问项目主页。"
 
 #: mate-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
@@ -2198,12 +2198,12 @@ msgid "ZOOM"
 msgstr "缩放"
 
 #: src/terminal-options.c:1365 src/terminal-options.c:1368
-msgid "MATE Terminal Emulator"
-msgstr "MATE 终端模拟器"
+msgid "CAFE Terminal Emulator"
+msgstr "CAFE 终端模拟器"
 
 #: src/terminal-options.c:1369
-msgid "Show MATE Terminal options"
-msgstr "显示 MATE 终端选项"
+msgid "Show CAFE Terminal options"
+msgstr "显示 CAFE 终端选项"
 
 #: src/terminal-options.c:1379
 msgid ""
@@ -2284,30 +2284,30 @@ msgstr "无法打开地址“%s”"
 
 #: src/terminal-util.c:325
 msgid ""
-"MATE Terminal is free software; you can redistribute it and/or modify it "
+"CAFE Terminal is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
 "Software Foundation; either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"MATE 终端是自由软件；您可以在自由软件基金会发布的 GNU 通用公共许可证下重新发布或修改它；许可证应使用第三版本或您所选择的更新的版本。"
+"CAFE 终端是自由软件；您可以在自由软件基金会发布的 GNU 通用公共许可证下重新发布或修改它；许可证应使用第三版本或您所选择的更新的版本。"
 
 #: src/terminal-util.c:329
 msgid ""
-"MATE Terminal is distributed in the hope that it will be useful, but WITHOUT"
+"CAFE Terminal is distributed in the hope that it will be useful, but WITHOUT"
 " ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
 "FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
 "more details."
 msgstr ""
-"发布 MATE 终端的目的是希望它能够在一定程度上帮到您。但我们并不为它提供任何形式的担保，也无法保证它可以在特定用途中得到您希望的结果。请参看 GNU"
+"发布 CAFE 终端的目的是希望它能够在一定程度上帮到您。但我们并不为它提供任何形式的担保，也无法保证它可以在特定用途中得到您希望的结果。请参看 GNU"
 " GPL 许可中的更多细节。"
 
 #: src/terminal-util.c:333
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" MATE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
+" CAFE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
-"您应该在收到 MATE Web 浏览器的同时收到了 GNU GPL 协议的副本；如果您没有收到的话，请给自由软件基金会写信，地址是 51 "
+"您应该在收到 CAFE Web 浏览器的同时收到了 GNU GPL 协议的副本；如果您没有收到的话，请给自由软件基金会写信，地址是 51 "
 "Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
 
 #. Translators: This is the label of a menu item to choose a profile.
@@ -2597,8 +2597,8 @@ msgid "Contributors:"
 msgstr "贡献者："
 
 #: src/terminal-window.c:4468
-msgid "About MATE Terminal"
-msgstr "关于 MATE 终端"
+msgid "About CAFE Terminal"
+msgstr "关于 CAFE 终端"
 
 #: src/terminal-window.c:4469
 msgid ""
@@ -2607,12 +2607,12 @@ msgid ""
 "Copyright © 2006 Guilherme de S. Pastore\n"
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
-"Copyright © 2012-2020 MATE developers"
+"Copyright © 2012-2020 CAFE developers"
 msgstr ""
 
 #: src/terminal-window.c:4475
-msgid "A terminal emulator for the MATE desktop"
-msgstr "MATE 桌面的终端模拟器"
+msgid "A terminal emulator for the CAFE desktop"
+msgstr "CAFE 桌面的终端模拟器"
 
 #: src/terminal-window.c:4481
 msgid "translator-credits"

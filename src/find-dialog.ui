@@ -6,7 +6,7 @@
   <!-- interface-license-type gplv3 -->
   <!-- interface-name mate-terminal -->
   <!-- interface-description find dialog of mate-terminal -->
-  <!-- interface-copyright MATE developers -->
+  <!-- interface-copyright CAFE developers -->
   <!-- interface-authors Wolfgang Ulbrich -->
   <object class="GtkDialog" id="find-dialog">
     <property name="can_focus">False</property>

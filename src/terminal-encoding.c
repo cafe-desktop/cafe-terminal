@@ -236,7 +236,7 @@ terminal_encoding_is_valid (TerminalEncoding *encoding)
 	                  (converted != NULL) &&
 	                  (strcmp (converted, ascii_sample) == 0);
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_ENCODINGS)
 	{
 		if (!encoding->valid)

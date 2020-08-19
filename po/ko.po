@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-terminal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -27,25 +27,25 @@ msgstr ""
 
 #: mate-terminal.appdata.xml.in:7 mate-terminal.desktop.in.in:3
 #: src/terminal-options.c:189 src/terminal-window.c:4466
-msgid "MATE Terminal"
+msgid "CAFE Terminal"
 msgstr "마테 터미널"
 
 #: mate-terminal.appdata.xml.in:8
-msgid "A terminal emulator for the MATE desktop environment"
+msgid "A terminal emulator for the CAFE desktop environment"
 msgstr "마테 데스크톱 환경용 터미널"
 
 #: mate-terminal.appdata.xml.in:10
 msgid ""
-"MATE Terminal is a terminal emulation application that you can use to access"
-" a UNIX shell in the MATE environment. MATE Terminal emulates the xterm "
+"CAFE Terminal is a terminal emulation application that you can use to access"
+" a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
 "program developed by the X Consortium. It supports translucent backgrounds, "
 "opening multiple terminals in a single window (tabs) and clickable URLs."
 msgstr ""
 
 #: mate-terminal.appdata.xml.in:17
 msgid ""
-"MATE Terminal is a fork of GNOME Terminal and part of the MATE Desktop "
-"Environment. If you would like to know more about MATE and MATE Terminal, "
+"CAFE Terminal is a fork of GNOME Terminal and part of the CAFE Desktop "
+"Environment. If you would like to know more about CAFE and CAFE Terminal, "
 "please visit the project's home page."
 msgstr ""
 
@@ -2289,11 +2289,11 @@ msgid "ZOOM"
 msgstr "<확대>"
 
 #: src/terminal-options.c:1365 src/terminal-options.c:1368
-msgid "MATE Terminal Emulator"
+msgid "CAFE Terminal Emulator"
 msgstr "마테 터미널 에물레이터"
 
 #: src/terminal-options.c:1369
-msgid "Show MATE Terminal options"
+msgid "Show CAFE Terminal options"
 msgstr "마테 터미널 옵션 보기"
 
 #: src/terminal-options.c:1379
@@ -2375,7 +2375,7 @@ msgstr "“%s” 주소를 열 수 없습니다"
 
 #: src/terminal-util.c:325
 msgid ""
-"MATE Terminal is free software; you can redistribute it and/or modify it "
+"CAFE Terminal is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
 "Software Foundation; either version 3 of the License, or (at your option) "
 "any later version."
@@ -2385,7 +2385,7 @@ msgstr ""
 
 #: src/terminal-util.c:329
 msgid ""
-"MATE Terminal is distributed in the hope that it will be useful, but WITHOUT"
+"CAFE Terminal is distributed in the hope that it will be useful, but WITHOUT"
 " ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
 "FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
 "more details."
@@ -2397,7 +2397,7 @@ msgstr ""
 #: src/terminal-util.c:333
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" MATE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
+" CAFE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
 "마테 터미널과 함께 GNU 일반 공중 사용 허가서 사본을 받아야 합니다. 만약 받지 않으셨다면 자유 소프트웨어 재단., 51 "
@@ -2690,7 +2690,7 @@ msgid "Contributors:"
 msgstr "기여자:"
 
 #: src/terminal-window.c:4468
-msgid "About MATE Terminal"
+msgid "About CAFE Terminal"
 msgstr ""
 
 #: src/terminal-window.c:4469
@@ -2700,11 +2700,11 @@ msgid ""
 "Copyright © 2006 Guilherme de S. Pastore\n"
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
-"Copyright © 2012-2020 MATE developers"
+"Copyright © 2012-2020 CAFE developers"
 msgstr ""
 
 #: src/terminal-window.c:4475
-msgid "A terminal emulator for the MATE desktop"
+msgid "A terminal emulator for the CAFE desktop"
 msgstr "마테 데스크톱용 터미널 에뮬레이터"
 
 #: src/terminal-window.c:4481
@@ -2715,4 +2715,4 @@ msgstr ""
 "Yoo Duk Nam https://launchpad.net/~yoo2001818\n"
 "onlyeriko https://launchpad.net/~onlyeriko\n"
 "Seong-ho Cho <darkcircle.0426@gmail.com>\n"
-"MATE Desktop Environment Team <https://www.transifex.com/mate/teams/13566/ko/>"
+"CAFE Desktop Environment Team <https://www.transifex.com/mate/teams/13566/ko/>"

@@ -316,7 +316,7 @@ terminal_screen_style_updated (GtkWidget *widget)
       terminal_screen_change_font (screen);
 }
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 static void
 size_allocate (GtkWidget *widget,
                GtkAllocation *allocation)
@@ -389,7 +389,7 @@ terminal_screen_init (TerminalScreen *screen)
 	priv->bg_image_callback_id = 0;
 	priv->bg_image = NULL;
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_GEOMETRY)
 	{
 		g_signal_connect_after (screen, "size-allocate", G_CALLBACK (size_allocate), NULL);
@@ -1440,7 +1440,7 @@ get_child_environment (TerminalScreen *screen,
 
 	g_hash_table_remove (env_table, "COLUMNS");
 	g_hash_table_remove (env_table, "LINES");
-	g_hash_table_remove (env_table, "MATE_DESKTOP_ICON");
+	g_hash_table_remove (env_table, "CAFE_DESKTOP_ICON");
 
 	g_hash_table_replace (env_table, g_strdup ("TERM"), g_strdup ("xterm-256color")); /* FIXME configurable later? */
 

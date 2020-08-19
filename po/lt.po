@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-terminal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -28,33 +28,33 @@ msgstr ""
 
 #: mate-terminal.appdata.xml.in:7 mate-terminal.desktop.in.in:3
 #: src/terminal-options.c:189 src/terminal-window.c:4466
-msgid "MATE Terminal"
-msgstr "MATE terminalas"
+msgid "CAFE Terminal"
+msgstr "CAFE terminalas"
 
 #: mate-terminal.appdata.xml.in:8
-msgid "A terminal emulator for the MATE desktop environment"
-msgstr "Terminalo emuliatorius MATE darbalaukio aplinkai"
+msgid "A terminal emulator for the CAFE desktop environment"
+msgstr "Terminalo emuliatorius CAFE darbalaukio aplinkai"
 
 #: mate-terminal.appdata.xml.in:10
 msgid ""
-"MATE Terminal is a terminal emulation application that you can use to access"
-" a UNIX shell in the MATE environment. MATE Terminal emulates the xterm "
+"CAFE Terminal is a terminal emulation application that you can use to access"
+" a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
 "program developed by the X Consortium. It supports translucent backgrounds, "
 "opening multiple terminals in a single window (tabs) and clickable URLs."
 msgstr ""
-"MATE terminalas yra terminalo emuliatoriaus programa, kurią galima naudoti "
-"pasiekti UNIX apvalkalą MATE aplinkoje. MATE terminalas emuliuoja xterm "
+"CAFE terminalas yra terminalo emuliatoriaus programa, kurią galima naudoti "
+"pasiekti UNIX apvalkalą CAFE aplinkoje. CAFE terminalas emuliuoja xterm "
 "programą, kuriamą „X Consortium“. Ji palaiko permatomus fonus, kelių "
 "terminalų atidarymą viename lange (kortelėse) ir spustelėjamus URL adresus."
 
 #: mate-terminal.appdata.xml.in:17
 msgid ""
-"MATE Terminal is a fork of GNOME Terminal and part of the MATE Desktop "
-"Environment. If you would like to know more about MATE and MATE Terminal, "
+"CAFE Terminal is a fork of GNOME Terminal and part of the CAFE Desktop "
+"Environment. If you would like to know more about CAFE and CAFE Terminal, "
 "please visit the project's home page."
 msgstr ""
-"MATE terminalas yra GNOME terminalo atšaka ir MATE darbalaukio aplinkos "
-"dalis. Jei norėtumėte sužinoti daugiauapie MATE ir MATE terminalą, prašom "
+"CAFE terminalas yra GNOME terminalo atšaka ir CAFE darbalaukio aplinkos "
+"dalis. Jei norėtumėte sužinoti daugiauapie CAFE ir CAFE terminalą, prašom "
 "aplankyti projekto tinklalapį,"
 
 #: mate-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
@@ -2408,12 +2408,12 @@ msgid "ZOOM"
 msgstr "MASTELIS"
 
 #: src/terminal-options.c:1365 src/terminal-options.c:1368
-msgid "MATE Terminal Emulator"
-msgstr "MATE terminalo emuliatorius"
+msgid "CAFE Terminal Emulator"
+msgstr "CAFE terminalo emuliatorius"
 
 #: src/terminal-options.c:1369
-msgid "Show MATE Terminal options"
-msgstr "Rodyti MATE terminalo parametrus"
+msgid "Show CAFE Terminal options"
+msgstr "Rodyti CAFE terminalo parametrus"
 
 #: src/terminal-options.c:1379
 msgid ""
@@ -2500,19 +2500,19 @@ msgstr "Nepavyko atverti adreso „%s“"
 
 #: src/terminal-util.c:325
 msgid ""
-"MATE Terminal is free software; you can redistribute it and/or modify it "
+"CAFE Terminal is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
 "Software Foundation; either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"MATE terminalas yra laisva programinė įranga. Galite ją platinti ir / arba "
+"CAFE terminalas yra laisva programinė įranga. Galite ją platinti ir / arba "
 "modifikuoti laikydamiesi GNU Bendrosios viešosios licencijos sąlygų, "
 "nurodytų Free Software Foundation organizacijos; 3-iosios arba (savo "
 "nuožiūra) bet kurios naujesnės licencijos versijos."
 
 #: src/terminal-util.c:329
 msgid ""
-"MATE Terminal is distributed in the hope that it will be useful, but WITHOUT"
+"CAFE Terminal is distributed in the hope that it will be useful, but WITHOUT"
 " ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
 "FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
 "more details."
@@ -2525,10 +2525,10 @@ msgstr ""
 #: src/terminal-util.c:333
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" MATE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
+" CAFE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
-"GNU Bendrosios viešosios licencijos kopiją turėjote gauti su MATE terminalo "
+"GNU Bendrosios viešosios licencijos kopiją turėjote gauti su CAFE terminalo "
 "programa. Jei negavote, rašykite adresu Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02111-1301 USA"
 
@@ -2823,8 +2823,8 @@ msgid "Contributors:"
 msgstr "Pagalbininkai:"
 
 #: src/terminal-window.c:4468
-msgid "About MATE Terminal"
-msgstr "Apie MATE terminalą"
+msgid "About CAFE Terminal"
+msgstr "Apie CAFE terminalą"
 
 #: src/terminal-window.c:4469
 msgid ""
@@ -2833,18 +2833,18 @@ msgid ""
 "Copyright © 2006 Guilherme de S. Pastore\n"
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
-"Copyright © 2012-2020 MATE developers"
+"Copyright © 2012-2020 CAFE developers"
 msgstr ""
 "Autorių teisės © 2002–2004 Havoc Pennington\n"
 "Autorių teisės © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
 "Autorių teisės © 2006 Guilherme de S. Pastore\n"
 "Autorių teisės © 2007–2010 Christian Persch\n"
 "Autorių teisės © 2011 Perberos\n"
-"Autorių teisės © 2012-2020 MATE kūrėjai"
+"Autorių teisės © 2012-2020 CAFE kūrėjai"
 
 #: src/terminal-window.c:4475
-msgid "A terminal emulator for the MATE desktop"
-msgstr "Terminalo emuliatorius MATE darbo aplinkai"
+msgid "A terminal emulator for the CAFE desktop"
+msgstr "Terminalo emuliatorius CAFE darbo aplinkai"
 
 #: src/terminal-window.c:4481
 msgid "translator-credits"

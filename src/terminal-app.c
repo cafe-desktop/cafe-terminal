@@ -1400,7 +1400,7 @@ terminal_app_init (TerminalApp *app)
 {
 	global_app = app;
 
-	gtk_window_set_default_icon_name (MATE_TERMINAL_ICON_NAME);
+	gtk_window_set_default_icon_name (CAFE_TERMINAL_ICON_NAME);
 
 	/* Initialise defaults */
 	app->enable_mnemonics = DEFAULT_ENABLE_MNEMONICS;

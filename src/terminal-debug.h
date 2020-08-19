@@ -18,8 +18,8 @@
 
 /* The interfaces in this file are subject to change at any time. */
 
-#ifndef MATE_ENABLE_DEBUG_H
-#define MATE_ENABLE_DEBUG_H
+#ifndef CAFE_ENABLE_DEBUG_H
+#define CAFE_ENABLE_DEBUG_H
 
 #include <glib.h>
 
@@ -47,7 +47,7 @@ _terminal_debug_on (TerminalDebugFlags flags)
 	return (_terminal_debug_flags & flags) == flags;
 }
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 #define _TERMINAL_DEBUG_IF(flags) if (G_UNLIKELY (_terminal_debug_on (flags)))
 #else
 #define _TERMINAL_DEBUG_IF(flags) if (0)
@@ -73,4 +73,4 @@ static void _terminal_debug_print (guint flags, const char *fmt, ...)
 
 G_END_DECLS
 
-#endif /* !MATE_ENABLE_DEBUG_H */
+#endif /* !CAFE_ENABLE_DEBUG_H */

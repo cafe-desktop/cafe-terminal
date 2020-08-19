@@ -689,7 +689,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 	 * so we don't go into an infinite loop.
 	 */
 	equal = values_equal (pspec, &value, g_value_array_get_nth (priv->properties, pspec->param_id));
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_PROFILE)
 	{
 		if (!equal)

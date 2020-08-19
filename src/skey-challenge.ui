@@ -6,7 +6,7 @@
   <!-- interface-license-type gplv3 -->
   <!-- interface-name mate-terminal -->
   <!-- interface-description skey-challenge -->
-  <!-- interface-copyright MATE Developer -->
+  <!-- interface-copyright CAFE Developer -->
   <!-- interface-authors Wolfgang Ulbrich -->
   <object class="GtkDialog" id="skey-dialog">
     <property name="can_focus">False</property>

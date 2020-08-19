@@ -1665,7 +1665,7 @@ terminal_window_accel_activate_cb (GtkAccelGroup  *accel_group,
 
 /*****************************************/
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 static void
 terminal_window_size_allocate_cb (GtkWidget *widget,
                                   GtkAllocation *allocation)
@@ -1676,7 +1676,7 @@ terminal_window_size_allocate_cb (GtkWidget *widget,
                            allocation->width, allocation->height,
                            allocation->x, allocation->y);
 }
-#endif /* MATE_ENABLE_DEBUG */
+#endif /* CAFE_ENABLE_DEBUG */
 
 static void
 terminal_window_realize (GtkWidget *widget)
@@ -2199,7 +2199,7 @@ terminal_window_init (TerminalWindow *window)
                       G_CALLBACK(terminal_window_focus_in_event),
                       NULL);
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
     _TERMINAL_DEBUG_IF (TERMINAL_DEBUG_GEOMETRY)
     {
         g_signal_connect_after (window, "size-allocate", G_CALLBACK (terminal_window_size_allocate_cb), NULL);
@@ -4463,23 +4463,23 @@ help_about_callback (GtkAction *action,
     licence_text = terminal_util_get_licence_text ();
 
     gtk_show_about_dialog (GTK_WINDOW (window),
-                           "program-name", _("MATE Terminal"),
+                           "program-name", _("CAFE Terminal"),
                            "version", VERSION,
-                           "title", _("About MATE Terminal"),
+                           "title", _("About CAFE Terminal"),
                            "copyright", _("Copyright \xc2\xa9 2002–2004 Havoc Pennington\n"
                                           "Copyright \xc2\xa9 2003–2004, 2007 Mariano Suárez-Alvarez\n"
                                           "Copyright \xc2\xa9 2006 Guilherme de S. Pastore\n"
                                           "Copyright \xc2\xa9 2007–2010 Christian Persch\n"
                                           "Copyright \xc2\xa9 2011 Perberos\n"
-                                          "Copyright \xc2\xa9 2012-2020 MATE developers"),
-                           "comments", _("A terminal emulator for the MATE desktop"),
+                                          "Copyright \xc2\xa9 2012-2020 CAFE developers"),
+                           "comments", _("A terminal emulator for the CAFE desktop"),
                            "authors", array_strv,
                            "artists", artists,
                            "documenters", documenters,
                            "license", licence_text,
                            "wrap-license", TRUE,
                            "translator-credits", _("translator-credits"),
-                           "logo-icon-name", MATE_TERMINAL_ICON_NAME,
+                           "logo-icon-name", CAFE_TERMINAL_ICON_NAME,
                            "website", "https://mate-desktop.org",
                            NULL);
 

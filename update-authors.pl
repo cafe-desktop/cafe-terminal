@@ -1,20 +1,20 @@
 #!/usr/bin/perl
 =pod
 
-    update-authors.pl is part of MATE Terminal.
+    update-authors.pl is part of CAFE Terminal.
 
-    MATE Terminal is free software: you can redistribute it and/or modify
+    CAFE Terminal is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     (at your option) any later version.
 
-    MATE Terminal is distributed in the hope that it will be useful,
+    CAFE Terminal is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with MATE Terminal.  If not, see <http://www.gnu.org/licenses/>.
+    along with CAFE Terminal.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
 use strict;

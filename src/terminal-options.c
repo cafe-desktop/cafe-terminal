@@ -186,7 +186,7 @@ option_version_cb (const gchar *option_name,
                    gpointer     data,
                    GError     **error)
 {
-	g_print ("%s %s\n", _("MATE Terminal"), VERSION);
+	g_print ("%s %s\n", _("CAFE Terminal"), VERSION);
 
 	exit (EXIT_SUCCESS);
 }
@@ -1362,11 +1362,11 @@ get_goption_context (TerminalOptions *options)
 
 	context = g_option_context_new (NULL);
 	g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
-	g_option_context_set_description (context, N_("MATE Terminal Emulator"));
+	g_option_context_set_description (context, N_("CAFE Terminal Emulator"));
 
 	group = g_option_group_new ("mate-terminal",
-	                            N_("MATE Terminal Emulator"),
-	                            N_("Show MATE Terminal options"),
+	                            N_("CAFE Terminal Emulator"),
+	                            N_("Show CAFE Terminal options"),
 	                            options,
 	                            NULL);
 	g_option_group_set_translation_domain (group, GETTEXT_PACKAGE);

@@ -10,7 +10,7 @@
            a copy of the GFDL at this <link xlink:href="help:fdl" type="help">link</link> or in the file COPYING-DOCS
            distributed with this manual.
           </para>
-          <para> This manual is part of a collection of MATE manuals
+          <para> This manual is part of a collection of CAFE manuals
            distributed under the GFDL.  If you want to distribute this
            manual separately from the collection, you can do so by
            adding a copy of the license to the manual, as described in
@@ -20,8 +20,8 @@
          <para>
            Many of the names used by companies to distinguish their
            products and services are claimed as trademarks. Where those
-           names appear in any MATE documentation, and the members of
-           the MATE Documentation Project are made aware of those
+           names appear in any CAFE documentation, and the members of
+           the CAFE Documentation Project are made aware of those
            trademarks, then the names are in capital letters or initial
            capital letters.
          </para>
@@ -75,6 +75,6 @@
          </para>
          <formalpara>
            <title>Feedback</title>
-           <para>To report a bug or make a suggestion regarding the MATE Terminal application or this manual, follow the directions in the <link xlink:href="help:mate-user-guide/feedback">MATE Feedback Page</link>.</para>
+           <para>To report a bug or make a suggestion regarding the CAFE Terminal application or this manual, follow the directions in the <link xlink:href="help:mate-user-guide/feedback">CAFE Feedback Page</link>.</para>
          </formalpara>
    </legalnotice>

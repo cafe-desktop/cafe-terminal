@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-terminal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -25,35 +25,35 @@ msgstr ""
 
 #: mate-terminal.appdata.xml.in:7 mate-terminal.desktop.in.in:3
 #: src/terminal-options.c:189 src/terminal-window.c:4466
-msgid "MATE Terminal"
-msgstr "Terminal de MATE"
+msgid "CAFE Terminal"
+msgstr "Terminal de CAFE"
 
 #: mate-terminal.appdata.xml.in:8
-msgid "A terminal emulator for the MATE desktop environment"
-msgstr "Un emulador de terminal per a l'entorn d'escriptori MATE"
+msgid "A terminal emulator for the CAFE desktop environment"
+msgstr "Un emulador de terminal per a l'entorn d'escriptori CAFE"
 
 #: mate-terminal.appdata.xml.in:10
 msgid ""
-"MATE Terminal is a terminal emulation application that you can use to access"
-" a UNIX shell in the MATE environment. MATE Terminal emulates the xterm "
+"CAFE Terminal is a terminal emulation application that you can use to access"
+" a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
 "program developed by the X Consortium. It supports translucent backgrounds, "
 "opening multiple terminals in a single window (tabs) and clickable URLs."
 msgstr ""
-" El terminal de MATE és una aplicació d'emulació de terminal que pot "
-"utilitzar-se per accedir a un shell UNIX a l'entorn MATE. El terminal de "
-"MATE emula el programa xterm desenvolupat pel X Consortium. És compatible "
+" El terminal de CAFE és una aplicació d'emulació de terminal que pot "
+"utilitzar-se per accedir a un shell UNIX a l'entorn CAFE. El terminal de "
+"CAFE emula el programa xterm desenvolupat pel X Consortium. És compatible "
 "amb els fons transparents, l'apertura de diversos terminals en una sola "
 "finestra (pestanyes) i es poden fer clic als URL."
 
 #: mate-terminal.appdata.xml.in:17
 msgid ""
-"MATE Terminal is a fork of GNOME Terminal and part of the MATE Desktop "
-"Environment. If you would like to know more about MATE and MATE Terminal, "
+"CAFE Terminal is a fork of GNOME Terminal and part of the CAFE Desktop "
+"Environment. If you would like to know more about CAFE and CAFE Terminal, "
 "please visit the project's home page."
 msgstr ""
-"El terminal de MATE és una bifurcació del terminal de GNOME, i part de "
-"l'entorn d'escriptori MATE. Si voleu saber més sobre MATE i el terminal de "
-"MATE, visiteu la pàgina principal del projecte."
+"El terminal de CAFE és una bifurcació del terminal de GNOME, i part de "
+"l'entorn d'escriptori CAFE. Si voleu saber més sobre CAFE i el terminal de "
+"CAFE, visiteu la pàgina principal del projecte."
 
 #: mate-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
 #: src/terminal-profile.c:161 src/terminal-window.c:2214
@@ -2476,12 +2476,12 @@ msgid "ZOOM"
 msgstr "ZOOM"
 
 #: src/terminal-options.c:1365 src/terminal-options.c:1368
-msgid "MATE Terminal Emulator"
-msgstr "Emulador de terminal de MATE"
+msgid "CAFE Terminal Emulator"
+msgstr "Emulador de terminal de CAFE"
 
 #: src/terminal-options.c:1369
-msgid "Show MATE Terminal options"
-msgstr "Mostra les opcions del terminal de MATE"
+msgid "Show CAFE Terminal options"
+msgstr "Mostra les opcions del terminal de CAFE"
 
 #: src/terminal-options.c:1379
 msgid ""
@@ -2568,24 +2568,24 @@ msgstr "No s'ha pogut obrir l'adreça «%s»"
 
 #: src/terminal-util.c:325
 msgid ""
-"MATE Terminal is free software; you can redistribute it and/or modify it "
+"CAFE Terminal is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
 "Software Foundation; either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"El terminal de MATE és programari lliure; podeu distribuir-lo i/o modificar-"
+"El terminal de CAFE és programari lliure; podeu distribuir-lo i/o modificar-"
 "lo sota els termes de la Llicència Pública General GNU tal com ha estat "
 "publicada per la Free Software Foundation; ja sigui la versió 3 de la "
 "llicència, o bé (si ho preferiu) qualsevol versió posterior."
 
 #: src/terminal-util.c:329
 msgid ""
-"MATE Terminal is distributed in the hope that it will be useful, but WITHOUT"
+"CAFE Terminal is distributed in the hope that it will be useful, but WITHOUT"
 " ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
 "FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
 "more details."
 msgstr ""
-"El terminal de MATE es distribueix amb l'expectativa que serà útil, però "
+"El terminal de CAFE es distribueix amb l'expectativa que serà útil, però "
 "SENSE CAP GARANTIA; ni tan sols la garantia implícita de COMERCIALITZACIÓ o "
 "ADEQUACIÓ PER UN PROPÒSIT PARTICULAR. Per obtenir més informació, consulteu "
 "la Llicència Pública General de GNU."
@@ -2593,11 +2593,11 @@ msgstr ""
 #: src/terminal-util.c:333
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" MATE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
+" CAFE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
 "Hauríeu d'haver rebut una còpia de la Llicència Pública General GNU "
-"juntament amb el terminal de MATE; en cas contrari, escriviu a la Free "
+"juntament amb el terminal de CAFE; en cas contrari, escriviu a la Free "
 "Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307"
 " USA"
 
@@ -2892,8 +2892,8 @@ msgid "Contributors:"
 msgstr "Col·laboradors:"
 
 #: src/terminal-window.c:4468
-msgid "About MATE Terminal"
-msgstr "Quant al terminal de MATE"
+msgid "About CAFE Terminal"
+msgstr "Quant al terminal de CAFE"
 
 #: src/terminal-window.c:4469
 msgid ""
@@ -2902,18 +2902,18 @@ msgid ""
 "Copyright © 2006 Guilherme de S. Pastore\n"
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
-"Copyright © 2012-2020 MATE developers"
+"Copyright © 2012-2020 CAFE developers"
 msgstr ""
 "Drets d'autor © 2002–2004 Havoc Pennington\n"
 "Drets d'autor © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
 "Drets d'autor © 2006 Guilherme de S. Pastore\n"
 "Drets d'autor © 2007–2010 Christian Persch\n"
 "Drets d'autor © 2011 Perberos\n"
-"Drets d'autor © 2012-2020 Els desenvolupadors de MATE"
+"Drets d'autor © 2012-2020 Els desenvolupadors de CAFE"
 
 #: src/terminal-window.c:4475
-msgid "A terminal emulator for the MATE desktop"
-msgstr "Un emulador de terminal per a l'escriptori MATE"
+msgid "A terminal emulator for the CAFE desktop"
+msgstr "Un emulador de terminal per a l'escriptori CAFE"
 
 #: src/terminal-window.c:4481
 msgid "translator-credits"

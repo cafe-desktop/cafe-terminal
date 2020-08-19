@@ -2,7 +2,7 @@
 
   * Translations update
   * build: silent build warnings for distcheck
-  * build: do not override the default value for MATE_COMPILE_WARNINGS
+  * build: do not override the default value for CAFE_COMPILE_WARNINGS
   * fix searching in terminal window
   * fix url highlighting due to deprecation of vte_terminal_match_add_gregex
   * terminal-screen: prevent crash on bad term spawn due to redundant frees
@@ -69,7 +69,7 @@
   * Update authors
   * Update Documenters
   * drop umtp suport
-  * Help - Window title when MATE Terminal is started for first time
+  * Help - Window title when CAFE Terminal is started for first time
   * Help - alternative text for tabbed window picture
   * Help - TERM=xterm-256color
   * eggsmclient: avoid deprecated 'g_type_class_add_private'

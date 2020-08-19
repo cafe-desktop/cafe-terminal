@@ -23,13 +23,13 @@ msgstr "Abuyop"
 
 #. (itstool) path: info/title
 #: C/index.docbook:9
-msgid "MATE Terminal Manual"
-msgstr "Panduan Terminal MATE"
+msgid "CAFE Terminal Manual"
+msgstr "Panduan Terminal CAFE"
 
 #. (itstool) path: info/copyright
 #: C/index.docbook:11
-msgid "<year>2015-2020</year> <holder>MATE Documentation Project</holder>"
-msgstr "<year>2015-2020</year> <holder>Pojek Dokumentasi MATE</holder>"
+msgid "<year>2015-2020</year> <holder>CAFE Documentation Project</holder>"
+msgstr "<year>2015-2020</year> <holder>Pojek Dokumentasi CAFE</holder>"
 
 #. (itstool) path: info/copyright
 #: C/index.docbook:15
@@ -67,18 +67,18 @@ msgstr "<year>2000</year> <holder>Alexander Kirillov</holder>"
 
 #. (itstool) path: publisher/publishername
 #: C/index.docbook:43
-msgid "MATE Documentation Project"
-msgstr "Projek Dokumentasi MATE"
+msgid "CAFE Documentation Project"
+msgstr "Projek Dokumentasi CAFE"
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:49
 msgid ""
-"<personname><surname>MATE Documentation "
-"Team</surname></personname><affiliation> <orgname>MATE DESKTOP</orgname> "
+"<personname><surname>CAFE Documentation "
+"Team</surname></personname><affiliation> <orgname>CAFE DESKTOP</orgname> "
 "</affiliation>"
 msgstr ""
 "<personname><surname>Pasukan Dokumentasi "
-"MATE</surname></personname><affiliation> <orgname>DESKTOP MATE</orgname> "
+"CAFE</surname></personname><affiliation> <orgname>DESKTOP CAFE</orgname> "
 "</affiliation>"
 
 #. (itstool) path: authorgroup/author
@@ -233,13 +233,13 @@ msgstr ""
 
 #. (itstool) path: info/releaseinfo
 #: C/index.docbook:191
-msgid "This manual describes version 1.22 of MATE Terminal."
-msgstr "Panduan ini menerangkan versi 1.22 bagi Terminal MATE"
+msgid "This manual describes version 1.22 of CAFE Terminal."
+msgstr "Panduan ini menerangkan versi 1.22 bagi Terminal CAFE"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:195
-msgid "<primary>MATE Terminal</primary>"
-msgstr "<primary>Terminal MATE</primary>"
+msgid "<primary>CAFE Terminal</primary>"
+msgstr "<primary>Terminal CAFE</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:198
@@ -254,29 +254,29 @@ msgstr "Pengenalan"
 #. (itstool) path: section/para
 #: C/index.docbook:204
 msgid ""
-"<application>MATE Terminal</application> is a terminal emulation application"
+"<application>CAFE Terminal</application> is a terminal emulation application"
 " that you can use to perform the following tasks:"
 msgstr ""
-"<application>Terminal MATE</application> ialah aplikasi emulasi terminal "
+"<application>Terminal CAFE</application> ialah aplikasi emulasi terminal "
 "yang anda boleh guna untuk membuat tugas-tugas berikut:"
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:209
-msgid "Access a UNIX shell in the MATE environment"
-msgstr "Capai shell UNIX dalam persekitaran MATE"
+msgid "Access a UNIX shell in the CAFE environment"
+msgstr "Capai shell UNIX dalam persekitaran CAFE"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:211
 msgid ""
 "A shell is a program that interprets and executes the commands that you type"
-" at a command line prompt. When you start <application>MATE "
+" at a command line prompt. When you start <application>CAFE "
 "Terminal</application>, the application starts the default shell that is "
 "specified in your system account. You can switch to a different shell at any"
 " time."
 msgstr ""
 "Shell merupakan sebuah program yang tafsir dan lakukan perintah yang anda "
 "taip pada promp baris perintah. Ketika anda mulakan <application>Terminal "
-"MATE</application>, aplikasi memulakan shell lalai yang telah ditentukan "
+"CAFE</application>, aplikasi memulakan shell lalai yang telah ditentukan "
 "dalam akaun sistem anda. Anda boleh beralih ke shell lain pada bila-bila "
 "masa."
 
@@ -292,21 +292,21 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:219
 msgid ""
-"<application>MATE Terminal</application> emulates the "
+"<application>CAFE Terminal</application> emulates the "
 "<application>xterm</application> application developed by the X Consortium. "
 "In turn, the <application>xterm</application> application emulates the DEC "
 "VT102 terminal and also supports the DEC VT220 escape sequences. An escape "
 "sequence is a series of characters that starts with the <keycap>Esc</keycap>"
-" character. <application>MATE Terminal</application> accepts all of the "
+" character. <application>CAFE Terminal</application> accepts all of the "
 "escape sequences that the VT102 and VT220 terminals use for functions such "
 "as to position the cursor and to clear the screen."
 msgstr ""
-"<application>Terminal MATE</application> emulasikan aplikasi "
+"<application>Terminal CAFE</application> emulasikan aplikasi "
 "<application>xterm</application> yang dibangunkan oleh X Consortium. Selain "
 "itu, aplikasi <application>xterm</application> emulasikan terminal DEC VT102"
 " dan juga menyokong jujukan escape DEC VT220. Jujukan escape merupakan satu "
 "siri aksara yang bermula dengan aksara <keycap>Esc</keycap>. "
-"<application>Terminal MATE</application> menerima semua jujukan escape yang "
+"<application>Terminal CAFE</application> menerima semua jujukan escape yang "
 "mana terminal VT102 dan VT220 gunakan untuk fungsi seperti kedudukan kursor "
 "dan untuk kosongkan skrin."
 
@@ -318,24 +318,24 @@ msgstr "Membiasakan Diri"
 #. (itstool) path: section/para
 #: C/index.docbook:230
 msgid ""
-"The following sections describe how to start <application>MATE "
+"The following sections describe how to start <application>CAFE "
 "Terminal</application>."
 msgstr ""
 "Seksyen berikut menjelaskan bagaimana hendak memulakan <application>Terminal"
-" MATE</application>."
+" CAFE</application>."
 
 #. (itstool) path: info/title
 #: C/index.docbook:234
-msgid "Starting MATE Terminal"
-msgstr "Memulakan Terminal MATE"
+msgid "Starting CAFE Terminal"
+msgstr "Memulakan Terminal CAFE"
 
 #. (itstool) path: section/para
 #: C/index.docbook:235
 msgid ""
-"You can start <application>MATE Terminal</application> in the following "
+"You can start <application>CAFE Terminal</application> in the following "
 "ways:"
 msgstr ""
-"Anda boleh memulakan <application>Terminal MATE</application> dengan cara "
+"Anda boleh memulakan <application>Terminal CAFE</application> dengan cara "
 "berikut:"
 
 #. (itstool) path: varlistentry/term
@@ -366,39 +366,39 @@ msgstr "Lakukan perintah berikut: <command>mate-terminal</command>"
 #: C/index.docbook:252
 msgid ""
 "You can use command line options to modify the way in which you run "
-"<application>MATE Terminal</application>. To view the command line options, "
+"<application>CAFE Terminal</application>. To view the command line options, "
 "execute the following command: <command>mate-terminal --help</command>"
 msgstr ""
 "Anda boleh gunakan pilihan baris perintah untuk mengubahsuai cara "
-"menjalankan <application>Terminal MATE</application>. Untuk melihat pilihan "
+"menjalankan <application>Terminal CAFE</application>. Untuk melihat pilihan "
 "baris perintah, lakukan perintah berikut: <command>mate-terminal "
 "--help</command>"
 
 #. (itstool) path: info/title
 #: C/index.docbook:260
-msgid "When You First Start MATE Terminal"
-msgstr "Bila Kali Pertama Memulakan Terminal MATE"
+msgid "When You First Start CAFE Terminal"
+msgstr "Bila Kali Pertama Memulakan Terminal CAFE"
 
 #. (itstool) path: section/para
 #: C/index.docbook:261
 msgid ""
-"When you start <application>MATE Terminal</application> for the first time, "
+"When you start <application>CAFE Terminal</application> for the first time, "
 "the application opens a terminal window with a group of default settings. "
 "The group of default settings is called the Default profile."
 msgstr ""
-"Bila anda memulakan <application>Terminal MATE</application> buat kali "
+"Bila anda memulakan <application>Terminal CAFE</application> buat kali "
 "pertama, aplikasi akan membuka tetingkap terminal dengan sekumpulan tetapan "
 "lalai. Kumpulan tetapan lalai ini dikenali sebagai profil Lalai."
 
 #. (itstool) path: info/title
 #: C/index.docbook:263
-msgid "Example of a Default MATE Terminal Window"
-msgstr "Contoh Tetingkap Terminal MATE Lalai"
+msgid "Example of a Default CAFE Terminal Window"
+msgstr "Contoh Tetingkap Terminal CAFE Lalai"
 
 #. (itstool) path: abstract/para
 #: C/index.docbook:265 C/index.docbook:324
-msgid "MATE Terminal default window"
-msgstr "Tetingkap lalai Terminal MATE"
+msgid "CAFE Terminal default window"
+msgstr "Tetingkap lalai Terminal CAFE"
 
 #. (itstool) path: imageobject/imagedata
 #. This is a reference to an external file such as an image or video. When
@@ -418,12 +418,12 @@ msgstr ""
 #: C/index.docbook:266
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-default.png\" "
-"format=\"PNG\"/> </imageobject> <textobject> <phrase>MATE Terminal default "
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>CAFE Terminal default "
 "window</phrase> </textobject>"
 msgstr ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-default.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Tetingkap lalai "
-"Terminal MATE</phrase> </textobject>"
+"Terminal CAFE</phrase> </textobject>"
 
 #. (itstool) path: section/para
 #: C/index.docbook:276
@@ -432,23 +432,23 @@ msgid ""
 "commands. The command prompt can be a %, #, &gt;, $, or any other special "
 "character. The cursor is positioned at the command prompt. When you type a "
 "UNIX command and press <keycap>Return</keycap>, the computer executes the "
-"command. By default, <application>MATE Terminal</application> uses the "
+"command. By default, <application>CAFE Terminal</application> uses the "
 "default shell specified for the user who starts the application."
 msgstr ""
 "Tetingkap terminal memaparkan promp perintah yang mana anda boleh taip "
 "perintah UNIX. Promp perintah boleh jadi %, #, &gt;, $, atau apa-apa aksara "
 "khas. Kursusr akan diletak pada promp perintah. Ketika anda menaip satu "
 "perintah UNIX dan ketik <keycap>Return</keycap>, komputer melakukan perintah"
-" itu. Secara lalai, <application>Terminal MATE</application> menggunakan "
+" itu. Secara lalai, <application>Terminal CAFE</application> menggunakan "
 "shell lalai yang dinyatakan untuk pengguna yang mahu memulakan aplikasi."
 
 #. (itstool) path: section/para
 #: C/index.docbook:279
 msgid ""
-"<application>MATE Terminal</application> also sets the following environment"
+"<application>CAFE Terminal</application> also sets the following environment"
 " variables:"
 msgstr ""
-"<application>Terminal MATE</application> juga tetapkan pembolehubah "
+"<application>Terminal CAFE</application> juga tetapkan pembolehubah "
 "persekitaran berikut berikut:"
 
 #. (itstool) path: varlistentry/term
@@ -482,14 +482,14 @@ msgid ""
 "You can create a new profile, and apply the new profile to the terminal to "
 "modify characteristics such as font, color and effects, scroll behavior, "
 "window title, and compatibility. You can also specify a command that runs "
-"automatically when you start <application>MATE Terminal</application> in the"
+"automatically when you start <application>CAFE Terminal</application> in the"
 " profile."
 msgstr ""
 "Anda boleh cipta satu profil baharu, dan laksanakan profil baharu itu ke "
 "terminal untuk mengubahsuai ciri-cirinya seperti fon, warna dan kesan, "
 "kelakuan tatal, tajuk tetingkap, serta keserasian. Anda juga boleh nyatakan "
 "satu perintah yang dapat dijalankan secara automatik ketika anda memulakan "
-"<application>Terminal MATE</application> di dalam profil."
+"<application>Terminal CAFE</application> di dalam profil."
 
 #. (itstool) path: section/para
 #: C/index.docbook:307
@@ -523,11 +523,11 @@ msgstr ""
 #: C/index.docbook:311
 msgid ""
 "The name of the current profile appears in the titlebar of the "
-"<application>MATE Terminal</application>, unless you specify a different "
+"<application>CAFE Terminal</application>, unless you specify a different "
 "titlebar name in the <guilabel>Editing Profile</guilabel> dialog."
 msgstr ""
 "Nama bagi profil semasa muncul dalam palang tajuk <application>Terminal "
-"MATE</application>, melainkan anda nyatakan satu nama tajuk palang yang lain"
+"CAFE</application>, melainkan anda nyatakan satu nama tajuk palang yang lain"
 " dalam dialog <guilabel>Menyunting Profil</guilabel>."
 
 #. (itstool) path: section/para
@@ -547,14 +547,14 @@ msgstr "Mengendalikan Terminal Berbilang"
 #. (itstool) path: section/para
 #: C/index.docbook:318
 msgid ""
-"<application>MATE Terminal</application> provides a tab feature that enables"
+"<application>CAFE Terminal</application> provides a tab feature that enables"
 " you to open several terminals in a single window. Each terminal opens in a "
 "separate tab. Click on the appropriate tab to display the terminal in the "
 "window. Each tabbed terminal in a window is a separate subprocess, so you "
 "can use each terminal for different tasks. You can apply a different profile"
 " to each tabbed terminal in the window."
 msgstr ""
-"<application>Terminal MATE</application> menyediakan satu fitur tab yang "
+"<application>Terminal CAFE</application> menyediakan satu fitur tab yang "
 "membolehkan anda buka beberapa terminal dalam satu tetingkap. Setiap "
 "terminal dibuka dalam tab berlainan. Klik pada tab berkenaan untuk paparkan "
 "terminal di dalam tetingkap. Setiap terminal bertab dalam tetingkap "
@@ -567,7 +567,7 @@ msgstr ""
 msgid ""
 "The titlebar of the terminal window shows either the name of the current "
 "profile, or the name specified by the current profile. <xref linkend=\"mate-"
-"terminal-tabbed\"/> shows a <application>MATE Terminal</application> window "
+"terminal-tabbed\"/> shows a <application>CAFE Terminal</application> window "
 "with four tabs. In this case, each of the four tabs has a different profile."
 " The name of the profile in the active tab, Profile 1, appears in the "
 "titlebar."
@@ -575,7 +575,7 @@ msgstr ""
 "Palang tajuk bagi tetingkap terminal menunjukkan sama ada nama profil "
 "semasa, atau nama yang dinyatakan oleh profil semasa. <xref linkend=\"mate-"
 "terminal-tabbed\"/> menunjukkan satu tetingkap <application>Terminal "
-"MATE</application> dengan empat tab. Dalam situasi ini, keempat-empat tab "
+"CAFE</application> dengan empat tab. Dalam situasi ini, keempat-empat tab "
 "mempunyai profil yang berbeza. Nama bagi profil dalam tab aktif, Profil 1 "
 "kelihatan di dalam palang tajuk."
 
@@ -602,11 +602,11 @@ msgstr ""
 #: C/index.docbook:325
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-tabbed.png\" "
-"format=\"PNG\"/> </imageobject> <textobject> <phrase>MATE Terminal window "
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>CAFE Terminal window "
 "with four tabs</phrase> </textobject>"
 msgstr ""
 "<imageobject> <imagedata fileref=\"figures/mate-terminal-tabbed.png\" "
-"format=\"PNG\"/> </imageobject> <textobject> <phrase>Tetingkap Terminal MATE"
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>Tetingkap Terminal CAFE"
 " dengan empat tab</phrase> </textobject>"
 
 #. (itstool) path: section/para
@@ -669,12 +669,12 @@ msgstr ""
 #: C/index.docbook:362
 msgid ""
 "This action closes the terminal and any subprocesses that you opened from "
-"the terminal. If you close the last terminal window, the <application>MATE "
+"the terminal. If you close the last terminal window, the <application>CAFE "
 "Terminal</application> application exits."
 msgstr ""
 "Tindakan ini menutup terminal dan mana-mana subproses yang anda buka melalui"
 " terminal tersebut. Jika anda menutup tetingkap terminal terakhir, aplikasi "
-"<application>Terminal MATE</application> akan ditutup."
+"<application>Terminal CAFE</application> akan ditutup."
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:367
@@ -789,12 +789,12 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:429
 msgid ""
-"Click <guibutton>Close</guibutton>. <application>MATE Terminal</application>"
+"Click <guibutton>Close</guibutton>. <application>CAFE Terminal</application>"
 " adds the profile to the "
 "<menuchoice><guimenu>Terminal</guimenu><guisubmenu>Change "
 "Profile</guisubmenu></menuchoice> submenu."
 msgstr ""
-"Klik <guibutton>Tutup</guibutton>. <application>Terminal MATE</application> "
+"Klik <guibutton>Tutup</guibutton>. <application>Terminal CAFE</application> "
 "menambah profil ke dalma submenu "
 "<menuchoice><guimenu>Terminal</guimenu><guisubmenu>Ubah "
 "Profil</guisubmenu></menuchoice>."
@@ -947,10 +947,10 @@ msgstr ""
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:518
 msgid ""
-"To display the <application>MATE Terminal</application> window in full-"
+"To display the <application>CAFE Terminal</application> window in full-"
 "screen mode:"
 msgstr ""
-"Untuk memaparkan tetingkap <application>Terminal MATE</application> dalam "
+"Untuk memaparkan tetingkap <application>Terminal CAFE</application> dalam "
 "mod skrin-penuh:"
 
 #. (itstool) path: listitem/para
@@ -1091,14 +1091,14 @@ msgstr ""
 #: C/index.docbook:575
 msgid ""
 "These actions select all text between the first and last items. For all text"
-" selections, <application>MATE Terminal</application> copies the selected "
+" selections, <application>CAFE Terminal</application> copies the selected "
 "text into the clipboard when you release the mouse button. To explicitly "
 "copy the selected text, choose "
 "<menuchoice><guimenu>Edit</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
 msgstr ""
 "Tindakan-tindakan ini dapat memilih semua teks yang ada pada item pertama "
 "hingga yang terakhir. Untuk memilih semua teks, <application>Terminal "
-"MATE</application> menyalin teks terpilih ke dalam papan keratan setelah "
+"CAFE</application> menyalin teks terpilih ke dalam papan keratan setelah "
 "anda melepaskan butang tetikus. Untuk menyalin teks terpilih secara "
 "eksplisit, pilih "
 "<menuchoice><guimenu>Sunting</guimenu><guimenuitem>Salin</guimenuitem></menuchoice>."
@@ -1195,13 +1195,13 @@ msgstr "Melihat Tetapan Pintasan Papan Kekunci"
 #: C/index.docbook:628
 msgid ""
 "To view the keyboard shortcut settings that are defined for "
-"<application>MATE Terminal</application>, choose "
+"<application>CAFE Terminal</application>, choose "
 "<menuchoice><guimenu>Edit</guimenu><guimenuitem>Keyboard "
 "Shortcuts</guimenuitem></menuchoice>. The <guilabel>Keyboard "
 "Shortcuts</guilabel> dialog contains the following items:"
 msgstr ""
 "Untuk melihat tetapan pintasan papan kekunci yang telah ditakrif untuk "
-"<application>Terminal MATE</application>, pilih "
+"<application>Terminal CAFE</application>, pilih "
 "<menuchoice><guimenu>Sunting</guimenu><guimenuitem>Pintasan Papan "
 "Kekunci</guimenuitem></menuchoice>. Dialog <guilabel>Pintasan Papan "
 "Kekunci</guilabel> mengandungi item-item berikut:"
@@ -1241,11 +1241,11 @@ msgstr ""
 #: C/index.docbook:641
 msgid ""
 "Deselect this option to disable the shortcut key that is defined to enable "
-"you to access the <application>MATE Terminal</application> menus. The "
+"you to access the <application>CAFE Terminal</application> menus. The "
 "default shortcut key to access the menus is <keycap>F10</keycap>."
 msgstr ""
 "Nyahpilih pilihan ini untuk melumpuhkan kekunci pintasan yang telah ditakrif"
-" supaya anda dapat mencapai menu <application>Terminal MATE</application>. "
+" supaya anda dapat mencapai menu <application>Terminal CAFE</application>. "
 "Kekunci pintasan lalai untuk mencapai menu ialah <keycap>F10</keycap>."
 
 #. (itstool) path: varlistentry/term
@@ -1278,11 +1278,11 @@ msgstr "Saiz Teks"
 #. (itstool) path: section/para
 #: C/index.docbook:657
 msgid ""
-"You can use the following methods to resize the text in the MATE Terminal "
+"You can use the following methods to resize the text in the CAFE Terminal "
 "window:"
 msgstr ""
 "Anda boleh menggunakan kaedah berikut untuk saizkan semula teks di dalam "
-"tetingkap Terminal MATE:"
+"tetingkap Terminal CAFE:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:659
@@ -1341,10 +1341,10 @@ msgstr ""
 #: C/index.docbook:676
 msgid ""
 "Type the new title in the <guilabel>Title</guilabel> text box. "
-"<application>MATE Terminal</application> applies the change immediately."
+"<application>CAFE Terminal</application> applies the change immediately."
 msgstr ""
 "Taip tajuk baharu di dalam kotak teks <guilabel>Tajuk</guilabel>. "
-"<application>Terminal MATE</application> akan menerapkan perubahan tersebut "
+"<application>Terminal CAFE</application> akan menerapkan perubahan tersebut "
 "serta-merta."
 
 #. (itstool) path: listitem/para
@@ -1478,7 +1478,7 @@ msgstr "Keutamaan"
 #. (itstool) path: section/para
 #: C/index.docbook:744
 msgid ""
-"To configure <application>MATE Terminal</application>, choose "
+"To configure <application>CAFE Terminal</application>, choose "
 "<menuchoice><guimenu>Edit</guimenu><guimenuitem>Current "
 "Profile</guimenuitem></menuchoice>. To configure another profile that you "
 "set up choose "
@@ -1486,7 +1486,7 @@ msgid ""
 " select the profile you want to edit, then click "
 "<guibutton>Edit</guibutton>."
 msgstr ""
-"Untuk mengkonfigur <application>Terminal MATE</application>, pilih "
+"Untuk mengkonfigur <application>Terminal CAFE</application>, pilih "
 "<menuchoice><guimenu>Sunting</guimenu><guimenuitem>Profil "
 "Semasa</guimenuitem></menuchoice>. Untuk mengkonfigur profil lain yang telah"
 " ditetapkan pilih "
@@ -1498,12 +1498,12 @@ msgstr ""
 #: C/index.docbook:746
 msgid ""
 "The <guilabel>Editing Profile</guilabel> dialog contains the following "
-"tabbed sections that you can use to configure <application>MATE "
+"tabbed sections that you can use to configure <application>CAFE "
 "Terminal</application>:"
 msgstr ""
 "Dialog <guilabel>Menyunting Profil</guilabel> mengandungi seksyen bertab "
 "berikut yang anda boleh gunakan untuk mengkongfigur <application>Terminal "
-"MATE</application>:"
+"CAFE</application>:"
 
 #. (itstool) path: info/title
 #: C/index.docbook:763
@@ -1594,12 +1594,12 @@ msgstr "<guilabel>Aksara pilih-ikut-perkataan</guilabel>"
 #: C/index.docbook:823
 msgid ""
 "Use this text box to specify characters or groups of characters that "
-"<application>MATE Terminal</application> considers to be words when you "
+"<application>CAFE Terminal</application> considers to be words when you "
 "select text by word. See <xref linkend=\"mate-terminal-contents\"/> for more"
 " information about how to select text by word."
 msgstr ""
 "Guna kotak teks ini untuk tentukan aksara atau sekumpulan aksara yang mana "
-"<application>Terminal MATE</application> anggap sebagai perkataan bila anda "
+"<application>Terminal CAFE</application> anggap sebagai perkataan bila anda "
 "memilihnya mengikut perkataan. Sila rujuk <xref linkend=\"mate-terminal-"
 "contents\"/> untuk maklumat lanjut bagaimana hendak memilih teks mengikut "
 "perkataan."
@@ -1718,13 +1718,13 @@ msgstr "<guilabel>Latar Hadapan dan Latar Belakang</guilabel>"
 #: C/index.docbook:898
 msgid ""
 "Select the <guilabel>Use colours from system theme</guilabel> option to use "
-"the colors that are specified in the MATE Desktop theme that is selected in "
+"the colors that are specified in the CAFE Desktop theme that is selected in "
 "the <guilabel>Theme</guilabel> tab of the <link xlink:href=\"help:mate-user-"
 "guide/prefs-theme\"><application>Appearance</application> preference "
 "tool</link>."
 msgstr ""
 "Pilih pilihan <guilabel>Guna warna daripada tema sistem</guilabel> untuk "
-"menggunakan warna yang telah ditetapkan dalam tema Desktop MATE yang ada di "
+"menggunakan warna yang telah ditetapkan dalam tema Desktop CAFE yang ada di "
 "dalam tab <guilabel>Tema</guilabel> pada <link xlink:href=\"help:mate-user-"
 "guide/prefs-theme\">alat keutamaan "
 "<application>Penampilan</application></link>."
@@ -1733,13 +1733,13 @@ msgstr ""
 #: C/index.docbook:901
 msgid ""
 "Use the <guilabel>Built-in schemes</guilabel> drop-down list to specify the "
-"foreground and background colors for the terminal. <application>MATE "
+"foreground and background colors for the terminal. <application>CAFE "
 "Terminal</application> supports the following foreground and background "
 "color combinations:"
 msgstr ""
 "Guna senarai tarik-turun <guilabel>Skema terbina-dalam</guilabel> untuk "
 "menyatakan warna latar hadapan dan latar belakang untuk terminal. "
-"<application>Terminal MATE</application> menyokong gabungan warna latar "
+"<application>Terminal CAFE</application> menyokong gabungan warna latar "
 "hadapan dan latar belakang:"
 
 #. (itstool) path: listitem/para
@@ -2107,12 +2107,12 @@ msgstr ""
 #. (itstool) path: legalnotice/para
 #: C/legal.xml:13
 msgid ""
-"This manual is part of a collection of MATE manuals distributed under the "
+"This manual is part of a collection of CAFE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the license to the manual, as described in"
 " section 6 of the license."
 msgstr ""
-"Panduan ini adalah sebahagian dari koleksi panduan MATE yang diedar bawah "
+"Panduan ini adalah sebahagian dari koleksi panduan CAFE yang diedar bawah "
 "GFDL. Jika anda mahu edar panduan ini secara berasingan dari koleksi "
 "asalnya, anda boleh membuat sedemikian dengan menambah satu salinan lesen ke"
 " dalam panduan sepertimana yang dijelaskan dalam seksyen 6 lesen tersebut."
@@ -2121,14 +2121,14 @@ msgstr ""
 #: C/legal.xml:20
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any MATE "
-"documentation, and the members of the MATE Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any CAFE "
+"documentation, and the members of the CAFE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
 "Kebanyakan nama digunakan oleh syarikat untuk membezakan produk dan "
 "perkhidmatan mereka dituntut sebagai tanda dagangan. Jika nama tersebut ada "
-"di dalam dokumentasi MATE, dan ahli-ahli Projek Dokumentasi MATE sedar akan "
+"di dalam dokumentasi CAFE, dan ahli-ahli Projek Dokumentasi CAFE sedar akan "
 "tanda dagangan tersebut, kerana nama-nama tersebut telah di huruf besarkan "
 "atau huruf awalnya telah dihuruf besarkan."
 
@@ -2204,10 +2204,10 @@ msgstr "Maklumbalas"
 #. (itstool) path: formalpara/para
 #: C/legal.xml:78
 msgid ""
-"To report a bug or make a suggestion regarding the MATE Terminal application"
+"To report a bug or make a suggestion regarding the CAFE Terminal application"
 " or this manual, follow the directions in the <link xlink:href=\"help:mate-"
-"user-guide/feedback\">MATE Feedback Page</link>."
+"user-guide/feedback\">CAFE Feedback Page</link>."
 msgstr ""
 "Untuk melaporkan pepijat atau membuat cadangan berkenaan aplikasi Terminal "
-"MATE atau panduan ini, ikuti arahan di dalam <link xlink:href=\"help:mate-"
-"user-guide/feedback\">Halaman Maklumbalas MATE</link>."
+"CAFE atau panduan ini, ikuti arahan di dalam <link xlink:href=\"help:mate-"
+"user-guide/feedback\">Halaman Maklumbalas CAFE</link>."

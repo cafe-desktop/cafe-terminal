@@ -512,7 +512,7 @@ keys_change_notify (GSettings *settings,
 
 	val = g_settings_get_value (settings, key);
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_ACCELS)
 	{
 		if (val == NULL)
@@ -872,7 +872,7 @@ other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gset
 	                       ke->accel_path,
 	                       gdk_keyval_name (keyval) ? gdk_keyval_name (keyval) : "null",
 	                       str);
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_ACCELS)
 	{
 		GtkAccelKey old_key;
@@ -967,7 +967,7 @@ edit_keys_dialog_response_cb (GtkWidget *editor,
 	gtk_widget_destroy (editor);
 }
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 static void
 row_changed (GtkTreeModel *tree_model,
              GtkTreePath  *path,
@@ -1037,7 +1037,7 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 
 	tree = edit_keys_store = gtk_tree_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_POINTER);
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_ACCELS)
 	g_signal_connect (tree, "row-changed", G_CALLBACK (row_changed), NULL);
 #endif

@@ -96,7 +96,7 @@ terminal_screen_container_set_placement_set (TerminalScreenContainer *container,
 	g_object_notify (G_OBJECT (container), "window-placement-set");
 }
 
-#if defined(USE_SCROLLED_WINDOW) && defined(MATE_ENABLE_DEBUG)
+#if defined(USE_SCROLLED_WINDOW) && defined(CAFE_ENABLE_DEBUG)
 static void
 size_allocate_cb (GtkWidget *widget,
                   GdkRectangle *rect,
@@ -155,7 +155,7 @@ terminal_screen_container_constructor (GType type,
 	gtk_box_pack_end (GTK_BOX (container), priv->scrolled_window, TRUE, TRUE, 0);
 	gtk_widget_show (priv->scrolled_window);
 
-#ifdef MATE_ENABLE_DEBUG
+#ifdef CAFE_ENABLE_DEBUG
 	g_signal_connect (priv->scrolled_window, "size-allocate", G_CALLBACK (size_allocate_cb), container);
 #endif
 

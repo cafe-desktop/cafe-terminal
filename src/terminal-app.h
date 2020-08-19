@@ -34,7 +34,7 @@ G_BEGIN_DECLS
 #define TERMINAL_CONFIG_VERSION             (1) /* Bump this for any changes */
 #define TERMINAL_CONFIG_COMPAT_VERSION      (1) /* Bump this for incompatible changes */
 
-#define TERMINAL_CONFIG_GROUP               "MATE Terminal Configuration"
+#define TERMINAL_CONFIG_GROUP               "CAFE Terminal Configuration"
 #define TERMINAL_CONFIG_PROP_VERSION        "Version"
 #define TERMINAL_CONFIG_PROP_COMPAT_VERSION "CompatVersion"
 #define TERMINAL_CONFIG_PROP_WINDOWS        "Windows"
@@ -64,7 +64,7 @@ G_BEGIN_DECLS
 #define CONF_KEYS_SCHEMA      CONF_PREFIX ".keybindings"
 #define CONF_PROFILE_PREFIX   "/org/mate/terminal/profiles/"
 
-#define MATE_TERMINAL_ICON_NAME "utilities-terminal"
+#define CAFE_TERMINAL_ICON_NAME "utilities-terminal"
 
 #define TERMINAL_APP_DEFAULT_PROFILE        "default-profile"
 #define TERMINAL_APP_ENABLE_MENU_BAR_ACCEL  "enable-menu-accels"
