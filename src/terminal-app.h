@@ -57,12 +57,12 @@ G_BEGIN_DECLS
 
 /* Configuration */
 
-#define CONF_PREFIX           "org.mate.terminal"
+#define CONF_PREFIX           "org.cafe.terminal"
 #define CONF_GLOBAL_SCHEMA    CONF_PREFIX ".global"
 #define CONF_PROFILES_SCHEMA  CONF_PREFIX ".profiles"
 #define CONF_PROFILE_SCHEMA   CONF_PREFIX ".profile"
 #define CONF_KEYS_SCHEMA      CONF_PREFIX ".keybindings"
-#define CONF_PROFILE_PREFIX   "/org/mate/terminal/profiles/"
+#define CONF_PROFILE_PREFIX   "/org/cafe/terminal/profiles/"
 
 #define CAFE_TERMINAL_ICON_NAME "utilities-terminal"
 

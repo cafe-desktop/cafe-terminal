@@ -8,7 +8,7 @@ msgstr ""
 "POT-Creation-Date: 2020-01-13 14:52+0100\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
-"Language-Team: Afrikaans (https://www.transifex.com/mate/teams/13566/af/)\n"
+"Language-Team: Afrikaans (https://www.transifex.com/cafe/teams/13566/af/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -310,7 +310,7 @@ msgstr "Opdraglyn"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:249
-msgid "Execute the following command: <command>mate-terminal</command>"
+msgid "Execute the following command: <command>cafe-terminal</command>"
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -318,7 +318,7 @@ msgstr ""
 msgid ""
 "You can use command line options to modify the way in which you run "
 "<application>CAFE Terminal</application>. To view the command line options, "
-"execute the following command: <command>mate-terminal --help</command>"
+"execute the following command: <command>cafe-terminal --help</command>"
 msgstr ""
 
 #. (itstool) path: info/title
@@ -352,14 +352,14 @@ msgstr ""
 #: C/index.docbook:268
 msgctxt "_"
 msgid ""
-"external ref='figures/mate-terminal-default.png' "
+"external ref='figures/cafe-terminal-default.png' "
 "md5='fccdfe734f4180cb393cd23679d6dd18'"
 msgstr ""
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:266
 msgid ""
-"<imageobject> <imagedata fileref=\"figures/mate-terminal-default.png\" "
+"<imageobject> <imagedata fileref=\"figures/cafe-terminal-default.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>CAFE Terminal default "
 "window</phrase> </textobject>"
 msgstr ""
@@ -432,7 +432,7 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:308
 msgid ""
-"<command>mate-terminal --window-with-"
+"<command>cafe-terminal --window-with-"
 "profile=<replaceable>profilename</replaceable></command>"
 msgstr ""
 
@@ -447,7 +447,7 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:313
 msgid ""
-"See <xref linkend=\"mate-terminal-manage-profiles\"/> for information about "
+"See <xref linkend=\"cafe-terminal-manage-profiles\"/> for information about "
 "how to define and use a new terminal profile."
 msgstr ""
 
@@ -471,7 +471,7 @@ msgstr ""
 #: C/index.docbook:320
 msgid ""
 "The titlebar of the terminal window shows either the name of the current "
-"profile, or the name specified by the current profile. <xref linkend=\"mate-"
+"profile, or the name specified by the current profile. <xref linkend=\"cafe-"
 "terminal-tabbed\"/> shows a <application>CAFE Terminal</application> window "
 "with four tabs. In this case, each of the four tabs has a different profile."
 " The name of the profile in the active tab, Profile 1, appears in the "
@@ -491,14 +491,14 @@ msgstr ""
 #: C/index.docbook:327
 msgctxt "_"
 msgid ""
-"external ref='figures/mate-terminal-tabbed.png' "
+"external ref='figures/cafe-terminal-tabbed.png' "
 "md5='fd1c1b81fec91087349f1500b82501fe'"
 msgstr ""
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:325
 msgid ""
-"<imageobject> <imagedata fileref=\"figures/mate-terminal-tabbed.png\" "
+"<imageobject> <imagedata fileref=\"figures/cafe-terminal-tabbed.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>CAFE Terminal window "
 "with four tabs</phrase> </textobject>"
 msgstr ""
@@ -506,7 +506,7 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:335
 msgid ""
-"See <xref linkend=\"mate-terminal-windows\"/> for information about how to "
+"See <xref linkend=\"cafe-terminal-windows\"/> for information about how to "
 "open a new tabbed terminal."
 msgstr ""
 
@@ -712,7 +712,7 @@ msgid ""
 "<menuchoice><guimenu>Edit</guimenu><guisubmenu>Profiles</guisubmenu></menuchoice>,"
 " select the profile you want to edit, then click "
 "<guibutton>Edit</guibutton>. For information on the options you can set for "
-"profiles, see <xref linkend=\"mate-terminal-prefs\"/>."
+"profiles, see <xref linkend=\"cafe-terminal-prefs\"/>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -803,7 +803,7 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:526
 msgid ""
-"See <xref linkend=\"mate-terminal-prefs\"/> for information about the "
+"See <xref linkend=\"cafe-terminal-prefs\"/> for information about the "
 "options that you can choose in the <guilabel>Editing Profile</guilabel> "
 "dialog to change the appearance of the terminal window. For example, you can"
 " change the background color, or the location of the scrollbar."
@@ -1291,7 +1291,7 @@ msgstr ""
 msgid ""
 "Use this text box to specify characters or groups of characters that "
 "<application>CAFE Terminal</application> considers to be words when you "
-"select text by word. See <xref linkend=\"mate-terminal-contents\"/> for more"
+"select text by word. See <xref linkend=\"cafe-terminal-contents\"/> for more"
 " information about how to select text by word."
 msgstr ""
 
@@ -1390,7 +1390,7 @@ msgstr ""
 msgid ""
 "Select the <guilabel>Use colours from system theme</guilabel> option to use "
 "the colors that are specified in the CAFE Desktop theme that is selected in "
-"the <guilabel>Theme</guilabel> tab of the <link xlink:href=\"help:mate-user-"
+"the <guilabel>Theme</guilabel> tab of the <link xlink:href=\"help:cafe-user-"
 "guide/prefs-theme\"><application>Appearance</application> preference "
 "tool</link>."
 msgstr ""
@@ -1757,6 +1757,6 @@ msgstr ""
 #: C/legal.xml:78
 msgid ""
 "To report a bug or make a suggestion regarding the CAFE Terminal application"
-" or this manual, follow the directions in the <link xlink:href=\"help:mate-"
+" or this manual, follow the directions in the <link xlink:href=\"help:cafe-"
 "user-guide/feedback\">CAFE Feedback Page</link>."
 msgstr ""

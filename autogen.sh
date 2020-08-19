@@ -4,7 +4,7 @@
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
-PKG_NAME="mate-terminal"
+PKG_NAME="cafe-terminal"
 
 (test -f $srcdir/configure.ac) || {
     echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
@@ -12,8 +12,8 @@ PKG_NAME="mate-terminal"
     exit 1
 }
 
-which mate-autogen || {
-    echo "You need to install mate-common"
+which cafe-autogen || {
+    echo "You need to install cafe-common"
     exit 1
 }
 
@@ -23,8 +23,8 @@ which yelp-build || {
 }
 
 REQUIRED_AUTOMAKE_VERSION=1.9
-CAFE_DATADIR="$mate_datadir"
+CAFE_DATADIR="$cafe_datadir"
 USE_COMMON_DOC_BUILD=yes
 
-. mate-autogen
+. cafe-autogen
 

@@ -4,8 +4,8 @@
 <interface>
   <requires lib="gtk+" version="3.14"/>
   <!-- interface-license-type gplv3 -->
-  <!-- interface-name mate-terminal -->
-  <!-- interface-description encoding dialog from mate-terminal -->
+  <!-- interface-name cafe-terminal -->
+  <!-- interface-description encoding dialog from cafe-terminal -->
   <!-- interface-copyright CAFE Developer -->
   <!-- interface-authors Wolfgang Ulbrich -->
   <object class="GtkDialog" id="encodings-dialog">

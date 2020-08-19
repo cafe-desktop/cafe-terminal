@@ -1,9 +1,9 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-mate-terminal.appdata.xml.in
-mate-terminal.desktop.in.in
+cafe-terminal.appdata.xml.in
+cafe-terminal.desktop.in.in
 src/eggsmclient.c
-src/org.mate.terminal.gschema.xml.in
+src/org.cafe.terminal.gschema.xml.in
 src/profile-editor.c
 src/encodings-dialog.ui
 src/find-dialog.ui

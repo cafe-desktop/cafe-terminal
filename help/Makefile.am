@@ -1,9 +1,9 @@
 @YELP_HELP_RULES@
 
-HELP_ID = mate-terminal
+HELP_ID = cafe-terminal
 HELP_FILES = index.docbook legal.xml
-HELP_MEDIA = figures/mate-terminal-default.png \
-             figures/mate-terminal-tabbed.png 
+HELP_MEDIA = figures/cafe-terminal-default.png \
+             figures/cafe-terminal-tabbed.png 
 #	      figures/terminal-window.png   This image is not used.
 
 # Add linguas to be ignored, e.g. IGNORE_HELP_LINGUAS = ca de es fr

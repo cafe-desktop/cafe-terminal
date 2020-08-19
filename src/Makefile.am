@@ -4,7 +4,7 @@ if ENABLE_SKEY
 SUBDIRS = skey
 endif
 
-bin_PROGRAMS = mate-terminal
+bin_PROGRAMS = cafe-terminal
 
 BUILT_SOURCES = \
 	terminal-marshal.c \
@@ -15,7 +15,7 @@ BUILT_SOURCES = \
 	terminal-type-builtins.h \
 	$(NULL)
 
-mate_terminal_SOURCES= \
+cafe_terminal_SOURCES= \
 	eggshell.c \
 	eggshell.h \
 	profile-editor.c \
@@ -56,17 +56,17 @@ mate_terminal_SOURCES= \
 	$(NULL)
 
 if ENABLE_SKEY
-mate_terminal_SOURCES += \
+cafe_terminal_SOURCES += \
 	skey-popup.c \
 	skey-popup.h \
 	$(NULL)
 endif
 
-nodist_mate_terminal_SOURCES= $(BUILT_SOURCES)
+nodist_cafe_terminal_SOURCES= $(BUILT_SOURCES)
 
-mate_terminal_CPPFLAGS = \
+cafe_terminal_CPPFLAGS = \
 	-DTERMINAL_COMPILATION \
-	-DTERMINAL_RESOURCES_PATH_PREFIX="\"/org/mate/terminal\"" \
+	-DTERMINAL_RESOURCES_PATH_PREFIX="\"/org/cafe/terminal\"" \
 	-DTERM_DATADIR="\"$(datadir)\"" \
 	-DTERM_LOCALEDIR="\"$(datadir)/locale\"" \
 	-DTERM_PKGDATADIR="\"$(pkgdatadir)\"" \
@@ -82,22 +82,22 @@ mate_terminal_CPPFLAGS = \
 	$(DISABLE_DEPRECATED) \
 	$(AM_CPPFLAGS)
 
-mate_terminal_CFLAGS = \
+cafe_terminal_CFLAGS = \
 	$(TERM_CFLAGS) \
 	$(WARN_CFLAGS) \
 	$(AM_CFLAGS)
 
-mate_terminal_LDFLAGS = -lICE
+cafe_terminal_LDFLAGS = -lICE
 
-mate_terminal_LDADD = \
+cafe_terminal_LDADD = \
 	$(TERM_LIBS)
 
 if ENABLE_SKEY
-mate_terminal_LDADD += \
+cafe_terminal_LDADD += \
 	skey/libskey.la
 endif
 
-mate_terminal_SOURCES += \
+cafe_terminal_SOURCES += \
 	eggdesktopfile.c \
 	eggdesktopfile.h \
 	eggsmclient.c \
@@ -106,9 +106,9 @@ mate_terminal_SOURCES += \
 	eggsmclient-xsmp.c \
 	$(NULL)
 
-mate_terminal_CFLAGS += $(SMCLIENT_CFLAGS)
-mate_terminal_CPPFLAGS += -DEGG_SM_CLIENT_BACKEND_XSMP
-mate_terminal_LDADD += $(SMCLIENT_LIBS)
+cafe_terminal_CFLAGS += $(SMCLIENT_CFLAGS)
+cafe_terminal_CPPFLAGS += -DEGG_SM_CLIENT_BACKEND_XSMP
+cafe_terminal_LDADD += $(SMCLIENT_LIBS)
 
 TYPES_H_FILES = \
 	terminal-profile.h \
@@ -146,13 +146,13 @@ terminal-marshal.c: $(srcdir)/terminal-marshal.list
 terminal-resources.h terminal-resources.c: terminal.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/terminal.gresource.xml)
 	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate --c-name terminal $<
 
-gsettingsschema_in_files = org.mate.terminal.gschema.xml.in
+gsettingsschema_in_files = org.cafe.terminal.gschema.xml.in
 gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 .PRECIOUS: $(gsettings_SCHEMAS)
 
 CLEANFILES = \
 	stamp-terminal-type-builtins.h \
-	mate-terminal.schemas \
+	cafe-terminal.schemas \
 	$(gsettings_SCHEMAS) \
 	stamp-terminal-type-builtins.h \
 	$(BUILT_SOURCES)

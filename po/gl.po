@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR CAFE Desktop Environment team
-# This file is distributed under the same license as the mate-terminal package.
+# This file is distributed under the same license as the cafe-terminal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -9,28 +9,28 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-terminal 1.23\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/mate-terminal/issues\n"
+"Project-Id-Version: cafe-terminal 1.23\n"
+"Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
 "POT-Creation-Date: 2020-01-13 14:52+0100\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2020\n"
-"Language-Team: Galician (https://www.transifex.com/mate/teams/13566/gl/)\n"
+"Language-Team: Galician (https://www.transifex.com/cafe/teams/13566/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mate-terminal.appdata.xml.in:7 mate-terminal.desktop.in.in:3
+#: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:3
 #: src/terminal-options.c:189 src/terminal-window.c:4466
 msgid "CAFE Terminal"
 msgstr "Terminal do CAFE"
 
-#: mate-terminal.appdata.xml.in:8
+#: cafe-terminal.appdata.xml.in:8
 msgid "A terminal emulator for the CAFE desktop environment"
 msgstr "Un emulador de terminal para o contorno de escritorio CAFE"
 
-#: mate-terminal.appdata.xml.in:10
+#: cafe-terminal.appdata.xml.in:10
 msgid ""
 "CAFE Terminal is a terminal emulation application that you can use to access"
 " a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
@@ -43,7 +43,7 @@ msgstr ""
 "translucidos, a apertura de múltiples terminais (lapelas)  nunha mesma "
 "xanela e URL no que poder premer."
 
-#: mate-terminal.appdata.xml.in:17
+#: cafe-terminal.appdata.xml.in:17
 msgid ""
 "CAFE Terminal is a fork of GNOME Terminal and part of the CAFE Desktop "
 "Environment. If you would like to know more about CAFE and CAFE Terminal, "
@@ -53,18 +53,18 @@ msgstr ""
 "escritorio CAFE. Se quere saber máis sobre CAFE e CAFE Terminal, vexa a "
 "páxina do proxecto."
 
-#: mate-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
+#: cafe-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
 #: src/terminal-profile.c:161 src/terminal-window.c:2214
 msgid "Terminal"
 msgstr "Terminal"
 
-#: mate-terminal.desktop.in.in:5
+#: cafe-terminal.desktop.in.in:5
 msgid "Use the command line"
 msgstr "Usar a liña de ordes"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: mate-terminal.desktop.in.in:9
+#: cafe-terminal.desktop.in.in:9
 msgid "utilities-terminal"
 msgstr "utilities-terminal"
 
@@ -96,23 +96,23 @@ msgstr "Amosar as opcións da xestión de sesión:"
 msgid "Show session management options"
 msgstr "Amosar as opcións da xestión de sesións"
 
-#: src/org.mate.terminal.gschema.xml.in:49
+#: src/org.cafe.terminal.gschema.xml.in:49
 msgid "List of profiles"
 msgstr "Lista de perfís"
 
-#: src/org.mate.terminal.gschema.xml.in:50
+#: src/org.cafe.terminal.gschema.xml.in:50
 msgid ""
-"List of profiles known to mate-terminal. The list contains strings naming "
-"subdirectories relative to /org/mate/terminal/profiles."
+"List of profiles known to cafe-terminal. The list contains strings naming "
+"subdirectories relative to /org/cafe/terminal/profiles."
 msgstr ""
-"Lista dos perfís coñecidos polo mate-terminal. Esta lista contén cadeas "
-"referidas a subdirectorios relativos a /org/mate-terminal/profiles."
+"Lista dos perfís coñecidos polo cafe-terminal. Esta lista contén cadeas "
+"referidas a subdirectorios relativos a /org/cafe-terminal/profiles."
 
-#: src/org.mate.terminal.gschema.xml.in:54
+#: src/org.cafe.terminal.gschema.xml.in:54
 msgid "Profile to use for new terminals"
 msgstr "Perfil usado para os terminais novos"
 
-#: src/org.mate.terminal.gschema.xml.in:55
+#: src/org.cafe.terminal.gschema.xml.in:55
 msgid ""
 "Profile to be used when opening a new window or tab. Must be in "
 "profile_list."
@@ -120,11 +120,11 @@ msgstr ""
 "Perfil usado ao abrir unha xanela ou lapela nova. Debe estar en "
 "profile_list."
 
-#: src/org.mate.terminal.gschema.xml.in:59
+#: src/org.cafe.terminal.gschema.xml.in:59
 msgid "Whether the menubar has access keys"
 msgstr "Indica se a barra de menú ten teclas de acceso"
 
-#: src/org.mate.terminal.gschema.xml.in:60
+#: src/org.cafe.terminal.gschema.xml.in:60
 msgid ""
 "Whether to have Alt+letter access keys for the menubar. They may interfere "
 "with some applications run inside the terminal so it's possible to turn them"
@@ -134,12 +134,12 @@ msgstr ""
 "teclas poden interferir con algunhas aplicacións executadas no terminal, así"
 " que existe a posibilidade de desactivalas."
 
-#: src/org.mate.terminal.gschema.xml.in:64
+#: src/org.cafe.terminal.gschema.xml.in:64
 msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
 msgstr ""
 "Indica se están activados os atallos estándar de GTK+ para a barra de menú"
 
-#: src/org.mate.terminal.gschema.xml.in:65
+#: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
 "via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
@@ -149,16 +149,16 @@ msgstr ""
 "personalizar co gtkrc (gtk-menu-bar-accel = «whatever»). Esta opción permite"
 " desactivar o atallo de teclado estándar para acceder á barra de menú."
 
-#: src/org.mate.terminal.gschema.xml.in:68
+#: src/org.cafe.terminal.gschema.xml.in:68
 msgctxt "active-encodings"
 msgid "[ 'UTF-8', 'current' ]"
 msgstr "[ 'UTF-8', 'current' ]"
 
-#: src/org.mate.terminal.gschema.xml.in:69
+#: src/org.cafe.terminal.gschema.xml.in:69
 msgid "List of available encodings"
 msgstr "Lista das codificacións dispoñíbeis"
 
-#: src/org.mate.terminal.gschema.xml.in:70
+#: src/org.cafe.terminal.gschema.xml.in:70
 msgid ""
 "A subset of possible encodings are presented in the \"Encoding\" submenu. "
 "This is a list of encodings to appear there. The special encoding name "
@@ -169,11 +169,11 @@ msgstr ""
 " de configuración «current» significa que hai que amosar a codificación da "
 "configuración rexional actual."
 
-#: src/org.mate.terminal.gschema.xml.in:74
+#: src/org.cafe.terminal.gschema.xml.in:74
 msgid "Whether to ask for confirmation when closing terminal windows"
 msgstr "Indica se se pide unha confirmación ao pechar as xanelas do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:75
+#: src/org.cafe.terminal.gschema.xml.in:75
 msgid ""
 "Whether to ask for confirmation when closing a terminal window which has "
 "more than one open tab or any foreground subprocesses."
@@ -181,21 +181,21 @@ msgstr ""
 "Indica se se pide unha confirmación ao pechar unha xanela do terminal que "
 "ten máis dunha lapela aberta  ou calquera subproceso en primeiro plano."
 
-#: src/org.mate.terminal.gschema.xml.in:79
+#: src/org.cafe.terminal.gschema.xml.in:79
 msgid "Close tabs with middle click"
 msgstr "Pecha as lapelas co botón central"
 
-#: src/org.mate.terminal.gschema.xml.in:80
+#: src/org.cafe.terminal.gschema.xml.in:80
 msgid "If true, it enables the ability to close tabs using middle click."
 msgstr ""
 "Se é verdadeiro, activa a posibilidade de pechar as lapelas empregando o "
 "botón central."
 
-#: src/org.mate.terminal.gschema.xml.in:84
+#: src/org.cafe.terminal.gschema.xml.in:84
 msgid "Switch tabs with [Ctrl]+[Tab]"
 msgstr "Cambiar de lapela con [Ctrl]+[Tab]"
 
-#: src/org.mate.terminal.gschema.xml.in:85
+#: src/org.cafe.terminal.gschema.xml.in:85
 msgid ""
 "If true, it enables the ability to switch tabs using [Ctrl+Tab] and "
 "[Ctrl+Shift+Tab]."
@@ -203,24 +203,24 @@ msgstr ""
 "Se é verdadeiro, activa a posibilidade de cambiar de lapela empregando  "
 "[Ctrl+Tab] e [Ctrl+Maiús+Tab]."
 
-#: src/org.mate.terminal.gschema.xml.in:92
+#: src/org.cafe.terminal.gschema.xml.in:92
 msgctxt "visible-name"
 msgid "'Default'"
 msgstr "«Predeterminado»"
 
-#: src/org.mate.terminal.gschema.xml.in:93
+#: src/org.cafe.terminal.gschema.xml.in:93
 msgid "Human-readable name of the profile"
 msgstr "Nome do perfil lexíbel por humanos"
 
-#: src/org.mate.terminal.gschema.xml.in:94
+#: src/org.cafe.terminal.gschema.xml.in:94
 msgid "Human-readable name of the profile."
 msgstr "Nome do perfil lexíbel por humanos."
 
-#: src/org.mate.terminal.gschema.xml.in:98
+#: src/org.cafe.terminal.gschema.xml.in:98
 msgid "Whether to show menubar in new windows/tabs"
 msgstr "Indica se se amosa a barra de menú nas novas xanelas ou lapela"
 
-#: src/org.mate.terminal.gschema.xml.in:99
+#: src/org.cafe.terminal.gschema.xml.in:99
 msgid ""
 "True if the menubar should be shown in new windows, for windows/tabs with "
 "this profile."
@@ -228,11 +228,11 @@ msgstr ""
 "É verdadeiro se a barra de menú debe amosarse nas xanelas novas, para as "
 "xanelas ou lapelas con este perfil."
 
-#: src/org.mate.terminal.gschema.xml.in:103
+#: src/org.cafe.terminal.gschema.xml.in:103
 msgid "Default color of text in the terminal"
 msgstr "Cor predeterminada do texto no terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:104
+#: src/org.cafe.terminal.gschema.xml.in:104
 msgid ""
 "Default color of text in the terminal, as a color specification (can be "
 "HTML-style hex digits, or a color name such as \"red\")."
@@ -241,11 +241,11 @@ msgstr ""
 "(poden ser díxitos hexadecimais no estilo HTML ou un nome de cor en inglés "
 "como «red»)."
 
-#: src/org.mate.terminal.gschema.xml.in:108
+#: src/org.cafe.terminal.gschema.xml.in:108
 msgid "Default color of terminal background"
 msgstr "Cor predeterminada do fondo do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:109
+#: src/org.cafe.terminal.gschema.xml.in:109
 msgid ""
 "Default color of terminal background, as a color specification (can be HTML-"
 "style hex digits, or a color name such as \"red\")."
@@ -254,11 +254,11 @@ msgstr ""
 "(poden ser díxitos hexadecimais no estilo HTML ou un nome de cor en inglés "
 "como «red»)."
 
-#: src/org.mate.terminal.gschema.xml.in:113
+#: src/org.cafe.terminal.gschema.xml.in:113
 msgid "Default color of bold text in the terminal"
 msgstr "Cor predeterminada do texto en negriña no terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:114
+#: src/org.cafe.terminal.gschema.xml.in:114
 msgid ""
 "Default color of bold text in the terminal, as a color specification (can be"
 " HTML-style hex digits, or a color name such as \"red\"). This is ignored if"
@@ -268,24 +268,24 @@ msgstr ""
 "(poden ser díxitos hexadecimais no estilo HTML ou un nome de cor en inglés "
 "como «red»). Iso ignórase se bold_color_same_as_fg é verdadeiro."
 
-#: src/org.mate.terminal.gschema.xml.in:118
+#: src/org.cafe.terminal.gschema.xml.in:118
 msgid "Whether bold text should use the same color as normal text"
 msgstr ""
 "Indica se se o texto en negriña debería empregar a mesma cor que o texto "
 "normal"
 
-#: src/org.mate.terminal.gschema.xml.in:119
+#: src/org.cafe.terminal.gschema.xml.in:119
 msgid ""
 "If true, boldface text will be rendered using the same color as normal text."
 msgstr ""
 "Se é verdadeiro, o texto con tipografía negriña renderizarase empregando a "
 "mesma cor que o texto normal."
 
-#: src/org.mate.terminal.gschema.xml.in:123
+#: src/org.cafe.terminal.gschema.xml.in:123
 msgid "What to do with dynamic title"
 msgstr "Que facer co título dinámico"
 
-#: src/org.mate.terminal.gschema.xml.in:124
+#: src/org.cafe.terminal.gschema.xml.in:124
 msgid ""
 "If the application in the terminal sets the title (most typically people "
 "have their shell set up to do this), the dynamically-set title can erase the"
@@ -297,16 +297,16 @@ msgstr ""
 "borrar o título configurado, pode ir antes del, despois ou substituílo. Os "
 "valores posíbeis son «replace» «before» «after» e «ignore»."
 
-#: src/org.mate.terminal.gschema.xml.in:127
+#: src/org.cafe.terminal.gschema.xml.in:127
 msgctxt "title"
 msgid "'Terminal'"
 msgstr "«Terminal»"
 
-#: src/org.mate.terminal.gschema.xml.in:128
+#: src/org.cafe.terminal.gschema.xml.in:128
 msgid "Title for terminal"
 msgstr "Título do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:129
+#: src/org.cafe.terminal.gschema.xml.in:129
 msgid ""
 "Title to display for the terminal window or tab. This title may be replaced "
 "by or combined with the title set by the application inside the terminal, "
@@ -316,21 +316,21 @@ msgstr ""
 "substituír ou combinar co título definido pola aplicación dentro do "
 "terminal, dependendo do axuste de title_mode."
 
-#: src/org.mate.terminal.gschema.xml.in:133
+#: src/org.cafe.terminal.gschema.xml.in:133
 msgid "Whether to allow bold text"
 msgstr "Indica se se permite texto en negriña"
 
-#: src/org.mate.terminal.gschema.xml.in:134
+#: src/org.cafe.terminal.gschema.xml.in:134
 msgid "If true, allow applications in the terminal to make text boldface."
 msgstr ""
 "Se é verdadeiro, permite que as aplicacións no terminal amosen o texto en "
 "negra."
 
-#: src/org.mate.terminal.gschema.xml.in:138
+#: src/org.cafe.terminal.gschema.xml.in:138
 msgid "Whether to silence terminal bell"
 msgstr "Indica se se silencia a campá do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:139
+#: src/org.cafe.terminal.gschema.xml.in:139
 msgid ""
 "If true, don't make a noise when applications send the escape sequence for "
 "the terminal bell."
@@ -338,20 +338,20 @@ msgstr ""
 "Se é verdadeiro, non emite ningún ruído cando as aplicacións envían a "
 "secuencia de escape para a campá do terminal."
 
-#: src/org.mate.terminal.gschema.xml.in:143
+#: src/org.cafe.terminal.gschema.xml.in:143
 msgid "Copy selection to clipboard"
 msgstr "Copiar a selección para o portapapeis"
 
-#: src/org.mate.terminal.gschema.xml.in:144
+#: src/org.cafe.terminal.gschema.xml.in:144
 msgid "If true, selection is automatically copied to clipboard buffer."
 msgstr ""
 "Se é verdadeiro, a selección copiarase automaticamente no portapapeis."
 
-#: src/org.mate.terminal.gschema.xml.in:148
+#: src/org.cafe.terminal.gschema.xml.in:148
 msgid "Characters that are considered \"part of a word\""
 msgstr "Caracteres considerados «partes dunha palabra»"
 
-#: src/org.mate.terminal.gschema.xml.in:149
+#: src/org.cafe.terminal.gschema.xml.in:149
 msgid ""
 "When selecting text by word, sequences of these characters are considered "
 "single words. Ranges can be given as \"A-Z\". Literal hyphen (not expressing"
@@ -362,12 +362,12 @@ msgstr ""
 "guión literal (que non expresa un intervalo) debe ser o primeiro carácter "
 "indicado."
 
-#: src/org.mate.terminal.gschema.xml.in:153
+#: src/org.cafe.terminal.gschema.xml.in:153
 msgid "Whether to use custom terminal size for new windows"
 msgstr ""
 "Indica se se usa un tamaño de terminal personalizado para as novas xanelas"
 
-#: src/org.mate.terminal.gschema.xml.in:154
+#: src/org.cafe.terminal.gschema.xml.in:154
 msgid ""
 "If true, newly created terminal windows will have custom size specified by "
 "default_size_columns and default_size_rows."
@@ -375,11 +375,11 @@ msgstr ""
 "Se é verdadeiro, as novas xanelas de terminal creadas terán o tamaño "
 "personalizado especificado por default_size_columns e default_size_rows."
 
-#: src/org.mate.terminal.gschema.xml.in:158
+#: src/org.cafe.terminal.gschema.xml.in:158
 msgid "Default number of columns"
 msgstr "Número de columnas predeterminado"
 
-#: src/org.mate.terminal.gschema.xml.in:159
+#: src/org.cafe.terminal.gschema.xml.in:159
 msgid ""
 "Number of columns in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
@@ -387,11 +387,11 @@ msgstr ""
 "Número de columnas nas novas xanelas de terminal creadas. Non se aplica se "
 "use_custom_default_size non está activado."
 
-#: src/org.mate.terminal.gschema.xml.in:163
+#: src/org.cafe.terminal.gschema.xml.in:163
 msgid "Default number of rows"
 msgstr "Número de filas predeterminado"
 
-#: src/org.mate.terminal.gschema.xml.in:164
+#: src/org.cafe.terminal.gschema.xml.in:164
 msgid ""
 "Number of rows in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
@@ -399,11 +399,11 @@ msgstr ""
 "Número de filas nas novas xanelas de terminal creadas. Non se aplica se "
 "use_custom_default_size non está activado."
 
-#: src/org.mate.terminal.gschema.xml.in:168
+#: src/org.cafe.terminal.gschema.xml.in:168
 msgid "Position of the scrollbar"
 msgstr "Posición da barra de desprazamento"
 
-#: src/org.mate.terminal.gschema.xml.in:169
+#: src/org.cafe.terminal.gschema.xml.in:169
 msgid ""
 "Where to put the terminal scrollbar. Possibilities are \"left\", \"right\", "
 "and \"hidden\"."
@@ -411,11 +411,11 @@ msgstr ""
 "Onde colocar a barra de desprazamento do terminal. As posibilidades son "
 "«left» (esquerda), «right» (dereita) e «hiden» (agochada)."
 
-#: src/org.mate.terminal.gschema.xml.in:173
+#: src/org.cafe.terminal.gschema.xml.in:173
 msgid "Number of lines to keep in scrollback"
 msgstr "Número de liñas que se manteñen no desprazamento"
 
-#: src/org.mate.terminal.gschema.xml.in:174
+#: src/org.cafe.terminal.gschema.xml.in:174
 msgid ""
 "Number of scrollback lines to keep around. You can scroll back in the "
 "terminal by this number of lines; lines that don't fit in the scrollback are"
@@ -425,12 +425,12 @@ msgstr ""
 "atrás no terminal ese número de liñas; as que non caiban no desprazamento "
 "desbótanse. se scrollback_unlimited é verdadeiro, o valor ignorarase."
 
-#: src/org.mate.terminal.gschema.xml.in:178
+#: src/org.cafe.terminal.gschema.xml.in:178
 msgid "Whether an unlimited number of lines should be kept in scrollback"
 msgstr ""
 "Indica se se debe manter un número de liñas non limitado no desprazamento"
 
-#: src/org.mate.terminal.gschema.xml.in:179
+#: src/org.cafe.terminal.gschema.xml.in:179
 msgid ""
 "If true, scrollback lines will never be discarded. The scrollback history is"
 " stored on disk temporarily, so this may cause the system to run out of disk"
@@ -441,32 +441,32 @@ msgstr ""
 "polo que isto pode causar que o seu sistema quede sen espazo de disco se hai"
 " moita saída na terminal."
 
-#: src/org.mate.terminal.gschema.xml.in:183
+#: src/org.cafe.terminal.gschema.xml.in:183
 msgid "Whether to scroll to the bottom when a key is pressed"
 msgstr "Indica se se despraza ao final ao premer unha tecla"
 
-#: src/org.mate.terminal.gschema.xml.in:184
+#: src/org.cafe.terminal.gschema.xml.in:184
 msgid "If true, pressing a key jumps the scrollbar to the bottom."
 msgstr ""
 "Se é verdadeiro, ao premer unha tecla a barra de desprazamento vai ata o "
 "final."
 
-#: src/org.mate.terminal.gschema.xml.in:188
+#: src/org.cafe.terminal.gschema.xml.in:188
 msgid "Whether to scroll to the bottom when there's new output"
 msgstr "Indica se se despraza ao final cando hai unha saída nova"
 
-#: src/org.mate.terminal.gschema.xml.in:189
+#: src/org.cafe.terminal.gschema.xml.in:189
 msgid ""
 "If true, whenever there's new output the terminal will scroll to the bottom."
 msgstr ""
 "Se é verdadeiro, a barra de desprazamento irá ao final cando haxa unha saída"
 " nova no terminal."
 
-#: src/org.mate.terminal.gschema.xml.in:193
+#: src/org.cafe.terminal.gschema.xml.in:193
 msgid "What to do with the terminal when the child command exits"
 msgstr "Que facer co terminal cando a orde fillo finaliza"
 
-#: src/org.mate.terminal.gschema.xml.in:194
+#: src/org.cafe.terminal.gschema.xml.in:194
 msgid ""
 "Possible values are \"close\" to close the terminal, and \"restart\" to "
 "restart the command."
@@ -474,13 +474,13 @@ msgstr ""
 "Os valores posíbeis son «close» para pechar o terminal e «restart» para "
 "reiniciar a orde."
 
-#: src/org.mate.terminal.gschema.xml.in:198
+#: src/org.cafe.terminal.gschema.xml.in:198
 msgid "Whether to launch the command in the terminal as a login shell"
 msgstr ""
 "Indica se se lanza a orde no terminal como un intérprete de ordes de inicio "
 "de sesión"
 
-#: src/org.mate.terminal.gschema.xml.in:199
+#: src/org.cafe.terminal.gschema.xml.in:199
 msgid ""
 "If true, the command inside the terminal will be launched as a login shell. "
 "(argv[0] will have a hyphen in front of it.)"
@@ -488,12 +488,12 @@ msgstr ""
 "Se é verdadeiro, iniciarase a orde dentro do terminal como un intérprete de "
 "ordes de inicio de sesión (argv[0] terá un guión diante del.)"
 
-#: src/org.mate.terminal.gschema.xml.in:203
+#: src/org.cafe.terminal.gschema.xml.in:203
 msgid "Whether to run a custom command instead of the shell"
 msgstr ""
 "Indica se se executa unha orde personalizada en vez do intérprete de ordes"
 
-#: src/org.mate.terminal.gschema.xml.in:204
+#: src/org.cafe.terminal.gschema.xml.in:204
 msgid ""
 "If true, the value of the custom_command setting will be used in place of "
 "running a shell."
@@ -501,11 +501,11 @@ msgstr ""
 "Se é verdadeiro, usarase o valor do axuste custom_command en vez de executar"
 " un intérprete de ordes."
 
-#: src/org.mate.terminal.gschema.xml.in:208
+#: src/org.cafe.terminal.gschema.xml.in:208
 msgid "Whether to blink the cursor"
 msgstr "Indica se o cursor pestanexa"
 
-#: src/org.mate.terminal.gschema.xml.in:209
+#: src/org.cafe.terminal.gschema.xml.in:209
 msgid ""
 "The possible values are \"system\" to use the global cursor blinking "
 "settings, or \"on\" or \"off\" to set the mode explicitly."
@@ -513,11 +513,11 @@ msgstr ""
 "Os valores posíbeis son «system» para utilizar axustes globais intermitentes"
 " do cursor, ou «on» ou «of» para definir o modo de maneira explícita."
 
-#: src/org.mate.terminal.gschema.xml.in:213
+#: src/org.cafe.terminal.gschema.xml.in:213
 msgid "The cursor appearance"
 msgstr "Aparencia do cursor"
 
-#: src/org.mate.terminal.gschema.xml.in:214
+#: src/org.cafe.terminal.gschema.xml.in:214
 msgid ""
 "The possible values are \"block\" to use a block cursor, \"ibeam\" to use a "
 "vertical line cursor, or \"underline\" to use an underline cursor."
@@ -526,30 +526,30 @@ msgstr ""
 "para utilizar un cursor de liña vertical, ou «underline» para utilizar un "
 "cursor de subliñado."
 
-#: src/org.mate.terminal.gschema.xml.in:218
+#: src/org.cafe.terminal.gschema.xml.in:218
 msgid "Custom command to use instead of the shell"
 msgstr "Orde personalizada que hai que usar en vez do intérprete de ordes"
 
-#: src/org.mate.terminal.gschema.xml.in:219
+#: src/org.cafe.terminal.gschema.xml.in:219
 msgid "Run this command in place of the shell, if use_custom_command is true."
 msgstr ""
 "Executar esta orde en vez do intérprete de ordes se use_custom_command é "
 "verdadeiro."
 
-#: src/org.mate.terminal.gschema.xml.in:223
+#: src/org.cafe.terminal.gschema.xml.in:223
 msgid "Icon for terminal window"
 msgstr "Icona para a xanela do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:224
+#: src/org.cafe.terminal.gschema.xml.in:224
 msgid "Icon to use for tabs/windows containing this profile."
 msgstr ""
 "Icona que hai que usar as lapelas ou xanelas que conteñen este perfil."
 
-#: src/org.mate.terminal.gschema.xml.in:228
+#: src/org.cafe.terminal.gschema.xml.in:228
 msgid "Palette for terminal applications"
 msgstr "Paleta para as aplicacións do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:229
+#: src/org.cafe.terminal.gschema.xml.in:229
 msgid ""
 "Terminals have a 16-color palette that applications inside the terminal can "
 "use. This is that palette, in the form of a colon-separated list of color "
@@ -560,21 +560,21 @@ msgstr ""
 "separadas por dous puntos. Os nomes de cores deben ter formato hexadecimal, "
 "por exemplo: «#FF00FF»"
 
-#: src/org.mate.terminal.gschema.xml.in:233
+#: src/org.cafe.terminal.gschema.xml.in:233
 msgid "Font"
 msgstr "Tipo de letra"
 
-#: src/org.mate.terminal.gschema.xml.in:234
+#: src/org.cafe.terminal.gschema.xml.in:234
 msgid "An Pango font name. Examples are \"Sans 12\" or \"Monospace Bold 14\"."
 msgstr ""
 "Un nome do tipo de letra de Pango. Por exemplo: «Sans 12» ou «Monospace Bold"
 " 14»."
 
-#: src/org.mate.terminal.gschema.xml.in:238
+#: src/org.cafe.terminal.gschema.xml.in:238
 msgid "Background type"
 msgstr "Tipo de fondo"
 
-#: src/org.mate.terminal.gschema.xml.in:239
+#: src/org.cafe.terminal.gschema.xml.in:239
 msgid ""
 "Type of terminal background. May be \"solid\" for a solid color, \"image\" "
 "for an image, or \"transparent\" for either real transparency if a "
@@ -585,19 +585,19 @@ msgstr ""
 "executando un xestor de xanela de composición ou para unha pseudo-"
 "transparencia."
 
-#: src/org.mate.terminal.gschema.xml.in:243
+#: src/org.cafe.terminal.gschema.xml.in:243
 msgid "Background image"
 msgstr "Imaxe de fondo"
 
-#: src/org.mate.terminal.gschema.xml.in:244
+#: src/org.cafe.terminal.gschema.xml.in:244
 msgid "Filename of a background image."
 msgstr "Nome do ficheiro dunha imaxe de fondo."
 
-#: src/org.mate.terminal.gschema.xml.in:248
+#: src/org.cafe.terminal.gschema.xml.in:248
 msgid "Whether to scroll background image"
 msgstr "Indica se se despraza a imaxe de fondo"
 
-#: src/org.mate.terminal.gschema.xml.in:249
+#: src/org.cafe.terminal.gschema.xml.in:249
 msgid ""
 "If true, scroll the background image with the foreground text; if false, "
 "keep the image in a fixed position and scroll the text above it."
@@ -606,11 +606,11 @@ msgstr ""
 "é false, mantense a imaxe nunha posición fixa e o texto desprázase sobre "
 "ela."
 
-#: src/org.mate.terminal.gschema.xml.in:253
+#: src/org.cafe.terminal.gschema.xml.in:253
 msgid "How much to darken the background image"
 msgstr "Canto hai que escurecer a imaxe de fondo"
 
-#: src/org.mate.terminal.gschema.xml.in:254
+#: src/org.cafe.terminal.gschema.xml.in:254
 msgid ""
 "A value between 0.0 and 1.0 indicating how much to darken the background "
 "image. 0.0 means no darkness, 1.0 means fully dark. In the current "
@@ -623,11 +623,11 @@ msgstr ""
 "o axuste funciona como un booleano, onde 0.0 desactiva o efecto de "
 "escurecemento."
 
-#: src/org.mate.terminal.gschema.xml.in:258
+#: src/org.cafe.terminal.gschema.xml.in:258
 msgid "Effect of the Backspace key"
 msgstr "Efecto da tecla de retroceso"
 
-#: src/org.mate.terminal.gschema.xml.in:259
+#: src/org.cafe.terminal.gschema.xml.in:259
 msgid ""
 "Sets what code the backspace key generates. Possible values are \"ascii-"
 "del\" for the ASCII DEL character, \"control-h\" for Control-H (AKA the "
@@ -641,11 +641,11 @@ msgstr ""
 " escape vinculada habitualmente a borrar ou suprimir. O valor «ascii-del» é "
 "normalmente considerado como o axuste correcto para a tecla de retroceso."
 
-#: src/org.mate.terminal.gschema.xml.in:263
+#: src/org.cafe.terminal.gschema.xml.in:263
 msgid "Effect of the Delete key"
 msgstr "Efecto da tecla suprimir"
 
-#: src/org.mate.terminal.gschema.xml.in:264
+#: src/org.cafe.terminal.gschema.xml.in:264
 msgid ""
 "Sets what code the delete key generates. Possible values are \"ascii-del\" "
 "for the ASCII DEL character, \"control-h\" for Control-H (AKA the ASCII BS "
@@ -660,11 +660,11 @@ msgstr ""
 "sequence» é normalmente considerado como o axuste correcto para a tecla "
 "suprimir."
 
-#: src/org.mate.terminal.gschema.xml.in:268
+#: src/org.cafe.terminal.gschema.xml.in:268
 msgid "Whether to use the colors from the theme for the terminal widget"
 msgstr "Indica se se usan as cores do tema no trebello do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:269
+#: src/org.cafe.terminal.gschema.xml.in:269
 msgid ""
 "If true, the theme color scheme used for text entry boxes will be used for "
 "the terminal, instead of colors provided by the user."
@@ -673,11 +673,11 @@ msgstr ""
 "será empregado para o terminal, en vez das cores proporcionadas polo "
 "usuario."
 
-#: src/org.mate.terminal.gschema.xml.in:273
+#: src/org.cafe.terminal.gschema.xml.in:273
 msgid "Whether to use the system font"
 msgstr "Indica se se usa o tipo de letra do sistema"
 
-#: src/org.mate.terminal.gschema.xml.in:274
+#: src/org.cafe.terminal.gschema.xml.in:274
 msgid ""
 "If true, the terminal will use the desktop-global standard font if it's "
 "monospace (and the most similar font it can come up with otherwise)."
@@ -686,11 +686,11 @@ msgstr ""
 "é monoespazado (en caso contrario, usará un tipo de letra o máis semellante "
 "posíbel)."
 
-#: src/org.mate.terminal.gschema.xml.in:278
+#: src/org.cafe.terminal.gschema.xml.in:278
 msgid "Highlight S/Key challenges"
 msgstr "Realzar desafíos S/Key"
 
-#: src/org.mate.terminal.gschema.xml.in:279
+#: src/org.cafe.terminal.gschema.xml.in:279
 msgid ""
 "Popup a dialog when an S/Key challenge response query is detected and "
 "clicked on. Typing a password into the dialog will send it to the terminal."
@@ -699,11 +699,11 @@ msgstr ""
 "desafío S/Key. Ao escribir un contrasinal no diálogo, este enviarase ao "
 "terminal."
 
-#: src/org.mate.terminal.gschema.xml.in:283
+#: src/org.cafe.terminal.gschema.xml.in:283
 msgid "Highlight URLs under mouse pointer"
 msgstr "Resaltar os URL baixo o punteiro do rato"
 
-#: src/org.mate.terminal.gschema.xml.in:284
+#: src/org.cafe.terminal.gschema.xml.in:284
 msgid ""
 "If true, URLs under mouse pointer are highlighted and can be opened by mouse"
 " click together with control key or used in context menu."
@@ -712,11 +712,11 @@ msgstr ""
 "abrir premendo co rato xunto coa tecla de control ou utilizando o menú de "
 "contexto."
 
-#: src/org.mate.terminal.gschema.xml.in:290
+#: src/org.cafe.terminal.gschema.xml.in:290
 msgid "Keyboard shortcut to open a new tab"
 msgstr "Atallo de teclado para abrir unha lapela nova"
 
-#: src/org.mate.terminal.gschema.xml.in:291
+#: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -728,11 +728,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:295
+#: src/org.cafe.terminal.gschema.xml.in:295
 msgid "Keyboard shortcut to open a new window"
 msgstr "Atallo de teclado para abrir unha xanela nova"
 
-#: src/org.mate.terminal.gschema.xml.in:296
+#: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
 " same format used for GTK+ resource files. If you set the option to the "
@@ -744,11 +744,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:300
+#: src/org.cafe.terminal.gschema.xml.in:300
 msgid "Keyboard shortcut to create a new profile"
 msgstr "Atallo de teclado para crear un perfil novo"
 
-#: src/org.mate.terminal.gschema.xml.in:301
+#: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
 "Expressed as a string in the same format used for GTK+ resource files. If "
@@ -760,12 +760,12 @@ msgstr ""
 "Se define a opción coa cadea especial «disabled», entón non haberá ningún "
 "atallo de teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:305
+#: src/org.cafe.terminal.gschema.xml.in:305
 msgid "Keyboard shortcut to save the current tab contents to file"
 msgstr ""
 "Atallo de teclado para gardar os contidos da lapela actual a un ficheiro"
 
-#: src/org.mate.terminal.gschema.xml.in:306
+#: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
 "as a string in the same format used for GTK+ resource files. If you set the "
@@ -777,11 +777,11 @@ msgstr ""
 "GTK+. Se define a opción coa cadea especial «disabled», entón non haberá "
 "ningún atallo de teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:310
+#: src/org.cafe.terminal.gschema.xml.in:310
 msgid "Keyboard shortcut to close a tab"
 msgstr "Atallo de teclado para pechar unha lapela"
 
-#: src/org.mate.terminal.gschema.xml.in:311
+#: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
 "format used for GTK+ resource files. If you set the option to the special "
@@ -793,11 +793,11 @@ msgstr ""
 "opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:315
+#: src/org.cafe.terminal.gschema.xml.in:315
 msgid "Keyboard shortcut to close a window"
 msgstr "Atallo de teclado para pechar unha xanela"
 
-#: src/org.mate.terminal.gschema.xml.in:316
+#: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -809,11 +809,11 @@ msgstr ""
 "opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:320
+#: src/org.cafe.terminal.gschema.xml.in:320
 msgid "Keyboard shortcut to copy text"
 msgstr "Atallo de teclado para copiar texto"
 
-#: src/org.mate.terminal.gschema.xml.in:321
+#: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
 "as a string in the same format used for GTK+ resource files. If you set the "
@@ -825,11 +825,11 @@ msgstr ""
 "GTK+. Se define a opción coa cadea especial «disabled», entón non haberá "
 "ningún atallo de teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:325
+#: src/org.cafe.terminal.gschema.xml.in:325
 msgid "Keyboard shortcut to paste text"
 msgstr "Atallo de teclado para pegar texto"
 
-#: src/org.mate.terminal.gschema.xml.in:326
+#: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
 "terminal. Expressed as a string in the same format used for GTK+ resource "
@@ -841,11 +841,11 @@ msgstr ""
 "definir a opción coa cadea especial «disabled», entón non haberá ningún "
 "atallo de teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:330
+#: src/org.cafe.terminal.gschema.xml.in:330
 msgid "Keyboard shortcut to select all text"
 msgstr "Atallo de teclado para seleccionar todo o texto"
 
-#: src/org.mate.terminal.gschema.xml.in:331
+#: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
 "as a string in the same format used for GTK+ resource files. If you set the "
@@ -857,11 +857,11 @@ msgstr ""
 "coa cadea especial «disabled», entón non haberá ningún atallo de teclado "
 "para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:335
+#: src/org.cafe.terminal.gschema.xml.in:335
 msgid "Keyboard shortcut to show the find dialog"
 msgstr "Atallo de teclado para amosar o dialogo de busca"
 
-#: src/org.mate.terminal.gschema.xml.in:336
+#: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
 "the same format used for GTK+ resource files. If you set the option to the "
@@ -873,11 +873,11 @@ msgstr ""
 "opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:340
+#: src/org.cafe.terminal.gschema.xml.in:340
 msgid "Keyboard shortcut to find the next occurrence of the search term"
 msgstr "Atallo de teclado para atopar a seguinte aparición do termo que busca"
 
-#: src/org.mate.terminal.gschema.xml.in:341
+#: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
 "the terminal. Expressed as a string in the same format used for GTK+ "
@@ -889,11 +889,11 @@ msgstr ""
 "GTK+. Se define a opción coa cadea especial «disabled», entón non haberá "
 "ningún atallo de teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:345
+#: src/org.cafe.terminal.gschema.xml.in:345
 msgid "Keyboard shortcut to find the previous occurrence of the search term"
 msgstr "Atallo de teclado para atopar a anterior aparición do termo que busca"
 
-#: src/org.mate.terminal.gschema.xml.in:346
+#: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
 " in the terminal. Expressed as a string in the same format used for GTK+ "
@@ -905,11 +905,11 @@ msgstr ""
 "GTK+. Se define a opción coa cadea especial «disabled», entón non haberá "
 "ningún atallo de teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:350
+#: src/org.cafe.terminal.gschema.xml.in:350
 msgid "Keyboard shortcut to toggle full screen mode"
 msgstr "Atallo de teclado para alternar o modo de pantalla completa"
 
-#: src/org.mate.terminal.gschema.xml.in:351
+#: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
 "in the same format used for GTK+ resource files. If you set the option to "
@@ -921,11 +921,11 @@ msgstr ""
 " a opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:355
+#: src/org.cafe.terminal.gschema.xml.in:355
 msgid "Keyboard shortcut to toggle the visibility of the menubar"
 msgstr "Atallo de teclado para alternar a visibilidade da barra de menú"
 
-#: src/org.mate.terminal.gschema.xml.in:356
+#: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
 "a string in the same format used for GTK+ resource files. If you set the "
@@ -937,11 +937,11 @@ msgstr ""
 "define a opción coa cadea especial «disabled», entón non haberá ningún "
 "atallo de teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:360
+#: src/org.cafe.terminal.gschema.xml.in:360
 msgid "Keyboard shortcut to set the terminal title"
 msgstr "Atallo de teclado para definir o título do terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:361
+#: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
 "the same format used for GTK+ resource files. If you set the option to the "
@@ -953,11 +953,11 @@ msgstr ""
 "opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:365
+#: src/org.cafe.terminal.gschema.xml.in:365
 msgid "Keyboard shortcut to reset the terminal"
 msgstr "Atallo de teclado para restaurar o terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:366
+#: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -969,11 +969,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:370
+#: src/org.cafe.terminal.gschema.xml.in:370
 msgid "Keyboard shortcut to reset and clear the terminal"
 msgstr "Atallo de teclado para restaurar e limpar o terminal"
 
-#: src/org.mate.terminal.gschema.xml.in:371
+#: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
 " in the same format used for GTK+ resource files. If you set the option to "
@@ -985,11 +985,11 @@ msgstr ""
 "opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:375
+#: src/org.cafe.terminal.gschema.xml.in:375
 msgid "Keyboard shortcut to switch to the previous tab"
 msgstr "Atallo de teclado para cambiar á lapela anterior"
 
-#: src/org.mate.terminal.gschema.xml.in:376
+#: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
 "in the same format used for GTK+ resource files. If you set the option to "
@@ -1001,11 +1001,11 @@ msgstr ""
 "coa cadea especial «disabled», entón non haberá ningún atallo de teclado "
 "para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:380
+#: src/org.cafe.terminal.gschema.xml.in:380
 msgid "Keyboard shortcut to switch to the next tab"
 msgstr "Atallo de teclado para cambiar á seguinte lapela"
 
-#: src/org.mate.terminal.gschema.xml.in:381
+#: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
 "the same format used for GTK+ resource files. If you set the option to the "
@@ -1017,11 +1017,11 @@ msgstr ""
 "coa cadea especial «disabled», entón non haberá ningún atallo de teclado "
 "para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:385
+#: src/org.cafe.terminal.gschema.xml.in:385
 msgid "Keyboard shortcut to switch to the previous profile"
 msgstr "Atallo de teclado para cambiar ao perfil anterior"
 
-#: src/org.mate.terminal.gschema.xml.in:386
+#: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
 "string in the same format used for GTK+ resource files. If you set the "
@@ -1033,11 +1033,11 @@ msgstr ""
 "coa cadea especial «disabled», entón non haberá ningún atallo de teclado "
 "para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:390
+#: src/org.cafe.terminal.gschema.xml.in:390
 msgid "Keyboard shortcut to switch to the next profile"
 msgstr "Atallo de teclado para cambiar ao seguinte perfil"
 
-#: src/org.mate.terminal.gschema.xml.in:391
+#: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
 "in the same format used for GTK+ resource files. If you set the option to "
@@ -1049,11 +1049,11 @@ msgstr ""
 "coa cadea especial «disabled», entón non haberá ningún atallo de teclado "
 "para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:395
+#: src/org.cafe.terminal.gschema.xml.in:395
 msgid "Accelerator to move the current tab to the left."
 msgstr "Tecla rápida para mover a lapela actual á esquerda."
 
-#: src/org.mate.terminal.gschema.xml.in:396
+#: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
 "in the same format used for GTK+ resource files. If you set the option to "
@@ -1065,11 +1065,11 @@ msgstr ""
 "opción coa cadea especial «disabled», non haberá ningunha combinación de "
 "teclas para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:400
+#: src/org.cafe.terminal.gschema.xml.in:400
 msgid "Accelerator to move the current tab to the right."
 msgstr "Tecla rápida para mover a lapela actual á dereita."
 
-#: src/org.mate.terminal.gschema.xml.in:401
+#: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
 "in the same format used for GTK+ resource files. If you set the option to "
@@ -1081,11 +1081,11 @@ msgstr ""
 "opción coa cadea especial «disabled», non haberá ningunha combinación de "
 "teclas para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:405
+#: src/org.cafe.terminal.gschema.xml.in:405
 msgid "Accelerator to detach current tab."
 msgstr "Tecla rápida para desprender a lapela actual."
 
-#: src/org.mate.terminal.gschema.xml.in:406
+#: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
 "format used for GTK+ resource files. If you set the option to the special "
@@ -1096,11 +1096,11 @@ msgstr ""
 "coa cadea especial «disabled», non haberá ningunha combinación de teclas "
 "para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:410
+#: src/org.cafe.terminal.gschema.xml.in:410
 msgid "Keyboard shortcut to switch to tab 1"
 msgstr "Atallo de teclado para cambiar á lapela 1"
 
-#: src/org.mate.terminal.gschema.xml.in:411
+#: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1112,11 +1112,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:415
+#: src/org.cafe.terminal.gschema.xml.in:415
 msgid "Keyboard shortcut to switch to tab 2"
 msgstr "Atallo de teclado para cambiar á lapela 2"
 
-#: src/org.mate.terminal.gschema.xml.in:416
+#: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1128,11 +1128,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:420
+#: src/org.cafe.terminal.gschema.xml.in:420
 msgid "Keyboard shortcut to switch to tab 3"
 msgstr "Atallo de teclado para cambiar á lapela 3"
 
-#: src/org.mate.terminal.gschema.xml.in:421
+#: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1144,11 +1144,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:425
+#: src/org.cafe.terminal.gschema.xml.in:425
 msgid "Keyboard shortcut to switch to tab 4"
 msgstr "Atallo de teclado para cambiar á lapela 4"
 
-#: src/org.mate.terminal.gschema.xml.in:426
+#: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1160,11 +1160,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:430
+#: src/org.cafe.terminal.gschema.xml.in:430
 msgid "Keyboard shortcut to switch to tab 5"
 msgstr "Atallo de teclado para cambiar á lapela 5"
 
-#: src/org.mate.terminal.gschema.xml.in:431
+#: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1176,11 +1176,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:435
+#: src/org.cafe.terminal.gschema.xml.in:435
 msgid "Keyboard shortcut to switch to tab 6"
 msgstr "Atallo de teclado para cambiar á lapela 6"
 
-#: src/org.mate.terminal.gschema.xml.in:436
+#: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1192,11 +1192,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:440
+#: src/org.cafe.terminal.gschema.xml.in:440
 msgid "Keyboard shortcut to switch to tab 7"
 msgstr "Atallo de teclado para cambiar á lapela 7"
 
-#: src/org.mate.terminal.gschema.xml.in:441
+#: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1208,11 +1208,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:445
+#: src/org.cafe.terminal.gschema.xml.in:445
 msgid "Keyboard shortcut to switch to tab 8"
 msgstr "Atallo de teclado para cambiar á lapela 8"
 
-#: src/org.mate.terminal.gschema.xml.in:446
+#: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1224,11 +1224,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:450
+#: src/org.cafe.terminal.gschema.xml.in:450
 msgid "Keyboard shortcut to switch to tab 9"
 msgstr "Atallo de teclado para cambiar á lapela 9"
 
-#: src/org.mate.terminal.gschema.xml.in:451
+#: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
 " format used for GTK+ resource files. If you set the option to the special "
@@ -1240,11 +1240,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:455
+#: src/org.cafe.terminal.gschema.xml.in:455
 msgid "Keyboard shortcut to switch to tab 10"
 msgstr "Atallo de teclado para cambiar á lapela 10"
 
-#: src/org.mate.terminal.gschema.xml.in:456
+#: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -1256,11 +1256,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:460
+#: src/org.cafe.terminal.gschema.xml.in:460
 msgid "Keyboard shortcut to switch to tab 11"
 msgstr "Atallo de teclado para cambiar á lapela 11"
 
-#: src/org.mate.terminal.gschema.xml.in:461
+#: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -1272,11 +1272,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:465
+#: src/org.cafe.terminal.gschema.xml.in:465
 msgid "Keyboard shortcut to switch to tab 12"
 msgstr "Atallo de teclado para cambiar á lapela 12"
 
-#: src/org.mate.terminal.gschema.xml.in:466
+#: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -1288,11 +1288,11 @@ msgstr ""
 "cadea especial «disabled», entón non haberá ningún atallo de teclado para "
 "esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:470
+#: src/org.cafe.terminal.gschema.xml.in:470
 msgid "Keyboard shortcut to launch help"
 msgstr "Atallo de teclado para executar a axuda"
 
-#: src/org.mate.terminal.gschema.xml.in:471
+#: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
 "format used for GTK+ resource files. If you set the option to the special "
@@ -1304,11 +1304,11 @@ msgstr ""
 "coa cadea especial «disabled», entón non haberá ningún atallo de teclado "
 "para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:475
+#: src/org.cafe.terminal.gschema.xml.in:475
 msgid "Keyboard shortcut to make font larger"
 msgstr "Atallo de teclado para facer o tipo de letra máis grande"
 
-#: src/org.mate.terminal.gschema.xml.in:476
+#: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -1320,11 +1320,11 @@ msgstr ""
 "a opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:480
+#: src/org.cafe.terminal.gschema.xml.in:480
 msgid "Keyboard shortcut to make font smaller"
 msgstr "Atallo de teclado para facer o tipo de letra máis pequeno"
 
-#: src/org.mate.terminal.gschema.xml.in:481
+#: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
 "same format used for GTK+ resource files. If you set the option to the "
@@ -1336,11 +1336,11 @@ msgstr ""
 "a opción coa cadea especial «disabled», entón non haberá ningún atallo de "
 "teclado para esta acción."
 
-#: src/org.mate.terminal.gschema.xml.in:485
+#: src/org.cafe.terminal.gschema.xml.in:485
 msgid "Keyboard shortcut to make font normal-size"
 msgstr "Atallo de teclado para pór o tipo de letra no tamaño normal"
 
-#: src/org.mate.terminal.gschema.xml.in:486
+#: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
 " in the same format used for GTK+ resource files. If you set the option to "
@@ -1519,7 +1519,7 @@ msgstr "Substituír o título inicial"
 #. Translators: When terminal commands set their own titles: ...
 #: src/profile-preferences.ui:86 src/extra-strings.c:65
 msgid "Append initial title"
-msgstr "Engadir un título inicial ao remate"
+msgstr "Engadir un título inicial ao recafe"
 
 #. Translators: When terminal commands set their own titles: ...
 #: src/profile-preferences.ui:89 src/extra-strings.c:67
@@ -2321,7 +2321,7 @@ msgstr "Configuración rexional actual"
 #: src/terminal-options.c:176
 #, c-format
 msgid ""
-"Option \"%s\" is no longer supported in this version of mate-terminal; you "
+"Option \"%s\" is no longer supported in this version of cafe-terminal; you "
 "might want to create a profile with the desired setting, and use the new '--"
 "profile' option\n"
 msgstr ""

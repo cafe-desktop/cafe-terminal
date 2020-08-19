@@ -4,15 +4,15 @@
 <interface>
   <requires lib="gtk+" version="3.14"/>
   <!-- interface-license-type gplv3 -->
-  <!-- interface-name mate-terminal -->
-  <!-- interface-description keybindings-editor of mate-terminal -->
+  <!-- interface-name cafe-terminal -->
+  <!-- interface-description keybindings-editor of cafe-terminal -->
   <!-- interface-copyright CAFE Developers -->
   <!-- interface-authors Wolfgang Ulbrich -->
   <object class="GtkDialog" id="keybindings-dialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Keyboard Shortcuts</property>
-    <property name="role">mate-terminal-accels</property>
+    <property name="role">cafe-terminal-accels</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox2">

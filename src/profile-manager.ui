@@ -4,15 +4,15 @@
 <interface>
   <requires lib="gtk+" version="3.14"/>
   <!-- interface-license-type gplv3 -->
-  <!-- interface-name mate-terminal -->
-  <!-- interface-description profile manager of mate-terminal -->
+  <!-- interface-name cafe-terminal -->
+  <!-- interface-description profile manager of cafe-terminal -->
   <!-- interface-copyright CAFE Developer -->
   <!-- interface-authors Wolfgang Ulbrich -->
   <object class="GtkDialog" id="profile-manager">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Profiles</property>
-    <property name="role">mate-terminal-profile-manager</property>
+    <property name="role">cafe-terminal-profile-manager</property>
     <property name="default_width">400</property>
     <property name="default_height">300</property>
     <property name="type_hint">dialog</property>

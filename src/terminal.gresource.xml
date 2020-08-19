@@ -16,7 +16,7 @@
     along with CAFE Terminal.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <gresources>
-  <gresource prefix="/org/mate/terminal/ui">
+  <gresource prefix="/org/cafe/terminal/ui">
     <file compressed="true" preprocess="xml-stripblanks">encodings-dialog.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">find-dialog.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">keybinding-editor.ui</file>

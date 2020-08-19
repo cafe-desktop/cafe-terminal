@@ -5,9 +5,9 @@ m4_define(mt_version, mt_major_version.mt_minor_version.mt_micro_version)
 
 m4_define(mt_api_version, 0)
 
-AC_INIT([mate-terminal],[mt_version],
-        [https://github.com/mate-desktop/mate-terminal/issues],
-        [mate-terminal], [https://mate-desktop.org])
+AC_INIT([cafe-terminal],[mt_version],
+        [https://github.com/cafe-desktop/cafe-terminal/issues],
+        [cafe-terminal], [https://cafe-desktop.org])
 AC_CONFIG_SRCDIR([src/terminal.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -119,15 +119,15 @@ AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
 
-GETTEXT_PACKAGE=mate-terminal
+GETTEXT_PACKAGE=cafe-terminal
 AC_SUBST([GETTEXT_PACKAGE])
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],["$GETTEXT_PACKAGE"],[Gettext package])
 
 AC_CONFIG_FILES([
 Makefile
-mate-terminal.desktop.in
+cafe-terminal.desktop.in
 src/Makefile
-src/org.mate.terminal.gschema.xml
+src/org.cafe.terminal.gschema.xml
 src/terminal-version.h
 help/Makefile
 po/Makefile.in
@@ -141,7 +141,7 @@ AC_OUTPUT
 # ****************************
 
 echo "
-	mate-terminal-$VERSION:
+	cafe-terminal-$VERSION:
 
 	prefix:                 ${prefix}
 	source code location:   ${srcdir}

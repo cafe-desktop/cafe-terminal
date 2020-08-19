@@ -576,7 +576,7 @@ editor_response_cb (GtkWidget *editor,
 {
 	if (response == GTK_RESPONSE_HELP)
 	{
-		terminal_util_show_help ("mate-terminal-prefs", GTK_WINDOW (editor));
+		terminal_util_show_help ("cafe-terminal-prefs", GTK_WINDOW (editor));
 		return;
 	}
 

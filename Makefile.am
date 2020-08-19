@@ -11,32 +11,32 @@ DISTCHECK_CONFIGURE_FLAGS = \
 	CFLAGS='-Wno-deprecated-declarations'
 
 appdatadir = $(datadir)/metainfo
-appdata_in_files = mate-terminal.appdata.xml.in
+appdata_in_files = cafe-terminal.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 $(appdata_DATA): $(appdata_in_files)
 	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications
-desktop_in_files = mate-terminal.desktop.in.in
+desktop_in_files = cafe-terminal.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 $(desktop_DATA): $(desktop_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
-man_MANS = mate-terminal.1
+man_MANS = cafe-terminal.1
 
-bin_SCRIPTS = mate-terminal.wrapper
+bin_SCRIPTS = cafe-terminal.wrapper
 
 EXTRA_DIST = 			\
 	autogen.sh		\
 	xmldocs.make		\
 	omf.make		\
-	mate-terminal.wrapper   \
+	cafe-terminal.wrapper   \
 	$(appdata_in_files)	\
 	$(man_MANS)		\
 	$(NULL)
 
 CLEANFILES = \
-	mate-terminal.appdata.xml \
+	cafe-terminal.appdata.xml \
 	$(desktop_DATA)	\
 	$(NULL)
 

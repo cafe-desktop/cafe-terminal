@@ -1,16 +1,16 @@
 [main]
 host = https://www.transifex.com
  
-[CAFE.1-24--mate-terminal]
+[CAFE.1-24--cafe-terminal]
 file_filter = po/<lang>.po
-source_file = mate-terminal.pot
+source_file = cafe-terminal.pot
 source_lang = en
 type = PO
 minimum_perc = 2
 
-[CAFE.1-24--mate-terminal-user-guide]
+[CAFE.1-24--cafe-terminal-user-guide]
 file_filter = help/<lang>/<lang>.po
-source_file = help/mate-terminal.pot
+source_file = help/cafe-terminal.pot
 source_lang = en
 type = PO
 minimum_perc = 2

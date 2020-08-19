@@ -200,7 +200,7 @@
   </indexterm> 
   
   <!-- ============= Introduction ============================== -->
-  <section xml:id="mate-terminal-introduction"><info><title>Introduction</title></info> 
+  <section xml:id="cafe-terminal-introduction"><info><title>Introduction</title></info> 
      <para>
         <application>CAFE Terminal</application> is a terminal emulation application that you can use to perform the following tasks: 
      </para>
@@ -226,12 +226,12 @@
 
   <!--=========== Getting Started ============================== -->
   
-  <section xml:id="mate-terminal-get-started"><info><title>Getting Started</title></info> 
+  <section xml:id="cafe-terminal-get-started"><info><title>Getting Started</title></info> 
      <para>
         The following sections describe how to start <application>CAFE Terminal</application>. 
      </para>
 
-     <section xml:id="mate-terminal-to-start"><info><title>Starting CAFE Terminal</title></info> 
+     <section xml:id="cafe-terminal-to-start"><info><title>Starting CAFE Terminal</title></info> 
         <para>
           You can start <application>CAFE Terminal</application> in the following ways: 
         </para>
@@ -247,25 +247,25 @@
              <term>Command line</term> 
              <listitem> 
                 <para>
-                  Execute the following command: <command>mate-terminal</command>
+                  Execute the following command: <command>cafe-terminal</command>
                 </para>
                 <para>
-                  You can use command line options to modify the way in which you run <application>CAFE Terminal</application>. To view the command line options, execute the following command: <command>mate-terminal --help</command>
+                  You can use command line options to modify the way in which you run <application>CAFE Terminal</application>. To view the command line options, execute the following command: <command>cafe-terminal --help</command>
                 </para>
              </listitem> 
           </varlistentry> 
         </variablelist> 
      </section> 
 
-     <section xml:id="mate-terminal-first-start"><info><title>When You First Start CAFE Terminal</title></info> 
+     <section xml:id="cafe-terminal-first-start"><info><title>When You First Start CAFE Terminal</title></info> 
         <para>
           When you start <application>CAFE Terminal</application> for the first time, the application opens a terminal window with a group of default settings. The group of default settings is called the Default profile.  </para>
-        <figure xml:id="mate-terminal_default"><info><title>Example of a Default CAFE Terminal Window</title></info> 
+        <figure xml:id="cafe-terminal_default"><info><title>Example of a Default CAFE Terminal Window</title></info> 
           <screenshot>
              <info><abstract><para>CAFE Terminal default window</para></abstract></info>
              <mediaobject>
                 <imageobject>
-                  <imagedata fileref="figures/mate-terminal-default.png" format="PNG"/> 
+                  <imagedata fileref="figures/cafe-terminal-default.png" format="PNG"/> 
                 </imageobject> 
                 <textobject> 
                   <phrase>CAFE Terminal default window</phrase> 
@@ -301,30 +301,30 @@
         </variablelist> 
      </section> 
 
-     <section xml:id="mate-terminal-profiles"><info><title>Terminal Profiles</title></info> 
+     <section xml:id="cafe-terminal-profiles"><info><title>Terminal Profiles</title></info> 
         <para>
           You can create a new profile, and apply the new profile to the terminal to modify characteristics such as font, color and effects, scroll behavior, window title, and compatibility. You can also specify a command that runs automatically when you start <application>CAFE Terminal</application> in the profile. </para>
           <para>You define each terminal profile in the <guilabel>Profiles</guilabel> dialog, which you access from the <guimenu>Edit</guimenu> menu. You can define as many different profiles as you require. When you start a terminal, you can choose the profile that you want to use for the terminal. Alternatively, you can change the terminal profile while you use the terminal. To specify an initial profile for a terminal when you start the application from a command line, use the following command: </para>
         <para>
-          <command>mate-terminal --window-with-profile=<replaceable>profilename</replaceable></command> 
+          <command>cafe-terminal --window-with-profile=<replaceable>profilename</replaceable></command> 
         </para>
         <para>
           The name of the current profile appears in the titlebar of the <application>CAFE Terminal</application>, unless you specify a different titlebar name in the <guilabel>Editing Profile</guilabel> dialog.  </para>
         <para>
-          See <xref linkend="mate-terminal-manage-profiles"/> for information about how to define and use a new terminal profile.  </para>
+          See <xref linkend="cafe-terminal-manage-profiles"/> for information about how to define and use a new terminal profile.  </para>
      </section> 
 
-     <section xml:id="mate-terminal-more-windows"><info><title>Working With Multiple Terminals</title></info> 
+     <section xml:id="cafe-terminal-more-windows"><info><title>Working With Multiple Terminals</title></info> 
         <para>
           <application>CAFE Terminal</application> provides a tab feature that enables you to open several terminals in a single window. Each terminal opens in a separate tab. Click on the appropriate tab to display the terminal in the window. Each tabbed terminal in a window is a separate subprocess, so you can use each terminal for different tasks. You can apply a different profile to each tabbed terminal in the window.  </para>
        <para>
-          The titlebar of the terminal window shows either the name of the current profile, or the name specified by the current profile. <xref linkend="mate-terminal-tabbed"/> shows a <application>CAFE Terminal</application> window with four tabs. In this case, each of the four tabs has a different profile. The name of the profile in the active tab, Profile 1, appears in the titlebar.  </para>
-        <figure xml:id="mate-terminal-tabbed"><info><title>Example of a Terminal Window With Tabs</title></info> 
+          The titlebar of the terminal window shows either the name of the current profile, or the name specified by the current profile. <xref linkend="cafe-terminal-tabbed"/> shows a <application>CAFE Terminal</application> window with four tabs. In this case, each of the four tabs has a different profile. The name of the profile in the active tab, Profile 1, appears in the titlebar.  </para>
+        <figure xml:id="cafe-terminal-tabbed"><info><title>Example of a Terminal Window With Tabs</title></info> 
           <screenshot> 
              <info><abstract><para>CAFE Terminal default window</para></abstract></info> 
              <mediaobject> 
                 <imageobject>
-                  <imagedata fileref="figures/mate-terminal-tabbed.png" format="PNG"/> 
+                  <imagedata fileref="figures/cafe-terminal-tabbed.png" format="PNG"/> 
                 </imageobject> 
                 <textobject> 
                   <phrase>CAFE Terminal window with four tabs</phrase>
@@ -333,7 +333,7 @@
           </screenshot> 
         </figure> 
         <para>
-          See <xref linkend="mate-terminal-windows"/> for information about how to open a new tabbed terminal. 
+          See <xref linkend="cafe-terminal-windows"/> for information about how to open a new tabbed terminal. 
         </para>
      </section> 
 
@@ -341,9 +341,9 @@
   
   <!--=========== Usage ============================== -->  
 
-  <section xml:id="mate-terminal-usage"><info><title>Usage</title></info> 
+  <section xml:id="cafe-terminal-usage"><info><title>Usage</title></info> 
 
-     <section xml:id="mate-terminal-windows"><info><title>Opening and Closing Terminals</title></info> 
+     <section xml:id="cafe-terminal-windows"><info><title>Opening and Closing Terminals</title></info> 
         <variablelist> 
           <varlistentry> 
              <term>To open a new terminal window:</term> 
@@ -402,7 +402,7 @@
         </variablelist> 
      </section> 
 
-     <section xml:id="mate-terminal-manage-profiles"><info><title>Managing Profiles</title></info> 
+     <section xml:id="cafe-terminal-manage-profiles"><info><title>Managing Profiles</title></info> 
         <variablelist> 
           <varlistentry> 
              <term>To add a new profile:</term> 
@@ -466,7 +466,7 @@
                   </listitem> 
                   <listitem> 
                      <para>
-                        Choose <menuchoice><guimenu>Edit</guimenu><guisubmenu>Profiles</guisubmenu></menuchoice>, select the profile you want to edit, then click <guibutton>Edit</guibutton>. For information on the options you can set for profiles, see <xref linkend="mate-terminal-prefs"/>.</para>
+                        Choose <menuchoice><guimenu>Edit</guimenu><guisubmenu>Profiles</guisubmenu></menuchoice>, select the profile you want to edit, then click <guibutton>Edit</guibutton>. For information on the options you can set for profiles, see <xref linkend="cafe-terminal-prefs"/>.</para>
                   </listitem> 
                 </itemizedlist> 
              </listitem> 
@@ -499,7 +499,7 @@
         </variablelist> 
      </section> 
 
-     <section xml:id="mate-terminal-tabs"><info><title>Modifying a Terminal Window</title></info> 
+     <section xml:id="cafe-terminal-tabs"><info><title>Modifying a Terminal Window</title></info> 
         <variablelist> 
           <varlistentry> 
              <term>To hide the menubar:</term> 
@@ -524,13 +524,13 @@
              <term>To change the appearance of the terminal window:</term> 
              <listitem> 
                 <para>
-                  See <xref linkend="mate-terminal-prefs"/> for information about the options that you can choose in the <guilabel>Editing Profile</guilabel> dialog to change the appearance of the terminal window. For example, you can change the background color, or the location of the scrollbar.  </para>
+                  See <xref linkend="cafe-terminal-prefs"/> for information about the options that you can choose in the <guilabel>Editing Profile</guilabel> dialog to change the appearance of the terminal window. For example, you can change the background color, or the location of the scrollbar.  </para>
              </listitem> 
           </varlistentry> 
         </variablelist> 
      </section>
 
-     <section xml:id="mate-terminal-contents"><info><title>Working with the Contents of Terminal Windows</title></info> 
+     <section xml:id="cafe-terminal-contents"><info><title>Working with the Contents of Terminal Windows</title></info> 
         <variablelist> 
           <varlistentry> 
              <term>To scroll through previous commands and output:</term> 
@@ -624,7 +624,7 @@
         </variablelist> 
      </section> 
      
-     <section xml:id="mate-terminal-shortcuts"><info><title>Viewing the Keyboard Shortcut Settings</title></info> 
+     <section xml:id="cafe-terminal-shortcuts"><info><title>Viewing the Keyboard Shortcut Settings</title></info> 
         <para>
           To view the keyboard shortcut settings that are defined for <application>CAFE Terminal</application>, choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Keyboard Shortcuts</guimenuitem></menuchoice>. The <guilabel>Keyboard Shortcuts</guilabel> dialog contains the following items: </para>
         <variablelist> 
@@ -653,7 +653,7 @@
         </variablelist> 
      </section>
      
-	<section xml:id="mate-terminal-resize"><info><title>Text Size</title></info>
+	<section xml:id="cafe-terminal-resize"><info><title>Text Size</title></info>
 		<para>You can use the following methods to resize the text in the CAFE Terminal window:</para>
 		<itemizedlist>
 			<listitem><para>To increase the size of the text, choose <menuchoice><guimenu>View</guimenu><guimenuitem>Zoom In</guimenuitem></menuchoice>.</para>
@@ -665,7 +665,7 @@
 		</itemizedlist>
 	</section>	
 
-     <section xml:id="mate-terminal-title"><info><title>To Change the Terminal Title</title></info> 
+     <section xml:id="cafe-terminal-title"><info><title>To Change the Terminal Title</title></info> 
         <para>
           To change the title of the currently displayed terminal, perform the following steps:</para>
         <orderedlist inheritnum="ignore" continuation="restarts">
@@ -681,12 +681,12 @@
         </orderedlist>
 	</section>	
 
-     <section xml:id="mate-terminal-encoding"><info><title>To Change the Character Encoding</title></info> 
+     <section xml:id="cafe-terminal-encoding"><info><title>To Change the Character Encoding</title></info> 
         <para>
           To change the character encoding, choose <menuchoice><guimenu>Terminal</guimenu><guisubmenu>Set Character Encoding</guisubmenu></menuchoice>, then select the appropriate encoding. 
         </para>
 
-        <section xml:id="mate-terminal-encoding-add"><info><title>To Change the List of Character Encodings</title></info> 
+        <section xml:id="cafe-terminal-encoding-add"><info><title>To Change the List of Character Encodings</title></info> 
            <para>
              To change the list of character encodings displayed in the <guisubmenu>Set Character Encoding</guisubmenu> menu, perform the following steps:
            </para>
@@ -711,7 +711,7 @@
 
      </section>	
 
-     <section xml:id="mate-terminal-reset"><info><title>To Recover Your Terminal</title></info> 
+     <section xml:id="cafe-terminal-reset"><info><title>To Recover Your Terminal</title></info> 
         <para>
           This section provides some advice if you have problems with terminals. 
         </para>
@@ -740,27 +740,27 @@
   
   <!--=========== Preferences ============================== -->  
 
-  <section xml:id="mate-terminal-prefs"><info><title>Preferences</title></info> 
+  <section xml:id="cafe-terminal-prefs"><info><title>Preferences</title></info> 
      <para>
         To configure <application>CAFE Terminal</application>, choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Current Profile</guimenuitem></menuchoice>. To configure another profile that you set up choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Profiles</guimenuitem></menuchoice>, select the profile you want to edit, then click <guibutton>Edit</guibutton>.  </para>
      <para>  
         The <guilabel>Editing Profile</guilabel> dialog contains the following tabbed sections that you can use to configure <application>CAFE Terminal</application>: </para>
      <itemizedlist> 
-		<listitem><para><xref linkend="mate-terminal-prefs-general"/></para>
+		<listitem><para><xref linkend="cafe-terminal-prefs-general"/></para>
 		</listitem>
-		<listitem><para><xref linkend="mate-terminal-prefs-title"/></para>
+		<listitem><para><xref linkend="cafe-terminal-prefs-title"/></para>
 		</listitem>
-		<listitem><para><xref linkend="mate-terminal-prefs-colors"/></para>
+		<listitem><para><xref linkend="cafe-terminal-prefs-colors"/></para>
 		</listitem>
-		<listitem><para><xref linkend="mate-terminal-prefs-effects"/></para>
+		<listitem><para><xref linkend="cafe-terminal-prefs-effects"/></para>
 		</listitem>
-		<listitem><para><xref linkend="mate-terminal-prefs-scrolling"/></para>
+		<listitem><para><xref linkend="cafe-terminal-prefs-scrolling"/></para>
 		</listitem>
-		<listitem><para><xref linkend="mate-terminal-prefs-compatibility"/></para>
+		<listitem><para><xref linkend="cafe-terminal-prefs-compatibility"/></para>
 		</listitem>
 	 </itemizedlist>
 
-     <section xml:id="mate-terminal-prefs-general"><info><title>General</title></info> 
+     <section xml:id="cafe-terminal-prefs-general"><info><title>General</title></info> 
         <variablelist> 
           <varlistentry> 
              <term> 
@@ -821,14 +821,14 @@
                 <guilabel>Select-by-word characters</guilabel> </term> 
              <listitem> 
                 <para>
-                  Use this text box to specify characters or groups of characters that <application>CAFE Terminal</application> considers to be words when you select text by word. See <xref linkend="mate-terminal-contents"/> for more information about how to select text by word. 
+                  Use this text box to specify characters or groups of characters that <application>CAFE Terminal</application> considers to be words when you select text by word. See <xref linkend="cafe-terminal-contents"/> for more information about how to select text by word. 
                 </para>
              </listitem> 
           </varlistentry> 
         </variablelist> 
      </section> 
 
-     <section xml:id="mate-terminal-prefs-title"><info><title>Title and Command</title></info> 
+     <section xml:id="cafe-terminal-prefs-title"><info><title>Title and Command</title></info> 
         <variablelist> 
           <varlistentry> 
              <term> 
@@ -888,7 +888,7 @@
         </variablelist> 
      </section> 
 
-     <section xml:id="mate-terminal-prefs-colors"><info><title>Colours</title></info> 
+     <section xml:id="cafe-terminal-prefs-colors"><info><title>Colours</title></info> 
         <variablelist> 
           <varlistentry> 
              <term> 
@@ -896,7 +896,7 @@
                 </term> 
              <listitem> 
                 <para>
-                  Select the <guilabel>Use colours from system theme</guilabel> option to use the colors that are specified in the CAFE Desktop theme that is selected in the <guilabel>Theme</guilabel> tab of the <link xlink:href="help:mate-user-guide/prefs-theme"><application>Appearance</application> preference tool</link>.
+                  Select the <guilabel>Use colours from system theme</guilabel> option to use the colors that are specified in the CAFE Desktop theme that is selected in the <guilabel>Theme</guilabel> tab of the <link xlink:href="help:cafe-user-guide/prefs-theme"><application>Appearance</application> preference tool</link>.
                 </para>
                 <para>
                   Use the <guilabel>Built-in schemes</guilabel> drop-down list to specify the foreground and background colors for the terminal. <application>CAFE Terminal</application> supports the following foreground and background color combinations: 
@@ -961,7 +961,7 @@
         </variablelist> 
      </section>
 
-     <section xml:id="mate-terminal-prefs-effects"><info><title>Effects</title></info> 
+     <section xml:id="cafe-terminal-prefs-effects"><info><title>Effects</title></info> 
         <variablelist> 
           <varlistentry> 
              <term> 
@@ -1012,7 +1012,7 @@
         </variablelist> 
      </section> 
      
-     <section xml:id="mate-terminal-prefs-scrolling"><info><title>Scrolling</title></info>
+     <section xml:id="cafe-terminal-prefs-scrolling"><info><title>Scrolling</title></info>
         <variablelist>
           <varlistentry> 
              <term> 
@@ -1053,7 +1053,7 @@
         </variablelist>
      </section>
      
-     <section xml:id="mate-terminal-prefs-compatibility"><info><title>Compatibility</title></info>
+     <section xml:id="cafe-terminal-prefs-compatibility"><info><title>Compatibility</title></info>
         <variablelist> 
           <varlistentry> 
              <term> 

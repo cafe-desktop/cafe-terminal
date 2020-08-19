@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2014 CAFE team <mate-dev@ml.mate-desktop.org> -->
+<!-- Copyright 2014 CAFE team <cafe-dev@ml.cafe-desktop.org> -->
 <component type="desktop">
- <id>mate-terminal.desktop</id>
+ <id>cafe-terminal.desktop</id>
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-3.0+</project_license>
  <name>CAFE Terminal</name>
@@ -23,21 +23,21 @@
  <screenshots>
   <screenshot type="default">
    <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/mate-terminal/screens/mate-terminal_01.png
+    https://alexpl.fedorapeople.org/AppData/cafe-terminal/screens/cafe-terminal_01.png
    </image>
   </screenshot>
   <screenshot>
    <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/mate-terminal/screens/mate-terminal_02.png
+    https://alexpl.fedorapeople.org/AppData/cafe-terminal/screens/cafe-terminal_02.png
    </image>
   </screenshot>
   <screenshot>
    <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/mate-terminal/screens/mate-terminal_03.png
+    https://alexpl.fedorapeople.org/AppData/cafe-terminal/screens/cafe-terminal_03.png
    </image>
   </screenshot>
  </screenshots>
- <url type="homepage">https://mate-desktop.org</url>
- <updatecontact>mate-dev@ml.mate-desktop.org</updatecontact>
+ <url type="homepage">https://cafe-desktop.org</url>
+ <updatecontact>cafe-dev@ml.cafe-desktop.org</updatecontact>
  <project_group>CAFE</project_group>
 </component>

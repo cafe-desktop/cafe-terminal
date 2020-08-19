@@ -43,9 +43,9 @@
 #include "terminal-options.h"
 #include "terminal-util.h"
 
-#define TERMINAL_FACTORY_SERVICE_NAME_PREFIX  "org.mate.Terminal.Display"
-#define TERMINAL_FACTORY_SERVICE_PATH         "/org/mate/Terminal/Factory"
-#define TERMINAL_FACTORY_INTERFACE_NAME       "org.mate.Terminal.Factory"
+#define TERMINAL_FACTORY_SERVICE_NAME_PREFIX  "org.cafe.Terminal.Display"
+#define TERMINAL_FACTORY_SERVICE_PATH         "/org/cafe/Terminal/Factory"
+#define TERMINAL_FACTORY_INTERFACE_NAME       "org.cafe.Terminal.Factory"
 
 static char *
 ay_to_string (GVariant *variant,
@@ -223,8 +223,8 @@ bus_acquired_cb (GDBusConnection *connection,
                  gpointer user_data)
 {
 	static const char dbus_introspection_xml[] =
-	    "<node name='/org/mate/Terminal'>"
-	    "<interface name='org.mate.Terminal.Factory'>"
+	    "<node name='/org/cafe/Terminal'>"
+	    "<interface name='org.cafe.Terminal.Factory'>"
 	    "<method name='HandleArguments'>"
 	    "<arg type='ay' name='working_directory' direction='in' />"
 	    "<arg type='ay' name='display_name' direction='in' />"
@@ -407,8 +407,8 @@ name_lost_cb (GDBusConnection *connection,
 }
 
 /* Settings storage works as follows:
- *   /apps/mate-terminal/global/
- *   /apps/mate-terminal/profiles/Foo/
+ *   /apps/cafe-terminal/global/
+ *   /apps/cafe-terminal/profiles/Foo/
  *
  * It's somewhat tricky to manage the profiles/ dir since we need to track
  * the list of profiles, but GSettings doesn't have a concept of notifying that
@@ -419,7 +419,7 @@ name_lost_cb (GDBusConnection *connection,
  * The number one rule: all stored information is EITHER per-session,
  * per-profile, or set from a command line option. THERE CAN BE NO
  * OVERLAP. The UI and implementation totally break if you overlap
- * these categories. See mate-terminal 1.x for why.
+ * these categories. See cafe-terminal 1.x for why.
  *
  * Don't use this code as an example of how to use GSettings - it's hugely
  * overcomplicated due to the profiles stuff. Most apps should not

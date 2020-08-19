@@ -3,22 +3,22 @@
 ##########################################################
 requires:
   archlinux:
-    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/mate-terminal
+    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/cafe-terminal
     - autoconf-archive
     - clang
     - gcc
     - git
     - libsm
     - make
-    - mate-common
-    - mate-desktop
+    - cafe-common
+    - cafe-desktop
     - vte3
     - which
     - yelp-tools
 
   debian:
-    # Useful URL: https://github.com/mate-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-mate-team/mate-terminal
+    # Useful URL: https://github.com/cafe-desktop/debian-packages
+    # Useful URL: https://salsa.debian.org/debian-cafe-team/cafe-terminal
     - autoconf-archive
     - autopoint
     - clang
@@ -33,11 +33,11 @@ requires:
     - libvte-2.91-dev
     - libx11-dev
     - make
-    - mate-common
+    - cafe-common
     - yelp-tools
 
   fedora:
-    # Useful URL: https://src.fedoraproject.org/cgit/rpms/mate-terminal.git
+    # Useful URL: https://src.fedoraproject.org/cgit/rpms/cafe-terminal.git
     - autoconf-archive
     - clang
     - clang-analyzer
@@ -48,7 +48,7 @@ requires:
     - gtk3-devel
     - libSM-devel
     - make
-    - mate-common
+    - cafe-common
     - redhat-rpm-config
     - vte291-devel
 
@@ -66,7 +66,7 @@ requires:
     - libvte-2.91-dev
     - libx11-dev
     - make
-    - mate-common
+    - cafe-common
     - yelp-tools
 
 variables:
@@ -92,11 +92,11 @@ before_scripts:
   -     egrep -lRZ 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_BEGIN_IGNORE_DEPRECATIONS/ /g'
   -     egrep -lRZ 'G_GNUC_END_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_END_IGNORE_DEPRECATIONS/ /g'
   - fi
-  # Install mate-common from tarball
+  # Install cafe-common from tarball
   - cd ${START_DIR}
-  - '[ -f mate-common-1.24.1.tar.xz ] || curl -Ls -o mate-common-1.24.1.tar.xz https://github.com/mate-desktop/mate-common/releases/download/v1.24.1/mate-common-1.24.1.tar.xz'
-  - tar xf mate-common-1.24.1.tar.xz
-  - cd mate-common-1.24.1
+  - '[ -f cafe-common-1.24.1.tar.xz ] || curl -Ls -o cafe-common-1.24.1.tar.xz https://github.com/cafe-desktop/cafe-common/releases/download/v1.24.1/cafe-common-1.24.1.tar.xz'
+  - tar xf cafe-common-1.24.1.tar.xz
+  - cd cafe-common-1.24.1
   - if [ ${DISTRO_NAME} == "debian" -o ${DISTRO_NAME} == "ubuntu" ];then
   -     ./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --libexecdir=/usr/lib/x86_64-linux-gnu
   - else
@@ -125,10 +125,10 @@ releases:
   prerelease: false
   checksum: true
   file_glob: true
-  files: mate-terminal-*.tar.xz
+  files: cafe-terminal-*.tar.xz
   github_release:
     tags: true
     overwrite: true
     base_version: 1.20.0
     notify_servers:
-      - https://release.mate-desktop.org/release
+      - https://release.cafe-desktop.org/release

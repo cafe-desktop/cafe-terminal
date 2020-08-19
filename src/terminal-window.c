@@ -2209,7 +2209,7 @@ terminal_window_init (TerminalWindow *window)
     GtkStyleContext *context;
 
     context = gtk_widget_get_style_context (GTK_WIDGET (window));
-    gtk_style_context_add_class (context, "mate-terminal");
+    gtk_style_context_add_class (context, "cafe-terminal");
 
     gtk_window_set_title (GTK_WINDOW (window), _("Terminal"));
 
@@ -2224,7 +2224,7 @@ terminal_window_init (TerminalWindow *window)
     gtk_notebook_set_scrollable (GTK_NOTEBOOK (priv->notebook), TRUE);
     gtk_notebook_set_show_border (GTK_NOTEBOOK (priv->notebook), FALSE);
     gtk_notebook_set_show_tabs (GTK_NOTEBOOK (priv->notebook), FALSE);
-    gtk_notebook_set_group_name (GTK_NOTEBOOK (priv->notebook), I_("mate-terminal-window"));
+    gtk_notebook_set_group_name (GTK_NOTEBOOK (priv->notebook), I_("cafe-terminal-window"));
     g_signal_connect (priv->notebook, "button-press-event",
                       G_CALLBACK (notebook_button_press_cb), settings_global);
     g_signal_connect (window, "key-press-event",
@@ -2338,7 +2338,7 @@ terminal_window_init (TerminalWindow *window)
     gtk_window_group_add_window (window_group, GTK_WINDOW (window));
     g_object_unref (window_group);
 
-    terminal_util_set_unique_role (GTK_WINDOW (window), "mate-terminal-window");
+    terminal_util_set_unique_role (GTK_WINDOW (window), "cafe-terminal-window");
 }
 
 static void
@@ -4246,7 +4246,7 @@ terminal_set_title_callback (GtkAction *action,
 
     gtk_window_set_title (GTK_WINDOW (dialog), _("Set Title"));
     gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
-    gtk_window_set_role (GTK_WINDOW (dialog), "mate-terminal-change-title");
+    gtk_window_set_role (GTK_WINDOW (dialog), "cafe-terminal-change-title");
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
     /* Alternative button order was set automatically by GtkMessageDialog */
 
@@ -4480,7 +4480,7 @@ help_about_callback (GtkAction *action,
                            "wrap-license", TRUE,
                            "translator-credits", _("translator-credits"),
                            "logo-icon-name", CAFE_TERMINAL_ICON_NAME,
-                           "website", "https://mate-desktop.org",
+                           "website", "https://cafe-desktop.org",
                            NULL);
 
     g_strfreev (array_strv);

@@ -960,7 +960,7 @@ edit_keys_dialog_response_cb (GtkWidget *editor,
 {
 	if (response == GTK_RESPONSE_HELP)
 	{
-		terminal_util_show_help ("mate-terminal-shortcuts", GTK_WINDOW (editor));
+		terminal_util_show_help ("cafe-terminal-shortcuts", GTK_WINDOW (editor));
 		return;
 	}
 
