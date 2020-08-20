@@ -9,6 +9,7 @@ requires:
     - gcc
     - git
     - libsm
+    - automake
     - make
     - vte3
     - which
