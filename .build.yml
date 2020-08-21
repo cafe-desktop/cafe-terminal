@@ -13,6 +13,7 @@ requires:
     - libtool
     - automake
     - make
+    - pkgconf
     - vte3
     - which
     - yelp-tools
