@@ -54,6 +54,8 @@ requires:
     - make
     - redhat-rpm-config
     - vte291-devel
+    - which
+    - yelp-tools
 
   ubuntu:
     - autoconf-archive
