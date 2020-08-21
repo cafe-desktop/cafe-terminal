@@ -48,8 +48,6 @@
 #define PCRE2_CODE_UNIT_WIDTH 0
 #include <pcre2.h>
 
-#define URL_MATCH_CURSOR  (GDK_HAND2)
-#define SKEY_MATCH_CURSOR (GDK_HAND2)
 
 typedef struct
 {
@@ -1016,7 +1014,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 				tag_data = g_slice_new (TagData);
 				tag_data->flavor = FLAVOR_SKEY;
 				tag_data->tag = vte_terminal_match_add_regex (vte_terminal, skey_regexes[i], 0);
-				vte_terminal_match_set_cursor_type (vte_terminal, tag_data->tag, SKEY_MATCH_CURSOR);
+				vte_terminal_match_set_cursor_name (vte_terminal, tag_data->tag, "hand2");
 
 				priv->match_tags = g_slist_prepend (priv->match_tags, tag_data);
 			}
@@ -1061,7 +1059,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 				tag_data = g_slice_new (TagData);
 				tag_data->flavor = url_regex_flavors[i];
 				tag_data->tag = vte_terminal_match_add_regex (vte_terminal, url_regexes[i], 0);
-				vte_terminal_match_set_cursor_type (vte_terminal, tag_data->tag, URL_MATCH_CURSOR);
+				vte_terminal_match_set_cursor_name (vte_terminal, tag_data->tag, "hand2");
 
 				priv->match_tags = g_slist_prepend (priv->match_tags, tag_data);
 			}
