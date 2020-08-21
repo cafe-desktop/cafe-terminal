@@ -45,6 +45,7 @@ requires:
     - clang-analyzer
     - gcc
     - gettext
+    - gettext-devel
     - dconf-devel
     - desktop-file-utils
     - git
