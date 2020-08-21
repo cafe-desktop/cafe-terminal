@@ -100,7 +100,7 @@ msgid ""
 "List of profiles known to cafe-terminal. The list contains strings naming "
 "subdirectories relative to /org/cafe/terminal/profiles."
 msgstr ""
-"Mate-terminali profiilide nimekiri, mis koosneeb kataloogi "
+"Cafe-terminali profiilide nimekiri, mis koosneeb kataloogi "
 "/org/cafe/terminal/profiles all olevate alamkataloogide nimedega "
 "stringidest."
 

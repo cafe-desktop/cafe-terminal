@@ -2185,7 +2185,7 @@ msgstr "ZOOM"
 
 #: src/terminal-options.c:1365 src/terminal-options.c:1368
 msgid "CAFE Terminal Emulator"
-msgstr "Mate терминал эмуляторы"
+msgstr "Cafe терминал эмуляторы"
 
 #: src/terminal-options.c:1369
 msgid "Show CAFE Terminal options"

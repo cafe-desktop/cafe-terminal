@@ -2,7 +2,7 @@
  * Copyright (C) 2007 Novell, Inc.
  *
  * Inspired by various other pieces of code including GsmClient (C)
- * 2001 Havoc Pennington, MateClient (C) 1998 Carsten Schaar, and twm
+ * 2001 Havoc Pennington, CafeClient (C) 1998 Carsten Schaar, and twm
  * session code (C) 1998 The Open Group.
  *
  * This library is free software; you can redistribute it and/or
@@ -1282,7 +1282,7 @@ card8_prop (const char *name, unsigned char value)
  * libICE.)
  *
  * When this moves to gtk, it will need to be cleverer, to avoid
- * tripping over old apps that use MateClient or that use libSM
+ * tripping over old apps that use CafeClient or that use libSM
  * directly.
  */
 

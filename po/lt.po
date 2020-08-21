@@ -109,7 +109,7 @@ msgid ""
 "List of profiles known to cafe-terminal. The list contains strings naming "
 "subdirectories relative to /org/cafe/terminal/profiles."
 msgstr ""
-"Mate-terminalui žinomų profilių sąrašas. Sąraše saugomos sekos, "
+"Cafe-terminalui žinomų profilių sąrašas. Sąraše saugomos sekos, "
 "atitinkančios /org/cafe/terminal/profiles pakatalogius."
 
 #: src/org.cafe.terminal.gschema.xml.in:54

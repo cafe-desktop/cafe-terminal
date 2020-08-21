@@ -71,7 +71,7 @@
 
 
 ========== be@latin.po ==========
-# Biełaruski pierakład Mate.
+# Biełaruski pierakład Cafe.
 # Copyright (C) 2007 cafe.org
 # This file is distributed under the same license as the cafe-terminal package.
 # Ihar Hrachyshka <iharh@gnome.org>, 2007.
@@ -97,7 +97,7 @@
 
 
 ========== bn.po ==========
-# Bengali Translation of Mate-Terminal.
+# Bengali Translation of Cafe-Terminal.
 # Copyright (C)2003 Free Software Foundation,Inc
 # This file is distributed under the same license as the cafe-terminal package.
 #
@@ -116,7 +116,7 @@
 
 ========== bn_IN.po ==========
 # translation of bn_IN.po to Bengali INDIA
-# Bengali India Translation of Mate-Terminal.
+# Bengali India Translation of Cafe-Terminal.
 # Copyright (C)2003 Free Software Foundation,Inc
 # This file is distributed under the same license as the cafe-terminal package.
 #
@@ -259,9 +259,9 @@
 # Greek translation of profterm.
 # Copyright (C) 2002, 2003 Free Software Foundation.
 #
-# kostas: 64 messages, updated the translation for Mate 2.1x
+# kostas: 64 messages, updated the translation for Cafe 2.1x
 # kostas: 23Aug2003, one more update
-# kostas: 29Oct2003, update for Mate 2.6
+# kostas: 29Oct2003, update for Cafe 2.6
 # kostas: 12Nov2003,fixes
 # Nikos: 15Jul2004, update
 # Nikos:  1Aug2004, update
@@ -270,7 +270,7 @@
 # kostas: 345 messages, 04Nov2002, completed translation.
 # simos: 345 messages, 05Nov2002, full review of translation.
 # kostas: 414 messages, 07Jan2003, updated translation.
-# kostas: 506 messages, 19Jun2003, updated translation for Mate 2.4.
+# kostas: 506 messages, 19Jun2003, updated translation for Cafe 2.4.
 # Simos Xenitellis <simos@hellug.gr>, 2002.
 # Kostas Papadimas <pkst@gmx.net>, 2002,2003.
 # Nikos Charonitakis  <charosn@her.forthnet.gr>, 2004, 2005.
@@ -283,7 +283,7 @@
 
 ========== en@shaw.po ==========
 # Shavian translation for cafe-terminal.
-# Copyright (C) 2009-2010 The Mate Foundation.
+# Copyright (C) 2009-2010 The Cafe Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2010.
 
 
@@ -516,7 +516,7 @@
 # Andras Timar <timar at cafe dot hu>, 2002, 2003.
 # Laszlo Dvornik <dvornik at cafe dot hu>, 2004.
 # Gabor Kelemen <kelemeng at cafe dot hu>, 2004, 2005, 2006, 2007, 2008, 2009.
-# Mate ORY <orycafe at gmail d0t com>, 2006, 2008.
+# Cafe ORY <orycafe at gmail d0t com>, 2006, 2008.
 # Gabor Kelemen <kelemeng at cafe dot hu>, 2009, 2010.
 
 
@@ -571,7 +571,7 @@
 
 
 ========== ka.po ==========
-# Georgian translation for Mate Terminal.
+# Georgian translation for Cafe Terminal.
 # Copyright © 2006 Ubuntu Georgian Translators.
 # Alexander Didebulidze<didebuli@in.tum.de>, 2006.
 # Vladimer SIchinava <alinux@siena.linux.it>, 2006.
@@ -969,7 +969,7 @@
 #
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2002.
 # Matjaž Horvat <m@owca.info>, 2006.
-# Matej Urbančič <cafeju@svn.cafe.org>, 2007 - 2010.
+# Cafej Urbančič <cafeju@svn.cafe.org>, 2007 - 2010.
 #
 
 
@@ -1027,9 +1027,9 @@
 ========== ta.po ==========
 # translation of cafe-terminal.master.ta.po to Tamil
 # translation of cafe-terminal.HEAD.ta.po to
-# Tamil translation of Mate Terminal.
-# Copyright (C) 2003 Mate Terminal's copyright holder
-# This file is distributed under the same license as the Mate Terminal package.
+# Tamil translation of Cafe Terminal.
+# Copyright (C) 2003 Cafe Terminal's copyright holder
+# This file is distributed under the same license as the Cafe Terminal package.
 #
 # Dinesh Nadarajah <n_dinesh@yahoo.com>, 2003.
 # Jayaradha N <jaya@pune.redhat.com>, 2004.
@@ -1110,7 +1110,7 @@
 ========== wa.po ==========
 # Traduction into the walloon language.
 #
-# Si vos voloz donner on côp di spale pol ratournaedje di Mate (ou des
+# Si vos voloz donner on côp di spale pol ratournaedje di Cafe (ou des
 # ôtes libes programes) sicrijhoz mu a l' adresse emile
 # <pablo@walon.org>; nos avons co bråmint di l' ovraedje a fé.
 #

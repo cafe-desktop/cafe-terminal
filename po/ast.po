@@ -30,7 +30,7 @@ msgstr "Terminal CAFE"
 
 #: cafe-terminal.appdata.xml.in:8
 msgid "A terminal emulator for the CAFE desktop environment"
-msgstr "Un emulador de terminal pal escritoriu Mate"
+msgstr "Un emulador de terminal pal escritoriu Cafe"
 
 #: cafe-terminal.appdata.xml.in:10
 msgid ""
@@ -99,7 +99,7 @@ msgid ""
 "List of profiles known to cafe-terminal. The list contains strings naming "
 "subdirectories relative to /org/cafe/terminal/profiles."
 msgstr ""
-"Llista de perfiles conocíos pola terminal de Mate. La llista contién cadenes"
+"Llista de perfiles conocíos pola terminal de Cafe. La llista contién cadenes"
 " de los nomes de subdirectorios rellatives a /org/cafe/terminal/profiles."
 
 #: src/org.cafe.terminal.gschema.xml.in:54
@@ -2901,7 +2901,7 @@ msgstr ""
 
 #: src/terminal-window.c:4475
 msgid "A terminal emulator for the CAFE desktop"
-msgstr "Un emulador de terminal pal escritoriu Mate"
+msgstr "Un emulador de terminal pal escritoriu Cafe"
 
 #: src/terminal-window.c:4481
 msgid "translator-credits"

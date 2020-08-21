@@ -2775,7 +2775,7 @@ msgstr ""
 
 #: src/terminal-window.c:4475
 msgid "A terminal emulator for the CAFE desktop"
-msgstr "Một bộ mô phỏng thiết bị cuối cho môi trường Mate"
+msgstr "Một bộ mô phỏng thiết bị cuối cho môi trường Cafe"
 
 #: src/terminal-window.c:4481
 msgid "translator-credits"

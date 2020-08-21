@@ -2755,7 +2755,7 @@ msgstr ""
 
 #: src/terminal-window.c:4475
 msgid "A terminal emulator for the CAFE desktop"
-msgstr "On terminå pol sicribanne Mate"
+msgstr "On terminå pol sicribanne Cafe"
 
 #: src/terminal-window.c:4481
 msgid "translator-credits"
