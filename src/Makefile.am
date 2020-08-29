@@ -16,6 +16,8 @@ BUILT_SOURCES = \
 	$(NULL)
 
 cafe_terminal_SOURCES= \
+	cafevaluearray.c \
+	cafevaluearray.h \
 	eggshell.c \
 	eggshell.h \
 	profile-editor.c \

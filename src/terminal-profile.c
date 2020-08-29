@@ -31,6 +31,8 @@
 #include "terminal-screen.h"
 #include "terminal-type-builtins.h"
 
+#include "cafevaluearray.h"
+
 /* To add a new key, you need to:
  *
  *  - add an entry to the enum below
@@ -170,7 +172,7 @@ enum
 
 struct _TerminalProfilePrivate
 {
-	GValueArray *properties;
+	CafeValueArray *properties;
 	gboolean *locked;
 
 	GSettings *settings;
@@ -367,7 +369,7 @@ get_prop_value_from_prop_name (TerminalProfile *profile,
 	if (G_UNLIKELY (pspec->param_id == PROP_BACKGROUND_IMAGE))
 		ensure_pixbuf_property (profile, PROP_BACKGROUND_IMAGE_FILE, PROP_BACKGROUND_IMAGE, &priv->background_load_failed);
 
-	return g_value_array_get_nth (priv->properties, pspec->param_id);
+	return cafe_value_array_index (priv->properties, pspec->param_id);
 }
 
 static void
@@ -375,17 +377,17 @@ set_value_from_palette (GValue *ret_value,
                         const GdkRGBA *colors,
                         guint n_colors)
 {
-	GValueArray *array;
+	CafeValueArray *array;
 	guint i, max_n_colors;
 
 	max_n_colors = MAX (n_colors, TERMINAL_PALETTE_SIZE);
-	array = g_value_array_new (max_n_colors);
+	array = cafe_value_array_new (max_n_colors);
 	for (i = 0; i < max_n_colors; ++i)
-		g_value_array_append (array, NULL);
+		cafe_value_array_append (array, NULL);
 
 	for (i = 0; i < n_colors; ++i)
 	{
-		GValue *value = g_value_array_get_nth (array, i);
+		GValue *value = cafe_value_array_index (array, i);
 
 		g_value_init (value, GDK_TYPE_RGBA);
 		g_value_set_boxed (value, &colors[i]);
@@ -394,7 +396,7 @@ set_value_from_palette (GValue *ret_value,
 	/* If we haven't enough colours yet, fill up with the default palette */
 	for (i = n_colors; i < TERMINAL_PALETTE_SIZE; ++i)
 	{
-		GValue *value = g_value_array_get_nth (array, i);
+		GValue *value = cafe_value_array_index (array, i);
 
 		g_value_init (value, GDK_TYPE_RGBA);
 		g_value_set_boxed (value, &DEFAULT_PALETTE[i]);
@@ -425,21 +427,21 @@ values_equal (GParamSpec *pspec,
 	if (G_PARAM_SPEC_VALUE_TYPE (pspec) == PANGO_TYPE_FONT_DESCRIPTION)
 		return pango_font_description_equal (g_value_get_boxed (va), g_value_get_boxed (vb));
 
-	if (G_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
-	        G_PARAM_SPEC_VALUE_TYPE (G_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
+	if (CAFE_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
+	        G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
 	{
-		GValueArray *ara, *arb;
+		CafeValueArray *ara, *arb;
 		guint i;
 
 		ara = g_value_get_boxed (va);
 		arb = g_value_get_boxed (vb);
 
-		if (!ara || !arb || ara->n_values != arb->n_values)
+		if (!ara || !arb || cafe_value_array_length (ara) != cafe_value_array_length (arb))
 			return FALSE;
 
-		for (i = 0; i < ara->n_values; ++i)
-			if (!rgba_equal (g_value_get_boxed (g_value_array_get_nth (ara, i)),
-			                      g_value_get_boxed (g_value_array_get_nth (arb, i))))
+		for (i = 0; i < cafe_value_array_length (ara); ++i)
+			if (!rgba_equal (g_value_get_boxed (cafe_value_array_index (ara, i)),
+			                      g_value_get_boxed (cafe_value_array_index (arb, i))))
 				return FALSE;
 
 		return TRUE;
@@ -461,7 +463,7 @@ ensure_pixbuf_property (TerminalProfile *profile,
 	char *path;
 	GError *error = NULL;
 
-	pixbuf_value = g_value_array_get_nth (priv->properties, pixbuf_prop_id);
+	pixbuf_value = cafe_value_array_index (priv->properties, pixbuf_prop_id);
 
 	pixbuf = g_value_get_object (pixbuf_value);
 	if (pixbuf)
@@ -470,7 +472,7 @@ ensure_pixbuf_property (TerminalProfile *profile,
 	if (*load_failed)
 		return;
 
-	path_value = g_value_array_get_nth (priv->properties, path_prop_id);
+	path_value = cafe_value_array_index (priv->properties, path_prop_id);
 	path_utf8 = g_value_get_string (path_value);
 	if (!path_utf8 || !path_utf8[0])
 		goto failed;
@@ -514,7 +516,7 @@ terminal_profile_reset_property_internal (TerminalProfile *profile,
 		g_value_init (value, G_PARAM_SPEC_VALUE_TYPE (pspec));
 	}
 	else
-		value = g_value_array_get_nth (priv->properties, pspec->param_id);
+		value = cafe_value_array_index (priv->properties, pspec->param_id);
 	g_assert (value != NULL);
 
 	/* A few properties don't have defaults via the param spec; set them explicitly */
@@ -640,8 +642,8 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 
 		g_value_set_int (&value, g_settings_get_int(settings, key));
 	}
-	else if (G_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
-	         G_PARAM_SPEC_VALUE_TYPE (G_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
+	else if (CAFE_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
+	         G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
 	{
 		char **color_strings;
 		GdkRGBA *colors;
@@ -688,7 +690,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 	/* Only set the property if the value is different than our current value,
 	 * so we don't go into an infinite loop.
 	 */
-	equal = values_equal (pspec, &value, g_value_array_get_nth (priv->properties, pspec->param_id));
+	equal = values_equal (pspec, &value, cafe_value_array_index (priv->properties, pspec->param_id));
 #ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_PROFILE)
 	{
@@ -698,7 +700,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 			                       "  now: %s\n"
 			                       "  new: %s\n",
 			                       pspec->name,
-			                       g_strdup_value_contents (g_value_array_get_nth (priv->properties, pspec->param_id)),
+			                       g_strdup_value_contents (cafe_value_array_index (priv->properties, pspec->param_id)),
 			                       g_strdup_value_contents (&value));
 	}
 #endif
@@ -741,7 +743,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 	if (!key)
 		return;
 
-	value = g_value_array_get_nth (priv->properties, pspec->param_id);
+	value = cafe_value_array_index (priv->properties, pspec->param_id);
 
 	_terminal_debug_print (TERMINAL_DEBUG_PROFILE,
 	                       "Adding pspec %s with value %s to the GSettings changeset\n",
@@ -798,10 +800,10 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 		g_settings_set_double (changeset, key, g_value_get_double (value));
 	else if (G_IS_PARAM_SPEC_INT (pspec))
 		g_settings_set_int (changeset, key, g_value_get_int (value));
-	else if (G_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
-	         G_PARAM_SPEC_VALUE_TYPE (G_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
+	else if (CAFE_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
+	         G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
 	{
-		GValueArray *array;
+		CafeValueArray *array;
 		GString *string;
 		guint n_colors, i;
 
@@ -813,7 +815,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 		if (!array)
 			goto cleanup;
 
-		n_colors = array->n_values;
+		n_colors = cafe_value_array_length (array);
 		string = g_string_sized_new (n_colors * (1 /* # */ + 3 * 4) + n_colors /* : separators and terminating \0 */);
 		for (i = 0; i < n_colors; ++i)
 		{
@@ -822,7 +824,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 			if (i > 0)
 				g_string_append_c (string, ':');
 
-			color = g_value_get_boxed (g_value_array_get_nth (array, i));
+			color = g_value_get_boxed (cafe_value_array_index (array, i));
 			if (!color)
 				continue;
 
@@ -916,9 +918,9 @@ terminal_profile_init (TerminalProfile *profile)
 	priv->gsettings_notification_pspec = NULL;
 	priv->locked = g_new0 (gboolean, LAST_PROP);
 
-	priv->properties = g_value_array_new (LAST_PROP);
+	priv->properties = cafe_value_array_new (LAST_PROP);
 	for (i = 0; i < LAST_PROP; ++i)
-		g_value_array_append (priv->properties, NULL);
+		cafe_value_array_append (priv->properties, NULL);
 
 	pspecs = g_object_class_list_properties (G_OBJECT_CLASS (TERMINAL_PROFILE_GET_CLASS (profile)), &n_pspecs);
 	for (i = 0; i < n_pspecs; ++i)
@@ -930,7 +932,7 @@ terminal_profile_init (TerminalProfile *profile)
 			continue;
 
 		g_assert (pspec->param_id < LAST_PROP);
-		value = g_value_array_get_nth (priv->properties, pspec->param_id);
+		value = cafe_value_array_index (priv->properties, pspec->param_id);
 		g_value_init (value, pspec->value_type);
 		g_param_value_set_default (pspec, value);
 	}
@@ -965,7 +967,7 @@ terminal_profile_constructor (GType type,
 	profile = TERMINAL_PROFILE (object);
 	priv = profile->priv;
 
-	name = g_value_get_string (g_value_array_get_nth (priv->properties, PROP_NAME));
+	name = g_value_get_string (cafe_value_array_index (priv->properties, PROP_NAME));
 	g_assert (name != NULL);
 
 	concat = g_strconcat (CONF_PROFILE_PREFIX, name, "/", NULL);
@@ -1042,7 +1044,7 @@ terminal_profile_finalize (GObject *object)
 
 	g_free (priv->profile_dir);
 	g_free (priv->locked);
-	g_value_array_free (priv->properties);
+	cafe_value_array_unref (priv->properties);
 
 	G_OBJECT_CLASS (terminal_profile_parent_class)->finalize (object);
 }
@@ -1072,7 +1074,7 @@ terminal_profile_get_property (GObject *object,
 		break;
 	}
 
-	g_value_copy (g_value_array_get_nth (priv->properties, prop_id), value);
+	g_value_copy (cafe_value_array_index (priv->properties, prop_id), value);
 }
 
 static void
@@ -1091,7 +1093,7 @@ terminal_profile_set_property (GObject *object,
 		return;
 	}
 
-	prop_value = g_value_array_get_nth (priv->properties, prop_id);
+	prop_value = cafe_value_array_index (priv->properties, prop_id);
 
 	/* Preprocessing */
 	switch (prop_id)
@@ -1150,7 +1152,7 @@ terminal_profile_set_property (GObject *object,
 
 	case PROP_BACKGROUND_IMAGE_FILE:
 		/* Clear the cached image */
-		g_value_set_object (g_value_array_get_nth (priv->properties, PROP_BACKGROUND_IMAGE), NULL);
+		g_value_set_object (cafe_value_array_index (priv->properties, PROP_BACKGROUND_IMAGE), NULL);
 		priv->background_load_failed = FALSE;
 		g_object_notify (object, TERMINAL_PROFILE_BACKGROUND_IMAGE);
 		break;
@@ -1279,7 +1281,7 @@ terminal_profile_class_init (TerminalProfileClass *klass)
 
 #define TERMINAL_PROFILE_PROPERTY_VALUE_ARRAY_BOXED(prop, propElementName, propElementType, propGSettings)\
   TERMINAL_PROFILE_PROPERTY (PROP_##prop,\
-    g_param_spec_value_array (TERMINAL_PROFILE_##prop, NULL, NULL,\
+    cafe_param_spec_value_array (TERMINAL_PROFILE_##prop, NULL, NULL,\
                               g_param_spec_boxed (propElementName, NULL, NULL,\
                                                   propElementType, \
                                                   G_PARAM_READWRITE | TERMINAL_PROFILE_PSPEC_STATIC),\
@@ -1589,21 +1591,21 @@ terminal_profile_get_palette (TerminalProfile *profile,
                               guint *n_colors)
 {
 	TerminalProfilePrivate *priv;
-	GValueArray *array;
+	CafeValueArray *array;
 	guint i, n;
 
 	g_return_val_if_fail (TERMINAL_IS_PROFILE (profile), FALSE);
 	g_return_val_if_fail (colors != NULL && n_colors != NULL, FALSE);
 
 	priv = profile->priv;
-	array = g_value_get_boxed (g_value_array_get_nth (priv->properties, PROP_PALETTE));
+	array = g_value_get_boxed (cafe_value_array_index (priv->properties, PROP_PALETTE));
 	if (!array)
 		return FALSE;
 
-	n = MIN (array->n_values, *n_colors);
+	n = MIN (cafe_value_array_length (array), *n_colors);
 	for (i = 0; i < n; ++i)
 	{
-		GdkRGBA *color = g_value_get_boxed (g_value_array_get_nth (array, i));
+		GdkRGBA *color = g_value_get_boxed (cafe_value_array_index (array, i));
 		if (!color)
 			continue; /* shouldn't happen!! */
 
@@ -1645,7 +1647,7 @@ terminal_profile_set_palette_builtin (TerminalProfile *profile,
 
 	g_return_if_fail (n < TERMINAL_PALETTE_N_BUILTINS);
 
-	g_value_init (&value, G_TYPE_VALUE_ARRAY);
+	g_value_init (&value, CAFE_TYPE_VALUE_ARRAY);
 	set_value_from_palette (&value, terminal_palettes[n], TERMINAL_PALETTE_SIZE);
 	g_object_set_property (G_OBJECT (profile), TERMINAL_PROFILE_PALETTE, &value);
 	g_value_unset (&value);
@@ -1657,16 +1659,16 @@ terminal_profile_modify_palette_entry (TerminalProfile *profile,
                                        const GdkRGBA   *color)
 {
 	TerminalProfilePrivate *priv = profile->priv;
-	GValueArray *array;
+	CafeValueArray *array;
 	GValue *value;
 	GdkRGBA *old_color;
 
-	array = g_value_get_boxed (g_value_array_get_nth (priv->properties, PROP_PALETTE));
+	array = g_value_get_boxed (cafe_value_array_index (priv->properties, PROP_PALETTE));
 	if (!array ||
-	        i >= array->n_values)
+	        i >= cafe_value_array_length (array))
 		return FALSE;
 
-	value = g_value_array_get_nth (array, i);
+	value = cafe_value_array_index (array, i);
 	old_color = g_value_get_boxed (value);
 	if (!old_color ||
 	        !rgba_equal (old_color, color))
