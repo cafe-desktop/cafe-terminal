@@ -185,7 +185,7 @@ void              terminal_profile_set_palette_builtin    (TerminalProfile *prof
         guint n);
 
 gboolean          terminal_profile_modify_palette_entry   (TerminalProfile *profile,
-        guint            i,
+        gint            i,
         const GdkRGBA  *color);
 
 G_END_DECLS

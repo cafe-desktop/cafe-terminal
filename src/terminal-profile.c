@@ -431,7 +431,7 @@ values_equal (GParamSpec *pspec,
 	        G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
 	{
 		CafeValueArray *ara, *arb;
-		guint i;
+		gint i;
 
 		ara = g_value_get_boxed (va);
 		arb = g_value_get_boxed (vb);
@@ -1655,7 +1655,7 @@ terminal_profile_set_palette_builtin (TerminalProfile *profile,
 
 gboolean
 terminal_profile_modify_palette_entry (TerminalProfile *profile,
-                                       guint            i,
+                                       gint             i,
                                        const GdkRGBA   *color)
 {
 	TerminalProfilePrivate *priv = profile->priv;
