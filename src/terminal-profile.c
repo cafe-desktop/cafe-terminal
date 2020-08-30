@@ -1602,7 +1602,7 @@ terminal_profile_get_palette (TerminalProfile *profile,
 	if (!array)
 		return FALSE;
 
-	n = MIN (cafe_value_array_length (array), *n_colors);
+	n = MIN (cafe_value_array_length (array), (gint) *n_colors);
 	for (i = 0; i < n; ++i)
 	{
 		GdkRGBA *color = g_value_get_boxed (cafe_value_array_index (array, i));
