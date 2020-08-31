@@ -1375,7 +1375,8 @@ _terminal_profile_clone (TerminalProfile *base_profile,
 	GObject *base_object = G_OBJECT (base_profile);
 	TerminalProfilePrivate *new_priv;
 	char profile_name[32];
-	GParameter *params;
+	const char **names;
+	GValue *values;
 	GParamSpec **pspecs;
 	guint n_pspecs, i, n_params, profile_num;
 	TerminalProfile *new_profile;
@@ -1392,7 +1393,9 @@ _terminal_profile_clone (TerminalProfile *base_profile,
 	/* Now we have an unused profile name */
 	pspecs = g_object_class_list_properties (G_OBJECT_CLASS (TERMINAL_PROFILE_GET_CLASS (base_profile)), &n_pspecs);
 
-	params = g_newa (GParameter, n_pspecs);
+	names = g_newa (const char *, n_pspecs);
+	values = g_newa (GValue, n_pspecs);
+
 	n_params = 0;
 
 	for (i = 0; i < n_pspecs; ++i)
@@ -1404,9 +1407,9 @@ _terminal_profile_clone (TerminalProfile *base_profile,
 		        (pspec->flags & G_PARAM_WRITABLE) == 0)
 			continue;
 
-		params[n_params].name = pspec->name;
+		names[n_params] = pspec->name;
 
-		value = &params[n_params].value;
+		value = &values[n_params];
 		G_VALUE_TYPE (value) = 0;
 		g_value_init (value, G_PARAM_SPEC_VALUE_TYPE (pspec));
 
@@ -1420,12 +1423,12 @@ _terminal_profile_clone (TerminalProfile *base_profile,
 		++n_params;
 	}
 
-	new_profile = g_object_newv (TERMINAL_TYPE_PROFILE, n_params, params);
+	new_profile = (gpointer) g_object_new_with_properties (TERMINAL_TYPE_PROFILE, n_params, names, values);
 
 	g_object_unref (base_profile);
 
 	for (i = 0; i < n_params; ++i)
-		g_value_unset (&params[i].value);
+		g_value_unset (&values[i]);
 
 	/* Flush the new profile to GSettings */
 	new_priv = new_profile->priv;
