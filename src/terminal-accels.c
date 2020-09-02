@@ -50,7 +50,6 @@
 #define ACCEL_PATH_NEW_TAB              ACCEL_PATH_ROOT "FileNewTab"
 #define ACCEL_PATH_NEW_WINDOW           ACCEL_PATH_ROOT "FileNewWindow"
 #define ACCEL_PATH_NEW_PROFILE          ACCEL_PATH_ROOT "FileNewProfile"
-#define ACCEL_PATH_SAVE_CONTENTS        ACCEL_PATH_ROOT "FileSaveContents"
 #define ACCEL_PATH_CLOSE_TAB            ACCEL_PATH_ROOT "FileCloseTab"
 #define ACCEL_PATH_CLOSE_WINDOW         ACCEL_PATH_ROOT "FileCloseWindow"
 #define ACCEL_PATH_COPY                 ACCEL_PATH_ROOT "EditCopy"
@@ -99,7 +98,6 @@
 #define KEY_SEARCH_FIND_NEXT     "search-find-next"
 #define KEY_SEARCH_FIND_PREVIOUS "search-find-previous"
 #define KEY_SELECT_ALL           "select-all"
-#define KEY_SAVE_CONTENTS        "save-contents"
 #define KEY_SET_TERMINAL_TITLE   "set-terminal-title"
 #define KEY_TOGGLE_MENUBAR       "toggle-menubar"
 #define KEY_ZOOM_IN              "zoom-in"
@@ -115,9 +113,11 @@
 #include "terminal-version.h"
 
 #if (TERMINAL_MINOR_VERSION & 1) != 0
-#define ENABLE_SAVE
+#	define ENABLE_SAVE
+#	define ACCEL_PATH_SAVE_CONTENTS ACCEL_PATH_ROOT "FileSaveContents"
+#	define KEY_SAVE_CONTENTS "save-contents"
 #else
-#undef ENABLE_SAVE
+#	undef ENABLE_SAVE
 #endif
 #endif
 

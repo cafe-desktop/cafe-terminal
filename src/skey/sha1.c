@@ -11,9 +11,6 @@
 #include "sha1.h"
 
 
-#define SHA1_DIGESTSIZE       20
-#define SHA1_BLOCKSIZE        64
-
 #define HTONDIGEST(x) { \
       x[0] = htonl(x[0]); \
       x[1] = htonl(x[1]); \
