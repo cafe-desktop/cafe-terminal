@@ -517,7 +517,7 @@ keys_change_notify (GSettings *settings,
 	{
 		if (val == NULL)
 			_terminal_debug_print (TERMINAL_DEBUG_ACCELS, " changed to be unset\n");
-		else if (!g_variant_is_of_type (val, G_VARIANT_TYPE_STRING))
+		else if (!g_variant_is_of_type (val, G_VARIANT_TYPE ("s")))
 			_terminal_debug_print (TERMINAL_DEBUG_ACCELS, " changed to non-string value\n");
 		else
 			_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
@@ -537,7 +537,7 @@ keys_change_notify (GSettings *settings,
 
 	if (!binding_from_value (val, &keyval, &mask))
 	{
-		const char *str = g_variant_is_of_type (val, G_VARIANT_TYPE_STRING) ? g_variant_get_string (val, NULL) : NULL;
+		const char *str = g_variant_is_of_type (val, G_VARIANT_TYPE ("s")) ? g_variant_get_string (val, NULL) : NULL;
 		g_printerr ("The value \"%s\" of configuration key %s is not a valid accelerator\n",
 		            str ? str : "(null)",
 		            key_entry->gsettings_key);
@@ -652,7 +652,7 @@ binding_from_value (GVariant         *value,
 		return TRUE;
 	}
 
-	if (!g_variant_is_of_type (value, G_VARIANT_TYPE_STRING))
+	if (!g_variant_is_of_type (value, G_VARIANT_TYPE ("s")))
 		return FALSE;
 
 	return binding_from_string (g_variant_get_string (value,NULL),

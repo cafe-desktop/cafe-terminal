@@ -1190,7 +1190,7 @@ array_prop (const char *name, ...)
 	va_end (ap);
 
 	prop->num_vals = vals->len;
-	prop->vals = (SmPropValue *)vals->data;
+	prop->vals = (SmPropValue *) (gpointer) vals->data;
 
 	g_array_free (vals, FALSE);
 
@@ -1223,7 +1223,7 @@ ptrarray_prop (const char *name, GPtrArray *values)
 	}
 
 	prop->num_vals = vals->len;
-	prop->vals = (SmPropValue *)vals->data;
+	prop->vals = (SmPropValue *) (gpointer) vals->data;
 
 	g_array_free (vals, FALSE);
 

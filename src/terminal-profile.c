@@ -586,14 +586,14 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 
 	if (G_IS_PARAM_SPEC_BOOLEAN (pspec))
 	{
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_BOOLEAN))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("b")))
 			goto out;
 
 		g_value_set_boolean (&value, g_variant_get_boolean (settings_value));
 	}
 	else if (G_IS_PARAM_SPEC_STRING (pspec))
 	{
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_STRING))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
 			goto out;
 
 		g_value_set_string (&value, g_variant_get_string (settings_value, NULL));
@@ -601,7 +601,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 	else if (G_IS_PARAM_SPEC_ENUM (pspec))
 	{
 
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_STRING))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
 			goto out;
 
 		g_value_set_enum (&value, g_settings_get_enum (settings, key));
@@ -610,7 +610,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 	{
 		GdkRGBA color;
 
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_STRING))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
 			goto out;
 
 		if (!gdk_rgba_parse (&color, g_variant_get_string (settings_value, NULL)))
@@ -620,23 +620,23 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 	}
 	else if (G_PARAM_SPEC_VALUE_TYPE (pspec) == PANGO_TYPE_FONT_DESCRIPTION)
 	{
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_STRING))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
 			goto out;
 
 		g_value_take_boxed (&value, pango_font_description_from_string (g_variant_get_string (settings_value, NULL)));
 	}
 	else if (G_IS_PARAM_SPEC_DOUBLE (pspec))
 	{
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_DOUBLE))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("d")))
 			goto out;
 
 		g_value_set_double (&value, g_variant_get_double (settings_value));
 	}
 	else if (G_IS_PARAM_SPEC_INT (pspec))
 	{
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_INT16) &&
-		    !g_variant_is_of_type (settings_value, G_VARIANT_TYPE_INT32) &&
-		    !g_variant_is_of_type (settings_value, G_VARIANT_TYPE_INT64))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("n")) &&
+		    !g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("i")) &&
+		    !g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("x")))
 			goto out;
 
 		g_value_set_int (&value, g_settings_get_int(settings, key));
@@ -648,7 +648,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 		GdkRGBA *colors;
 		int n_colors, i;
 
-		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE_STRING))
+		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
 			goto out;
 
 		color_strings = g_strsplit (g_variant_get_string (settings_value, NULL), ":", -1);

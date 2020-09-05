@@ -813,8 +813,8 @@ terminal_app_profile_list_notify_cb (GSettings   *settings,
 
 	val = g_settings_get_value (settings, key);
 	if (val == NULL ||
-	        (!g_variant_is_of_type (val, G_VARIANT_TYPE_STRING_ARRAY) &&
-	        !g_variant_is_of_type (val, G_VARIANT_TYPE_STRING)))
+	        (!g_variant_is_of_type (val, G_VARIANT_TYPE ("as")) &&
+	        !g_variant_is_of_type (val, G_VARIANT_TYPE ("s"))))
 		goto ensure_one_profile;
 
 	value_list = g_variant_get_strv (val, NULL);
@@ -932,7 +932,7 @@ terminal_app_default_profile_notify_cb (GSettings   *settings,
 
 	val = g_settings_get_value (settings, key);
 	if (val != NULL &&
-	        g_variant_is_of_type (val, G_VARIANT_TYPE_STRING))
+	        g_variant_is_of_type (val, G_VARIANT_TYPE ("s")))
 		name = g_variant_get_string (val, NULL);
 	if (!name || !name[0])
 		name = FALLBACK_PROFILE_ID;
@@ -994,7 +994,7 @@ terminal_app_encoding_list_notify_cb (GSettings   *settings,
 
 	val = g_settings_get_value (settings, key);
 	if (val != NULL &&
-	        g_variant_is_of_type (val, G_VARIANT_TYPE_STRING_ARRAY))
+	        g_variant_is_of_type (val, G_VARIANT_TYPE ("as")))
 		strings = g_variant_get_strv (val, NULL);
 	else
 		strings = NULL;
@@ -1042,7 +1042,7 @@ terminal_app_system_font_notify_cb (GSettings   *settings,
 
 	val = g_settings_get_value (settings, key);
 	if (val &&
-	        g_variant_is_of_type (val, G_VARIANT_TYPE_STRING))
+	        g_variant_is_of_type (val, G_VARIANT_TYPE ("s")))
 		font = g_variant_get_string (val, NULL);
 	if (!font)
 		font = DEFAULT_MONOSPACE_FONT;
