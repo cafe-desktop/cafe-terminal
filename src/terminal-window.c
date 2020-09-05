@@ -2362,8 +2362,10 @@ terminal_window_dispose (GObject *object)
     TerminalWindow *window = TERMINAL_WINDOW (object);
     TerminalWindowPrivate *priv = window->priv;
     TerminalApp *app;
-    GdkScreen *screen;
     GtkClipboard *clipboard;
+#ifdef GDK_WINDOWING_X11
+    GdkScreen *screen;
+#endif
 
     remove_popup_info (window);
 
@@ -3593,8 +3595,6 @@ confirm_close_window_or_tab (TerminalWindow *window,
     else
     {
         GList *tabs, *t;
-
-        do_confirm = FALSE;
 
         tabs = terminal_window_list_screen_containers (window);
         n_tabs = g_list_length (tabs);
