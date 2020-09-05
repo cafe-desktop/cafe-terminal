@@ -455,7 +455,6 @@ profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
                                         GParamSpec *pspec,
                                         GtkWidget *editor)
 {
-	GtkWidget *w;
 	GdkRGBA colors[TERMINAL_PALETTE_SIZE];
 	guint n_colors, i;
 
@@ -466,6 +465,7 @@ profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
 	for (i = 0; i < n_colors; i++)
 	{
 		char name[32];
+		GtkWidget *w;
 
 		g_snprintf (name, sizeof (name), "palette-colorpicker-%d", i + 1);
 		w = profile_editor_get_widget (editor, name);

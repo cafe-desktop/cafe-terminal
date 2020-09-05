@@ -2937,9 +2937,6 @@ notebook_button_press_cb (GtkWidget *widget,
     GtkWidget *menu;
     GtkAction *action;
     int tab_clicked;
-    int page_num;
-    int before_pages;
-    int later_pages;
 
     if ((event->type == GDK_BUTTON_PRESS && event->button == 2) &&
             (g_settings_get_boolean (settings, "middle-click-closes-tabs")))
@@ -2947,27 +2944,31 @@ notebook_button_press_cb (GtkWidget *widget,
         tab_clicked = find_tab_num_at_pos (notebook, event->x_root, event->y_root);
         if (tab_clicked >= 0)
         {
+            int page_num;
+            int before_pages;
+            int later_pages;
+
             before_pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
             page_num = gtk_notebook_get_current_page (notebook);
             gtk_notebook_set_current_page (notebook, tab_clicked);
             TerminalScreen *active_screen = priv->active_screen;
 
-                if (!(confirm_close_window_or_tab (window, active_screen)))
-                {
-                    update_tab_visibility (window, -1);
-                    gtk_notebook_remove_page(notebook, tab_clicked);
-                }
+            if (!(confirm_close_window_or_tab (window, active_screen)))
+            {
+                update_tab_visibility (window, -1);
+                gtk_notebook_remove_page(notebook, tab_clicked);
+            }
 
-                later_pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
+            later_pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
 
-                if (before_pages > later_pages) {
-                    if (tab_clicked > page_num)
-                        gtk_notebook_set_current_page (notebook, page_num);
-                    else if (tab_clicked < page_num)
-                        gtk_notebook_set_current_page (notebook, page_num - 1);
-                }
-                else
+            if (before_pages > later_pages) {
+                if (tab_clicked > page_num)
                     gtk_notebook_set_current_page (notebook, page_num);
+                else if (tab_clicked < page_num)
+                    gtk_notebook_set_current_page (notebook, page_num - 1);
+            }
+            else
+                gtk_notebook_set_current_page (notebook, page_num);
 
         }
     }

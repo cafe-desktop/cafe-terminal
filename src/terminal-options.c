@@ -307,7 +307,6 @@ option_tab_callback (const gchar *option_name,
 	TerminalOptions *options = data;
 	gboolean is_profile_id;
 	InitialWindow *iw;
-	InitialTab *it;
 
 	is_profile_id = g_str_has_suffix (option_name, "-with-profile-internal-id");
 
@@ -318,6 +317,8 @@ option_tab_callback (const gchar *option_name,
 	}
 	else
 	{
+		InitialTab *it;
+
 		iw = add_new_window (options, value, is_profile_id);
 		it = g_list_last(iw->tabs)->data;
 		it->attach_window = TRUE;
@@ -333,10 +334,11 @@ option_role_callback (const gchar *option_name,
                       GError     **error)
 {
 	TerminalOptions *options = data;
-	InitialWindow *iw;
 
 	if (options->initial_windows)
 	{
+		InitialWindow *iw;
+
 		iw = g_list_last (options->initial_windows)->data;
 		iw->role = g_strdup (value);
 	}
@@ -359,10 +361,11 @@ option_show_menubar_callback (const gchar *option_name,
                               GError     **error)
 {
 	TerminalOptions *options = data;
-	InitialWindow *iw;
 
 	if (options->initial_windows)
 	{
+		InitialWindow *iw;
+
 		iw = g_list_last (options->initial_windows)->data;
 		if (iw->force_menubar_state && iw->menubar_state == TRUE)
 		{
@@ -391,10 +394,11 @@ option_hide_menubar_callback (const gchar *option_name,
                               GError     **error)
 {
 	TerminalOptions *options = data;
-	InitialWindow *iw;
 
 	if (options->initial_windows)
 	{
+		InitialWindow *iw;
+
 		iw = g_list_last (options->initial_windows)->data;
 
 		if (iw->force_menubar_state && iw->menubar_state == FALSE)
@@ -423,10 +427,11 @@ option_maximize_callback (const gchar *option_name,
                           GError     **error)
 {
 	TerminalOptions *options = data;
-	InitialWindow *iw;
 
 	if (options->initial_windows)
 	{
+		InitialWindow *iw;
+
 		iw = g_list_last (options->initial_windows)->data;
 		iw->start_maximized = TRUE;
 	}
@@ -639,10 +644,11 @@ digest_options_callback (GOptionContext *context,
                          GError      **error)
 {
 	TerminalOptions *options = data;
-	InitialTab    *it;
 
 	if (options->execute)
 	{
+		InitialTab    *it;
+
 		if (options->exec_argv == NULL)
 		{
 			g_set_error (error,

@@ -1078,7 +1078,7 @@ update_color_scheme (TerminalScreen *screen)
 	TerminalScreenPrivate *priv = screen->priv;
 	TerminalProfile *profile = priv->profile;
 	GdkRGBA colors[TERMINAL_PALETTE_SIZE];
-	const GdkRGBA *fg_rgba, *bg_rgba, *bold_rgba;
+	const GdkRGBA *bold_rgba;
 	TerminalBackgroundType bg_type;
 	const gchar *bg_image_file;
 	double bg_alpha = 1.0;
@@ -1105,6 +1105,8 @@ update_color_scheme (TerminalScreen *screen)
 
 	if (!terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_USE_THEME_COLORS))
 	{
+		const GdkRGBA *fg_rgba, *bg_rgba;
+
 		fg_rgba = terminal_profile_get_property_boxed (profile, TERMINAL_PROFILE_FOREGROUND_COLOR);
 		bg_rgba = terminal_profile_get_property_boxed (profile, TERMINAL_PROFILE_BACKGROUND_COLOR);
 
@@ -1831,12 +1833,13 @@ char*
 terminal_screen_get_current_dir (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	char *cwd;
 	VtePty *pty;
 
 	pty = vte_terminal_get_pty (VTE_TERMINAL (screen));
 	if (pty != NULL)
 	{
+		char *cwd;
+
 #if 0
 		/* Get the foreground process ID */
 		cwd = cwd_of_pid (tcgetpgrp (priv->pty_fd));

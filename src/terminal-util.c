@@ -74,10 +74,11 @@ terminal_util_show_error_dialog (GtkWindow *transient_parent,
                                  ...)
 {
 	char *message;
-	va_list args;
 
 	if (message_format)
 	{
+		va_list args;
+
 		va_start (args, message_format);
 		message = g_strdup_vprintf (message_format, args);
 		va_end (args);
@@ -548,10 +549,12 @@ setup_http_proxy_env (GHashTable *env_table,
 
 		if (g_settings_get_boolean (settings_http, "use-authentication"))
 		{
-			char *user, *password;
+			char *user;
 			user = gsettings_get_string (settings_http, "authentication-user");
 			if (user)
 			{
+				char *password;
+
 				g_string_append_uri_escaped (buf, user, NULL, TRUE);
 				password = gsettings_get_string (settings_http, "authentication-password");
 				if (password)
