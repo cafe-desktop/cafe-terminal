@@ -472,7 +472,8 @@ cafe_param_value_array_get_type (void)
         NULL, NULL,
         sizeof (CafeParamSpecValueArray),
         0,
-        (GInstanceInitFunc) cafe_param_value_array_init
+        (GInstanceInitFunc) cafe_param_value_array_init,
+        NULL
       };
 
       type = g_type_register_static (G_TYPE_PARAM_BOXED,
