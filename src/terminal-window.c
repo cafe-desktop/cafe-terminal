@@ -1814,7 +1814,7 @@ terminal_window_screen_update (TerminalWindow *window,
     }
 #endif
 
-    if (GPOINTER_TO_INT (g_object_get_data (G_OBJECT (screen), "GT::HasSettingsConnection")))
+    if ((gint) (glong) (void *) (g_object_get_data (G_OBJECT (screen), "GT::HasSettingsConnection")))
         return;
 
     g_object_set_data_full (G_OBJECT (screen), "GT::HasSettingsConnection",

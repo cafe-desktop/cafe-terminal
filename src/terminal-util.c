@@ -754,7 +754,7 @@ object_change_notify_cb (PropertyChange *change)
 		int ovalue, rvalue;
 
 		g_object_get (object, object_prop, &ovalue, NULL);
-		rvalue = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "enum-value"));
+		rvalue = (gint) (glong) (void *) (g_object_get_data (G_OBJECT (widget), "enum-value"));
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ovalue == rvalue);
 	}
 	else if (GTK_IS_TOGGLE_BUTTON (widget))
@@ -859,7 +859,7 @@ widget_change_notify_cb (PropertyChange *change)
 		if (!active)
 			goto out;
 
-		value = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "enum-value"));
+		value = (gint) (glong) (void *) (g_object_get_data (G_OBJECT (widget), "enum-value"));
 		g_object_set (object, object_prop, value, NULL);
 	}
 	else if (GTK_IS_TOGGLE_BUTTON (widget))
@@ -873,7 +873,7 @@ widget_change_notify_cb (PropertyChange *change)
 	{
 		int value;
 
-		value = (int) gtk_spin_button_get_value (GTK_SPIN_BUTTON (widget));
+		value = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
 		g_object_set (object, object_prop, value, NULL);
 	}
 	else if (GTK_IS_ENTRY (widget))

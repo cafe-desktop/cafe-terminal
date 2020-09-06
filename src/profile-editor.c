@@ -442,7 +442,7 @@ palette_color_notify_cb (GtkColorChooser *button,
 	guint i;
 
 	gtk_color_chooser_get_rgba (button, &color);
-	i = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (button), "palette-entry-index"));
+	i = (guint) (gulong) (void *) (g_object_get_data (G_OBJECT (button), "palette-entry-index"));
 
 	editor = gtk_widget_get_toplevel (GTK_WIDGET (button));
 	g_signal_handlers_block_by_func (profile, G_CALLBACK (profile_palette_notify_colorpickers_cb), editor);
