@@ -139,8 +139,8 @@ terminal-marshal.h: $(srcdir)/terminal-marshal.list
 
 terminal-marshal.c: $(srcdir)/terminal-marshal.list
 	$(AM_V_GEN) ( $(GLIB_GENMARSHAL) --prefix=_terminal_marshal $(srcdir)/terminal-marshal.list \
-				--header \
 				--body \
+				--prototypes \
 				--internal > terminal-marshal.c.tmp \
 		&& mv terminal-marshal.c.tmp terminal-marshal.c ) \
 	|| ( rm -f terminal-marshal.c.tmp && exit 1 )
