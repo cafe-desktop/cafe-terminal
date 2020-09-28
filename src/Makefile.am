@@ -16,6 +16,10 @@ BUILT_SOURCES = \
 	$(NULL)
 
 cafe_terminal_SOURCES= \
+	cafeaction.c \
+	cafeaction.h \
+	cafeactiongroup.c \
+	cafeactiongroup.h \
 	cafevaluearray.c \
 	cafevaluearray.h \
 	eggshell.c \
