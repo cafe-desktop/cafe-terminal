@@ -29,10 +29,6 @@
 #ifndef __CAFE_ACTION_GROUP_H__
 #define __CAFE_ACTION_GROUP_H__
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #include "cafeaction.h"
 #include <gtk/gtk.h>
 

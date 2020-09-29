@@ -85,6 +85,7 @@
 
 #include <gtk/gtk.h>
 #include "cafeaction.h"
+#include "cafeactiongroup.h"
 
 
 struct _CafeActionPrivate 
