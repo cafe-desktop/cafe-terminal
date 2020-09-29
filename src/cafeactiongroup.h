@@ -46,7 +46,7 @@ typedef struct _CafeActionGroupPrivate CafeActionGroupPrivate;
 typedef struct _CafeActionGroupClass   CafeActionGroupClass;
 typedef struct _CafeActionEntry        CafeActionEntry;
 typedef struct _CafeToggleActionEntry  CafeToggleActionEntry;
-typedef struct _GtkRadioActionEntry   GtkRadioActionEntry;
+typedef struct _CafeRadioActionEntry   CafeRadioActionEntry;
 
 struct _CafeActionGroup
 {
@@ -137,7 +137,7 @@ struct _CafeToggleActionEntry
 };
 
 /**
- * GtkRadioActionEntry:
+ * CafeRadioActionEntry:
  * @name: The name of the action.
  * @stock_id: The stock id for the action, or the name of an icon from the
  *  icon theme.
@@ -150,12 +150,12 @@ struct _CafeToggleActionEntry
  * @value: The value to set on the radio action. See
  *  gtk_radio_action_get_current_value().
  *
- * #GtkRadioActionEntry structs are used with
+ * #CafeRadioActionEntry structs are used with
  * cafe_action_group_add_radio_actions() to construct groups of radio actions.
  *
  * Deprecated: 3.10
  */
-struct _GtkRadioActionEntry 
+struct _CafeRadioActionEntry 
 {
   const gchar *name;
   const gchar *stock_id;
@@ -214,7 +214,7 @@ void            cafe_action_group_add_toggle_actions      (CafeActionGroup      
 							  gpointer                    user_data);
 GDK_DEPRECATED_IN_3_10
 void            cafe_action_group_add_radio_actions       (CafeActionGroup             *action_group,
-							  const GtkRadioActionEntry  *entries,
+							  const CafeRadioActionEntry  *entries,
 							  guint                       n_entries,
 							  gint                        value,
 							  GCallback                   on_change,
@@ -233,7 +233,7 @@ void            cafe_action_group_add_toggle_actions_full (CafeActionGroup      
 							  GDestroyNotify              destroy);
 GDK_DEPRECATED_IN_3_10
 void            cafe_action_group_add_radio_actions_full  (CafeActionGroup             *action_group,
-							  const GtkRadioActionEntry  *entries,
+							  const CafeRadioActionEntry  *entries,
 							  guint                       n_entries,
 							  gint                        value,
 							  GCallback                   on_change,

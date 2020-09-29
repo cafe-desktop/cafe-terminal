@@ -1477,7 +1477,7 @@ cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_g
  **/
 void            
 cafe_action_group_add_radio_actions (CafeActionGroup            *action_group,
-				    const GtkRadioActionEntry *entries,
+				    const CafeRadioActionEntry *entries,
 				    guint                      n_entries,
 				    gint                       value,
 				    GCallback                  on_change,
@@ -1509,7 +1509,7 @@ cafe_action_group_add_radio_actions (CafeActionGroup            *action_group,
  **/
 void            
 cafe_action_group_add_radio_actions_full (CafeActionGroup            *action_group,
-					 const GtkRadioActionEntry *entries,
+					 const CafeRadioActionEntry *entries,
 					 guint                      n_entries,
 					 gint                       value,
 					 GCallback                  on_change,
