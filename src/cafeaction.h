@@ -26,19 +26,19 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#ifndef __GTK_ACTION_H__
-#define __GTK_ACTION_H__
+#ifndef __CAFE_ACTION_H__
+#define __CAFE_ACTION_H__
 
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
 #define GTK_TYPE_ACTION            (gtk_action_get_type ())
-#define GTK_ACTION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_ACTION, CafeAction))
-#define GTK_ACTION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_TYPE_ACTION, CafeActionClass))
+#define CAFE_ACTION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_ACTION, CafeAction))
+#define CAFE_ACTION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_TYPE_ACTION, CafeActionClass))
 #define GTK_IS_ACTION(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_ACTION))
 #define GTK_IS_ACTION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_TYPE_ACTION))
-#define GTK_ACTION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), GTK_TYPE_ACTION, CafeActionClass))
+#define CAFE_ACTION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), GTK_TYPE_ACTION, CafeActionClass))
 
 typedef struct _CafeAction      CafeAction;
 typedef struct _CafeActionClass CafeActionClass;
@@ -210,5 +210,5 @@ gboolean              gtk_action_get_always_show_image  (CafeAction   *action);
 
 G_END_DECLS
 
-#endif  /* __GTK_ACTION_H__ */
+#endif  /* __CAFE_ACTION_H__ */
 

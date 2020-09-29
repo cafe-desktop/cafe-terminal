@@ -373,15 +373,15 @@ gtk_action_group_buildable_add_child (GtkBuildable  *buildable,
 				      GObject       *child,
 				      const gchar   *type)
 {
-  gtk_action_group_add_action_with_accel (GTK_ACTION_GROUP (buildable),
-					  GTK_ACTION (child), NULL);
+  gtk_action_group_add_action_with_accel (CAFE_ACTION_GROUP (buildable),
+					  CAFE_ACTION (child), NULL);
 }
 
 static void
 gtk_action_group_buildable_set_name (GtkBuildable *buildable,
 				     const gchar  *name)
 {
-  CafeActionGroup *self = GTK_ACTION_GROUP (buildable);
+  CafeActionGroup *self = CAFE_ACTION_GROUP (buildable);
   CafeActionGroupPrivate *private = self->priv;
 
   private->name = g_strdup (name);
@@ -390,7 +390,7 @@ gtk_action_group_buildable_set_name (GtkBuildable *buildable,
 static const gchar *
 gtk_action_group_buildable_get_name (GtkBuildable *buildable)
 {
-  CafeActionGroup *self = GTK_ACTION_GROUP (buildable);
+  CafeActionGroup *self = CAFE_ACTION_GROUP (buildable);
   CafeActionGroupPrivate *private = self->priv;
 
   return private->name;
@@ -605,9 +605,9 @@ gtk_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
       gchar *accel_path;
       
       data = (AcceleratorParserData*)user_data;
-      action_group = GTK_ACTION_GROUP (buildable);
+      action_group = CAFE_ACTION_GROUP (buildable);
       private = action_group->priv;
-      action = GTK_ACTION (child);
+      action = CAFE_ACTION (child);
 	
       accel_path = g_strconcat ("<Actions>/",
 				private->name, "/",
@@ -655,7 +655,7 @@ gtk_action_group_new (const gchar *name)
 static void
 gtk_action_group_finalize (GObject *object)
 {
-  CafeActionGroup *self = GTK_ACTION_GROUP (object);
+  CafeActionGroup *self = CAFE_ACTION_GROUP (object);
 
   g_free (self->priv->name);
 
@@ -679,7 +679,7 @@ gtk_action_group_set_property (GObject         *object,
   CafeActionGroupPrivate *private;
   gchar *tmp;
   
-  self = GTK_ACTION_GROUP (object);
+  self = CAFE_ACTION_GROUP (object);
   private = self->priv;
 
   switch (prop_id)
@@ -713,7 +713,7 @@ gtk_action_group_get_property (GObject    *object,
   CafeActionGroup *self;
   CafeActionGroupPrivate *private;
   
-  self = GTK_ACTION_GROUP (object);
+  self = CAFE_ACTION_GROUP (object);
   private = self->priv;
 
   switch (prop_id)
@@ -990,9 +990,9 @@ gtk_action_group_get_action (CafeActionGroup *action_group,
 			     const gchar    *action_name)
 {
   g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), NULL);
-  g_return_val_if_fail (GTK_ACTION_GROUP_GET_CLASS (action_group)->get_action != NULL, NULL);
+  g_return_val_if_fail (CAFE_ACTION_GROUP_GET_CLASS (action_group)->get_action != NULL, NULL);
 
-  return GTK_ACTION_GROUP_GET_CLASS (action_group)->get_action (action_group,
+  return CAFE_ACTION_GROUP_GET_CLASS (action_group)->get_action (action_group,
                                                                 action_name);
 }
 
@@ -1446,7 +1446,7 @@ gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_gr
 	}
 	  
       gtk_action_group_add_action_with_accel (action_group, 
-					      GTK_ACTION (action),
+					      CAFE_ACTION (action),
 					      entries[i].accelerator);
       g_object_unref (action);
     }
@@ -1565,7 +1565,7 @@ gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_grou
 	gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
 
       gtk_action_group_add_action_with_accel (action_group, 
-					      GTK_ACTION (action),
+					      CAFE_ACTION (action),
 					      entries[i].accelerator);
       g_object_unref (action);
     }

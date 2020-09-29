@@ -26,8 +26,8 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#ifndef __GTK_ACTION_GROUP_H__
-#define __GTK_ACTION_GROUP_H__
+#ifndef __CAFE_ACTION_GROUP_H__
+#define __CAFE_ACTION_GROUP_H__
 
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
@@ -39,11 +39,11 @@
 G_BEGIN_DECLS
 
 #define GTK_TYPE_ACTION_GROUP              (gtk_action_group_get_type ())
-#define GTK_ACTION_GROUP(obj)              (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_ACTION_GROUP, CafeActionGroup))
-#define GTK_ACTION_GROUP_CLASS(vtable)     (G_TYPE_CHECK_CLASS_CAST ((vtable), GTK_TYPE_ACTION_GROUP, CafeActionGroupClass))
+#define CAFE_ACTION_GROUP(obj)              (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_ACTION_GROUP, CafeActionGroup))
+#define CAFE_ACTION_GROUP_CLASS(vtable)     (G_TYPE_CHECK_CLASS_CAST ((vtable), GTK_TYPE_ACTION_GROUP, CafeActionGroupClass))
 #define GTK_IS_ACTION_GROUP(obj)           (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_ACTION_GROUP))
 #define GTK_IS_ACTION_GROUP_CLASS(vtable)  (G_TYPE_CHECK_CLASS_TYPE ((vtable), GTK_TYPE_ACTION_GROUP))
-#define GTK_ACTION_GROUP_GET_CLASS(inst)   (G_TYPE_INSTANCE_GET_CLASS ((inst), GTK_TYPE_ACTION_GROUP, CafeActionGroupClass))
+#define CAFE_ACTION_GROUP_GET_CLASS(inst)   (G_TYPE_INSTANCE_GET_CLASS ((inst), GTK_TYPE_ACTION_GROUP, CafeActionGroupClass))
 
 typedef struct _CafeActionGroup        CafeActionGroup;
 typedef struct _CafeActionGroupPrivate CafeActionGroupPrivate;
@@ -269,5 +269,5 @@ void _gtk_action_group_emit_post_activate    (CafeActionGroup *action_group,
 
 G_END_DECLS
 
-#endif  /* __GTK_ACTION_GROUP_H__ */
+#endif  /* __CAFE_ACTION_GROUP_H__ */
 

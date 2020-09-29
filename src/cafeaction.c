@@ -575,7 +575,7 @@ static void
 gtk_action_buildable_set_name (GtkBuildable *buildable,
 			       const gchar  *name)
 {
-  CafeAction *action = GTK_ACTION (buildable);
+  CafeAction *action = CAFE_ACTION (buildable);
 
   action->private_data->name = g_intern_string (name);
 }
@@ -583,7 +583,7 @@ gtk_action_buildable_set_name (GtkBuildable *buildable,
 static const gchar *
 gtk_action_buildable_get_name (GtkBuildable *buildable)
 {
-  CafeAction *action = GTK_ACTION (buildable);
+  CafeAction *action = CAFE_ACTION (buildable);
 
   return action->private_data->name;
 }
@@ -630,7 +630,7 @@ static void
 gtk_action_finalize (GObject *object)
 {
   CafeAction *action;
-  action = GTK_ACTION (object);
+  action = CAFE_ACTION (object);
 
   g_free (action->private_data->label);
   g_free (action->private_data->short_label);
@@ -656,7 +656,7 @@ gtk_action_set_property (GObject         *object,
 {
   CafeAction *action;
   
-  action = GTK_ACTION (object);
+  action = CAFE_ACTION (object);
 
   switch (prop_id)
     {
@@ -722,7 +722,7 @@ gtk_action_get_property (GObject    *object,
 {
   CafeAction *action;
 
-  action = GTK_ACTION (object);
+  action = CAFE_ACTION (object);
 
   switch (prop_id)
     {
@@ -785,7 +785,7 @@ create_menu_item (CafeAction *action)
 {
   GType menu_item_type;
 
-  menu_item_type = GTK_ACTION_GET_CLASS (action)->menu_item_type;
+  menu_item_type = CAFE_ACTION_GET_CLASS (action)->menu_item_type;
 
   return g_object_new (menu_item_type, NULL);
 }
@@ -795,7 +795,7 @@ create_tool_item (CafeAction *action)
 {
   GType toolbar_item_type;
 
-  toolbar_item_type = GTK_ACTION_GET_CLASS (action)->toolbar_item_type;
+  toolbar_item_type = CAFE_ACTION_GET_CLASS (action)->toolbar_item_type;
 
   return g_object_new (toolbar_item_type, NULL);
 }
@@ -1025,7 +1025,7 @@ gtk_action_create_menu_item (CafeAction *action)
 
   g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
 
-  menu_item = GTK_ACTION_GET_CLASS (action)->create_menu_item (action);
+  menu_item = CAFE_ACTION_GET_CLASS (action)->create_menu_item (action);
 
   gtk_activatable_set_use_action_appearance (GTK_ACTIVATABLE (menu_item), TRUE);
   gtk_activatable_set_related_action (GTK_ACTIVATABLE (menu_item), action);
@@ -1053,7 +1053,7 @@ gtk_action_create_tool_item (CafeAction *action)
 
   g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
 
-  button = GTK_ACTION_GET_CLASS (action)->create_tool_item (action);
+  button = CAFE_ACTION_GET_CLASS (action)->create_tool_item (action);
 
   gtk_activatable_set_use_action_appearance (GTK_ACTIVATABLE (button), TRUE);
   gtk_activatable_set_related_action (GTK_ACTIVATABLE (button), action);
@@ -1068,7 +1068,7 @@ _gtk_action_add_to_proxy_list (CafeAction     *action,
   g_return_if_fail (GTK_IS_ACTION (action));
   g_return_if_fail (GTK_IS_WIDGET (proxy));
  
-  GTK_ACTION_GET_CLASS (action)->connect_proxy (action, proxy);
+  CAFE_ACTION_GET_CLASS (action)->connect_proxy (action, proxy);
 }
 
 void
@@ -1078,7 +1078,7 @@ _gtk_action_remove_from_proxy_list (CafeAction     *action,
   g_return_if_fail (GTK_IS_ACTION (action));
   g_return_if_fail (GTK_IS_WIDGET (proxy));
 
-  GTK_ACTION_GET_CLASS (action)->disconnect_proxy (action, proxy);
+  CAFE_ACTION_GET_CLASS (action)->disconnect_proxy (action, proxy);
 }
 
 /**
@@ -1842,9 +1842,9 @@ closure_accel_activate (GClosure     *closure,
                         gpointer      invocation_hint,
                         gpointer      marshal_data)
 {
-  if (gtk_action_is_sensitive (GTK_ACTION (closure->data)))
+  if (gtk_action_is_sensitive (CAFE_ACTION (closure->data)))
     {
-      _gtk_action_emit_activate (GTK_ACTION (closure->data));
+      _gtk_action_emit_activate (CAFE_ACTION (closure->data));
       
       /* we handled the accelerator */
       g_value_set_boolean (return_value, TRUE);
@@ -2056,8 +2056,8 @@ gtk_action_create_menu (CafeAction *action)
 {
   g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
 
-  if (GTK_ACTION_GET_CLASS (action)->create_menu)
-    return GTK_ACTION_GET_CLASS (action)->create_menu (action);
+  if (CAFE_ACTION_GET_CLASS (action)->create_menu)
+    return CAFE_ACTION_GET_CLASS (action)->create_menu (action);
 
   return NULL;
 }
