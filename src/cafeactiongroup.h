@@ -38,7 +38,7 @@
 
 G_BEGIN_DECLS
 
-#define CAFE_TYPE_ACTION_GROUP              (gtk_action_group_get_type ())
+#define CAFE_TYPE_ACTION_GROUP              (cafe_action_group_get_type ())
 #define CAFE_ACTION_GROUP(obj)              (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFE_TYPE_ACTION_GROUP, CafeActionGroup))
 #define CAFE_ACTION_GROUP_CLASS(vtable)     (G_TYPE_CHECK_CLASS_CAST ((vtable), CAFE_TYPE_ACTION_GROUP, CafeActionGroupClass))
 #define CAFE_IS_ACTION_GROUP(obj)           (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFE_TYPE_ACTION_GROUP))
@@ -87,15 +87,15 @@ struct _CafeActionGroupClass
  * @stock_id: The stock id for the action, or the name of an icon from the
  *  icon theme.
  * @label: The label for the action. This field should typically be marked
- *  for translation, see gtk_action_group_set_translation_domain(). If
+ *  for translation, see cafe_action_group_set_translation_domain(). If
  *  @label is %NULL, the label of the stock item with id @stock_id is used.
  * @accelerator: The accelerator for the action, in the format understood by
  *  gtk_accelerator_parse().
  * @tooltip: The tooltip for the action. This field should typically be
- *  marked for translation, see gtk_action_group_set_translation_domain().
+ *  marked for translation, see cafe_action_group_set_translation_domain().
  * @callback: The function to call when the action is activated.
  *
- * #CafeActionEntry structs are used with gtk_action_group_add_actions() to
+ * #CafeActionEntry structs are used with cafe_action_group_add_actions() to
  * construct actions.
  *
  * Deprecated: 3.10
@@ -116,16 +116,16 @@ struct _CafeActionEntry
  * @stock_id: The stock id for the action, or the name of an icon from the
  *  icon theme.
  * @label: The label for the action. This field should typically be marked
- *  for translation, see gtk_action_group_set_translation_domain().
+ *  for translation, see cafe_action_group_set_translation_domain().
  * @accelerator: The accelerator for the action, in the format understood by
  *  gtk_accelerator_parse().
  * @tooltip: The tooltip for the action. This field should typically be
- *  marked for translation, see gtk_action_group_set_translation_domain().
+ *  marked for translation, see cafe_action_group_set_translation_domain().
  * @callback: The function to call when the action is activated.
  * @is_active: The initial state of the toggle action.
  *
  * #GtkToggleActionEntry structs are used with
- * gtk_action_group_add_toggle_actions() to construct toggle actions.
+ * cafe_action_group_add_toggle_actions() to construct toggle actions.
  *
  * Deprecated: 3.10
  */
@@ -146,16 +146,16 @@ struct _GtkToggleActionEntry
  * @stock_id: The stock id for the action, or the name of an icon from the
  *  icon theme.
  * @label: The label for the action. This field should typically be marked
- *  for translation, see gtk_action_group_set_translation_domain().
+ *  for translation, see cafe_action_group_set_translation_domain().
  * @accelerator: The accelerator for the action, in the format understood by
  *  gtk_accelerator_parse().
  * @tooltip: The tooltip for the action. This field should typically be
- *  marked for translation, see gtk_action_group_set_translation_domain().
+ *  marked for translation, see cafe_action_group_set_translation_domain().
  * @value: The value to set on the radio action. See
  *  gtk_radio_action_get_current_value().
  *
  * #GtkRadioActionEntry structs are used with
- * gtk_action_group_add_radio_actions() to construct groups of radio actions.
+ * cafe_action_group_add_radio_actions() to construct groups of radio actions.
  *
  * Deprecated: 3.10
  */
@@ -170,73 +170,73 @@ struct _GtkRadioActionEntry
 };
 
 GDK_DEPRECATED_IN_3_10
-GType           gtk_action_group_get_type                (void) G_GNUC_CONST;
+GType           cafe_action_group_get_type                (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_10
-CafeActionGroup *gtk_action_group_new                     (const gchar                *name);
+CafeActionGroup *cafe_action_group_new                     (const gchar                *name);
 GDK_DEPRECATED_IN_3_10
-const gchar    *gtk_action_group_get_name                (CafeActionGroup             *action_group);
+const gchar    *cafe_action_group_get_name                (CafeActionGroup             *action_group);
 GDK_DEPRECATED_IN_3_10
-gboolean        gtk_action_group_get_sensitive           (CafeActionGroup             *action_group);
+gboolean        cafe_action_group_get_sensitive           (CafeActionGroup             *action_group);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_set_sensitive           (CafeActionGroup             *action_group,
+void            cafe_action_group_set_sensitive           (CafeActionGroup             *action_group,
 							  gboolean                    sensitive);
 GDK_DEPRECATED_IN_3_10
-gboolean        gtk_action_group_get_visible             (CafeActionGroup             *action_group);
+gboolean        cafe_action_group_get_visible             (CafeActionGroup             *action_group);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_set_visible             (CafeActionGroup             *action_group,
+void            cafe_action_group_set_visible             (CafeActionGroup             *action_group,
 							  gboolean                    visible);
 GDK_DEPRECATED_IN_3_10
-GtkAccelGroup  *gtk_action_group_get_accel_group         (CafeActionGroup             *action_group);
+GtkAccelGroup  *cafe_action_group_get_accel_group         (CafeActionGroup             *action_group);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_set_accel_group         (CafeActionGroup             *action_group,
+void            cafe_action_group_set_accel_group         (CafeActionGroup             *action_group,
                                                           GtkAccelGroup              *accel_group);
 
 GDK_DEPRECATED_IN_3_10
-CafeAction      *gtk_action_group_get_action              (CafeActionGroup             *action_group,
+CafeAction      *cafe_action_group_get_action              (CafeActionGroup             *action_group,
 							  const gchar                *action_name);
 GDK_DEPRECATED_IN_3_10
-GList          *gtk_action_group_list_actions            (CafeActionGroup             *action_group);
+GList          *cafe_action_group_list_actions            (CafeActionGroup             *action_group);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_action              (CafeActionGroup             *action_group,
+void            cafe_action_group_add_action              (CafeActionGroup             *action_group,
 							  CafeAction                  *action);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_action_with_accel   (CafeActionGroup             *action_group,
+void            cafe_action_group_add_action_with_accel   (CafeActionGroup             *action_group,
 							  CafeAction                  *action,
 							  const gchar                *accelerator);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_remove_action           (CafeActionGroup             *action_group,
+void            cafe_action_group_remove_action           (CafeActionGroup             *action_group,
 							  CafeAction                  *action);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_actions             (CafeActionGroup             *action_group,
+void            cafe_action_group_add_actions             (CafeActionGroup             *action_group,
 							  const CafeActionEntry       *entries,
 							  guint                       n_entries,
 							  gpointer                    user_data);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_toggle_actions      (CafeActionGroup             *action_group,
+void            cafe_action_group_add_toggle_actions      (CafeActionGroup             *action_group,
 							  const GtkToggleActionEntry *entries,
 							  guint                       n_entries,
 							  gpointer                    user_data);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_radio_actions       (CafeActionGroup             *action_group,
+void            cafe_action_group_add_radio_actions       (CafeActionGroup             *action_group,
 							  const GtkRadioActionEntry  *entries,
 							  guint                       n_entries,
 							  gint                        value,
 							  GCallback                   on_change,
 							  gpointer                    user_data);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_actions_full        (CafeActionGroup             *action_group,
+void            cafe_action_group_add_actions_full        (CafeActionGroup             *action_group,
 							  const CafeActionEntry       *entries,
 							  guint                       n_entries,
 							  gpointer                    user_data,
 							  GDestroyNotify              destroy);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_group,
+void            cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_group,
 							  const GtkToggleActionEntry *entries,
 							  guint                       n_entries,
 							  gpointer                    user_data,
 							  GDestroyNotify              destroy);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_add_radio_actions_full  (CafeActionGroup             *action_group,
+void            cafe_action_group_add_radio_actions_full  (CafeActionGroup             *action_group,
 							  const GtkRadioActionEntry  *entries,
 							  guint                       n_entries,
 							  gint                        value,
@@ -244,27 +244,27 @@ void            gtk_action_group_add_radio_actions_full  (CafeActionGroup       
 							  gpointer                    user_data,
 							  GDestroyNotify              destroy);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_set_translate_func      (CafeActionGroup             *action_group,
+void            cafe_action_group_set_translate_func      (CafeActionGroup             *action_group,
 							  GtkTranslateFunc            func,
 							  gpointer                    data,
 							  GDestroyNotify              notify);
 GDK_DEPRECATED_IN_3_10
-void            gtk_action_group_set_translation_domain  (CafeActionGroup             *action_group,
+void            cafe_action_group_set_translation_domain  (CafeActionGroup             *action_group,
 							  const gchar                *domain);
 GDK_DEPRECATED_IN_3_10
-const gchar *   gtk_action_group_translate_string        (CafeActionGroup             *action_group,
+const gchar *   cafe_action_group_translate_string        (CafeActionGroup             *action_group,
   	                                                  const gchar                *string);
 
 /* Protected for use by CafeAction */
-void _gtk_action_group_emit_connect_proxy    (CafeActionGroup *action_group,
+void _cafe_action_group_emit_connect_proxy    (CafeActionGroup *action_group,
                                               CafeAction      *action,
                                               GtkWidget      *proxy);
-void _gtk_action_group_emit_disconnect_proxy (CafeActionGroup *action_group,
+void _cafe_action_group_emit_disconnect_proxy (CafeActionGroup *action_group,
                                               CafeAction      *action,
                                               GtkWidget      *proxy);
-void _gtk_action_group_emit_pre_activate     (CafeActionGroup *action_group,
+void _cafe_action_group_emit_pre_activate     (CafeActionGroup *action_group,
                                               CafeAction      *action);
-void _gtk_action_group_emit_post_activate    (CafeActionGroup *action_group,
+void _cafe_action_group_emit_post_activate    (CafeActionGroup *action_group,
                                               CafeAction      *action);
 
 G_END_DECLS

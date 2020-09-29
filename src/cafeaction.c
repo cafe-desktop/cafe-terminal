@@ -150,26 +150,26 @@ enum
 };
 
 /* GtkBuildable */
-static void gtk_action_buildable_init             (GtkBuildableIface *iface);
-static void gtk_action_buildable_set_name         (GtkBuildable *buildable,
+static void cafe_action_buildable_init             (GtkBuildableIface *iface);
+static void cafe_action_buildable_set_name         (GtkBuildable *buildable,
 						   const gchar  *name);
-static const gchar* gtk_action_buildable_get_name (GtkBuildable *buildable);
+static const gchar* cafe_action_buildable_get_name (GtkBuildable *buildable);
 
-G_DEFINE_TYPE_WITH_CODE (CafeAction, gtk_action, G_TYPE_OBJECT,
+G_DEFINE_TYPE_WITH_CODE (CafeAction, cafe_action, G_TYPE_OBJECT,
                          G_ADD_PRIVATE (CafeAction)
 			 G_IMPLEMENT_INTERFACE (GTK_TYPE_BUILDABLE,
-						gtk_action_buildable_init))
+						cafe_action_buildable_init))
 
-static void gtk_action_finalize     (GObject *object);
-static void gtk_action_set_property (GObject         *object,
+static void cafe_action_finalize     (GObject *object);
+static void cafe_action_set_property (GObject         *object,
 				     guint            prop_id,
 				     const GValue    *value,
 				     GParamSpec      *pspec);
-static void gtk_action_get_property (GObject         *object,
+static void cafe_action_get_property (GObject         *object,
 				     guint            prop_id,
 				     GValue          *value,
 				     GParamSpec      *pspec);
-static void gtk_action_set_action_group (CafeAction	*action,
+static void cafe_action_set_action_group (CafeAction	*action,
 					 CafeActionGroup *action_group);
 
 static GtkWidget *create_menu_item    (CafeAction *action);
@@ -190,15 +190,15 @@ static guint         action_signals[LAST_SIGNAL] = { 0 };
 
 
 static void
-gtk_action_class_init (CafeActionClass *klass)
+cafe_action_class_init (CafeActionClass *klass)
 {
   GObjectClass *gobject_class;
 
   gobject_class = G_OBJECT_CLASS (klass);
 
-  gobject_class->finalize     = gtk_action_finalize;
-  gobject_class->set_property = gtk_action_set_property;
-  gobject_class->get_property = gtk_action_get_property;
+  gobject_class->finalize     = cafe_action_finalize;
+  gobject_class->set_property = cafe_action_set_property;
+  gobject_class->get_property = cafe_action_get_property;
 
   klass->activate = NULL;
 
@@ -524,9 +524,9 @@ gtk_action_class_init (CafeActionClass *klass)
 
 
 static void
-gtk_action_init (CafeAction *action)
+cafe_action_init (CafeAction *action)
 {
-  action->private_data = gtk_action_get_instance_private (action);
+  action->private_data = cafe_action_get_instance_private (action);
 
   action->private_data->name = NULL;
   action->private_data->label = NULL;
@@ -565,14 +565,14 @@ gtk_action_init (CafeAction *action)
 }
 
 static void
-gtk_action_buildable_init (GtkBuildableIface *iface)
+cafe_action_buildable_init (GtkBuildableIface *iface)
 {
-  iface->set_name = gtk_action_buildable_set_name;
-  iface->get_name = gtk_action_buildable_get_name;
+  iface->set_name = cafe_action_buildable_set_name;
+  iface->get_name = cafe_action_buildable_get_name;
 }
 
 static void
-gtk_action_buildable_set_name (GtkBuildable *buildable,
+cafe_action_buildable_set_name (GtkBuildable *buildable,
 			       const gchar  *name)
 {
   CafeAction *action = CAFE_ACTION (buildable);
@@ -581,7 +581,7 @@ gtk_action_buildable_set_name (GtkBuildable *buildable,
 }
 
 static const gchar *
-gtk_action_buildable_get_name (GtkBuildable *buildable)
+cafe_action_buildable_get_name (GtkBuildable *buildable)
 {
   CafeAction *action = CAFE_ACTION (buildable);
 
@@ -589,7 +589,7 @@ gtk_action_buildable_get_name (GtkBuildable *buildable)
 }
 
 /**
- * gtk_action_new:
+ * cafe_action_new:
  * @name: A unique name for the action
  * @label: (allow-none): the label displayed in menu items and on buttons,
  *         or %NULL
@@ -599,7 +599,7 @@ gtk_action_buildable_get_name (GtkBuildable *buildable)
  *
  * Creates a new #CafeAction object. To add the action to a
  * #CafeActionGroup and set the accelerator for the action,
- * call gtk_action_group_add_action_with_accel().
+ * call cafe_action_group_add_action_with_accel().
  * See the [UI Definition section][XML-UI] for information on allowed action
  * names.
  *
@@ -611,7 +611,7 @@ gtk_action_buildable_get_name (GtkBuildable *buildable)
  * #CafeActionable or creating a #GtkMenu with gtk_menu_new_from_model()
  */
 CafeAction *
-gtk_action_new (const gchar *name,
+cafe_action_new (const gchar *name,
 		const gchar *label,
 		const gchar *tooltip,
 		const gchar *stock_id)
@@ -627,7 +627,7 @@ gtk_action_new (const gchar *name,
 }
 
 static void
-gtk_action_finalize (GObject *object)
+cafe_action_finalize (GObject *object)
 {
   CafeAction *action;
   action = CAFE_ACTION (object);
@@ -645,11 +645,11 @@ gtk_action_finalize (GObject *object)
   if (action->private_data->accel_group)
     g_object_unref (action->private_data->accel_group);
 
-  G_OBJECT_CLASS (gtk_action_parent_class)->finalize (object);  
+  G_OBJECT_CLASS (cafe_action_parent_class)->finalize (object);  
 }
 
 static void
-gtk_action_set_property (GObject         *object,
+cafe_action_set_property (GObject         *object,
 			 guint            prop_id,
 			 const GValue    *value,
 			 GParamSpec      *pspec)
@@ -664,49 +664,49 @@ gtk_action_set_property (GObject         *object,
       action->private_data->name = g_intern_string (g_value_get_string (value));
       break;
     case PROP_LABEL:
-      gtk_action_set_label (action, g_value_get_string (value));
+      cafe_action_set_label (action, g_value_get_string (value));
       break;
     case PROP_SHORT_LABEL:
-      gtk_action_set_short_label (action, g_value_get_string (value));
+      cafe_action_set_short_label (action, g_value_get_string (value));
       break;
     case PROP_TOOLTIP:
-      gtk_action_set_tooltip (action, g_value_get_string (value));
+      cafe_action_set_tooltip (action, g_value_get_string (value));
       break;
     case PROP_STOCK_ID:
-      gtk_action_set_stock_id (action, g_value_get_string (value));
+      cafe_action_set_stock_id (action, g_value_get_string (value));
       break;
     case PROP_GICON:
-      gtk_action_set_gicon (action, g_value_get_object (value));
+      cafe_action_set_gicon (action, g_value_get_object (value));
       break;
     case PROP_ICON_NAME:
-      gtk_action_set_icon_name (action, g_value_get_string (value));
+      cafe_action_set_icon_name (action, g_value_get_string (value));
       break;
     case PROP_VISIBLE_HORIZONTAL:
-      gtk_action_set_visible_horizontal (action, g_value_get_boolean (value));
+      cafe_action_set_visible_horizontal (action, g_value_get_boolean (value));
       break;
     case PROP_VISIBLE_VERTICAL:
-      gtk_action_set_visible_vertical (action, g_value_get_boolean (value));
+      cafe_action_set_visible_vertical (action, g_value_get_boolean (value));
       break;
     case PROP_VISIBLE_OVERFLOWN:
       action->private_data->visible_overflown = g_value_get_boolean (value);
       break;
     case PROP_IS_IMPORTANT:
-      gtk_action_set_is_important (action, g_value_get_boolean (value));
+      cafe_action_set_is_important (action, g_value_get_boolean (value));
       break;
     case PROP_HIDE_IF_EMPTY:
       action->private_data->hide_if_empty = g_value_get_boolean (value);
       break;
     case PROP_SENSITIVE:
-      gtk_action_set_sensitive (action, g_value_get_boolean (value));
+      cafe_action_set_sensitive (action, g_value_get_boolean (value));
       break;
     case PROP_VISIBLE:
-      gtk_action_set_visible (action, g_value_get_boolean (value));
+      cafe_action_set_visible (action, g_value_get_boolean (value));
       break;
     case PROP_ACTION_GROUP:
-      gtk_action_set_action_group (action, g_value_get_object (value));
+      cafe_action_set_action_group (action, g_value_get_object (value));
       break;
     case PROP_ALWAYS_SHOW_IMAGE:
-      gtk_action_set_always_show_image (action, g_value_get_boolean (value));
+      cafe_action_set_always_show_image (action, g_value_get_boolean (value));
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -715,7 +715,7 @@ gtk_action_set_property (GObject         *object,
 }
 
 static void
-gtk_action_get_property (GObject    *object,
+cafe_action_get_property (GObject    *object,
 			 guint       prop_id,
 			 GValue     *value,
 			 GParamSpec *pspec)
@@ -817,7 +817,7 @@ connect_proxy (CafeAction *action,
   g_object_ref_sink (proxy);
 
   if (action->private_data->action_group)
-    _gtk_action_group_emit_connect_proxy (action->private_data->action_group, action, proxy);
+    _cafe_action_group_emit_connect_proxy (action->private_data->action_group, action, proxy);
 
 }
 
@@ -828,11 +828,11 @@ disconnect_proxy (CafeAction *action,
   remove_proxy (action, proxy);
 
   if (action->private_data->action_group)
-    _gtk_action_group_emit_disconnect_proxy (action->private_data->action_group, action, proxy);
+    _cafe_action_group_emit_disconnect_proxy (action->private_data->action_group, action, proxy);
 }
 
 /**
- * _gtk_action_sync_menu_visible:
+ * _cafe_action_sync_menu_visible:
  * @action: (allow-none): a #CafeAction, or %NULL to determine the action from @proxy
  * @proxy: a proxy menu item
  * @empty: whether the submenu attached to @proxy is empty
@@ -850,7 +850,7 @@ disconnect_proxy (CafeAction *action,
  * Deprecated: 3.10
  **/
 void
-_gtk_action_sync_menu_visible (CafeAction *action,
+_cafe_action_sync_menu_visible (CafeAction *action,
 			       GtkWidget *proxy,
 			       gboolean   empty)
 {
@@ -866,7 +866,7 @@ _gtk_action_sync_menu_visible (CafeAction *action,
   if (action)
     {
       /* a GtkMenu for a <popup/> doesn't have to have an action */
-      visible = gtk_action_is_visible (action);
+      visible = cafe_action_is_visible (action);
       hide_if_empty = action->private_data->hide_if_empty;
     }
 
@@ -877,7 +877,7 @@ _gtk_action_sync_menu_visible (CafeAction *action,
 }
 
 void
-_gtk_action_emit_activate (CafeAction *action)
+_cafe_action_emit_activate (CafeAction *action)
 {
   CafeActionGroup *group = action->private_data->action_group;
 
@@ -885,21 +885,21 @@ _gtk_action_emit_activate (CafeAction *action)
     {
       g_object_ref (action);
       g_object_ref (group);
-      _gtk_action_group_emit_pre_activate (group, action);
+      _cafe_action_group_emit_pre_activate (group, action);
     }
 
   g_signal_emit (action, action_signals[ACTIVATE], 0);
 
   if (group != NULL)
     {
-      _gtk_action_group_emit_post_activate (group, action);
+      _cafe_action_group_emit_post_activate (group, action);
       g_object_unref (group);
       g_object_unref (action);
     }
 }
 
 /**
- * gtk_action_activate:
+ * cafe_action_activate:
  * @action: the action object
  *
  * Emits the “activate” signal on the specified action, if it isn't
@@ -913,25 +913,25 @@ _gtk_action_emit_activate (CafeAction *action)
  * Deprecated: 3.10: Use g_action_group_activate_action() on a #GAction instead
  */
 void
-gtk_action_activate (CafeAction *action)
+cafe_action_activate (CafeAction *action)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
   
   if (action->private_data->activate_blocked)
     return;
 
-  if (gtk_action_is_sensitive (action))
-    _gtk_action_emit_activate (action);
+  if (cafe_action_is_sensitive (action))
+    _cafe_action_emit_activate (action);
 }
 
 /**
- * gtk_action_block_activate:
+ * cafe_action_block_activate:
  * @action: a #CafeAction
  *
  * Disable activation signals from the action 
  *
  * This is needed when updating the state of your proxy
- * #GtkActivatable widget could result in calling gtk_action_activate(),
+ * #GtkActivatable widget could result in calling cafe_action_activate(),
  * this is a convenience function to avoid recursing in those
  * cases (updating toggle state for instance).
  *
@@ -941,7 +941,7 @@ gtk_action_activate (CafeAction *action)
  * #GSimpleAction instead
  */
 void
-gtk_action_block_activate (CafeAction *action)
+cafe_action_block_activate (CafeAction *action)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
 
@@ -949,7 +949,7 @@ gtk_action_block_activate (CafeAction *action)
 }
 
 /**
- * gtk_action_unblock_activate:
+ * cafe_action_unblock_activate:
  * @action: a #CafeAction
  *
  * Reenable activation signals from the action 
@@ -960,7 +960,7 @@ gtk_action_block_activate (CafeAction *action)
  * #GSimpleAction instead
  */
 void
-gtk_action_unblock_activate (CafeAction *action)
+cafe_action_unblock_activate (CafeAction *action)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
 
@@ -968,7 +968,7 @@ gtk_action_unblock_activate (CafeAction *action)
 }
 
 /**
- * gtk_action_create_icon:
+ * cafe_action_create_icon:
  * @action: the action object
  * @icon_size: (type int): the size of the icon (#GtkIconSize) that should
  *      be created.
@@ -984,7 +984,7 @@ gtk_action_unblock_activate (CafeAction *action)
  * or gtk_container_add() to add a #GtkImage to a #GtkButton
  */
 GtkWidget *
-gtk_action_create_icon (CafeAction *action, GtkIconSize icon_size)
+cafe_action_create_icon (CafeAction *action, GtkIconSize icon_size)
 {
   GtkWidget *widget = NULL;
 
@@ -1006,7 +1006,7 @@ gtk_action_create_icon (CafeAction *action, GtkIconSize icon_size)
 }
 
 /**
- * gtk_action_create_menu_item:
+ * cafe_action_create_menu_item:
  * @action: the action object
  *
  * Creates a menu item widget that proxies for the given action.
@@ -1019,7 +1019,7 @@ gtk_action_create_icon (CafeAction *action, GtkIconSize icon_size)
  * instead.
  */
 GtkWidget *
-gtk_action_create_menu_item (CafeAction *action)
+cafe_action_create_menu_item (CafeAction *action)
 {
   GtkWidget *menu_item;
 
@@ -1034,7 +1034,7 @@ gtk_action_create_menu_item (CafeAction *action)
 }
 
 /**
- * gtk_action_create_tool_item:
+ * cafe_action_create_tool_item:
  * @action: the action object
  *
  * Creates a toolbar item widget that proxies for the given action.
@@ -1044,10 +1044,10 @@ gtk_action_create_menu_item (CafeAction *action)
  * Since: 2.4
  *
  * Deprecated: 3.10: Use a #GtkToolItem and associate it with a #GAction using
- * gtk_actionable_set_action_name() instead
+ * cafe_actionable_set_action_name() instead
  */
 GtkWidget *
-gtk_action_create_tool_item (CafeAction *action)
+cafe_action_create_tool_item (CafeAction *action)
 {
   GtkWidget *button;
 
@@ -1062,7 +1062,7 @@ gtk_action_create_tool_item (CafeAction *action)
 }
 
 void
-_gtk_action_add_to_proxy_list (CafeAction     *action,
+_cafe_action_add_to_proxy_list (CafeAction     *action,
 			       GtkWidget     *proxy)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1072,7 +1072,7 @@ _gtk_action_add_to_proxy_list (CafeAction     *action,
 }
 
 void
-_gtk_action_remove_from_proxy_list (CafeAction     *action,
+_cafe_action_remove_from_proxy_list (CafeAction     *action,
 				    GtkWidget     *proxy)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1082,7 +1082,7 @@ _gtk_action_remove_from_proxy_list (CafeAction     *action,
 }
 
 /**
- * gtk_action_get_proxies:
+ * cafe_action_get_proxies:
  * @action: the action object
  * 
  * Returns the proxy widgets for an action.
@@ -1096,7 +1096,7 @@ _gtk_action_remove_from_proxy_list (CafeAction     *action,
  * Deprecated: 3.10
  **/
 GSList*
-gtk_action_get_proxies (CafeAction *action)
+cafe_action_get_proxies (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1104,7 +1104,7 @@ gtk_action_get_proxies (CafeAction *action)
 }
 
 /**
- * gtk_action_get_name:
+ * cafe_action_get_name:
  * @action: the action object
  * 
  * Returns the name of the action.
@@ -1117,7 +1117,7 @@ gtk_action_get_proxies (CafeAction *action)
  * Deprecated: 3.10: Use g_action_get_name() on a #GAction instead
  **/
 const gchar *
-gtk_action_get_name (CafeAction *action)
+cafe_action_get_name (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1125,7 +1125,7 @@ gtk_action_get_name (CafeAction *action)
 }
 
 /**
- * gtk_action_is_sensitive:
+ * cafe_action_is_sensitive:
  * @action: the action object
  * 
  * Returns whether the action is effectively sensitive.
@@ -1139,7 +1139,7 @@ gtk_action_get_name (CafeAction *action)
  * instead
  **/
 gboolean
-gtk_action_is_sensitive (CafeAction *action)
+cafe_action_is_sensitive (CafeAction *action)
 {
   CafeActionPrivate *priv;
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
@@ -1147,15 +1147,15 @@ gtk_action_is_sensitive (CafeAction *action)
   priv = action->private_data;
   return priv->sensitive &&
     (priv->action_group == NULL ||
-     gtk_action_group_get_sensitive (priv->action_group));
+     cafe_action_group_get_sensitive (priv->action_group));
 }
 
 /**
- * gtk_action_get_sensitive:
+ * cafe_action_get_sensitive:
  * @action: the action object
  * 
  * Returns whether the action itself is sensitive. Note that this doesn’t 
- * necessarily mean effective sensitivity. See gtk_action_is_sensitive() 
+ * necessarily mean effective sensitivity. See cafe_action_is_sensitive() 
  * for that.
  *
  * Returns: %TRUE if the action itself is sensitive.
@@ -1166,7 +1166,7 @@ gtk_action_is_sensitive (CafeAction *action)
  * instead
  **/
 gboolean
-gtk_action_get_sensitive (CafeAction *action)
+cafe_action_get_sensitive (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
@@ -1174,13 +1174,13 @@ gtk_action_get_sensitive (CafeAction *action)
 }
 
 /**
- * gtk_action_set_sensitive:
+ * cafe_action_set_sensitive:
  * @action: the action object
  * @sensitive: %TRUE to make the action sensitive
  * 
  * Sets the :sensitive property of the action to @sensitive. Note that 
  * this doesn’t necessarily mean effective sensitivity. See 
- * gtk_action_is_sensitive() 
+ * cafe_action_is_sensitive() 
  * for that.
  *
  * Since: 2.6
@@ -1189,7 +1189,7 @@ gtk_action_get_sensitive (CafeAction *action)
  * instead
  **/
 void
-gtk_action_set_sensitive (CafeAction *action,
+cafe_action_set_sensitive (CafeAction *action,
 			  gboolean   sensitive)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1205,7 +1205,7 @@ gtk_action_set_sensitive (CafeAction *action,
 }
 
 /**
- * gtk_action_is_visible:
+ * cafe_action_is_visible:
  * @action: the action object
  * 
  * Returns whether the action is effectively visible.
@@ -1219,7 +1219,7 @@ gtk_action_set_sensitive (CafeAction *action,
  * #CafeActionable widgets directly
  **/
 gboolean
-gtk_action_is_visible (CafeAction *action)
+cafe_action_is_visible (CafeAction *action)
 {
   CafeActionPrivate *priv;
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
@@ -1227,15 +1227,15 @@ gtk_action_is_visible (CafeAction *action)
   priv = action->private_data;
   return priv->visible &&
     (priv->action_group == NULL ||
-     gtk_action_group_get_visible (priv->action_group));
+     cafe_action_group_get_visible (priv->action_group));
 }
 
 /**
- * gtk_action_get_visible:
+ * cafe_action_get_visible:
  * @action: the action object
  * 
  * Returns whether the action itself is visible. Note that this doesn’t 
- * necessarily mean effective visibility. See gtk_action_is_sensitive() 
+ * necessarily mean effective visibility. See cafe_action_is_sensitive() 
  * for that.
  *
  * Returns: %TRUE if the action itself is visible.
@@ -1246,7 +1246,7 @@ gtk_action_is_visible (CafeAction *action)
  * #CafeActionable widgets directly
  **/
 gboolean
-gtk_action_get_visible (CafeAction *action)
+cafe_action_get_visible (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
@@ -1254,13 +1254,13 @@ gtk_action_get_visible (CafeAction *action)
 }
 
 /**
- * gtk_action_set_visible:
+ * cafe_action_set_visible:
  * @action: the action object
  * @visible: %TRUE to make the action visible
  * 
  * Sets the :visible property of the action to @visible. Note that 
  * this doesn’t necessarily mean effective visibility. See 
- * gtk_action_is_visible() 
+ * cafe_action_is_visible() 
  * for that.
  *
  * Since: 2.6
@@ -1269,7 +1269,7 @@ gtk_action_get_visible (CafeAction *action)
  * #CafeActionable widgets directly
  **/
 void
-gtk_action_set_visible (CafeAction *action,
+cafe_action_set_visible (CafeAction *action,
 			gboolean   visible)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1284,7 +1284,7 @@ gtk_action_set_visible (CafeAction *action,
     }
 }
 /**
- * gtk_action_set_is_important:
+ * cafe_action_set_is_important:
  * @action: the action object
  * @is_important: %TRUE to make the action important
  *
@@ -1298,7 +1298,7 @@ gtk_action_set_visible (CafeAction *action,
  * labels are shown directly
  */
 void 
-gtk_action_set_is_important (CafeAction *action,
+cafe_action_set_is_important (CafeAction *action,
 			     gboolean   is_important)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1314,7 +1314,7 @@ gtk_action_set_is_important (CafeAction *action,
 }
 
 /**
- * gtk_action_get_is_important:
+ * cafe_action_get_is_important:
  * @action: a #CafeAction
  *
  * Checks whether @action is important or not
@@ -1327,7 +1327,7 @@ gtk_action_set_is_important (CafeAction *action,
  * labels are shown directly
  */
 gboolean 
-gtk_action_get_is_important (CafeAction *action)
+cafe_action_get_is_important (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
@@ -1335,7 +1335,7 @@ gtk_action_get_is_important (CafeAction *action)
 }
 
 /**
- * gtk_action_set_always_show_image:
+ * cafe_action_set_always_show_image:
  * @action: a #CafeAction
  * @always_show: %TRUE if menuitem proxies should always show their image
  *
@@ -1351,7 +1351,7 @@ gtk_action_get_is_important (CafeAction *action)
  * item should have an image
  */
 void
-gtk_action_set_always_show_image (CafeAction *action,
+cafe_action_set_always_show_image (CafeAction *action,
                                   gboolean   always_show)
 {
   CafeActionPrivate *priv;
@@ -1371,7 +1371,7 @@ gtk_action_set_always_show_image (CafeAction *action,
 }
 
 /**
- * gtk_action_get_always_show_image:
+ * cafe_action_get_always_show_image:
  * @action: a #CafeAction
  *
  * Returns whether @action's menu item proxies will always
@@ -1385,7 +1385,7 @@ gtk_action_set_always_show_image (CafeAction *action,
  * instead
  */
 gboolean
-gtk_action_get_always_show_image  (CafeAction *action)
+cafe_action_get_always_show_image  (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
@@ -1393,7 +1393,7 @@ gtk_action_get_always_show_image  (CafeAction *action)
 }
 
 /**
- * gtk_action_set_label:
+ * cafe_action_set_label:
  * @action: a #CafeAction
  * @label: the label text to set
  *
@@ -1406,7 +1406,7 @@ gtk_action_get_always_show_image  (CafeAction *action)
  * API to set a label
  */
 void 
-gtk_action_set_label (CafeAction	  *action,
+cafe_action_set_label (CafeAction	  *action,
 		      const gchar *label)
 {
   gchar *tmp;
@@ -1435,13 +1435,13 @@ gtk_action_set_label (CafeAction	  *action,
   /* if short_label is unset, set short_label=label */
   if (!action->private_data->short_label_set)
     {
-      gtk_action_set_short_label (action, action->private_data->label);
+      cafe_action_set_short_label (action, action->private_data->label);
       action->private_data->short_label_set = FALSE;
     }
 }
 
 /**
- * gtk_action_get_label:
+ * cafe_action_get_label:
  * @action: a #CafeAction
  *
  * Gets the label text of @action.
@@ -1455,7 +1455,7 @@ gtk_action_set_label (CafeAction	  *action,
  * widget-specific API to get a label
  */
 const gchar *
-gtk_action_get_label (CafeAction *action)
+cafe_action_get_label (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1463,7 +1463,7 @@ gtk_action_get_label (CafeAction *action)
 }
 
 /**
- * gtk_action_set_short_label:
+ * cafe_action_set_short_label:
  * @action: a #CafeAction
  * @short_label: the label text to set
  *
@@ -1475,7 +1475,7 @@ gtk_action_get_label (CafeAction *action)
  * labels
  */
 void 
-gtk_action_set_short_label (CafeAction   *action,
+cafe_action_set_short_label (CafeAction   *action,
 			    const gchar *short_label)
 {
   gchar *tmp;
@@ -1494,7 +1494,7 @@ gtk_action_set_short_label (CafeAction   *action,
 }
 
 /**
- * gtk_action_get_short_label:
+ * cafe_action_get_short_label:
  * @action: a #CafeAction
  *
  * Gets the short label text of @action.
@@ -1507,7 +1507,7 @@ gtk_action_set_short_label (CafeAction   *action,
  * labels
  */
 const gchar *
-gtk_action_get_short_label (CafeAction *action)
+cafe_action_get_short_label (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1515,7 +1515,7 @@ gtk_action_get_short_label (CafeAction *action)
 }
 
 /**
- * gtk_action_set_visible_horizontal:
+ * cafe_action_set_visible_horizontal:
  * @action: a #CafeAction
  * @visible_horizontal: whether the action is visible horizontally
  *
@@ -1527,7 +1527,7 @@ gtk_action_get_short_label (CafeAction *action)
  * visibility of associated widgets and menu items directly
  */
 void 
-gtk_action_set_visible_horizontal (CafeAction *action,
+cafe_action_set_visible_horizontal (CafeAction *action,
 				   gboolean   visible_horizontal)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1545,7 +1545,7 @@ gtk_action_set_visible_horizontal (CafeAction *action,
 }
 
 /**
- * gtk_action_get_visible_horizontal:
+ * cafe_action_get_visible_horizontal:
  * @action: a #CafeAction
  *
  * Checks whether @action is visible when horizontal
@@ -1558,7 +1558,7 @@ gtk_action_set_visible_horizontal (CafeAction *action,
  * visibility of associated widgets and menu items directly
  */
 gboolean 
-gtk_action_get_visible_horizontal (CafeAction *action)
+cafe_action_get_visible_horizontal (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
@@ -1566,7 +1566,7 @@ gtk_action_get_visible_horizontal (CafeAction *action)
 }
 
 /**
- * gtk_action_set_visible_vertical:
+ * cafe_action_set_visible_vertical:
  * @action: a #CafeAction
  * @visible_vertical: whether the action is visible vertically
  *
@@ -1578,7 +1578,7 @@ gtk_action_get_visible_horizontal (CafeAction *action)
  * visibility of associated widgets and menu items directly
  */
 void 
-gtk_action_set_visible_vertical (CafeAction *action,
+cafe_action_set_visible_vertical (CafeAction *action,
 				 gboolean   visible_vertical)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1596,7 +1596,7 @@ gtk_action_set_visible_vertical (CafeAction *action,
 }
 
 /**
- * gtk_action_get_visible_vertical:
+ * cafe_action_get_visible_vertical:
  * @action: a #CafeAction
  *
  * Checks whether @action is visible when horizontal
@@ -1609,7 +1609,7 @@ gtk_action_set_visible_vertical (CafeAction *action,
  * visibility of associated widgets and menu items directly
  */
 gboolean 
-gtk_action_get_visible_vertical (CafeAction *action)
+cafe_action_get_visible_vertical (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
@@ -1617,7 +1617,7 @@ gtk_action_get_visible_vertical (CafeAction *action)
 }
 
 /**
- * gtk_action_set_tooltip:
+ * cafe_action_set_tooltip:
  * @action: a #CafeAction
  * @tooltip: the tooltip text
  *
@@ -1629,7 +1629,7 @@ gtk_action_get_visible_vertical (CafeAction *action)
  * #CafeActionable widgets with gtk_widget_set_tooltip_text()
  */
 void 
-gtk_action_set_tooltip (CafeAction   *action,
+cafe_action_set_tooltip (CafeAction   *action,
 			const gchar *tooltip)
 {
   gchar *tmp;
@@ -1644,7 +1644,7 @@ gtk_action_set_tooltip (CafeAction   *action,
 }
 
 /**
- * gtk_action_get_tooltip:
+ * cafe_action_get_tooltip:
  * @action: a #CafeAction
  *
  * Gets the tooltip text of @action.
@@ -1657,7 +1657,7 @@ gtk_action_set_tooltip (CafeAction   *action,
  * #CafeActionable widgets with gtk_widget_get_tooltip_text()
  */
 const gchar *
-gtk_action_get_tooltip (CafeAction *action)
+cafe_action_get_tooltip (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1665,7 +1665,7 @@ gtk_action_get_tooltip (CafeAction *action)
 }
 
 /**
- * gtk_action_set_stock_id:
+ * cafe_action_set_stock_id:
  * @action: a #CafeAction
  * @stock_id: the stock id
  *
@@ -1677,7 +1677,7 @@ gtk_action_get_tooltip (CafeAction *action)
  * items
  */
 void 
-gtk_action_set_stock_id (CafeAction   *action,
+cafe_action_set_stock_id (CafeAction   *action,
 			 const gchar *stock_id)
 {
   gchar *tmp;
@@ -1701,9 +1701,9 @@ gtk_action_set_stock_id (CafeAction   *action,
 
       if (action->private_data->stock_id &&
 	  gtk_stock_lookup (action->private_data->stock_id, &stock_item))
-	gtk_action_set_label (action, stock_item.label);
+	cafe_action_set_label (action, stock_item.label);
       else
-	gtk_action_set_label (action, NULL);
+	cafe_action_set_label (action, NULL);
 
       G_GNUC_END_IGNORE_DEPRECATIONS;
 
@@ -1712,7 +1712,7 @@ gtk_action_set_stock_id (CafeAction   *action,
 }
 
 /**
- * gtk_action_get_stock_id:
+ * cafe_action_get_stock_id:
  * @action: a #CafeAction
  *
  * Gets the stock id of @action.
@@ -1725,7 +1725,7 @@ gtk_action_set_stock_id (CafeAction   *action,
  * items
  */
 const gchar *
-gtk_action_get_stock_id (CafeAction *action)
+cafe_action_get_stock_id (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1733,7 +1733,7 @@ gtk_action_get_stock_id (CafeAction *action)
 }
 
 /**
- * gtk_action_set_icon_name:
+ * cafe_action_set_icon_name:
  * @action: a #CafeAction
  * @icon_name: the icon name to set
  *
@@ -1746,7 +1746,7 @@ gtk_action_get_stock_id (CafeAction *action)
  * add a #GtkImage to a #GtkButton
  */
 void 
-gtk_action_set_icon_name (CafeAction   *action,
+cafe_action_set_icon_name (CafeAction   *action,
 			  const gchar *icon_name)
 {
   gchar *tmp;
@@ -1761,7 +1761,7 @@ gtk_action_set_icon_name (CafeAction   *action,
 }
 
 /**
- * gtk_action_get_icon_name:
+ * cafe_action_get_icon_name:
  * @action: a #CafeAction
  *
  * Gets the icon name of @action.
@@ -1775,7 +1775,7 @@ gtk_action_set_icon_name (CafeAction   *action,
  * associated with a #GAction
  */
 const gchar *
-gtk_action_get_icon_name (CafeAction *action)
+cafe_action_get_icon_name (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1783,7 +1783,7 @@ gtk_action_get_icon_name (CafeAction *action)
 }
 
 /**
- * gtk_action_set_gicon:
+ * cafe_action_set_gicon:
  * @action: a #CafeAction
  * @icon: the #GIcon to set
  *
@@ -1796,7 +1796,7 @@ gtk_action_get_icon_name (CafeAction *action)
  * add a #GtkImage to a #GtkButton
  */
 void
-gtk_action_set_gicon (CafeAction *action,
+cafe_action_set_gicon (CafeAction *action,
                       GIcon     *icon)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1813,7 +1813,7 @@ gtk_action_set_gicon (CafeAction *action,
 }
 
 /**
- * gtk_action_get_gicon:
+ * cafe_action_get_gicon:
  * @action: a #CafeAction
  *
  * Gets the gicon of @action.
@@ -1827,7 +1827,7 @@ gtk_action_set_gicon (CafeAction *action,
  * associated with a #GAction
  */
 GIcon *
-gtk_action_get_gicon (CafeAction *action)
+cafe_action_get_gicon (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1842,9 +1842,9 @@ closure_accel_activate (GClosure     *closure,
                         gpointer      invocation_hint,
                         gpointer      marshal_data)
 {
-  if (gtk_action_is_sensitive (CAFE_ACTION (closure->data)))
+  if (cafe_action_is_sensitive (CAFE_ACTION (closure->data)))
     {
-      _gtk_action_emit_activate (CAFE_ACTION (closure->data));
+      _cafe_action_emit_activate (CAFE_ACTION (closure->data));
       
       /* we handled the accelerator */
       g_value_set_boolean (return_value, TRUE);
@@ -1852,7 +1852,7 @@ closure_accel_activate (GClosure     *closure,
 }
 
 static void
-gtk_action_set_action_group (CafeAction	    *action,
+cafe_action_set_action_group (CafeAction	    *action,
 			     CafeActionGroup *action_group)
 {
   if (action->private_data->action_group == NULL)
@@ -1864,7 +1864,7 @@ gtk_action_set_action_group (CafeAction	    *action,
 }
 
 /**
- * gtk_action_set_accel_path:
+ * cafe_action_set_accel_path:
  * @action: the action object
  * @accel_path: the accelerator path
  *
@@ -1882,7 +1882,7 @@ gtk_action_set_action_group (CafeAction	    *action,
  * #GtkMenu instead
  */
 void
-gtk_action_set_accel_path (CafeAction   *action, 
+cafe_action_set_accel_path (CafeAction   *action, 
 			   const gchar *accel_path)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1891,7 +1891,7 @@ gtk_action_set_accel_path (CafeAction   *action,
 }
 
 /**
- * gtk_action_get_accel_path:
+ * cafe_action_get_accel_path:
  * @action: the action object
  *
  * Returns the accel path for this action.  
@@ -1906,7 +1906,7 @@ gtk_action_set_accel_path (CafeAction   *action,
  * #GtkMenu instead
  */
 const gchar *
-gtk_action_get_accel_path (CafeAction *action)
+cafe_action_get_accel_path (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1917,7 +1917,7 @@ gtk_action_get_accel_path (CafeAction *action)
 }
 
 /**
- * gtk_action_get_accel_closure:
+ * cafe_action_get_accel_closure:
  * @action: the action object
  *
  * Returns the accel closure for this action.
@@ -1932,7 +1932,7 @@ gtk_action_get_accel_path (CafeAction *action)
  * equivalent for getting the accel closure
  */
 GClosure *
-gtk_action_get_accel_closure (CafeAction *action)
+cafe_action_get_accel_closure (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
@@ -1941,7 +1941,7 @@ gtk_action_get_accel_closure (CafeAction *action)
 
 
 /**
- * gtk_action_set_accel_group:
+ * cafe_action_set_accel_group:
  * @action: the action object
  * @accel_group: (allow-none): a #GtkAccelGroup or %NULL
  *
@@ -1954,7 +1954,7 @@ gtk_action_get_accel_closure (CafeAction *action)
  * #GtkMenu instead
  **/
 void
-gtk_action_set_accel_group (CafeAction     *action,
+cafe_action_set_accel_group (CafeAction     *action,
 			    GtkAccelGroup *accel_group)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
@@ -1969,17 +1969,17 @@ gtk_action_set_accel_group (CafeAction     *action,
 }
 
 /**
- * gtk_action_connect_accelerator:
+ * cafe_action_connect_accelerator:
  * @action: a #CafeAction
  * 
  * Installs the accelerator for @action if @action has an
- * accel path and group. See gtk_action_set_accel_path() and 
- * gtk_action_set_accel_group()
+ * accel path and group. See cafe_action_set_accel_path() and 
+ * cafe_action_set_accel_group()
  *
  * Since multiple proxies may independently trigger the installation
  * of the accelerator, the @action counts the number of times this
  * function has been called and doesn’t remove the accelerator until
- * gtk_action_disconnect_accelerator() has been called as many times.
+ * cafe_action_disconnect_accelerator() has been called as many times.
  *
  * Since: 2.4
  *
@@ -1987,7 +1987,7 @@ gtk_action_set_accel_group (CafeAction     *action,
  * #GtkMenu instead
  **/
 void 
-gtk_action_connect_accelerator (CafeAction *action)
+cafe_action_connect_accelerator (CafeAction *action)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
 
@@ -2009,10 +2009,10 @@ gtk_action_connect_accelerator (CafeAction *action)
 }
 
 /**
- * gtk_action_disconnect_accelerator:
+ * cafe_action_disconnect_accelerator:
  * @action: a #CafeAction
  * 
- * Undoes the effect of one call to gtk_action_connect_accelerator().
+ * Undoes the effect of one call to cafe_action_connect_accelerator().
  *
  * Since: 2.4
  *
@@ -2020,7 +2020,7 @@ gtk_action_connect_accelerator (CafeAction *action)
  * #GtkMenu instead
  **/
 void 
-gtk_action_disconnect_accelerator (CafeAction *action)
+cafe_action_disconnect_accelerator (CafeAction *action)
 {
   g_return_if_fail (CAFE_IS_ACTION (action));
 
@@ -2036,7 +2036,7 @@ gtk_action_disconnect_accelerator (CafeAction *action)
 }
 
 /**
- * gtk_action_create_menu:
+ * cafe_action_create_menu:
  * @action: a #CafeAction
  *
  * If @action provides a #GtkMenu widget as a submenu for the menu
@@ -2052,7 +2052,7 @@ gtk_action_disconnect_accelerator (CafeAction *action)
  * #GtkMenu with gtk_menu_new_from_model()
  */
 GtkWidget *
-gtk_action_create_menu (CafeAction *action)
+cafe_action_create_menu (CafeAction *action)
 {
   g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 

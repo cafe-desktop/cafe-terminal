@@ -121,36 +121,36 @@ enum
   PROP_ACCEL_GROUP
 };
 
-static void       gtk_action_group_init            (CafeActionGroup      *self);
-static void       gtk_action_group_class_init      (CafeActionGroupClass *class);
-static void       gtk_action_group_finalize        (GObject             *object);
-static void       gtk_action_group_set_property    (GObject             *object,
+static void       cafe_action_group_init            (CafeActionGroup      *self);
+static void       cafe_action_group_class_init      (CafeActionGroupClass *class);
+static void       cafe_action_group_finalize        (GObject             *object);
+static void       cafe_action_group_set_property    (GObject             *object,
 						    guint                prop_id,
 						    const GValue        *value,
 						    GParamSpec          *pspec);
-static void       gtk_action_group_get_property    (GObject             *object,
+static void       cafe_action_group_get_property    (GObject             *object,
 						    guint                prop_id,
 						    GValue              *value,
 						    GParamSpec          *pspec);
-static CafeAction *gtk_action_group_real_get_action (CafeActionGroup      *self,
+static CafeAction *cafe_action_group_real_get_action (CafeActionGroup      *self,
 						    const gchar         *name);
 
 /* GtkBuildable */
-static void gtk_action_group_buildable_init (GtkBuildableIface *iface);
-static void gtk_action_group_buildable_add_child (GtkBuildable  *buildable,
+static void cafe_action_group_buildable_init (GtkBuildableIface *iface);
+static void cafe_action_group_buildable_add_child (GtkBuildable  *buildable,
 						  GtkBuilder    *builder,
 						  GObject       *child,
 						  const gchar   *type);
-static void gtk_action_group_buildable_set_name (GtkBuildable *buildable,
+static void cafe_action_group_buildable_set_name (GtkBuildable *buildable,
 						 const gchar  *name);
-static const gchar* gtk_action_group_buildable_get_name (GtkBuildable *buildable);
-static gboolean gtk_action_group_buildable_custom_tag_start (GtkBuildable     *buildable,
+static const gchar* cafe_action_group_buildable_get_name (GtkBuildable *buildable);
+static gboolean cafe_action_group_buildable_custom_tag_start (GtkBuildable     *buildable,
 							     GtkBuilder       *builder,
 							     GObject          *child,
 							     const gchar      *tagname,
 							     GMarkupParser    *parser,
 							     gpointer         *data);
-static void gtk_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
+static void cafe_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
 						       GtkBuilder   *builder,
 						       GObject      *child,
 						       const gchar  *tagname,
@@ -158,22 +158,22 @@ static void gtk_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
 
 static guint         action_group_signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_CODE (CafeActionGroup, gtk_action_group, G_TYPE_OBJECT,
+G_DEFINE_TYPE_WITH_CODE (CafeActionGroup, cafe_action_group, G_TYPE_OBJECT,
                          G_ADD_PRIVATE (CafeActionGroup)
                          G_IMPLEMENT_INTERFACE (GTK_TYPE_BUILDABLE,
-                                                gtk_action_group_buildable_init))
+                                                cafe_action_group_buildable_init))
 
 static void
-gtk_action_group_class_init (CafeActionGroupClass *klass)
+cafe_action_group_class_init (CafeActionGroupClass *klass)
 {
   GObjectClass *gobject_class;
 
   gobject_class = G_OBJECT_CLASS (klass);
 
-  gobject_class->finalize = gtk_action_group_finalize;
-  gobject_class->set_property = gtk_action_group_set_property;
-  gobject_class->get_property = gtk_action_group_get_property;
-  klass->get_action = gtk_action_group_real_get_action;
+  gobject_class->finalize = cafe_action_group_finalize;
+  gobject_class->set_property = cafe_action_group_set_property;
+  gobject_class->get_property = cafe_action_group_get_property;
+  klass->get_action = cafe_action_group_real_get_action;
 
   /**
    * CafeActionGroup:name:
@@ -343,9 +343,9 @@ remove_action (CafeAction *action)
 }
 
 static void
-gtk_action_group_init (CafeActionGroup *action_group)
+cafe_action_group_init (CafeActionGroup *action_group)
 {
-  action_group->priv = gtk_action_group_get_instance_private (action_group);
+  action_group->priv = cafe_action_group_get_instance_private (action_group);
   action_group->priv->name = NULL;
   action_group->priv->sensitive = TRUE;
   action_group->priv->visible = TRUE;
@@ -358,27 +358,27 @@ gtk_action_group_init (CafeActionGroup *action_group)
 }
 
 static void
-gtk_action_group_buildable_init (GtkBuildableIface *iface)
+cafe_action_group_buildable_init (GtkBuildableIface *iface)
 {
-  iface->add_child = gtk_action_group_buildable_add_child;
-  iface->set_name = gtk_action_group_buildable_set_name;
-  iface->get_name = gtk_action_group_buildable_get_name;
-  iface->custom_tag_start = gtk_action_group_buildable_custom_tag_start;
-  iface->custom_tag_end = gtk_action_group_buildable_custom_tag_end;
+  iface->add_child = cafe_action_group_buildable_add_child;
+  iface->set_name = cafe_action_group_buildable_set_name;
+  iface->get_name = cafe_action_group_buildable_get_name;
+  iface->custom_tag_start = cafe_action_group_buildable_custom_tag_start;
+  iface->custom_tag_end = cafe_action_group_buildable_custom_tag_end;
 }
 
 static void
-gtk_action_group_buildable_add_child (GtkBuildable  *buildable,
+cafe_action_group_buildable_add_child (GtkBuildable  *buildable,
 				      GtkBuilder    *builder,
 				      GObject       *child,
 				      const gchar   *type)
 {
-  gtk_action_group_add_action_with_accel (CAFE_ACTION_GROUP (buildable),
+  cafe_action_group_add_action_with_accel (CAFE_ACTION_GROUP (buildable),
 					  CAFE_ACTION (child), NULL);
 }
 
 static void
-gtk_action_group_buildable_set_name (GtkBuildable *buildable,
+cafe_action_group_buildable_set_name (GtkBuildable *buildable,
 				     const gchar  *name)
 {
   CafeActionGroup *self = CAFE_ACTION_GROUP (buildable);
@@ -388,7 +388,7 @@ gtk_action_group_buildable_set_name (GtkBuildable *buildable,
 }
 
 static const gchar *
-gtk_action_group_buildable_get_name (GtkBuildable *buildable)
+cafe_action_group_buildable_get_name (GtkBuildable *buildable)
 {
   CafeActionGroup *self = CAFE_ACTION_GROUP (buildable);
   CafeActionGroupPrivate *private = self->priv;
@@ -567,7 +567,7 @@ static const GMarkupParser accelerator_parser =
   };
 
 static gboolean
-gtk_action_group_buildable_custom_tag_start (GtkBuildable     *buildable,
+cafe_action_group_buildable_custom_tag_start (GtkBuildable     *buildable,
 					     GtkBuilder       *builder,
 					     GObject          *child,
 					     const gchar      *tagname,
@@ -589,7 +589,7 @@ gtk_action_group_buildable_custom_tag_start (GtkBuildable     *buildable,
 }
 
 static void
-gtk_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
+cafe_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
 					   GtkBuilder   *builder,
 					   GObject      *child,
 					   const gchar  *tagname,
@@ -611,14 +611,14 @@ gtk_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
 	
       accel_path = g_strconcat ("<Actions>/",
 				private->name, "/",
-				gtk_action_get_name (action), NULL);
+				cafe_action_get_name (action), NULL);
 
       if (gtk_accel_map_lookup_entry (accel_path, NULL))
 	gtk_accel_map_change_entry (accel_path, data->key, data->modifiers, TRUE);
       else
 	gtk_accel_map_add_entry (accel_path, data->key, data->modifiers);
 
-      gtk_action_set_accel_path (action, accel_path);
+      cafe_action_set_accel_path (action, accel_path);
       
       g_free (accel_path);
       g_slice_free (AcceleratorParserData, data);
@@ -626,7 +626,7 @@ gtk_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
 }
 
 /**
- * gtk_action_group_new:
+ * cafe_action_group_new:
  * @name: the name of the action group.
  *
  * Creates a new #CafeActionGroup object. The name of the action group
@@ -640,7 +640,7 @@ gtk_action_group_buildable_custom_tag_end (GtkBuildable *buildable,
  * Deprecated: 3.10
  */
 CafeActionGroup *
-gtk_action_group_new (const gchar *name)
+cafe_action_group_new (const gchar *name)
 {
   CafeActionGroup *self;
   CafeActionGroupPrivate *private;
@@ -653,7 +653,7 @@ gtk_action_group_new (const gchar *name)
 }
 
 static void
-gtk_action_group_finalize (GObject *object)
+cafe_action_group_finalize (GObject *object)
 {
   CafeActionGroup *self = CAFE_ACTION_GROUP (object);
 
@@ -666,11 +666,11 @@ gtk_action_group_finalize (GObject *object)
   if (self->priv->translate_notify != NULL)
     self->priv->translate_notify (self->priv->translate_data);
 
-  G_OBJECT_CLASS (gtk_action_group_parent_class)->finalize (object);
+  G_OBJECT_CLASS (cafe_action_group_parent_class)->finalize (object);
 }
 
 static void
-gtk_action_group_set_property (GObject         *object,
+cafe_action_group_set_property (GObject         *object,
 			       guint            prop_id,
 			       const GValue    *value,
 			       GParamSpec      *pspec)
@@ -690,13 +690,13 @@ gtk_action_group_set_property (GObject         *object,
       g_free (tmp);
       break;
     case PROP_SENSITIVE:
-      gtk_action_group_set_sensitive (self, g_value_get_boolean (value));
+      cafe_action_group_set_sensitive (self, g_value_get_boolean (value));
       break;
     case PROP_VISIBLE:
-      gtk_action_group_set_visible (self, g_value_get_boolean (value));
+      cafe_action_group_set_visible (self, g_value_get_boolean (value));
       break;
     case PROP_ACCEL_GROUP:
-      gtk_action_group_set_accel_group (self, g_value_get_object (value));
+      cafe_action_group_set_accel_group (self, g_value_get_object (value));
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -705,7 +705,7 @@ gtk_action_group_set_property (GObject         *object,
 }
 
 static void
-gtk_action_group_get_property (GObject    *object,
+cafe_action_group_get_property (GObject    *object,
 			       guint       prop_id,
 			       GValue     *value,
 			       GParamSpec *pspec)
@@ -737,7 +737,7 @@ gtk_action_group_get_property (GObject    *object,
 }
 
 static CafeAction *
-gtk_action_group_real_get_action (CafeActionGroup *self,
+cafe_action_group_real_get_action (CafeActionGroup *self,
 				  const gchar    *action_name)
 {
   CafeActionGroupPrivate *private;
@@ -748,7 +748,7 @@ gtk_action_group_real_get_action (CafeActionGroup *self,
 }
 
 /**
- * gtk_action_group_get_name:
+ * cafe_action_group_get_name:
  * @action_group: the action group
  *
  * Gets the name of the action group.
@@ -760,7 +760,7 @@ gtk_action_group_real_get_action (CafeActionGroup *self,
  * Deprecated: 3.10
  */
 const gchar *
-gtk_action_group_get_name (CafeActionGroup *action_group)
+cafe_action_group_get_name (CafeActionGroup *action_group)
 {
   CafeActionGroupPrivate *private;
 
@@ -772,12 +772,12 @@ gtk_action_group_get_name (CafeActionGroup *action_group)
 }
 
 /**
- * gtk_action_group_get_sensitive:
+ * cafe_action_group_get_sensitive:
  * @action_group: the action group
  *
  * Returns %TRUE if the group is sensitive.  The constituent actions
- * can only be logically sensitive (see gtk_action_is_sensitive()) if
- * they are sensitive (see gtk_action_get_sensitive()) and their group
+ * can only be logically sensitive (see cafe_action_is_sensitive()) if
+ * they are sensitive (see cafe_action_get_sensitive()) and their group
  * is sensitive.
  * 
  * Returns: %TRUE if the group is sensitive.
@@ -787,7 +787,7 @@ gtk_action_group_get_name (CafeActionGroup *action_group)
  * Deprecated: 3.10
  */
 gboolean
-gtk_action_group_get_sensitive (CafeActionGroup *action_group)
+cafe_action_group_get_sensitive (CafeActionGroup *action_group)
 {
   CafeActionGroupPrivate *private;
 
@@ -809,7 +809,7 @@ cb_set_action_sensitivity (const gchar *name,
 }
 
 /**
- * gtk_action_group_set_sensitive:
+ * cafe_action_group_set_sensitive:
  * @action_group: the action group
  * @sensitive: new sensitivity
  *
@@ -820,7 +820,7 @@ cb_set_action_sensitivity (const gchar *name,
  * Deprecated: 3.10
  */
 void
-gtk_action_group_set_sensitive (CafeActionGroup *action_group, 
+cafe_action_group_set_sensitive (CafeActionGroup *action_group, 
 				gboolean        sensitive)
 {
   CafeActionGroupPrivate *private;
@@ -841,12 +841,12 @@ gtk_action_group_set_sensitive (CafeActionGroup *action_group,
 }
 
 /**
- * gtk_action_group_get_visible:
+ * cafe_action_group_get_visible:
  * @action_group: the action group
  *
  * Returns %TRUE if the group is visible.  The constituent actions
- * can only be logically visible (see gtk_action_is_visible()) if
- * they are visible (see gtk_action_get_visible()) and their group
+ * can only be logically visible (see cafe_action_is_visible()) if
+ * they are visible (see cafe_action_get_visible()) and their group
  * is visible.
  * 
  * Returns: %TRUE if the group is visible.
@@ -856,7 +856,7 @@ gtk_action_group_set_sensitive (CafeActionGroup *action_group,
  * Deprecated: 3.10
  */
 gboolean
-gtk_action_group_get_visible (CafeActionGroup *action_group)
+cafe_action_group_get_visible (CafeActionGroup *action_group)
 {
   CafeActionGroupPrivate *private;
 
@@ -868,7 +868,7 @@ gtk_action_group_get_visible (CafeActionGroup *action_group)
 }
 
 /**
- * gtk_action_group_get_accel_group:
+ * cafe_action_group_get_accel_group:
  * @action_group: a #CafeActionGroup
  *
  * Gets the accelerator group.
@@ -881,7 +881,7 @@ gtk_action_group_get_visible (CafeActionGroup *action_group)
  * Deprecated: 3.10
  */
 GtkAccelGroup *
-gtk_action_group_get_accel_group (CafeActionGroup *action_group)
+cafe_action_group_get_accel_group (CafeActionGroup *action_group)
 {
   g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), FALSE);
 
@@ -898,7 +898,7 @@ cb_set_action_visiblity (const gchar *name,
 }
 
 /**
- * gtk_action_group_set_visible:
+ * cafe_action_group_set_visible:
  * @action_group: the action group
  * @visible: new visiblity
  *
@@ -909,7 +909,7 @@ cb_set_action_visiblity (const gchar *name,
  * Deprecated: 3.10
  */
 void
-gtk_action_group_set_visible (CafeActionGroup *action_group, 
+cafe_action_group_set_visible (CafeActionGroup *action_group, 
 			      gboolean        visible)
 {
   CafeActionGroupPrivate *private;
@@ -930,13 +930,13 @@ gtk_action_group_set_visible (CafeActionGroup *action_group,
 }
 
 static void 
-gtk_action_group_accel_group_foreach (gpointer key, gpointer val, gpointer data)
+cafe_action_group_accel_group_foreach (gpointer key, gpointer val, gpointer data)
 {
-  gtk_action_set_accel_group (val, data);
+  cafe_action_set_accel_group (val, data);
 }
 
 /**
- * gtk_action_group_set_accel_group:
+ * cafe_action_group_set_accel_group:
  * @action_group: a #CafeActionGroup
  * @accel_group: (allow-none): a #GtkAccelGroup to set or %NULL
  *
@@ -947,7 +947,7 @@ gtk_action_group_accel_group_foreach (gpointer key, gpointer val, gpointer data)
  * Deprecated: 3.10
  */
 void
-gtk_action_group_set_accel_group (CafeActionGroup *action_group,
+cafe_action_group_set_accel_group (CafeActionGroup *action_group,
                                   GtkAccelGroup  *accel_group)
 {
   CafeActionGroupPrivate *private;
@@ -966,14 +966,14 @@ gtk_action_group_set_accel_group (CafeActionGroup *action_group,
 
   /* Set the new accel group on every action */
   g_hash_table_foreach (private->actions,
-                        gtk_action_group_accel_group_foreach,
+                        cafe_action_group_accel_group_foreach,
                         accel_group);
 
   g_object_notify (G_OBJECT (action_group), "accel-group");
 }
 
 /**
- * gtk_action_group_get_action:
+ * cafe_action_group_get_action:
  * @action_group: the action group
  * @action_name: the name of the action
  *
@@ -986,7 +986,7 @@ gtk_action_group_set_accel_group (CafeActionGroup *action_group,
  * Deprecated: 3.10
  */
 CafeAction *
-gtk_action_group_get_action (CafeActionGroup *action_group,
+cafe_action_group_get_action (CafeActionGroup *action_group,
 			     const gchar    *action_name)
 {
   g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), NULL);
@@ -1000,7 +1000,7 @@ static gboolean
 check_unique_action (CafeActionGroup *action_group,
 	             const gchar    *action_name)
 {
-  if (gtk_action_group_get_action (action_group, action_name) != NULL)
+  if (cafe_action_group_get_action (action_group, action_name) != NULL)
     {
       CafeActionGroupPrivate *private;
 
@@ -1016,7 +1016,7 @@ check_unique_action (CafeActionGroup *action_group,
 }
 
 /**
- * gtk_action_group_add_action:
+ * cafe_action_group_add_action:
  * @action_group: the action group
  * @action: an action
  *
@@ -1024,15 +1024,15 @@ check_unique_action (CafeActionGroup *action_group,
  * does not set up the accel path of the action, which can lead to problems
  * if a user tries to modify the accelerator of a menuitem associated with
  * the action. Therefore you must either set the accel path yourself with
- * gtk_action_set_accel_path(), or use 
- * `gtk_action_group_add_action_with_accel (..., NULL)`.
+ * cafe_action_set_accel_path(), or use 
+ * `cafe_action_group_add_action_with_accel (..., NULL)`.
  *
  * Since: 2.4
  *
  * Deprecated: 3.10
  */
 void
-gtk_action_group_add_action (CafeActionGroup *action_group,
+cafe_action_group_add_action (CafeActionGroup *action_group,
 			     CafeAction      *action)
 {
   CafeActionGroupPrivate *private;
@@ -1041,7 +1041,7 @@ gtk_action_group_add_action (CafeActionGroup *action_group,
   g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
   g_return_if_fail (CAFE_IS_ACTION (action));
 
-  name = gtk_action_get_name (action);
+  name = cafe_action_get_name (action);
   g_return_if_fail (name != NULL);
   
   if (!check_unique_action (action_group, name))
@@ -1055,11 +1055,11 @@ gtk_action_group_add_action (CafeActionGroup *action_group,
   g_object_set (action, "action-group", action_group, NULL);
   
   if (private->accel_group)
-    gtk_action_set_accel_group (action, private->accel_group);
+    cafe_action_set_accel_group (action, private->accel_group);
 }
 
 /**
- * gtk_action_group_add_action_with_accel:
+ * cafe_action_group_add_action_with_accel:
  * @action_group: the action group
  * @action: the action to add
  * @accelerator: (allow-none): the accelerator for the action, in
@@ -1078,7 +1078,7 @@ gtk_action_group_add_action (CafeActionGroup *action_group,
  * Deprecated: 3.10
  */
 void
-gtk_action_group_add_action_with_accel (CafeActionGroup *action_group,
+cafe_action_group_add_action_with_accel (CafeActionGroup *action_group,
 					CafeAction      *action,
 					const gchar    *accelerator)
 {
@@ -1088,7 +1088,7 @@ gtk_action_group_add_action_with_accel (CafeActionGroup *action_group,
   GdkModifierType accel_mods;
   const gchar *name;
 
-  name = gtk_action_get_name (action);
+  name = cafe_action_get_name (action);
   if (!check_unique_action (action_group, name))
     return;
 
@@ -1131,14 +1131,14 @@ gtk_action_group_add_action_with_accel (CafeActionGroup *action_group,
   if (accel_key)
     gtk_accel_map_add_entry (accel_path, accel_key, accel_mods);
 
-  gtk_action_set_accel_path (action, accel_path);
-  gtk_action_group_add_action (action_group, action);
+  cafe_action_set_accel_path (action, accel_path);
+  cafe_action_group_add_action (action_group, action);
 
   g_free (accel_path);
 }
 
 /**
- * gtk_action_group_remove_action:
+ * cafe_action_group_remove_action:
  * @action_group: the action group
  * @action: an action
  *
@@ -1149,7 +1149,7 @@ gtk_action_group_add_action_with_accel (CafeActionGroup *action_group,
  * Deprecated: 3.10
  */
 void
-gtk_action_group_remove_action (CafeActionGroup *action_group,
+cafe_action_group_remove_action (CafeActionGroup *action_group,
 				CafeAction      *action)
 {
   CafeActionGroupPrivate *private;
@@ -1158,7 +1158,7 @@ gtk_action_group_remove_action (CafeActionGroup *action_group,
   g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
   g_return_if_fail (CAFE_IS_ACTION (action));
 
-  name = gtk_action_get_name (action);
+  name = cafe_action_get_name (action);
   g_return_if_fail (name != NULL);
 
   private = action_group->priv;
@@ -1177,7 +1177,7 @@ add_single_action (gpointer key,
 }
 
 /**
- * gtk_action_group_list_actions:
+ * cafe_action_group_list_actions:
  * @action_group: the action group
  *
  * Lists the actions in the action group.
@@ -1189,7 +1189,7 @@ add_single_action (gpointer key,
  * Deprecated: 3.10
  */
 GList *
-gtk_action_group_list_actions (CafeActionGroup *action_group)
+cafe_action_group_list_actions (CafeActionGroup *action_group)
 {
   CafeActionGroupPrivate *private;
   GList *actions = NULL;
@@ -1205,7 +1205,7 @@ gtk_action_group_list_actions (CafeActionGroup *action_group)
 
 
 /**
- * gtk_action_group_add_actions: (skip)
+ * cafe_action_group_add_actions: (skip)
  * @action_group: the action group
  * @entries: (array length=n_entries): an array of action descriptions
  * @n_entries: the number of entries
@@ -1222,12 +1222,12 @@ gtk_action_group_list_actions (CafeActionGroup *action_group)
  * Deprecated: 3.10
  */
 void
-gtk_action_group_add_actions (CafeActionGroup       *action_group,
+cafe_action_group_add_actions (CafeActionGroup       *action_group,
 			      const CafeActionEntry *entries,
 			      guint                 n_entries,
 			      gpointer              user_data)
 {
-  gtk_action_group_add_actions_full (action_group, 
+  cafe_action_group_add_actions_full (action_group, 
 				     entries, n_entries, 
 				     user_data, NULL);
 }
@@ -1257,14 +1257,14 @@ shared_data_unref (gpointer data)
 
 
 /**
- * gtk_action_group_add_actions_full: (skip)
+ * cafe_action_group_add_actions_full: (skip)
  * @action_group: the action group
  * @entries: (array length=n_entries): an array of action descriptions
  * @n_entries: the number of entries
  * @user_data: data to pass to the action callbacks
  * @destroy: (nullable): destroy notification callback for @user_data
  *
- * This variant of gtk_action_group_add_actions() adds a #GDestroyNotify
+ * This variant of cafe_action_group_add_actions() adds a #GDestroyNotify
  * callback for @user_data. 
  * 
  * Since: 2.4
@@ -1272,7 +1272,7 @@ shared_data_unref (gpointer data)
  * Deprecated: 3.10
  */
 void
-gtk_action_group_add_actions_full (CafeActionGroup       *action_group,
+cafe_action_group_add_actions_full (CafeActionGroup       *action_group,
 				   const CafeActionEntry *entries,
 				   guint                 n_entries,
 				   gpointer              user_data,
@@ -1280,7 +1280,7 @@ gtk_action_group_add_actions_full (CafeActionGroup       *action_group,
 {
 
   /* Keep this in sync with the other 
-   * gtk_action_group_add_..._actions_full() functions.
+   * cafe_action_group_add_..._actions_full() functions.
    */
   guint i;
   SharedData *shared_data;
@@ -1301,10 +1301,10 @@ gtk_action_group_add_actions_full (CafeActionGroup       *action_group,
       if (!check_unique_action (action_group, entries[i].name))
         continue;
 
-      label = gtk_action_group_translate_string (action_group, entries[i].label);
-      tooltip = gtk_action_group_translate_string (action_group, entries[i].tooltip);
+      label = cafe_action_group_translate_string (action_group, entries[i].label);
+      tooltip = cafe_action_group_translate_string (action_group, entries[i].tooltip);
 
-      action = gtk_action_new (entries[i].name,
+      action = cafe_action_new (entries[i].name,
 			       label,
 			       tooltip,
 			       NULL);
@@ -1329,7 +1329,7 @@ gtk_action_group_add_actions_full (CafeActionGroup       *action_group,
 	  g_signal_connect_closure (action, "activate", closure, FALSE);
 	}
 	  
-      gtk_action_group_add_action_with_accel (action_group, 
+      cafe_action_group_add_action_with_accel (action_group, 
 					      action,
 					      entries[i].accelerator);
       g_object_unref (action);
@@ -1339,7 +1339,7 @@ gtk_action_group_add_actions_full (CafeActionGroup       *action_group,
 }
 
 /**
- * gtk_action_group_add_toggle_actions: (skip)
+ * cafe_action_group_add_toggle_actions: (skip)
  * @action_group: the action group
  * @entries: (array length=n_entries): an array of toggle action descriptions
  * @n_entries: the number of entries
@@ -1356,26 +1356,26 @@ gtk_action_group_add_actions_full (CafeActionGroup       *action_group,
  * Deprecated: 3.10
  */
 void
-gtk_action_group_add_toggle_actions (CafeActionGroup             *action_group,
+cafe_action_group_add_toggle_actions (CafeActionGroup             *action_group,
 				     const GtkToggleActionEntry *entries,
 				     guint                       n_entries,
 				     gpointer                    user_data)
 {
-  gtk_action_group_add_toggle_actions_full (action_group, 
+  cafe_action_group_add_toggle_actions_full (action_group, 
 					    entries, n_entries, 
 					    user_data, NULL);
 }
 
 
 /**
- * gtk_action_group_add_toggle_actions_full: (skip)
+ * cafe_action_group_add_toggle_actions_full: (skip)
  * @action_group: the action group
  * @entries: (array length=n_entries): an array of toggle action descriptions
  * @n_entries: the number of entries
  * @user_data: data to pass to the action callbacks
  * @destroy: (nullable): destroy notification callback for @user_data
  *
- * This variant of gtk_action_group_add_toggle_actions() adds a 
+ * This variant of cafe_action_group_add_toggle_actions() adds a 
  * #GDestroyNotify callback for @user_data. 
  * 
  * Since: 2.4
@@ -1383,14 +1383,14 @@ gtk_action_group_add_toggle_actions (CafeActionGroup             *action_group,
  * Deprecated: 3.10
  */
 void
-gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_group,
+cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_group,
 					  const GtkToggleActionEntry *entries,
 					  guint                       n_entries,
 					  gpointer                    user_data,
 					  GDestroyNotify              destroy)
 {
   /* Keep this in sync with the other 
-   * gtk_action_group_add_..._actions_full() functions.
+   * cafe_action_group_add_..._actions_full() functions.
    */
   guint i;
   SharedData *shared_data;
@@ -1411,8 +1411,8 @@ gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_gr
       if (!check_unique_action (action_group, entries[i].name))
         continue;
 
-      label = gtk_action_group_translate_string (action_group, entries[i].label);
-      tooltip = gtk_action_group_translate_string (action_group, entries[i].tooltip);
+      label = cafe_action_group_translate_string (action_group, entries[i].label);
+      tooltip = cafe_action_group_translate_string (action_group, entries[i].tooltip);
 
       action = gtk_toggle_action_new (entries[i].name,
 				      label,
@@ -1445,7 +1445,7 @@ gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_gr
 	  g_signal_connect_closure (action, "activate", closure, FALSE);
 	}
 	  
-      gtk_action_group_add_action_with_accel (action_group, 
+      cafe_action_group_add_action_with_accel (action_group, 
 					      CAFE_ACTION (action),
 					      entries[i].accelerator);
       g_object_unref (action);
@@ -1455,7 +1455,7 @@ gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_gr
 }
 
 /**
- * gtk_action_group_add_radio_actions: (skip)
+ * cafe_action_group_add_radio_actions: (skip)
  * @action_group: the action group
  * @entries: (array length=n_entries): an array of radio action descriptions
  * @n_entries: the number of entries
@@ -1476,21 +1476,21 @@ gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_gr
  * Deprecated: 3.10
  **/
 void            
-gtk_action_group_add_radio_actions (CafeActionGroup            *action_group,
+cafe_action_group_add_radio_actions (CafeActionGroup            *action_group,
 				    const GtkRadioActionEntry *entries,
 				    guint                      n_entries,
 				    gint                       value,
 				    GCallback                  on_change,
 				    gpointer                   user_data)
 {
-  gtk_action_group_add_radio_actions_full (action_group, 
+  cafe_action_group_add_radio_actions_full (action_group, 
 					   entries, n_entries, 
 					   value,
 					   on_change, user_data, NULL);
 }
 
 /**
- * gtk_action_group_add_radio_actions_full: (skip)
+ * cafe_action_group_add_radio_actions_full: (skip)
  * @action_group: the action group
  * @entries: (array length=n_entries): an array of radio action descriptions
  * @n_entries: the number of entries
@@ -1500,7 +1500,7 @@ gtk_action_group_add_radio_actions (CafeActionGroup            *action_group,
  * @user_data: data to pass to the action callbacks
  * @destroy: destroy notification callback for @user_data
  *
- * This variant of gtk_action_group_add_radio_actions() adds a 
+ * This variant of cafe_action_group_add_radio_actions() adds a 
  * #GDestroyNotify callback for @user_data. 
  * 
  * Since: 2.4
@@ -1508,7 +1508,7 @@ gtk_action_group_add_radio_actions (CafeActionGroup            *action_group,
  * Deprecated: 3.10
  **/
 void            
-gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_group,
+cafe_action_group_add_radio_actions_full (CafeActionGroup            *action_group,
 					 const GtkRadioActionEntry *entries,
 					 guint                      n_entries,
 					 gint                       value,
@@ -1517,7 +1517,7 @@ gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_grou
 					 GDestroyNotify             destroy)
 {
   /* Keep this in sync with the other 
-   * gtk_action_group_add_..._actions_full() functions.
+   * cafe_action_group_add_..._actions_full() functions.
    */
   guint i;
   GSList *group = NULL;
@@ -1534,8 +1534,8 @@ gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_grou
       if (!check_unique_action (action_group, entries[i].name))
         continue;
 
-      label = gtk_action_group_translate_string (action_group, entries[i].label);
-      tooltip = gtk_action_group_translate_string (action_group, entries[i].tooltip);
+      label = cafe_action_group_translate_string (action_group, entries[i].label);
+      tooltip = cafe_action_group_translate_string (action_group, entries[i].tooltip);
 
       action = gtk_radio_action_new (entries[i].name,
 				     label,
@@ -1564,7 +1564,7 @@ gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_grou
       if (value == entries[i].value)
 	gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
 
-      gtk_action_group_add_action_with_accel (action_group, 
+      cafe_action_group_add_action_with_accel (action_group, 
 					      CAFE_ACTION (action),
 					      entries[i].accelerator);
       g_object_unref (action);
@@ -1577,7 +1577,7 @@ gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_grou
 }
 
 /**
- * gtk_action_group_set_translate_func:
+ * cafe_action_group_set_translate_func:
  * @action_group: a #CafeActionGroup
  * @func: a #GtkTranslateFunc
  * @data: data to be passed to @func and @notify
@@ -1585,17 +1585,17 @@ gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_grou
  *   destroyed and when the translation function is changed again
  *
  * Sets a function to be used for translating the @label and @tooltip of 
- * #CafeActionEntrys added by gtk_action_group_add_actions().
+ * #CafeActionEntrys added by cafe_action_group_add_actions().
  *
  * If you’re using gettext(), it is enough to set the translation domain
- * with gtk_action_group_set_translation_domain().
+ * with cafe_action_group_set_translation_domain().
  *
  * Since: 2.4 
  *
  * Deprecated: 3.10
  **/
 void
-gtk_action_group_set_translate_func (CafeActionGroup   *action_group,
+cafe_action_group_set_translate_func (CafeActionGroup   *action_group,
 				     GtkTranslateFunc  func,
 				     gpointer          data,
 				     GDestroyNotify    notify)
@@ -1626,29 +1626,29 @@ dgettext_swapped (const gchar *msgid,
 }
 
 /**
- * gtk_action_group_set_translation_domain:
+ * cafe_action_group_set_translation_domain:
  * @action_group: a #CafeActionGroup
  * @domain: (allow-none): the translation domain to use for g_dgettext()
  * calls, or %NULL to use the domain set with textdomain()
  * 
  * Sets the translation domain and uses g_dgettext() for translating the 
  * @label and @tooltip of #CafeActionEntrys added by 
- * gtk_action_group_add_actions().
+ * cafe_action_group_add_actions().
  *
  * If you’re not using gettext() for localization, see 
- * gtk_action_group_set_translate_func().
+ * cafe_action_group_set_translate_func().
  *
  * Since: 2.4
  *
  * Deprecated: 3.10
  **/
 void 
-gtk_action_group_set_translation_domain (CafeActionGroup *action_group,
+cafe_action_group_set_translation_domain (CafeActionGroup *action_group,
 					 const gchar    *domain)
 {
   g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
-  gtk_action_group_set_translate_func (action_group, 
+  cafe_action_group_set_translate_func (action_group, 
 				       (GtkTranslateFunc)dgettext_swapped,
 				       g_strdup (domain),
 				       g_free);
@@ -1656,12 +1656,12 @@ gtk_action_group_set_translation_domain (CafeActionGroup *action_group,
 
 
 /**
- * gtk_action_group_translate_string:
+ * cafe_action_group_translate_string:
  * @action_group: a #CafeActionGroup
  * @string: a string
  *
  * Translates a string using the function set with 
- * gtk_action_group_set_translate_func(). This
+ * cafe_action_group_set_translate_func(). This
  * is mainly intended for language bindings.
  *
  * Returns: the translation of @string
@@ -1671,7 +1671,7 @@ gtk_action_group_set_translation_domain (CafeActionGroup *action_group,
  * Deprecated: 3.10
  **/
 const gchar *
-gtk_action_group_translate_string (CafeActionGroup *action_group,
+cafe_action_group_translate_string (CafeActionGroup *action_group,
 				   const gchar    *string)
 {
   CafeActionGroupPrivate *private;
@@ -1696,7 +1696,7 @@ gtk_action_group_translate_string (CafeActionGroup *action_group,
 
 /* Protected for use by CafeAction */
 void
-_gtk_action_group_emit_connect_proxy  (CafeActionGroup *action_group,
+_cafe_action_group_emit_connect_proxy  (CafeActionGroup *action_group,
                                        CafeAction      *action,
                                        GtkWidget      *proxy)
 {
@@ -1705,7 +1705,7 @@ _gtk_action_group_emit_connect_proxy  (CafeActionGroup *action_group,
 }
 
 void
-_gtk_action_group_emit_disconnect_proxy  (CafeActionGroup *action_group,
+_cafe_action_group_emit_disconnect_proxy  (CafeActionGroup *action_group,
                                           CafeAction      *action,
                                           GtkWidget      *proxy)
 {
@@ -1714,14 +1714,14 @@ _gtk_action_group_emit_disconnect_proxy  (CafeActionGroup *action_group,
 }
 
 void
-_gtk_action_group_emit_pre_activate  (CafeActionGroup *action_group,
+_cafe_action_group_emit_pre_activate  (CafeActionGroup *action_group,
 				      CafeAction      *action)
 {
   g_signal_emit (action_group, action_group_signals[PRE_ACTIVATE], 0, action);
 }
 
 void
-_gtk_action_group_emit_post_activate (CafeActionGroup *action_group,
+_cafe_action_group_emit_post_activate (CafeActionGroup *action_group,
 				      CafeAction      *action)
 {
   g_signal_emit (action_group, action_group_signals[POST_ACTIVATE], 0, action);
