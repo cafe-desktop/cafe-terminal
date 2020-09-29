@@ -45,7 +45,7 @@ typedef struct _CafeActionGroup        CafeActionGroup;
 typedef struct _CafeActionGroupPrivate CafeActionGroupPrivate;
 typedef struct _CafeActionGroupClass   CafeActionGroupClass;
 typedef struct _CafeActionEntry        CafeActionEntry;
-typedef struct _GtkToggleActionEntry  GtkToggleActionEntry;
+typedef struct _CafeToggleActionEntry  CafeToggleActionEntry;
 typedef struct _GtkRadioActionEntry   GtkRadioActionEntry;
 
 struct _CafeActionGroup
@@ -107,7 +107,7 @@ struct _CafeActionEntry
 };
 
 /**
- * GtkToggleActionEntry:
+ * CafeToggleActionEntry:
  * @name: The name of the action.
  * @stock_id: The stock id for the action, or the name of an icon from the
  *  icon theme.
@@ -120,12 +120,12 @@ struct _CafeActionEntry
  * @callback: The function to call when the action is activated.
  * @is_active: The initial state of the toggle action.
  *
- * #GtkToggleActionEntry structs are used with
+ * #CafeToggleActionEntry structs are used with
  * cafe_action_group_add_toggle_actions() to construct toggle actions.
  *
  * Deprecated: 3.10
  */
-struct _GtkToggleActionEntry 
+struct _CafeToggleActionEntry 
 {
   const gchar     *name;
   const gchar     *stock_id;
@@ -209,7 +209,7 @@ void            cafe_action_group_add_actions             (CafeActionGroup      
 							  gpointer                    user_data);
 GDK_DEPRECATED_IN_3_10
 void            cafe_action_group_add_toggle_actions      (CafeActionGroup             *action_group,
-							  const GtkToggleActionEntry *entries,
+							  const CafeToggleActionEntry *entries,
 							  guint                       n_entries,
 							  gpointer                    user_data);
 GDK_DEPRECATED_IN_3_10
@@ -227,7 +227,7 @@ void            cafe_action_group_add_actions_full        (CafeActionGroup      
 							  GDestroyNotify              destroy);
 GDK_DEPRECATED_IN_3_10
 void            cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_group,
-							  const GtkToggleActionEntry *entries,
+							  const CafeToggleActionEntry *entries,
 							  guint                       n_entries,
 							  gpointer                    user_data,
 							  GDestroyNotify              destroy);

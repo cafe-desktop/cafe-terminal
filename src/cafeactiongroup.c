@@ -1357,7 +1357,7 @@ cafe_action_group_add_actions_full (CafeActionGroup       *action_group,
  */
 void
 cafe_action_group_add_toggle_actions (CafeActionGroup             *action_group,
-				     const GtkToggleActionEntry *entries,
+				     const CafeToggleActionEntry *entries,
 				     guint                       n_entries,
 				     gpointer                    user_data)
 {
@@ -1384,7 +1384,7 @@ cafe_action_group_add_toggle_actions (CafeActionGroup             *action_group,
  */
 void
 cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_group,
-					  const GtkToggleActionEntry *entries,
+					  const CafeToggleActionEntry *entries,
 					  guint                       n_entries,
 					  gpointer                    user_data,
 					  GDestroyNotify              destroy)
