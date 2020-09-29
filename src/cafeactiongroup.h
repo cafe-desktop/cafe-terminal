@@ -38,12 +38,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_TYPE_ACTION_GROUP              (gtk_action_group_get_type ())
-#define CAFE_ACTION_GROUP(obj)              (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_ACTION_GROUP, CafeActionGroup))
-#define CAFE_ACTION_GROUP_CLASS(vtable)     (G_TYPE_CHECK_CLASS_CAST ((vtable), GTK_TYPE_ACTION_GROUP, CafeActionGroupClass))
-#define GTK_IS_ACTION_GROUP(obj)           (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_ACTION_GROUP))
-#define GTK_IS_ACTION_GROUP_CLASS(vtable)  (G_TYPE_CHECK_CLASS_TYPE ((vtable), GTK_TYPE_ACTION_GROUP))
-#define CAFE_ACTION_GROUP_GET_CLASS(inst)   (G_TYPE_INSTANCE_GET_CLASS ((inst), GTK_TYPE_ACTION_GROUP, CafeActionGroupClass))
+#define CAFE_TYPE_ACTION_GROUP              (gtk_action_group_get_type ())
+#define CAFE_ACTION_GROUP(obj)              (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFE_TYPE_ACTION_GROUP, CafeActionGroup))
+#define CAFE_ACTION_GROUP_CLASS(vtable)     (G_TYPE_CHECK_CLASS_CAST ((vtable), CAFE_TYPE_ACTION_GROUP, CafeActionGroupClass))
+#define GTK_IS_ACTION_GROUP(obj)           (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFE_TYPE_ACTION_GROUP))
+#define GTK_IS_ACTION_GROUP_CLASS(vtable)  (G_TYPE_CHECK_CLASS_TYPE ((vtable), CAFE_TYPE_ACTION_GROUP))
+#define CAFE_ACTION_GROUP_GET_CLASS(inst)   (G_TYPE_INSTANCE_GET_CLASS ((inst), CAFE_TYPE_ACTION_GROUP, CafeActionGroupClass))
 
 typedef struct _CafeActionGroup        CafeActionGroup;
 typedef struct _CafeActionGroupPrivate CafeActionGroupPrivate;

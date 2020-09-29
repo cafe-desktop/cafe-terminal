@@ -478,7 +478,7 @@ gtk_action_class_init (CafeActionClass *klass)
 				   g_param_spec_object ("action-group",
 							 "Action Group",
 							 "The CafeActionGroup this CafeAction is associated with, or NULL (for internal use).",
-							 GTK_TYPE_ACTION_GROUP,
+							 CAFE_TYPE_ACTION_GROUP,
 							 G_PARAM_READWRITE));
 
   /**
@@ -618,7 +618,7 @@ gtk_action_new (const gchar *name,
 {
   g_return_val_if_fail (name != NULL, NULL);
 
-  return g_object_new (GTK_TYPE_ACTION,
+  return g_object_new (CAFE_TYPE_ACTION,
                        "name", name,
 		       "label", label,
 		       "tooltip", tooltip,

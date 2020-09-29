@@ -260,7 +260,7 @@ gtk_action_group_class_init (CafeActionGroupClass *klass)
 		  0, 0, NULL, NULL,
 		  NULL,
 		  G_TYPE_NONE, 2,
-		  GTK_TYPE_ACTION, GTK_TYPE_WIDGET);
+		  CAFE_TYPE_ACTION, GTK_TYPE_WIDGET);
 
   /**
    * CafeActionGroup::disconnect-proxy:
@@ -285,7 +285,7 @@ gtk_action_group_class_init (CafeActionGroupClass *klass)
 		  0, 0, NULL, NULL,
 		  NULL,
 		  G_TYPE_NONE, 2, 
-		  GTK_TYPE_ACTION, GTK_TYPE_WIDGET);
+		  CAFE_TYPE_ACTION, GTK_TYPE_WIDGET);
 
   /**
    * CafeActionGroup::pre-activate:
@@ -308,7 +308,7 @@ gtk_action_group_class_init (CafeActionGroupClass *klass)
 		  0, 0, NULL, NULL,
 		  NULL,
 		  G_TYPE_NONE, 1, 
-		  GTK_TYPE_ACTION);
+		  CAFE_TYPE_ACTION);
 
   /**
    * CafeActionGroup::post-activate:
@@ -331,7 +331,7 @@ gtk_action_group_class_init (CafeActionGroupClass *klass)
 		  0, 0, NULL, NULL,
 		  NULL,
 		  G_TYPE_NONE, 1, 
-		  GTK_TYPE_ACTION);
+		  CAFE_TYPE_ACTION);
 }
 
 
@@ -645,7 +645,7 @@ gtk_action_group_new (const gchar *name)
   CafeActionGroup *self;
   CafeActionGroupPrivate *private;
 
-  self = g_object_new (GTK_TYPE_ACTION_GROUP, NULL);
+  self = g_object_new (CAFE_TYPE_ACTION_GROUP, NULL);
   private = self->priv;
   private->name = g_strdup (name);
 
