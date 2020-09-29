@@ -36,8 +36,8 @@ G_BEGIN_DECLS
 #define CAFE_TYPE_ACTION            (gtk_action_get_type ())
 #define CAFE_ACTION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFE_TYPE_ACTION, CafeAction))
 #define CAFE_ACTION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), CAFE_TYPE_ACTION, CafeActionClass))
-#define GTK_IS_ACTION(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFE_TYPE_ACTION))
-#define GTK_IS_ACTION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CAFE_TYPE_ACTION))
+#define CAFE_IS_ACTION(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFE_TYPE_ACTION))
+#define CAFE_IS_ACTION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CAFE_TYPE_ACTION))
 #define CAFE_ACTION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), CAFE_TYPE_ACTION, CafeActionClass))
 
 typedef struct _CafeAction      CafeAction;

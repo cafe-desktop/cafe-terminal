@@ -764,7 +764,7 @@ gtk_action_group_get_name (CafeActionGroup *action_group)
 {
   CafeActionGroupPrivate *private;
 
-  g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), NULL);
 
   private = action_group->priv;
 
@@ -791,7 +791,7 @@ gtk_action_group_get_sensitive (CafeActionGroup *action_group)
 {
   CafeActionGroupPrivate *private;
 
-  g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), FALSE);
 
   private = action_group->priv;
 
@@ -825,7 +825,7 @@ gtk_action_group_set_sensitive (CafeActionGroup *action_group,
 {
   CafeActionGroupPrivate *private;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   private = action_group->priv;
   sensitive = sensitive != FALSE;
@@ -860,7 +860,7 @@ gtk_action_group_get_visible (CafeActionGroup *action_group)
 {
   CafeActionGroupPrivate *private;
 
-  g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), FALSE);
 
   private = action_group->priv;
 
@@ -883,7 +883,7 @@ gtk_action_group_get_visible (CafeActionGroup *action_group)
 GtkAccelGroup *
 gtk_action_group_get_accel_group (CafeActionGroup *action_group)
 {
-  g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), FALSE);
 
   return action_group->priv->accel_group;
 }
@@ -914,7 +914,7 @@ gtk_action_group_set_visible (CafeActionGroup *action_group,
 {
   CafeActionGroupPrivate *private;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   private = action_group->priv;
   visible = visible != FALSE;
@@ -952,7 +952,7 @@ gtk_action_group_set_accel_group (CafeActionGroup *action_group,
 {
   CafeActionGroupPrivate *private;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   private = action_group->priv;
 
@@ -989,7 +989,7 @@ CafeAction *
 gtk_action_group_get_action (CafeActionGroup *action_group,
 			     const gchar    *action_name)
 {
-  g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), NULL);
   g_return_val_if_fail (CAFE_ACTION_GROUP_GET_CLASS (action_group)->get_action != NULL, NULL);
 
   return CAFE_ACTION_GROUP_GET_CLASS (action_group)->get_action (action_group,
@@ -1038,8 +1038,8 @@ gtk_action_group_add_action (CafeActionGroup *action_group,
   CafeActionGroupPrivate *private;
   const gchar *name;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   name = gtk_action_get_name (action);
   g_return_if_fail (name != NULL);
@@ -1155,8 +1155,8 @@ gtk_action_group_remove_action (CafeActionGroup *action_group,
   CafeActionGroupPrivate *private;
   const gchar *name;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   name = gtk_action_get_name (action);
   g_return_if_fail (name != NULL);
@@ -1194,7 +1194,7 @@ gtk_action_group_list_actions (CafeActionGroup *action_group)
   CafeActionGroupPrivate *private;
   GList *actions = NULL;
 
-  g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), NULL);
 
   private = action_group->priv;
   
@@ -1285,7 +1285,7 @@ gtk_action_group_add_actions_full (CafeActionGroup       *action_group,
   guint i;
   SharedData *shared_data;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   shared_data = g_slice_new0 (SharedData);
   shared_data->ref_count = 1;
@@ -1395,7 +1395,7 @@ gtk_action_group_add_toggle_actions_full (CafeActionGroup             *action_gr
   guint i;
   SharedData *shared_data;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   shared_data = g_slice_new0 (SharedData);
   shared_data->ref_count = 1;
@@ -1523,7 +1523,7 @@ gtk_action_group_add_radio_actions_full (CafeActionGroup            *action_grou
   GSList *group = NULL;
   GtkRadioAction *first_action = NULL;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   for (i = 0; i < n_entries; i++)
     {
@@ -1602,7 +1602,7 @@ gtk_action_group_set_translate_func (CafeActionGroup   *action_group,
 {
   CafeActionGroupPrivate *private;
 
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
   
   private = action_group->priv;
 
@@ -1646,7 +1646,7 @@ void
 gtk_action_group_set_translation_domain (CafeActionGroup *action_group,
 					 const gchar    *domain)
 {
-  g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+  g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   gtk_action_group_set_translate_func (action_group, 
 				       (GtkTranslateFunc)dgettext_swapped,
@@ -1678,7 +1678,7 @@ gtk_action_group_translate_string (CafeActionGroup *action_group,
   GtkTranslateFunc translate_func;
   gpointer translate_data;
   
-  g_return_val_if_fail (GTK_IS_ACTION_GROUP (action_group), string);
+  g_return_val_if_fail (CAFE_IS_ACTION_GROUP (action_group), string);
   
   if (string == NULL)
     return NULL;

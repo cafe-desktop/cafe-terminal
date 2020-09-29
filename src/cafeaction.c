@@ -858,7 +858,7 @@ _gtk_action_sync_menu_visible (CafeAction *action,
   gboolean hide_if_empty = TRUE;
 
   g_return_if_fail (GTK_IS_MENU_ITEM (proxy));
-  g_return_if_fail (action == NULL || GTK_IS_ACTION (action));
+  g_return_if_fail (action == NULL || CAFE_IS_ACTION (action));
 
   if (action == NULL)
     action = gtk_activatable_get_related_action (GTK_ACTIVATABLE (proxy));
@@ -915,7 +915,7 @@ _gtk_action_emit_activate (CafeAction *action)
 void
 gtk_action_activate (CafeAction *action)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
   
   if (action->private_data->activate_blocked)
     return;
@@ -943,7 +943,7 @@ gtk_action_activate (CafeAction *action)
 void
 gtk_action_block_activate (CafeAction *action)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   action->private_data->activate_blocked = TRUE;
 }
@@ -962,7 +962,7 @@ gtk_action_block_activate (CafeAction *action)
 void
 gtk_action_unblock_activate (CafeAction *action)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   action->private_data->activate_blocked = FALSE;
 }
@@ -988,7 +988,7 @@ gtk_action_create_icon (CafeAction *action, GtkIconSize icon_size)
 {
   GtkWidget *widget = NULL;
 
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 
@@ -1023,7 +1023,7 @@ gtk_action_create_menu_item (CafeAction *action)
 {
   GtkWidget *menu_item;
 
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   menu_item = CAFE_ACTION_GET_CLASS (action)->create_menu_item (action);
 
@@ -1051,7 +1051,7 @@ gtk_action_create_tool_item (CafeAction *action)
 {
   GtkWidget *button;
 
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   button = CAFE_ACTION_GET_CLASS (action)->create_tool_item (action);
 
@@ -1065,7 +1065,7 @@ void
 _gtk_action_add_to_proxy_list (CafeAction     *action,
 			       GtkWidget     *proxy)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
   g_return_if_fail (GTK_IS_WIDGET (proxy));
  
   CAFE_ACTION_GET_CLASS (action)->connect_proxy (action, proxy);
@@ -1075,7 +1075,7 @@ void
 _gtk_action_remove_from_proxy_list (CafeAction     *action,
 				    GtkWidget     *proxy)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
   g_return_if_fail (GTK_IS_WIDGET (proxy));
 
   CAFE_ACTION_GET_CLASS (action)->disconnect_proxy (action, proxy);
@@ -1098,7 +1098,7 @@ _gtk_action_remove_from_proxy_list (CafeAction     *action,
 GSList*
 gtk_action_get_proxies (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->proxies;
 }
@@ -1119,7 +1119,7 @@ gtk_action_get_proxies (CafeAction *action)
 const gchar *
 gtk_action_get_name (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->name;
 }
@@ -1142,7 +1142,7 @@ gboolean
 gtk_action_is_sensitive (CafeAction *action)
 {
   CafeActionPrivate *priv;
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   priv = action->private_data;
   return priv->sensitive &&
@@ -1168,7 +1168,7 @@ gtk_action_is_sensitive (CafeAction *action)
 gboolean
 gtk_action_get_sensitive (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   return action->private_data->sensitive;
 }
@@ -1192,7 +1192,7 @@ void
 gtk_action_set_sensitive (CafeAction *action,
 			  gboolean   sensitive)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   sensitive = sensitive != FALSE;
   
@@ -1222,7 +1222,7 @@ gboolean
 gtk_action_is_visible (CafeAction *action)
 {
   CafeActionPrivate *priv;
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   priv = action->private_data;
   return priv->visible &&
@@ -1248,7 +1248,7 @@ gtk_action_is_visible (CafeAction *action)
 gboolean
 gtk_action_get_visible (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   return action->private_data->visible;
 }
@@ -1272,7 +1272,7 @@ void
 gtk_action_set_visible (CafeAction *action,
 			gboolean   visible)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   visible = visible != FALSE;
   
@@ -1301,7 +1301,7 @@ void
 gtk_action_set_is_important (CafeAction *action,
 			     gboolean   is_important)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   is_important = is_important != FALSE;
   
@@ -1329,7 +1329,7 @@ gtk_action_set_is_important (CafeAction *action,
 gboolean 
 gtk_action_get_is_important (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   return action->private_data->is_important;
 }
@@ -1356,7 +1356,7 @@ gtk_action_set_always_show_image (CafeAction *action,
 {
   CafeActionPrivate *priv;
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   priv = action->private_data;
 
@@ -1387,7 +1387,7 @@ gtk_action_set_always_show_image (CafeAction *action,
 gboolean
 gtk_action_get_always_show_image  (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   return action->private_data->always_show_image;
 }
@@ -1411,7 +1411,7 @@ gtk_action_set_label (CafeAction	  *action,
 {
   gchar *tmp;
   
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
   
   tmp = action->private_data->label;
   action->private_data->label = g_strdup (label);
@@ -1457,7 +1457,7 @@ gtk_action_set_label (CafeAction	  *action,
 const gchar *
 gtk_action_get_label (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->label;
 }
@@ -1480,7 +1480,7 @@ gtk_action_set_short_label (CafeAction   *action,
 {
   gchar *tmp;
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   tmp = action->private_data->short_label;
   action->private_data->short_label = g_strdup (short_label);
@@ -1509,7 +1509,7 @@ gtk_action_set_short_label (CafeAction   *action,
 const gchar *
 gtk_action_get_short_label (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->short_label;
 }
@@ -1530,9 +1530,9 @@ void
 gtk_action_set_visible_horizontal (CafeAction *action,
 				   gboolean   visible_horizontal)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   visible_horizontal = visible_horizontal != FALSE;
   
@@ -1560,7 +1560,7 @@ gtk_action_set_visible_horizontal (CafeAction *action,
 gboolean 
 gtk_action_get_visible_horizontal (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   return action->private_data->visible_horizontal;
 }
@@ -1581,9 +1581,9 @@ void
 gtk_action_set_visible_vertical (CafeAction *action,
 				 gboolean   visible_vertical)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   visible_vertical = visible_vertical != FALSE;
   
@@ -1611,7 +1611,7 @@ gtk_action_set_visible_vertical (CafeAction *action,
 gboolean 
 gtk_action_get_visible_vertical (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), FALSE);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), FALSE);
 
   return action->private_data->visible_vertical;
 }
@@ -1634,7 +1634,7 @@ gtk_action_set_tooltip (CafeAction   *action,
 {
   gchar *tmp;
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   tmp = action->private_data->tooltip;
   action->private_data->tooltip = g_strdup (tooltip);
@@ -1659,7 +1659,7 @@ gtk_action_set_tooltip (CafeAction   *action,
 const gchar *
 gtk_action_get_tooltip (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->tooltip;
 }
@@ -1682,9 +1682,9 @@ gtk_action_set_stock_id (CafeAction   *action,
 {
   gchar *tmp;
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   tmp = action->private_data->stock_id;
   action->private_data->stock_id = g_strdup (stock_id);
@@ -1727,7 +1727,7 @@ gtk_action_set_stock_id (CafeAction   *action,
 const gchar *
 gtk_action_get_stock_id (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->stock_id;
 }
@@ -1751,7 +1751,7 @@ gtk_action_set_icon_name (CafeAction   *action,
 {
   gchar *tmp;
 
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   tmp = action->private_data->icon_name;
   action->private_data->icon_name = g_strdup (icon_name);
@@ -1777,7 +1777,7 @@ gtk_action_set_icon_name (CafeAction   *action,
 const gchar *
 gtk_action_get_icon_name (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->icon_name;
 }
@@ -1799,7 +1799,7 @@ void
 gtk_action_set_gicon (CafeAction *action,
                       GIcon     *icon)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   if (action->private_data->gicon)
     g_object_unref (action->private_data->gicon);
@@ -1829,7 +1829,7 @@ gtk_action_set_gicon (CafeAction *action,
 GIcon *
 gtk_action_get_gicon (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->gicon;
 }
@@ -1856,7 +1856,7 @@ gtk_action_set_action_group (CafeAction	    *action,
 			     CafeActionGroup *action_group)
 {
   if (action->private_data->action_group == NULL)
-    g_return_if_fail (GTK_IS_ACTION_GROUP (action_group));
+    g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
   else
     g_return_if_fail (action_group == NULL);
 
@@ -1885,7 +1885,7 @@ void
 gtk_action_set_accel_path (CafeAction   *action, 
 			   const gchar *accel_path)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   action->private_data->accel_quark = g_quark_from_string (accel_path);
 }
@@ -1908,7 +1908,7 @@ gtk_action_set_accel_path (CafeAction   *action,
 const gchar *
 gtk_action_get_accel_path (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   if (action->private_data->accel_quark)
     return g_quark_to_string (action->private_data->accel_quark);
@@ -1934,7 +1934,7 @@ gtk_action_get_accel_path (CafeAction *action)
 GClosure *
 gtk_action_get_accel_closure (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   return action->private_data->accel_closure;
 }
@@ -1957,7 +1957,7 @@ void
 gtk_action_set_accel_group (CafeAction     *action,
 			    GtkAccelGroup *accel_group)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
   g_return_if_fail (accel_group == NULL || GTK_IS_ACCEL_GROUP (accel_group));
   
   if (accel_group)
@@ -1989,7 +1989,7 @@ gtk_action_set_accel_group (CafeAction     *action,
 void 
 gtk_action_connect_accelerator (CafeAction *action)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   if (!action->private_data->accel_quark ||
       !action->private_data->accel_group)
@@ -2022,7 +2022,7 @@ gtk_action_connect_accelerator (CafeAction *action)
 void 
 gtk_action_disconnect_accelerator (CafeAction *action)
 {
-  g_return_if_fail (GTK_IS_ACTION (action));
+  g_return_if_fail (CAFE_IS_ACTION (action));
 
   if (!action->private_data->accel_quark ||
       !action->private_data->accel_group)
@@ -2054,7 +2054,7 @@ gtk_action_disconnect_accelerator (CafeAction *action)
 GtkWidget *
 gtk_action_create_menu (CafeAction *action)
 {
-  g_return_val_if_fail (GTK_IS_ACTION (action), NULL);
+  g_return_val_if_fail (CAFE_IS_ACTION (action), NULL);
 
   if (CAFE_ACTION_GET_CLASS (action)->create_menu)
     return CAFE_ACTION_GET_CLASS (action)->create_menu (action);
