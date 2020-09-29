@@ -34,37 +34,37 @@
 G_BEGIN_DECLS
 
 #define GTK_TYPE_ACTION            (gtk_action_get_type ())
-#define GTK_ACTION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_ACTION, GtkAction))
-#define GTK_ACTION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_TYPE_ACTION, GtkActionClass))
+#define GTK_ACTION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_ACTION, CafeAction))
+#define GTK_ACTION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_TYPE_ACTION, CafeActionClass))
 #define GTK_IS_ACTION(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_ACTION))
 #define GTK_IS_ACTION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_TYPE_ACTION))
-#define GTK_ACTION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), GTK_TYPE_ACTION, GtkActionClass))
+#define GTK_ACTION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), GTK_TYPE_ACTION, CafeActionClass))
 
-typedef struct _GtkAction      GtkAction;
-typedef struct _GtkActionClass GtkActionClass;
-typedef struct _GtkActionPrivate GtkActionPrivate;
+typedef struct _CafeAction      CafeAction;
+typedef struct _CafeActionClass CafeActionClass;
+typedef struct _CafeActionPrivate CafeActionPrivate;
 
-struct _GtkAction
+struct _CafeAction
 {
   GObject object;
 
   /*< private >*/
-  GtkActionPrivate *private_data;
+  CafeActionPrivate *private_data;
 };
 
 /**
- * GtkActionClass:
+ * CafeActionClass:
  * @parent_class: The parent class.
  * @activate: Signal emitted when the action is activated.
  */
-struct _GtkActionClass
+struct _CafeActionClass
 {
   GObjectClass parent_class;
 
   /*< public >*/
 
   /* activation signal */
-  void       (* activate)           (GtkAction    *action);
+  void       (* activate)           (CafeAction    *action);
 
   /*< private >*/
 
@@ -72,14 +72,14 @@ struct _GtkActionClass
   GType      toolbar_item_type;
 
   /* widget creation routines (not signals) */
-  GtkWidget *(* create_menu_item)   (GtkAction *action);
-  GtkWidget *(* create_tool_item)   (GtkAction *action);
-  void       (* connect_proxy)      (GtkAction *action,
+  GtkWidget *(* create_menu_item)   (CafeAction *action);
+  GtkWidget *(* create_tool_item)   (CafeAction *action);
+  void       (* connect_proxy)      (CafeAction *action,
 				     GtkWidget *proxy);
-  void       (* disconnect_proxy)   (GtkAction *action,
+  void       (* disconnect_proxy)   (CafeAction *action,
 				     GtkWidget *proxy);
 
-  GtkWidget *(* create_menu)        (GtkAction *action);
+  GtkWidget *(* create_menu)        (CafeAction *action);
 
   /* Padding for future expansion */
   void (*_gtk_reserved1) (void);
@@ -91,121 +91,121 @@ struct _GtkActionClass
 GDK_DEPRECATED_IN_3_10
 GType        gtk_action_get_type               (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_10
-GtkAction   *gtk_action_new                    (const gchar *name,
+CafeAction   *gtk_action_new                    (const gchar *name,
 						const gchar *label,
 						const gchar *tooltip,
 						const gchar *stock_id);
 GDK_DEPRECATED_IN_3_10
-const gchar* gtk_action_get_name               (GtkAction     *action);
+const gchar* gtk_action_get_name               (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-gboolean     gtk_action_is_sensitive           (GtkAction     *action);
+gboolean     gtk_action_is_sensitive           (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-gboolean     gtk_action_get_sensitive          (GtkAction     *action);
+gboolean     gtk_action_get_sensitive          (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_set_sensitive          (GtkAction     *action,
+void         gtk_action_set_sensitive          (CafeAction     *action,
 						gboolean       sensitive);
 GDK_DEPRECATED_IN_3_10
-gboolean     gtk_action_is_visible             (GtkAction     *action);
+gboolean     gtk_action_is_visible             (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-gboolean     gtk_action_get_visible            (GtkAction     *action);
+gboolean     gtk_action_get_visible            (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_set_visible            (GtkAction     *action,
+void         gtk_action_set_visible            (CafeAction     *action,
 						gboolean       visible);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_activate               (GtkAction     *action);
+void         gtk_action_activate               (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-GtkWidget *  gtk_action_create_icon            (GtkAction     *action,
+GtkWidget *  gtk_action_create_icon            (CafeAction     *action,
 						GtkIconSize    icon_size);
 GDK_DEPRECATED_IN_3_10
-GtkWidget *  gtk_action_create_menu_item       (GtkAction     *action);
+GtkWidget *  gtk_action_create_menu_item       (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-GtkWidget *  gtk_action_create_tool_item       (GtkAction     *action);
+GtkWidget *  gtk_action_create_tool_item       (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-GtkWidget *  gtk_action_create_menu            (GtkAction     *action);
+GtkWidget *  gtk_action_create_menu            (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-GSList *     gtk_action_get_proxies            (GtkAction     *action);
+GSList *     gtk_action_get_proxies            (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_connect_accelerator    (GtkAction     *action);
+void         gtk_action_connect_accelerator    (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_disconnect_accelerator (GtkAction     *action);
+void         gtk_action_disconnect_accelerator (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-const gchar *gtk_action_get_accel_path         (GtkAction     *action);
+const gchar *gtk_action_get_accel_path         (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-GClosure    *gtk_action_get_accel_closure      (GtkAction     *action);
+GClosure    *gtk_action_get_accel_closure      (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_block_activate         (GtkAction     *action);
+void         gtk_action_block_activate         (CafeAction     *action);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_unblock_activate       (GtkAction     *action);
+void         gtk_action_unblock_activate       (CafeAction     *action);
 
-void         _gtk_action_add_to_proxy_list     (GtkAction     *action,
+void         _gtk_action_add_to_proxy_list     (CafeAction     *action,
 						GtkWidget     *proxy);
-void         _gtk_action_remove_from_proxy_list(GtkAction     *action,
+void         _gtk_action_remove_from_proxy_list(CafeAction     *action,
 						GtkWidget     *proxy);
 
 /* protected ... for use by child actions */
-void         _gtk_action_emit_activate         (GtkAction     *action);
+void         _gtk_action_emit_activate         (CafeAction     *action);
 
 /* protected ... for use by action groups */
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_set_accel_path         (GtkAction     *action,
+void         gtk_action_set_accel_path         (CafeAction     *action,
 						const gchar   *accel_path);
 GDK_DEPRECATED_IN_3_10
-void         gtk_action_set_accel_group        (GtkAction     *action,
+void         gtk_action_set_accel_group        (CafeAction     *action,
 						GtkAccelGroup *accel_group);
-void         _gtk_action_sync_menu_visible     (GtkAction     *action,
+void         _gtk_action_sync_menu_visible     (CafeAction     *action,
 						GtkWidget     *proxy,
 						gboolean       empty);
 
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_label              (GtkAction   *action,
+void                  gtk_action_set_label              (CafeAction   *action,
                                                          const gchar *label);
 GDK_DEPRECATED_IN_3_10
-const gchar *         gtk_action_get_label              (GtkAction   *action);
+const gchar *         gtk_action_get_label              (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_short_label        (GtkAction   *action,
+void                  gtk_action_set_short_label        (CafeAction   *action,
                                                          const gchar *short_label);
 GDK_DEPRECATED_IN_3_10
-const gchar *         gtk_action_get_short_label        (GtkAction   *action);
+const gchar *         gtk_action_get_short_label        (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_tooltip            (GtkAction   *action,
+void                  gtk_action_set_tooltip            (CafeAction   *action,
                                                          const gchar *tooltip);
 GDK_DEPRECATED_IN_3_10
-const gchar *         gtk_action_get_tooltip            (GtkAction   *action);
+const gchar *         gtk_action_get_tooltip            (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_stock_id           (GtkAction   *action,
+void                  gtk_action_set_stock_id           (CafeAction   *action,
                                                          const gchar *stock_id);
 GDK_DEPRECATED_IN_3_10
-const gchar *         gtk_action_get_stock_id           (GtkAction   *action);
+const gchar *         gtk_action_get_stock_id           (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_gicon              (GtkAction   *action,
+void                  gtk_action_set_gicon              (CafeAction   *action,
                                                          GIcon       *icon);
 GDK_DEPRECATED_IN_3_10
-GIcon                *gtk_action_get_gicon              (GtkAction   *action);
+GIcon                *gtk_action_get_gicon              (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_icon_name          (GtkAction   *action,
+void                  gtk_action_set_icon_name          (CafeAction   *action,
                                                          const gchar *icon_name);
 GDK_DEPRECATED_IN_3_10
-const gchar *         gtk_action_get_icon_name          (GtkAction   *action);
+const gchar *         gtk_action_get_icon_name          (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_visible_horizontal (GtkAction   *action,
+void                  gtk_action_set_visible_horizontal (CafeAction   *action,
                                                          gboolean     visible_horizontal);
 GDK_DEPRECATED_IN_3_10
-gboolean              gtk_action_get_visible_horizontal (GtkAction   *action);
+gboolean              gtk_action_get_visible_horizontal (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_visible_vertical   (GtkAction   *action,
+void                  gtk_action_set_visible_vertical   (CafeAction   *action,
                                                          gboolean     visible_vertical);
 GDK_DEPRECATED_IN_3_10
-gboolean              gtk_action_get_visible_vertical   (GtkAction   *action);
+gboolean              gtk_action_get_visible_vertical   (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_is_important       (GtkAction   *action,
+void                  gtk_action_set_is_important       (CafeAction   *action,
                                                          gboolean     is_important);
 GDK_DEPRECATED_IN_3_10
-gboolean              gtk_action_get_is_important       (GtkAction   *action);
+gboolean              gtk_action_get_is_important       (CafeAction   *action);
 GDK_DEPRECATED_IN_3_10
-void                  gtk_action_set_always_show_image  (GtkAction   *action,
+void                  gtk_action_set_always_show_image  (CafeAction   *action,
                                                          gboolean     always_show);
 GDK_DEPRECATED_IN_3_10
-gboolean              gtk_action_get_always_show_image  (GtkAction   *action);
+gboolean              gtk_action_get_always_show_image  (CafeAction   *action);
 
 
 G_END_DECLS
