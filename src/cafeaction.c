@@ -86,6 +86,7 @@
 #include <gtk/gtk.h>
 #include "cafeaction.h"
 #include "cafeactiongroup.h"
+#include "cafeactivatable.h"
 
 
 struct _CafeActionPrivate 
@@ -862,7 +863,7 @@ _cafe_action_sync_menu_visible (CafeAction *action,
   g_return_if_fail (action == NULL || CAFE_IS_ACTION (action));
 
   if (action == NULL)
-    action = gtk_activatable_get_related_action (GTK_ACTIVATABLE (proxy));
+    action = cafe_activatable_get_related_action (CAFE_ACTIVATABLE (proxy));
 
   if (action)
     {
@@ -1028,8 +1029,8 @@ cafe_action_create_menu_item (CafeAction *action)
 
   menu_item = CAFE_ACTION_GET_CLASS (action)->create_menu_item (action);
 
-  gtk_activatable_set_use_action_appearance (GTK_ACTIVATABLE (menu_item), TRUE);
-  gtk_activatable_set_related_action (GTK_ACTIVATABLE (menu_item), action);
+  cafe_activatable_set_use_action_appearance (CAFE_ACTIVATABLE (menu_item), TRUE);
+  cafe_activatable_set_related_action (CAFE_ACTIVATABLE (menu_item), action);
 
   return menu_item;
 }
@@ -1056,8 +1057,8 @@ cafe_action_create_tool_item (CafeAction *action)
 
   button = CAFE_ACTION_GET_CLASS (action)->create_tool_item (action);
 
-  gtk_activatable_set_use_action_appearance (GTK_ACTIVATABLE (button), TRUE);
-  gtk_activatable_set_related_action (GTK_ACTIVATABLE (button), action);
+  cafe_activatable_set_use_action_appearance (CAFE_ACTIVATABLE (button), TRUE);
+  cafe_activatable_set_related_action (CAFE_ACTIVATABLE (button), action);
 
   return button;
 }
@@ -1087,7 +1088,7 @@ _cafe_action_remove_from_proxy_list (CafeAction     *action,
  * @action: the action object
  * 
  * Returns the proxy widgets for an action.
- * See also gtk_activatable_get_related_action().
+ * See also cafe_activatable_get_related_action().
  *
  * Returns: (element-type GtkWidget) (transfer none): a #GSList of proxy widgets. The list is owned by GTK+
  * and must not be modified.
