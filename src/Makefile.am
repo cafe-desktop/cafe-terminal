@@ -20,6 +20,8 @@ cafe_terminal_SOURCES= \
 	cafeaction.h \
 	cafeactiongroup.c \
 	cafeactiongroup.h \
+	cafeactivatable.c \
+	cafeactivatable.h \
 	cafevaluearray.c \
 	cafevaluearray.h \
 	eggshell.c \
