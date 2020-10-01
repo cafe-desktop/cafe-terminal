@@ -148,7 +148,7 @@ struct _CafeToggleActionEntry
  * @tooltip: The tooltip for the action. This field should typically be
  *  marked for translation, see cafe_action_group_set_translation_domain().
  * @value: The value to set on the radio action. See
- *  gtk_radio_action_get_current_value().
+ *  cafe_radio_action_get_current_value().
  *
  * #CafeRadioActionEntry structs are used with
  * cafe_action_group_add_radio_actions() to construct groups of radio actions.

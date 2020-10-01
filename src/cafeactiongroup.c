@@ -90,6 +90,7 @@
 
 #include "cafeactiongroup.h"
 #include "cafetoggleaction.h"
+#include "caferadioaction.h"
 
 
 struct _CafeActionGroupPrivate 
@@ -1523,13 +1524,13 @@ cafe_action_group_add_radio_actions_full (CafeActionGroup            *action_gro
    */
   guint i;
   GSList *group = NULL;
-  GtkRadioAction *first_action = NULL;
+  CafeRadioAction *first_action = NULL;
 
   g_return_if_fail (CAFE_IS_ACTION_GROUP (action_group));
 
   for (i = 0; i < n_entries; i++)
     {
-      GtkRadioAction *action;
+      CafeRadioAction *action;
       const gchar *label;
       const gchar *tooltip; 
 
@@ -1539,7 +1540,7 @@ cafe_action_group_add_radio_actions_full (CafeActionGroup            *action_gro
       label = cafe_action_group_translate_string (action_group, entries[i].label);
       tooltip = cafe_action_group_translate_string (action_group, entries[i].tooltip);
 
-      action = gtk_radio_action_new (entries[i].name,
+      action = cafe_radio_action_new (entries[i].name,
 				     label,
 				     tooltip,
 				     NULL,
@@ -1560,8 +1561,8 @@ cafe_action_group_add_radio_actions_full (CafeActionGroup            *action_gro
       if (i == 0) 
 	first_action = action;
 
-      gtk_radio_action_set_group (action, group);
-      group = gtk_radio_action_get_group (action);
+      cafe_radio_action_set_group (action, group);
+      group = cafe_radio_action_get_group (action);
 
       if (value == entries[i].value)
 	cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), TRUE);
