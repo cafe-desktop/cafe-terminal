@@ -87,7 +87,9 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+
 #include "cafeactiongroup.h"
+#include "cafetoggleaction.h"
 
 
 struct _CafeActionGroupPrivate 
@@ -1404,7 +1406,7 @@ cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_g
 
   for (i = 0; i < n_entries; i++)
     {
-      GtkToggleAction *action;
+      CafeToggleAction *action;
       const gchar *label;
       const gchar *tooltip;
 
@@ -1414,7 +1416,7 @@ cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_g
       label = cafe_action_group_translate_string (action_group, entries[i].label);
       tooltip = cafe_action_group_translate_string (action_group, entries[i].tooltip);
 
-      action = gtk_toggle_action_new (entries[i].name,
+      action = cafe_toggle_action_new (entries[i].name,
 				      label,
 				      tooltip,
 				      NULL);
@@ -1431,7 +1433,7 @@ cafe_action_group_add_toggle_actions_full (CafeActionGroup             *action_g
           G_GNUC_END_IGNORE_DEPRECATIONS;
 	}
 
-      gtk_toggle_action_set_active (action, entries[i].is_active);
+      cafe_toggle_action_set_active (action, entries[i].is_active);
 
       if (entries[i].callback)
 	{
@@ -1562,7 +1564,7 @@ cafe_action_group_add_radio_actions_full (CafeActionGroup            *action_gro
       group = gtk_radio_action_get_group (action);
 
       if (value == entries[i].value)
-	gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+	cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), TRUE);
 
       cafe_action_group_add_action_with_accel (action_group, 
 					      CAFE_ACTION (action),
