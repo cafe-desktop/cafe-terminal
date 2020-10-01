@@ -24,6 +24,8 @@ cafe_terminal_SOURCES= \
 	cafeactivatable.h \
 	cafetoggleaction.c \
 	cafetoggleaction.h \
+	caferadioaction.c \
+	caferadioaction.h \
 	cafevaluearray.c \
 	cafevaluearray.h \
 	eggshell.c \
