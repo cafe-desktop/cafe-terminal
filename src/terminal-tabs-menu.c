@@ -30,6 +30,12 @@
 #include "terminal-screen-container.h"
 #include "terminal-intl.h"
 
+#include "cafeaction.h"
+#include "cafeactiongroup.h"
+#include "cafetoggleaction.h"
+#include "caferadioaction.h"
+#include "cafeuimanager.h"
+
 #define TERMINAL_ACCELS_N_TABS_SWITCH (12)
 
 #define LABEL_WIDTH_CHARS 32
@@ -47,8 +53,8 @@
 struct _TerminalTabsMenuPrivate
 {
 	TerminalWindow *window;
-	GtkActionGroup *action_group;
-	GtkAction *anchor_action;
+	CafeActionGroup *action_group;
+	CafeAction *anchor_action;
 	guint ui_id;
 };
 
@@ -116,14 +122,14 @@ allocate_tab_id (void)
 }
 
 static void
-free_tab_id (GtkAction *action)
+free_tab_id (CafeAction *action)
 {
 	const char *name;
 	guint id;
 	guint8 *data;
 	guint b, bit;
 
-	name = gtk_action_get_name (action);
+	name = cafe_action_get_name (action);
 	id = g_ascii_strtoull (name + ACTION_VERB_FORMAT_PREFIX_LEN, NULL,
 	                       ACTION_VERB_FORMAT_BASE);
 	g_assert (id < tabs_id_array->len * 8);
@@ -143,13 +149,13 @@ free_tab_id (GtkAction *action)
 }
 
 static void
-tab_action_activate_cb (GtkToggleAction *action,
+tab_action_activate_cb (CafeToggleAction *action,
                         TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
 	TerminalScreen *screen;
 
-	if (gtk_toggle_action_get_active (action) == FALSE)
+	if (cafe_toggle_action_get_active (action) == FALSE)
 	{
 		return;
 	}
@@ -166,7 +172,7 @@ tab_action_activate_cb (GtkToggleAction *action,
 static void
 sync_tab_title (TerminalScreen *screen,
                 GParamSpec *pspec,
-                GtkAction *action)
+                CafeAction *action)
 {
 	const char *title;
 
@@ -182,7 +188,7 @@ notebook_page_added_cb (GtkNotebook *notebook,
                         TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
-	GtkAction *action;
+	CafeAction *action;
 	char verb[ACTION_VERB_FORMAT_LENGTH];
 	GSList *group;
 	TerminalScreen *screen;
@@ -191,7 +197,7 @@ notebook_page_added_cb (GtkNotebook *notebook,
 
 	g_snprintf (verb, sizeof (verb), ACTION_VERB_FORMAT, allocate_tab_id ());
 
-	action = g_object_new (GTK_TYPE_RADIO_ACTION,
+	action = g_object_new (CAFE_TYPE_RADIO_ACTION,
 	                       "name", verb,
 	                       "tooltip", _("Switch to this tab"),
 	                       NULL);
@@ -201,15 +207,15 @@ notebook_page_added_cb (GtkNotebook *notebook,
 	g_signal_connect_object (screen, "notify::title",
 	                         G_CALLBACK (sync_tab_title), action, 0);
 
-	gtk_action_group_add_action_with_accel (priv->action_group, action, NULL);
+	cafe_action_group_add_action_with_accel (priv->action_group, action, NULL);
 
-	group = gtk_radio_action_get_group (GTK_RADIO_ACTION (priv->anchor_action));
-	gtk_radio_action_set_group (GTK_RADIO_ACTION (action), group);
+	group = cafe_radio_action_get_group (CAFE_RADIO_ACTION (priv->anchor_action));
+	cafe_radio_action_set_group (CAFE_RADIO_ACTION (action), group);
 
 	/* set this here too, since tab-added comes after notify::active-child */
 	if (terminal_window_get_active (priv->window) == screen)
 	{
-		gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+		cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), TRUE);
 	}
 
 	g_object_set_data (G_OBJECT (screen), DATA_KEY, action);
@@ -230,7 +236,7 @@ notebook_page_removed_cb (GtkNotebook *notebook,
                           TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
-	GtkAction *action;
+	CafeAction *action;
 	TerminalScreen *screen;
 
 	screen = terminal_screen_container_get_screen (container);
@@ -247,7 +253,7 @@ notebook_page_removed_cb (GtkNotebook *notebook,
 	(action, G_CALLBACK (tab_action_activate_cb), menu);
 
 	g_object_set_data (G_OBJECT (screen), DATA_KEY, NULL);
-	gtk_action_group_remove_action (priv->action_group, action);
+	cafe_action_group_remove_action (priv->action_group, action);
 
 	terminal_tabs_menu_update (menu);
 }
@@ -269,20 +275,20 @@ notebook_page_switch_cb (GtkNotebook *notebook,
 {
 	TerminalScreenContainer *container;
 	TerminalScreen *screen;
-	GtkAction *action;
+	CafeAction *action;
 
 	container = TERMINAL_SCREEN_CONTAINER (page);
 	screen = terminal_screen_container_get_screen (container);
 
 	action = g_object_get_data (G_OBJECT (screen), DATA_KEY);
 	g_signal_handlers_block_by_func (action, G_CALLBACK (tab_action_activate_cb), menu);
-	gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+	cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), TRUE);
 	g_signal_handlers_unblock_by_func (action, G_CALLBACK (tab_action_activate_cb), menu);
 }
 
 static void
-connect_proxy_cb (GtkActionGroup *action_group,
-                  GtkAction *action,
+connect_proxy_cb (CafeActionGroup *action_group,
+                  CafeAction *action,
                   GtkWidget *proxy,
                   gpointer dummy)
 {
@@ -304,19 +310,19 @@ terminal_tabs_menu_set_window (TerminalTabsMenu *menu,
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
 	GtkWidget *notebook;
-	GtkUIManager *manager;
+	CafeUIManager *manager;
 
 	priv->window = window;
 
-	manager = GTK_UI_MANAGER (terminal_window_get_ui_manager (window));
-	priv->action_group = gtk_action_group_new ("TabsActions");
-	gtk_ui_manager_insert_action_group (manager, priv->action_group, -1);
+	manager = CAFE_UI_MANAGER (terminal_window_get_ui_manager (window));
+	priv->action_group = cafe_action_group_new ("TabsActions");
+	cafe_ui_manager_insert_action_group (manager, priv->action_group, -1);
 	g_object_unref (priv->action_group);
 
-	priv->anchor_action = g_object_new (GTK_TYPE_RADIO_ACTION,
+	priv->anchor_action = g_object_new (CAFE_TYPE_RADIO_ACTION,
 	                                    "name", "TabsMenuAnchorAction",
 	                                    NULL);
-	gtk_action_group_add_action (priv->action_group, priv->anchor_action);
+	cafe_action_group_add_action (priv->action_group, priv->anchor_action);
 	g_object_unref (priv->anchor_action);
 
 	g_signal_connect (priv->action_group, "connect-proxy",
@@ -391,12 +397,12 @@ static void
 terminal_tabs_menu_clean (TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *p = menu->priv;
-	GtkUIManager *manager = GTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
+	CafeUIManager *manager = CAFE_UI_MANAGER (terminal_window_get_ui_manager (p->window));
 
 	if (p->ui_id != 0)
 	{
-		gtk_ui_manager_remove_ui (manager, p->ui_id);
-		gtk_ui_manager_ensure_update (manager);
+		cafe_ui_manager_remove_ui (manager, p->ui_id);
+		cafe_ui_manager_ensure_update (manager);
 		p->ui_id = 0;
 	}
 }
@@ -410,8 +416,8 @@ terminal_tabs_menu_new (TerminalWindow *window)
 }
 
 static void
-tab_set_action_accelerator (GtkActionGroup *action_group,
-                            GtkAction *action,
+tab_set_action_accelerator (CafeActionGroup *action_group,
+                            CafeAction *action,
                             guint tab_number,
                             gboolean is_single_tab)
 {
@@ -421,11 +427,11 @@ tab_set_action_accelerator (GtkActionGroup *action_group,
 		char accel_path[ACCEL_PATH_FORMAT_LENGTH];
 
 		g_snprintf (accel_path, sizeof (accel_path), ACCEL_PATH_FORMAT, tab_number + 1);
-		gtk_action_set_accel_path (action, accel_path);
+		cafe_action_set_accel_path (action, accel_path);
 	}
 	else
 	{
-		gtk_action_set_accel_path (action, NULL);
+		cafe_action_set_accel_path (action, NULL);
 		return;
 	}
 }
@@ -434,7 +440,7 @@ static void
 terminal_tabs_menu_update (TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *p = menu->priv;
-	GtkUIManager *manager;
+	CafeUIManager *manager;
 	GList *tabs = NULL, *l;
 	guint i = 0, n;
 	gboolean is_single_tab;
@@ -448,13 +454,13 @@ terminal_tabs_menu_update (TerminalTabsMenu *menu)
 
 	is_single_tab = (n == 1);
 
-	manager =  GTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
-	p->ui_id = gtk_ui_manager_new_merge_id (manager);
+	manager =  CAFE_UI_MANAGER (terminal_window_get_ui_manager (p->window));
+	p->ui_id = cafe_ui_manager_new_merge_id (manager);
 
 	for (l = tabs; l != NULL; l = l->next)
 	{
 		const char *verb;
-		GtkAction *action;
+		CafeAction *action;
 
 		TerminalScreenContainer *container = TERMINAL_SCREEN_CONTAINER (l->data);
 		GObject *screen = G_OBJECT (terminal_screen_container_get_screen (container));
@@ -462,14 +468,14 @@ terminal_tabs_menu_update (TerminalTabsMenu *menu)
 		action = g_object_get_data (screen, DATA_KEY);
 		g_return_if_fail (action != NULL);
 
-		verb = gtk_action_get_name (action);
+		verb = cafe_action_get_name (action);
 
 		tab_set_action_accelerator (p->action_group, action, i++, is_single_tab);
 
-		gtk_ui_manager_add_ui (manager, p->ui_id,
+		cafe_ui_manager_add_ui (manager, p->ui_id,
 		                       UI_PATH,
 		                       verb, verb,
-		                       GTK_UI_MANAGER_MENUITEM, FALSE);
+		                       CAFE_UI_MANAGER_MENUITEM, FALSE);
 	}
 
 	g_list_free (tabs);
