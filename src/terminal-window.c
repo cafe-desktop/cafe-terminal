@@ -40,6 +40,12 @@
 #include "terminal-util.h"
 #include "terminal-window.h"
 
+#include "cafeaction.h"
+#include "cafeactiongroup.h"
+#include "cafetoggleaction.h"
+#include "caferadioaction.h"
+#include "cafeuimanager.h"
+
 #ifdef ENABLE_SKEY
 #include "skey-popup.h"
 #endif
@@ -48,14 +54,14 @@ static gboolean detach_tab = FALSE;
 
 struct _TerminalWindowPrivate
 {
-    GtkActionGroup *action_group;
-    GtkUIManager *ui_manager;
+    CafeActionGroup *action_group;
+    CafeUIManager *ui_manager;
     guint ui_id;
 
-    GtkActionGroup *profiles_action_group;
+    CafeActionGroup *profiles_action_group;
     guint profiles_ui_id;
 
-    GtkActionGroup *encodings_action_group;
+    CafeActionGroup *encodings_action_group;
     guint encodings_ui_id;
 
     TerminalTabsMenu *tabs_menu;
@@ -63,7 +69,7 @@ struct _TerminalWindowPrivate
     TerminalScreenPopupInfo *popup_info;
     guint remove_popup_info_idle;
 
-    GtkActionGroup *new_terminal_action_group;
+    CafeActionGroup *new_terminal_action_group;
     guint new_terminal_ui_id;
 
     GtkWidget *menubar;
@@ -181,69 +187,69 @@ static gboolean notebook_scroll_event_cb     (GtkWidget      *notebook,
                                               TerminalWindow *window);
 
 /* Menu action callbacks */
-static void file_new_window_callback          (GtkAction *action,
+static void file_new_window_callback          (CafeAction *action,
         TerminalWindow *window);
-static void file_new_tab_callback             (GtkAction *action,
+static void file_new_tab_callback             (CafeAction *action,
         TerminalWindow *window);
-static void file_new_profile_callback         (GtkAction *action,
+static void file_new_profile_callback         (CafeAction *action,
         TerminalWindow *window);
-static void file_close_window_callback        (GtkAction *action,
+static void file_close_window_callback        (CafeAction *action,
         TerminalWindow *window);
-static void file_save_contents_callback       (GtkAction *action,
+static void file_save_contents_callback       (CafeAction *action,
         TerminalWindow *window);
-static void file_close_tab_callback           (GtkAction *action,
+static void file_close_tab_callback           (CafeAction *action,
         TerminalWindow *window);
-static void edit_copy_callback                (GtkAction *action,
+static void edit_copy_callback                (CafeAction *action,
         TerminalWindow *window);
-static void edit_paste_callback               (GtkAction *action,
+static void edit_paste_callback               (CafeAction *action,
         TerminalWindow *window);
-static void edit_select_all_callback          (GtkAction *action,
+static void edit_select_all_callback          (CafeAction *action,
         TerminalWindow *window);
-static void edit_keybindings_callback         (GtkAction *action,
+static void edit_keybindings_callback         (CafeAction *action,
         TerminalWindow *window);
-static void edit_profiles_callback            (GtkAction *action,
+static void edit_profiles_callback            (CafeAction *action,
         TerminalWindow *window);
-static void edit_current_profile_callback     (GtkAction *action,
+static void edit_current_profile_callback     (CafeAction *action,
         TerminalWindow *window);
-static void view_menubar_toggled_callback     (GtkToggleAction *action,
+static void view_menubar_toggled_callback     (CafeToggleAction *action,
         TerminalWindow *window);
-static void view_fullscreen_toggled_callback  (GtkToggleAction *action,
+static void view_fullscreen_toggled_callback  (CafeToggleAction *action,
         TerminalWindow *window);
-static void view_zoom_in_callback             (GtkAction *action,
+static void view_zoom_in_callback             (CafeAction *action,
         TerminalWindow *window);
-static void view_zoom_out_callback            (GtkAction *action,
+static void view_zoom_out_callback            (CafeAction *action,
         TerminalWindow *window);
-static void view_zoom_normal_callback         (GtkAction *action,
+static void view_zoom_normal_callback         (CafeAction *action,
         TerminalWindow *window);
-static void search_find_callback              (GtkAction *action,
+static void search_find_callback              (CafeAction *action,
         TerminalWindow *window);
-static void search_find_next_callback         (GtkAction *action,
+static void search_find_next_callback         (CafeAction *action,
         TerminalWindow *window);
-static void search_find_prev_callback         (GtkAction *action,
+static void search_find_prev_callback         (CafeAction *action,
         TerminalWindow *window);
-static void search_clear_highlight_callback   (GtkAction *action,
+static void search_clear_highlight_callback   (CafeAction *action,
         TerminalWindow *window);
-static void terminal_next_or_previous_profile_cb (GtkAction *action,
+static void terminal_next_or_previous_profile_cb (CafeAction *action,
         TerminalWindow *window);
-static void terminal_set_title_callback       (GtkAction *action,
+static void terminal_set_title_callback       (CafeAction *action,
         TerminalWindow *window);
-static void terminal_add_encoding_callback    (GtkAction *action,
+static void terminal_add_encoding_callback    (CafeAction *action,
         TerminalWindow *window);
-static void terminal_reset_callback           (GtkAction *action,
+static void terminal_reset_callback           (CafeAction *action,
         TerminalWindow *window);
-static void terminal_reset_clear_callback     (GtkAction *action,
+static void terminal_reset_clear_callback     (CafeAction *action,
         TerminalWindow *window);
-static void tabs_next_or_previous_tab_cb      (GtkAction *action,
+static void tabs_next_or_previous_tab_cb      (CafeAction *action,
         TerminalWindow *window);
-static void tabs_move_left_callback           (GtkAction *action,
+static void tabs_move_left_callback           (CafeAction *action,
         TerminalWindow *window);
-static void tabs_move_right_callback          (GtkAction *action,
+static void tabs_move_right_callback          (CafeAction *action,
         TerminalWindow *window);
-static void tabs_detach_tab_callback          (GtkAction *action,
+static void tabs_detach_tab_callback          (CafeAction *action,
         TerminalWindow *window);
-static void help_contents_callback        (GtkAction *action,
+static void help_contents_callback        (CafeAction *action,
         TerminalWindow *window);
-static void help_about_callback           (GtkAction *action,
+static void help_about_callback           (CafeAction *action,
         TerminalWindow *window);
 
 static gboolean find_larger_zoom_factor  (double  current,
@@ -562,13 +568,13 @@ find_tab_num_at_pos (GtkNotebook *notebook,
 }
 
 static void
-terminal_set_profile_toggled_callback (GtkToggleAction *action,
+terminal_set_profile_toggled_callback (CafeToggleAction *action,
                                        TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalProfile *profile;
 
-    if (!gtk_toggle_action_get_active (action))
+    if (!cafe_toggle_action_get_active (action))
         return;
 
     if (priv->active_screen == NULL)
@@ -588,7 +594,7 @@ terminal_set_profile_toggled_callback (GtkToggleAction *action,
 static void
 profile_visible_name_notify_cb (TerminalProfile *profile,
                                 GParamSpec *pspec,
-                                GtkAction *action)
+                                CafeAction *action)
 {
     const char *visible_name;
     char *dot, *display_name;
@@ -597,7 +603,7 @@ profile_visible_name_notify_cb (TerminalProfile *profile,
     visible_name = terminal_profile_get_property_string (profile, TERMINAL_PROFILE_VISIBLE_NAME);
     display_name = escape_underscores (visible_name);
 
-    dot = strchr (gtk_action_get_name (action), '.');
+    dot = strchr (cafe_action_get_name (action), '.');
     if (dot != NULL)
     {
         char *free_me;
@@ -628,11 +634,11 @@ profile_visible_name_notify_cb (TerminalProfile *profile,
 }
 
 static void
-disconnect_profiles_from_actions_in_group (GtkActionGroup *action_group)
+disconnect_profiles_from_actions_in_group (CafeActionGroup *action_group)
 {
     GList *actions, *l;
 
-    actions = gtk_action_group_list_actions (action_group);
+    actions = cafe_action_group_list_actions (action_group);
     for (l = actions; l != NULL; l = l->next)
     {
         GObject *action = G_OBJECT (l->data);
@@ -662,7 +668,7 @@ terminal_window_update_set_profile_menu_active_profile (TerminalWindow *window)
 
     new_active_profile = terminal_screen_get_profile (priv->active_screen);
 
-    actions = gtk_action_group_list_actions (priv->profiles_action_group);
+    actions = cafe_action_group_list_actions (priv->profiles_action_group);
     for (l = actions; l != NULL; l = l->next)
     {
         GObject *action = G_OBJECT (l->data);
@@ -673,7 +679,7 @@ terminal_window_update_set_profile_menu_active_profile (TerminalWindow *window)
             continue;
 
         g_signal_handlers_block_by_func (action, G_CALLBACK (terminal_set_profile_toggled_callback), window);
-        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+        cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), TRUE);
         g_signal_handlers_unblock_by_func (action, G_CALLBACK (terminal_set_profile_toggled_callback), window);
 
         break;
@@ -686,8 +692,8 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalProfile *active_profile;
-    GtkActionGroup *action_group;
-    GtkAction *action;
+    CafeActionGroup *action_group;
+    CafeAction *action;
     GList *profiles, *p;
     GSList *group;
     guint n;
@@ -696,23 +702,23 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
     /* Remove the old UI */
     if (priv->profiles_ui_id != 0)
     {
-        gtk_ui_manager_remove_ui (priv->ui_manager, priv->profiles_ui_id);
+        cafe_ui_manager_remove_ui (priv->ui_manager, priv->profiles_ui_id);
         priv->profiles_ui_id = 0;
     }
 
     if (priv->profiles_action_group != NULL)
     {
         disconnect_profiles_from_actions_in_group (priv->profiles_action_group);
-        gtk_ui_manager_remove_action_group (priv->ui_manager,
+        cafe_ui_manager_remove_action_group (priv->ui_manager,
                                             priv->profiles_action_group);
         priv->profiles_action_group = NULL;
     }
 
     profiles = terminal_app_get_profile_list (terminal_app_get ());
 
-    action = gtk_action_group_get_action (priv->action_group, "TerminalProfiles");
+    action = cafe_action_group_get_action (priv->action_group, "TerminalProfiles");
     single_profile = !profiles || profiles->next == NULL; /* list length <= 1 */
-    gtk_action_set_sensitive (action, !single_profile);
+    cafe_action_set_sensitive (action, !single_profile);
     if (profiles == NULL)
         return;
 
@@ -721,55 +727,55 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
     else
         active_profile = NULL;
 
-    action_group = priv->profiles_action_group = gtk_action_group_new ("Profiles");
-    gtk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
+    action_group = priv->profiles_action_group = cafe_action_group_new ("Profiles");
+    cafe_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
     g_object_unref (action_group);
 
-    priv->profiles_ui_id = gtk_ui_manager_new_merge_id (priv->ui_manager);
+    priv->profiles_ui_id = cafe_ui_manager_new_merge_id (priv->ui_manager);
 
     group = NULL;
     n = 0;
     for (p = profiles; p != NULL; p = p->next)
     {
         TerminalProfile *profile = (TerminalProfile *) p->data;
-        GtkRadioAction *profile_action;
+        CafeRadioAction *profile_action;
         char name[32];
 
         g_snprintf (name, sizeof (name), "TerminalSetProfile%u", n++);
 
-        profile_action = gtk_radio_action_new (name,
+        profile_action = cafe_radio_action_new (name,
                                                NULL,
                                                NULL,
                                                NULL,
                                                n);
 
-        gtk_radio_action_set_group (profile_action, group);
-        group = gtk_radio_action_get_group (profile_action);
+        cafe_radio_action_set_group (profile_action, group);
+        group = cafe_radio_action_get_group (profile_action);
 
         if (profile == active_profile)
-            gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (profile_action), TRUE);
+            cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (profile_action), TRUE);
 
         g_object_set_data_full (G_OBJECT (profile_action),
                                 PROFILE_DATA_KEY,
                                 g_object_ref (profile),
                                 (GDestroyNotify) g_object_unref);
-        profile_visible_name_notify_cb (profile, NULL, GTK_ACTION (profile_action));
+        profile_visible_name_notify_cb (profile, NULL, CAFE_ACTION (profile_action));
         g_signal_connect (profile, "notify::" TERMINAL_PROFILE_VISIBLE_NAME,
                           G_CALLBACK (profile_visible_name_notify_cb), profile_action);
         g_signal_connect (profile_action, "toggled",
                           G_CALLBACK (terminal_set_profile_toggled_callback), window);
 
-        gtk_action_group_add_action (action_group, GTK_ACTION (profile_action));
+        cafe_action_group_add_action (action_group, CAFE_ACTION (profile_action));
         g_object_unref (profile_action);
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
+        cafe_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
                                PROFILES_UI_PATH,
                                name, name,
-                               GTK_UI_MANAGER_MENUITEM, FALSE);
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
+                               CAFE_UI_MANAGER_MENUITEM, FALSE);
+        cafe_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
                                PROFILES_POPUP_UI_PATH,
                                name, name,
-                               GTK_UI_MANAGER_MENUITEM, FALSE);
+                               CAFE_UI_MANAGER_MENUITEM, FALSE);
     }
 
     g_list_free (profiles);
@@ -783,9 +789,9 @@ terminal_window_create_new_terminal_action (TerminalWindow *window,
         GCallback callback)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkAction *action;
+    CafeAction *action;
 
-    action = gtk_action_new (name, NULL, NULL, NULL);
+    action = cafe_action_new (name, NULL, NULL, NULL);
 
     g_object_set_data_full (G_OBJECT (action),
                             PROFILE_DATA_KEY,
@@ -796,7 +802,7 @@ terminal_window_create_new_terminal_action (TerminalWindow *window,
                       G_CALLBACK (profile_visible_name_notify_cb), action);
     g_signal_connect (action, "activate", callback, window);
 
-    gtk_action_group_add_action (priv->new_terminal_action_group, action);
+    cafe_action_group_add_action (priv->new_terminal_action_group, action);
     g_object_unref (action);
 }
 
@@ -804,8 +810,8 @@ static void
 terminal_window_update_new_terminal_menus (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkActionGroup *action_group;
-    GtkAction *action;
+    CafeActionGroup *action_group;
+    CafeAction *action;
     GList *profiles, *p;
     guint n;
     gboolean have_single_profile;
@@ -813,14 +819,14 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
     /* Remove the old UI */
     if (priv->new_terminal_ui_id != 0)
     {
-        gtk_ui_manager_remove_ui (priv->ui_manager, priv->new_terminal_ui_id);
+        cafe_ui_manager_remove_ui (priv->ui_manager, priv->new_terminal_ui_id);
         priv->new_terminal_ui_id = 0;
     }
 
     if (priv->new_terminal_action_group != NULL)
     {
         disconnect_profiles_from_actions_in_group (priv->new_terminal_action_group);
-        gtk_ui_manager_remove_action_group (priv->ui_manager,
+        cafe_ui_manager_remove_action_group (priv->ui_manager,
                                             priv->new_terminal_action_group);
         priv->new_terminal_action_group = NULL;
     }
@@ -828,10 +834,10 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
     profiles = terminal_app_get_profile_list (terminal_app_get ());
     have_single_profile = !profiles || !profiles->next;
 
-    action = gtk_action_group_get_action (priv->action_group, "FileNewTab");
-    gtk_action_set_visible (action, have_single_profile);
-    action = gtk_action_group_get_action (priv->action_group, "FileNewWindow");
-    gtk_action_set_visible (action, have_single_profile);
+    action = cafe_action_group_get_action (priv->action_group, "FileNewTab");
+    cafe_action_set_visible (action, have_single_profile);
+    action = cafe_action_group_get_action (priv->action_group, "FileNewWindow");
+    cafe_action_set_visible (action, have_single_profile);
 
     if (have_single_profile)
     {
@@ -841,11 +847,11 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
 
     /* Now build the submenus */
 
-    action_group = priv->new_terminal_action_group = gtk_action_group_new ("NewTerminal");
-    gtk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
+    action_group = priv->new_terminal_action_group = cafe_action_group_new ("NewTerminal");
+    cafe_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
     g_object_unref (action_group);
 
-    priv->new_terminal_ui_id = gtk_ui_manager_new_merge_id (priv->ui_manager);
+    priv->new_terminal_ui_id = cafe_ui_manager_new_merge_id (priv->ui_manager);
 
     n = 0;
     for (p = profiles; p != NULL; p = p->next)
@@ -860,10 +866,10 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
                 n,
                 G_CALLBACK (file_new_tab_callback));
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
+        cafe_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
                                FILE_NEW_TERMINAL_TAB_UI_PATH,
                                name, name,
-                               GTK_UI_MANAGER_MENUITEM, FALSE);
+                               CAFE_UI_MANAGER_MENUITEM, FALSE);
 
         g_snprintf (name, sizeof (name), "FileNewWindow.%u", n);
         terminal_window_create_new_terminal_action (window,
@@ -872,10 +878,10 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
                 n,
                 G_CALLBACK (file_new_window_callback));
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
+        cafe_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
                                FILE_NEW_TERMINAL_WINDOW_UI_PATH,
                                name, name,
-                               GTK_UI_MANAGER_MENUITEM, FALSE);
+                               CAFE_UI_MANAGER_MENUITEM, FALSE);
 
         ++n;
     }
@@ -884,13 +890,13 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
 }
 
 static void
-terminal_set_encoding_callback (GtkToggleAction *action,
+terminal_set_encoding_callback (CafeToggleAction *action,
                                 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalEncoding *encoding;
 
-    if (!gtk_toggle_action_get_active (action))
+    if (!cafe_toggle_action_get_active (action))
         return;
 
     if (priv->active_screen == NULL)
@@ -908,7 +914,7 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalApp *app;
-    GtkActionGroup *action_group;
+    CafeActionGroup *action_group;
     GSList *group;
     guint n;
     GSList *encodings, *l;
@@ -918,22 +924,22 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
     /* Remove the old UI */
     if (priv->encodings_ui_id != 0)
     {
-        gtk_ui_manager_remove_ui (priv->ui_manager, priv->encodings_ui_id);
+        cafe_ui_manager_remove_ui (priv->ui_manager, priv->encodings_ui_id);
         priv->encodings_ui_id = 0;
     }
 
     if (priv->encodings_action_group != NULL)
     {
-        gtk_ui_manager_remove_action_group (priv->ui_manager,
+        cafe_ui_manager_remove_action_group (priv->ui_manager,
                                             priv->encodings_action_group);
         priv->encodings_action_group = NULL;
     }
 
-    action_group = priv->encodings_action_group = gtk_action_group_new ("Encodings");
-    gtk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
+    action_group = priv->encodings_action_group = cafe_action_group_new ("Encodings");
+    cafe_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
     g_object_unref (action_group);
 
-    priv->encodings_ui_id = gtk_ui_manager_new_merge_id (priv->ui_manager);
+    priv->encodings_ui_id = cafe_ui_manager_new_merge_id (priv->ui_manager);
 
     if (priv->active_screen)
         charset = vte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen));
@@ -953,25 +959,25 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
     for (l = encodings; l != NULL; l = l->next)
     {
         TerminalEncoding *e = (TerminalEncoding *) l->data;
-        GtkRadioAction *encoding_action;
+        CafeRadioAction *encoding_action;
         char name[128];
         char *display_name;
 
         g_snprintf (name, sizeof (name), SET_ENCODING_ACTION_NAME_PREFIX "%s", terminal_encoding_get_id (e));
         display_name = g_strdup_printf ("%s (%s)", e->name, terminal_encoding_get_charset (e));
 
-        encoding_action = gtk_radio_action_new (name,
+        encoding_action = cafe_radio_action_new (name,
                                                 display_name,
                                                 NULL,
                                                 NULL,
                                                 n);
         g_free (display_name);
 
-        gtk_radio_action_set_group (encoding_action, group);
-        group = gtk_radio_action_get_group (encoding_action);
+        cafe_radio_action_set_group (encoding_action, group);
+        group = cafe_radio_action_get_group (encoding_action);
 
         if (charset && strcmp (terminal_encoding_get_id (e), charset) == 0)
-            gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (encoding_action), TRUE);
+            cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (encoding_action), TRUE);
 
         g_signal_connect (encoding_action, "toggled",
                           G_CALLBACK (terminal_set_encoding_callback), window);
@@ -980,13 +986,13 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
                                 terminal_encoding_ref (e),
                                 (GDestroyNotify) terminal_encoding_unref);
 
-        gtk_action_group_add_action (action_group, GTK_ACTION (encoding_action));
+        cafe_action_group_add_action (action_group, CAFE_ACTION (encoding_action));
         g_object_unref (encoding_action);
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->encodings_ui_id,
+        cafe_ui_manager_add_ui (priv->ui_manager, priv->encodings_ui_id,
                                SET_ENCODING_UI_PATH,
                                name, name,
-                               GTK_UI_MANAGER_MENUITEM, FALSE);
+                               CAFE_UI_MANAGER_MENUITEM, FALSE);
     }
 
     g_slist_foreach (encodings, (GFunc) terminal_encoding_unref, NULL);
@@ -997,7 +1003,7 @@ static void
 terminal_window_update_encoding_menu_active_encoding (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkAction *action;
+    CafeAction *action;
     char name[128];
 
     if (!priv->active_screen)
@@ -1007,17 +1013,17 @@ terminal_window_update_encoding_menu_active_encoding (TerminalWindow *window)
 
     g_snprintf (name, sizeof (name), SET_ENCODING_ACTION_NAME_PREFIX "%s",
                 vte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen)));
-    action = gtk_action_group_get_action (priv->encodings_action_group, name);
+    action = cafe_action_group_get_action (priv->encodings_action_group, name);
     if (!action)
         return;
 
     g_signal_handlers_block_by_func (action, G_CALLBACK (terminal_set_encoding_callback), window);
-    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+    cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), TRUE);
     g_signal_handlers_unblock_by_func (action, G_CALLBACK (terminal_set_encoding_callback), window);
 }
 
 static void
-terminal_size_to_cb (GtkAction *action,
+terminal_size_to_cb (CafeAction *action,
                      TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -1028,7 +1034,7 @@ terminal_size_to_cb (GtkAction *action,
     if (priv->active_screen == NULL)
         return;
 
-    name = gtk_action_get_name (action) + strlen (SIZE_TO_ACTION_NAME_PREFIX);
+    name = cafe_action_get_name (action) + strlen (SIZE_TO_ACTION_NAME_PREFIX);
     width = g_ascii_strtoull (name, &end, 10);
     g_assert (end && *end == 'x');
     height = g_ascii_strtoull (end + 1, &end, 10);
@@ -1064,7 +1070,7 @@ terminal_window_update_size_to_menu (TerminalWindow *window)
     {
         guint grid_width = predefined_sizes[i].grid_width;
         guint grid_height = predefined_sizes[i].grid_height;
-        GtkAction *action;
+        CafeAction *action;
         char name[40];
         char *display_name;
 
@@ -1076,19 +1082,19 @@ terminal_window_update_size_to_menu (TerminalWindow *window)
          */
         display_name = g_strdup_printf ("_%u. %ux%u", i + 1, grid_width, grid_height);
 
-        action = gtk_action_new (name, display_name, NULL, NULL);
+        action = cafe_action_new (name, display_name, NULL, NULL);
         g_free (display_name);
 
         g_signal_connect (action, "activate",
                           G_CALLBACK (terminal_size_to_cb), window);
 
-        gtk_action_group_add_action (priv->action_group, action);
+        cafe_action_group_add_action (priv->action_group, action);
         g_object_unref (action);
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->ui_id,
+        cafe_ui_manager_add_ui (priv->ui_manager, priv->ui_id,
                                SIZE_TO_UI_PATH,
                                name, name,
-                               GTK_UI_MANAGER_MENUITEM, FALSE);
+                               CAFE_UI_MANAGER_MENUITEM, FALSE);
     }
 }
 
@@ -1099,7 +1105,7 @@ terminal_window_update_copy_sensitivity (TerminalScreen *screen,
                                          TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkAction *action;
+    CafeAction *action;
     gboolean can_copy;
 
     if (screen != priv->active_screen)
@@ -1107,8 +1113,8 @@ terminal_window_update_copy_sensitivity (TerminalScreen *screen,
 
     can_copy = vte_terminal_get_has_selection (VTE_TERMINAL (screen));
 
-    action = gtk_action_group_get_action (priv->action_group, "EditCopy");
-    gtk_action_set_sensitive (action, can_copy);
+    action = cafe_action_group_get_action (priv->action_group, "EditCopy");
+    cafe_action_set_sensitive (action, can_copy);
 
     if (can_copy && priv->copy_selection)
 #if VTE_CHECK_VERSION (0, 50, 0)
@@ -1123,7 +1129,7 @@ terminal_window_update_zoom_sensitivity (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreen *screen;
-    GtkAction *action;
+    CafeAction *action;
     double current, zoom;
 
     screen = priv->active_screen;
@@ -1132,10 +1138,10 @@ terminal_window_update_zoom_sensitivity (TerminalWindow *window)
 
     current = terminal_screen_get_font_scale (screen);
 
-    action = gtk_action_group_get_action (priv->action_group, "ViewZoomOut");
-    gtk_action_set_sensitive (action, find_smaller_zoom_factor (current, &zoom));
-    action = gtk_action_group_get_action (priv->action_group, "ViewZoomIn");
-    gtk_action_set_sensitive (action, find_larger_zoom_factor (current, &zoom));
+    action = cafe_action_group_get_action (priv->action_group, "ViewZoomOut");
+    cafe_action_set_sensitive (action, find_smaller_zoom_factor (current, &zoom));
+    action = cafe_action_group_get_action (priv->action_group, "ViewZoomIn");
+    cafe_action_set_sensitive (action, find_larger_zoom_factor (current, &zoom));
 }
 
 static void
@@ -1143,7 +1149,7 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
         TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkAction *action;
+    CafeAction *action;
     gboolean can_search;
 
     if (screen != priv->active_screen)
@@ -1151,12 +1157,12 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
 
     can_search = vte_terminal_search_get_regex (VTE_TERMINAL (screen)) != NULL;
 
-    action = gtk_action_group_get_action (priv->action_group, "SearchFindNext");
-    gtk_action_set_sensitive (action, can_search);
-    action = gtk_action_group_get_action (priv->action_group, "SearchFindPrevious");
-    gtk_action_set_sensitive (action, can_search);
-    action = gtk_action_group_get_action (priv->action_group, "SearchClearHighlight");
-    gtk_action_set_sensitive (action, can_search);
+    action = cafe_action_group_get_action (priv->action_group, "SearchFindNext");
+    cafe_action_set_sensitive (action, can_search);
+    action = cafe_action_group_get_action (priv->action_group, "SearchFindPrevious");
+    cafe_action_set_sensitive (action, can_search);
+    action = cafe_action_group_get_action (priv->action_group, "SearchClearHighlight");
+    cafe_action_set_sensitive (action, can_search);
 }
 
 static void
@@ -1166,17 +1172,17 @@ update_edit_menu_cb (GtkClipboard *clipboard,
                      TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkAction *action;
+    CafeAction *action;
     gboolean can_paste, can_paste_uris;
 
     can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
     can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
 
-    action = gtk_action_group_get_action (priv->action_group, "EditPaste");
-    gtk_action_set_sensitive (action, can_paste);
-    action = gtk_action_group_get_action (priv->action_group, "EditPasteURIPaths");
-    gtk_action_set_visible (action, can_paste_uris);
-    gtk_action_set_sensitive (action, can_paste_uris);
+    action = cafe_action_group_get_action (priv->action_group, "EditPaste");
+    cafe_action_set_sensitive (action, can_paste);
+    action = cafe_action_group_get_action (priv->action_group, "EditPasteURIPaths");
+    cafe_action_set_visible (action, can_paste_uris);
+    cafe_action_set_sensitive (action, can_paste_uris);
 
     /* Ref was added in gtk_clipboard_request_targets below */
     g_object_unref (window);
@@ -1222,8 +1228,8 @@ terminal_window_update_tabs_menu_sensitivity (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     GtkNotebook *notebook = GTK_NOTEBOOK (priv->notebook);
-    GtkActionGroup *action_group = priv->action_group;
-    GtkAction *action;
+    CafeActionGroup *action_group = priv->action_group;
+    CafeAction *action;
     int num_pages, page_num;
     gboolean not_first, not_last;
 
@@ -1236,8 +1242,8 @@ terminal_window_update_tabs_menu_sensitivity (TerminalWindow *window)
     not_last = page_num + 1 < num_pages;
 
     /* Hide the tabs menu in single-tab windows */
-    action = gtk_action_group_get_action (action_group, "Tabs");
-    gtk_action_set_visible (action, num_pages > 1);
+    action = cafe_action_group_get_action (action_group, "Tabs");
+    cafe_action_set_visible (action, num_pages > 1);
 
 #if 1
     /* NOTE: We always make next/prev actions sensitive except in
@@ -1246,26 +1252,26 @@ terminal_window_update_tabs_menu_sensitivity (TerminalWindow *window)
      * This also makes tab cycling work, bug #92139.
      * FIXME: Find a better way to do this.
      */
-    action = gtk_action_group_get_action (action_group, "TabsPrevious");
-    gtk_action_set_sensitive (action, num_pages > 1);
-    action = gtk_action_group_get_action (action_group, "TabsNext");
-    gtk_action_set_sensitive (action, num_pages > 1);
+    action = cafe_action_group_get_action (action_group, "TabsPrevious");
+    cafe_action_set_sensitive (action, num_pages > 1);
+    action = cafe_action_group_get_action (action_group, "TabsNext");
+    cafe_action_set_sensitive (action, num_pages > 1);
 #else
     /* This would be correct, but see the comment above. */
-    action = gtk_action_group_get_action (action_group, "TabsPrevious");
-    gtk_action_set_sensitive (action, not_first);
-    action = gtk_action_group_get_action (action_group, "TabsNext");
-    gtk_action_set_sensitive (action, not_last);
+    action = cafe_action_group_get_action (action_group, "TabsPrevious");
+    cafe_action_set_sensitive (action, not_first);
+    action = cafe_action_group_get_action (action_group, "TabsNext");
+    cafe_action_set_sensitive (action, not_last);
 #endif
 
-    action = gtk_action_group_get_action (action_group, "TabsMoveLeft");
-    gtk_action_set_sensitive (action, not_first);
-    action = gtk_action_group_get_action (action_group, "TabsMoveRight");
-    gtk_action_set_sensitive (action, not_last);
-    action = gtk_action_group_get_action (action_group, "TabsDetach");
-    gtk_action_set_sensitive (action, num_pages > 1);
-    action = gtk_action_group_get_action (action_group, "FileCloseTab");
-    gtk_action_set_sensitive (action, num_pages > 1);
+    action = cafe_action_group_get_action (action_group, "TabsMoveLeft");
+    cafe_action_set_sensitive (action, not_first);
+    action = cafe_action_group_get_action (action_group, "TabsMoveRight");
+    cafe_action_set_sensitive (action, not_last);
+    action = cafe_action_group_get_action (action_group, "TabsDetach");
+    cafe_action_set_sensitive (action, num_pages > 1);
+    action = cafe_action_group_get_action (action_group, "FileCloseTab");
+    cafe_action_set_sensitive (action, num_pages > 1);
 }
 
 static void
@@ -1310,7 +1316,7 @@ handle_tab_droped_on_desktop (GtkNotebook *source_notebook,
 /* Terminal screen popup menu handling */
 
 static void
-popup_open_url_callback (GtkAction *action,
+popup_open_url_callback (CafeAction *action,
                          TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -1324,7 +1330,7 @@ popup_open_url_callback (GtkAction *action,
 }
 
 static void
-popup_copy_url_callback (GtkAction *action,
+popup_copy_url_callback (CafeAction *action,
                          TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -1342,7 +1348,7 @@ popup_copy_url_callback (GtkAction *action,
 }
 
 static void
-popup_leave_fullscreen_callback (GtkAction *action,
+popup_leave_fullscreen_callback (CafeAction *action,
                                  TerminalWindow *window)
 {
     gtk_window_unfullscreen (GTK_WINDOW (window));
@@ -1402,7 +1408,7 @@ popup_menu_deactivate_callback (GtkWidget *popup,
     g_signal_handlers_disconnect_by_func
     (popup, G_CALLBACK (popup_menu_deactivate_callback), window);
 
-    im_menu_item = gtk_ui_manager_get_widget (priv->ui_manager,
+    im_menu_item = cafe_ui_manager_get_widget (priv->ui_manager,
                    "/Popup/PopupInputMethods");
     gtk_menu_item_set_submenu (GTK_MENU_ITEM (im_menu_item), NULL);
 
@@ -1419,7 +1425,7 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreen *screen = info->screen;
     GtkWidget *popup_menu;
-    GtkAction *action;
+    CafeAction *action;
     gboolean can_paste, can_paste_uris, show_link, show_email_link, show_call_link, show_input_method_menu;
     int n_pages;
     GdkEvent *event;
@@ -1445,45 +1451,45 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
     show_email_link = info->string != NULL && info->flavour == FLAVOR_EMAIL;
     show_call_link = info->string != NULL && info->flavour == FLAVOR_VOIP_CALL;
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupSendEmail");
-    gtk_action_set_visible (action, show_email_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopyEmailAddress");
-    gtk_action_set_visible (action, show_email_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCall");
-    gtk_action_set_visible (action, show_call_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopyCallAddress");
-    gtk_action_set_visible (action, show_call_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupOpenLink");
-    gtk_action_set_visible (action, show_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopyLinkAddress");
-    gtk_action_set_visible (action, show_link);
+    action = cafe_action_group_get_action (priv->action_group, "PopupSendEmail");
+    cafe_action_set_visible (action, show_email_link);
+    action = cafe_action_group_get_action (priv->action_group, "PopupCopyEmailAddress");
+    cafe_action_set_visible (action, show_email_link);
+    action = cafe_action_group_get_action (priv->action_group, "PopupCall");
+    cafe_action_set_visible (action, show_call_link);
+    action = cafe_action_group_get_action (priv->action_group, "PopupCopyCallAddress");
+    cafe_action_set_visible (action, show_call_link);
+    action = cafe_action_group_get_action (priv->action_group, "PopupOpenLink");
+    cafe_action_set_visible (action, show_link);
+    action = cafe_action_group_get_action (priv->action_group, "PopupCopyLinkAddress");
+    cafe_action_set_visible (action, show_link);
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupCloseWindow");
-    gtk_action_set_visible (action, n_pages <= 1);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCloseTab");
-    gtk_action_set_visible (action, n_pages > 1);
+    action = cafe_action_group_get_action (priv->action_group, "PopupCloseWindow");
+    cafe_action_set_visible (action, n_pages <= 1);
+    action = cafe_action_group_get_action (priv->action_group, "PopupCloseTab");
+    cafe_action_set_visible (action, n_pages > 1);
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopy");
-    gtk_action_set_sensitive (action, vte_terminal_get_has_selection (VTE_TERMINAL (screen)));
-    action = gtk_action_group_get_action (priv->action_group, "PopupPaste");
-    gtk_action_set_sensitive (action, can_paste);
-    action = gtk_action_group_get_action (priv->action_group, "PopupPasteURIPaths");
-    gtk_action_set_visible (action, can_paste_uris);
+    action = cafe_action_group_get_action (priv->action_group, "PopupCopy");
+    cafe_action_set_sensitive (action, vte_terminal_get_has_selection (VTE_TERMINAL (screen)));
+    action = cafe_action_group_get_action (priv->action_group, "PopupPaste");
+    cafe_action_set_sensitive (action, can_paste);
+    action = cafe_action_group_get_action (priv->action_group, "PopupPasteURIPaths");
+    cafe_action_set_visible (action, can_paste_uris);
 
     g_object_get (gtk_widget_get_settings (GTK_WIDGET (window)),
                   "gtk-show-input-method-menu", &show_input_method_menu,
                   NULL);
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupInputMethods");
-    gtk_action_set_visible (action, show_input_method_menu);
+    action = cafe_action_group_get_action (priv->action_group, "PopupInputMethods");
+    cafe_action_set_visible (action, show_input_method_menu);
 
-    popup_menu = gtk_ui_manager_get_widget (priv->ui_manager, "/Popup");
+    popup_menu = cafe_ui_manager_get_widget (priv->ui_manager, "/Popup");
     g_signal_connect (popup_menu, "deactivate",
                       G_CALLBACK (popup_menu_deactivate_callback), window);
 
     /* Pseudo activation of the popup menu's action */
-    action = gtk_action_group_get_action (priv->action_group, "Popup");
-    gtk_action_activate (action);
+    action = cafe_action_group_get_action (priv->action_group, "Popup");
+    cafe_action_activate (action);
 
     if (info->button == 0)
         gtk_menu_shell_select_first (GTK_MENU_SHELL (popup_menu), FALSE);
@@ -1701,16 +1707,16 @@ terminal_window_state_event (GtkWidget            *widget,
     {
         TerminalWindow *window = TERMINAL_WINDOW (widget);
         TerminalWindowPrivate *priv = window->priv;
-        GtkAction *action;
+        CafeAction *action;
         gboolean is_fullscreen;
 
         is_fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN) != 0;
 
-        action = gtk_action_group_get_action (priv->action_group, "ViewFullscreen");
-        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), is_fullscreen);
+        action = cafe_action_group_get_action (priv->action_group, "ViewFullscreen");
+        cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), is_fullscreen);
 
-        action = gtk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
-        gtk_action_set_visible (action, is_fullscreen);
+        action = cafe_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
+        cafe_action_set_visible (action, is_fullscreen);
     }
 
     if (window_state_event)
@@ -1725,13 +1731,13 @@ terminal_window_window_manager_changed_cb (GdkScreen *screen,
         TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkAction *action;
+    CafeAction *action;
     gboolean supports_fs;
 
     supports_fs = gdk_x11_screen_supports_net_wm_hint (screen, gdk_atom_intern ("_NET_WM_STATE_FULLSCREEN", FALSE));
 
-    action = gtk_action_group_get_action (priv->action_group, "ViewFullscreen");
-    gtk_action_set_sensitive (action, supports_fs);
+    action = cafe_action_group_get_action (priv->action_group, "ViewFullscreen");
+    cafe_action_set_sensitive (action, supports_fs);
 }
 #endif
 
@@ -1814,7 +1820,7 @@ terminal_window_encoding_list_changed_cb (TerminalApp *app,
 static void
 terminal_window_init (TerminalWindow *window)
 {
-    const GtkActionEntry menu_entries[] =
+    const CafeActionEntry menu_entries[] =
     {
         /* Toplevel */
         { "File", NULL, N_("_File"), NULL, NULL, NULL },
@@ -2099,7 +2105,7 @@ terminal_window_init (TerminalWindow *window)
         { "PopupInputMethods", NULL, N_("_Input Methods"), NULL, NULL, NULL }
     };
 
-    const GtkToggleActionEntry toggle_menu_entries[] =
+    const CafeToggleActionEntry toggle_menu_entries[] =
     {
         /* View Menu */
         {
@@ -2117,9 +2123,9 @@ terminal_window_init (TerminalWindow *window)
     };
     TerminalWindowPrivate *priv;
     TerminalApp *app;
-    GtkActionGroup *action_group;
-    GtkAction *action;
-    GtkUIManager *manager;
+    CafeActionGroup *action_group;
+    CafeAction *action;
+    CafeUIManager *manager;
     GError *error;
     GtkWindowGroup *window_group;
     GtkAccelGroup *accel_group;
@@ -2197,9 +2203,9 @@ terminal_window_init (TerminalWindow *window)
     priv->old_geometry_widget = NULL;
 
     /* Create the UI manager */
-    manager = priv->ui_manager = gtk_ui_manager_new ();
+    manager = priv->ui_manager = cafe_ui_manager_new ();
 
-    accel_group = gtk_ui_manager_get_accel_group (manager);
+    accel_group = cafe_ui_manager_get_accel_group (manager);
     gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
     /* Workaround for bug #453193, bug #138609 and bug #559728 */
     g_signal_connect_after (accel_group, "accel-activate",
@@ -2207,15 +2213,15 @@ terminal_window_init (TerminalWindow *window)
 
     /* Create the actions */
     /* Note that this action group name is used in terminal-accels.c; do not change it */
-    priv->action_group = action_group = gtk_action_group_new ("Main");
-    gtk_action_group_set_translation_domain (action_group, NULL);
-    gtk_action_group_add_actions (action_group, menu_entries,
+    priv->action_group = action_group = cafe_action_group_new ("Main");
+    cafe_action_group_set_translation_domain (action_group, NULL);
+    cafe_action_group_add_actions (action_group, menu_entries,
                                   G_N_ELEMENTS (menu_entries), window);
-    gtk_action_group_add_toggle_actions (action_group,
+    cafe_action_group_add_toggle_actions (action_group,
                                          toggle_menu_entries,
                                          G_N_ELEMENTS (toggle_menu_entries),
                                          window);
-    gtk_ui_manager_insert_action_group (manager, action_group, 0);
+    cafe_ui_manager_insert_action_group (manager, action_group, 0);
     g_object_unref (action_group);
 
    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
@@ -2223,22 +2229,22 @@ terminal_window_init (TerminalWindow *window)
                              G_CALLBACK (update_edit_menu), window);
    update_edit_menu (window);
     /* Idem for this action, since the window is not fullscreen. */
-    action = gtk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
-    gtk_action_set_visible (action, FALSE);
+    action = cafe_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
+    cafe_action_set_visible (action, FALSE);
 
 #ifndef ENABLE_SAVE
-    action = gtk_action_group_get_action (priv->action_group, "FileSaveContents");
-    gtk_action_set_visible (action, FALSE);
+    action = cafe_action_group_get_action (priv->action_group, "FileSaveContents");
+    cafe_action_set_visible (action, FALSE);
 #endif
 
     /* Load the UI */
     error = NULL;
-    priv->ui_id = gtk_ui_manager_add_ui_from_resource (manager,
+    priv->ui_id = cafe_ui_manager_add_ui_from_resource (manager,
                   TERMINAL_RESOURCES_PATH_PREFIX G_DIR_SEPARATOR_S "ui/terminal.xml",
                   &error);
     g_assert_no_error (error);
 
-    priv->menubar = gtk_ui_manager_get_widget (manager, "/menubar");
+    priv->menubar = cafe_ui_manager_get_widget (manager, "/menubar");
     gtk_box_pack_start (GTK_BOX (priv->main_vbox),
                         priv->menubar,
                         FALSE, FALSE, 0);
@@ -2658,7 +2664,7 @@ terminal_window_set_menubar_visible (TerminalWindow *window,
                                      gboolean        setting)
 {
     TerminalWindowPrivate *priv = window->priv;
-    GtkAction *action;
+    CafeAction *action;
 
     /* it's been set now, so don't override when adding a screen.
      * this side effect must happen before we short-circuit below.
@@ -2670,8 +2676,8 @@ terminal_window_set_menubar_visible (TerminalWindow *window,
 
     priv->menubar_visible = setting;
 
-    action = gtk_action_group_get_action (priv->action_group, "ViewMenubar");
-    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), setting);
+    action = cafe_action_group_get_action (priv->action_group, "ViewMenubar");
+    cafe_toggle_action_set_active (CAFE_TOGGLE_ACTION (action), setting);
 
     g_object_set (priv->menubar, "visible", setting, NULL);
 
@@ -2867,7 +2873,7 @@ notebook_button_press_cb (GtkWidget *widget,
     GtkNotebook *notebook = GTK_NOTEBOOK (widget);
     GtkWidget *tab;
     GtkWidget *menu;
-    GtkAction *action;
+    CafeAction *action;
     int tab_clicked;
 
     if ((event->type == GDK_BUTTON_PRESS && event->button == 2) &&
@@ -2917,10 +2923,10 @@ notebook_button_press_cb (GtkWidget *widget,
     /* switch to the page the mouse is over */
     gtk_notebook_set_current_page (notebook, tab_clicked);
 
-    action = gtk_action_group_get_action (priv->action_group, "NotebookPopup");
-    gtk_action_activate (action);
+    action = cafe_action_group_get_action (priv->action_group, "NotebookPopup");
+    cafe_action_activate (action);
 
-    menu = gtk_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
+    menu = cafe_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
     if (gtk_menu_get_attach_widget (GTK_MENU (menu)))
       gtk_menu_detach (GTK_MENU (menu));
     tab = gtk_notebook_get_nth_page (notebook, tab_clicked);
@@ -2973,7 +2979,7 @@ notebook_popup_menu_cb (GtkWidget *widget,
     TerminalWindowPrivate *priv = window->priv;
     GtkNotebook *notebook = GTK_NOTEBOOK (priv->notebook);
     GtkWidget *focus_widget, *tab, *tab_label, *menu;
-    GtkAction *action;
+    CafeAction *action;
     int page_num;
 
     focus_widget = gtk_window_get_focus (GTK_WINDOW (window));
@@ -2985,10 +2991,10 @@ notebook_popup_menu_cb (GtkWidget *widget,
     tab = gtk_notebook_get_nth_page (notebook, page_num);
     tab_label = gtk_notebook_get_tab_label (notebook, tab);
 
-    action = gtk_action_group_get_action (priv->action_group, "NotebookPopup");
-    gtk_action_activate (action);
+    action = cafe_action_group_get_action (priv->action_group, "NotebookPopup");
+    cafe_action_activate (action);
 
-    menu = gtk_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
+    menu = cafe_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
     if (gtk_menu_get_attach_widget (GTK_MENU (menu)))
       gtk_menu_detach (GTK_MENU (menu));
     gtk_menu_attach_to_widget (GTK_MENU (menu), tab_label, NULL);
@@ -3402,7 +3408,7 @@ terminal_window_update_geometry (TerminalWindow *window)
 }
 
 static void
-file_new_window_callback (GtkAction *action,
+file_new_window_callback (CafeAction *action,
                           TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3438,7 +3444,7 @@ file_new_window_callback (GtkAction *action,
 }
 
 static void
-file_new_tab_callback (GtkAction *action,
+file_new_tab_callback (CafeAction *action,
                        TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3579,7 +3585,7 @@ confirm_close_window_or_tab (TerminalWindow *window,
 }
 
 static void
-file_close_window_callback (GtkAction *action,
+file_close_window_callback (CafeAction *action,
                             TerminalWindow *window)
 {
     if (confirm_close_window_or_tab (window, NULL))
@@ -3639,7 +3645,7 @@ save_contents_dialog_on_response (GtkDialog *dialog, gint response_id, gpointer 
 #endif /* ENABLE_SAVE */
 
 static void
-file_save_contents_callback (GtkAction *action,
+file_save_contents_callback (CafeAction *action,
                              TerminalWindow *window)
 {
 #ifdef ENABLE_SAVE
@@ -3676,7 +3682,7 @@ file_save_contents_callback (GtkAction *action,
 }
 
 static void
-file_close_tab_callback (GtkAction *action,
+file_close_tab_callback (CafeAction *action,
                          TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3692,7 +3698,7 @@ file_close_tab_callback (GtkAction *action,
 }
 
 static void
-edit_copy_callback (GtkAction *action,
+edit_copy_callback (CafeAction *action,
                     TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3770,7 +3776,7 @@ clipboard_targets_received_cb (GtkClipboard *clipboard,
 }
 
 static void
-edit_paste_callback (GtkAction *action,
+edit_paste_callback (CafeAction *action,
                      TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3782,7 +3788,7 @@ edit_paste_callback (GtkAction *action,
         return;
 
     clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
-    name = gtk_action_get_name (action);
+    name = cafe_action_get_name (action);
 
     data = g_slice_new (PasteData);
     data->screen = g_object_ref (priv->active_screen);
@@ -3794,7 +3800,7 @@ edit_paste_callback (GtkAction *action,
 }
 
 static void
-edit_select_all_callback (GtkAction *action,
+edit_select_all_callback (CafeAction *action,
                           TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3806,7 +3812,7 @@ edit_select_all_callback (GtkAction *action,
 }
 
 static void
-edit_keybindings_callback (GtkAction *action,
+edit_keybindings_callback (CafeAction *action,
                            TerminalWindow *window)
 {
     terminal_app_edit_keybindings (terminal_app_get (),
@@ -3814,7 +3820,7 @@ edit_keybindings_callback (GtkAction *action,
 }
 
 static void
-edit_current_profile_callback (GtkAction *action,
+edit_current_profile_callback (CafeAction *action,
                                TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3826,7 +3832,7 @@ edit_current_profile_callback (GtkAction *action,
 }
 
 static void
-file_new_profile_callback (GtkAction *action,
+file_new_profile_callback (CafeAction *action,
                            TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3837,7 +3843,7 @@ file_new_profile_callback (GtkAction *action,
 }
 
 static void
-edit_profiles_callback (GtkAction *action,
+edit_profiles_callback (CafeAction *action,
                         TerminalWindow *window)
 {
     terminal_app_manage_profiles (terminal_app_get (),
@@ -3845,21 +3851,21 @@ edit_profiles_callback (GtkAction *action,
 }
 
 static void
-view_menubar_toggled_callback (GtkToggleAction *action,
+view_menubar_toggled_callback (CafeToggleAction *action,
                                TerminalWindow *window)
 {
-    terminal_window_set_menubar_visible (window, gtk_toggle_action_get_active (action));
+    terminal_window_set_menubar_visible (window, cafe_toggle_action_get_active (action));
 }
 
 static void
-view_fullscreen_toggled_callback (GtkToggleAction *action,
+view_fullscreen_toggled_callback (CafeToggleAction *action,
                                   TerminalWindow *window)
 {
     gboolean toggle_action_check;
 
     g_return_if_fail (gtk_widget_get_realized (GTK_WIDGET (window)));
 
-    toggle_action_check = gtk_toggle_action_get_active (action);
+    toggle_action_check = cafe_toggle_action_get_active (action);
     if (toggle_action_check)
         gtk_window_fullscreen (GTK_WINDOW (window));
     else
@@ -3927,7 +3933,7 @@ find_smaller_zoom_factor (double  current,
 }
 
 static void
-view_zoom_in_callback (GtkAction *action,
+view_zoom_in_callback (CafeAction *action,
                        TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3945,7 +3951,7 @@ view_zoom_in_callback (GtkAction *action,
 }
 
 static void
-view_zoom_out_callback (GtkAction *action,
+view_zoom_out_callback (CafeAction *action,
                         TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -3963,7 +3969,7 @@ view_zoom_out_callback (GtkAction *action,
 }
 
 static void
-view_zoom_normal_callback (GtkAction *action,
+view_zoom_normal_callback (CafeAction *action,
                            TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4019,7 +4025,7 @@ search_dialog_delete_event_cb (GtkWidget   *widget,
 }
 
 static void
-search_find_callback (GtkAction *action,
+search_find_callback (CafeAction *action,
                       TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4042,7 +4048,7 @@ search_find_callback (GtkAction *action,
 }
 
 static void
-search_find_next_callback (GtkAction *action,
+search_find_next_callback (CafeAction *action,
                            TerminalWindow *window)
 {
     if (G_UNLIKELY (!window->priv->active_screen))
@@ -4052,7 +4058,7 @@ search_find_next_callback (GtkAction *action,
 }
 
 static void
-search_find_prev_callback (GtkAction *action,
+search_find_prev_callback (CafeAction *action,
                            TerminalWindow *window)
 {
     if (G_UNLIKELY (!window->priv->active_screen))
@@ -4062,7 +4068,7 @@ search_find_prev_callback (GtkAction *action,
 }
 
 static void
-search_clear_highlight_callback (GtkAction *action,
+search_clear_highlight_callback (CafeAction *action,
                                  TerminalWindow *window)
 {
     if (G_UNLIKELY (!window->priv->active_screen))
@@ -4072,7 +4078,7 @@ search_clear_highlight_callback (GtkAction *action,
 }
 
 static void
-terminal_next_or_previous_profile_cb (GtkAction *action,
+terminal_next_or_previous_profile_cb (CafeAction *action,
                               TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4082,7 +4088,7 @@ terminal_next_or_previous_profile_cb (GtkAction *action,
     const char *name;
     guint backwards = 0;
 
-    name = gtk_action_get_name (action);
+    name = cafe_action_get_name (action);
     if (strcmp (name, "ProfilePrevious") == 0)
     {
         backwards = 1;
@@ -4145,7 +4151,7 @@ terminal_set_title_dialog_response_cb (GtkWidget *dialog,
 }
 
 static void
-terminal_set_title_callback (GtkAction *action,
+terminal_set_title_callback (CafeAction *action,
                              TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4200,7 +4206,7 @@ terminal_set_title_callback (GtkAction *action,
 }
 
 static void
-terminal_add_encoding_callback (GtkAction *action,
+terminal_add_encoding_callback (CafeAction *action,
                                 TerminalWindow *window)
 {
     terminal_app_edit_encodings (terminal_app_get (),
@@ -4208,7 +4214,7 @@ terminal_add_encoding_callback (GtkAction *action,
 }
 
 static void
-terminal_reset_callback (GtkAction *action,
+terminal_reset_callback (CafeAction *action,
                          TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4220,7 +4226,7 @@ terminal_reset_callback (GtkAction *action,
 }
 
 static void
-terminal_reset_clear_callback (GtkAction *action,
+terminal_reset_clear_callback (CafeAction *action,
                                TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4232,7 +4238,7 @@ terminal_reset_clear_callback (GtkAction *action,
 }
 
 static void
-tabs_next_or_previous_tab_cb (GtkAction *action,
+tabs_next_or_previous_tab_cb (CafeAction *action,
                               TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4240,7 +4246,7 @@ tabs_next_or_previous_tab_cb (GtkAction *action,
     const char *name;
     guint keyval = 0;
 
-    name = gtk_action_get_name (action);
+    name = cafe_action_get_name (action);
     if (strcmp (name, "TabsNext") == 0)
     {
         keyval = GDK_KEY_Page_Down;
@@ -4258,7 +4264,7 @@ tabs_next_or_previous_tab_cb (GtkAction *action,
 }
 
 static void
-tabs_move_left_callback (GtkAction *action,
+tabs_move_left_callback (CafeAction *action,
                          TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4274,7 +4280,7 @@ tabs_move_left_callback (GtkAction *action,
 }
 
 static void
-tabs_move_right_callback (GtkAction *action,
+tabs_move_right_callback (CafeAction *action,
                           TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4290,7 +4296,7 @@ tabs_move_right_callback (GtkAction *action,
 }
 
 static void
-tabs_detach_tab_callback (GtkAction *action,
+tabs_detach_tab_callback (CafeAction *action,
                           TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -4313,7 +4319,7 @@ tabs_detach_tab_callback (GtkAction *action,
 }
 
 static void
-help_contents_callback (GtkAction *action,
+help_contents_callback (CafeAction *action,
                         TerminalWindow *window)
 {
     terminal_util_show_help (NULL, GTK_WINDOW (window));
@@ -4323,7 +4329,7 @@ help_contents_callback (GtkAction *action,
 #define EMAILIFY(string) (g_strdelimit ((string), "%", '@'))
 
 static void
-help_about_callback (GtkAction *action,
+help_about_callback (CafeAction *action,
                      TerminalWindow *window)
 {
     char *licence_text;
@@ -4406,7 +4412,7 @@ help_about_callback (GtkAction *action,
     g_free (licence_text);
 }
 
-GtkUIManager *
+CafeUIManager *
 terminal_window_get_ui_manager (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;

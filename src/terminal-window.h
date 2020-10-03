@@ -23,6 +23,7 @@
 #include <gtk/gtk.h>
 
 #include "terminal-screen.h"
+#include "cafeuimanager.h"
 
 G_BEGIN_DECLS
 
@@ -55,7 +56,7 @@ TerminalWindow* terminal_window_new (void);
 
 void terminal_window_set_is_restored (TerminalWindow *window);
 
-GtkUIManager *terminal_window_get_ui_manager (TerminalWindow *window);
+CafeUIManager *terminal_window_get_ui_manager (TerminalWindow *window);
 
 void terminal_window_add_screen (TerminalWindow *window,
                                  TerminalScreen *screen,
