@@ -87,6 +87,7 @@
 #include "cafeaction.h"
 #include "cafeactiongroup.h"
 #include "cafeactivatable.h"
+#include "cafeimagemenuitem.h"
 
 
 struct _CafeActionPrivate 
@@ -208,7 +209,7 @@ cafe_action_class_init (CafeActionClass *klass)
   klass->create_tool_item  = create_tool_item;
   klass->create_menu       = NULL;
   G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
-  klass->menu_item_type    = GTK_TYPE_IMAGE_MENU_ITEM;
+  klass->menu_item_type    = CAFE_TYPE_IMAGE_MENU_ITEM;
   G_GNUC_END_IGNORE_DEPRECATIONS;
   klass->toolbar_item_type = GTK_TYPE_TOOL_BUTTON;
   klass->connect_proxy    = connect_proxy;

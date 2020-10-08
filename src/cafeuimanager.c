@@ -33,6 +33,7 @@
 
 #include "cafeuimanager.h"
 #include "cafeactivatable.h"
+#include "cafeimagemenuitem.h"
 
 /**
  * SECTION:cafeuimanager
@@ -2895,8 +2896,8 @@ G_GNUC_END_IGNORE_DEPRECATIONS
               G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 
               if (info->always_show_image_set &&
-                  GTK_IS_IMAGE_MENU_ITEM (info->proxy))
-                gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (info->proxy),
+                  CAFE_IS_IMAGE_MENU_ITEM (info->proxy))
+                cafe_image_menu_item_set_always_show_image (CAFE_IMAGE_MENU_ITEM (info->proxy),
                                                            info->always_show_image);
 
               G_GNUC_END_IGNORE_DEPRECATIONS;
