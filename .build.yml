@@ -2,22 +2,6 @@
 # THE FOLLOWING LINES IS USED BY docker-build
 ##########################################################
 requires:
-  archlinux:
-    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/cafe-terminal
-    - autoconf-archive
-    - clang
-    - gcc
-    - gettext
-    - git
-    - libsm
-    - libtool
-    - automake
-    - make
-    - pkgconf
-    - vte3
-    - which
-    - yelp-tools
-
   debian:
     # Useful URL: https://github.com/cafe-desktop/debian-packages
     # Useful URL: https://salsa.debian.org/debian-cafe-team/cafe-terminal
@@ -39,49 +23,11 @@ requires:
     - make
     - yelp-tools
 
-  fedora:
-    # Useful URL: https://src.fedoraproject.org/cgit/rpms/cafe-terminal.git
-    - autoconf-archive
-    - clang
-    - clang-analyzer
-    - gcc
-    - gettext
-    - gettext-devel
-    - dconf-devel
-    - desktop-file-utils
-    - git
-    - gtk3-devel
-    - libSM-devel
-    - libtool
-    - make
-    - redhat-rpm-config
-    - vte291-devel
-    - which
-    - yelp-tools
-
-  ubuntu:
-    - autoconf-archive
-    - autopoint
-    - clang
-    - clang-tools
-    - gcc
-    - gettext
-    - git
-    - libdconf-dev
-    - libglib2.0-dev
-    - libgtk-3-dev
-    - libsm-dev
-    - libtool
-    - libvte-2.91-dev
-    - libx11-dev
-    - make
-    - yelp-tools
-
 before_scripts:
-  - if [ ${DISTRO_NAME} == "debian" ];then
-  -     egrep -lRZ 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_BEGIN_IGNORE_DEPRECATIONS/ /g'
-  -     egrep -lRZ 'G_GNUC_END_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_END_IGNORE_DEPRECATIONS/ /g'
-  - fi
+  - export TITLECPPCHECK="${REPO_NAME} (cppcheck `dpkg -s cppcheck|grep -i version|cut -d " " -f 2`)"
+  - cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude .
+  - cppcheck-htmlreport --title="$TITLECPPCHECK" --file=cppcheck.xml --report-dir=cppcheck-htmlreport
+
   # Install cafe-common from master branch
   - cd ${START_DIR}
   - git clone --depth 1  https://github.com/cafe-desktop/cafe-common.git -b master cafe-common-master
@@ -96,19 +42,25 @@ before_scripts:
   - make install
 
 build_scripts:
+  - export TITLESCANBUILD="${REPO_NAME} (clang-tools `dpkg -s clang-tools|grep -i version|cut -d " " -f 2`) - scan-build results"
+  - mkdir html-report
+  - cppcheck --enable=warning,style,performance,portability,information,missingInclude . 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
+
   - NOCONFIGURE=1 ./autogen.sh
   - scan-build $CHECKERS ./configure --enable-compile-warnings=maximum
   - if [ $CPU_COUNT -gt 1 ]; then
-  -     scan-build $CHECKERS --keep-cc -o html-report make -j $CPU_COUNT
+  -     scan-build $CHECKERS --keep-cc -o html-report make -j $CPU_COUNT 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
   - else
-  -     scan-build $CHECKERS --keep-cc -o html-report make
+  -     scan-build $CHECKERS --keep-cc -o html-report make 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
   - fi
-  - if [ ${DISTRO_NAME} == "debian" ];then
-  -     cppcheck --enable=warning,style,performance,portability,information,missingInclude .
-  - fi
+
+  - make check 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
+  - echo Warnings detected in the logs `cat ./html-report/output_${TRAVIS_COMMIT} | grep -i warning | wc -l` 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
+  - make install
 
 after_scripts:
   - make distcheck
+  - if [ -f "gen-index" ]; then ./gen-index -l 20; fi
 
 releases:
   draft: false
