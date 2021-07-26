@@ -15,13 +15,43 @@ requires:
     - git
     - libdconf-dev
     - libglib2.0-dev
-    - libgtk-3-dev
     - libsm-dev
     - libtool
     - libvte-2.91-dev
     - libx11-dev
     - make
+    - wget
     - yelp-tools
+
+    #packages required for ctk
+    - adwaita-icon-theme
+    - dconf-gsettings-backend
+    - hicolor-icon-theme
+    - libatk-bridge2.0-dev
+    - libatk-bridge2.0-0
+    - libcolord2
+    - libcups2
+    - libegl1-mesa-dev
+    - libepoxy0
+    - libepoxy-dev
+    - libfontconfig1-dev
+    - libfribidi-dev
+    - libgdk-pixbuf2.0-dev
+    - libjson-glib-1.0-0
+    - libpango1.0-dev
+    - librest-0.7-0
+    - libwayland-dev
+    - libx11-dev
+    - libxcomposite-dev
+    - libxcursor-dev
+    - libxdamage-dev
+    - libxext-dev
+    - libxfixes-dev
+    - libxi-dev
+    - libxinerama-dev
+    - libxkbcommon-dev
+    - libxrandr-dev
+    - wayland-protocols
 
 before_scripts:
   - export TITLECPPCHECK="${REPO_NAME} (cppcheck `dpkg -s cppcheck|grep -i version|cut -d " " -f 2`)"
@@ -40,6 +70,13 @@ before_scripts:
   - fi
   - make
   - make install
+
+  # Install required ctk .deb packages
+  - wget https://github.com/cafe-desktop/ctk/releases/download/v`echo $CTK_MASTERV`/libctk-3-dev_`echo $CTK_MASTERV`-1_amd64.deb
+  - wget https://github.com/cafe-desktop/ctk/releases/download/v`echo $CTK_MASTERV`/gir1.2-ctk-3.0_`echo $CTK_MASTERV`-1_amd64.deb
+  - wget https://github.com/cafe-desktop/ctk/releases/download/v`echo $CTK_MASTERV`/libctk-3-common_`echo $CTK_MASTERV`-1_all.deb
+  - wget https://github.com/cafe-desktop/ctk/releases/download/v`echo $CTK_MASTERV`/libctk-3-0_`echo $CTK_MASTERV`-1_amd64.deb
+  - dpkg -i *.deb
 
 build_scripts:
   - export TITLESCANBUILD="${REPO_NAME} (clang-tools `dpkg -s clang-tools|grep -i version|cut -d " " -f 2`) - scan-build results"
