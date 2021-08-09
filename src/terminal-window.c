@@ -132,7 +132,7 @@ struct _TerminalWindowPrivate
 
 #if 1
 /*
- * We don't want to enable content saving until vte supports it async.
+ * We don't want to enable content saving until bte supports it async.
  * So we disable this code for stable versions.
  */
 #include "terminal-version.h"
@@ -899,7 +899,7 @@ terminal_set_encoding_callback (CtkToggleAction *action,
     encoding = g_object_get_data (G_OBJECT (action), ENCODING_DATA_KEY);
     g_assert (encoding);
 
-    vte_terminal_set_encoding (VTE_TERMINAL (priv->active_screen),
+    bte_terminal_set_encoding (VTE_TERMINAL (priv->active_screen),
                                terminal_encoding_get_charset (encoding), NULL);
 }
 
@@ -936,7 +936,7 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
     priv->encodings_ui_id = ctk_ui_manager_new_merge_id (priv->ui_manager);
 
     if (priv->active_screen)
-        charset = vte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen));
+        charset = bte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen));
     else
         charset = "current";
 
@@ -1006,7 +1006,7 @@ terminal_window_update_encoding_menu_active_encoding (TerminalWindow *window)
         return;
 
     g_snprintf (name, sizeof (name), SET_ENCODING_ACTION_NAME_PREFIX "%s",
-                vte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen)));
+                bte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen)));
     action = ctk_action_group_get_action (priv->encodings_action_group, name);
     if (!action)
         return;
@@ -1034,7 +1034,7 @@ terminal_size_to_cb (CtkAction *action,
     height = g_ascii_strtoull (end + 1, &end, 10);
     g_assert (end && *end == '\0');
 
-    vte_terminal_set_size (VTE_TERMINAL (priv->active_screen), width, height);
+    bte_terminal_set_size (VTE_TERMINAL (priv->active_screen), width, height);
 
     terminal_window_update_size (window, priv->active_screen, TRUE);
 }
@@ -1105,16 +1105,16 @@ terminal_window_update_copy_sensitivity (TerminalScreen *screen,
     if (screen != priv->active_screen)
         return;
 
-    can_copy = vte_terminal_get_has_selection (VTE_TERMINAL (screen));
+    can_copy = bte_terminal_get_has_selection (VTE_TERMINAL (screen));
 
     action = ctk_action_group_get_action (priv->action_group, "EditCopy");
     ctk_action_set_sensitive (action, can_copy);
 
     if (can_copy && priv->copy_selection)
 #if VTE_CHECK_VERSION (0, 50, 0)
-        vte_terminal_copy_clipboard_format (VTE_TERMINAL(screen), VTE_FORMAT_TEXT);
+        bte_terminal_copy_clipboard_format (VTE_TERMINAL(screen), VTE_FORMAT_TEXT);
 #else
-        vte_terminal_copy_clipboard(VTE_TERMINAL(screen));
+        bte_terminal_copy_clipboard(VTE_TERMINAL(screen));
 #endif
 }
 
@@ -1149,7 +1149,7 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
     if (screen != priv->active_screen)
         return;
 
-    can_search = vte_terminal_search_get_regex (VTE_TERMINAL (screen)) != NULL;
+    can_search = bte_terminal_search_get_regex (VTE_TERMINAL (screen)) != NULL;
 
     action = ctk_action_group_get_action (priv->action_group, "SearchFindNext");
     ctk_action_set_sensitive (action, can_search);
@@ -1209,7 +1209,7 @@ screen_resize_window_cb (TerminalScreen *screen,
             (gdk_window_get_state (ctk_widget_get_window (widget)) & (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_FULLSCREEN)) != 0)
         return;
 
-    vte_terminal_set_size (terminal, width, height);
+    bte_terminal_set_size (terminal, width, height);
 
     if (screen != priv->active_screen)
         return;
@@ -1464,7 +1464,7 @@ popup_clipboard_targets_received_cb (CtkClipboard *clipboard,
     ctk_action_set_visible (action, n_pages > 1);
 
     action = ctk_action_group_get_action (priv->action_group, "PopupCopy");
-    ctk_action_set_sensitive (action, vte_terminal_get_has_selection (VTE_TERMINAL (screen)));
+    ctk_action_set_sensitive (action, bte_terminal_get_has_selection (VTE_TERMINAL (screen)));
     action = ctk_action_group_get_action (priv->action_group, "PopupPaste");
     ctk_action_set_sensitive (action, can_paste);
     action = ctk_action_group_get_action (priv->action_group, "PopupPasteURIPaths");
@@ -3036,7 +3036,7 @@ notebook_page_selected_callback (CtkWidget       *notebook,
         terminal_screen_get_size (priv->active_screen, &old_grid_width, &old_grid_height);
 
         /* This is so that we maintain the same grid */
-        vte_terminal_set_size (VTE_TERMINAL (screen), old_grid_width, old_grid_height);
+        bte_terminal_set_size (VTE_TERMINAL (screen), old_grid_width, old_grid_height);
     }
 
     /* Workaround to remove ctknotebook's feature of computing its size based on
@@ -3133,7 +3133,7 @@ notebook_page_added_callback (CtkWidget       *notebook,
         double scale;
 
         terminal_screen_get_size (priv->active_screen, &current_width, &current_height);
-        vte_terminal_set_size (VTE_TERMINAL (screen), current_width, current_height);
+        bte_terminal_set_size (VTE_TERMINAL (screen), current_width, current_height);
 
         scale = terminal_screen_get_font_scale (priv->active_screen);
         terminal_screen_set_font_scale (screen, scale);
@@ -3618,9 +3618,9 @@ save_contents_dialog_on_response (CtkDialog *dialog, gint response_id, gpointer 
     if (stream)
     {
         /* FIXME
-         * Should be replaced with the async version when vte implements that.
+         * Should be replaced with the async version when bte implements that.
          */
-        vte_terminal_write_contents_sync (terminal, stream,
+        bte_terminal_write_contents_sync (terminal, stream,
                                           VTE_WRITE_DEFAULT,
                                           NULL, &error);
         g_object_unref (stream);
@@ -3701,9 +3701,9 @@ edit_copy_callback (CtkAction *action,
         return;
 
 #if VTE_CHECK_VERSION (0, 50, 0)
-    vte_terminal_copy_clipboard_format (VTE_TERMINAL (priv->active_screen), VTE_FORMAT_TEXT);
+    bte_terminal_copy_clipboard_format (VTE_TERMINAL (priv->active_screen), VTE_FORMAT_TEXT);
 #else
-    vte_terminal_copy_clipboard (VTE_TERMINAL (priv->active_screen));
+    bte_terminal_copy_clipboard (VTE_TERMINAL (priv->active_screen));
 #endif
 }
 
@@ -3733,7 +3733,7 @@ clipboard_uris_received_cb (CtkClipboard *clipboard,
         terminal_util_transform_uris_to_quoted_fuse_paths (uris);
 
     text = terminal_util_concat_uris (uris, &len);
-    vte_terminal_feed_child (VTE_TERMINAL (data->screen), text, len);
+    bte_terminal_feed_child (VTE_TERMINAL (data->screen), text, len);
     g_free (text);
 
     g_object_unref (data->screen);
@@ -3762,7 +3762,7 @@ clipboard_targets_received_cb (CtkClipboard *clipboard,
     }
     else /* if (ctk_targets_include_text (targets, n_targets)) */
     {
-        vte_terminal_paste_clipboard (VTE_TERMINAL (data->screen));
+        bte_terminal_paste_clipboard (VTE_TERMINAL (data->screen));
     }
 
     g_object_unref (data->screen);
@@ -3802,7 +3802,7 @@ edit_select_all_callback (CtkAction *action,
     if (!priv->active_screen)
         return;
 
-    vte_terminal_select_all (VTE_TERMINAL (priv->active_screen));
+    bte_terminal_select_all (VTE_TERMINAL (priv->active_screen));
 }
 
 static void
@@ -3997,14 +3997,14 @@ search_find_response_callback (CtkWidget *dialog,
 
     flags = terminal_search_dialog_get_search_flags (dialog);
 
-    vte_terminal_search_set_regex (VTE_TERMINAL (priv->active_screen), regex, 0);
-    vte_terminal_search_set_wrap_around (VTE_TERMINAL (priv->active_screen),
+    bte_terminal_search_set_regex (VTE_TERMINAL (priv->active_screen), regex, 0);
+    bte_terminal_search_set_wrap_around (VTE_TERMINAL (priv->active_screen),
                                          (flags & TERMINAL_SEARCH_FLAG_WRAP_AROUND));
 
     if (flags & TERMINAL_SEARCH_FLAG_BACKWARDS)
-        vte_terminal_search_find_previous (VTE_TERMINAL (priv->active_screen));
+        bte_terminal_search_find_previous (VTE_TERMINAL (priv->active_screen));
     else
-        vte_terminal_search_find_next (VTE_TERMINAL (priv->active_screen));
+        bte_terminal_search_find_next (VTE_TERMINAL (priv->active_screen));
 
     terminal_window_update_search_sensitivity (priv->active_screen, window);
 }
@@ -4048,7 +4048,7 @@ search_find_next_callback (CtkAction *action,
     if (G_UNLIKELY (!window->priv->active_screen))
         return;
 
-    vte_terminal_search_find_next (VTE_TERMINAL (window->priv->active_screen));
+    bte_terminal_search_find_next (VTE_TERMINAL (window->priv->active_screen));
 }
 
 static void
@@ -4058,7 +4058,7 @@ search_find_prev_callback (CtkAction *action,
     if (G_UNLIKELY (!window->priv->active_screen))
         return;
 
-    vte_terminal_search_find_previous (VTE_TERMINAL (window->priv->active_screen));
+    bte_terminal_search_find_previous (VTE_TERMINAL (window->priv->active_screen));
 }
 
 static void
@@ -4068,7 +4068,7 @@ search_clear_highlight_callback (CtkAction *action,
     if (G_UNLIKELY (!window->priv->active_screen))
         return;
 
-    vte_terminal_search_set_regex (VTE_TERMINAL (window->priv->active_screen), NULL, 0);
+    bte_terminal_search_set_regex (VTE_TERMINAL (window->priv->active_screen), NULL, 0);
 }
 
 static void
@@ -4216,7 +4216,7 @@ terminal_reset_callback (CtkAction *action,
     if (priv->active_screen == NULL)
         return;
 
-    vte_terminal_reset (VTE_TERMINAL (priv->active_screen), TRUE, FALSE);
+    bte_terminal_reset (VTE_TERMINAL (priv->active_screen), TRUE, FALSE);
 }
 
 static void
@@ -4228,7 +4228,7 @@ terminal_reset_clear_callback (CtkAction *action,
     if (priv->active_screen == NULL)
         return;
 
-    vte_terminal_reset (VTE_TERMINAL (priv->active_screen), TRUE, TRUE);
+    bte_terminal_reset (VTE_TERMINAL (priv->active_screen), TRUE, TRUE);
 }
 
 static void

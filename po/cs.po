@@ -63,7 +63,7 @@ msgid ""
 "please visit the project's home page."
 msgstr ""
 "Terminál CAFE je forkem aplikace GNOME Terminal a součástí prostředí CAFE. "
-"Pokud se chcete dozvědět více o CAFE a CAFE Terminal, navštivte domovskou "
+"Pokud se chcete dozvědět více o CAFE a CAFE Terminal, navštibte domovskou "
 "stránku projektu."
 
 #: cafe-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
@@ -238,7 +238,7 @@ msgid ""
 "True if the menubar should be shown in new windows, for windows/tabs with "
 "this profile."
 msgstr ""
-"Nastavte na povoleno, má-li být nabídka zobrazována v nových oknech, pro "
+"Nastabte na povoleno, má-li být nabídka zobrazována v nových oknech, pro "
 "okna/karty s tímto profilem."
 
 #: src/org.cafe.terminal.gschema.xml.in:103

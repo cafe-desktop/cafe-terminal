@@ -125,9 +125,9 @@ static gboolean terminal_screen_button_press (CtkWidget *widget,
 static void terminal_screen_launch_child_on_idle (TerminalScreen *screen);
 static void terminal_screen_child_exited (VteTerminal *terminal, int status);
 
-static void terminal_screen_window_title_changed      (VteTerminal *vte_terminal,
+static void terminal_screen_window_title_changed      (VteTerminal *bte_terminal,
         TerminalScreen *screen);
-static void terminal_screen_icon_title_changed        (VteTerminal *vte_terminal,
+static void terminal_screen_icon_title_changed        (VteTerminal *bte_terminal,
         TerminalScreen *screen);
 
 static void update_color_scheme                      (TerminalScreen *screen);
@@ -344,9 +344,9 @@ terminal_screen_init (TerminalScreen *screen)
 
 	priv = screen->priv = terminal_screen_get_instance_private (screen);
 
-	vte_terminal_set_mouse_autohide (VTE_TERMINAL (screen), TRUE);
+	bte_terminal_set_mouse_autohide (VTE_TERMINAL (screen), TRUE);
 #if VTE_CHECK_VERSION (0, 52, 0)
-	vte_terminal_set_bold_is_bright (VTE_TERMINAL (screen), TRUE);
+	bte_terminal_set_bold_is_bright (VTE_TERMINAL (screen), TRUE);
 #endif
 
 	priv->child_pid = -1;
@@ -578,7 +578,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
 	{
 		GError *error = NULL;
 
-		url_regexes[i] = vte_regex_new_for_match(url_regex_patterns[i].pattern, -1,
+		url_regexes[i] = bte_regex_new_for_match(url_regex_patterns[i].pattern, -1,
 				                         url_regex_patterns[i].flags | PCRE2_MULTILINE, &error);
 		if (error)
 		{
@@ -597,7 +597,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
 	{
 		GError *error = NULL;
 
-		skey_regexes[i] = vte_regex_new_for_match(skey_regex_patterns[i].pattern, -1,
+		skey_regexes[i] = bte_regex_new_for_match(skey_regex_patterns[i].pattern, -1,
 							  PCRE2_MULTILINE | PCRE2_UTF | PCRE2_NO_UTF_CHECK, &error);
 		if (error)
 		{
@@ -729,7 +729,7 @@ terminal_screen_new (TerminalProfile *profile,
 
 	if (terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_USE_CUSTOM_DEFAULT_SIZE))
 	{
-		vte_terminal_set_size (VTE_TERMINAL (screen),
+		bte_terminal_set_size (VTE_TERMINAL (screen),
 		                       terminal_profile_get_property_int (profile, TERMINAL_PROFILE_DEFAULT_SIZE_COLUMNS),
 		                       terminal_profile_get_property_int (profile, TERMINAL_PROFILE_DEFAULT_SIZE_ROWS));
 	}
@@ -927,7 +927,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 {
 	TerminalScreenPrivate *priv = screen->priv;
 	GObject *object = G_OBJECT (screen);
-	VteTerminal *vte_terminal = VTE_TERMINAL (screen);
+	VteTerminal *bte_terminal = VTE_TERMINAL (screen);
 	const char *prop_name;
 	TerminalWindow *window;
 
@@ -981,15 +981,15 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 		update_color_scheme (screen);
 
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_SILENT_BELL))
-		vte_terminal_set_audible_bell (vte_terminal, !terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SILENT_BELL));
+		bte_terminal_set_audible_bell (bte_terminal, !terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SILENT_BELL));
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_WORD_CHARS))
-		vte_terminal_set_word_char_exceptions (vte_terminal,
+		bte_terminal_set_word_char_exceptions (bte_terminal,
 		                                       terminal_profile_get_property_string (profile, TERMINAL_PROFILE_WORD_CHARS));
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE))
-		vte_terminal_set_scroll_on_keystroke (vte_terminal,
+		bte_terminal_set_scroll_on_keystroke (bte_terminal,
 		                                      terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE));
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_SCROLL_ON_OUTPUT))
-		vte_terminal_set_scroll_on_output (vte_terminal,
+		bte_terminal_set_scroll_on_output (bte_terminal,
 		                                   terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SCROLL_ON_OUTPUT));
 	if (!prop_name ||
 	        prop_name == I_(TERMINAL_PROFILE_SCROLLBACK_LINES) ||
@@ -997,7 +997,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 	{
 		glong lines = terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SCROLLBACK_UNLIMITED) ?
 		              -1 : terminal_profile_get_property_int (profile, TERMINAL_PROFILE_SCROLLBACK_LINES);
-		vte_terminal_set_scrollback_lines (vte_terminal, lines);
+		bte_terminal_set_scrollback_lines (bte_terminal, lines);
 	}
 
 #ifdef ENABLE_SKEY
@@ -1013,8 +1013,8 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 
 				tag_data = g_slice_new (TagData);
 				tag_data->flavor = FLAVOR_SKEY;
-				tag_data->tag = vte_terminal_match_add_regex (vte_terminal, skey_regexes[i], 0);
-				vte_terminal_match_set_cursor_name (vte_terminal, tag_data->tag, "hand2");
+				tag_data->tag = bte_terminal_match_add_regex (bte_terminal, skey_regexes[i], 0);
+				bte_terminal_match_set_cursor_name (bte_terminal, tag_data->tag, "hand2");
 
 				priv->match_tags = g_slist_prepend (priv->match_tags, tag_data);
 			}
@@ -1027,23 +1027,23 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 #endif /* ENABLE_SKEY */
 
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_BACKSPACE_BINDING))
-		vte_terminal_set_backspace_binding (vte_terminal,
+		bte_terminal_set_backspace_binding (bte_terminal,
 		                                    terminal_profile_get_property_enum (profile, TERMINAL_PROFILE_BACKSPACE_BINDING));
 
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_DELETE_BINDING))
-		vte_terminal_set_delete_binding (vte_terminal,
+		bte_terminal_set_delete_binding (bte_terminal,
 		                                 terminal_profile_get_property_enum (profile, TERMINAL_PROFILE_DELETE_BINDING));
 
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_ALLOW_BOLD))
-		vte_terminal_set_allow_bold (vte_terminal,
+		bte_terminal_set_allow_bold (bte_terminal,
 		                             terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_ALLOW_BOLD));
 
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_CURSOR_BLINK_MODE))
-		vte_terminal_set_cursor_blink_mode (vte_terminal,
+		bte_terminal_set_cursor_blink_mode (bte_terminal,
 		                                    terminal_profile_get_property_enum (priv->profile, TERMINAL_PROFILE_CURSOR_BLINK_MODE));
 
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_CURSOR_SHAPE))
-		vte_terminal_set_cursor_shape (vte_terminal,
+		bte_terminal_set_cursor_shape (bte_terminal,
 		                               terminal_profile_get_property_enum (priv->profile, TERMINAL_PROFILE_CURSOR_SHAPE));
 
 	if (!prop_name || prop_name == I_(TERMINAL_PROFILE_USE_URLS))
@@ -1058,8 +1058,8 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 
 				tag_data = g_slice_new (TagData);
 				tag_data->flavor = url_regex_flavors[i];
-				tag_data->tag = vte_terminal_match_add_regex (vte_terminal, url_regexes[i], 0);
-				vte_terminal_match_set_cursor_name (vte_terminal, tag_data->tag, "hand2");
+				tag_data->tag = bte_terminal_match_add_regex (bte_terminal, url_regexes[i], 0);
+				bte_terminal_match_set_cursor_name (bte_terminal, tag_data->tag, "hand2");
 
 				priv->match_tags = g_slist_prepend (priv->match_tags, tag_data);
 			}
@@ -1153,11 +1153,11 @@ update_color_scheme (TerminalScreen *screen)
 		}
 	}
 
-	vte_terminal_set_colors (VTE_TERMINAL (screen),
+	bte_terminal_set_colors (VTE_TERMINAL (screen),
 	                         &fg, &bg,
 	                         colors, n_colors);
 	if (bold_rgba)
-		vte_terminal_set_color_bold (VTE_TERMINAL (screen),
+		bte_terminal_set_color_bold (VTE_TERMINAL (screen),
 		                             bold_rgba);
 }
 
@@ -1185,7 +1185,7 @@ terminal_screen_set_font (TerminalScreen *screen)
 		                                 priv->font_scale *
 		                                 pango_font_description_get_size (desc));
 
-	vte_terminal_set_font (VTE_TERMINAL (screen), desc);
+	bte_terminal_set_font (VTE_TERMINAL (screen), desc);
 
 	pango_font_description_free (desc);
 }
@@ -1588,7 +1588,7 @@ terminal_screen_launch_child_cb (TerminalScreen *screen)
 		return FALSE;
 	}
 
-        vte_terminal_spawn_async (terminal,
+        bte_terminal_spawn_async (terminal,
 				  pty_flags,
 				  working_dir,
 				  argv,
@@ -1835,7 +1835,7 @@ terminal_screen_get_current_dir (TerminalScreen *screen)
 	TerminalScreenPrivate *priv = screen->priv;
 	VtePty *pty;
 
-	pty = vte_terminal_get_pty (VTE_TERMINAL (screen));
+	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
 	if (pty != NULL)
 	{
 		char *cwd;
@@ -1873,7 +1873,7 @@ terminal_screen_get_current_dir_with_fallback (TerminalScreen *screen)
 	VtePty *pty;
 	TerminalScreenPrivate *priv = screen->priv;
 
-	pty = vte_terminal_get_pty (VTE_TERMINAL (screen));
+	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
 	if (pty == NULL)
 		return g_strdup (priv->initial_working_directory);
 
@@ -1911,20 +1911,20 @@ terminal_screen_get_font_scale (TerminalScreen *screen)
 }
 
 static void
-terminal_screen_window_title_changed (VteTerminal *vte_terminal,
+terminal_screen_window_title_changed (VteTerminal *bte_terminal,
                                       TerminalScreen *screen)
 {
 	terminal_screen_set_dynamic_title (screen,
-	                                   vte_terminal_get_window_title (vte_terminal),
+	                                   bte_terminal_get_window_title (bte_terminal),
 	                                   FALSE);
 }
 
 static void
-terminal_screen_icon_title_changed (VteTerminal *vte_terminal,
+terminal_screen_icon_title_changed (VteTerminal *bte_terminal,
                                     TerminalScreen *screen)
 {
 	terminal_screen_set_dynamic_icon_title (screen,
-	                                        vte_terminal_get_icon_title (vte_terminal),
+	                                        bte_terminal_get_icon_title (bte_terminal),
 	                                        FALSE);
 }
 
@@ -2064,7 +2064,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 		terminal_util_transform_uris_to_quoted_fuse_paths (uris);
 
 		text = terminal_util_concat_uris (uris, &len);
-		vte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
+		bte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
 		g_free (text);
 
 		g_strfreev (uris);
@@ -2075,7 +2075,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 
 		text = (char *) ctk_selection_data_get_text (selection_data);
 		if (text && text[0])
-			vte_terminal_feed_child (VTE_TERMINAL (screen), text, strlen (text));
+			bte_terminal_feed_child (VTE_TERMINAL (screen), text, strlen (text));
 		g_free (text);
 	}
 	else switch (info)
@@ -2137,7 +2137,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 			terminal_util_transform_uris_to_quoted_fuse_paths (uris); /* This may replace uris[0] */
 
 			text = terminal_util_concat_uris (uris, &len);
-			vte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
+			bte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
 			g_free (text);
 			g_free (uris[0]);
 		}
@@ -2165,7 +2165,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 			terminal_util_transform_uris_to_quoted_fuse_paths (uris); /* This may replace uris[0] */
 
 			text = terminal_util_concat_uris (uris, &len);
-			vte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
+			bte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
 			g_free (text);
 			g_free (uris[0]);
 		}
@@ -2286,8 +2286,8 @@ terminal_screen_get_size (TerminalScreen *screen,
 {
 	VteTerminal *terminal = VTE_TERMINAL (screen);
 
-	*width_chars = vte_terminal_get_column_count (terminal);
-	*height_chars = vte_terminal_get_row_count (terminal);
+	*width_chars = bte_terminal_get_column_count (terminal);
+	*height_chars = bte_terminal_get_row_count (terminal);
 }
 
 void
@@ -2297,8 +2297,8 @@ terminal_screen_get_cell_size (TerminalScreen *screen,
 {
 	VteTerminal *terminal = VTE_TERMINAL (screen);
 
-	*cell_width_pixels = vte_terminal_get_char_width (terminal);
-	*cell_height_pixels = vte_terminal_get_char_height (terminal);
+	*cell_width_pixels = bte_terminal_get_char_width (terminal);
+	*cell_height_pixels = bte_terminal_get_char_height (terminal);
 }
 
 #ifdef ENABLE_SKEY
@@ -2316,7 +2316,7 @@ terminal_screen_skey_match_remove (TerminalScreen *screen)
 		next = l->next;
 		if (tag_data->flavor == FLAVOR_SKEY)
 		{
-			vte_terminal_match_remove (VTE_TERMINAL (screen), tag_data->tag);
+			bte_terminal_match_remove (VTE_TERMINAL (screen), tag_data->tag);
 			priv->match_tags = g_slist_delete_link (priv->match_tags, l);
 		}
 
@@ -2341,7 +2341,7 @@ terminal_screen_url_match_remove (TerminalScreen *screen)
 		if (tag_data->flavor != FLAVOR_SKEY)
 #endif
 		{
-			vte_terminal_match_remove (VTE_TERMINAL (screen), tag_data->tag);
+			bte_terminal_match_remove (VTE_TERMINAL (screen), tag_data->tag);
 			priv->match_tags = g_slist_delete_link (priv->match_tags, l);
 		}
 
@@ -2359,7 +2359,7 @@ terminal_screen_check_match (TerminalScreen *screen,
 	int tag;
 	char *match;
 
-	match = vte_terminal_match_check_event (VTE_TERMINAL (screen), event, &tag);
+	match = bte_terminal_match_check_event (VTE_TERMINAL (screen), event, &tag);
 	for (tags = priv->match_tags; tags != NULL; tags = tags->next)
 	{
 		TagData *tag_data = (TagData*) tags->data;
@@ -2405,9 +2405,9 @@ terminal_screen_save_config (TerminalScreen *screen,
 	g_key_file_set_double (key_file, group, TERMINAL_CONFIG_TERMINAL_PROP_ZOOM, priv->font_scale);
 
 	g_key_file_set_integer (key_file, group, TERMINAL_CONFIG_TERMINAL_PROP_WIDTH,
-	                        vte_terminal_get_column_count (terminal));
+	                        bte_terminal_get_column_count (terminal));
 	g_key_file_set_integer (key_file, group, TERMINAL_CONFIG_TERMINAL_PROP_HEIGHT,
-	                        vte_terminal_get_row_count (terminal));
+	                        bte_terminal_get_row_count (terminal));
 }
 
 /**
@@ -2427,11 +2427,11 @@ terminal_screen_has_foreground_process (TerminalScreen *screen)
 	int fd;
 	int fgpid;
 
-	pty = vte_terminal_get_pty (VTE_TERMINAL (screen));
+	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
 	if (pty == NULL)
 		return FALSE;
 
-	fd = vte_pty_get_fd (pty);
+	fd = bte_pty_get_fd (pty);
 	if (fd == -1)
 		return FALSE;
 

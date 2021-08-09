@@ -664,7 +664,7 @@
 # Malagasy translation of CAFE-TERMINAL.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the CAFE-TERMINAL package.
-# Fano Rajaonarisoa <fano@isvtec.com>, 2006.
+# Fano Rajaonarisoa <fano@isbtec.com>, 2006.
 
 
 
