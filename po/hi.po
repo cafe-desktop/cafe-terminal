@@ -124,7 +124,7 @@ msgstr ""
 "वाले अनुप्रयोग में व्यवधान कर सकते हैं इसलिये उन्हें ऑफ कर चलाना संभव है."
 
 #: src/org.cafe.terminal.gschema.xml.in:64
-msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
+msgid "Whether the standard CTK+ shortcut for menubar access is enabled"
 msgstr ""
 
 #: src/org.cafe.terminal.gschema.xml.in:65
@@ -642,7 +642,7 @@ msgstr "नया टैब खोलने हेतु कुंजीपट �
 #: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -658,7 +658,7 @@ msgstr "एक नया विंडो खोलने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for GTK+ resource files. If you set the option to the "
+" same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -674,7 +674,7 @@ msgstr "नया प्रोफ़ाइल बनाने हेतु क�
 #: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
-"Expressed as a string in the same format used for GTK+ resource files. If "
+"Expressed as a string in the same format used for CTK+ resource files. If "
 "you set the option to the special string \"disabled\", then there will be no"
 " keyboard shortcut for this action."
 msgstr ""
@@ -690,7 +690,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -702,7 +702,7 @@ msgstr "टैब बन्द करने हेतु कुंजीपट �
 #: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -718,7 +718,7 @@ msgstr "विंडो बन्द करने हेतु कुंजी�
 #: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -734,7 +734,7 @@ msgstr "पाठ प्रतिलिपि करने हेतु कु�
 #: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -750,7 +750,7 @@ msgstr "पाठ चिपकाने हेतु कुंजीपट श�
 #: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
-"terminal. Expressed as a string in the same format used for GTK+ resource "
+"terminal. Expressed as a string in the same format used for CTK+ resource "
 "files. If you set the option to the special string \"disabled\", then there "
 "will be no keyboard shortcut for this action."
 msgstr ""
@@ -762,7 +762,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -774,7 +774,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -786,7 +786,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
-"the terminal. Expressed as a string in the same format used for GTK+ "
+"the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
@@ -798,7 +798,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for GTK+ "
+" in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
@@ -810,7 +810,7 @@ msgstr "पूर्ण स्क्रीन मोड टॉगल करन�
 #: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
@@ -826,7 +826,7 @@ msgstr "मेन्यू पट्टी की दृश्यता को �
 #: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
-"a string in the same format used for GTK+ resource files. If you set the "
+"a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -842,7 +842,7 @@ msgstr "टर्मिनल का शीर्षक नियत करन�
 #: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -858,7 +858,7 @@ msgstr "टर्मिनल रीसेट करने हेतु कु�
 #: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -874,7 +874,7 @@ msgstr "टर्मिनल रीसेट करने तथा साफ �
 #: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
@@ -890,7 +890,7 @@ msgstr "पिछले टैब में स्विच करने हे�
 #: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
@@ -906,7 +906,7 @@ msgstr "अगले टैब पर स्विच करने हेतु 
 #: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -922,7 +922,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
-"string in the same format used for GTK+ resource files. If you set the "
+"string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -934,7 +934,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
@@ -946,7 +946,7 @@ msgstr "बांयीं ओर मौजूदा टैब चलाने �
 #: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
@@ -962,7 +962,7 @@ msgstr "दायीं ओर मौजूदा टैब चलाने क�
 #: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
@@ -978,7 +978,7 @@ msgstr "त्वरक को मौजूदा टैब से अलग क
 #: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
 "मौजूदा टैब से अलग करने के लिए त्वरक. जीटीके+ संसाधन फ़ाइलों में उपयोग में "
@@ -993,7 +993,7 @@ msgstr "टैब 1 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1009,7 +1009,7 @@ msgstr "टैब 2 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1025,7 +1025,7 @@ msgstr "टैब 3 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1041,7 +1041,7 @@ msgstr "टैब 4 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1057,7 +1057,7 @@ msgstr "टैब 5 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1073,7 +1073,7 @@ msgstr "टैब 6 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1089,7 +1089,7 @@ msgstr "टैब 7 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1105,7 +1105,7 @@ msgstr "टैब 8 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1121,7 +1121,7 @@ msgstr "टैब 9 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1137,7 +1137,7 @@ msgstr "टैब 10 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -1153,7 +1153,7 @@ msgstr "टैब 11 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -1169,7 +1169,7 @@ msgstr "टैब 12 पर स्विच करने हेतु कुं�
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -1185,7 +1185,7 @@ msgstr "मदद प्रारंभ करने हेतु कुंज�
 #: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
@@ -1201,7 +1201,7 @@ msgstr "फ़ॉन्ट बड़ा करने हेतु कुंज�
 #: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -1217,7 +1217,7 @@ msgstr "फ़ॉन्ट छोटा करने हेतु कुंज�
 #: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -1233,7 +1233,7 @@ msgstr "फ़ॉन्ट को सामान्य-आकार बना�
 #: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""

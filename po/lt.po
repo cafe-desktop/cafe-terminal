@@ -139,8 +139,8 @@ msgstr ""
 "galima juos išjungti."
 
 #: src/org.cafe.terminal.gschema.xml.in:64
-msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
-msgstr "Ar įjungta standartinė GTK+ meniu prieigos klavišų kombinacija"
+msgid "Whether the standard CTK+ shortcut for menubar access is enabled"
+msgstr "Ar įjungta standartinė CTK+ meniu prieigos klavišų kombinacija"
 
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
@@ -693,12 +693,12 @@ msgstr "Klavišų kombinacija naujos kortelės atvėrimui"
 #: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, atverianti naują kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:295
@@ -708,12 +708,12 @@ msgstr "Klavišų kombinacija naujo lango atvėrimui"
 #: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for GTK+ resource files. If you set the option to the "
+" same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, atverianti naują langą. Nurodoma tuo pačiu formatu kaip"
-" GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su veiksmu "
+" CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su veiksmu "
 "nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:300
@@ -723,12 +723,12 @@ msgstr "Klavišų kombinacija naujo profilio sukūrimui"
 #: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
-"Expressed as a string in the same format used for GTK+ resource files. If "
+"Expressed as a string in the same format used for CTK+ resource files. If "
 "you set the option to the special string \"disabled\", then there will be no"
 " keyboard shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, iškviečianti profilio kūrimo langą. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
 "su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:305
@@ -738,12 +738,12 @@ msgstr "Klavišų kombinacija kortelės turinio įrašymui į failą"
 #: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, įrašanti kortelės turinį į failą. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka "
 "\"disabled\", su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:310
@@ -753,12 +753,12 @@ msgstr "Klavišų kombinacija kortelės užvėrimui"
 #: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, užverianti kortelę. Nurodoma tuo pačiu formatu kaip "
-"GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su veiksmu "
+"CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su veiksmu "
 "nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:315
@@ -768,11 +768,11 @@ msgstr "Klavišų kombinacija lango užvėrimui"
 #: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"Klavišų kombinacija, užverianti langą. Nurodoma tuo pačiu formatu kaip GTK+ "
+"Klavišų kombinacija, užverianti langą. Nurodoma tuo pačiu formatu kaip CTK+ "
 "resursų failuose. Jei nustatoma speciali seka „disabled“, su veiksmu nebus "
 "susieta jokia klavišų kombinacija."
 
@@ -783,12 +783,12 @@ msgstr "Klavišų kombinacija teksto kopijavimui"
 #: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, nukopijuojanti pažymėtą tekstą į iškarpinę. Nurodoma "
-"tuo pačiu formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka "
+"tuo pačiu formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka "
 "\"disabled\", su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:325
@@ -798,12 +798,12 @@ msgstr "Klavišų kombinacija teksto įdėjimui"
 #: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
-"terminal. Expressed as a string in the same format used for GTK+ resource "
+"terminal. Expressed as a string in the same format used for CTK+ resource "
 "files. If you set the option to the special string \"disabled\", then there "
 "will be no keyboard shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, įterpianti tekstą iš iškarpinės. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
 "su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:330
@@ -813,12 +813,12 @@ msgstr "Klavišų kombinacija, skirta pažymėti visą tekstą"
 #: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, pažyminti visą terminale esantį tekstą. Nurodoma tuo "
-"pačiu formatu kaip ir GTK+ išteklių failuose. Jei nustatoma speciali seka "
+"pačiu formatu kaip ir CTK+ išteklių failuose. Jei nustatoma speciali seka "
 "„disabled“, su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:335
@@ -828,12 +828,12 @@ msgstr "Klavišų kombinacija, skirta rodyti paieškos dialogą"
 #: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, skirta rodyti paieškos dialogą. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
 "su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:340
@@ -843,12 +843,12 @@ msgstr "Klavišų kombinacija, skirta rasti kitą ieškomo žodžio atitikmenį"
 #: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
-"the terminal. Expressed as a string in the same format used for GTK+ "
+"the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, skirta rasti terminale kitą ieškomo žodžio atitikmenį. "
-"Nurodoma tuo pačiu formatu kaip ir GTK+ išteklių failuose. Jei nustatoma "
+"Nurodoma tuo pačiu formatu kaip ir CTK+ išteklių failuose. Jei nustatoma "
 "speciali seka „disabled“, su veiksmu nebus susieta jokia klavišų "
 "kombinacija."
 
@@ -859,12 +859,12 @@ msgstr "Klavišų kombinacija, skirta rasti ankstesnį ieškomo žodžio atitikm
 #: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for GTK+ "
+" in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, skirta rasti terminale ankstesnį ieškomo žodžio "
-"atitikmenį. Nurodoma tuo pačiu formatu kaip ir GTK+ išteklių failuose. Jei "
+"atitikmenį. Nurodoma tuo pačiu formatu kaip ir CTK+ išteklių failuose. Jei "
 "nustatoma speciali seka „disabled“, su veiksmu nebus susieta jokia klavišų "
 "kombinacija."
 
@@ -875,12 +875,12 @@ msgstr "Klavišų kombinacija persijungimui į viso ekrano veikseną"
 #: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti viso ekrano veikseną. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
 "su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:355
@@ -890,12 +890,12 @@ msgstr "Klavišų kombinacija perjungianti meniu rodymą"
 #: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
-"a string in the same format used for GTK+ resource files. If you set the "
+"a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, valdanti meniu juostos rodymą. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka "
 "\"disabled\", su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:360
@@ -905,12 +905,12 @@ msgstr "Klavišų kombinacija terminalo antraštei nustatyti"
 #: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, nustatanti terminalo antraštę. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka "
 "\"disabled\", su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:365
@@ -920,12 +920,12 @@ msgstr "Klavišų kombinacija terminalo atstatymui"
 #: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, atstatanti terminalą. Nurodoma tuo pačiu formatu kaip "
-"ir GTK+ išteklių failuose. Jei nustatoma speciali seka „disabled“, su "
+"ir CTK+ išteklių failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:370
@@ -935,12 +935,12 @@ msgstr "Klavišų kombinacija terminalo atstatymui ir išvalymui"
 #: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Klavišų kombinacija, atstatanti ir išvalanti terminalą. Išreikšta kaip seka "
-"tuo pačiu pačiu formatu kaip ir GTK+ išteklių failuose. Jei nustatoma "
+"tuo pačiu pačiu formatu kaip ir CTK+ išteklių failuose. Jei nustatoma "
 "speciali seka „disabled“, su veiksmu nebus susieta jokia klavišų "
 "kombinacija."
 
@@ -951,12 +951,12 @@ msgstr "Klavišų kombinacija persijungimui į ankstesnę kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į ankstesnę kortelę. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka "
 "\"disabled\", su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:380
@@ -966,12 +966,12 @@ msgstr "Klavišų kombinacija persijungimui į kitą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į kitą kortelę. Nurodoma tuo pačiu formatu"
-" kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+" kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:385
@@ -981,12 +981,12 @@ msgstr "Klaviatūros kombinacija, skirta perjungti į ankstesnį profilį"
 #: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
-"string in the same format used for GTK+ resource files. If you set the "
+"string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į ankstesnį profilį. Nurodoma tuo pačiu "
-"formatu kaip ir GTK+ išteklių failuose. Jei nustatoma speciali seka "
+"formatu kaip ir CTK+ išteklių failuose. Jei nustatoma speciali seka "
 "„disabled“, su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:390
@@ -996,12 +996,12 @@ msgstr "Klavišų kombinacija, skirta perjungti į kitą profilį"
 #: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į kitą profilį. Nurodoma tuo pačiu formatu"
-" kaip ir GTK+ išteklių failuose. Jei nustatoma speciali seka „disabled“, su "
+" kaip ir CTK+ išteklių failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:395
@@ -1011,12 +1011,12 @@ msgstr "Spartusis klavišas perkelti esamą kortelę kairėn."
 #: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
 "Spartusis klavišas, kortelės perkėlimui kairėn. Nurodomas tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susietas joks klavišų susiejimas."
 
 #: src/org.cafe.terminal.gschema.xml.in:400
@@ -1026,12 +1026,12 @@ msgstr "Spartusis klavišas perkelti esamą kortelę dešinėn."
 #: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
 "Spartusis klavišas, kortelės perkėlimui dešinėn. Nurodomas tuo pačiu formatu"
-" kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
+" kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susieta joks klavišų susiejimas."
 
 #: src/org.cafe.terminal.gschema.xml.in:405
@@ -1041,11 +1041,11 @@ msgstr "Spartusis klavišas atkabinti esamai kortelei."
 #: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
 "Spartusis klavišas, esamos kortelės atkabinimui. Nurodomas tuo pačiu formatu"
-" kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
+" kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susietas joks klavišų susiejimas."
 
 #: src/org.cafe.terminal.gschema.xml.in:410
@@ -1055,12 +1055,12 @@ msgstr "Klavišų kombinacija persijungimui į 1-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 1-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failoe. Jei nustatoma speciali seka „disabled“, su veiksmu"
+"kaip CTK+ resursų failoe. Jei nustatoma speciali seka „disabled“, su veiksmu"
 " nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:415
@@ -1070,12 +1070,12 @@ msgstr "Klavišų kombinacija persijungimui į 2-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 2-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:420
@@ -1085,12 +1085,12 @@ msgstr "Klavišų kombinacija persijungimui į 3-ią kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 3-ią kortelę. Nurodoma tuo pačiu formatu"
-" kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+" kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:425
@@ -1100,12 +1100,12 @@ msgstr "Klavišų kombinacija persijungimui į 4-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 4-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:430
@@ -1115,12 +1115,12 @@ msgstr "Klavišų kombinacija persijungimui į 5-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 5-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:435
@@ -1130,12 +1130,12 @@ msgstr "Klavišų kombinacija persijungimui į 6-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 6-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:440
@@ -1145,12 +1145,12 @@ msgstr "Klavišų kombinacija persijungimui į 7-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 7-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:445
@@ -1160,12 +1160,12 @@ msgstr "Klavišų kombinacija persijungimui į 8-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 8-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:450
@@ -1175,12 +1175,12 @@ msgstr "Klavišų kombinacija persijungimui į 9-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 9-ą kortelę. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:455
@@ -1190,12 +1190,12 @@ msgstr "Klavišų kombinacija persijungimui į 10-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 10-ą kortelę. Nurodoma tuo pačiu formatu"
-" kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
+" kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:460
@@ -1205,12 +1205,12 @@ msgstr "Klavišų kombinacija persijungimui į 11-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 11-ą kortelę. Nurodoma tuo pačiu formatu"
-" kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+" kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:465
@@ -1220,12 +1220,12 @@ msgstr "Klavišų kombinacija persijungimui į 12-ą kortelę"
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, perjungianti į 12-ą kortelę. Nurodoma tuo pačiu formatu"
-" kaip GTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
+" kaip CTK+ resursų failuose. Jei nustatoma speciali seka \"disabled\", su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:470
@@ -1235,12 +1235,12 @@ msgstr "Klavišų kombinacija žinyno atvėrimui"
 #: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Klavišų kombinacija, paleidžianti pagalbos sistemą. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
 "su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:475
@@ -1250,12 +1250,12 @@ msgstr "Klavišų kombinacija šrifto dydžio padidinimui"
 #: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, padidinanti šrifto dydį. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:480
@@ -1265,12 +1265,12 @@ msgstr "Klavišų kombinacija šrifto dydžio sumažinimui"
 #: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Klavišų kombinacija, sumažinanti šriftų dydį. Nurodoma tuo pačiu formatu "
-"kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
+"kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, su "
 "veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/org.cafe.terminal.gschema.xml.in:485
@@ -1280,12 +1280,12 @@ msgstr "Klavišų kombinacija normalaus šrifto dydžio nustatymui"
 #: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Klavišų kombinacija, atstatanti numatytajį šriftų dydį. Nurodoma tuo pačiu "
-"formatu kaip GTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
+"formatu kaip CTK+ resursų failuose. Jei nustatoma speciali seka „disabled“, "
 "su veiksmu nebus susieta jokia klavišų kombinacija."
 
 #: src/profile-editor.c:44

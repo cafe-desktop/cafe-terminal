@@ -61,7 +61,7 @@
     </key>
     <key name="use-menu-accelerators" type="b">
       <default>true</default>
-      <summary>Whether the standard GTK+ shortcut for menubar access is enabled</summary>
+      <summary>Whether the standard CTK+ shortcut for menubar access is enabled</summary>
       <description>Normally you can access the menubar with F10. This can also be customized via ctkrc (ctk-menu-bar-accel = "whatever"). This option allows the standard menubar accelerator to be disabled.</description>
     </key>
     <key name="active-encodings" type="as">
@@ -288,202 +288,202 @@
     <key name="new-tab" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;t'</default>
       <summary>Keyboard shortcut to open a new tab</summary>
-      <description>Keyboard shortcut key for opening a new tab. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for opening a new tab. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="new-window" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;n'</default>
       <summary>Keyboard shortcut to open a new window</summary>
-      <description>Keyboard shortcut key for opening a new window. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for opening a new window. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="new-profile" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to create a new profile</summary>
-      <description>Keyboard shortcut key for bringing up the dialog for profile creation. Expressed as a string in the same format used for GTK+ resource files.  If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for bringing up the dialog for profile creation. Expressed as a string in the same format used for CTK+ resource files.  If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="save-contents" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to save the current tab contents to file</summary>
-      <description>Keyboard shortcut key to save the current tab contents to a file. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to save the current tab contents to a file. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="close-tab" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;w'</default>
       <summary>Keyboard shortcut to close a tab</summary>
-      <description>Keyboard shortcut key for closing a tab. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for closing a tab. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="close-window" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;q'</default>
       <summary>Keyboard shortcut to close a window</summary>
-      <description>Keyboard shortcut key for closing a window. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for closing a window. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="copy" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;c'</default>
       <summary>Keyboard shortcut to copy text</summary>
-      <description>Keyboard shortcut key for copying selected text to the clipboard. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for copying selected text to the clipboard. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="paste" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;v'</default>
       <summary>Keyboard shortcut to paste text</summary>
-      <description>Keyboard shortcut key for pasting the contents of the clipboard in the terminal. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for pasting the contents of the clipboard in the terminal. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="select-all" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;a'</default>
       <summary>Keyboard shortcut to select all text</summary>
-      <description>Keyboard shortcut key for selecting all the text in the terminal. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for selecting all the text in the terminal. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="search-find" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;f'</default>
       <summary>Keyboard shortcut to show the find dialog</summary>
-      <description>Keyboard shortcut key for showing the find dialog. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for showing the find dialog. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="search-find-next" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;h'</default>
       <summary>Keyboard shortcut to find the next occurrence of the search term</summary>
-      <description>Keyboard shortcut key for finding the next occurrence of the search term in the terminal. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for finding the next occurrence of the search term in the terminal. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="search-find-previous" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;g'</default>
       <summary>Keyboard shortcut to find the previous occurrence of the search term</summary>
-      <description>Keyboard shortcut key for finding the previous occurrence of the search term in the terminal. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for finding the previous occurrence of the search term in the terminal. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="full-screen" type="s">
       <default>'F11'</default>
       <summary>Keyboard shortcut to toggle full screen mode</summary>
-      <description>Keyboard shortcut key for toggling full screen mode. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for toggling full screen mode. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="toggle-menubar" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to toggle the visibility of the menubar</summary>
-      <description>Keyboard shortcut key to toggle the visibility of the menubar. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to toggle the visibility of the menubar. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="set-terminal-title" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to set the terminal title</summary>
-      <description>Keyboard shortcut key to set the terminal title. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to set the terminal title. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="reset" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to reset the terminal</summary>
-      <description>Keyboard shortcut key to reset the terminal. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to reset the terminal. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="reset-and-clear" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to reset and clear the terminal</summary>
-      <description>Keyboard shortcut key to reset and clear the terminal. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to reset and clear the terminal. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="prev-tab" type="s">
       <default>'&lt;Control&gt;Page_Up'</default>
       <summary>Keyboard shortcut to switch to the previous tab</summary>
-      <description>Keyboard shortcut key to switch to the previous tab. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to switch to the previous tab. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="next-tab" type="s">
       <default>'&lt;Control&gt;Page_Down'</default>
       <summary>Keyboard shortcut to switch to the next tab</summary>
-      <description>Keyboard shortcut key to switch to the next tab. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to switch to the next tab. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="prev-profile" type="s">
       <default>'&lt;Alt&gt;Page_Up'</default>
       <summary>Keyboard shortcut to switch to the previous profile</summary>
-      <description>Keyboard shortcut key to switch to the previous profile. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to switch to the previous profile. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="next-profile" type="s">
       <default>'&lt;Alt&gt;Page_Down'</default>
       <summary>Keyboard shortcut to switch to the next profile</summary>
-      <description>Keyboard shortcut key to switch to the next profile. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key to switch to the next profile. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keyboard shortcut for this action.</description>
     </key>
     <key name="move-tab-left" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;Page_Up'</default>
       <summary>Accelerator to move the current tab to the left.</summary>
-      <description>Accelerator key to move the current tab to the left. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keybinding for this action.</description>
+      <description>Accelerator key to move the current tab to the left. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keybinding for this action.</description>
     </key>
     <key name="move-tab-right" type="s">
       <default>'&lt;Ctrl&gt;&lt;Shift&gt;Page_Down'</default>
       <summary>Accelerator to move the current tab to the right.</summary>
-      <description>Accelerator key to move the current tab to the right. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keybinding for this action.</description>
+      <description>Accelerator key to move the current tab to the right. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keybinding for this action.</description>
     </key>
     <key name="detach-tab" type="s">
       <default>'disabled'</default>
       <summary>Accelerator to detach current tab.</summary>
-      <description>Accelerator key to detach current tab. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there  will be no keybinding for this action.</description>
+      <description>Accelerator key to detach current tab. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there  will be no keybinding for this action.</description>
     </key>
     <key name="switch-to-tab-1" type="s">
       <default>'&lt;Alt&gt;1'</default>
       <summary>Keyboard shortcut to switch to tab 1</summary>
-      <description>Keyboard shortcut key for switch to tab 1. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 1. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-2" type="s">
       <default>'&lt;Alt&gt;2'</default>
       <summary>Keyboard shortcut to switch to tab 2</summary>
-      <description>Keyboard shortcut key for switch to tab 2. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 2. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-3" type="s">
       <default>'&lt;Alt&gt;3'</default>
       <summary>Keyboard shortcut to switch to tab 3</summary>
-      <description>Keyboard shortcut key for switch to tab 3. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 3. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-4" type="s">
       <default>'&lt;Alt&gt;4'</default>
       <summary>Keyboard shortcut to switch to tab 4</summary>
-      <description>Keyboard shortcut key for switch to tab 4. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 4. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-5" type="s">
       <default>'&lt;Alt&gt;5'</default>
       <summary>Keyboard shortcut to switch to tab 5</summary>
-      <description>Keyboard shortcut key for switch to tab 5. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 5. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-6" type="s">
       <default>'&lt;Alt&gt;6'</default>
       <summary>Keyboard shortcut to switch to tab 6</summary>
-      <description>Keyboard shortcut key for switch to tab 6. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 6. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-7" type="s">
       <default>'&lt;Alt&gt;7'</default>
       <summary>Keyboard shortcut to switch to tab 7</summary>
-      <description>Keyboard shortcut key for switch to tab 7. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 7. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-8" type="s">
       <default>'&lt;Alt&gt;8'</default>
       <summary>Keyboard shortcut to switch to tab 8</summary>
-      <description>Keyboard shortcut key for switch to tab 8. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 8. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-9" type="s">
       <default>'&lt;Alt&gt;9'</default>
       <summary>Keyboard shortcut to switch to tab 9</summary>
-      <description>Keyboard shortcut key for switch to tab 9. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 9. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-10" type="s">
       <default>'&lt;Alt&gt;0'</default>
       <summary>Keyboard shortcut to switch to tab 10</summary>
-      <description>Keyboard shortcut key for switch to tab 10. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 10. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-11" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to switch to tab 11</summary>
-      <description>Keyboard shortcut key for switch to tab 11. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 11. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="switch-to-tab-12" type="s">
       <default>'disabled'</default>
       <summary>Keyboard shortcut to switch to tab 12</summary>
-      <description>Keyboard shortcut key for switch to tab 12. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for switch to tab 12. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="help" type="s">
       <default>'F1'</default>
       <summary>Keyboard shortcut to launch help</summary>
-      <description>Keyboard shortcut key for launching help. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for launching help. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="zoom-in" type="s">
       <default>'&lt;Ctrl&gt;plus'</default>
       <summary>Keyboard shortcut to make font larger</summary>
-      <description>Keyboard shortcut key for making font larger. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for making font larger. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="zoom-out" type="s">
       <default>'&lt;Ctrl&gt;minus'</default>
       <summary>Keyboard shortcut to make font smaller</summary>
-      <description>Keyboard shortcut key for making font smaller. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for making font smaller. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
     <key name="zoom-normal" type="s">
       <default>'&lt;Ctrl&gt;0'</default>
       <summary>Keyboard shortcut to make font normal-size</summary>
-      <description>Keyboard shortcut key for making font the normal size. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
+      <description>Keyboard shortcut key for making font the normal size. Expressed as a string in the same format used for CTK+ resource files. If you set the option to the special string "disabled", then there will be no keyboard shortcut for this action.</description>
     </key>
   </schema>
 </schemalist>

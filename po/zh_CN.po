@@ -133,8 +133,8 @@ msgid ""
 msgstr "菜单栏是否使用 Alt+字母的快捷键。终端运行的很多程序都可能与此快捷键产生冲突，所以可以关闭此特性。"
 
 #: src/org.cafe.terminal.gschema.xml.in:64
-msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
-msgstr "是否启用 GTK+ 标准的快捷键访问菜单栏"
+msgid "Whether the standard CTK+ shortcut for menubar access is enabled"
+msgstr "是否启用 CTK+ 标准的快捷键访问菜单栏"
 
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
@@ -608,10 +608,10 @@ msgstr "打开新标签页的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "打开新标签页的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"disabled\"，则此操作就没有快捷键。"
+msgstr "打开新标签页的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"disabled\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:295
 msgid "Keyboard shortcut to open a new window"
@@ -620,10 +620,10 @@ msgstr "打开新窗口的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for GTK+ resource files. If you set the option to the "
+" same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "打开新窗口的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "打开新窗口的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:300
 msgid "Keyboard shortcut to create a new profile"
@@ -632,11 +632,11 @@ msgstr "创建新配置文件的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
-"Expressed as a string in the same format used for GTK+ resource files. If "
+"Expressed as a string in the same format used for CTK+ resource files. If "
 "you set the option to the special string \"disabled\", then there will be no"
 " keyboard shortcut for this action."
 msgstr ""
-"启动配置文件创建对话框的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"启动配置文件创建对话框的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:305
 msgid "Keyboard shortcut to save the current tab contents to file"
@@ -645,11 +645,11 @@ msgstr "保存当前标签内容到文件的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"保存当前标签内容到文件的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"保存当前标签内容到文件的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:310
 msgid "Keyboard shortcut to close a tab"
@@ -658,10 +658,10 @@ msgstr "关闭标签页的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "关闭标签页的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "关闭标签页的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:315
 msgid "Keyboard shortcut to close a window"
@@ -670,10 +670,10 @@ msgstr "关闭窗口的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "关闭窗口的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "关闭窗口的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:320
 msgid "Keyboard shortcut to copy text"
@@ -682,11 +682,11 @@ msgstr "复制文字的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"将选中文字复制到剪贴板的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"将选中文字复制到剪贴板的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:325
 msgid "Keyboard shortcut to paste text"
@@ -695,10 +695,10 @@ msgstr "粘贴文字的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
-"terminal. Expressed as a string in the same format used for GTK+ resource "
+"terminal. Expressed as a string in the same format used for CTK+ resource "
 "files. If you set the option to the special string \"disabled\", then there "
 "will be no keyboard shortcut for this action."
-msgstr "从剪贴板粘贴文字的快捷键并以 GTK+ 资源文件所用格式表达字符串。如果您将此项设为特殊字符串“disabled”，此操作将没有快捷键。"
+msgstr "从剪贴板粘贴文字的快捷键并以 CTK+ 资源文件所用格式表达字符串。如果您将此项设为特殊字符串“disabled”，此操作将没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:330
 msgid "Keyboard shortcut to select all text"
@@ -707,11 +707,11 @@ msgstr "文字全选的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"用于选中终端中所有文字的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"用于选中终端中所有文字的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:335
 msgid "Keyboard shortcut to show the find dialog"
@@ -720,10 +720,10 @@ msgstr "显示查找对话框的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "显示查找对话框的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "显示查找对话框的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:340
 msgid "Keyboard shortcut to find the next occurrence of the search term"
@@ -732,11 +732,11 @@ msgstr "查找下个搜索关键词的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
-"the terminal. Expressed as a string in the same format used for GTK+ "
+"the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
-"用于查找终端中下一段文字的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"用于查找终端中下一段文字的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:345
 msgid "Keyboard shortcut to find the previous occurrence of the search term"
@@ -745,11 +745,11 @@ msgstr "查找上个搜索关键词的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for GTK+ "
+" in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
-"用于查找终端中上一段文字的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"用于查找终端中上一段文字的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:350
 msgid "Keyboard shortcut to toggle full screen mode"
@@ -758,10 +758,10 @@ msgstr "切换全屏模式的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
-msgstr "切换全屏模式的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "切换全屏模式的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:355
 msgid "Keyboard shortcut to toggle the visibility of the menubar"
@@ -770,11 +770,11 @@ msgstr "切换菜单栏是否可见的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
-"a string in the same format used for GTK+ resource files. If you set the "
+"a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"切换菜单栏是否可见的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"切换菜单栏是否可见的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:360
 msgid "Keyboard shortcut to set the terminal title"
@@ -783,10 +783,10 @@ msgstr "设置终端标题的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "设定终端标题的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "设定终端标题的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:365
 msgid "Keyboard shortcut to reset the terminal"
@@ -795,10 +795,10 @@ msgstr "重置终端的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "重置终端的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "重置终端的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:370
 msgid "Keyboard shortcut to reset and clear the terminal"
@@ -807,10 +807,10 @@ msgstr "重置并清除终端的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
-msgstr "重置并清除终端的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "重置并清除终端的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:375
 msgid "Keyboard shortcut to switch to the previous tab"
@@ -819,11 +819,11 @@ msgstr "切换到上一标签页的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
-"切换到上一标签页的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"切换到上一标签页的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:380
 msgid "Keyboard shortcut to switch to the next tab"
@@ -832,11 +832,11 @@ msgstr "切换到下一标签页的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"切换到下一标签页的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"切换到下一标签页的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:385
 msgid "Keyboard shortcut to switch to the previous profile"
@@ -845,11 +845,11 @@ msgstr "切换到上一配置文件的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
-"string in the same format used for GTK+ resource files. If you set the "
+"string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"切换到上一配置文件的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"切换到上一配置文件的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:390
 msgid "Keyboard shortcut to switch to the next profile"
@@ -858,11 +858,11 @@ msgstr "切换到下一配置文件的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
-"切换到下一配置文件的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+"切换到下一配置文件的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:395
 msgid "Accelerator to move the current tab to the left."
@@ -871,10 +871,10 @@ msgstr "将当前标签页左移的快捷键。"
 #: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
-msgstr "将当前标签页左移的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "将当前标签页左移的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:400
 msgid "Accelerator to move the current tab to the right."
@@ -883,10 +883,10 @@ msgstr "将当前标签页右移的快捷键。"
 #: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
-msgstr "将当前标签页右移的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "将当前标签页右移的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:405
 msgid "Accelerator to detach current tab."
@@ -895,9 +895,9 @@ msgstr "分离当前标签页的快捷键。"
 #: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
-msgstr "分离当前标签页的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "分离当前标签页的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:410
 msgid "Keyboard shortcut to switch to tab 1"
@@ -906,10 +906,10 @@ msgstr "切换到标签页 1 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 1 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 1 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:415
 msgid "Keyboard shortcut to switch to tab 2"
@@ -918,10 +918,10 @@ msgstr "切换到标签页 2 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 2 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 2 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:420
 msgid "Keyboard shortcut to switch to tab 3"
@@ -930,10 +930,10 @@ msgstr "切换到标签页 3 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 3 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 3 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:425
 msgid "Keyboard shortcut to switch to tab 4"
@@ -942,10 +942,10 @@ msgstr "切换到标签页 4 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 4 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 4 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:430
 msgid "Keyboard shortcut to switch to tab 5"
@@ -954,10 +954,10 @@ msgstr "切换到标签页 5 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 5 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 5 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:435
 msgid "Keyboard shortcut to switch to tab 6"
@@ -966,10 +966,10 @@ msgstr "切换到标签页 6 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 6 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 6 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:440
 msgid "Keyboard shortcut to switch to tab 7"
@@ -978,10 +978,10 @@ msgstr "切换到标签页 7 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 7 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 7 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:445
 msgid "Keyboard shortcut to switch to tab 8"
@@ -990,10 +990,10 @@ msgstr "切换到标签页 8 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 8 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 8 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:450
 msgid "Keyboard shortcut to switch to tab 9"
@@ -1002,10 +1002,10 @@ msgstr "切换到标签页 9 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "切换到标签页 9 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 9 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:455
 msgid "Keyboard shortcut to switch to tab 10"
@@ -1014,10 +1014,10 @@ msgstr "切换到标签页 10 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "切换到标签页 10 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 10 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:460
 msgid "Keyboard shortcut to switch to tab 11"
@@ -1026,10 +1026,10 @@ msgstr "切换到标签页 11 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "切换到标签页 11 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 11 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:465
 msgid "Keyboard shortcut to switch to tab 12"
@@ -1038,10 +1038,10 @@ msgstr "切换到标签页 12 的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "切换到标签页 12 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
+msgstr "切换到标签页 12 的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串 \"禁用\"，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:470
 msgid "Keyboard shortcut to launch help"
@@ -1050,10 +1050,10 @@ msgstr "调用帮助的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
-msgstr "调用帮助的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "调用帮助的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:475
 msgid "Keyboard shortcut to make font larger"
@@ -1062,10 +1062,10 @@ msgstr "大字体的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "设为大字体的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "设为大字体的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:480
 msgid "Keyboard shortcut to make font smaller"
@@ -1074,10 +1074,10 @@ msgstr "小字体的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
-msgstr "设为小字体的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "设为小字体的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:485
 msgid "Keyboard shortcut to make font normal-size"
@@ -1086,10 +1086,10 @@ msgstr "普通字号的快捷键"
 #: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
-msgstr "设为普通字体的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+msgstr "设为普通字体的快捷键。以 CTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
 #: src/profile-editor.c:44
 msgid "Black on light yellow"

@@ -27,7 +27,7 @@ struct _TerminalCloseButtonClassPrivate {
 	CtkCssProvider *css;
 };
 
-G_DEFINE_TYPE_WITH_CODE (TerminalCloseButton, terminal_close_button, GTK_TYPE_BUTTON,
+G_DEFINE_TYPE_WITH_CODE (TerminalCloseButton, terminal_close_button, CTK_TYPE_BUTTON,
                          g_type_add_class_private (g_define_type_id, sizeof (TerminalCloseButtonClassPrivate)))
 
 static void
@@ -50,24 +50,24 @@ terminal_close_button_init (TerminalCloseButton *button)
 	CtkWidget *image;
 	CtkStyleContext *context;
 
-	ctk_widget_set_name (GTK_WIDGET (button), "cafe-terminal-tab-close-button");
+	ctk_widget_set_name (CTK_WIDGET (button), "cafe-terminal-tab-close-button");
 
-	image = ctk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_MENU);
+	image = ctk_image_new_from_icon_name ("window-close", CTK_ICON_SIZE_MENU);
 	ctk_widget_show (image);
 
-	ctk_container_add (GTK_CONTAINER (button), image);
+	ctk_container_add (CTK_CONTAINER (button), image);
 
-	context = ctk_widget_get_style_context (GTK_WIDGET (button));
+	context = ctk_widget_get_style_context (CTK_WIDGET (button));
 	ctk_style_context_add_provider (context,
-	                                GTK_STYLE_PROVIDER (TERMINAL_CLOSE_BUTTON_GET_CLASS (button)->priv->css),
-	                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+	                                CTK_STYLE_PROVIDER (TERMINAL_CLOSE_BUTTON_GET_CLASS (button)->priv->css),
+	                                CTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 }
 
 CtkWidget *
 terminal_close_button_new ()
 {
-	return GTK_WIDGET (g_object_new (TERMINAL_TYPE_CLOSE_BUTTON,
-	                                 "relief", GTK_RELIEF_NONE,
+	return CTK_WIDGET (g_object_new (TERMINAL_TYPE_CLOSE_BUTTON,
+	                                 "relief", CTK_RELIEF_NONE,
 	                                 "focus-on-click", FALSE,
 	                                 NULL));
 }

@@ -124,7 +124,7 @@ msgstr ""
 "іншымі праграмамі, запушчанымі ў тэрмінале, таму іх можна адключыць."
 
 #: src/org.cafe.terminal.gschema.xml.in:64
-msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
+msgid "Whether the standard CTK+ shortcut for menubar access is enabled"
 msgstr ""
 
 #: src/org.cafe.terminal.gschema.xml.in:65
@@ -650,12 +650,12 @@ msgstr "Клавіятурны скарот для адкрывання нова
 #: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для стварэньня новай укладкі. Вызначана радком такога ж "
-"фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у "
+"фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у "
 "значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:295
@@ -665,12 +665,12 @@ msgstr "Клавіятурны скарот для адкрывання нова
 #: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for GTK+ resource files. If you set the option to the "
+" same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для стварэньня новага вакна. Вызначана радком такога ж фармату,"
-" што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+" што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:300
@@ -680,12 +680,12 @@ msgstr "Клавіятурны скарот для стварэння новаг
 #: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
-"Expressed as a string in the same format used for GTK+ resource files. If "
+"Expressed as a string in the same format used for CTK+ resource files. If "
 "you set the option to the special string \"disabled\", then there will be no"
 " keyboard shortcut for this action."
 msgstr ""
 "Паскаральнік для вакна новага профіля. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:305
@@ -695,7 +695,7 @@ msgstr "Клавіятурны скарот для захавання змесц
 #: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -707,12 +707,12 @@ msgstr "Клавіятурны скарот для закрывання карт
 #: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для закрыцьця ўкладкі. Вызначана радком такога ж фармату, што і"
-" файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+" файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:315
@@ -722,12 +722,12 @@ msgstr "Клавіятурны скарот для закрывання акна
 #: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для закрыцьця вакна. Вызначана радком такога ж фармату, што і "
-"файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:320
@@ -737,12 +737,12 @@ msgstr "Клавіятурны скарот для капіявання тэкс
 #: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Паскаральнік для капіяваньня вылучанага тэксту ў абменны буфэр. Вызначана "
-"радком такога ж фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты "
+"радком такога ж фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты "
 "парамэтар у значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня "
 "будзе."
 
@@ -753,7 +753,7 @@ msgstr "Клавіятурны скарот для ўстаўкі тэксту"
 #: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
-"terminal. Expressed as a string in the same format used for GTK+ resource "
+"terminal. Expressed as a string in the same format used for CTK+ resource "
 "files. If you set the option to the special string \"disabled\", then there "
 "will be no keyboard shortcut for this action."
 msgstr ""
@@ -765,7 +765,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -777,7 +777,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -789,7 +789,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
-"the terminal. Expressed as a string in the same format used for GTK+ "
+"the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
@@ -801,7 +801,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for GTK+ "
+" in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
@@ -813,12 +813,12 @@ msgstr "Клавіятурны скарот для пераключэння по
 #: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Паскаральнік для пераключэньня поўнаэкраннага рэжыму. Вызначана радком "
-"такога ж фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты "
+"такога ж фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты "
 "парамэтар у значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня "
 "будзе."
 
@@ -829,12 +829,12 @@ msgstr "Клавіятурны скарот для пераключэння ба
 #: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
-"a string in the same format used for GTK+ resource files. If you set the "
+"a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Паскаральнік для зьмены бачнасьці мэню. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:360
@@ -844,12 +844,12 @@ msgstr "Клавіятурны скарот для задання загалоў
 #: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для вызначэньня загалоўка тэрмінала. Вызначана радком такога ж "
-"фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у "
+"фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у "
 "значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:365
@@ -859,12 +859,12 @@ msgstr "Клавіятурны скарот для скідвання тэрмі
 #: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для скіду тэрмінала. Вызначана радком такога ж фармату, што і "
-"файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:370
@@ -874,12 +874,12 @@ msgstr "Клавіятурны скарот для скідвання і ачы�
 #: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Паскаральнік для ачышчэньня й скіду тэрмінала. Вызначана радком такога ж "
-"фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у "
+"фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у "
 "значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:375
@@ -889,12 +889,12 @@ msgstr "Клавіятурны скарот для пераходу на пап�
 #: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Паскаральнік для пераходу на папярэднюю ўкладку. Вызначана радком такога ж "
-"фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у "
+"фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у "
 "значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:380
@@ -904,12 +904,12 @@ msgstr "Клавіятурны скарот для пераходу на нас�
 #: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для пераходу на наступную ўкладку. Вызначана радком такога ж "
-"фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у "
+"фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у "
 "значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:385
@@ -919,7 +919,7 @@ msgstr "Клавіятурны скарот для пераходу на пап�
 #: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
-"string in the same format used for GTK+ resource files. If you set the "
+"string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -931,7 +931,7 @@ msgstr "Клавіятурны скарот для пераходу на нас�
 #: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
@@ -943,12 +943,12 @@ msgstr "Паскаральнік для перасоўвання дзейнай 
 #: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
 "Паскаральнік для пасоўваньня ўкладкі ўлева. Вызначана радком такога ж "
-"фармату, што й для файлаў рэсурсаў GTK+. Калі вы выберыце тут значэньне "
+"фармату, што й для файлаў рэсурсаў CTK+. Калі вы выберыце тут значэньне "
 "\"disabled\", для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:400
@@ -958,12 +958,12 @@ msgstr "Паскаральнік для перасоўвання дзейнай 
 #: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
 "Паскаральнік для пасоўваньня ўкладкі ўправа. Вызначана радком такога ж "
-"фармату, што й для файлаў рэсурсаў GTK+. Калі вы выберыце тут значэньне "
+"фармату, што й для файлаў рэсурсаў CTK+. Калі вы выберыце тут значэньне "
 "\"disabled\", для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:405
@@ -973,11 +973,11 @@ msgstr "Паскаральнік для адчаплення дзейнай ка
 #: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
 "Паскаральнік для адлучэньня актыўнай укладкі. Вызначана радком такога ж "
-"фармату, што й для файлаў рэсурсаў GTK+. Калі вы выберыце тут значэньне "
+"фармату, што й для файлаў рэсурсаў CTK+. Калі вы выберыце тут значэньне "
 "\"disabled\", для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:410
@@ -987,12 +987,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу наа ўкладку 1. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:415
@@ -1002,12 +1002,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 2. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:420
@@ -1017,12 +1017,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 3. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:425
@@ -1032,12 +1032,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 4. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:430
@@ -1047,12 +1047,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 5. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:435
@@ -1062,12 +1062,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 6. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:440
@@ -1077,12 +1077,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 7. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:445
@@ -1092,12 +1092,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 8. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:450
@@ -1107,12 +1107,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 9. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:455
@@ -1122,12 +1122,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 10. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:460
@@ -1137,12 +1137,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 11. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:465
@@ -1152,12 +1152,12 @@ msgstr "Клавіятурны скарот для пераходу да кар�
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для пераходу на ўкладку 12. Вызначана радком такога ж фармату, "
-"што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:470
@@ -1167,12 +1167,12 @@ msgstr "Клавіятурны скарот для паказу даведкі"
 #: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Паскаральнік для прагляду даведкі. Вызначана радком такога ж фармату, што і "
-"файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:475
@@ -1182,12 +1182,12 @@ msgstr "Клавіятурны скарот для павелічэння шры
 #: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для павелічэньня шрыфта. Вызначана радком такога ж фармату, што"
-" і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+" і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:480
@@ -1197,12 +1197,12 @@ msgstr "Клавіятурны скарот для змяншэння шрыфт
 #: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Паскаральнік для памяншэньня шрыфта. Вызначана радком такога ж фармату, што "
-"і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у значэньне "
+"і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у значэньне "
 "\"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/org.cafe.terminal.gschema.xml.in:485
@@ -1212,12 +1212,12 @@ msgstr "Клавіятурны скарот для стандартнага па
 #: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Паскаральнік для вяртаньня звычайнага памеру шрыфта. Вызначана радком такога"
-" ж фармату, што і файлы рэсурсаў GTK+. Калі вы выставіце гэты парамэтар у "
+" ж фармату, што і файлы рэсурсаў CTK+. Калі вы выставіце гэты парамэтар у "
 "значэньне \"disabled\", то для гэтага дзеяньня паскаральніка ня будзе."
 
 #: src/profile-editor.c:44

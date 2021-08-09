@@ -116,7 +116,7 @@ widget_and_labels_set_sensitive (CtkWidget *widget, gboolean sensitive)
 	labels = ctk_widget_list_mnemonic_labels (widget);
 	for (i = labels; i; i = i->next)
 	{
-		ctk_widget_set_sensitive (GTK_WIDGET (i->data), sensitive);
+		ctk_widget_set_sensitive (CTK_WIDGET (i->data), sensitive);
 	}
 	g_list_free (labels);
 
@@ -347,7 +347,7 @@ color_scheme_combo_changed_cb (CtkWidget *combo,
 {
 	guint i;
 
-	i = ctk_combo_box_get_active (GTK_COMBO_BOX (combo));
+	i = ctk_combo_box_get_active (CTK_COMBO_BOX (combo));
 
 	if (i < G_N_ELEMENTS (color_schemes))
 	{
@@ -391,7 +391,7 @@ profile_colors_notify_scheme_combo_cb (TerminalProfile *profile,
 	/* If we didn't find a match, then we get the last combo box item which is "custom" */
 
 	g_signal_handlers_block_by_func (combo, G_CALLBACK (color_scheme_combo_changed_cb), profile);
-	ctk_combo_box_set_active (GTK_COMBO_BOX (combo), i);
+	ctk_combo_box_set_active (CTK_COMBO_BOX (combo), i);
 	g_signal_handlers_unblock_by_func (combo, G_CALLBACK (color_scheme_combo_changed_cb), profile);
 }
 
@@ -402,7 +402,7 @@ palette_scheme_combo_changed_cb (CtkComboBox *combo,
 {
 	int i;
 
-	i = ctk_combo_box_get_active (GTK_COMBO_BOX (combo));
+	i = ctk_combo_box_get_active (CTK_COMBO_BOX (combo));
 
 	g_signal_handlers_block_by_func (profile, G_CALLBACK (profile_colors_notify_scheme_combo_cb), combo);
 	if (i < TERMINAL_PALETTE_N_BUILTINS)
@@ -444,7 +444,7 @@ palette_color_notify_cb (CtkColorChooser *button,
 	ctk_color_chooser_get_rgba (button, &color);
 	i = (guint) (gulong) (void *) (g_object_get_data (G_OBJECT (button), "palette-entry-index"));
 
-	editor = ctk_widget_get_toplevel (GTK_WIDGET (button));
+	editor = ctk_widget_get_toplevel (CTK_WIDGET (button));
 	g_signal_handlers_block_by_func (profile, G_CALLBACK (profile_palette_notify_colorpickers_cb), editor);
 	terminal_profile_modify_palette_entry (profile, i, &color);
 	g_signal_handlers_unblock_by_func (profile, G_CALLBACK (profile_palette_notify_colorpickers_cb), editor);
@@ -471,7 +471,7 @@ profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
 		w = profile_editor_get_widget (editor, name);
 
 		g_signal_handlers_block_by_func (w, G_CALLBACK (palette_color_notify_cb), profile);
-		ctk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (w), &colors[i]);
+		ctk_color_chooser_set_rgba (CTK_COLOR_CHOOSER (w), &colors[i]);
 		g_signal_handlers_unblock_by_func (w, G_CALLBACK (palette_color_notify_cb), profile);
 	}
 }
@@ -486,16 +486,16 @@ custom_command_entry_changed_cb (CtkEntry *entry)
 
 	if (g_shell_parse_argv (command, NULL, NULL, &error))
 	{
-		ctk_entry_set_icon_from_icon_name (entry, GTK_PACK_END, NULL);
+		ctk_entry_set_icon_from_icon_name (entry, CTK_PACK_END, NULL);
 	}
 	else
 	{
 		char *tooltip;
 
-		ctk_entry_set_icon_from_icon_name (entry, GTK_PACK_END, "dialog-warning");
+		ctk_entry_set_icon_from_icon_name (entry, CTK_PACK_END, "dialog-warning");
 
 		tooltip = g_strdup_printf (_("Error parsing command: %s"), error->message);
-		ctk_entry_set_icon_tooltip_text (entry, GTK_PACK_END, tooltip);
+		ctk_entry_set_icon_tooltip_text (entry, CTK_PACK_END, tooltip);
 		g_free (tooltip);
 
 		g_error_free (error);
@@ -545,12 +545,12 @@ init_color_scheme_menu (CtkWidget *widget)
 	                                  0, _("Custom"),
 	                                  -1);
 
-	ctk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
+	ctk_combo_box_set_model (CTK_COMBO_BOX (widget), CTK_TREE_MODEL (store));
 	g_object_unref (store);
 
 	renderer = ctk_cell_renderer_text_new ();
-	ctk_cell_layout_pack_start (GTK_CELL_LAYOUT (widget), renderer, TRUE);
-	ctk_cell_layout_set_attributes (GTK_CELL_LAYOUT (widget), renderer, "text", 0, NULL);
+	ctk_cell_layout_pack_start (CTK_CELL_LAYOUT (widget), renderer, TRUE);
+	ctk_cell_layout_set_attributes (CTK_CELL_LAYOUT (widget), renderer, "text", 0, NULL);
 }
 
 static char*
@@ -574,9 +574,9 @@ editor_response_cb (CtkWidget *editor,
                     int response,
                     gpointer use_data)
 {
-	if (response == GTK_RESPONSE_HELP)
+	if (response == CTK_RESPONSE_HELP)
 	{
-		terminal_util_show_help ("cafe-terminal-prefs", GTK_WINDOW (editor));
+		terminal_util_show_help ("cafe-terminal-prefs", CTK_WINDOW (editor));
 		return;
 	}
 
@@ -593,14 +593,14 @@ setup_background_filechooser (CtkWidget *filechooser,
 	filter = ctk_file_filter_new ();
 	ctk_file_filter_add_pixbuf_formats (filter);
 	ctk_file_filter_set_name (filter, _("Images"));
-	ctk_file_chooser_set_filter (GTK_FILE_CHOOSER (filechooser), filter);
+	ctk_file_chooser_set_filter (CTK_FILE_CHOOSER (filechooser), filter);
 
-	ctk_file_chooser_set_local_only (GTK_FILE_CHOOSER (filechooser), TRUE);
+	ctk_file_chooser_set_local_only (CTK_FILE_CHOOSER (filechooser), TRUE);
 
 	/* Start filechooser in $HOME instead of the current dir of the factory which is "/" */
 	home_dir = g_get_home_dir ();
 	if (home_dir)
-		ctk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (filechooser), home_dir);
+		ctk_file_chooser_set_current_folder (CTK_FILE_CHOOSER (filechooser), home_dir);
 }
 
 static void
@@ -631,22 +631,22 @@ terminal_profile_editor_focus_widget (CtkWidget *editor,
 		return;
 
 	builder = g_object_get_data (G_OBJECT (editor), "builder");
-	widget = GTK_WIDGET (ctk_builder_get_object (builder, widget_name));
+	widget = CTK_WIDGET (ctk_builder_get_object (builder, widget_name));
 	if (widget == NULL)
 		return;
 
 	page = widget;
 	while (page != NULL &&
 	        (page_parent = ctk_widget_get_parent (page)) != NULL &&
-	        !GTK_IS_NOTEBOOK (page_parent))
+	        !CTK_IS_NOTEBOOK (page_parent))
 		page = page_parent;
 
 	page_parent = ctk_widget_get_parent (page);
-	if (page != NULL && GTK_IS_NOTEBOOK (page_parent))
+	if (page != NULL && CTK_IS_NOTEBOOK (page_parent))
 	{
 		CtkNotebook *notebook;
 
-		notebook = GTK_NOTEBOOK (page_parent);
+		notebook = CTK_NOTEBOOK (page_parent);
 		ctk_notebook_set_current_page (notebook, ctk_notebook_page_num (notebook, page));
 	}
 
@@ -679,9 +679,9 @@ terminal_profile_edit (TerminalProfile *profile,
 	{
 		terminal_profile_editor_focus_widget (editor, widget_name);
 
-		ctk_window_set_transient_for (GTK_WINDOW (editor),
-		                              GTK_WINDOW (transient_parent));
-		ctk_window_present (GTK_WINDOW (editor));
+		ctk_window_set_transient_for (CTK_WINDOW (editor),
+		                              CTK_WINDOW (transient_parent));
+		ctk_window_present (CTK_WINDOW (editor));
 		return;
 	}
 
@@ -730,7 +730,7 @@ terminal_profile_edit (TerminalProfile *profile,
 		g_object_set_data (G_OBJECT (w), "palette-entry-index", GUINT_TO_POINTER (i));
 
 		text = g_strdup_printf (_("Choose Palette Color %d"), i + 1);
-		ctk_color_button_set_title (GTK_COLOR_BUTTON (w), text);
+		ctk_color_button_set_title (CTK_COLOR_BUTTON (w), text);
 		g_free (text);
 
 		text = g_strdup_printf (_("Palette entry %d"), i + 1);
@@ -752,7 +752,7 @@ terminal_profile_edit (TerminalProfile *profile,
 	                  G_CALLBACK (palette_scheme_combo_changed_cb),
 	                  profile);
 
-	profile_palette_notify_scheme_combo_cb (profile, NULL, GTK_COMBO_BOX (w));
+	profile_palette_notify_scheme_combo_cb (profile, NULL, CTK_COMBO_BOX (w));
 	g_signal_connect (profile, "notify::" TERMINAL_PROFILE_PALETTE,
 	                  G_CALLBACK (profile_palette_notify_scheme_combo_cb),
 	                  w);
@@ -763,7 +763,7 @@ terminal_profile_edit (TerminalProfile *profile,
 	                  G_CALLBACK (color_scheme_combo_changed_cb),
 	                  profile);
 
-	profile_colors_notify_scheme_combo_cb (profile, NULL, GTK_COMBO_BOX (w));
+	profile_colors_notify_scheme_combo_cb (profile, NULL, CTK_COMBO_BOX (w));
 	g_signal_connect (profile, "notify::" TERMINAL_PROFILE_FOREGROUND_COLOR,
 	                  G_CALLBACK (profile_colors_notify_scheme_combo_cb),
 	                  w);
@@ -775,11 +775,11 @@ terminal_profile_edit (TerminalProfile *profile,
 #define CONNECT(name, prop) CONNECT_WITH_FLAGS (name, prop, 0)
 #define SET_ENUM_VALUE(name, value) g_object_set_data (ctk_builder_get_object (builder, name), "enum-value", GINT_TO_POINTER (value))
 
-	w = GTK_WIDGET (ctk_builder_get_object (builder, "custom-command-entry"));
-	custom_command_entry_changed_cb (GTK_ENTRY (w));
+	w = CTK_WIDGET (ctk_builder_get_object (builder, "custom-command-entry"));
+	custom_command_entry_changed_cb (CTK_ENTRY (w));
 	g_signal_connect (w, "changed",
 	                  G_CALLBACK (custom_command_entry_changed_cb), NULL);
-	w = GTK_WIDGET (ctk_builder_get_object (builder, "profile-name-entry"));
+	w = CTK_WIDGET (ctk_builder_get_object (builder, "profile-name-entry"));
 	g_signal_connect (w, "changed",
 	                  G_CALLBACK (visible_name_entry_changed_cb), editor);
 
@@ -849,7 +849,7 @@ terminal_profile_edit (TerminalProfile *profile,
 
 	terminal_profile_editor_focus_widget (editor, widget_name);
 
-	ctk_window_set_transient_for (GTK_WINDOW (editor),
-	                              GTK_WINDOW (transient_parent));
-	ctk_window_present (GTK_WINDOW (editor));
+	ctk_window_set_transient_for (CTK_WINDOW (editor),
+	                              CTK_WINDOW (transient_parent));
+	ctk_window_present (CTK_WINDOW (editor));
 }

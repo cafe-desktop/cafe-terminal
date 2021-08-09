@@ -146,8 +146,8 @@ msgstr ""
 "необходимо отключить."
 
 #: src/org.cafe.terminal.gschema.xml.in:64
-msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
-msgstr "Разрешать ли стандартную комбинацию клавиш GTK+ для доступа к меню"
+msgid "Whether the standard CTK+ shortcut for menubar access is enabled"
+msgstr "Разрешать ли стандартную комбинацию клавиш CTK+ для доступа к меню"
 
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
@@ -706,12 +706,12 @@ msgstr "Комбинация клавиш для открытия новой в�
 #: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для открытия новой вкладки. Указывается в виде строки в "
-"формате файлов ресурсов GTK+. Если установить специальное значение "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:295
@@ -721,12 +721,12 @@ msgstr "Комбинация клавиш для открытия нового �
 #: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for GTK+ resource files. If you set the option to the "
+" same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для открытия нового окна. Указывается в виде строки в "
-"формате файлов ресурсов GTK+. Если установить специальное значение "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:300
@@ -736,12 +736,12 @@ msgstr "Комбинация клавиш для создания нового �
 #: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
-"Expressed as a string in the same format used for GTK+ resource files. If "
+"Expressed as a string in the same format used for CTK+ resource files. If "
 "you set the option to the special string \"disabled\", then there will be no"
 " keyboard shortcut for this action."
 msgstr ""
 "Комбинация клавиш для вызова диалога создания профиля. Указывается в виде "
-"строки в формате файлов ресурсов GTK+. Если установить специальное значение "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:305
@@ -751,12 +751,12 @@ msgstr "Комбинация клавиш для записи содержимо
 #: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Комбинация клавиш для записи содержимого текущей вкладки в файл. Указывается"
-" в виде строки в формате файлов ресурсов GTK+. Если установить специальное "
+" в виде строки в формате файлов ресурсов CTK+. Если установить специальное "
 "значение «Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:310
@@ -766,12 +766,12 @@ msgstr "Комбинация клавиш для закрытия вкладки
 #: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для закрытия вкладки. Указывается в виде строки в формате "
-"файлов ресурсов GTK+. Если установить специальное значение «Выключено», для "
+"файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:315
@@ -781,12 +781,12 @@ msgstr "Комбинация клавиш для закрытия окна"
 #: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для закрытия окна. Указывается в виде строки в формате "
-"файлов ресурсов GTK+. Если установить специальное значение «Выключено», для "
+"файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:320
@@ -796,12 +796,12 @@ msgstr "Комбинация клавиш для копирования текс
 #: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Комбинация клавиш для копирования выделенного текста в буфер обмена. "
-"Указывается в виде строки в формате файлов ресурсов GTK+. Если установить "
+"Указывается в виде строки в формате файлов ресурсов CTK+. Если установить "
 "специальное значение «Выключено», для этого действия не будет комбинации "
 "клавиш."
 
@@ -812,12 +812,12 @@ msgstr "Комбинация клавиш для вставки текста"
 #: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
-"terminal. Expressed as a string in the same format used for GTK+ resource "
+"terminal. Expressed as a string in the same format used for CTK+ resource "
 "files. If you set the option to the special string \"disabled\", then there "
 "will be no keyboard shortcut for this action."
 msgstr ""
 "Комбинация клавиш для вставки содержимого буфера обмена в терминал. "
-"Указывается в виде строки в формате файлов ресурсов GTK+. Если установить "
+"Указывается в виде строки в формате файлов ресурсов CTK+. Если установить "
 "специальное значение «Выключено», для этого действия не будет комбинации "
 "клавиш."
 
@@ -828,12 +828,12 @@ msgstr "Комбинация клавиш для выделения всего �
 #: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Комбинация клавиш для выбора всего текста в окне терминала. Указывается в "
-"виде строки в формате файлов ресурсов GTK+. Если установить специальное "
+"виде строки в формате файлов ресурсов CTK+. Если установить специальное "
 "значение «Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:335
@@ -843,12 +843,12 @@ msgstr "Комбинация клавиш для вызова диалогово
 #: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для вызова диалогового окна поиска. Указывается в виде "
-"строки в формате файлов ресурсов GTK+. Если установить специальное значение "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:340
@@ -859,12 +859,12 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
-"the terminal. Expressed as a string in the same format used for GTK+ "
+"the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 "Комбинация клавиш для нахождения следующего вхождения искомого выражения в "
-"терминале. Задается как строка в формате ресурсных файлов GTK+. Если "
+"терминале. Задается как строка в формате ресурсных файлов CTK+. Если "
 "установить эту настройку в значение определяемое строкой \"отключено\", "
 "тогда для этого действия не будет комбинации клавиш."
 
@@ -876,12 +876,12 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for GTK+ "
+" in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 "Комбинация клавиш для нахождения предыдущего вхождения искомого выражения в "
-"терминале. Задается как строка в формате ресурсных файлов GTK+. Если "
+"терминале. Задается как строка в формате ресурсных файлов CTK+. Если "
 "установить эту настройку в значение определяемое строкой \"отключено\", "
 "тогда для этого действия не будет комбинации клавиш."
 
@@ -892,12 +892,12 @@ msgstr "Комбинация клавиш для переключения в п�
 #: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Комбинация клавиш для переключения полноэкранного режима. Указывается в виде"
-" строки в формате файлов ресурсов GTK+. Если установить специальное значение"
+" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
 " «Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:355
@@ -907,12 +907,12 @@ msgstr "Комбинация клавиш для переключения вид
 #: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
-"a string in the same format used for GTK+ resource files. If you set the "
+"a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Комбинация клавиш для переключения видимости строки меню. Указывается в виде"
-" строки в формате файлов ресурсов GTK+. Если установить специальное значение"
+" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
 " «Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:360
@@ -922,12 +922,12 @@ msgstr "Комбинация клавиш для установки заголо
 #: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для установки заголовка терминала. Указывается в виде "
-"строки в формате файлов ресурсов GTK+. Если установить специальное значение "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:365
@@ -937,12 +937,12 @@ msgstr "Комбинация клавиш для сброса терминала
 #: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для сброса терминала. Указывается в виде строки в формате "
-"файлов ресурсов GTK+. Если установить специальное значение «Выключено», для "
+"файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:370
@@ -952,12 +952,12 @@ msgstr "Комбинация клавиш для сброса и очистки 
 #: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Комбинация клавиш для сброса и очистки терминала. Указывается в виде строки "
-"в формате файлов ресурсов GTK+. Если установить специальное значение "
+"в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:375
@@ -967,12 +967,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Комбинация клавиш для переключения на предыдущую вкладку. Указывается в виде"
-" строки в формате файлов ресурсов GTK+. Если установить специальное значение"
+" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
 " «Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:380
@@ -982,12 +982,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для переключения на следующую вкладку. Указывается в виде "
-"строки в формате файлов ресурсов GTK+. Если установить специальное значение "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:385
@@ -997,12 +997,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
-"string in the same format used for GTK+ resource files. If you set the "
+"string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "Комбинация клавиш для переключения на предыдущий профиль. Указывается в виде"
-" строки в формате файлов ресурсов GTK+. Если установить специальное значение"
+" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
 " «Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:390
@@ -1012,12 +1012,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Комбинация клавиш для переключения на следующий профиль. Указывается в виде "
-"строки в формате файлов ресурсов GTK+. Если установить специальное значение "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:395
@@ -1027,12 +1027,12 @@ msgstr "Комбинация клавиш для перемещения теку
 #: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
 "Комбинация клавиш для перемещения текущей вкладки влево. Указывается в виде "
-"строки в формате файлов ресурсов GTK+. Если установить специальное значение "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», то для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:400
@@ -1042,12 +1042,12 @@ msgstr "Комбинация клавиш для перемещения теку
 #: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
 "Комбинация клавиш для перемещения текущей вкладки вправо. Указывается в виде"
-" строки в формате файлов ресурсов GTK+. Если установить специальное значение"
+" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
 " «Выключено», то для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:405
@@ -1057,11 +1057,11 @@ msgstr "Комбинация клавиш для отделения текуще
 #: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
 "Комбинация клавиш для отделения текущей вкладки. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», то для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:410
@@ -1071,12 +1071,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 1. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:415
@@ -1086,12 +1086,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 2. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:420
@@ -1101,12 +1101,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 3. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:425
@@ -1116,12 +1116,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 4. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:430
@@ -1131,12 +1131,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 5. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:435
@@ -1146,12 +1146,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 6. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:440
@@ -1161,12 +1161,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 7. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:445
@@ -1176,12 +1176,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 8. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:450
@@ -1191,12 +1191,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 9. Указывается в виде строки в"
-" формате файлов ресурсов GTK+. Если установить специальное значение "
+" формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:455
@@ -1206,12 +1206,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 10. Указывается в виде строки "
-"в формате файлов ресурсов GTK+. Если установить специальное значение "
+"в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:460
@@ -1221,12 +1221,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 11. Указывается в виде строки "
-"в формате файлов ресурсов GTK+. Если установить специальное значение "
+"в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:465
@@ -1236,12 +1236,12 @@ msgstr "Комбинация клавиш для переключения на �
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для переключения на вкладку 12. Указывается в виде строки "
-"в формате файлов ресурсов GTK+. Если установить специальное значение "
+"в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:470
@@ -1251,12 +1251,12 @@ msgstr "Комбинация клавиш для открытия справки
 #: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "Комбинация клавиш для открытия справки. Указывается в виде строки в формате "
-"файлов ресурсов GTK+. Если установить специальное значение «Выключено», для "
+"файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:475
@@ -1266,12 +1266,12 @@ msgstr "Комбинация клавиш для увеличения шрифт
 #: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для увеличения шрифта. Указывается в виде строки в формате"
-" файлов ресурсов GTK+. Если установить специальное значение «Выключено», для"
+" файлов ресурсов CTK+. Если установить специальное значение «Выключено», для"
 " этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:480
@@ -1281,12 +1281,12 @@ msgstr "Комбинация клавиш для уменьшения шрифт
 #: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "Комбинация клавиш для уменьшения шрифта. Указывается в виде строки в формате"
-" файлов ресурсов GTK+. Если установить специальное значение «Выключено», для"
+" файлов ресурсов CTK+. Если установить специальное значение «Выключено», для"
 " этого действия не будет комбинации клавиш."
 
 #: src/org.cafe.terminal.gschema.xml.in:485
@@ -1296,12 +1296,12 @@ msgstr "Комбинация клавиш для установки нормал
 #: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "Комбинация клавиш для установки обычного размера шрифта. Указывается в виде "
-"строки в формате файлов ресурсов GTK+. Если установить специальное значение "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
 #: src/profile-editor.c:44
