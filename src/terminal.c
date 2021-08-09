@@ -611,6 +611,9 @@ main (int argc, char **argv)
 		options->startup_id = g_strdup_printf ("_TIME%lu", timestamp);
 	}
 
+	g_object_set (ctk_settings_get_default (), "ctk-button-images", TRUE, NULL);
+	g_object_set (ctk_settings_get_default (), "ctk-menu-images", TRUE, NULL);
+
 	if (options->use_factory)
 	{
 		OwnData *data;
