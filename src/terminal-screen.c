@@ -191,7 +191,7 @@ static guint n_skey_regexes;
 static void  terminal_screen_skey_match_remove (TerminalScreen            *screen);
 #endif /* ENABLE_SKEY */
 
-G_DEFINE_TYPE_WITH_PRIVATE (TerminalScreen, terminal_screen, VTE_TYPE_TERMINAL)
+G_DEFINE_TYPE_WITH_PRIVATE (TerminalScreen, terminal_screen, BTE_TYPE_TERMINAL)
 
 static char *
 cwd_of_pid (int pid)
@@ -344,9 +344,9 @@ terminal_screen_init (TerminalScreen *screen)
 
 	priv = screen->priv = terminal_screen_get_instance_private (screen);
 
-	bte_terminal_set_mouse_autohide (VTE_TERMINAL (screen), TRUE);
-#if VTE_CHECK_VERSION (0, 52, 0)
-	bte_terminal_set_bold_is_bright (VTE_TERMINAL (screen), TRUE);
+	bte_terminal_set_mouse_autohide (BTE_TERMINAL (screen), TRUE);
+#if BTE_CHECK_VERSION (0, 52, 0)
+	bte_terminal_set_bold_is_bright (BTE_TERMINAL (screen), TRUE);
 #endif
 
 	priv->child_pid = -1;
@@ -469,7 +469,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS(klass);
-	BteTerminalClass *terminal_class = VTE_TERMINAL_CLASS (klass);
+	BteTerminalClass *terminal_class = BTE_TERMINAL_CLASS (klass);
 	TerminalApp *app;
 	guint i;
 
@@ -729,7 +729,7 @@ terminal_screen_new (TerminalProfile *profile,
 
 	if (terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_USE_CUSTOM_DEFAULT_SIZE))
 	{
-		bte_terminal_set_size (VTE_TERMINAL (screen),
+		bte_terminal_set_size (BTE_TERMINAL (screen),
 		                       terminal_profile_get_property_int (profile, TERMINAL_PROFILE_DEFAULT_SIZE_COLUMNS),
 		                       terminal_profile_get_property_int (profile, TERMINAL_PROFILE_DEFAULT_SIZE_ROWS));
 	}
@@ -927,7 +927,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 {
 	TerminalScreenPrivate *priv = screen->priv;
 	GObject *object = G_OBJECT (screen);
-	BteTerminal *bte_terminal = VTE_TERMINAL (screen);
+	BteTerminal *bte_terminal = BTE_TERMINAL (screen);
 	const char *prop_name;
 	TerminalWindow *window;
 
@@ -1153,11 +1153,11 @@ update_color_scheme (TerminalScreen *screen)
 		}
 	}
 
-	bte_terminal_set_colors (VTE_TERMINAL (screen),
+	bte_terminal_set_colors (BTE_TERMINAL (screen),
 	                         &fg, &bg,
 	                         colors, n_colors);
 	if (bold_rgba)
-		bte_terminal_set_color_bold (VTE_TERMINAL (screen),
+		bte_terminal_set_color_bold (BTE_TERMINAL (screen),
 		                             bold_rgba);
 }
 
@@ -1185,7 +1185,7 @@ terminal_screen_set_font (TerminalScreen *screen)
 		                                 priv->font_scale *
 		                                 pango_font_description_get_size (desc));
 
-	bte_terminal_set_font (VTE_TERMINAL (screen), desc);
+	bte_terminal_set_font (BTE_TERMINAL (screen), desc);
 
 	pango_font_description_free (desc);
 }
@@ -1556,12 +1556,12 @@ static gboolean
 terminal_screen_launch_child_cb (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	BteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = BTE_TERMINAL (screen);
 	char **env, **argv;
 	char *shell = NULL;
 	GError *err = NULL;
 	const char *working_dir;
-	BtePtyFlags pty_flags = VTE_PTY_DEFAULT;
+	BtePtyFlags pty_flags = BTE_PTY_DEFAULT;
 	GSpawnFlags spawn_flags = 0;
 
 	priv->launch_child_source_id = 0;
@@ -1835,7 +1835,7 @@ terminal_screen_get_current_dir (TerminalScreen *screen)
 	TerminalScreenPrivate *priv = screen->priv;
 	BtePty *pty;
 
-	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
+	pty = bte_terminal_get_pty (BTE_TERMINAL (screen));
 	if (pty != NULL)
 	{
 		char *cwd;
@@ -1873,7 +1873,7 @@ terminal_screen_get_current_dir_with_fallback (TerminalScreen *screen)
 	BtePty *pty;
 	TerminalScreenPrivate *priv = screen->priv;
 
-	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
+	pty = bte_terminal_get_pty (BTE_TERMINAL (screen));
 	if (pty == NULL)
 		return g_strdup (priv->initial_working_directory);
 
@@ -2064,7 +2064,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 		terminal_util_transform_uris_to_quoted_fuse_paths (uris);
 
 		text = terminal_util_concat_uris (uris, &len);
-		bte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
+		bte_terminal_feed_child (BTE_TERMINAL (screen), text, len);
 		g_free (text);
 
 		g_strfreev (uris);
@@ -2075,7 +2075,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 
 		text = (char *) ctk_selection_data_get_text (selection_data);
 		if (text && text[0])
-			bte_terminal_feed_child (VTE_TERMINAL (screen), text, strlen (text));
+			bte_terminal_feed_child (BTE_TERMINAL (screen), text, strlen (text));
 		g_free (text);
 	}
 	else switch (info)
@@ -2137,7 +2137,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 			terminal_util_transform_uris_to_quoted_fuse_paths (uris); /* This may replace uris[0] */
 
 			text = terminal_util_concat_uris (uris, &len);
-			bte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
+			bte_terminal_feed_child (BTE_TERMINAL (screen), text, len);
 			g_free (text);
 			g_free (uris[0]);
 		}
@@ -2165,7 +2165,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 			terminal_util_transform_uris_to_quoted_fuse_paths (uris); /* This may replace uris[0] */
 
 			text = terminal_util_concat_uris (uris, &len);
-			bte_terminal_feed_child (VTE_TERMINAL (screen), text, len);
+			bte_terminal_feed_child (BTE_TERMINAL (screen), text, len);
 			g_free (text);
 			g_free (uris[0]);
 		}
@@ -2284,7 +2284,7 @@ terminal_screen_get_size (TerminalScreen *screen,
                           int       *width_chars,
                           int       *height_chars)
 {
-	BteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = BTE_TERMINAL (screen);
 
 	*width_chars = bte_terminal_get_column_count (terminal);
 	*height_chars = bte_terminal_get_row_count (terminal);
@@ -2295,7 +2295,7 @@ terminal_screen_get_cell_size (TerminalScreen *screen,
                                int                  *cell_width_pixels,
                                int                  *cell_height_pixels)
 {
-	BteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = BTE_TERMINAL (screen);
 
 	*cell_width_pixels = bte_terminal_get_char_width (terminal);
 	*cell_height_pixels = bte_terminal_get_char_height (terminal);
@@ -2316,7 +2316,7 @@ terminal_screen_skey_match_remove (TerminalScreen *screen)
 		next = l->next;
 		if (tag_data->flavor == FLAVOR_SKEY)
 		{
-			bte_terminal_match_remove (VTE_TERMINAL (screen), tag_data->tag);
+			bte_terminal_match_remove (BTE_TERMINAL (screen), tag_data->tag);
 			priv->match_tags = g_slist_delete_link (priv->match_tags, l);
 		}
 
@@ -2341,7 +2341,7 @@ terminal_screen_url_match_remove (TerminalScreen *screen)
 		if (tag_data->flavor != FLAVOR_SKEY)
 #endif
 		{
-			bte_terminal_match_remove (VTE_TERMINAL (screen), tag_data->tag);
+			bte_terminal_match_remove (BTE_TERMINAL (screen), tag_data->tag);
 			priv->match_tags = g_slist_delete_link (priv->match_tags, l);
 		}
 
@@ -2359,7 +2359,7 @@ terminal_screen_check_match (TerminalScreen *screen,
 	int tag;
 	char *match;
 
-	match = bte_terminal_match_check_event (VTE_TERMINAL (screen), event, &tag);
+	match = bte_terminal_match_check_event (BTE_TERMINAL (screen), event, &tag);
 	for (tags = priv->match_tags; tags != NULL; tags = tags->next)
 	{
 		TagData *tag_data = (TagData*) tags->data;
@@ -2381,7 +2381,7 @@ terminal_screen_save_config (TerminalScreen *screen,
                              const char *group)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	BteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = BTE_TERMINAL (screen);
 	TerminalProfile *profile = priv->profile;
 	const char *profile_id;
 	char *working_directory;
@@ -2427,7 +2427,7 @@ terminal_screen_has_foreground_process (TerminalScreen *screen)
 	int fd;
 	int fgpid;
 
-	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
+	pty = bte_terminal_get_pty (BTE_TERMINAL (screen));
 	if (pty == NULL)
 		return FALSE;
 
