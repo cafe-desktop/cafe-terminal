@@ -44,7 +44,7 @@ const gchar 	*terminal_search_dialog_get_search_text	(CtkWidget   *dialog);
 
 TerminalSearchFlags
 terminal_search_dialog_get_search_flags(CtkWidget   *dialog);
-VteRegex	*terminal_search_dialog_get_regex	(CtkWidget   *dialog);
+BteRegex	*terminal_search_dialog_get_regex	(CtkWidget   *dialog);
 
 G_END_DECLS
 

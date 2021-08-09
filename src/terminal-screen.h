@@ -53,14 +53,14 @@ typedef struct _TerminalScreenPrivate TerminalScreenPrivate;
 
 struct _TerminalScreen
 {
-	VteTerminal parent_instance;
+	BteTerminal parent_instance;
 
 	TerminalScreenPrivate *priv;
 };
 
 struct _TerminalScreenClass
 {
-	VteTerminalClass parent_class;
+	BteTerminalClass parent_class;
 
 	void (* profile_set)        (TerminalScreen *screen,
 	                             TerminalProfile *old_profile);

@@ -63,7 +63,7 @@ typedef struct _TerminalSearchDialogPrivate
 	CtkEntryCompletion *completion;
 
 	/* Cached regex */
-	VteRegex *regex;
+	BteRegex *regex;
 	guint32 regex_compile_flags;
 } TerminalSearchDialogPrivate;
 
@@ -339,7 +339,7 @@ terminal_search_dialog_get_search_flags (CtkWidget *dialog)
 	return flags;
 }
 
-VteRegex *
+BteRegex *
 terminal_search_dialog_get_regex (CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv;
