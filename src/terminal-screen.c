@@ -73,7 +73,7 @@ struct _TerminalScreenPrivate
 	GSList *match_tags;
 	guint launch_child_source_id;
 	gulong bg_image_callback_id;
-	GdkPixbuf *bg_image;
+	CdkPixbuf *bg_image;
 };
 
 enum
@@ -109,7 +109,7 @@ enum
 static void terminal_screen_dispose     (GObject             *object);
 static void terminal_screen_finalize    (GObject             *object);
 static void terminal_screen_drag_data_received (CtkWidget        *widget,
-        GdkDragContext   *context,
+        CdkDragContext   *context,
         gint              x,
         gint              y,
         CtkSelectionData *selection_data,
@@ -121,7 +121,7 @@ static void terminal_screen_system_font_notify_cb (TerminalApp *app,
 static void terminal_screen_change_font (TerminalScreen *screen);
 static gboolean terminal_screen_popup_menu (CtkWidget *widget);
 static gboolean terminal_screen_button_press (CtkWidget *widget,
-        GdkEventButton *event);
+        CdkEventButton *event);
 static void terminal_screen_launch_child_on_idle (TerminalScreen *screen);
 static void terminal_screen_child_exited (BteTerminal *terminal, int status);
 
@@ -138,7 +138,7 @@ static void terminal_screen_cook_title      (TerminalScreen *screen);
 static void terminal_screen_cook_icon_title (TerminalScreen *screen);
 
 static char* terminal_screen_check_match       (TerminalScreen            *screen,
-        GdkEvent             *event,
+        CdkEvent             *event,
         int                  *flavor);
 
 static guint signals[LAST_SIGNAL] = { 0 };
@@ -670,8 +670,8 @@ terminal_screen_image_draw_cb (CtkWidget *widget, cairo_t *cr, void *userdata)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPrivate *priv = screen->priv;
-	GdkPixbuf *bg_image = priv->bg_image;
-	GdkRectangle target_rect;
+	CdkPixbuf *bg_image = priv->bg_image;
+	CdkRectangle target_rect;
 	CtkAllocation alloc;
 	cairo_surface_t *child_surface;
 	cairo_t *child_cr;
@@ -1077,13 +1077,13 @@ update_color_scheme (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
 	TerminalProfile *profile = priv->profile;
-	GdkRGBA colors[TERMINAL_PALETTE_SIZE];
-	const GdkRGBA *bold_rgba;
+	CdkRGBA colors[TERMINAL_PALETTE_SIZE];
+	const CdkRGBA *bold_rgba;
 	TerminalBackgroundType bg_type;
 	const gchar *bg_image_file;
 	double bg_alpha = 1.0;
-	GdkRGBA fg, bg;
-	GdkRGBA *c;
+	CdkRGBA fg, bg;
+	CdkRGBA *c;
 	guint n_colors;
 	CtkStyleContext *context;
 	GError *error = NULL;
@@ -1105,7 +1105,7 @@ update_color_scheme (TerminalScreen *screen)
 
 	if (!terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_USE_THEME_COLORS))
 	{
-		const GdkRGBA *fg_rgba, *bg_rgba;
+		const CdkRGBA *fg_rgba, *bg_rgba;
 
 		fg_rgba = terminal_profile_get_property_boxed (profile, TERMINAL_PROFILE_FOREGROUND_COLOR);
 		bg_rgba = terminal_profile_get_property_boxed (profile, TERMINAL_PROFILE_BACKGROUND_COLOR);
@@ -1401,7 +1401,7 @@ get_child_environment (TerminalScreen *screen,
 	TerminalScreenPrivate *priv = screen->priv;
 	CtkWidget *term = CTK_WIDGET (screen);
 	CtkWidget *window;
-	GdkDisplay *display;
+	CdkDisplay *display;
 	char **env;
 	char *e, *v;
 	GHashTable *env_table;
@@ -1677,10 +1677,10 @@ terminal_screen_popup_menu (CtkWidget *widget)
 
 static gboolean
 terminal_screen_button_press (CtkWidget      *widget,
-                              GdkEventButton *event)
+                              CdkEventButton *event)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
-	gboolean (* button_press_event) (CtkWidget*, GdkEventButton*) =
+	gboolean (* button_press_event) (CtkWidget*, CdkEventButton*) =
 	    CTK_WIDGET_CLASS (terminal_screen_parent_class)->button_press_event;
 	char *matched_string;
 	int matched_flavor = 0;
@@ -1688,7 +1688,7 @@ terminal_screen_button_press (CtkWidget      *widget,
 
 	state = event->state & ctk_accelerator_get_default_mod_mask ();
 
-	matched_string = terminal_screen_check_match (screen, (GdkEvent*)event, &matched_flavor);
+	matched_string = terminal_screen_check_match (screen, (CdkEvent*)event, &matched_flavor);
 
 	if (matched_string != NULL &&
 	        (event->button == 1 || event->button == 2) &&
@@ -2014,7 +2014,7 @@ terminal_screen_set_user_title (TerminalScreen *screen,
 
 static void
 terminal_screen_drag_data_received (CtkWidget        *widget,
-                                    GdkDragContext   *context,
+                                    CdkDragContext   *context,
                                     gint              x,
                                     gint              y,
                                     CtkSelectionData *selection_data,
@@ -2024,7 +2024,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPrivate *priv = screen->priv;
 	const guchar *selection_data_data;
-	GdkAtom selection_data_target;
+	CdkAtom selection_data_target;
 	gint selection_data_length, selection_data_format;
 
 	selection_data_data = ctk_selection_data_get_data (selection_data);
@@ -2040,7 +2040,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 		tmp = context->targets;
 		while (tmp != NULL)
 		{
-			GdkAtom atom = GDK_POINTER_TO_ATOM (tmp->data);
+			CdkAtom atom = GDK_POINTER_TO_ATOM (tmp->data);
 
 			g_print ("Target: %s\n", cdk_atom_name (atom));
 
@@ -2083,7 +2083,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 		case TARGET_COLOR:
 		{
 			guint16 *data = (guint16 *)selection_data_data;
-			GdkRGBA color;
+			CdkRGBA color;
 
 			/* We accept drops with the wrong format, since the KDE color
 			 * chooser incorrectly drops application/x-color with format 8.
@@ -2351,7 +2351,7 @@ terminal_screen_url_match_remove (TerminalScreen *screen)
 
 static char*
 terminal_screen_check_match (TerminalScreen *screen,
-                             GdkEvent  *event,
+                             CdkEvent  *event,
                              int       *flavor)
 {
 	TerminalScreenPrivate *priv = screen->priv;

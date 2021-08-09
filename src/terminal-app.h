@@ -106,7 +106,7 @@ void terminal_app_new_profile (TerminalApp     *app,
                                CtkWindow       *transient_parent);
 
 TerminalWindow * terminal_app_new_window   (TerminalApp *app,
-        GdkScreen *screen);
+        CdkScreen *screen);
 
 TerminalScreen *terminal_app_new_terminal (TerminalApp     *app,
         TerminalWindow  *window,
@@ -118,7 +118,7 @@ TerminalScreen *terminal_app_new_terminal (TerminalApp     *app,
         double           zoom);
 
 TerminalWindow *terminal_app_get_current_window (TerminalApp *app,
-                                                 GdkScreen *screen,
+                                                 CdkScreen *screen,
                                                  int curr_workspace);
 
 void terminal_app_manage_profiles (TerminalApp     *app,

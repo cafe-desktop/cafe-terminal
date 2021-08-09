@@ -796,8 +796,8 @@ object_change_notify_cb (PropertyChange *change)
 	}
 	else if (CTK_IS_COLOR_CHOOSER (widget))
 	{
-		GdkRGBA *color;
-		GdkRGBA old_color;
+		CdkRGBA *color;
+		CdkRGBA old_color;
 
 		g_object_get (object, object_prop, &color, NULL);
 		ctk_color_chooser_get_rgba (CTK_COLOR_CHOOSER (widget), &old_color);
@@ -892,7 +892,7 @@ widget_change_notify_cb (PropertyChange *change)
 	}
 	else if (CTK_IS_COLOR_CHOOSER (widget))
 	{
-		GdkRGBA color;
+		CdkRGBA color;
 
 		ctk_color_chooser_get_rgba (CTK_COLOR_CHOOSER (widget), &color);
 		g_object_set (object, object_prop, &color, NULL);
@@ -988,11 +988,11 @@ terminal_util_bind_object_property_to_widget (GObject *object,
  * directly.
  */
 void
-terminal_util_x11_clear_demands_attention (GdkWindow *window)
+terminal_util_x11_clear_demands_attention (CdkWindow *window)
 {
 
-	GdkScreen *screen = cdk_window_get_screen (window);
-	GdkDisplay *display = cdk_screen_get_display (screen);
+	CdkScreen *screen = cdk_window_get_screen (window);
+	CdkDisplay *display = cdk_screen_get_display (screen);
 	XClientMessageEvent xclient;
 
 	memset (&xclient, 0, sizeof (xclient));

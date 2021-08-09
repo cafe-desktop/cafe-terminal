@@ -34,8 +34,8 @@ typedef struct _TerminalColorScheme TerminalColorScheme;
 struct _TerminalColorScheme
 {
 	const char *name;
-	const GdkRGBA foreground;
-	const GdkRGBA background;
+	const CdkRGBA foreground;
+	const CdkRGBA background;
 };
 
 static const TerminalColorScheme color_schemes[] =
@@ -369,7 +369,7 @@ profile_colors_notify_scheme_combo_cb (TerminalProfile *profile,
                                        GParamSpec *pspec,
                                        CtkComboBox *combo)
 {
-	const GdkRGBA *fg, *bg;
+	const CdkRGBA *fg, *bg;
 	guint i;
 
 	fg = terminal_profile_get_property_boxed (profile, TERMINAL_PROFILE_FOREGROUND_COLOR);
@@ -438,7 +438,7 @@ palette_color_notify_cb (CtkColorChooser *button,
                          TerminalProfile *profile)
 {
 	CtkWidget *editor;
-	GdkRGBA color;
+	CdkRGBA color;
 	guint i;
 
 	ctk_color_chooser_get_rgba (button, &color);
@@ -455,7 +455,7 @@ profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
                                         GParamSpec *pspec,
                                         CtkWidget *editor)
 {
-	GdkRGBA colors[TERMINAL_PALETTE_SIZE];
+	CdkRGBA colors[TERMINAL_PALETTE_SIZE];
 	guint n_colors, i;
 
 	n_colors = G_N_ELEMENTS (colors);

@@ -147,20 +147,20 @@ struct _TerminalWindowPrivate
 static void terminal_window_dispose     (GObject             *object);
 static void terminal_window_finalize    (GObject             *object);
 static gboolean terminal_window_state_event (CtkWidget            *widget,
-        GdkEventWindowState  *event);
+        CdkEventWindowState  *event);
 
 static gboolean terminal_window_delete_event (CtkWidget *widget,
-        GdkEvent *event,
+        CdkEvent *event,
         gpointer data);
 static gboolean terminal_window_focus_in_event (CtkWidget *widget,
-                                                GdkEventFocus *event,
+                                                CdkEventFocus *event,
                                                 gpointer data);
 
 static gboolean notebook_button_press_cb     (CtkWidget *notebook,
-        GdkEventButton *event,
+        CdkEventButton *event,
         GSettings *settings);
 static gboolean window_key_press_cb     (CtkWidget *notebook,
-        GdkEventKey *event,
+        CdkEventKey *event,
         GSettings *settings);
 static gboolean notebook_popup_menu_cb       (CtkWidget *notebook,
         TerminalWindow *window);
@@ -177,7 +177,7 @@ static void notebook_page_removed_callback   (CtkWidget       *notebook,
         guint            page_num,
         TerminalWindow  *window);
 static gboolean notebook_scroll_event_cb     (CtkWidget      *notebook,
-                                              GdkEventScroll *event,
+                                              CdkEventScroll *event,
                                               TerminalWindow *window);
 
 /* Menu action callbacks */
@@ -272,7 +272,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (TerminalWindow, terminal_window, CTK_TYPE_WINDOW)
 static void
 app_setting_notify_cb (TerminalApp *app,
                        GParamSpec *pspec,
-                       GdkScreen *screen)
+                       CdkScreen *screen)
 {
     CtkSettings *settings;
     const char *prop_name;
@@ -316,7 +316,7 @@ app_setting_notify_cb (TerminalApp *app,
 }
 
 static void
-app_setting_notify_destroy_cb (GdkScreen *screen)
+app_setting_notify_destroy_cb (CdkScreen *screen)
 {
     g_signal_handlers_disconnect_by_func (terminal_app_get (),
                                           G_CALLBACK (app_setting_notify_cb),
@@ -1161,7 +1161,7 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
 
 static void
 update_edit_menu_cb (CtkClipboard *clipboard,
-                     GdkAtom *targets,
+                     CdkAtom *targets,
                      int n_targets,
                      TerminalWindow *window)
 {
@@ -1411,7 +1411,7 @@ popup_menu_deactivate_callback (CtkWidget *popup,
 
 static void
 popup_clipboard_targets_received_cb (CtkClipboard *clipboard,
-                                     GdkAtom *targets,
+                                     CdkAtom *targets,
                                      int n_targets,
                                      TerminalScreenPopupInfo *info)
 {
@@ -1422,9 +1422,9 @@ popup_clipboard_targets_received_cb (CtkClipboard *clipboard,
     CtkAction *action;
     gboolean can_paste, can_paste_uris, show_link, show_email_link, show_call_link, show_input_method_menu;
     int n_pages;
-    GdkEvent *event;
-    GdkSeat *seat;
-    GdkDevice *device;
+    CdkEvent *event;
+    CdkSeat *seat;
+    CdkDevice *device;
 
     if (!ctk_widget_get_realized (CTK_WIDGET (screen)))
     {
@@ -1499,7 +1499,7 @@ popup_clipboard_targets_received_cb (CtkClipboard *clipboard,
 
     cdk_event_set_device (event, device);
 
-    ctk_menu_popup_at_pointer (CTK_MENU (popup_menu), (const GdkEvent*) event);
+    ctk_menu_popup_at_pointer (CTK_MENU (popup_menu), (const CdkEvent*) event);
 
     cdk_event_free (event);
 }
@@ -1559,7 +1559,7 @@ static gboolean
 terminal_window_accel_activate_cb (CtkAccelGroup  *accel_group,
                                    GObject        *acceleratable,
                                    guint           keyval,
-                                   GdkModifierType modifier,
+                                   CdkModifierType modifier,
                                    TerminalWindow *window)
 {
     CtkAccelGroupEntry *entries;
@@ -1623,9 +1623,9 @@ terminal_window_realize (CtkWidget *widget)
     TerminalWindow *window = TERMINAL_WINDOW (widget);
     TerminalWindowPrivate *priv = window->priv;
 #if defined(GDK_WINDOWING_X11) || defined(GDK_WINDOWING_WAYLAND)
-    GdkScreen *screen;
+    CdkScreen *screen;
     CtkAllocation widget_allocation;
-    GdkVisual *visual;
+    CdkVisual *visual;
 
     ctk_widget_get_allocation (widget, &widget_allocation);
     screen = ctk_widget_get_screen (CTK_WIDGET (window));
@@ -1659,11 +1659,11 @@ terminal_window_realize (CtkWidget *widget)
 
 static gboolean
 terminal_window_map_event (CtkWidget    *widget,
-                           GdkEventAny  *event)
+                           CdkEventAny  *event)
 {
     TerminalWindow *window = TERMINAL_WINDOW (widget);
     TerminalWindowPrivate *priv = window->priv;
-    gboolean (* map_event) (CtkWidget *, GdkEventAny *) =
+    gboolean (* map_event) (CtkWidget *, CdkEventAny *) =
         CTK_WIDGET_CLASS (terminal_window_parent_class)->map_event;
     CtkAllocation widget_allocation;
 
@@ -1692,9 +1692,9 @@ terminal_window_map_event (CtkWidget    *widget,
 
 static gboolean
 terminal_window_state_event (CtkWidget            *widget,
-                             GdkEventWindowState  *event)
+                             CdkEventWindowState  *event)
 {
-    gboolean (* window_state_event) (CtkWidget *, GdkEventWindowState *event) =
+    gboolean (* window_state_event) (CtkWidget *, CdkEventWindowState *event) =
         CTK_WIDGET_CLASS (terminal_window_parent_class)->window_state_event;
 
     if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
@@ -1721,7 +1721,7 @@ terminal_window_state_event (CtkWidget            *widget,
 
 #ifdef GDK_WINDOWING_X11
 static void
-terminal_window_window_manager_changed_cb (GdkScreen *screen,
+terminal_window_window_manager_changed_cb (CdkScreen *screen,
         TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
@@ -1737,7 +1737,7 @@ terminal_window_window_manager_changed_cb (GdkScreen *screen,
 
 static void
 terminal_window_screen_update (TerminalWindow *window,
-                               GdkScreen *screen)
+                               CdkScreen *screen)
 {
     TerminalApp *app;
 
@@ -1767,12 +1767,12 @@ terminal_window_screen_update (TerminalWindow *window,
 
 static void
 terminal_window_screen_changed (CtkWidget *widget,
-                                GdkScreen *previous_screen)
+                                CdkScreen *previous_screen)
 {
     TerminalWindow *window = TERMINAL_WINDOW (widget);
-    void (* screen_changed) (CtkWidget *, GdkScreen *) =
+    void (* screen_changed) (CtkWidget *, CdkScreen *) =
         CTK_WIDGET_CLASS (terminal_window_parent_class)->screen_changed;
-    GdkScreen *screen;
+    CdkScreen *screen;
 
     if (screen_changed)
         screen_changed (widget, previous_screen);
@@ -2296,7 +2296,7 @@ terminal_window_dispose (GObject *object)
     TerminalApp *app;
     CtkClipboard *clipboard;
 #ifdef GDK_WINDOWING_X11
-    GdkScreen *screen;
+    CdkScreen *screen;
 #endif
 
     remove_popup_info (window);
@@ -2360,7 +2360,7 @@ terminal_window_finalize (GObject *object)
 
 static gboolean
 terminal_window_delete_event (CtkWidget *widget,
-                              GdkEvent *event,
+                              CdkEvent *event,
                               gpointer data)
 {
     return confirm_close_window_or_tab (TERMINAL_WINDOW (widget), NULL);
@@ -2368,7 +2368,7 @@ terminal_window_delete_event (CtkWidget *widget,
 
 static gboolean
 terminal_window_focus_in_event (CtkWidget *widget,
-                                GdkEventFocus *event,
+                                CdkEventFocus *event,
                                 gpointer data)
 {
   TerminalWindow *window = TERMINAL_WINDOW (widget);
@@ -2394,7 +2394,7 @@ terminal_window_show (CtkWidget *widget)
     {
         terminal_window_update_copy_selection (priv->active_screen, window);
 #if 0
-        /* At this point, we have our GdkScreen, and hence the right
+        /* At this point, we have our CdkScreen, and hence the right
          * font size, so we can go ahead and size the window. */
         terminal_window_update_size (window, priv->active_screen, FALSE);
 #endif
@@ -2728,8 +2728,8 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
     unsigned int force_grid_width = 0, force_grid_height = 0;
     int grid_width, grid_height;
     gint pixel_width, pixel_height;
-    GdkWindow *cdk_window;
-    GdkGravity pos_gravity;
+    CdkWindow *cdk_window;
+    CdkGravity pos_gravity;
 
     cdk_window = ctk_widget_get_window (CTK_WIDGET (window));
     result = TRUE;
@@ -2859,7 +2859,7 @@ terminal_window_get_active (TerminalWindow *window)
 
 static gboolean
 notebook_button_press_cb (CtkWidget *widget,
-                          GdkEventButton *event,
+                          CdkEventButton *event,
                           GSettings *settings)
 {
     TerminalWindow *window = TERMINAL_WINDOW (ctk_widget_get_toplevel (widget));
@@ -2932,7 +2932,7 @@ notebook_button_press_cb (CtkWidget *widget,
 
 static gboolean
 window_key_press_cb (CtkWidget *widget,
-                     GdkEventKey *event,
+                     CdkEventKey *event,
                      GSettings *settings)
 {
     if (g_settings_get_boolean (settings, "ctrl-tab-switch-tabs") &&
@@ -3230,7 +3230,7 @@ terminal_window_update_copy_selection (TerminalScreen *screen,
 
 static gboolean
 notebook_scroll_event_cb (CtkWidget      *widget,
-                          GdkEventScroll *event,
+                          CdkEventScroll *event,
                           TerminalWindow *window)
 {
   CtkNotebook *notebook = CTK_NOTEBOOK (widget);
@@ -3240,7 +3240,7 @@ notebook_scroll_event_cb (CtkWidget      *widget,
   if (child == NULL)
     return FALSE;
 
-  event_widget = ctk_get_event_widget ((GdkEvent *) event);
+  event_widget = ctk_get_event_widget ((CdkEvent *) event);
 
   /* Ignore scroll events from the content of the page */
   if (event_widget == NULL ||
@@ -3295,7 +3295,7 @@ terminal_window_update_geometry (TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkWidget *widget;
-    GdkGeometry hints;
+    CdkGeometry hints;
     CtkBorder padding;
     CtkRequisition toplevel_request, vbox_request, widget_request;
     int grid_width, grid_height;
@@ -3742,7 +3742,7 @@ clipboard_uris_received_cb (CtkClipboard *clipboard,
 
 static void
 clipboard_targets_received_cb (CtkClipboard *clipboard,
-                               GdkAtom *targets,
+                               CdkAtom *targets,
                                int n_targets,
                                PasteData *data)
 {
@@ -4011,7 +4011,7 @@ search_find_response_callback (CtkWidget *dialog,
 
 static gboolean
 search_dialog_delete_event_cb (CtkWidget   *widget,
-                               GdkEventAny *event,
+                               CdkEventAny *event,
                                gpointer     user_data)
 {
     /* prevent destruction */
@@ -4422,7 +4422,7 @@ terminal_window_save_state (TerminalWindow *window,
     TerminalWindowPrivate *priv = window->priv;
     GList *tabs, *lt;
     TerminalScreen *active_screen;
-    GdkWindowState state;
+    CdkWindowState state;
     GPtrArray *tab_names_array;
     char **tab_names;
     gsize len;

@@ -127,7 +127,7 @@ typedef struct
 	const char *gsettings_key;
 	const char *accel_path;
 	/* last values received from GSettings */
-	GdkModifierType gsettings_mask;
+	CdkModifierType gsettings_mask;
 	guint gsettings_keyval;
 	GClosure *closure;
 	/* have gotten a notification from ctk */
@@ -365,17 +365,17 @@ static void keys_change_notify (GSettings *settings,
 
 static void accel_changed_callback (CtkAccelGroup  *accel_group,
                                     guint           keyval,
-                                    GdkModifierType modifier,
+                                    CdkModifierType modifier,
                                     GClosure       *accel_closure,
                                     gpointer        data);
 
 static gboolean binding_from_string (const char      *str,
                                      guint           *accelerator_key,
-                                     GdkModifierType *accelerator_mods);
+                                     CdkModifierType *accelerator_mods);
 
 static gboolean binding_from_value  (GVariant        *value,
                                      guint           *accelerator_key,
-                                     GdkModifierType *accelerator_mods);
+                                     CdkModifierType *accelerator_mods);
 
 static gboolean sync_idle_cb (gpointer data);
 
@@ -390,7 +390,7 @@ static GSettings *settings_keybindings;
 
 static char*
 binding_name (guint            keyval,
-              GdkModifierType  mask)
+              CdkModifierType  mask)
 {
 	if (keyval != 0)
 		return ctk_accelerator_name (keyval, mask);
@@ -400,7 +400,7 @@ binding_name (guint            keyval,
 
 static char*
 binding_display_name (guint            keyval,
-                      GdkModifierType  mask)
+                      CdkModifierType  mask)
 {
 	if (keyval != 0)
 		return ctk_accelerator_get_label (keyval, mask);
@@ -503,7 +503,7 @@ keys_change_notify (GSettings *settings,
 {
 	GVariant *val;
 	KeyEntry *key_entry;
-	GdkModifierType mask;
+	CdkModifierType mask;
 	guint keyval;
 
 	_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
@@ -583,7 +583,7 @@ keys_change_notify (GSettings *settings,
 static void
 accel_changed_callback (CtkAccelGroup  *accel_group,
                         guint           keyval,
-                        GdkModifierType modifier,
+                        CdkModifierType modifier,
                         GClosure       *accel_closure,
                         gpointer        data)
 {
@@ -621,7 +621,7 @@ accel_changed_callback (CtkAccelGroup  *accel_group,
 static gboolean
 binding_from_string (const char      *str,
                      guint           *accelerator_key,
-                     GdkModifierType *accelerator_mods)
+                     CdkModifierType *accelerator_mods)
 {
 	if (str == NULL ||
 	        strcmp (str, "disabled") == 0)
@@ -642,7 +642,7 @@ binding_from_string (const char      *str,
 static gboolean
 binding_from_value (GVariant         *value,
                     guint            *accelerator_key,
-                    GdkModifierType  *accelerator_mods)
+                    CdkModifierType  *accelerator_mods)
 {
 	if (value == NULL)
 	{
@@ -791,7 +791,7 @@ accel_compare_func (CtkTreeModel *model,
 static void
 treeview_accel_changed_cb (CtkAccelGroup  *accel_group,
                            guint keyval,
-                           GdkModifierType modifier,
+                           CdkModifierType modifier,
                            GClosure *accel_closure,
                            CtkTreeModel *model)
 {
@@ -802,7 +802,7 @@ static void
 accel_edited_callback (CtkCellRendererAccel *cell,
                        gchar                *path_string,
                        guint                 keyval,
-                       GdkModifierType       mask,
+                       CdkModifierType       mask,
                        guint                 hardware_keycode,
                        CtkTreeView          *view)
 {
