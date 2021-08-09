@@ -480,7 +480,7 @@ ensure_pixbuf_property (TerminalProfile *profile,
 	if (!path)
 		goto failed;
 
-	pixbuf = cdk_pixbuf_new_from_file (path, &error);
+	pixbuf = gdk_pixbuf_new_from_file (path, &error);
 	if (!pixbuf)
 	{
 		_terminal_debug_print (TERMINAL_DEBUG_PROFILE,
