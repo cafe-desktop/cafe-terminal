@@ -25,11 +25,11 @@
 
 #include <gio/gio.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
+#include <cdk-pixbuf/cdk-pixbuf.h>
 #include <cairo.h>
 
 #include "terminal-accels.h"
@@ -693,10 +693,10 @@ terminal_screen_image_draw_cb (CtkWidget *widget, cairo_t *cr, void *userdata)
 	ctk_widget_draw (widget, child_cr);
 	g_signal_handler_unblock (screen, priv->bg_image_callback_id);
 
-	gdk_cairo_set_source_pixbuf (cr, bg_image, 0, 0);
+	cdk_cairo_set_source_pixbuf (cr, bg_image, 0, 0);
 	cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
 
-	gdk_cairo_rectangle (cr, &target_rect);
+	cdk_cairo_rectangle (cr, &target_rect);
 	cairo_fill (cr);
 
 	cairo_set_source_surface (cr, child_surface, 0, 0);
@@ -1097,7 +1097,7 @@ update_color_scheme (TerminalScreen *screen)
 			       CTK_STYLE_PROPERTY_BACKGROUND_COLOR,
 			       &c, NULL);
 	bg = *c;
-	gdk_rgba_free (c);
+	cdk_rgba_free (c);
 
 	ctk_style_context_restore (context);
 
@@ -1137,7 +1137,7 @@ update_color_scheme (TerminalScreen *screen)
 			priv->bg_image_callback_id = g_signal_connect (screen, "draw", G_CALLBACK (terminal_screen_image_draw_cb), NULL);
 
 		g_clear_object (&priv->bg_image);
-		priv->bg_image = gdk_pixbuf_new_from_file (bg_image_file, &error);
+		priv->bg_image = cdk_pixbuf_new_from_file (bg_image_file, &error);
 
 		if (error) {
 			g_printerr ("Failed to load background image: %s\n", error->message);
@@ -1414,7 +1414,7 @@ get_child_environment (TerminalScreen *screen,
 	window = ctk_widget_get_toplevel (term);
 	g_assert (window != NULL);
 	g_assert (ctk_widget_is_toplevel (window));
-	display = gdk_window_get_display (ctk_widget_get_window (window));
+	display = cdk_window_get_display (ctk_widget_get_window (window));
 
 	env_table = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
@@ -1446,7 +1446,7 @@ get_child_environment (TerminalScreen *screen,
 
 	/* FIXME: moving the tab between windows, or the window between displays will make the next two invalid... */
 	g_hash_table_replace (env_table, g_strdup ("WINDOWID"), g_strdup_printf ("%ld", GDK_WINDOW_XID (ctk_widget_get_window (window))));
-	g_hash_table_replace (env_table, g_strdup ("DISPLAY"), g_strdup (gdk_display_get_name (display)));
+	g_hash_table_replace (env_table, g_strdup ("DISPLAY"), g_strdup (cdk_display_get_name (display)));
 
 	g_settings_schema_source_list_schemas (g_settings_schema_source_get_default (), TRUE, &list_schemas, NULL);
 
@@ -2042,12 +2042,12 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 		{
 			GdkAtom atom = GDK_POINTER_TO_ATOM (tmp->data);
 
-			g_print ("Target: %s\n", gdk_atom_name (atom));
+			g_print ("Target: %s\n", cdk_atom_name (atom));
 
 			tmp = tmp->next;
 		}
 
-		g_print ("Chosen target: %s\n", gdk_atom_name (selection_data->target));
+		g_print ("Chosen target: %s\n", cdk_atom_name (selection_data->target));
 	}
 #endif
 

@@ -311,7 +311,7 @@ static GQuark gsettings_key_quark;
 
 G_DEFINE_TYPE_WITH_PRIVATE (TerminalProfile, terminal_profile, G_TYPE_OBJECT);
 
-/* gdk_rgba_equal is too strict! */
+/* cdk_rgba_equal is too strict! */
 static gboolean
 rgba_equal (const GdkRGBA *a,
             const GdkRGBA *b)
@@ -480,7 +480,7 @@ ensure_pixbuf_property (TerminalProfile *profile,
 	if (!path)
 		goto failed;
 
-	pixbuf = gdk_pixbuf_new_from_file (path, &error);
+	pixbuf = cdk_pixbuf_new_from_file (path, &error);
 	if (!pixbuf)
 	{
 		_terminal_debug_print (TERMINAL_DEBUG_PROFILE,
@@ -613,7 +613,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
 			goto out;
 
-		if (!gdk_rgba_parse (&color, g_variant_get_string (settings_value, NULL)))
+		if (!cdk_rgba_parse (&color, g_variant_get_string (settings_value, NULL)))
 			goto out;
 
 		g_value_set_boxed (&value, &color);
@@ -659,7 +659,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 		colors = g_new0 (GdkRGBA, n_colors);
 		for (i = 0; i < n_colors; ++i)
 		{
-			if (!gdk_rgba_parse (&colors[i], color_strings[i]))
+			if (!cdk_rgba_parse (&colors[i], color_strings[i]))
 				continue; /* ignore errors */
 		}
 		g_strfreev (color_strings);

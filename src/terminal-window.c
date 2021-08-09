@@ -22,11 +22,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctk/ctk.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 #ifdef GDK_WINDOWING_X11
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #endif
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 
 #include "terminal-accels.h"
 #include "terminal-app.h"
@@ -543,7 +543,7 @@ find_tab_num_at_pos (CtkNotebook *notebook,
             continue;
         }
 
-        gdk_window_get_origin (ctk_widget_get_window (tab), &x_root, &y_root);
+        cdk_window_get_origin (ctk_widget_get_window (tab), &x_root, &y_root);
 
         ctk_widget_get_allocation (tab, &tab_allocation);
         max_x = x_root + tab_allocation.x + tab_allocation.width;
@@ -1206,7 +1206,7 @@ screen_resize_window_cb (TerminalScreen *screen,
     /* Don't do anything if we're maximised or fullscreened */
     // FIXME: realized && ... instead?
     if (!ctk_widget_get_realized (widget) ||
-            (gdk_window_get_state (ctk_widget_get_window (widget)) & (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_FULLSCREEN)) != 0)
+            (cdk_window_get_state (ctk_widget_get_window (widget)) & (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_FULLSCREEN)) != 0)
         return;
 
     bte_terminal_set_size (terminal, width, height);
@@ -1493,15 +1493,15 @@ popup_clipboard_targets_received_cb (CtkClipboard *clipboard,
 
     event = ctk_get_current_event ();
 
-    seat = gdk_display_get_default_seat (gdk_display_get_default());
+    seat = cdk_display_get_default_seat (cdk_display_get_default());
 
-    device = gdk_seat_get_pointer (seat);
+    device = cdk_seat_get_pointer (seat);
 
-    gdk_event_set_device (event, device);
+    cdk_event_set_device (event, device);
 
     ctk_menu_popup_at_pointer (CTK_MENU (popup_menu), (const GdkEvent*) event);
 
-    gdk_event_free (event);
+    cdk_event_free (event);
 }
 
 static void
@@ -1630,8 +1630,8 @@ terminal_window_realize (CtkWidget *widget)
     ctk_widget_get_allocation (widget, &widget_allocation);
     screen = ctk_widget_get_screen (CTK_WIDGET (window));
 
-    if (gdk_screen_is_composited (screen) &&
-        (visual = gdk_screen_get_rgba_visual (screen)) != NULL)
+    if (cdk_screen_is_composited (screen) &&
+        (visual = cdk_screen_get_rgba_visual (screen)) != NULL)
     {
           /* Set RGBA visual if possible so BTE can use real transparency */
         ctk_widget_set_visual (CTK_WIDGET (widget), visual);
@@ -1639,7 +1639,7 @@ terminal_window_realize (CtkWidget *widget)
     }
     else
     {
-        ctk_widget_set_visual (CTK_WIDGET (window), gdk_screen_get_system_visual (screen));
+        ctk_widget_set_visual (CTK_WIDGET (window), cdk_screen_get_system_visual (screen));
         priv->have_argb_visual = FALSE;
     }
 #endif
@@ -1728,7 +1728,7 @@ terminal_window_window_manager_changed_cb (GdkScreen *screen,
     CtkAction *action;
     gboolean supports_fs;
 
-    supports_fs = gdk_x11_screen_supports_net_wm_hint (screen, gdk_atom_intern ("_NET_WM_STATE_FULLSCREEN", FALSE));
+    supports_fs = cdk_x11_screen_supports_net_wm_hint (screen, cdk_atom_intern ("_NET_WM_STATE_FULLSCREEN", FALSE));
 
     action = ctk_action_group_get_action (priv->action_group, "ViewFullscreen");
     ctk_action_set_sensitive (action, supports_fs);
@@ -2477,7 +2477,7 @@ sync_screen_icon_title (TerminalScreen *screen,
     if (!terminal_screen_get_icon_title_set (screen))
         return;
 
-    gdk_window_set_icon_name (ctk_widget_get_window (CTK_WIDGET (window)), terminal_screen_get_icon_title (screen));
+    cdk_window_set_icon_name (ctk_widget_get_window (CTK_WIDGET (window)), terminal_screen_get_icon_title (screen));
 
     priv->icon_title_set = TRUE;
 }
@@ -2506,7 +2506,7 @@ sync_screen_icon_title_set (TerminalScreen *screen,
     /* FIXME: Once ctk+ bug 535557 is fixed, use that to unset the icon title. */
 
     g_object_set_qdata (G_OBJECT (ctk_widget_get_window (CTK_WIDGET (window))),
-                        g_quark_from_static_string ("gdk-icon-name-set"),
+                        g_quark_from_static_string ("cdk-icon-name-set"),
                         GUINT_TO_POINTER (FALSE));
     priv->icon_title_set = FALSE;
 
@@ -2728,14 +2728,14 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
     unsigned int force_grid_width = 0, force_grid_height = 0;
     int grid_width, grid_height;
     gint pixel_width, pixel_height;
-    GdkWindow *gdk_window;
+    GdkWindow *cdk_window;
     GdkGravity pos_gravity;
 
-    gdk_window = ctk_widget_get_window (CTK_WIDGET (window));
+    cdk_window = ctk_widget_get_window (CTK_WIDGET (window));
     result = TRUE;
 
-    if (gdk_window != NULL &&
-        (gdk_window_get_state (gdk_window) &
+    if (cdk_window != NULL &&
+        (cdk_window_get_state (cdk_window) &
          (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_TILED)))
     {
         /* Don't adjust the size of maximized or tiled (snapped, half-maximized)
@@ -2805,11 +2805,11 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
 
     if (pos_gravity == GDK_GRAVITY_SOUTH_EAST ||
         pos_gravity == GDK_GRAVITY_NORTH_EAST)
-        force_pos_x = WidthOfScreen (gdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
+        force_pos_x = WidthOfScreen (cdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
                       pixel_width + force_pos_x;
     if (pos_gravity == GDK_GRAVITY_SOUTH_WEST ||
         pos_gravity == GDK_GRAVITY_SOUTH_EAST)
-        force_pos_y = HeightOfScreen (gdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
+        force_pos_y = HeightOfScreen (cdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
                       pixel_height + force_pos_y;
 
     /* we don't let you put a window offscreen; maybe some people would
@@ -4434,7 +4434,7 @@ terminal_window_save_state (TerminalWindow *window,
     g_key_file_set_string (key_file, group, TERMINAL_CONFIG_WINDOW_PROP_ROLE,
                            ctk_window_get_role (CTK_WINDOW (window)));
 
-    state = gdk_window_get_state (ctk_widget_get_window (CTK_WIDGET (window)));
+    state = cdk_window_get_state (ctk_widget_get_window (CTK_WIDGET (window)));
     if (state & GDK_WINDOW_STATE_MAXIMIZED)
         g_key_file_set_boolean (key_file, group, TERMINAL_CONFIG_WINDOW_PROP_MAXIMIZED, TRUE);
     if (state & GDK_WINDOW_STATE_FULLSCREEN)

@@ -31,7 +31,7 @@
 #include <unistd.h>
 
 #include <glib/gi18n.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #include <ctk/ctk.h>
 
 struct EggDesktopFile
@@ -953,7 +953,7 @@ start_startup_notification (GdkDisplay     *display,
 	}
 
 	if (launch_time == (guint32)-1)
-		launch_time = gdk_x11_display_get_user_time (display);
+		launch_time = cdk_x11_display_get_user_time (display);
 	startup_id = g_strdup_printf ("%s-%lu-%s-%s-%d_TIME%lu",
 	                              g_get_prgname (),
 	                              (unsigned long)getpid (),
@@ -966,7 +966,7 @@ start_startup_notification (GdkDisplay     *display,
 	screen_str = g_strdup_printf ("%d", screen);
 	workspace_str = workspace == -1 ? NULL : g_strdup_printf ("%d", workspace);
 
-	gdk_x11_display_broadcast_startup_message (display, "new",
+	cdk_x11_display_broadcast_startup_message (display, "new",
 	        "ID", startup_id,
 	        "NAME", desktop_file->name,
 	        "SCREEN", screen_str,
@@ -989,7 +989,7 @@ static void
 end_startup_notification (GdkDisplay *display,
                           const char *startup_id)
 {
-	gdk_x11_display_broadcast_startup_message (display, "remove",
+	cdk_x11_display_broadcast_startup_message (display, "remove",
 	        "ID", startup_id,
 	        NULL);
 }
@@ -1181,8 +1181,8 @@ egg_desktop_file_launchv (EggDesktopFile *desktop_file,
 
 	if (screen)
 	{
-		display = gdk_screen_get_display (screen);
-		char *display_name = g_strdup (gdk_display_get_name (display));
+		display = cdk_screen_get_display (screen);
+		char *display_name = g_strdup (cdk_display_get_name (display));
 		char *display_env = g_strdup_printf ("DISPLAY=%s", display_name);
 		env = array_putenv (env, display_env);
 		g_free (display_name);
@@ -1190,10 +1190,10 @@ egg_desktop_file_launchv (EggDesktopFile *desktop_file,
 	}
 	else
 	{
-		display = gdk_display_get_default ();
-		screen = gdk_display_get_default_screen (display);
+		display = cdk_display_get_default ();
+		screen = cdk_display_get_default_screen (display);
 	}
-	screen_num = gdk_x11_screen_get_screen_number (screen);
+	screen_num = cdk_x11_screen_get_screen_number (screen);
 
 	translated_documents = translate_document_list (desktop_file, documents);
 	docs = translated_documents;

@@ -31,8 +31,8 @@
 #include <glib/gstdio.h>
 #include <gio/gio.h>
 
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 
 #include "eggsmclient.h"
 
@@ -512,12 +512,12 @@ get_initial_workspace (void)
   GdkAtom atom;
   GdkAtom cardinal_atom;
 
-  window = gdk_get_default_root_window();
+  window = cdk_get_default_root_window();
 
-  atom = gdk_atom_intern_static_string ("_NET_CURRENT_DESKTOP");
-  cardinal_atom = gdk_atom_intern_static_string ("CARDINAL");
+  atom = cdk_atom_intern_static_string ("_NET_CURRENT_DESKTOP");
+  cardinal_atom = cdk_atom_intern_static_string ("CARDINAL");
 
-  if (gdk_property_get (window, atom, cardinal_atom, 0, 8, FALSE, NULL, NULL, NULL, &data)) {
+  if (cdk_property_get (window, atom, cardinal_atom, 0, 8, FALSE, NULL, NULL, NULL, &data)) {
 	  ret = *(int *)data;
 	  g_free (data);
   }
@@ -556,7 +556,7 @@ main (int argc, char **argv)
 
 	working_directory = g_get_current_dir ();
 
-	gdk_set_allowed_backends ("x11");
+	cdk_set_allowed_backends ("x11");
 
 	/* Now change directory to $HOME so we don't prevent unmounting, e.g. if the
 	 * factory is started by caja-open-terminal. See bug #565328.
@@ -597,8 +597,8 @@ main (int argc, char **argv)
 	g_unsetenv ("GIO_LAUNCHED_DESKTOP_FILE_PID");
 	g_unsetenv ("GIO_LAUNCHED_DESKTOP_FILE");
 
-	display = gdk_display_get_default ();
-	display_name = gdk_display_get_name (display);
+	display = cdk_display_get_default ();
+	display_name = cdk_display_get_name (display);
 	options->display_name = g_strdup (display_name);
 
 	if (options->startup_id == NULL)
@@ -606,7 +606,7 @@ main (int argc, char **argv)
 		/* Create a fake one containing a timestamp that we can use */
 		Time timestamp;
 
-		timestamp = slowly_and_stupidly_obtain_timestamp (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()));
+		timestamp = slowly_and_stupidly_obtain_timestamp (GDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
 
 		options->startup_id = g_strdup_printf ("_TIME%lu", timestamp);
 	}
