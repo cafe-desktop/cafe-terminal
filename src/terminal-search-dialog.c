@@ -50,17 +50,17 @@ get_quark (void)
 
 typedef struct _TerminalSearchDialogPrivate
 {
-	GtkWidget *search_label;
-	GtkWidget *search_entry;
-	GtkWidget *search_text_entry;
-	GtkWidget *match_case_checkbutton;
-	GtkWidget *entire_word_checkbutton;
-	GtkWidget *regex_checkbutton;
-	GtkWidget *backwards_checkbutton;
-	GtkWidget *wrap_around_checkbutton;
+	CtkWidget *search_label;
+	CtkWidget *search_entry;
+	CtkWidget *search_text_entry;
+	CtkWidget *match_case_checkbutton;
+	CtkWidget *entire_word_checkbutton;
+	CtkWidget *regex_checkbutton;
+	CtkWidget *backwards_checkbutton;
+	CtkWidget *wrap_around_checkbutton;
 
-	GtkListStore *store;
-	GtkEntryCompletion *completion;
+	CtkListStore *store;
+	CtkEntryCompletion *completion;
 
 	/* Cached regex */
 	VteRegex *regex;
@@ -69,20 +69,20 @@ typedef struct _TerminalSearchDialogPrivate
 
 
 static void update_sensitivity (void *unused,
-                                GtkWidget *dialog);
-static void response_handler (GtkWidget *dialog,
+                                CtkWidget *dialog);
+static void response_handler (CtkWidget *dialog,
                               gint       response_id,
                               gpointer   data);
 static void terminal_search_dialog_private_destroy (TerminalSearchDialogPrivate *priv);
 
 
-GtkWidget *
-terminal_search_dialog_new (GtkWindow   *parent)
+CtkWidget *
+terminal_search_dialog_new (CtkWindow   *parent)
 {
-	GtkWidget *dialog;
+	CtkWidget *dialog;
 	TerminalSearchDialogPrivate *priv;
-	GtkListStore *store;
-	GtkEntryCompletion *completion;
+	CtkListStore *store;
+	CtkEntryCompletion *completion;
 
 	priv = g_new0 (TerminalSearchDialogPrivate, 1);
 
@@ -138,7 +138,7 @@ terminal_search_dialog_new (GtkWindow   *parent)
 }
 
 void
-terminal_search_dialog_present (GtkWidget *dialog)
+terminal_search_dialog_present (CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv;
 
@@ -166,7 +166,7 @@ terminal_search_dialog_private_destroy (TerminalSearchDialogPrivate *priv)
 
 
 static void
-update_sensitivity (void *unused, GtkWidget *dialog)
+update_sensitivity (void *unused, CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 	const gchar *search_string;
@@ -194,10 +194,10 @@ update_sensitivity (void *unused, GtkWidget *dialog)
 }
 
 static gboolean
-remove_item (GtkListStore *store,
+remove_item (CtkListStore *store,
              const gchar  *text)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 
 	g_return_val_if_fail (text != NULL, FALSE);
 
@@ -225,11 +225,11 @@ remove_item (GtkListStore *store,
 }
 
 static void
-clamp_list_store (GtkListStore *store,
+clamp_list_store (CtkListStore *store,
                   guint         max)
 {
-	GtkTreePath *path;
-	GtkTreeIter iter;
+	CtkTreePath *path;
+	CtkTreeIter iter;
 
 	/* -1 because TreePath counts from 0 */
 	path = ctk_tree_path_new_from_indices (max - 1, -1);
@@ -243,10 +243,10 @@ clamp_list_store (GtkListStore *store,
 }
 
 static void
-history_entry_insert (GtkListStore *store,
+history_entry_insert (CtkListStore *store,
                       const gchar  *text)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 
 	g_return_if_fail (text != NULL);
 
@@ -266,7 +266,7 @@ history_entry_insert (GtkListStore *store,
 }
 
 static void
-response_handler (GtkWidget *dialog,
+response_handler (CtkWidget *dialog,
                   gint       response_id,
                   gpointer   data)
 {
@@ -288,7 +288,7 @@ response_handler (GtkWidget *dialog,
 
 
 void
-terminal_search_dialog_set_search_text (GtkWidget   *dialog,
+terminal_search_dialog_set_search_text (CtkWidget   *dialog,
                                         const gchar *text)
 {
 	TerminalSearchDialogPrivate *priv;
@@ -307,7 +307,7 @@ terminal_search_dialog_set_search_text (GtkWidget   *dialog,
 }
 
 const gchar *
-terminal_search_dialog_get_search_text (GtkWidget *dialog)
+terminal_search_dialog_get_search_text (CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv;
 
@@ -320,7 +320,7 @@ terminal_search_dialog_get_search_text (GtkWidget *dialog)
 }
 
 TerminalSearchFlags
-terminal_search_dialog_get_search_flags (GtkWidget *dialog)
+terminal_search_dialog_get_search_flags (CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv;
 	TerminalSearchFlags flags = 0;
@@ -340,7 +340,7 @@ terminal_search_dialog_get_search_flags (GtkWidget *dialog)
 }
 
 VteRegex *
-terminal_search_dialog_get_regex (GtkWidget *dialog)
+terminal_search_dialog_get_regex (CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv;
 	guint32 compile_flags;

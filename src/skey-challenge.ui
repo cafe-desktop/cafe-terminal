@@ -8,25 +8,25 @@
   <!-- interface-description skey-challenge -->
   <!-- interface-copyright CAFE Developer -->
   <!-- interface-authors Wolfgang Ulbrich -->
-  <object class="GtkDialog" id="skey-dialog">
+  <object class="CtkDialog" id="skey-dialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="resizable">False</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox4">
+      <object class="CtkBox" id="dialog-vbox4">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area4">
+          <object class="CtkButtonBox" id="dialog-action_area4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="cancelbutton1">
+              <object class="CtkButton" id="cancelbutton1">
                 <property name="label">ctk-cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -41,7 +41,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="skey-ok-button">
+              <object class="CtkButton" id="skey-ok-button">
                 <property name="label">ctk-ok</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -65,13 +65,13 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="hbox4">
+          <object class="CtkBox" id="hbox4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">5</property>
             <property name="spacing">12</property>
             <child>
-              <object class="GtkImage" id="skey-image">
+              <object class="CtkImage" id="skey-image">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -86,13 +86,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="vbox6">
+              <object class="CtkBox" id="vbox6">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">12</property>
                 <child>
-                  <object class="GtkLabel" id="text-label">
+                  <object class="CtkLabel" id="text-label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
@@ -107,12 +107,12 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkBox" id="hbox5">
+                  <object class="CtkBox" id="hbox5">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="spacing">12</property>
                     <child>
-                      <object class="GtkLabel" id="label62">
+                      <object class="CtkLabel" id="label62">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
@@ -128,7 +128,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry" id="skey-entry">
+                      <object class="CtkEntry" id="skey-entry">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="visibility">False</property>

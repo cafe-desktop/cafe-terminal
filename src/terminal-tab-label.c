@@ -30,8 +30,8 @@
 struct _TerminalTabLabelPrivate
 {
 	TerminalScreen *screen;
-	GtkWidget *label;
-	GtkWidget *close_button;
+	CtkWidget *label;
+	CtkWidget *close_button;
 	gboolean bold;
 };
 
@@ -54,7 +54,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (TerminalTabLabel, terminal_tab_label, GTK_TYPE_BOX);
 /* helper functions */
 
 static void
-close_button_clicked_cb (GtkWidget *widget,
+close_button_clicked_cb (CtkWidget *widget,
                          TerminalTabLabel *tab_label)
 {
 	g_signal_emit (tab_label, signals[CLOSE_BUTTON_CLICKED], 0);
@@ -63,9 +63,9 @@ close_button_clicked_cb (GtkWidget *widget,
 static void
 sync_tab_label (TerminalScreen *screen,
                 GParamSpec *pspec,
-                GtkWidget *label)
+                CtkWidget *label)
 {
-	GtkWidget *hbox;
+	CtkWidget *hbox;
 	const char *title;
 
 	title = terminal_screen_get_title (screen);
@@ -81,10 +81,10 @@ sync_tab_label (TerminalScreen *screen,
 /* Class implementation */
 
 static void
-terminal_tab_label_parent_set (GtkWidget *widget,
-                               GtkWidget *old_parent)
+terminal_tab_label_parent_set (CtkWidget *widget,
+                               CtkWidget *old_parent)
 {
-	void (* parent_set) (GtkWidget *, GtkWidget *) = GTK_WIDGET_CLASS (terminal_tab_label_parent_class)->parent_set;
+	void (* parent_set) (CtkWidget *, CtkWidget *) = GTK_WIDGET_CLASS (terminal_tab_label_parent_class)->parent_set;
 
 	if (parent_set)
 		parent_set (widget, old_parent);
@@ -104,7 +104,7 @@ terminal_tab_label_constructor (GType type,
 	GObject *object;
 	TerminalTabLabel *tab_label;
 	TerminalTabLabelPrivate *priv;
-	GtkWidget *hbox, *label, *close_button;
+	CtkWidget *hbox, *label, *close_button;
 
 	object = G_OBJECT_CLASS (terminal_tab_label_parent_class)->constructor
 	         (type, n_construct_properties, construct_params);
@@ -192,7 +192,7 @@ static void
 terminal_tab_label_class_init (TerminalTabLabelClass *klass)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	gobject_class->constructor = terminal_tab_label_constructor;
 	gobject_class->dispose = terminal_tab_label_dispose;
@@ -228,7 +228,7 @@ terminal_tab_label_class_init (TerminalTabLabelClass *klass)
  *
  * Returns: a new #TerminalTabLabel for @screen
  */
-GtkWidget *
+CtkWidget *
 terminal_tab_label_new (TerminalScreen *screen)
 {
 	return g_object_new (TERMINAL_TYPE_TAB_LABEL,

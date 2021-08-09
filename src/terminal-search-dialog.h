@@ -33,18 +33,18 @@ typedef enum _TerminalSearchFlags
 } TerminalSearchFlags;
 
 
-GtkWidget	*terminal_search_dialog_new		(GtkWindow   *parent);
+CtkWidget	*terminal_search_dialog_new		(CtkWindow   *parent);
 
-void		 terminal_search_dialog_present		(GtkWidget   *dialog);
+void		 terminal_search_dialog_present		(CtkWidget   *dialog);
 
-void		 terminal_search_dialog_set_search_text (GtkWidget   *dialog,
+void		 terminal_search_dialog_set_search_text (CtkWidget   *dialog,
         const gchar *text);
 
-const gchar 	*terminal_search_dialog_get_search_text	(GtkWidget   *dialog);
+const gchar 	*terminal_search_dialog_get_search_text	(CtkWidget   *dialog);
 
 TerminalSearchFlags
-terminal_search_dialog_get_search_flags(GtkWidget   *dialog);
-VteRegex	*terminal_search_dialog_get_regex	(GtkWidget   *dialog);
+terminal_search_dialog_get_search_flags(CtkWidget   *dialog);
+VteRegex	*terminal_search_dialog_get_regex	(CtkWidget   *dialog);
 
 G_END_DECLS
 

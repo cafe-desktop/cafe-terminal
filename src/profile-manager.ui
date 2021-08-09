@@ -8,7 +8,7 @@
   <!-- interface-description profile manager of cafe-terminal -->
   <!-- interface-copyright CAFE Developer -->
   <!-- interface-authors Wolfgang Ulbrich -->
-  <object class="GtkDialog" id="profile-manager">
+  <object class="CtkDialog" id="profile-manager">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Profiles</property>
@@ -17,19 +17,19 @@
     <property name="default_height">300</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox5">
+      <object class="CtkBox" id="dialog-vbox5">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area5">
+          <object class="CtkButtonBox" id="dialog-action_area5">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="helpbutton2">
+              <object class="CtkButton" id="helpbutton2">
                 <property name="label">ctk-help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -45,7 +45,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="closebutton2">
+              <object class="CtkButton" id="closebutton2">
                 <property name="label">ctk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -68,19 +68,19 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="vbox84">
+          <object class="CtkBox" id="vbox84">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">5</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
-              <object class="GtkBox" id="hbox25">
+              <object class="CtkBox" id="hbox25">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">6</property>
                 <child>
-                  <object class="GtkScrolledWindow" id="profiles-treeview-container">
+                  <object class="CtkScrolledWindow" id="profiles-treeview-container">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="hscrollbar_policy">never</property>
@@ -96,14 +96,14 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButtonBox" id="vbuttonbox1">
+                  <object class="CtkButtonBox" id="vbuttonbox1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">6</property>
                     <property name="layout_style">start</property>
                     <child>
-                      <object class="GtkButton" id="new-profile-button">
+                      <object class="CtkButton" id="new-profile-button">
                         <property name="label">ctk-new</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -118,7 +118,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="edit-profile-button">
+                      <object class="CtkButton" id="edit-profile-button">
                         <property name="label">ctk-edit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -133,7 +133,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="delete-profile-button">
+                      <object class="CtkButton" id="delete-profile-button">
                         <property name="label">ctk-delete</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -162,12 +162,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="default-profile-hbox">
+              <object class="CtkBox" id="default-profile-hbox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">12</property>
                 <child>
-                  <object class="GtkLabel" id="default-profile-label">
+                  <object class="CtkLabel" id="default-profile-label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>

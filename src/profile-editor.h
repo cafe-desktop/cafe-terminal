@@ -26,7 +26,7 @@
 G_BEGIN_DECLS
 
 void terminal_profile_edit (TerminalProfile *profile,
-                            GtkWindow       *transient_parent,
+                            CtkWindow       *transient_parent,
                             const char      *widget_name);
 
 G_END_DECLS

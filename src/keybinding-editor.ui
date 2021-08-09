@@ -8,26 +8,26 @@
   <!-- interface-description keybindings-editor of cafe-terminal -->
   <!-- interface-copyright CAFE Developers -->
   <!-- interface-authors Wolfgang Ulbrich -->
-  <object class="GtkDialog" id="keybindings-dialog">
+  <object class="CtkDialog" id="keybindings-dialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Keyboard Shortcuts</property>
     <property name="role">cafe-terminal-accels</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox2">
+      <object class="CtkBox" id="dialog-vbox2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area2">
+          <object class="CtkButtonBox" id="dialog-action_area2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="button1">
+              <object class="CtkButton" id="button1">
                 <property name="label">ctk-help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -43,7 +43,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="close_button1">
+              <object class="CtkButton" id="close_button1">
                 <property name="label">ctk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -67,14 +67,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkGrid" id="table32">
+          <object class="CtkGrid" id="table32">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">5</property>
             <property name="row_spacing">6</property>
             <property name="column_spacing">12</property>
             <child>
-              <object class="GtkCheckButton" id="disable-mnemonics-checkbutton">
+              <object class="CtkCheckButton" id="disable-mnemonics-checkbutton">
                 <property name="label" translatable="yes">_Enable menu access keys (such as Alt+F to open the File menu)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -89,7 +89,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkScrolledWindow" id="scrolledwindow1">
+              <object class="CtkScrolledWindow" id="scrolledwindow1">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
@@ -97,12 +97,12 @@
                 <property name="hscrollbar_policy">never</property>
                 <property name="shadow_type">in</property>
                 <child>
-                  <object class="GtkTreeView" id="accelerators-treeview">
+                  <object class="CtkTreeView" id="accelerators-treeview">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="rules_hint">True</property>
                     <child internal-child="selection">
-                      <object class="GtkTreeSelection"/>
+                      <object class="CtkTreeSelection"/>
                     </child>
                   </object>
                 </child>
@@ -113,7 +113,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="disable-menu-accel-checkbutton">
+              <object class="CtkCheckButton" id="disable-menu-accel-checkbutton">
                 <property name="label" translatable="yes">Enable the _menu shortcut key (F10 by default)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -128,7 +128,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label59">
+              <object class="CtkLabel" id="label59">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>

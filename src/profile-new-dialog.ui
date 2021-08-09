@@ -2,27 +2,27 @@
 <!-- Generated with glade 3.20.0 -->
 <interface>
   <requires lib="ctk+" version="3.14"/>
-  <object class="GtkDialog" id="new-profile-dialog">
+  <object class="CtkDialog" id="new-profile-dialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">New Profile</property>
     <property name="resizable">False</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox5">
+      <object class="CtkBox" id="dialog-vbox5">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area5">
+          <object class="CtkButtonBox" id="dialog-action_area5">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="homogeneous">True</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="new-profile-cancel-button">
+              <object class="CtkButton" id="new-profile-cancel-button">
                 <property name="label">ctk-cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -38,25 +38,25 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="new-profile-create-button">
+              <object class="CtkButton" id="new-profile-create-button">
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">False</property>
                 <child>
-                  <object class="GtkAlignment" id="alignment34">
+                  <object class="CtkAlignment" id="alignment34">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xscale">0</property>
                     <property name="yscale">0</property>
                     <child>
-                      <object class="GtkBox" id="hbox10">
+                      <object class="CtkBox" id="hbox10">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="spacing">2</property>
                         <child>
-                          <object class="GtkImage" id="icon-1212">
+                          <object class="CtkImage" id="icon-1212">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="stock">ctk-apply</property>
@@ -68,7 +68,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkLabel" id="create-button">
+                          <object class="CtkLabel" id="create-button">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="label" translatable="yes">C_reate</property>
@@ -100,19 +100,19 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="vbox7">
+          <object class="CtkBox" id="vbox7">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">5</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkGrid" id="new-profile-grid">
+              <object class="CtkGrid" id="new-profile-grid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="row_spacing">6</property>
                 <property name="column_spacing">12</property>
                 <child>
-                  <object class="GtkEntry" id="new-profile-name-entry">
+                  <object class="CtkEntry" id="new-profile-name-entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="width_chars">14</property>
@@ -125,7 +125,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="new-profile-name-label">
+                  <object class="CtkLabel" id="new-profile-name-label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
@@ -138,7 +138,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="new-profile-base-label">
+                  <object class="CtkLabel" id="new-profile-base-label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
@@ -151,7 +151,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkBox" id="vbox77">
+                  <object class="CtkBox" id="vbox77">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>

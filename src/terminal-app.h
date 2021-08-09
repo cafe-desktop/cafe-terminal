@@ -98,12 +98,12 @@ gboolean terminal_app_handle_options (TerminalApp *app,
 
 void terminal_app_edit_profile (TerminalApp     *app,
                                 TerminalProfile *profile,
-                                GtkWindow       *transient_parent,
+                                CtkWindow       *transient_parent,
                                 const char      *widget_name);
 
 void terminal_app_new_profile (TerminalApp     *app,
                                TerminalProfile *default_base_profile,
-                               GtkWindow       *transient_parent);
+                               CtkWindow       *transient_parent);
 
 TerminalWindow * terminal_app_new_window   (TerminalApp *app,
         GdkScreen *screen);
@@ -122,12 +122,12 @@ TerminalWindow *terminal_app_get_current_window (TerminalApp *app,
                                                  int curr_workspace);
 
 void terminal_app_manage_profiles (TerminalApp     *app,
-                                   GtkWindow       *transient_parent);
+                                   CtkWindow       *transient_parent);
 
 void terminal_app_edit_keybindings (TerminalApp     *app,
-                                    GtkWindow       *transient_parent);
+                                    CtkWindow       *transient_parent);
 void terminal_app_edit_encodings   (TerminalApp     *app,
-                                    GtkWindow       *transient_parent);
+                                    CtkWindow       *transient_parent);
 
 
 GList* terminal_app_get_profile_list (TerminalApp *app);

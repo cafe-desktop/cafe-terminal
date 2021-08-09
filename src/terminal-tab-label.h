@@ -38,7 +38,7 @@ typedef struct _TerminalTabLabelPrivate TerminalTabLabelPrivate;
 
 struct _TerminalTabLabel
 {
-	GtkBox parent_instance;
+	CtkBox parent_instance;
 
 	/*< private >*/
 	TerminalTabLabelPrivate *priv;
@@ -46,7 +46,7 @@ struct _TerminalTabLabel
 
 struct _TerminalTabLabelClass
 {
-	GtkBoxClass parent_class;
+	CtkBoxClass parent_class;
 
 	/* Signals */
 	void (* close_button_clicked) (TerminalTabLabel *tab_label);
@@ -54,7 +54,7 @@ struct _TerminalTabLabelClass
 
 GType       terminal_tab_label_get_type   (void);
 
-GtkWidget  *terminal_tab_label_new        (TerminalScreen *screen);
+CtkWidget  *terminal_tab_label_new        (TerminalScreen *screen);
 
 void        terminal_tab_label_set_bold   (TerminalTabLabel *tab_label,
         gboolean bold);

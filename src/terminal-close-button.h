@@ -40,19 +40,19 @@ typedef struct _TerminalCloseButtonClassPrivate	TerminalCloseButtonClassPrivate;
 
 struct _TerminalCloseButton
 {
-	GtkButton parent;
+	CtkButton parent;
 };
 
 struct _TerminalCloseButtonClass
 {
-	GtkButtonClass parent_class;
+	CtkButtonClass parent_class;
 
 	TerminalCloseButtonClassPrivate *priv;
 };
 
 GType		  terminal_close_button_get_type (void) G_GNUC_CONST;
 
-GtkWidget	 *terminal_close_button_new      (void);
+CtkWidget	 *terminal_close_button_new      (void);
 
 G_END_DECLS
 

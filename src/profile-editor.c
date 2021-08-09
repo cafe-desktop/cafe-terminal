@@ -78,38 +78,38 @@ static const TerminalColorScheme color_schemes[] =
 };
 
 static void profile_forgotten_cb (TerminalProfile           *profile,
-                                  GtkWidget                 *editor);
+                                  CtkWidget                 *editor);
 
 static void profile_notify_sensitivity_cb (TerminalProfile *profile,
         GParamSpec *pspec,
-        GtkWidget *editor);
+        CtkWidget *editor);
 
 static void profile_colors_notify_scheme_combo_cb (TerminalProfile *profile,
         GParamSpec *pspec,
-        GtkComboBox *combo);
+        CtkComboBox *combo);
 
 static void profile_palette_notify_scheme_combo_cb (TerminalProfile *profile,
         GParamSpec *pspec,
-        GtkComboBox *combo);
+        CtkComboBox *combo);
 
 static void profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
         GParamSpec *pspec,
-        GtkWidget *editor);
+        CtkWidget *editor);
 
-static GtkWidget*
-profile_editor_get_widget (GtkWidget  *editor,
+static CtkWidget*
+profile_editor_get_widget (CtkWidget  *editor,
                            const char *widget_name)
 {
-	GtkBuilder *builder;
+	CtkBuilder *builder;
 
 	builder = g_object_get_data (G_OBJECT (editor), "builder");
 	g_assert (builder != NULL);
 
-	return (GtkWidget *) ctk_builder_get_object  (builder, widget_name);
+	return (CtkWidget *) ctk_builder_get_object  (builder, widget_name);
 }
 
 static void
-widget_and_labels_set_sensitive (GtkWidget *widget, gboolean sensitive)
+widget_and_labels_set_sensitive (CtkWidget *widget, gboolean sensitive)
 {
 	GList *labels, *i;
 
@@ -125,7 +125,7 @@ widget_and_labels_set_sensitive (GtkWidget *widget, gboolean sensitive)
 
 static void
 profile_forgotten_cb (TerminalProfile *profile,
-                      GtkWidget *editor)
+                      CtkWidget *editor)
 {
 	ctk_widget_destroy (editor);
 }
@@ -133,7 +133,7 @@ profile_forgotten_cb (TerminalProfile *profile,
 static void
 profile_notify_sensitivity_cb (TerminalProfile *profile,
                                GParamSpec *pspec,
-                               GtkWidget *editor)
+                               CtkWidget *editor)
 {
 	TerminalBackgroundType bg_type;
 	const char *prop_name;
@@ -341,7 +341,7 @@ profile_notify_sensitivity_cb (TerminalProfile *profile,
 }
 
 static void
-color_scheme_combo_changed_cb (GtkWidget *combo,
+color_scheme_combo_changed_cb (CtkWidget *combo,
                                GParamSpec *pspec,
                                TerminalProfile *profile)
 {
@@ -367,7 +367,7 @@ color_scheme_combo_changed_cb (GtkWidget *combo,
 static void
 profile_colors_notify_scheme_combo_cb (TerminalProfile *profile,
                                        GParamSpec *pspec,
-                                       GtkComboBox *combo)
+                                       CtkComboBox *combo)
 {
 	const GdkRGBA *fg, *bg;
 	guint i;
@@ -396,7 +396,7 @@ profile_colors_notify_scheme_combo_cb (TerminalProfile *profile,
 }
 
 static void
-palette_scheme_combo_changed_cb (GtkComboBox *combo,
+palette_scheme_combo_changed_cb (CtkComboBox *combo,
                                  GParamSpec *pspec,
                                  TerminalProfile *profile)
 {
@@ -417,7 +417,7 @@ palette_scheme_combo_changed_cb (GtkComboBox *combo,
 static void
 profile_palette_notify_scheme_combo_cb (TerminalProfile *profile,
                                         GParamSpec *pspec,
-                                        GtkComboBox *combo)
+                                        CtkComboBox *combo)
 {
 	guint i;
 
@@ -433,11 +433,11 @@ profile_palette_notify_scheme_combo_cb (TerminalProfile *profile,
 }
 
 static void
-palette_color_notify_cb (GtkColorChooser *button,
+palette_color_notify_cb (CtkColorChooser *button,
                          GParamSpec *pspec,
                          TerminalProfile *profile)
 {
-	GtkWidget *editor;
+	CtkWidget *editor;
 	GdkRGBA color;
 	guint i;
 
@@ -453,7 +453,7 @@ palette_color_notify_cb (GtkColorChooser *button,
 static void
 profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
                                         GParamSpec *pspec,
-                                        GtkWidget *editor)
+                                        CtkWidget *editor)
 {
 	GdkRGBA colors[TERMINAL_PALETTE_SIZE];
 	guint n_colors, i;
@@ -465,7 +465,7 @@ profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
 	for (i = 0; i < n_colors; i++)
 	{
 		char name[32];
-		GtkWidget *w;
+		CtkWidget *w;
 
 		g_snprintf (name, sizeof (name), "palette-colorpicker-%d", i + 1);
 		w = profile_editor_get_widget (editor, name);
@@ -477,7 +477,7 @@ profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
 }
 
 static void
-custom_command_entry_changed_cb (GtkEntry *entry)
+custom_command_entry_changed_cb (CtkEntry *entry)
 {
 	const char *command;
 	GError *error = NULL;
@@ -503,8 +503,8 @@ custom_command_entry_changed_cb (GtkEntry *entry)
 }
 
 static void
-visible_name_entry_changed_cb (GtkEntry *entry,
-                               GtkWindow *window)
+visible_name_entry_changed_cb (CtkEntry *entry,
+                               CtkWindow *window)
 {
 	const char *visible_name;
 	char *text;
@@ -517,7 +517,7 @@ visible_name_entry_changed_cb (GtkEntry *entry,
 }
 
 static void
-reset_compat_defaults_cb (GtkWidget       *button,
+reset_compat_defaults_cb (CtkWidget       *button,
                           TerminalProfile *profile)
 {
 	terminal_profile_reset_property (profile, TERMINAL_PROFILE_DELETE_BINDING);
@@ -529,11 +529,11 @@ reset_compat_defaults_cb (GtkWidget       *button,
  */
 
 static void
-init_color_scheme_menu (GtkWidget *widget)
+init_color_scheme_menu (CtkWidget *widget)
 {
-	GtkCellRenderer *renderer;
-	GtkTreeIter iter;
-	GtkListStore *store;
+	CtkCellRenderer *renderer;
+	CtkTreeIter iter;
+	CtkListStore *store;
 	gulong i;
 
 	store = ctk_list_store_new (1, G_TYPE_STRING);
@@ -554,7 +554,7 @@ init_color_scheme_menu (GtkWidget *widget)
 }
 
 static char*
-format_percent_value (GtkScale *scale,
+format_percent_value (CtkScale *scale,
                       double    val,
                       void     *data)
 {
@@ -562,7 +562,7 @@ format_percent_value (GtkScale *scale,
 }
 
 static void
-init_background_darkness_scale (GtkWidget *scale)
+init_background_darkness_scale (CtkWidget *scale)
 {
 	g_signal_connect (scale, "format-value",
 	                  G_CALLBACK (format_percent_value),
@@ -570,7 +570,7 @@ init_background_darkness_scale (GtkWidget *scale)
 }
 
 static void
-editor_response_cb (GtkWidget *editor,
+editor_response_cb (CtkWidget *editor,
                     int response,
                     gpointer use_data)
 {
@@ -584,10 +584,10 @@ editor_response_cb (GtkWidget *editor,
 }
 
 static void
-setup_background_filechooser (GtkWidget *filechooser,
+setup_background_filechooser (CtkWidget *filechooser,
                               TerminalProfile *profile)
 {
-	GtkFileFilter *filter;
+	CtkFileFilter *filter;
 	const char *home_dir;
 
 	filter = ctk_file_filter_new ();
@@ -604,7 +604,7 @@ setup_background_filechooser (GtkWidget *filechooser,
 }
 
 static void
-profile_editor_destroyed (GtkWidget       *editor,
+profile_editor_destroyed (CtkWidget       *editor,
                           TerminalProfile *profile)
 {
 	g_signal_handlers_disconnect_by_func (profile, G_CALLBACK (profile_forgotten_cb), editor);
@@ -621,11 +621,11 @@ profile_editor_destroyed (GtkWidget       *editor,
 }
 
 static void
-terminal_profile_editor_focus_widget (GtkWidget *editor,
+terminal_profile_editor_focus_widget (CtkWidget *editor,
                                       const char *widget_name)
 {
-	GtkBuilder *builder;
-	GtkWidget *widget, *page, *page_parent;
+	CtkBuilder *builder;
+	CtkWidget *widget, *page, *page_parent;
 
 	if (widget_name == NULL)
 		return;
@@ -644,7 +644,7 @@ terminal_profile_editor_focus_widget (GtkWidget *editor,
 	page_parent = ctk_widget_get_parent (page);
 	if (page != NULL && GTK_IS_NOTEBOOK (page_parent))
 	{
-		GtkNotebook *notebook;
+		CtkNotebook *notebook;
 
 		notebook = GTK_NOTEBOOK (page_parent);
 		ctk_notebook_set_current_page (notebook, ctk_notebook_page_num (notebook, page));
@@ -657,7 +657,7 @@ terminal_profile_editor_focus_widget (GtkWidget *editor,
 /**
  * terminal_profile_edit:
  * @profile: a #TerminalProfile
- * @transient_parent: a #GtkWindow, or %NULL
+ * @transient_parent: a #CtkWindow, or %NULL
  * @widget_name: a widget name in the profile editor's UI, or %NULL
  *
  * Shows the profile editor with @profile, anchored to @transient_parent.
@@ -666,12 +666,12 @@ terminal_profile_editor_focus_widget (GtkWidget *editor,
  */
 void
 terminal_profile_edit (TerminalProfile *profile,
-                       GtkWindow       *transient_parent,
+                       CtkWindow       *transient_parent,
                        const char      *widget_name)
 {
-	GtkBuilder *builder;
+	CtkBuilder *builder;
 	GError *error = NULL;
-	GtkWidget *editor, *w;
+	CtkWidget *editor, *w;
 	guint i;
 
 	editor = g_object_get_data (G_OBJECT (profile), "editor-window");
@@ -689,7 +689,7 @@ terminal_profile_edit (TerminalProfile *profile,
 	ctk_builder_add_from_resource (builder, TERMINAL_RESOURCES_PATH_PREFIX G_DIR_SEPARATOR_S "ui/profile-preferences.ui", &error);
 	g_assert_no_error (error);
 
-	editor = (GtkWidget *) ctk_builder_get_object  (builder, "profile-editor-dialog");
+	editor = (CtkWidget *) ctk_builder_get_object  (builder, "profile-editor-dialog");
 	g_object_set_data_full (G_OBJECT (editor), "builder",
 	                        builder, (GDestroyNotify) g_object_unref);
 #ifndef ENABLE_SKEY
@@ -708,13 +708,13 @@ terminal_profile_edit (TerminalProfile *profile,
 	                  G_CALLBACK (editor_response_cb),
 	                  NULL);
 
-	w = (GtkWidget *) ctk_builder_get_object  (builder, "color-scheme-combobox");
+	w = (CtkWidget *) ctk_builder_get_object  (builder, "color-scheme-combobox");
 	init_color_scheme_menu (w);
 
-	w = (GtkWidget *) ctk_builder_get_object  (builder, "darken-background-scale");
+	w = (CtkWidget *) ctk_builder_get_object  (builder, "darken-background-scale");
 	init_background_darkness_scale (w);
 
-	w = (GtkWidget *) ctk_builder_get_object  (builder, "background-image-filechooser");
+	w = (CtkWidget *) ctk_builder_get_object  (builder, "background-image-filechooser");
 	setup_background_filechooser (w, profile);
 
 	/* Hook up the palette colorpickers and combo box */
@@ -725,7 +725,7 @@ terminal_profile_edit (TerminalProfile *profile,
 		char *text;
 
 		g_snprintf (name, sizeof (name), "palette-colorpicker-%u", i + 1);
-		w = (GtkWidget *) ctk_builder_get_object  (builder, name);
+		w = (CtkWidget *) ctk_builder_get_object  (builder, name);
 
 		g_object_set_data (G_OBJECT (w), "palette-entry-index", GUINT_TO_POINTER (i));
 
@@ -747,7 +747,7 @@ terminal_profile_edit (TerminalProfile *profile,
 	                  G_CALLBACK (profile_palette_notify_colorpickers_cb),
 	                  editor);
 
-	w = (GtkWidget *) ctk_builder_get_object  (builder, "palette-combobox");
+	w = (CtkWidget *) ctk_builder_get_object  (builder, "palette-combobox");
 	g_signal_connect (w, "notify::active",
 	                  G_CALLBACK (palette_scheme_combo_changed_cb),
 	                  profile);
@@ -758,7 +758,7 @@ terminal_profile_edit (TerminalProfile *profile,
 	                  w);
 
 	/* Hook up the color scheme pickers and combo box */
-	w = (GtkWidget *) ctk_builder_get_object  (builder, "color-scheme-combobox");
+	w = (CtkWidget *) ctk_builder_get_object  (builder, "color-scheme-combobox");
 	g_signal_connect (w, "notify::active",
 	                  G_CALLBACK (color_scheme_combo_changed_cb),
 	                  profile);
@@ -771,7 +771,7 @@ terminal_profile_edit (TerminalProfile *profile,
 	                  G_CALLBACK (profile_colors_notify_scheme_combo_cb),
 	                  w);
 
-#define CONNECT_WITH_FLAGS(name, prop, flags) terminal_util_bind_object_property_to_widget (G_OBJECT (profile), prop, (GtkWidget *) ctk_builder_get_object (builder, name), flags)
+#define CONNECT_WITH_FLAGS(name, prop, flags) terminal_util_bind_object_property_to_widget (G_OBJECT (profile), prop, (CtkWidget *) ctk_builder_get_object (builder, name), flags)
 #define CONNECT(name, prop) CONNECT_WITH_FLAGS (name, prop, 0)
 #define SET_ENUM_VALUE(name, value) g_object_set_data (ctk_builder_get_object (builder, name), "enum-value", GINT_TO_POINTER (value))
 
