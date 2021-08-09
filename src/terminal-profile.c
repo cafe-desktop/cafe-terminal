@@ -187,7 +187,7 @@ struct _TerminalProfilePrivate
 	guint forgotten : 1;
 };
 
-static const GdkRGBA terminal_palettes[TERMINAL_PALETTE_N_BUILTINS][TERMINAL_PALETTE_SIZE] =
+static const CdkRGBA terminal_palettes[TERMINAL_PALETTE_N_BUILTINS][TERMINAL_PALETTE_SIZE] =
 {
 	/* Tango palette */
 	{
@@ -313,8 +313,8 @@ G_DEFINE_TYPE_WITH_PRIVATE (TerminalProfile, terminal_profile, G_TYPE_OBJECT);
 
 /* cdk_rgba_equal is too strict! */
 static gboolean
-rgba_equal (const GdkRGBA *a,
-            const GdkRGBA *b)
+rgba_equal (const CdkRGBA *a,
+            const CdkRGBA *b)
 {
     gdouble dr, dg, db, da;
 
@@ -327,8 +327,8 @@ rgba_equal (const GdkRGBA *a,
 }
 
 static gboolean
-palette_cmp (const GdkRGBA *ca,
-             const GdkRGBA *cb)
+palette_cmp (const CdkRGBA *ca,
+             const CdkRGBA *cb)
 {
     guint i;
 
@@ -373,7 +373,7 @@ get_prop_value_from_prop_name (TerminalProfile *profile,
 
 static void
 set_value_from_palette (GValue *ret_value,
-                        const GdkRGBA *colors,
+                        const CdkRGBA *colors,
                         guint n_colors)
 {
 	CafeValueArray *array;
@@ -412,7 +412,7 @@ values_equal (GParamSpec *pspec,
 	/* g_param_values_cmp isn't good enough for some types, since e.g.
 	 * it compares colours and font descriptions by pointer value, not
 	 * with the correct compare functions. Providing extra
-	 * PangoParamSpecFontDescription and GdkParamSpecColor wouldn't
+	 * PangoParamSpecFontDescription and CdkParamSpecColor wouldn't
 	 * have fixed this either, since it's unclear how to _order_ them.
 	 * Luckily we only need to check them for equality here.
 	 */
@@ -457,7 +457,7 @@ ensure_pixbuf_property (TerminalProfile *profile,
 {
 	TerminalProfilePrivate *priv = profile->priv;
 	GValue *path_value, *pixbuf_value;
-	GdkPixbuf *pixbuf;
+	CdkPixbuf *pixbuf;
 	const char *path_utf8;
 	char *path;
 	GError *error = NULL;
@@ -608,7 +608,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 	}
 	else if (G_PARAM_SPEC_VALUE_TYPE (pspec) == GDK_TYPE_RGBA)
 	{
-		GdkRGBA color;
+		CdkRGBA color;
 
 		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
 			goto out;
@@ -645,7 +645,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 	         G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
 	{
 		char **color_strings;
-		GdkRGBA *colors;
+		CdkRGBA *colors;
 		int n_colors, i;
 
 		if (!g_variant_is_of_type (settings_value, G_VARIANT_TYPE ("s")))
@@ -656,7 +656,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 			goto out;
 
 		n_colors = g_strv_length (color_strings);
-		colors = g_new0 (GdkRGBA, n_colors);
+		colors = g_new0 (CdkRGBA, n_colors);
 		for (i = 0; i < n_colors; ++i)
 		{
 			if (!cdk_rgba_parse (&colors[i], color_strings[i]))
@@ -767,7 +767,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 	}
 	else if (G_PARAM_SPEC_VALUE_TYPE (pspec) == GDK_TYPE_RGBA)
 	{
-		GdkRGBA *color;
+		CdkRGBA *color;
 		char str[16];
 
 		color = g_value_get_boxed (value);
@@ -818,7 +818,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 		string = g_string_sized_new (n_colors * (1 /* # */ + 3 * 4) + n_colors /* : separators and terminating \0 */);
 		for (i = 0; i < n_colors; ++i)
 		{
-			GdkRGBA *color;
+			CdkRGBA *color;
 
 			if (i > 0)
 				g_string_append_c (string, ':');
@@ -1589,7 +1589,7 @@ terminal_profile_reset_property (TerminalProfile *profile,
 
 gboolean
 terminal_profile_get_palette (TerminalProfile *profile,
-                              GdkRGBA *colors,
+                              CdkRGBA *colors,
                               guint *n_colors)
 {
 	TerminalProfilePrivate *priv;
@@ -1607,7 +1607,7 @@ terminal_profile_get_palette (TerminalProfile *profile,
 	n = MIN (cafe_value_array_length (array), (gint) *n_colors);
 	for (i = 0; i < n; ++i)
 	{
-		GdkRGBA *color = g_value_get_boxed (cafe_value_array_index (array, i));
+		CdkRGBA *color = g_value_get_boxed (cafe_value_array_index (array, i));
 		if (!color)
 			continue; /* shouldn't happen!! */
 
@@ -1622,7 +1622,7 @@ gboolean
 terminal_profile_get_palette_is_builtin (TerminalProfile *profile,
         guint *n)
 {
-	GdkRGBA colors[TERMINAL_PALETTE_SIZE];
+	CdkRGBA colors[TERMINAL_PALETTE_SIZE];
 	guint n_colors;
 	guint i;
 
@@ -1658,12 +1658,12 @@ terminal_profile_set_palette_builtin (TerminalProfile *profile,
 gboolean
 terminal_profile_modify_palette_entry (TerminalProfile *profile,
                                        gint             i,
-                                       const GdkRGBA   *color)
+                                       const CdkRGBA   *color)
 {
 	TerminalProfilePrivate *priv = profile->priv;
 	CafeValueArray *array;
 	GValue *value;
-	GdkRGBA *old_color;
+	CdkRGBA *old_color;
 
 	array = g_value_get_boxed (cafe_value_array_index (priv->properties, PROP_PALETTE));
 	if (!array ||

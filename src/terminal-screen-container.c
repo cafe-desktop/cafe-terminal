@@ -99,7 +99,7 @@ terminal_screen_container_set_placement_set (TerminalScreenContainer *container,
 #if defined(USE_SCROLLED_WINDOW) && defined(CAFE_ENABLE_DEBUG)
 static void
 size_allocate_cb (CtkWidget *widget,
-                  GdkRectangle *rect,
+                  CdkRectangle *rect,
                   TerminalScreenContainer *container)
 {
 	_terminal_debug_print (TERMINAL_DEBUG_GEOMETRY,

@@ -221,11 +221,11 @@ gsettings_remove_all_from_strv (GSettings   *settings,
 
 /* Helper functions */
 
-static GdkScreen*
+static CdkScreen*
 terminal_app_get_screen_by_display_name (const char *display_name)
 {
-	GdkDisplay *display = NULL;
-	GdkScreen *screen = NULL;
+	CdkDisplay *display = NULL;
+	CdkScreen *screen = NULL;
 
 	if (display_name == NULL)
 		display = cdk_display_get_default ();
@@ -238,7 +238,7 @@ terminal_app_get_screen_by_display_name (const char *display_name)
 		displays = cdk_display_manager_list_displays (cdk_display_manager_get ());
 		for (l = displays; l != NULL; l = l->next)
 		{
-			GdkDisplay *disp = l->data;
+			CdkDisplay *disp = l->data;
 
 			/* compare without the screen number part, if present */
 			if ((period && strncmp (cdk_display_get_name (disp), display_name, period - display_name) == 0) ||
@@ -267,8 +267,8 @@ terminal_app_get_workspace_for_window (TerminalWindow *window)
 {
   int ret = -1;
   guchar *data = NULL;
-  GdkAtom atom;
-  GdkAtom cardinal_atom;
+  CdkAtom atom;
+  CdkAtom cardinal_atom;
 
   atom = cdk_atom_intern_static_string ("_NET_WM_DESKTOP");
   cardinal_atom = cdk_atom_intern_static_string ("CARDINAL");
@@ -1713,7 +1713,7 @@ terminal_app_handle_options (TerminalApp *app,
                              GError **error)
 {
 	GList *lw;
-	GdkScreen *cdk_screen;
+	CdkScreen *cdk_screen;
 
 	cdk_screen = terminal_app_get_screen_by_display_name (options->display_name);
 
@@ -1867,7 +1867,7 @@ terminal_app_handle_options (TerminalApp *app,
 
 TerminalWindow *
 terminal_app_new_window (TerminalApp *app,
-                         GdkScreen *screen)
+                         CdkScreen *screen)
 {
 	TerminalWindow *window;
 
@@ -1937,7 +1937,7 @@ terminal_app_edit_encodings (TerminalApp     *app,
 */
 TerminalWindow *
 terminal_app_get_current_window (TerminalApp *app,
-                                 GdkScreen *from_screen,
+                                 CdkScreen *from_screen,
                                  int workspace)
 {
     GList *res = NULL;

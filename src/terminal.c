@@ -507,10 +507,10 @@ static int
 get_initial_workspace (void)
 {
   int ret = -1;
-  GdkWindow *window;
+  CdkWindow *window;
   guchar *data = NULL;
-  GdkAtom atom;
-  GdkAtom cardinal_atom;
+  CdkAtom atom;
+  CdkAtom cardinal_atom;
 
   window = cdk_get_default_root_window();
 
@@ -531,7 +531,7 @@ main (int argc, char **argv)
 	char **argv_copy;
 	int argc_copy;
 	const char *startup_id, *display_name, *home_dir;
-	GdkDisplay *display;
+	CdkDisplay *display;
 	TerminalOptions *options;
 	GError *error = NULL;
 	char *working_directory;

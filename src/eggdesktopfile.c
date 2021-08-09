@@ -918,7 +918,7 @@ parse_link (EggDesktopFile  *desktop_file,
 }
 
 static char *
-start_startup_notification (GdkDisplay     *display,
+start_startup_notification (CdkDisplay     *display,
                             EggDesktopFile *desktop_file,
                             const char     *argv0,
                             int             screen,
@@ -986,7 +986,7 @@ start_startup_notification (GdkDisplay     *display,
 }
 
 static void
-end_startup_notification (GdkDisplay *display,
+end_startup_notification (CdkDisplay *display,
                           const char *startup_id)
 {
 	cdk_x11_display_broadcast_startup_message (display, "remove",
@@ -998,7 +998,7 @@ end_startup_notification (GdkDisplay *display,
 
 typedef struct
 {
-	GdkDisplay *display;
+	CdkDisplay *display;
 	char *startup_id;
 } StartupNotificationData;
 
@@ -1016,7 +1016,7 @@ startup_notification_timeout (gpointer data)
 }
 
 static void
-set_startup_notification_timeout (GdkDisplay *display,
+set_startup_notification_timeout (CdkDisplay *display,
                                   const char *startup_id)
 {
 	StartupNotificationData *sn_data;
@@ -1083,12 +1083,12 @@ egg_desktop_file_launchv (EggDesktopFile *desktop_file,
 	char *command, **argv;
 	int argc, i, screen_num;
 	gboolean success, current_success;
-	GdkDisplay *display;
+	CdkDisplay *display;
 	char *startup_id;
 
 	GPtrArray   *env = NULL;
 	char       **variables = NULL;
-	GdkScreen   *screen = NULL;
+	CdkScreen   *screen = NULL;
 	int          workspace = -1;
 	const char  *directory = NULL;
 	guint32      launch_time = (guint32)-1;
@@ -1131,7 +1131,7 @@ egg_desktop_file_launchv (EggDesktopFile *desktop_file,
 			break;
 
 		case EGG_DESKTOP_FILE_LAUNCH_SCREEN:
-			screen = va_arg (args, GdkScreen *);
+			screen = va_arg (args, CdkScreen *);
 			break;
 		case EGG_DESKTOP_FILE_LAUNCH_WORKSPACE:
 			workspace = va_arg (args, int);
@@ -1297,7 +1297,7 @@ out:
  *   %EGG_DESKTOP_FILE_LAUNCH_PUTENV: (char **variables)
  *       adds the NAME=VALUE strings in the given %NULL-terminated
  *       array to the child process's environment
- *   %EGG_DESKTOP_FILE_LAUNCH_SCREEN: (GdkScreen *screen)
+ *   %EGG_DESKTOP_FILE_LAUNCH_SCREEN: (CdkScreen *screen)
  *       causes the application to be launched on the given screen
  *   %EGG_DESKTOP_FILE_LAUNCH_WORKSPACE: (int workspace)
  *       causes the application to be launched on the given workspace

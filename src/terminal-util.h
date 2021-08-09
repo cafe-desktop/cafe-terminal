@@ -101,7 +101,7 @@ void terminal_util_bind_object_property_to_widget (GObject *object,
         CtkWidget *widget,
         PropertyChangeFlags flags);
 
-void terminal_util_x11_clear_demands_attention (GdkWindow *window);
+void terminal_util_x11_clear_demands_attention (CdkWindow *window);
 
 G_END_DECLS
 
