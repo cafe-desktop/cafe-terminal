@@ -29,7 +29,7 @@
 
 #include <cdk/cdk.h>
 #include <cdk/cdkx.h>
-#include <cdk-pixbuf/cdk-pixbuf.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <cairo.h>
 
 #include "terminal-accels.h"
