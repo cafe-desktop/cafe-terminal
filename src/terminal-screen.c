@@ -73,7 +73,7 @@ struct _TerminalScreenPrivate
 	GSList *match_tags;
 	guint launch_child_source_id;
 	gulong bg_image_callback_id;
-	CdkPixbuf *bg_image;
+	GdkPixbuf *bg_image;
 };
 
 enum
@@ -670,7 +670,7 @@ terminal_screen_image_draw_cb (CtkWidget *widget, cairo_t *cr, void *userdata)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPrivate *priv = screen->priv;
-	CdkPixbuf *bg_image = priv->bg_image;
+	GdkPixbuf *bg_image = priv->bg_image;
 	CdkRectangle target_rect;
 	CtkAllocation alloc;
 	cairo_surface_t *child_surface;
