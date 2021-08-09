@@ -457,7 +457,7 @@ ensure_pixbuf_property (TerminalProfile *profile,
 {
 	TerminalProfilePrivate *priv = profile->priv;
 	GValue *path_value, *pixbuf_value;
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 	const char *path_utf8;
 	char *path;
 	GError *error = NULL;
