@@ -123,11 +123,11 @@ static gboolean terminal_screen_popup_menu (CtkWidget *widget);
 static gboolean terminal_screen_button_press (CtkWidget *widget,
         GdkEventButton *event);
 static void terminal_screen_launch_child_on_idle (TerminalScreen *screen);
-static void terminal_screen_child_exited (VteTerminal *terminal, int status);
+static void terminal_screen_child_exited (BteTerminal *terminal, int status);
 
-static void terminal_screen_window_title_changed      (VteTerminal *bte_terminal,
+static void terminal_screen_window_title_changed      (BteTerminal *bte_terminal,
         TerminalScreen *screen);
-static void terminal_screen_icon_title_changed        (VteTerminal *bte_terminal,
+static void terminal_screen_icon_title_changed        (BteTerminal *bte_terminal,
         TerminalScreen *screen);
 
 static void update_color_scheme                      (TerminalScreen *screen);
@@ -171,7 +171,7 @@ static const TerminalRegexPattern url_regex_patterns[] =
 	{ "news:[[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+", FLAVOR_AS_IS, PCRE2_CASELESS  },
 };
 
-static VteRegex **url_regexes;
+static BteRegex **url_regexes;
 static TerminalURLFlavour *url_regex_flavors;
 static guint n_url_regexes;
 
@@ -185,7 +185,7 @@ static const TerminalRegexPattern skey_regex_patterns[] =
 	{ "otp-[a-z0-9]* [[:digit:]]* [-[:alnum:]]*", FLAVOR_AS_IS, 0 },
 };
 
-static VteRegex **skey_regexes;
+static BteRegex **skey_regexes;
 static guint n_skey_regexes;
 
 static void  terminal_screen_skey_match_remove (TerminalScreen            *screen);
@@ -469,7 +469,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS(klass);
-	VteTerminalClass *terminal_class = VTE_TERMINAL_CLASS (klass);
+	BteTerminalClass *terminal_class = VTE_TERMINAL_CLASS (klass);
 	TerminalApp *app;
 	guint i;
 
@@ -571,7 +571,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
 
 	/* Precompile the regexes */
 	n_url_regexes = G_N_ELEMENTS (url_regex_patterns);
-	url_regexes = g_new0 (VteRegex*, n_url_regexes);
+	url_regexes = g_new0 (BteRegex*, n_url_regexes);
 	url_regex_flavors = g_new0 (TerminalURLFlavour, n_url_regexes);
 
 	for (i = 0; i < n_url_regexes; ++i)
@@ -591,7 +591,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
 
 #ifdef ENABLE_SKEY
 	n_skey_regexes = G_N_ELEMENTS (skey_regex_patterns);
-	skey_regexes = g_new0 (VteRegex*, n_skey_regexes);
+	skey_regexes = g_new0 (BteRegex*, n_skey_regexes);
 
 	for (i = 0; i < n_skey_regexes; ++i)
 	{
@@ -927,7 +927,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 {
 	TerminalScreenPrivate *priv = screen->priv;
 	GObject *object = G_OBJECT (screen);
-	VteTerminal *bte_terminal = VTE_TERMINAL (screen);
+	BteTerminal *bte_terminal = VTE_TERMINAL (screen);
 	const char *prop_name;
 	TerminalWindow *window;
 
@@ -1556,12 +1556,12 @@ static gboolean
 terminal_screen_launch_child_cb (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	VteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = VTE_TERMINAL (screen);
 	char **env, **argv;
 	char *shell = NULL;
 	GError *err = NULL;
 	const char *working_dir;
-	VtePtyFlags pty_flags = VTE_PTY_DEFAULT;
+	BtePtyFlags pty_flags = VTE_PTY_DEFAULT;
 	GSpawnFlags spawn_flags = 0;
 
 	priv->launch_child_source_id = 0;
@@ -1599,7 +1599,7 @@ terminal_screen_launch_child_cb (TerminalScreen *screen)
 				  NULL,
 				  -1,
 				  NULL,
-				  (VteTerminalSpawnAsyncCallback) term_spawn_callback,
+				  (BteTerminalSpawnAsyncCallback) term_spawn_callback,
 				  NULL);
 
 	g_free (shell);
@@ -1833,7 +1833,7 @@ char*
 terminal_screen_get_current_dir (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	VtePty *pty;
+	BtePty *pty;
 
 	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
 	if (pty != NULL)
@@ -1870,7 +1870,7 @@ terminal_screen_get_current_dir (TerminalScreen *screen)
 char*
 terminal_screen_get_current_dir_with_fallback (TerminalScreen *screen)
 {
-	VtePty *pty;
+	BtePty *pty;
 	TerminalScreenPrivate *priv = screen->priv;
 
 	pty = bte_terminal_get_pty (VTE_TERMINAL (screen));
@@ -1911,7 +1911,7 @@ terminal_screen_get_font_scale (TerminalScreen *screen)
 }
 
 static void
-terminal_screen_window_title_changed (VteTerminal *bte_terminal,
+terminal_screen_window_title_changed (BteTerminal *bte_terminal,
                                       TerminalScreen *screen)
 {
 	terminal_screen_set_dynamic_title (screen,
@@ -1920,7 +1920,7 @@ terminal_screen_window_title_changed (VteTerminal *bte_terminal,
 }
 
 static void
-terminal_screen_icon_title_changed (VteTerminal *bte_terminal,
+terminal_screen_icon_title_changed (BteTerminal *bte_terminal,
                                     TerminalScreen *screen)
 {
 	terminal_screen_set_dynamic_icon_title (screen,
@@ -1929,13 +1929,13 @@ terminal_screen_icon_title_changed (VteTerminal *bte_terminal,
 }
 
 static void
-terminal_screen_child_exited (VteTerminal *terminal, int status)
+terminal_screen_child_exited (BteTerminal *terminal, int status)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (terminal);
 	TerminalScreenPrivate *priv = screen->priv;
 	TerminalExitAction action;
 
-	/* No need to chain up to VteTerminalClass::child_exited since it's NULL */
+	/* No need to chain up to BteTerminalClass::child_exited since it's NULL */
 
 	_terminal_debug_print (TERMINAL_DEBUG_PROCESSES,
 	                       "[screen %p] child process exited\n",
@@ -2284,7 +2284,7 @@ terminal_screen_get_size (TerminalScreen *screen,
                           int       *width_chars,
                           int       *height_chars)
 {
-	VteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = VTE_TERMINAL (screen);
 
 	*width_chars = bte_terminal_get_column_count (terminal);
 	*height_chars = bte_terminal_get_row_count (terminal);
@@ -2295,7 +2295,7 @@ terminal_screen_get_cell_size (TerminalScreen *screen,
                                int                  *cell_width_pixels,
                                int                  *cell_height_pixels)
 {
-	VteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = VTE_TERMINAL (screen);
 
 	*cell_width_pixels = bte_terminal_get_char_width (terminal);
 	*cell_height_pixels = bte_terminal_get_char_height (terminal);
@@ -2381,7 +2381,7 @@ terminal_screen_save_config (TerminalScreen *screen,
                              const char *group)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	VteTerminal *terminal = VTE_TERMINAL (screen);
+	BteTerminal *terminal = VTE_TERMINAL (screen);
 	TerminalProfile *profile = priv->profile;
 	const char *profile_id;
 	char *working_directory;
@@ -2423,7 +2423,7 @@ gboolean
 terminal_screen_has_foreground_process (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	VtePty *pty;
+	BtePty *pty;
 	int fd;
 	int fgpid;
 

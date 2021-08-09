@@ -1200,7 +1200,7 @@ screen_resize_window_cb (TerminalScreen *screen,
                          TerminalWindow* window)
 {
     TerminalWindowPrivate *priv = window->priv;
-    VteTerminal *terminal = VTE_TERMINAL (screen);
+    BteTerminal *terminal = VTE_TERMINAL (screen);
     CtkWidget *widget = CTK_WIDGET (screen);
 
     /* Don't do anything if we're maximised or fullscreened */
@@ -3645,7 +3645,7 @@ file_save_contents_callback (CtkAction *action,
 #ifdef ENABLE_SAVE
     CtkWidget *dialog = NULL;
     TerminalWindowPrivate *priv = window->priv;
-    VteTerminal *terminal;
+    BteTerminal *terminal;
 
     if (!priv->active_screen)
         return;
@@ -3984,7 +3984,7 @@ search_find_response_callback (CtkWidget *dialog,
     TerminalWindow *window = TERMINAL_WINDOW (user_data);
     TerminalWindowPrivate *priv = window->priv;
     TerminalSearchFlags flags;
-    VteRegex *regex;
+    BteRegex *regex;
 
     if (response != CTK_RESPONSE_ACCEPT)
         return;
