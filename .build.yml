@@ -111,6 +111,7 @@ build_scripts:
   - fi
 
   - make check 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
+  - apt list --installed cafe-common libctk-3-dev libbte-2.91-dev 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
   - echo Warnings detected in the logs `cat ./html-report/output_${TRAVIS_COMMIT} | grep -i warning | wc -l` 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
   - make install
 
