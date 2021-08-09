@@ -363,7 +363,7 @@ static void keys_change_notify (GSettings *settings,
                                 const gchar *key,
                                 gpointer user_data);
 
-static void accel_changed_callback (GtkAccelGroup  *accel_group,
+static void accel_changed_callback (CtkAccelGroup  *accel_group,
                                     guint           keyval,
                                     GdkModifierType modifier,
                                     GClosure       *accel_closure,
@@ -380,11 +380,11 @@ static gboolean binding_from_value  (GVariant        *value,
 static gboolean sync_idle_cb (gpointer data);
 
 static guint sync_idle_id = 0;
-static GtkAccelGroup *notification_group = NULL;
+static CtkAccelGroup *notification_group = NULL;
 /* never set GSettings keys in response to receiving a GSettings notify. */
 static int inside_gsettings_notify = 0;
-static GtkWidget *edit_keys_dialog = NULL;
-static GtkTreeStore *edit_keys_store = NULL;
+static CtkWidget *edit_keys_dialog = NULL;
+static CtkTreeStore *edit_keys_store = NULL;
 static GHashTable *gsettings_key_to_entry;
 static GSettings *settings_keybindings;
 
@@ -477,9 +477,9 @@ terminal_accels_shutdown (void)
 }
 
 static gboolean
-update_model_foreach (GtkTreeModel *model,
-                      GtkTreePath  *path,
-                      GtkTreeIter  *iter,
+update_model_foreach (CtkTreeModel *model,
+                      CtkTreePath  *path,
+                      CtkTreeIter  *iter,
                       gpointer      data)
 {
 	KeyEntry *key_entry = NULL;
@@ -581,7 +581,7 @@ keys_change_notify (GSettings *settings,
 }
 
 static void
-accel_changed_callback (GtkAccelGroup  *accel_group,
+accel_changed_callback (CtkAccelGroup  *accel_group,
                         guint           keyval,
                         GdkModifierType modifier,
                         GClosure       *accel_closure,
@@ -665,7 +665,7 @@ add_key_entry_to_changeset (gpointer key,
                             KeyEntry *key_entry,
                             GSettings *changeset)
 {
-	GtkAccelKey ctk_key;
+	CtkAccelKey ctk_key;
 
 	if (!key_entry->needs_gsettings_sync)
 		return;
@@ -711,10 +711,10 @@ sync_idle_cb (gpointer data)
  */
 
 static void
-accel_set_func (GtkTreeViewColumn *tree_column,
-                GtkCellRenderer   *cell,
-                GtkTreeModel      *model,
-                GtkTreeIter       *iter,
+accel_set_func (CtkTreeViewColumn *tree_column,
+                CtkCellRenderer   *cell,
+                CtkTreeModel      *model,
+                CtkTreeIter       *iter,
                 gpointer           data)
 {
 	KeyEntry *ke;
@@ -739,9 +739,9 @@ accel_set_func (GtkTreeViewColumn *tree_column,
 }
 
 static int
-accel_compare_func (GtkTreeModel *model,
-                    GtkTreeIter  *a,
-                    GtkTreeIter  *b,
+accel_compare_func (CtkTreeModel *model,
+                    CtkTreeIter  *a,
+                    CtkTreeIter  *b,
                     gpointer      user_data)
 {
 	KeyEntry *ke_a;
@@ -789,28 +789,28 @@ accel_compare_func (GtkTreeModel *model,
 }
 
 static void
-treeview_accel_changed_cb (GtkAccelGroup  *accel_group,
+treeview_accel_changed_cb (CtkAccelGroup  *accel_group,
                            guint keyval,
                            GdkModifierType modifier,
                            GClosure *accel_closure,
-                           GtkTreeModel *model)
+                           CtkTreeModel *model)
 {
 	ctk_tree_model_foreach (model, update_model_foreach, accel_closure->data);
 }
 
 static void
-accel_edited_callback (GtkCellRendererAccel *cell,
+accel_edited_callback (CtkCellRendererAccel *cell,
                        gchar                *path_string,
                        guint                 keyval,
                        GdkModifierType       mask,
                        guint                 hardware_keycode,
-                       GtkTreeView          *view)
+                       CtkTreeView          *view)
 {
-	GtkTreeModel *model;
-	GtkTreePath *path;
-	GtkTreeIter iter;
+	CtkTreeModel *model;
+	CtkTreePath *path;
+	CtkTreeIter iter;
 	KeyEntry *ke;
-	GtkAccelGroupEntry *entries;
+	CtkAccelGroupEntry *entries;
 	guint n_entries;
 	char *str;
 
@@ -839,7 +839,7 @@ accel_edited_callback (GtkCellRendererAccel *cell,
 	{
 		if (entries[0].accel_path_quark != g_quark_from_string (ke->accel_path))
 		{
-			GtkWidget *dialog;
+			CtkWidget *dialog;
 			char *name;
 			KeyEntry *other_key;
 
@@ -875,7 +875,7 @@ other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gset
 #ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_ACCELS)
 	{
-		GtkAccelKey old_key;
+		CtkAccelKey old_key;
 
 		if (ctk_accel_map_lookup_entry (ke->accel_path, &old_key))
 		{
@@ -899,13 +899,13 @@ other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gset
 }
 
 static void
-accel_cleared_callback (GtkCellRendererAccel *cell,
+accel_cleared_callback (CtkCellRendererAccel *cell,
                         gchar                *path_string,
-                        GtkTreeView          *view)
+                        CtkTreeView          *view)
 {
-	GtkTreeModel *model;
-	GtkTreePath *path;
-	GtkTreeIter iter;
+	CtkTreeModel *model;
+	CtkTreePath *path;
+	CtkTreeIter iter;
 	KeyEntry *ke;
 	char *str;
 
@@ -945,7 +945,7 @@ accel_cleared_callback (GtkCellRendererAccel *cell,
 }
 
 static void
-edit_keys_dialog_destroy_cb (GtkWidget *widget,
+edit_keys_dialog_destroy_cb (CtkWidget *widget,
                              gpointer user_data)
 {
 	g_signal_handlers_disconnect_by_func (notification_group, G_CALLBACK (treeview_accel_changed_cb), user_data);
@@ -954,7 +954,7 @@ edit_keys_dialog_destroy_cb (GtkWidget *widget,
 }
 
 static void
-edit_keys_dialog_response_cb (GtkWidget *editor,
+edit_keys_dialog_response_cb (CtkWidget *editor,
                               int response,
                               gpointer use_data)
 {
@@ -969,9 +969,9 @@ edit_keys_dialog_response_cb (GtkWidget *editor,
 
 #ifdef CAFE_ENABLE_DEBUG
 static void
-row_changed (GtkTreeModel *tree_model,
-             GtkTreePath  *path,
-             GtkTreeIter  *iter,
+row_changed (CtkTreeModel *tree_model,
+             CtkTreePath  *path,
+             CtkTreeIter  *iter,
              gpointer      user_data)
 {
 	_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
@@ -980,13 +980,13 @@ row_changed (GtkTreeModel *tree_model,
 #endif
 
 void
-terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
+terminal_edit_keys_dialog_show (CtkWindow *transient_parent)
 {
 	TerminalApp *app;
-	GtkWidget *dialog, *tree_view, *disable_mnemonics_button, *disable_menu_accel_button;
-	GtkTreeViewColumn *column;
-	GtkCellRenderer *cell_renderer;
-	GtkTreeStore *tree;
+	CtkWidget *dialog, *tree_view, *disable_mnemonics_button, *disable_menu_accel_button;
+	CtkTreeViewColumn *column;
+	CtkCellRenderer *cell_renderer;
+	CtkTreeStore *tree;
 	guint i;
 
 	if (edit_keys_dialog != NULL)
@@ -1044,7 +1044,7 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 
 	for (i = 0; i < G_N_ELEMENTS (all_entries); ++i)
 	{
-		GtkTreeIter parent_iter;
+		CtkTreeIter parent_iter;
 		guint j;
 
 		ctk_tree_store_append (tree, &parent_iter, NULL);
@@ -1055,7 +1055,7 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 		for (j = 0; j < all_entries[i].n_elements; ++j)
 		{
 			KeyEntry *key_entry = &(all_entries[i].key_entry[j]);
-			GtkTreeIter iter;
+			CtkTreeIter iter;
 
 			ctk_tree_store_insert_with_values (tree, &iter, &parent_iter, -1,
 			                                   ACTION_COLUMN, _(key_entry->user_visible_name),

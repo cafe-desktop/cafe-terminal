@@ -8,7 +8,7 @@
   <!-- interface-description find dialog of cafe-terminal -->
   <!-- interface-copyright CAFE developers -->
   <!-- interface-authors Wolfgang Ulbrich -->
-  <object class="GtkDialog" id="find-dialog">
+  <object class="CtkDialog" id="find-dialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Find</property>
@@ -17,18 +17,18 @@
     <property name="icon_name">ctk-find</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="vbox1">
+      <object class="CtkBox" id="vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="hbuttonbox2">
+          <object class="CtkButtonBox" id="hbuttonbox2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="button-close">
+              <object class="CtkButton" id="button-close">
                 <property name="label">ctk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -43,7 +43,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button-find">
+              <object class="CtkButton" id="button-find">
                 <property name="label">ctk-find</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -67,19 +67,19 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="vbox2">
+          <object class="CtkBox" id="vbox2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">5</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
-              <object class="GtkBox" id="hbox1">
+              <object class="CtkBox" id="hbox1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">12</property>
                 <child>
-                  <object class="GtkLabel" id="search-label">
+                  <object class="CtkLabel" id="search-label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
@@ -95,12 +95,12 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText" id="search-entry">
+                  <object class="CtkComboBoxText" id="search-entry">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="has_entry">True</property>
                     <child internal-child="entry">
-                      <object class="GtkEntry">
+                      <object class="CtkEntry">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                       </object>
@@ -120,7 +120,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="match-case-checkbutton">
+              <object class="CtkCheckButton" id="match-case-checkbutton">
                 <property name="label" translatable="yes">_Match case</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -137,7 +137,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="entire-word-checkbutton">
+              <object class="CtkCheckButton" id="entire-word-checkbutton">
                 <property name="label" translatable="yes">Match _entire word only</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -154,7 +154,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="regex-checkbutton">
+              <object class="CtkCheckButton" id="regex-checkbutton">
                 <property name="label" translatable="yes">Match as _regular expression</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -171,7 +171,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="search-backwards-checkbutton">
+              <object class="CtkCheckButton" id="search-backwards-checkbutton">
                 <property name="label" translatable="yes">Search _backwards</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -189,7 +189,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="wrap-around-checkbutton">
+              <object class="CtkCheckButton" id="wrap-around-checkbutton">
                 <property name="label" translatable="yes">_Wrap around</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>

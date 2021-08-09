@@ -33,22 +33,22 @@ G_BEGIN_DECLS
 #define CONF_FTP_PROXY_SCHEMA "org.gnome.system.proxy.ftp"
 #define CONF_SOCKS_PROXY_SCHEMA "org.gnome.system.proxy.socks"
 
-void terminal_util_set_unique_role (GtkWindow *window, const char *prefix);
+void terminal_util_set_unique_role (CtkWindow *window, const char *prefix);
 
-void terminal_util_show_error_dialog (GtkWindow *transient_parent,
-                                      GtkWidget **weap_ptr,
+void terminal_util_show_error_dialog (CtkWindow *transient_parent,
+                                      CtkWidget **weap_ptr,
                                       GError *error,
                                       const char *message_format, ...) G_GNUC_PRINTF(4, 5);
 
-void terminal_util_show_help (const char *topic, GtkWindow  *transient_parent);
+void terminal_util_show_help (const char *topic, CtkWindow  *transient_parent);
 
-void terminal_util_set_labelled_by          (GtkWidget  *widget,
-        GtkLabel   *label);
-void terminal_util_set_atk_name_description (GtkWidget  *widget,
+void terminal_util_set_labelled_by          (CtkWidget  *widget,
+        CtkLabel   *label);
+void terminal_util_set_atk_name_description (CtkWidget  *widget,
         const char *name,
         const char *desc);
 
-void terminal_util_open_url (GtkWidget *parent,
+void terminal_util_open_url (CtkWidget *parent,
                              const char *orig_url,
                              TerminalURLFlavour flavor,
                              guint32 user_time);
@@ -67,7 +67,7 @@ gboolean terminal_util_load_builder_resource (const char *path,
         const char *object_name,
         ...);
 
-gboolean terminal_util_dialog_response_on_delete (GtkWindow *widget);
+gboolean terminal_util_dialog_response_on_delete (CtkWindow *widget);
 
 void terminal_util_key_file_set_string_escape    (GKeyFile *key_file,
         const char *group,
@@ -98,7 +98,7 @@ typedef enum
 
 void terminal_util_bind_object_property_to_widget (GObject *object,
         const char *object_prop,
-        GtkWidget *widget,
+        CtkWidget *widget,
         PropertyChangeFlags flags);
 
 void terminal_util_x11_clear_demands_attention (GdkWindow *window);

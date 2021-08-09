@@ -369,9 +369,9 @@ egg_desktop_file_get_name (EggDesktopFile *desktop_file)
  * If the icon string is a full path (that is, if g_path_is_absolute()
  * returns %TRUE when called on it), it points to a file containing an
  * unthemed icon. If the icon string is not a full path, it is the
- * name of a themed icon, which can be looked up with %GtkIconTheme,
- * or passed directly to a theme-aware widget like %GtkImage or
- * %GtkCellRendererPixbuf.
+ * name of a themed icon, which can be looked up with %CtkIconTheme,
+ * or passed directly to a theme-aware widget like %CtkImage or
+ * %CtkCellRendererPixbuf.
  *
  * Return value: the icon path or name
  **/

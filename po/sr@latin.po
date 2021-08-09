@@ -683,7 +683,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za otvaranje novog lista. Izražava se kao niska na isti način kako "
-"se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+"se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:295
@@ -698,7 +698,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za otvaranje novog prozora. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:300
@@ -713,7 +713,7 @@ msgid ""
 " keyboard shortcut for this action."
 msgstr ""
 "Prečica za pozivanje prozorčeta za pravljenje profila. Izražava se kao niska"
-" na isti način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko "
+" na isti način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko "
 "postavite opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica "
 "ovoj akciji."
 
@@ -729,7 +729,7 @@ msgid ""
 "shortcut for this action."
 msgstr ""
 "Prečica za čuvanje sadržaja trenutnog lista u datoteku. Izražava se kao "
-"niska na isti način kako se koristi i u datotekama sa Gtk+ resursima. "
+"niska na isti način kako se koristi i u datotekama sa Ctk+ resursima. "
 "Ukoliko postavite opciju na „disabled“ (onemogućeno) neće biti dodeljena "
 "prečica ovoj akciji."
 
@@ -745,7 +745,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za zatvaranje lista. Izražava se kao niska na isti način kako se "
-"koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+"koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:315
@@ -760,7 +760,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za zatvaranje prozora. Izražava se kao niska na isti način kako se "
-"koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+"koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:320
@@ -775,7 +775,7 @@ msgid ""
 "shortcut for this action."
 msgstr ""
 "Prečica za ubacivanje izabranog teksta u spisak isečaka. Izražava se kao "
-"niska na isti način kako se koristi i u datotekama sa Gtk+ resursima. "
+"niska na isti način kako se koristi i u datotekama sa Ctk+ resursima. "
 "Ukoliko postavite opciju na „disabled“ (onemogućeno) neće biti dodeljena "
 "prečica ovoj akciji."
 
@@ -851,7 +851,7 @@ msgid ""
 " this action."
 msgstr ""
 "Prečica za prebacivanje na režim celog ekrana. Izražava se kao niska na isti"
-" način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+" način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:355
@@ -866,7 +866,7 @@ msgid ""
 "shortcut for this action."
 msgstr ""
 "Prečica za izmenu vidljivosti glavnog menija. Izražava se kao niska na isti "
-"način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+"način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:360
@@ -881,7 +881,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za postavljanje naslova terminala. Izražava se kao niska na isti "
-"način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+"način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:365
@@ -896,7 +896,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za resetovanje terminala. Izražava se kao niska na isti način kako "
-"se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+"se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:370
@@ -911,7 +911,7 @@ msgid ""
 " this action."
 msgstr ""
 "Prečica za resetovanje i čišćenje terminala. Izražava se kao niska na isti "
-"način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+"način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:375
@@ -926,7 +926,7 @@ msgid ""
 " this action."
 msgstr ""
 "Prečica za prebacivanje na prethodni list. Izražava se kao niska na isti "
-"način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+"način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:380
@@ -941,7 +941,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za prebacivanje na sledeći list. Izražava se kao niska na isti način"
-" kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju "
+" kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju "
 "na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:385
@@ -980,7 +980,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za premeštanje tekučeg lista na levo. Izražava se kao niska na isti "
-"način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+"način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:400
@@ -995,7 +995,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za premeštanje tekućeg lista na desno. Izražava se kao niska na isti"
-" način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+" način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:405
@@ -1009,7 +1009,7 @@ msgid ""
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
 "Prečica za odvajanje tekućeg lista. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:410
@@ -1024,7 +1024,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 1. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:415
@@ -1039,7 +1039,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 2. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:420
@@ -1054,7 +1054,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 3. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:425
@@ -1069,7 +1069,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 4. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:430
@@ -1084,7 +1084,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 5. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:435
@@ -1099,7 +1099,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 6. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:440
@@ -1114,7 +1114,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 7. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:445
@@ -1129,7 +1129,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 8. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:450
@@ -1144,7 +1144,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prebacivanje na 9. list. Izražava se kao niska na isti način kako"
-" se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+" se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:455
@@ -1159,7 +1159,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za prebacivanje na 10. list. Izražava se kao niska na isti način "
-"kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju "
+"kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju "
 "na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:460
@@ -1174,7 +1174,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za prebacivanje na 11. list. Izražava se kao niska na isti način "
-"kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju "
+"kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju "
 "na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:465
@@ -1189,7 +1189,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za prebacivanje na 12. list. Izražava se kao niska na isti način "
-"kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju "
+"kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju "
 "na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:470
@@ -1204,7 +1204,7 @@ msgid ""
 "action."
 msgstr ""
 "Prečica za prikazivanje pomoći. Izražava se kao niska na isti način kako se "
-"koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+"koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:475
@@ -1219,7 +1219,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za uvećanje fonta. Izražava se kao niska na isti način kako se "
-"koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+"koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:480
@@ -1234,7 +1234,7 @@ msgid ""
 "this action."
 msgstr ""
 "Prečica za umanjivanje fonta. Izražava se kao niska na isti način kako se "
-"koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite opciju na "
+"koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite opciju na "
 "„disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/org.cafe.terminal.gschema.xml.in:485
@@ -1249,7 +1249,7 @@ msgid ""
 " this action."
 msgstr ""
 "Prečica za postavljanje obične veličine fonta. Izražava se kao niska na isti"
-" način kako se koristi i u datotekama sa Gtk+ resursima. Ukoliko postavite "
+" način kako se koristi i u datotekama sa Ctk+ resursima. Ukoliko postavite "
 "opciju na „disabled“ (onemogućeno) neće biti dodeljena prečica ovoj akciji."
 
 #: src/profile-editor.c:44

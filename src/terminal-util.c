@@ -44,7 +44,7 @@
 #include "terminal-window.h"
 
 void
-terminal_util_set_unique_role (GtkWindow *window, const char *prefix)
+terminal_util_set_unique_role (CtkWindow *window, const char *prefix)
 {
 	char *role;
 
@@ -60,15 +60,15 @@ terminal_util_set_unique_role (GtkWindow *window, const char *prefix)
  * @error: a #GError, or %NULL
  * @message_format: printf() style format string
  *
- * Create a #GtkMessageDialog window with the message, and present it, handling its buttons.
+ * Create a #CtkMessageDialog window with the message, and present it, handling its buttons.
  * If @weap_ptr is not #NULL, only create the dialog if <literal>*weap_ptr</literal> is #NULL
  * (and in that * case, set @weap_ptr to be a weak pointer to the new dialog), otherwise just
  * present <literal>*weak_ptr</literal>. Note that in this last case, the message <emph>will</emph>
  * be changed.
  */
 void
-terminal_util_show_error_dialog (GtkWindow *transient_parent,
-                                 GtkWidget **weak_ptr,
+terminal_util_show_error_dialog (CtkWindow *transient_parent,
+                                 CtkWidget **weak_ptr,
                                  GError *error,
                                  const char *message_format,
                                  ...)
@@ -87,7 +87,7 @@ terminal_util_show_error_dialog (GtkWindow *transient_parent,
 
 	if (weak_ptr == NULL || *weak_ptr == NULL)
 	{
-		GtkWidget *dialog;
+		CtkWidget *dialog;
 		dialog = ctk_message_dialog_new (transient_parent,
 		                                 GTK_DIALOG_DESTROY_WITH_PARENT,
 		                                 GTK_MESSAGE_ERROR,
@@ -126,7 +126,7 @@ terminal_util_show_error_dialog (GtkWindow *transient_parent,
 
 void
 terminal_util_show_help (const char *topic,
-                         GtkWindow  *parent)
+                         CtkWindow  *parent)
 {
 	GError *error = NULL;
 	char *url;
@@ -153,7 +153,7 @@ terminal_util_show_help (const char *topic,
 /* sets accessible name and description for the widget */
 
 void
-terminal_util_set_atk_name_description (GtkWidget  *widget,
+terminal_util_set_atk_name_description (CtkWidget  *widget,
                                         const char *name,
                                         const char *desc)
 {
@@ -163,7 +163,7 @@ terminal_util_set_atk_name_description (GtkWidget  *widget,
 
 	if (obj == NULL)
 	{
-		g_warning ("%s: for some reason widget has no GtkAccessible",
+		g_warning ("%s: for some reason widget has no CtkAccessible",
 		           G_STRFUNC);
 		return;
 	}
@@ -180,7 +180,7 @@ terminal_util_set_atk_name_description (GtkWidget  *widget,
 }
 
 void
-terminal_util_open_url (GtkWidget *parent,
+terminal_util_open_url (CtkWidget *parent,
                         const char *orig_url,
                         TerminalURLFlavour flavor,
                         guint32 user_time)
@@ -344,7 +344,7 @@ terminal_util_load_builder_resource (const char *path,
                                  const char *object_name,
                                  ...)
 {
-	GtkBuilder *builder;
+	CtkBuilder *builder;
 	GError *error = NULL;
 	va_list args;
 
@@ -376,7 +376,7 @@ terminal_util_load_builder_resource (const char *path,
 }
 
 gboolean
-terminal_util_dialog_response_on_delete (GtkWindow *widget)
+terminal_util_dialog_response_on_delete (CtkWindow *widget)
 {
 	ctk_dialog_response (GTK_DIALOG (widget), GTK_RESPONSE_DELETE_EVENT);
 	return TRUE;
@@ -716,7 +716,7 @@ typedef struct
 {
 	GObject *object;
 	const char *object_prop;
-	GtkWidget *widget;
+	CtkWidget *widget;
 	gulong object_notify_id;
 	gulong widget_notify_id;
 	PropertyChangeFlags flags;
@@ -745,7 +745,7 @@ object_change_notify_cb (PropertyChange *change)
 {
 	GObject *object = change->object;
 	const char *object_prop = change->object_prop;
-	GtkWidget *widget = change->widget;
+	CtkWidget *widget = change->widget;
 
 	g_signal_handler_block (widget, change->widget_notify_id);
 
@@ -846,7 +846,7 @@ widget_change_notify_cb (PropertyChange *change)
 {
 	GObject *object = change->object;
 	const char *object_prop = change->object_prop;
-	GtkWidget *widget = change->widget;
+	CtkWidget *widget = change->widget;
 
 	g_signal_handler_block (change->object, change->object_notify_id);
 
@@ -934,7 +934,7 @@ out:
 void
 terminal_util_bind_object_property_to_widget (GObject *object,
         const char *object_prop,
-        GtkWidget *widget,
+        CtkWidget *widget,
         PropertyChangeFlags flags)
 {
 	PropertyChange *change;

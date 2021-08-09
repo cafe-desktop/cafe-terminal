@@ -116,13 +116,13 @@ extract_hash_seq_and_seed (const gchar  *otp_match,
 }
 
 static void
-skey_challenge_response_cb (GtkWidget *dialog,
+skey_challenge_response_cb (CtkWidget *dialog,
                             int response_id,
                             SkeyData *data)
 {
 	if (response_id == GTK_RESPONSE_OK)
 	{
-		GtkWidget *entry;
+		CtkWidget *entry;
 		const char *password;
 		char *response;
 
@@ -146,11 +146,11 @@ skey_challenge_response_cb (GtkWidget *dialog,
 }
 
 void
-terminal_skey_do_popup (GtkWindow *window,
+terminal_skey_do_popup (CtkWindow *window,
                         TerminalScreen *screen,
                         const gchar    *skey_match)
 {
-	GtkWidget *dialog, *label, *entry, *ok_button;
+	CtkWidget *dialog, *label, *entry, *ok_button;
 	char *title_text;
 	char *seed;
 	int seq;

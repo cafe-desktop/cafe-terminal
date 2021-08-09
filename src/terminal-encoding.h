@@ -56,6 +56,6 @@ const char *terminal_encoding_get_charset (TerminalEncoding *encoding);
 
 GHashTable *terminal_encodings_get_builtins (void);
 
-void terminal_encoding_dialog_show (GtkWindow *transient_parent);
+void terminal_encoding_dialog_show (CtkWindow *transient_parent);
 
 #endif /* TERMINAL_ENCODING_H */

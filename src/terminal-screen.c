@@ -108,19 +108,19 @@ enum
 
 static void terminal_screen_dispose     (GObject             *object);
 static void terminal_screen_finalize    (GObject             *object);
-static void terminal_screen_drag_data_received (GtkWidget        *widget,
+static void terminal_screen_drag_data_received (CtkWidget        *widget,
         GdkDragContext   *context,
         gint              x,
         gint              y,
-        GtkSelectionData *selection_data,
+        CtkSelectionData *selection_data,
         guint             info,
         guint             time);
 static void terminal_screen_system_font_notify_cb (TerminalApp *app,
         GParamSpec *pspec,
         TerminalScreen *screen);
 static void terminal_screen_change_font (TerminalScreen *screen);
-static gboolean terminal_screen_popup_menu (GtkWidget *widget);
-static gboolean terminal_screen_button_press (GtkWidget *widget,
+static gboolean terminal_screen_popup_menu (CtkWidget *widget);
+static gboolean terminal_screen_button_press (CtkWidget *widget,
         GdkEventButton *event);
 static void terminal_screen_launch_child_on_idle (TerminalScreen *screen);
 static void terminal_screen_child_exited (VteTerminal *terminal, int status);
@@ -259,9 +259,9 @@ terminal_screen_class_enable_menu_bar_accel_notify_cb (TerminalApp *app,
         GParamSpec *pspec,
         TerminalScreenClass *klass)
 {
-	static gboolean is_enabled = TRUE; /* the binding is enabled by default since GtkWidgetClass installs it */
+	static gboolean is_enabled = TRUE; /* the binding is enabled by default since CtkWidgetClass installs it */
 	gboolean enable;
-	GtkBindingSet *binding_set;
+	CtkBindingSet *binding_set;
 
 	g_object_get (app, TERMINAL_APP_ENABLE_MENU_BAR_ACCEL, &enable, NULL);
 
@@ -281,8 +281,8 @@ terminal_screen_class_enable_menu_bar_accel_notify_cb (TerminalApp *app,
 static TerminalWindow *
 terminal_screen_get_window (TerminalScreen *screen)
 {
-	GtkWidget *widget = GTK_WIDGET (screen);
-	GtkWidget *toplevel;
+	CtkWidget *widget = GTK_WIDGET (screen);
+	CtkWidget *toplevel;
 
 	toplevel = ctk_widget_get_toplevel (widget);
 	if (!ctk_widget_is_toplevel (toplevel))
@@ -292,7 +292,7 @@ terminal_screen_get_window (TerminalScreen *screen)
 }
 
 static void
-terminal_screen_realize (GtkWidget *widget)
+terminal_screen_realize (CtkWidget *widget)
 {
     TerminalScreen *screen = TERMINAL_SCREEN (widget);
 
@@ -302,7 +302,7 @@ terminal_screen_realize (GtkWidget *widget)
 }
 
 static void
-terminal_screen_style_updated (GtkWidget *widget)
+terminal_screen_style_updated (CtkWidget *widget)
 {
     TerminalScreen *screen = TERMINAL_SCREEN (widget);
 
@@ -316,8 +316,8 @@ terminal_screen_style_updated (GtkWidget *widget)
 
 #ifdef CAFE_ENABLE_DEBUG
 static void
-size_allocate (GtkWidget *widget,
-               GtkAllocation *allocation)
+size_allocate (CtkWidget *widget,
+               CtkAllocation *allocation)
 {
 	_terminal_debug_print (TERMINAL_DEBUG_GEOMETRY,
 	                       "[screen %p] size-alloc   %d : %d at (%d, %d)\n",
@@ -328,7 +328,7 @@ size_allocate (GtkWidget *widget,
 static void
 terminal_screen_init (TerminalScreen *screen)
 {
-	const GtkTargetEntry target_table[] =
+	const CtkTargetEntry target_table[] =
 	{
 		{ "GTK_NOTEBOOK_TAB", GTK_TARGET_SAME_APP, TARGET_TAB },
 		{ "application/x-color", 0, TARGET_COLOR },
@@ -338,8 +338,8 @@ terminal_screen_init (TerminalScreen *screen)
 		{ "_NETSCAPE_URL", 0, TARGET_NETSCAPE_URL }
 	};
 	TerminalScreenPrivate *priv;
-	GtkTargetList *target_list;
-	GtkTargetEntry *targets;
+	CtkTargetList *target_list;
+	CtkTargetEntry *targets;
 	int n_targets;
 
 	priv = screen->priv = terminal_screen_get_instance_private (screen);
@@ -468,7 +468,7 @@ static void
 terminal_screen_class_init (TerminalScreenClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
+	CtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
 	VteTerminalClass *terminal_class = VTE_TERMINAL_CLASS (klass);
 	TerminalApp *app;
 	guint i;
@@ -619,7 +619,7 @@ terminal_screen_dispose (GObject *object)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (object);
 	TerminalScreenPrivate *priv = screen->priv;
-	GtkSettings *settings;
+	CtkSettings *settings;
 
 	settings = ctk_widget_get_settings (GTK_WIDGET (screen));
 	g_signal_handlers_disconnect_matched (settings, G_SIGNAL_MATCH_DATA,
@@ -666,13 +666,13 @@ terminal_screen_finalize (GObject *object)
 }
 
 static gboolean
-terminal_screen_image_draw_cb (GtkWidget *widget, cairo_t *cr, void *userdata)
+terminal_screen_image_draw_cb (CtkWidget *widget, cairo_t *cr, void *userdata)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPrivate *priv = screen->priv;
 	GdkPixbuf *bg_image = priv->bg_image;
 	GdkRectangle target_rect;
-	GtkAllocation alloc;
+	CtkAllocation alloc;
 	cairo_surface_t *child_surface;
 	cairo_t *child_cr;
 
@@ -1085,7 +1085,7 @@ update_color_scheme (TerminalScreen *screen)
 	GdkRGBA fg, bg;
 	GdkRGBA *c;
 	guint n_colors;
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 	GError *error = NULL;
 
 	context = ctk_widget_get_style_context (GTK_WIDGET (screen));
@@ -1399,8 +1399,8 @@ get_child_environment (TerminalScreen *screen,
                        char **shell)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	GtkWidget *term = GTK_WIDGET (screen);
-	GtkWidget *window;
+	CtkWidget *term = GTK_WIDGET (screen);
+	CtkWidget *window;
 	GdkDisplay *display;
 	char **env;
 	char *e, *v;
@@ -1484,7 +1484,7 @@ enum
 };
 
 static void
-info_bar_response_cb (GtkWidget *info_bar,
+info_bar_response_cb (CtkWidget *info_bar,
                       int response,
                       TerminalScreen *screen)
 {
@@ -1515,7 +1515,7 @@ info_bar_response_cb (GtkWidget *info_bar,
 static void handle_error_child (TerminalScreen *screen,
 				GError         *err)
 {
-	GtkWidget *info_bar;
+	CtkWidget *info_bar;
 
 	info_bar = terminal_info_bar_new (GTK_MESSAGE_ERROR,
 	                                  _("_Profile Preferences"), RESPONSE_EDIT_PROFILE,
@@ -1534,7 +1534,7 @@ static void handle_error_child (TerminalScreen *screen,
 	ctk_widget_show (info_bar);
 }
 
-static void term_spawn_callback (GtkWidget *terminal,
+static void term_spawn_callback (CtkWidget *terminal,
 				 GPid       pid,
 				 GError    *error,
 				 gpointer   user_data)
@@ -1660,7 +1660,7 @@ terminal_screen_popup_info_unref (TerminalScreenPopupInfo *info)
 }
 
 static gboolean
-terminal_screen_popup_menu (GtkWidget *widget)
+terminal_screen_popup_menu (CtkWidget *widget)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPopupInfo *info;
@@ -1676,11 +1676,11 @@ terminal_screen_popup_menu (GtkWidget *widget)
 }
 
 static gboolean
-terminal_screen_button_press (GtkWidget      *widget,
+terminal_screen_button_press (CtkWidget      *widget,
                               GdkEventButton *event)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
-	gboolean (* button_press_event) (GtkWidget*, GdkEventButton*) =
+	gboolean (* button_press_event) (CtkWidget*, GdkEventButton*) =
 	    GTK_WIDGET_CLASS (terminal_screen_parent_class)->button_press_event;
 	char *matched_string;
 	int matched_flavor = 0;
@@ -1959,7 +1959,7 @@ terminal_screen_child_exited (VteTerminal *terminal, int status)
 		if ((status == 9) && (priv->override_command == NULL))
 			break;
 
-		GtkWidget *info_bar;
+		CtkWidget *info_bar;
 
 		info_bar = terminal_info_bar_new (GTK_MESSAGE_INFO,
 		                                  _("_Relaunch"), RESPONSE_RELAUNCH,
@@ -2013,11 +2013,11 @@ terminal_screen_set_user_title (TerminalScreen *screen,
 }
 
 static void
-terminal_screen_drag_data_received (GtkWidget        *widget,
+terminal_screen_drag_data_received (CtkWidget        *widget,
                                     GdkDragContext   *context,
                                     gint              x,
                                     gint              y,
-                                    GtkSelectionData *selection_data,
+                                    CtkSelectionData *selection_data,
                                     guint             info,
                                     guint             timestamp)
 {
@@ -2213,14 +2213,14 @@ terminal_screen_drag_data_received (GtkWidget        *widget,
 
 		case TARGET_TAB:
 		{
-			GtkWidget *container;
+			CtkWidget *container;
 			TerminalScreen *moving_screen;
 			TerminalWindow *source_window;
 			TerminalWindow *dest_window;
-			GtkWidget *dest_notebook;
+			CtkWidget *dest_notebook;
 			int page_num;
 
-			container = *(GtkWidget**) selection_data_data;
+			container = *(CtkWidget**) selection_data_data;
 			if (!GTK_IS_WIDGET (container))
 				return;
 
@@ -2250,8 +2250,8 @@ _terminal_screen_update_scrollbar (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
 	TerminalScreenContainer *container;
-	GtkPolicyType policy = GTK_POLICY_ALWAYS;
-	GtkCornerType corner = GTK_CORNER_TOP_LEFT;
+	CtkPolicyType policy = GTK_POLICY_ALWAYS;
+	CtkCornerType corner = GTK_CORNER_TOP_LEFT;
 
 	container = terminal_screen_container_get_from_screen (screen);
 	if (container == NULL)

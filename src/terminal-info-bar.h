@@ -36,7 +36,7 @@ typedef struct _TerminalInfoBarPrivate TerminalInfoBarPrivate;
 
 struct _TerminalInfoBar
 {
-	GtkInfoBar parent_instance;
+	CtkInfoBar parent_instance;
 
 	/*< private >*/
 	TerminalInfoBarPrivate *priv;
@@ -44,12 +44,12 @@ struct _TerminalInfoBar
 
 struct _TerminalInfoBarClass
 {
-	GtkInfoBarClass parent_class;
+	CtkInfoBarClass parent_class;
 };
 
 GType terminal_info_bar_get_type (void);
 
-GtkWidget *terminal_info_bar_new (GtkMessageType type,
+CtkWidget *terminal_info_bar_new (CtkMessageType type,
                                   const char *first_button_text,
                                   ...) G_GNUC_NULL_TERMINATED;
 

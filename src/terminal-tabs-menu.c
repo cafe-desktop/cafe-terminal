@@ -47,8 +47,8 @@
 struct _TerminalTabsMenuPrivate
 {
 	TerminalWindow *window;
-	GtkActionGroup *action_group;
-	GtkAction *anchor_action;
+	CtkActionGroup *action_group;
+	CtkAction *anchor_action;
 	guint ui_id;
 };
 
@@ -116,7 +116,7 @@ allocate_tab_id (void)
 }
 
 static void
-free_tab_id (GtkAction *action)
+free_tab_id (CtkAction *action)
 {
 	const char *name;
 	guint id;
@@ -143,7 +143,7 @@ free_tab_id (GtkAction *action)
 }
 
 static void
-tab_action_activate_cb (GtkToggleAction *action,
+tab_action_activate_cb (CtkToggleAction *action,
                         TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
@@ -166,7 +166,7 @@ tab_action_activate_cb (GtkToggleAction *action,
 static void
 sync_tab_title (TerminalScreen *screen,
                 GParamSpec *pspec,
-                GtkAction *action)
+                CtkAction *action)
 {
 	const char *title;
 
@@ -176,13 +176,13 @@ sync_tab_title (TerminalScreen *screen,
 }
 
 static void
-notebook_page_added_cb (GtkNotebook *notebook,
+notebook_page_added_cb (CtkNotebook *notebook,
                         TerminalScreenContainer *container,
                         guint position,
                         TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
-	GtkAction *action;
+	CtkAction *action;
 	char verb[ACTION_VERB_FORMAT_LENGTH];
 	GSList *group;
 	TerminalScreen *screen;
@@ -224,13 +224,13 @@ notebook_page_added_cb (GtkNotebook *notebook,
 }
 
 static void
-notebook_page_removed_cb (GtkNotebook *notebook,
+notebook_page_removed_cb (CtkNotebook *notebook,
                           TerminalScreenContainer *container,
                           guint position,
                           TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
-	GtkAction *action;
+	CtkAction *action;
 	TerminalScreen *screen;
 
 	screen = terminal_screen_container_get_screen (container);
@@ -253,8 +253,8 @@ notebook_page_removed_cb (GtkNotebook *notebook,
 }
 
 static void
-notebook_page_reordered_cb (GtkNotebook *notebook,
-                            GtkBin *bin,
+notebook_page_reordered_cb (CtkNotebook *notebook,
+                            CtkBin *bin,
                             guint position,
                             TerminalTabsMenu *menu)
 {
@@ -262,14 +262,14 @@ notebook_page_reordered_cb (GtkNotebook *notebook,
 }
 
 static void
-notebook_page_switch_cb (GtkNotebook *notebook,
-                         GtkWidget *page,
+notebook_page_switch_cb (CtkNotebook *notebook,
+                         CtkWidget *page,
                          guint position,
                          TerminalTabsMenu *menu)
 {
 	TerminalScreenContainer *container;
 	TerminalScreen *screen;
-	GtkAction *action;
+	CtkAction *action;
 
 	container = TERMINAL_SCREEN_CONTAINER (page);
 	screen = terminal_screen_container_get_screen (container);
@@ -281,14 +281,14 @@ notebook_page_switch_cb (GtkNotebook *notebook,
 }
 
 static void
-connect_proxy_cb (GtkActionGroup *action_group,
-                  GtkAction *action,
-                  GtkWidget *proxy,
+connect_proxy_cb (CtkActionGroup *action_group,
+                  CtkAction *action,
+                  CtkWidget *proxy,
                   gpointer dummy)
 {
 	if (GTK_IS_MENU_ITEM (proxy))
 	{
-		GtkLabel *label;
+		CtkLabel *label;
 
 		label = GTK_LABEL (ctk_bin_get_child (GTK_BIN (proxy)));
 
@@ -303,8 +303,8 @@ terminal_tabs_menu_set_window (TerminalTabsMenu *menu,
                                TerminalWindow *window)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
-	GtkWidget *notebook;
-	GtkUIManager *manager;
+	CtkWidget *notebook;
+	CtkUIManager *manager;
 
 	priv->window = window;
 
@@ -391,7 +391,7 @@ static void
 terminal_tabs_menu_clean (TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *p = menu->priv;
-	GtkUIManager *manager = GTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
+	CtkUIManager *manager = GTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
 
 	if (p->ui_id != 0)
 	{
@@ -410,8 +410,8 @@ terminal_tabs_menu_new (TerminalWindow *window)
 }
 
 static void
-tab_set_action_accelerator (GtkActionGroup *action_group,
-                            GtkAction *action,
+tab_set_action_accelerator (CtkActionGroup *action_group,
+                            CtkAction *action,
                             guint tab_number,
                             gboolean is_single_tab)
 {
@@ -434,7 +434,7 @@ static void
 terminal_tabs_menu_update (TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *p = menu->priv;
-	GtkUIManager *manager;
+	CtkUIManager *manager;
 	GList *tabs = NULL, *l;
 	guint i = 0, n;
 	gboolean is_single_tab;
@@ -454,7 +454,7 @@ terminal_tabs_menu_update (TerminalTabsMenu *menu)
 	for (l = tabs; l != NULL; l = l->next)
 	{
 		const char *verb;
-		GtkAction *action;
+		CtkAction *action;
 
 		TerminalScreenContainer *container = TERMINAL_SCREEN_CONTAINER (l->data);
 		GObject *screen = G_OBJECT (terminal_screen_container_get_screen (container));

@@ -24,7 +24,7 @@
 #include "terminal-close-button.h"
 
 struct _TerminalCloseButtonClassPrivate {
-	GtkCssProvider *css;
+	CtkCssProvider *css;
 };
 
 G_DEFINE_TYPE_WITH_CODE (TerminalCloseButton, terminal_close_button, GTK_TYPE_BUTTON,
@@ -47,8 +47,8 @@ terminal_close_button_class_init (TerminalCloseButtonClass *klass)
 static void
 terminal_close_button_init (TerminalCloseButton *button)
 {
-	GtkWidget *image;
-	GtkStyleContext *context;
+	CtkWidget *image;
+	CtkStyleContext *context;
 
 	ctk_widget_set_name (GTK_WIDGET (button), "cafe-terminal-tab-close-button");
 
@@ -63,7 +63,7 @@ terminal_close_button_init (TerminalCloseButton *button)
 	                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 }
 
-GtkWidget *
+CtkWidget *
 terminal_close_button_new ()
 {
 	return GTK_WIDGET (g_object_new (TERMINAL_TYPE_CLOSE_BUTTON,

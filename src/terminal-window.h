@@ -38,14 +38,14 @@ typedef struct _TerminalWindowPrivate TerminalWindowPrivate;
 
 struct _TerminalWindow
 {
-	GtkWindow parent_instance;
+	CtkWindow parent_instance;
 
 	TerminalWindowPrivate *priv;
 };
 
 struct _TerminalWindowClass
 {
-	GtkWindowClass parent_class;
+	CtkWindowClass parent_class;
 
 };
 
@@ -55,7 +55,7 @@ TerminalWindow* terminal_window_new (void);
 
 void terminal_window_set_is_restored (TerminalWindow *window);
 
-GtkUIManager *terminal_window_get_ui_manager (TerminalWindow *window);
+CtkUIManager *terminal_window_get_ui_manager (TerminalWindow *window);
 
 void terminal_window_add_screen (TerminalWindow *window,
                                  TerminalScreen *screen,
@@ -94,7 +94,7 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
                                           gboolean        even_if_mapped,
                                           gchar          *geometry_string);
 
-GtkWidget* terminal_window_get_notebook (TerminalWindow *window);
+CtkWidget* terminal_window_get_notebook (TerminalWindow *window);
 
 void terminal_window_save_state (TerminalWindow *window,
                                  GKeyFile *key_file,

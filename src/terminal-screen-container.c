@@ -29,14 +29,14 @@ struct _TerminalScreenContainerPrivate
 {
 	TerminalScreen *screen;
 #ifdef USE_SCROLLED_WINDOW
-	GtkWidget *scrolled_window;
+	CtkWidget *scrolled_window;
 #else
-	GtkWidget *hbox;
-	GtkWidget *vscrollbar;
+	CtkWidget *hbox;
+	CtkWidget *vscrollbar;
 #endif
-	GtkPolicyType hscrollbar_policy;
-	GtkPolicyType vscrollbar_policy;
-	GtkCornerType window_placement;
+	CtkPolicyType hscrollbar_policy;
+	CtkPolicyType vscrollbar_policy;
+	CtkCornerType window_placement;
 	guint window_placement_set : 1;
 };
 
@@ -56,7 +56,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (TerminalScreenContainer, terminal_screen_container, 
 
 static void
 terminal_screen_container_set_placement_internal (TerminalScreenContainer *container,
-        GtkCornerType corner)
+        CtkCornerType corner)
 {
 	TerminalScreenContainerPrivate *priv = container->priv;
 
@@ -98,7 +98,7 @@ terminal_screen_container_set_placement_set (TerminalScreenContainer *container,
 
 #if defined(USE_SCROLLED_WINDOW) && defined(CAFE_ENABLE_DEBUG)
 static void
-size_allocate_cb (GtkWidget *widget,
+size_allocate_cb (CtkWidget *widget,
                   GdkRectangle *rect,
                   TerminalScreenContainer *container)
 {
@@ -305,7 +305,7 @@ terminal_screen_container_class_init (TerminalScreenContainerClass *klass)
  *
  * Returns: a new #TerminalScreenContainer for @screen
  */
-GtkWidget *
+CtkWidget *
 terminal_screen_container_new (TerminalScreen *screen)
 {
 	return g_object_new (TERMINAL_TYPE_SCREEN_CONTAINER,
@@ -344,15 +344,15 @@ terminal_screen_container_get_from_screen (TerminalScreen *screen)
 /**
  * terminal_screen_container_set_policy:
  * @container: a #TerminalScreenContainer
- * @hpolicy: a #GtkPolicyType
- * @vpolicy: a #GtkPolicyType
+ * @hpolicy: a #CtkPolicyType
+ * @vpolicy: a #CtkPolicyType
  *
  * Sets @container's scrollbar policy.
  */
 void
 terminal_screen_container_set_policy (TerminalScreenContainer *container,
-                                      GtkPolicyType hpolicy G_GNUC_UNUSED,
-                                      GtkPolicyType vpolicy)
+                                      CtkPolicyType hpolicy G_GNUC_UNUSED,
+                                      CtkPolicyType vpolicy)
 {
 	TerminalScreenContainerPrivate *priv;
 	GObject *object;
@@ -398,13 +398,13 @@ terminal_screen_container_set_policy (TerminalScreenContainer *container,
 /**
  * terminal_screen_container_set_placement:
  * @container: a #TerminalScreenContainer
- * @corner: a #GtkCornerType
+ * @corner: a #CtkCornerType
  *
  * Sets @container's window placement.
  */
 void
 terminal_screen_container_set_placement (TerminalScreenContainer *container,
-        GtkCornerType corner)
+        CtkCornerType corner)
 {
 	g_return_if_fail (TERMINAL_IS_SCREEN_CONTAINER (container));
 

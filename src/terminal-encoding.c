@@ -132,19 +132,19 @@ static const struct
 
 typedef struct
 {
-	GtkWidget *dialog;
-	GtkListStore *base_store;
-	GtkTreeView *available_tree_view;
-	GtkTreeSelection *available_selection;
-	GtkTreeModel *available_model;
-	GtkTreeView *active_tree_view;
-	GtkTreeSelection *active_selection;
-	GtkTreeModel *active_model;
-	GtkWidget *add_button;
-	GtkWidget *remove_button;
+	CtkWidget *dialog;
+	CtkListStore *base_store;
+	CtkTreeView *available_tree_view;
+	CtkTreeSelection *available_selection;
+	CtkTreeModel *available_model;
+	CtkTreeView *active_tree_view;
+	CtkTreeSelection *active_selection;
+	CtkTreeModel *active_model;
+	CtkWidget *add_button;
+	CtkWidget *remove_button;
 } EncodingDialogData;
 
-static GtkWidget *encoding_dialog = NULL;
+static CtkWidget *encoding_dialog = NULL;
 
 TerminalEncoding *
 terminal_encoding_new (const char *charset,
@@ -310,7 +310,7 @@ update_active_encodings_gsettings (void)
 }
 
 static void
-response_callback (GtkWidget *window,
+response_callback (CtkWidget *window,
                    int        id,
                    EncodingDialogData *data)
 {
@@ -329,10 +329,10 @@ enum
 };
 
 static void
-selection_changed_cb (GtkTreeSelection *selection,
+selection_changed_cb (CtkTreeSelection *selection,
                       EncodingDialogData *data)
 {
-	GtkWidget *button;
+	CtkWidget *button;
 	gboolean have_selection;
 
 	if (selection == data->available_selection)
@@ -347,12 +347,12 @@ selection_changed_cb (GtkTreeSelection *selection,
 }
 
 static void
-button_clicked_cb (GtkWidget *button,
+button_clicked_cb (CtkWidget *button,
                    EncodingDialogData *data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeModel *model;
-	GtkTreeIter filter_iter, iter;
+	CtkTreeSelection *selection;
+	CtkTreeModel *model;
+	CtkTreeIter filter_iter, iter;
 	TerminalEncoding *encoding;
 
 	if (button == data->add_button)
@@ -391,9 +391,9 @@ button_clicked_cb (GtkWidget *button,
 static void
 liststore_insert_encoding (gpointer key,
                            TerminalEncoding *encoding,
-                           GtkListStore *store)
+                           CtkListStore *store)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 
 	if (!terminal_encoding_is_valid (encoding))
 		return;
@@ -406,8 +406,8 @@ liststore_insert_encoding (gpointer key,
 }
 
 static gboolean
-filter_active_encodings (GtkTreeModel *child_model,
-                         GtkTreeIter *child_iter,
+filter_active_encodings (CtkTreeModel *child_model,
+                         CtkTreeIter *child_iter,
                          gpointer data)
 {
 	TerminalEncoding *encoding;
@@ -421,11 +421,11 @@ filter_active_encodings (GtkTreeModel *child_model,
 	return visible;
 }
 
-static GtkTreeModel *
-encodings_create_treemodel (GtkListStore *base_store,
+static CtkTreeModel *
+encodings_create_treemodel (CtkListStore *base_store,
                             gboolean active)
 {
-	GtkTreeModel *model;
+	CtkTreeModel *model;
 
 	model = ctk_tree_model_filter_new (GTK_TREE_MODEL (base_store), NULL);
 	ctk_tree_model_filter_set_visible_func (GTK_TREE_MODEL_FILTER (model),
@@ -455,12 +455,12 @@ encoding_dialog_data_free (EncodingDialogData *data)
 }
 
 void
-terminal_encoding_dialog_show (GtkWindow *transient_parent)
+terminal_encoding_dialog_show (CtkWindow *transient_parent)
 {
 	TerminalApp *app;
-	GtkCellRenderer *cell_renderer;
-	GtkTreeViewColumn *column;
-	GtkTreeModel *model;
+	CtkCellRenderer *cell_renderer;
+	CtkTreeViewColumn *column;
+	CtkTreeModel *model;
 	EncodingDialogData *data;
 
 	if (encoding_dialog)

@@ -24,7 +24,7 @@
 
 struct _TerminalInfoBarPrivate
 {
-	GtkWidget *content_box;
+	CtkWidget *content_box;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (TerminalInfoBar, terminal_info_bar, GTK_TYPE_INFO_BAR)
@@ -34,7 +34,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (TerminalInfoBar, terminal_info_bar, GTK_TYPE_INFO_BA
 static void
 terminal_info_bar_init (TerminalInfoBar *bar)
 {
-	GtkInfoBar *info_bar = GTK_INFO_BAR (bar);
+	CtkInfoBar *info_bar = GTK_INFO_BAR (bar);
 	TerminalInfoBarPrivate *priv;
 
 	priv = bar->priv = terminal_info_bar_get_instance_private (bar);
@@ -53,16 +53,16 @@ terminal_info_bar_class_init (TerminalInfoBarClass *klass)
 
 /**
  * terminal_info_bar_new:
- * @type: a #GtkMessageType
+ * @type: a #CtkMessageType
  *
  * Returns: a new #TerminalInfoBar for @screen
  */
-GtkWidget *
-terminal_info_bar_new (GtkMessageType type,
+CtkWidget *
+terminal_info_bar_new (CtkMessageType type,
                        const char *first_button_text,
                        ...)
 {
-	GtkWidget *info_bar;
+	CtkWidget *info_bar;
 	va_list args;
 
 	info_bar = g_object_new (TERMINAL_TYPE_INFO_BAR,
@@ -92,7 +92,7 @@ terminal_info_bar_format_text (TerminalInfoBar *bar,
 {
 	TerminalInfoBarPrivate *priv;
 	char *text;
-	GtkWidget *label;
+	CtkWidget *label;
 	va_list args;
 
 	g_return_if_fail (TERMINAL_IS_INFO_BAR (bar));
