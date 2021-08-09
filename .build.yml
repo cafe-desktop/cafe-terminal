@@ -73,6 +73,7 @@ before_scripts:
   - make
   - make install
   - cd ..
+  - rm -rf cafe-common-master
 
   # Install required ctk .deb packages
   - git clone --depth 1  https://github.com/cafe-desktop/ctk.git -b master ctk-master
@@ -83,6 +84,7 @@ before_scripts:
   - wget https://github.com/cafe-desktop/ctk/releases/download/`git describe --abbrev=0 --tags`/libctk-3-0_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
   - dpkg -i *.deb
   - cd ..
+  - rm -rf ctk-master
 
   # Install required bte .deb packages
   - git clone --depth 1  https://github.com/cafe-desktop/bte.git -b master bte-master
@@ -93,6 +95,7 @@ before_scripts:
   - wget https://github.com/cafe-desktop/bte/releases/download/`git describe --abbrev=0 --tags`/libbte-2.91-0_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
   - dpkg -i *.deb
   - cd ..
+  - rm -rf bte-master
 
 build_scripts:
   - export TITLESCANBUILD="${REPO_NAME} (clang-tools `dpkg -s clang-tools|grep -i version|cut -d " " -f 2`) - scan-build results"
