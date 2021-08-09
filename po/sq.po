@@ -134,11 +134,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Zakonisht mund të rikontrolloni menunë duke shtypur \"F10\". Por mund t'a "
-"personalizoni via gtkrc (gtk-menu-bar-accel = \"çfarë-të-doni\". Ky opcion "
+"personalizoni via ctkrc (ctk-menu-bar-accel = \"çfarë-të-doni\". Ky opcion "
 "mundëson ç'aktivimin e përshpejtuesve standart të panelit të menusë."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

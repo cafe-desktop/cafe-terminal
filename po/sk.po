@@ -142,11 +142,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Normálne môžete aktivovať menu pomocou F10. Toto je možné upraviť pomocou "
-"gtkrc (gtk-menu-bar-accel = „hodnota“). Táto možnosť umožňuje štandardný "
+"ctkrc (ctk-menu-bar-accel = „hodnota“). Táto možnosť umožňuje štandardný "
 "akcelerátor menu vypnúť."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

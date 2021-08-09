@@ -150,11 +150,11 @@ msgstr "Om standard GTK+ genvägen för menyradsåtkomst har aktiverats"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Normalt kan du komma åt menyraden med F10. Detta kan också anpassas via "
-"gtkrc (gtk-menu-bar-accel = \"whatever\"). Detta alternativ möjliggör att "
+"ctkrc (ctk-menu-bar-accel = \"whatever\"). Detta alternativ möjliggör att "
 "standardmenyradsgenvägen inaktiveras."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

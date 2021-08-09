@@ -143,11 +143,11 @@ msgstr "Se o atalho predefinido GTK+ de acesso à barra de menu está ativo"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Normalmente, pode aceder à barra de menu com F10. Isto pode também ser "
-"personalizado via gtkrc (gtk-menu-bar-accel = \"whatever\"). Esta opção "
+"personalizado via ctkrc (ctk-menu-bar-accel = \"whatever\"). Esta opção "
 "permite que o atalho predefinido da barra de menu seja desativado."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

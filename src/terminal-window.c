@@ -21,7 +21,7 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdk.h>
 #ifdef GDK_WINDOWING_X11
 #include <gdk/gdkx.h>
@@ -105,7 +105,7 @@ struct _TerminalWindowPrivate
     guint disposed : 1;
     guint present_on_insert : 1;
 
-    /* Workaround until gtk+ bug #535557 is fixed */
+    /* Workaround until ctk+ bug #535557 is fixed */
     guint icon_title_set : 1;
     time_t focus_time;
 
@@ -282,14 +282,14 @@ app_setting_notify_cb (TerminalApp *app,
     else
         prop_name = NULL;
 
-    settings = gtk_settings_get_for_screen (screen);
+    settings = ctk_settings_get_for_screen (screen);
 
     if (!prop_name || prop_name == I_(TERMINAL_APP_ENABLE_MNEMONICS))
     {
         gboolean enable_mnemonics;
 
         g_object_get (app, TERMINAL_APP_ENABLE_MNEMONICS, &enable_mnemonics, NULL);
-        g_object_set (settings, "gtk-enable-mnemonics", enable_mnemonics, NULL);
+        g_object_set (settings, "ctk-enable-mnemonics", enable_mnemonics, NULL);
     }
 
     if (!prop_name || prop_name == I_(TERMINAL_APP_ENABLE_MENU_BAR_ACCEL))
@@ -297,21 +297,21 @@ app_setting_notify_cb (TerminalApp *app,
         /* const */ char *saved_menubar_accel;
         gboolean enable_menubar_accel;
 
-        /* FIXME: Once gtk+ bug 507398 is fixed, use that to reset the property instead */
+        /* FIXME: Once ctk+ bug 507398 is fixed, use that to reset the property instead */
         /* Now this is a bad hack on so many levels. */
-        saved_menubar_accel = g_object_get_data (G_OBJECT (settings), "GT::gtk-menu-bar-accel");
+        saved_menubar_accel = g_object_get_data (G_OBJECT (settings), "GT::ctk-menu-bar-accel");
         if (!saved_menubar_accel)
         {
-            g_object_get (settings, "gtk-menu-bar-accel", &saved_menubar_accel, NULL);
-            g_object_set_data_full (G_OBJECT (settings), "GT::gtk-menu-bar-accel",
+            g_object_get (settings, "ctk-menu-bar-accel", &saved_menubar_accel, NULL);
+            g_object_set_data_full (G_OBJECT (settings), "GT::ctk-menu-bar-accel",
                                     saved_menubar_accel, (GDestroyNotify) g_free);
         }
 
         g_object_get (app, TERMINAL_APP_ENABLE_MENU_BAR_ACCEL, &enable_menubar_accel, NULL);
         if (enable_menubar_accel)
-            g_object_set (settings, "gtk-menu-bar-accel", saved_menubar_accel, NULL);
+            g_object_set (settings, "ctk-menu-bar-accel", saved_menubar_accel, NULL);
         else
-            g_object_set (settings, "gtk-menu-bar-accel", NULL, NULL);
+            g_object_set (settings, "ctk-menu-bar-accel", NULL, NULL);
     }
 }
 
@@ -527,25 +527,25 @@ find_tab_num_at_pos (GtkNotebook *notebook,
     GtkWidget *page;
     GtkAllocation tab_allocation;
 
-    tab_pos = gtk_notebook_get_tab_pos (GTK_NOTEBOOK (notebook));
+    tab_pos = ctk_notebook_get_tab_pos (GTK_NOTEBOOK (notebook));
 
-    while ((page = gtk_notebook_get_nth_page (nb, page_num)))
+    while ((page = ctk_notebook_get_nth_page (nb, page_num)))
     {
         GtkWidget *tab;
         int max_x, max_y, x_root, y_root;
 
-        tab = gtk_notebook_get_tab_label (nb, page);
+        tab = ctk_notebook_get_tab_label (nb, page);
         g_return_val_if_fail (tab != NULL, -1);
 
-        if (!gtk_widget_get_mapped (GTK_WIDGET (tab)))
+        if (!ctk_widget_get_mapped (GTK_WIDGET (tab)))
         {
             page_num++;
             continue;
         }
 
-        gdk_window_get_origin (gtk_widget_get_window (tab), &x_root, &y_root);
+        gdk_window_get_origin (ctk_widget_get_window (tab), &x_root, &y_root);
 
-        gtk_widget_get_allocation (tab, &tab_allocation);
+        ctk_widget_get_allocation (tab, &tab_allocation);
         max_x = x_root + tab_allocation.x + tab_allocation.width;
         max_y = y_root + tab_allocation.y + tab_allocation.height;
 
@@ -568,7 +568,7 @@ terminal_set_profile_toggled_callback (GtkToggleAction *action,
     TerminalWindowPrivate *priv = window->priv;
     TerminalProfile *profile;
 
-    if (!gtk_toggle_action_get_active (action))
+    if (!ctk_toggle_action_get_active (action))
         return;
 
     if (priv->active_screen == NULL)
@@ -597,7 +597,7 @@ profile_visible_name_notify_cb (TerminalProfile *profile,
     visible_name = terminal_profile_get_property_string (profile, TERMINAL_PROFILE_VISIBLE_NAME);
     display_name = escape_underscores (visible_name);
 
-    dot = strchr (gtk_action_get_name (action), '.');
+    dot = strchr (ctk_action_get_name (action), '.');
     if (dot != NULL)
     {
         char *free_me;
@@ -632,7 +632,7 @@ disconnect_profiles_from_actions_in_group (GtkActionGroup *action_group)
 {
     GList *actions, *l;
 
-    actions = gtk_action_group_list_actions (action_group);
+    actions = ctk_action_group_list_actions (action_group);
     for (l = actions; l != NULL; l = l->next)
     {
         GObject *action = G_OBJECT (l->data);
@@ -662,7 +662,7 @@ terminal_window_update_set_profile_menu_active_profile (TerminalWindow *window)
 
     new_active_profile = terminal_screen_get_profile (priv->active_screen);
 
-    actions = gtk_action_group_list_actions (priv->profiles_action_group);
+    actions = ctk_action_group_list_actions (priv->profiles_action_group);
     for (l = actions; l != NULL; l = l->next)
     {
         GObject *action = G_OBJECT (l->data);
@@ -673,7 +673,7 @@ terminal_window_update_set_profile_menu_active_profile (TerminalWindow *window)
             continue;
 
         g_signal_handlers_block_by_func (action, G_CALLBACK (terminal_set_profile_toggled_callback), window);
-        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+        ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
         g_signal_handlers_unblock_by_func (action, G_CALLBACK (terminal_set_profile_toggled_callback), window);
 
         break;
@@ -696,23 +696,23 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
     /* Remove the old UI */
     if (priv->profiles_ui_id != 0)
     {
-        gtk_ui_manager_remove_ui (priv->ui_manager, priv->profiles_ui_id);
+        ctk_ui_manager_remove_ui (priv->ui_manager, priv->profiles_ui_id);
         priv->profiles_ui_id = 0;
     }
 
     if (priv->profiles_action_group != NULL)
     {
         disconnect_profiles_from_actions_in_group (priv->profiles_action_group);
-        gtk_ui_manager_remove_action_group (priv->ui_manager,
+        ctk_ui_manager_remove_action_group (priv->ui_manager,
                                             priv->profiles_action_group);
         priv->profiles_action_group = NULL;
     }
 
     profiles = terminal_app_get_profile_list (terminal_app_get ());
 
-    action = gtk_action_group_get_action (priv->action_group, "TerminalProfiles");
+    action = ctk_action_group_get_action (priv->action_group, "TerminalProfiles");
     single_profile = !profiles || profiles->next == NULL; /* list length <= 1 */
-    gtk_action_set_sensitive (action, !single_profile);
+    ctk_action_set_sensitive (action, !single_profile);
     if (profiles == NULL)
         return;
 
@@ -721,11 +721,11 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
     else
         active_profile = NULL;
 
-    action_group = priv->profiles_action_group = gtk_action_group_new ("Profiles");
-    gtk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
+    action_group = priv->profiles_action_group = ctk_action_group_new ("Profiles");
+    ctk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
     g_object_unref (action_group);
 
-    priv->profiles_ui_id = gtk_ui_manager_new_merge_id (priv->ui_manager);
+    priv->profiles_ui_id = ctk_ui_manager_new_merge_id (priv->ui_manager);
 
     group = NULL;
     n = 0;
@@ -737,17 +737,17 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
 
         g_snprintf (name, sizeof (name), "TerminalSetProfile%u", n++);
 
-        profile_action = gtk_radio_action_new (name,
+        profile_action = ctk_radio_action_new (name,
                                                NULL,
                                                NULL,
                                                NULL,
                                                n);
 
-        gtk_radio_action_set_group (profile_action, group);
-        group = gtk_radio_action_get_group (profile_action);
+        ctk_radio_action_set_group (profile_action, group);
+        group = ctk_radio_action_get_group (profile_action);
 
         if (profile == active_profile)
-            gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (profile_action), TRUE);
+            ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (profile_action), TRUE);
 
         g_object_set_data_full (G_OBJECT (profile_action),
                                 PROFILE_DATA_KEY,
@@ -759,14 +759,14 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
         g_signal_connect (profile_action, "toggled",
                           G_CALLBACK (terminal_set_profile_toggled_callback), window);
 
-        gtk_action_group_add_action (action_group, GTK_ACTION (profile_action));
+        ctk_action_group_add_action (action_group, GTK_ACTION (profile_action));
         g_object_unref (profile_action);
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
+        ctk_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
                                PROFILES_UI_PATH,
                                name, name,
                                GTK_UI_MANAGER_MENUITEM, FALSE);
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
+        ctk_ui_manager_add_ui (priv->ui_manager, priv->profiles_ui_id,
                                PROFILES_POPUP_UI_PATH,
                                name, name,
                                GTK_UI_MANAGER_MENUITEM, FALSE);
@@ -785,7 +785,7 @@ terminal_window_create_new_terminal_action (TerminalWindow *window,
     TerminalWindowPrivate *priv = window->priv;
     GtkAction *action;
 
-    action = gtk_action_new (name, NULL, NULL, NULL);
+    action = ctk_action_new (name, NULL, NULL, NULL);
 
     g_object_set_data_full (G_OBJECT (action),
                             PROFILE_DATA_KEY,
@@ -796,7 +796,7 @@ terminal_window_create_new_terminal_action (TerminalWindow *window,
                       G_CALLBACK (profile_visible_name_notify_cb), action);
     g_signal_connect (action, "activate", callback, window);
 
-    gtk_action_group_add_action (priv->new_terminal_action_group, action);
+    ctk_action_group_add_action (priv->new_terminal_action_group, action);
     g_object_unref (action);
 }
 
@@ -813,14 +813,14 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
     /* Remove the old UI */
     if (priv->new_terminal_ui_id != 0)
     {
-        gtk_ui_manager_remove_ui (priv->ui_manager, priv->new_terminal_ui_id);
+        ctk_ui_manager_remove_ui (priv->ui_manager, priv->new_terminal_ui_id);
         priv->new_terminal_ui_id = 0;
     }
 
     if (priv->new_terminal_action_group != NULL)
     {
         disconnect_profiles_from_actions_in_group (priv->new_terminal_action_group);
-        gtk_ui_manager_remove_action_group (priv->ui_manager,
+        ctk_ui_manager_remove_action_group (priv->ui_manager,
                                             priv->new_terminal_action_group);
         priv->new_terminal_action_group = NULL;
     }
@@ -828,10 +828,10 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
     profiles = terminal_app_get_profile_list (terminal_app_get ());
     have_single_profile = !profiles || !profiles->next;
 
-    action = gtk_action_group_get_action (priv->action_group, "FileNewTab");
-    gtk_action_set_visible (action, have_single_profile);
-    action = gtk_action_group_get_action (priv->action_group, "FileNewWindow");
-    gtk_action_set_visible (action, have_single_profile);
+    action = ctk_action_group_get_action (priv->action_group, "FileNewTab");
+    ctk_action_set_visible (action, have_single_profile);
+    action = ctk_action_group_get_action (priv->action_group, "FileNewWindow");
+    ctk_action_set_visible (action, have_single_profile);
 
     if (have_single_profile)
     {
@@ -841,11 +841,11 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
 
     /* Now build the submenus */
 
-    action_group = priv->new_terminal_action_group = gtk_action_group_new ("NewTerminal");
-    gtk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
+    action_group = priv->new_terminal_action_group = ctk_action_group_new ("NewTerminal");
+    ctk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
     g_object_unref (action_group);
 
-    priv->new_terminal_ui_id = gtk_ui_manager_new_merge_id (priv->ui_manager);
+    priv->new_terminal_ui_id = ctk_ui_manager_new_merge_id (priv->ui_manager);
 
     n = 0;
     for (p = profiles; p != NULL; p = p->next)
@@ -860,7 +860,7 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
                 n,
                 G_CALLBACK (file_new_tab_callback));
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
+        ctk_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
                                FILE_NEW_TERMINAL_TAB_UI_PATH,
                                name, name,
                                GTK_UI_MANAGER_MENUITEM, FALSE);
@@ -872,7 +872,7 @@ terminal_window_update_new_terminal_menus (TerminalWindow *window)
                 n,
                 G_CALLBACK (file_new_window_callback));
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
+        ctk_ui_manager_add_ui (priv->ui_manager, priv->new_terminal_ui_id,
                                FILE_NEW_TERMINAL_WINDOW_UI_PATH,
                                name, name,
                                GTK_UI_MANAGER_MENUITEM, FALSE);
@@ -890,7 +890,7 @@ terminal_set_encoding_callback (GtkToggleAction *action,
     TerminalWindowPrivate *priv = window->priv;
     TerminalEncoding *encoding;
 
-    if (!gtk_toggle_action_get_active (action))
+    if (!ctk_toggle_action_get_active (action))
         return;
 
     if (priv->active_screen == NULL)
@@ -918,22 +918,22 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
     /* Remove the old UI */
     if (priv->encodings_ui_id != 0)
     {
-        gtk_ui_manager_remove_ui (priv->ui_manager, priv->encodings_ui_id);
+        ctk_ui_manager_remove_ui (priv->ui_manager, priv->encodings_ui_id);
         priv->encodings_ui_id = 0;
     }
 
     if (priv->encodings_action_group != NULL)
     {
-        gtk_ui_manager_remove_action_group (priv->ui_manager,
+        ctk_ui_manager_remove_action_group (priv->ui_manager,
                                             priv->encodings_action_group);
         priv->encodings_action_group = NULL;
     }
 
-    action_group = priv->encodings_action_group = gtk_action_group_new ("Encodings");
-    gtk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
+    action_group = priv->encodings_action_group = ctk_action_group_new ("Encodings");
+    ctk_ui_manager_insert_action_group (priv->ui_manager, action_group, -1);
     g_object_unref (action_group);
 
-    priv->encodings_ui_id = gtk_ui_manager_new_merge_id (priv->ui_manager);
+    priv->encodings_ui_id = ctk_ui_manager_new_merge_id (priv->ui_manager);
 
     if (priv->active_screen)
         charset = vte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen));
@@ -960,18 +960,18 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
         g_snprintf (name, sizeof (name), SET_ENCODING_ACTION_NAME_PREFIX "%s", terminal_encoding_get_id (e));
         display_name = g_strdup_printf ("%s (%s)", e->name, terminal_encoding_get_charset (e));
 
-        encoding_action = gtk_radio_action_new (name,
+        encoding_action = ctk_radio_action_new (name,
                                                 display_name,
                                                 NULL,
                                                 NULL,
                                                 n);
         g_free (display_name);
 
-        gtk_radio_action_set_group (encoding_action, group);
-        group = gtk_radio_action_get_group (encoding_action);
+        ctk_radio_action_set_group (encoding_action, group);
+        group = ctk_radio_action_get_group (encoding_action);
 
         if (charset && strcmp (terminal_encoding_get_id (e), charset) == 0)
-            gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (encoding_action), TRUE);
+            ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (encoding_action), TRUE);
 
         g_signal_connect (encoding_action, "toggled",
                           G_CALLBACK (terminal_set_encoding_callback), window);
@@ -980,10 +980,10 @@ terminal_window_update_encoding_menu (TerminalWindow *window)
                                 terminal_encoding_ref (e),
                                 (GDestroyNotify) terminal_encoding_unref);
 
-        gtk_action_group_add_action (action_group, GTK_ACTION (encoding_action));
+        ctk_action_group_add_action (action_group, GTK_ACTION (encoding_action));
         g_object_unref (encoding_action);
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->encodings_ui_id,
+        ctk_ui_manager_add_ui (priv->ui_manager, priv->encodings_ui_id,
                                SET_ENCODING_UI_PATH,
                                name, name,
                                GTK_UI_MANAGER_MENUITEM, FALSE);
@@ -1007,12 +1007,12 @@ terminal_window_update_encoding_menu_active_encoding (TerminalWindow *window)
 
     g_snprintf (name, sizeof (name), SET_ENCODING_ACTION_NAME_PREFIX "%s",
                 vte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen)));
-    action = gtk_action_group_get_action (priv->encodings_action_group, name);
+    action = ctk_action_group_get_action (priv->encodings_action_group, name);
     if (!action)
         return;
 
     g_signal_handlers_block_by_func (action, G_CALLBACK (terminal_set_encoding_callback), window);
-    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+    ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
     g_signal_handlers_unblock_by_func (action, G_CALLBACK (terminal_set_encoding_callback), window);
 }
 
@@ -1028,7 +1028,7 @@ terminal_size_to_cb (GtkAction *action,
     if (priv->active_screen == NULL)
         return;
 
-    name = gtk_action_get_name (action) + strlen (SIZE_TO_ACTION_NAME_PREFIX);
+    name = ctk_action_get_name (action) + strlen (SIZE_TO_ACTION_NAME_PREFIX);
     width = g_ascii_strtoull (name, &end, 10);
     g_assert (end && *end == 'x');
     height = g_ascii_strtoull (end + 1, &end, 10);
@@ -1076,16 +1076,16 @@ terminal_window_update_size_to_menu (TerminalWindow *window)
          */
         display_name = g_strdup_printf ("_%u. %ux%u", i + 1, grid_width, grid_height);
 
-        action = gtk_action_new (name, display_name, NULL, NULL);
+        action = ctk_action_new (name, display_name, NULL, NULL);
         g_free (display_name);
 
         g_signal_connect (action, "activate",
                           G_CALLBACK (terminal_size_to_cb), window);
 
-        gtk_action_group_add_action (priv->action_group, action);
+        ctk_action_group_add_action (priv->action_group, action);
         g_object_unref (action);
 
-        gtk_ui_manager_add_ui (priv->ui_manager, priv->ui_id,
+        ctk_ui_manager_add_ui (priv->ui_manager, priv->ui_id,
                                SIZE_TO_UI_PATH,
                                name, name,
                                GTK_UI_MANAGER_MENUITEM, FALSE);
@@ -1107,8 +1107,8 @@ terminal_window_update_copy_sensitivity (TerminalScreen *screen,
 
     can_copy = vte_terminal_get_has_selection (VTE_TERMINAL (screen));
 
-    action = gtk_action_group_get_action (priv->action_group, "EditCopy");
-    gtk_action_set_sensitive (action, can_copy);
+    action = ctk_action_group_get_action (priv->action_group, "EditCopy");
+    ctk_action_set_sensitive (action, can_copy);
 
     if (can_copy && priv->copy_selection)
 #if VTE_CHECK_VERSION (0, 50, 0)
@@ -1132,10 +1132,10 @@ terminal_window_update_zoom_sensitivity (TerminalWindow *window)
 
     current = terminal_screen_get_font_scale (screen);
 
-    action = gtk_action_group_get_action (priv->action_group, "ViewZoomOut");
-    gtk_action_set_sensitive (action, find_smaller_zoom_factor (current, &zoom));
-    action = gtk_action_group_get_action (priv->action_group, "ViewZoomIn");
-    gtk_action_set_sensitive (action, find_larger_zoom_factor (current, &zoom));
+    action = ctk_action_group_get_action (priv->action_group, "ViewZoomOut");
+    ctk_action_set_sensitive (action, find_smaller_zoom_factor (current, &zoom));
+    action = ctk_action_group_get_action (priv->action_group, "ViewZoomIn");
+    ctk_action_set_sensitive (action, find_larger_zoom_factor (current, &zoom));
 }
 
 static void
@@ -1151,12 +1151,12 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
 
     can_search = vte_terminal_search_get_regex (VTE_TERMINAL (screen)) != NULL;
 
-    action = gtk_action_group_get_action (priv->action_group, "SearchFindNext");
-    gtk_action_set_sensitive (action, can_search);
-    action = gtk_action_group_get_action (priv->action_group, "SearchFindPrevious");
-    gtk_action_set_sensitive (action, can_search);
-    action = gtk_action_group_get_action (priv->action_group, "SearchClearHighlight");
-    gtk_action_set_sensitive (action, can_search);
+    action = ctk_action_group_get_action (priv->action_group, "SearchFindNext");
+    ctk_action_set_sensitive (action, can_search);
+    action = ctk_action_group_get_action (priv->action_group, "SearchFindPrevious");
+    ctk_action_set_sensitive (action, can_search);
+    action = ctk_action_group_get_action (priv->action_group, "SearchClearHighlight");
+    ctk_action_set_sensitive (action, can_search);
 }
 
 static void
@@ -1169,16 +1169,16 @@ update_edit_menu_cb (GtkClipboard *clipboard,
     GtkAction *action;
     gboolean can_paste, can_paste_uris;
 
-    can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
-    can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
+    can_paste = targets != NULL && ctk_targets_include_text (targets, n_targets);
+    can_paste_uris = targets != NULL && ctk_targets_include_uri (targets, n_targets);
 
-    action = gtk_action_group_get_action (priv->action_group, "EditPaste");
-    gtk_action_set_sensitive (action, can_paste);
-    action = gtk_action_group_get_action (priv->action_group, "EditPasteURIPaths");
-    gtk_action_set_visible (action, can_paste_uris);
-    gtk_action_set_sensitive (action, can_paste_uris);
+    action = ctk_action_group_get_action (priv->action_group, "EditPaste");
+    ctk_action_set_sensitive (action, can_paste);
+    action = ctk_action_group_get_action (priv->action_group, "EditPasteURIPaths");
+    ctk_action_set_visible (action, can_paste_uris);
+    ctk_action_set_sensitive (action, can_paste_uris);
 
-    /* Ref was added in gtk_clipboard_request_targets below */
+    /* Ref was added in ctk_clipboard_request_targets below */
     g_object_unref (window);
 }
 
@@ -1187,8 +1187,8 @@ update_edit_menu(TerminalWindow *window)
 {
     GtkClipboard *clipboard;
 
-    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
-    gtk_clipboard_request_targets (clipboard,
+    clipboard = ctk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    ctk_clipboard_request_targets (clipboard,
                                    (GtkClipboardTargetsReceivedFunc) update_edit_menu_cb,
                                    g_object_ref (window));
 }
@@ -1205,8 +1205,8 @@ screen_resize_window_cb (TerminalScreen *screen,
 
     /* Don't do anything if we're maximised or fullscreened */
     // FIXME: realized && ... instead?
-    if (!gtk_widget_get_realized (widget) ||
-            (gdk_window_get_state (gtk_widget_get_window (widget)) & (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_FULLSCREEN)) != 0)
+    if (!ctk_widget_get_realized (widget) ||
+            (gdk_window_get_state (ctk_widget_get_window (widget)) & (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_FULLSCREEN)) != 0)
         return;
 
     vte_terminal_set_size (terminal, width, height);
@@ -1230,14 +1230,14 @@ terminal_window_update_tabs_menu_sensitivity (TerminalWindow *window)
     if (priv->disposed)
         return;
 
-    num_pages = gtk_notebook_get_n_pages (notebook);
-    page_num = gtk_notebook_get_current_page (notebook);
+    num_pages = ctk_notebook_get_n_pages (notebook);
+    page_num = ctk_notebook_get_current_page (notebook);
     not_first = page_num > 0;
     not_last = page_num + 1 < num_pages;
 
     /* Hide the tabs menu in single-tab windows */
-    action = gtk_action_group_get_action (action_group, "Tabs");
-    gtk_action_set_visible (action, num_pages > 1);
+    action = ctk_action_group_get_action (action_group, "Tabs");
+    ctk_action_set_visible (action, num_pages > 1);
 
 #if 1
     /* NOTE: We always make next/prev actions sensitive except in
@@ -1246,26 +1246,26 @@ terminal_window_update_tabs_menu_sensitivity (TerminalWindow *window)
      * This also makes tab cycling work, bug #92139.
      * FIXME: Find a better way to do this.
      */
-    action = gtk_action_group_get_action (action_group, "TabsPrevious");
-    gtk_action_set_sensitive (action, num_pages > 1);
-    action = gtk_action_group_get_action (action_group, "TabsNext");
-    gtk_action_set_sensitive (action, num_pages > 1);
+    action = ctk_action_group_get_action (action_group, "TabsPrevious");
+    ctk_action_set_sensitive (action, num_pages > 1);
+    action = ctk_action_group_get_action (action_group, "TabsNext");
+    ctk_action_set_sensitive (action, num_pages > 1);
 #else
     /* This would be correct, but see the comment above. */
-    action = gtk_action_group_get_action (action_group, "TabsPrevious");
-    gtk_action_set_sensitive (action, not_first);
-    action = gtk_action_group_get_action (action_group, "TabsNext");
-    gtk_action_set_sensitive (action, not_last);
+    action = ctk_action_group_get_action (action_group, "TabsPrevious");
+    ctk_action_set_sensitive (action, not_first);
+    action = ctk_action_group_get_action (action_group, "TabsNext");
+    ctk_action_set_sensitive (action, not_last);
 #endif
 
-    action = gtk_action_group_get_action (action_group, "TabsMoveLeft");
-    gtk_action_set_sensitive (action, not_first);
-    action = gtk_action_group_get_action (action_group, "TabsMoveRight");
-    gtk_action_set_sensitive (action, not_last);
-    action = gtk_action_group_get_action (action_group, "TabsDetach");
-    gtk_action_set_sensitive (action, num_pages > 1);
-    action = gtk_action_group_get_action (action_group, "FileCloseTab");
-    gtk_action_set_sensitive (action, num_pages > 1);
+    action = ctk_action_group_get_action (action_group, "TabsMoveLeft");
+    ctk_action_set_sensitive (action, not_first);
+    action = ctk_action_group_get_action (action_group, "TabsMoveRight");
+    ctk_action_set_sensitive (action, not_last);
+    action = ctk_action_group_get_action (action_group, "TabsDetach");
+    ctk_action_set_sensitive (action, num_pages > 1);
+    action = ctk_action_group_get_action (action_group, "FileCloseTab");
+    ctk_action_set_sensitive (action, num_pages > 1);
 }
 
 static void
@@ -1276,10 +1276,10 @@ update_tab_visibility (TerminalWindow *window,
     gboolean show_tabs;
     guint num;
 
-    num = gtk_notebook_get_n_pages (GTK_NOTEBOOK (priv->notebook));
+    num = ctk_notebook_get_n_pages (GTK_NOTEBOOK (priv->notebook));
 
     show_tabs = (num + change) > 1;
-    gtk_notebook_set_show_tabs (GTK_NOTEBOOK (priv->notebook), show_tabs);
+    ctk_notebook_set_show_tabs (GTK_NOTEBOOK (priv->notebook), show_tabs);
 }
 
 static GtkNotebook *
@@ -1293,11 +1293,11 @@ handle_tab_droped_on_desktop (GtkNotebook *source_notebook,
     TerminalWindow *new_window;
     TerminalWindowPrivate *new_priv;
 
-    source_window = TERMINAL_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (source_notebook)));
+    source_window = TERMINAL_WINDOW (ctk_widget_get_toplevel (GTK_WIDGET (source_notebook)));
     g_return_val_if_fail (TERMINAL_IS_WINDOW (source_window), NULL);
 
     new_window = terminal_app_new_window (terminal_app_get (),
-                                          gtk_widget_get_screen (GTK_WIDGET (source_window)));
+                                          ctk_widget_get_screen (GTK_WIDGET (source_window)));
     new_priv = new_window->priv;
     new_priv->present_on_insert = TRUE;
 
@@ -1320,7 +1320,7 @@ popup_open_url_callback (GtkAction *action,
         return;
 
     terminal_util_open_url (GTK_WIDGET (window), info->string, info->flavour,
-                            gtk_get_current_event_time ());
+                            ctk_get_current_event_time ());
 }
 
 static void
@@ -1337,15 +1337,15 @@ popup_copy_url_callback (GtkAction *action,
     if (info->string == NULL)
         return;
 
-    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
-    gtk_clipboard_set_text (clipboard, info->string, -1);
+    clipboard = ctk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    ctk_clipboard_set_text (clipboard, info->string, -1);
 }
 
 static void
 popup_leave_fullscreen_callback (GtkAction *action,
                                  TerminalWindow *window)
 {
-    gtk_window_unfullscreen (GTK_WINDOW (window));
+    ctk_window_unfullscreen (GTK_WINDOW (window));
 }
 
 static void
@@ -1402,9 +1402,9 @@ popup_menu_deactivate_callback (GtkWidget *popup,
     g_signal_handlers_disconnect_by_func
     (popup, G_CALLBACK (popup_menu_deactivate_callback), window);
 
-    im_menu_item = gtk_ui_manager_get_widget (priv->ui_manager,
+    im_menu_item = ctk_ui_manager_get_widget (priv->ui_manager,
                    "/Popup/PopupInputMethods");
-    gtk_menu_item_set_submenu (GTK_MENU_ITEM (im_menu_item), NULL);
+    ctk_menu_item_set_submenu (GTK_MENU_ITEM (im_menu_item), NULL);
 
     unset_popup_info (window);
 }
@@ -1426,7 +1426,7 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
     GdkSeat *seat;
     GdkDevice *device;
 
-    if (!gtk_widget_get_realized (GTK_WIDGET (screen)))
+    if (!ctk_widget_get_realized (GTK_WIDGET (screen)))
     {
         terminal_screen_popup_info_unref (info);
         return;
@@ -1437,61 +1437,61 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
 
     priv->popup_info = info; /* adopt the ref added when requesting the clipboard */
 
-    n_pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (priv->notebook));
+    n_pages = ctk_notebook_get_n_pages (GTK_NOTEBOOK (priv->notebook));
 
-    can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
-    can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
+    can_paste = targets != NULL && ctk_targets_include_text (targets, n_targets);
+    can_paste_uris = targets != NULL && ctk_targets_include_uri (targets, n_targets);
     show_link = info->string != NULL && (info->flavour == FLAVOR_AS_IS || info->flavour == FLAVOR_DEFAULT_TO_HTTP);
     show_email_link = info->string != NULL && info->flavour == FLAVOR_EMAIL;
     show_call_link = info->string != NULL && info->flavour == FLAVOR_VOIP_CALL;
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupSendEmail");
-    gtk_action_set_visible (action, show_email_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopyEmailAddress");
-    gtk_action_set_visible (action, show_email_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCall");
-    gtk_action_set_visible (action, show_call_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopyCallAddress");
-    gtk_action_set_visible (action, show_call_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupOpenLink");
-    gtk_action_set_visible (action, show_link);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopyLinkAddress");
-    gtk_action_set_visible (action, show_link);
+    action = ctk_action_group_get_action (priv->action_group, "PopupSendEmail");
+    ctk_action_set_visible (action, show_email_link);
+    action = ctk_action_group_get_action (priv->action_group, "PopupCopyEmailAddress");
+    ctk_action_set_visible (action, show_email_link);
+    action = ctk_action_group_get_action (priv->action_group, "PopupCall");
+    ctk_action_set_visible (action, show_call_link);
+    action = ctk_action_group_get_action (priv->action_group, "PopupCopyCallAddress");
+    ctk_action_set_visible (action, show_call_link);
+    action = ctk_action_group_get_action (priv->action_group, "PopupOpenLink");
+    ctk_action_set_visible (action, show_link);
+    action = ctk_action_group_get_action (priv->action_group, "PopupCopyLinkAddress");
+    ctk_action_set_visible (action, show_link);
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupCloseWindow");
-    gtk_action_set_visible (action, n_pages <= 1);
-    action = gtk_action_group_get_action (priv->action_group, "PopupCloseTab");
-    gtk_action_set_visible (action, n_pages > 1);
+    action = ctk_action_group_get_action (priv->action_group, "PopupCloseWindow");
+    ctk_action_set_visible (action, n_pages <= 1);
+    action = ctk_action_group_get_action (priv->action_group, "PopupCloseTab");
+    ctk_action_set_visible (action, n_pages > 1);
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupCopy");
-    gtk_action_set_sensitive (action, vte_terminal_get_has_selection (VTE_TERMINAL (screen)));
-    action = gtk_action_group_get_action (priv->action_group, "PopupPaste");
-    gtk_action_set_sensitive (action, can_paste);
-    action = gtk_action_group_get_action (priv->action_group, "PopupPasteURIPaths");
-    gtk_action_set_visible (action, can_paste_uris);
+    action = ctk_action_group_get_action (priv->action_group, "PopupCopy");
+    ctk_action_set_sensitive (action, vte_terminal_get_has_selection (VTE_TERMINAL (screen)));
+    action = ctk_action_group_get_action (priv->action_group, "PopupPaste");
+    ctk_action_set_sensitive (action, can_paste);
+    action = ctk_action_group_get_action (priv->action_group, "PopupPasteURIPaths");
+    ctk_action_set_visible (action, can_paste_uris);
 
-    g_object_get (gtk_widget_get_settings (GTK_WIDGET (window)),
-                  "gtk-show-input-method-menu", &show_input_method_menu,
+    g_object_get (ctk_widget_get_settings (GTK_WIDGET (window)),
+                  "ctk-show-input-method-menu", &show_input_method_menu,
                   NULL);
 
-    action = gtk_action_group_get_action (priv->action_group, "PopupInputMethods");
-    gtk_action_set_visible (action, show_input_method_menu);
+    action = ctk_action_group_get_action (priv->action_group, "PopupInputMethods");
+    ctk_action_set_visible (action, show_input_method_menu);
 
-    popup_menu = gtk_ui_manager_get_widget (priv->ui_manager, "/Popup");
+    popup_menu = ctk_ui_manager_get_widget (priv->ui_manager, "/Popup");
     g_signal_connect (popup_menu, "deactivate",
                       G_CALLBACK (popup_menu_deactivate_callback), window);
 
     /* Pseudo activation of the popup menu's action */
-    action = gtk_action_group_get_action (priv->action_group, "Popup");
-    gtk_action_activate (action);
+    action = ctk_action_group_get_action (priv->action_group, "Popup");
+    ctk_action_activate (action);
 
     if (info->button == 0)
-        gtk_menu_shell_select_first (GTK_MENU_SHELL (popup_menu), FALSE);
+        ctk_menu_shell_select_first (GTK_MENU_SHELL (popup_menu), FALSE);
 
-    if (!gtk_menu_get_attach_widget (GTK_MENU (popup_menu)))
-        gtk_menu_attach_to_widget (GTK_MENU (popup_menu),GTK_WIDGET (screen),NULL);
+    if (!ctk_menu_get_attach_widget (GTK_MENU (popup_menu)))
+        ctk_menu_attach_to_widget (GTK_MENU (popup_menu),GTK_WIDGET (screen),NULL);
 
-    event = gtk_get_current_event ();
+    event = ctk_get_current_event ();
 
     seat = gdk_display_get_default_seat (gdk_display_get_default());
 
@@ -1499,7 +1499,7 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
 
     gdk_event_set_device (event, device);
 
-    gtk_menu_popup_at_pointer (GTK_MENU (popup_menu), (const GdkEvent*) event);
+    ctk_menu_popup_at_pointer (GTK_MENU (popup_menu), (const GdkEvent*) event);
 
     gdk_event_free (event);
 }
@@ -1513,8 +1513,8 @@ screen_show_popup_menu_callback (TerminalScreen *screen,
 
     g_return_if_fail (info->window == window);
 
-    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
-    gtk_clipboard_request_targets (clipboard,
+    clipboard = ctk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    ctk_clipboard_request_targets (clipboard,
                                    (GtkClipboardTargetsReceivedFunc) popup_clipboard_targets_received_cb,
                                    terminal_screen_popup_info_ref (info));
 }
@@ -1539,9 +1539,9 @@ screen_match_clicked_cb (TerminalScreen *screen,
         break;
 #endif
     default:
-        gtk_widget_grab_focus (GTK_WIDGET (screen));
+        ctk_widget_grab_focus (GTK_WIDGET (screen));
         terminal_util_open_url (GTK_WIDGET (window), match, flavour,
-                                gtk_get_current_event_time ());
+                                ctk_get_current_event_time ());
         break;
     }
 
@@ -1566,7 +1566,7 @@ terminal_window_accel_activate_cb (GtkAccelGroup  *accel_group,
     guint n_entries;
     gboolean retval = FALSE;
 
-    entries = gtk_accel_group_query (accel_group, keyval, modifier, &n_entries);
+    entries = ctk_accel_group_query (accel_group, keyval, modifier, &n_entries);
     if (n_entries > 0)
     {
         const char *accel_path;
@@ -1586,7 +1586,7 @@ terminal_window_accel_activate_cb (GtkAccelGroup  *accel_group,
             action_name = I_(accel_path + strlen ("<Actions>/Main/"));
 
 #if 0
-            if (gtk_notebook_get_n_pages (GTK_NOTEBOOK (priv->notebook)) > 1 &&
+            if (ctk_notebook_get_n_pages (GTK_NOTEBOOK (priv->notebook)) > 1 &&
                     (action_name == I_("TabsPrevious") || action_name == I_("TabsNext")))
                 retval = TRUE;
             else
@@ -1627,19 +1627,19 @@ terminal_window_realize (GtkWidget *widget)
     GtkAllocation widget_allocation;
     GdkVisual *visual;
 
-    gtk_widget_get_allocation (widget, &widget_allocation);
-    screen = gtk_widget_get_screen (GTK_WIDGET (window));
+    ctk_widget_get_allocation (widget, &widget_allocation);
+    screen = ctk_widget_get_screen (GTK_WIDGET (window));
 
     if (gdk_screen_is_composited (screen) &&
         (visual = gdk_screen_get_rgba_visual (screen)) != NULL)
     {
           /* Set RGBA visual if possible so VTE can use real transparency */
-        gtk_widget_set_visual (GTK_WIDGET (widget), visual);
+        ctk_widget_set_visual (GTK_WIDGET (widget), visual);
         priv->have_argb_visual = TRUE;
     }
     else
     {
-        gtk_widget_set_visual (GTK_WIDGET (window), gdk_screen_get_system_visual (screen));
+        ctk_widget_set_visual (GTK_WIDGET (window), gdk_screen_get_system_visual (screen));
         priv->have_argb_visual = FALSE;
     }
 #endif
@@ -1667,7 +1667,7 @@ terminal_window_map_event (GtkWidget    *widget,
         GTK_WIDGET_CLASS (terminal_window_parent_class)->map_event;
     GtkAllocation widget_allocation;
 
-    gtk_widget_get_allocation (widget, &widget_allocation);
+    ctk_widget_get_allocation (widget, &widget_allocation);
     _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY,
                            "[window %p] map-event, size %d : %d at (%d, %d)\n",
                            widget,
@@ -1677,7 +1677,7 @@ terminal_window_map_event (GtkWidget    *widget,
     if (priv->clear_demands_attention)
     {
 #ifdef GDK_WINDOWING_X11
-        terminal_util_x11_clear_demands_attention (gtk_widget_get_window (widget));
+        terminal_util_x11_clear_demands_attention (ctk_widget_get_window (widget));
 #endif
 
         priv->clear_demands_attention = FALSE;
@@ -1706,11 +1706,11 @@ terminal_window_state_event (GtkWidget            *widget,
 
         is_fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN) != 0;
 
-        action = gtk_action_group_get_action (priv->action_group, "ViewFullscreen");
-        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), is_fullscreen);
+        action = ctk_action_group_get_action (priv->action_group, "ViewFullscreen");
+        ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), is_fullscreen);
 
-        action = gtk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
-        gtk_action_set_visible (action, is_fullscreen);
+        action = ctk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
+        ctk_action_set_visible (action, is_fullscreen);
     }
 
     if (window_state_event)
@@ -1730,8 +1730,8 @@ terminal_window_window_manager_changed_cb (GdkScreen *screen,
 
     supports_fs = gdk_x11_screen_supports_net_wm_hint (screen, gdk_atom_intern ("_NET_WM_STATE_FULLSCREEN", FALSE));
 
-    action = gtk_action_group_get_action (priv->action_group, "ViewFullscreen");
-    gtk_action_set_sensitive (action, supports_fs);
+    action = ctk_action_group_get_action (priv->action_group, "ViewFullscreen");
+    ctk_action_set_sensitive (action, supports_fs);
 }
 #endif
 
@@ -1777,7 +1777,7 @@ terminal_window_screen_changed (GtkWidget *widget,
     if (screen_changed)
         screen_changed (widget, previous_screen);
 
-    screen = gtk_widget_get_screen (widget);
+    screen = ctk_widget_get_screen (widget);
     if (previous_screen == screen)
         return;
 
@@ -2143,23 +2143,23 @@ terminal_window_init (TerminalWindow *window)
 
     GtkStyleContext *context;
 
-    context = gtk_widget_get_style_context (GTK_WIDGET (window));
-    gtk_style_context_add_class (context, "cafe-terminal");
+    context = ctk_widget_get_style_context (GTK_WIDGET (window));
+    ctk_style_context_add_class (context, "cafe-terminal");
 
-    gtk_window_set_title (GTK_WINDOW (window), _("Terminal"));
+    ctk_window_set_title (GTK_WINDOW (window), _("Terminal"));
 
     priv->active_screen = NULL;
     priv->menubar_visible = FALSE;
 
-    priv->main_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    gtk_container_add (GTK_CONTAINER (window), priv->main_vbox);
-    gtk_widget_show (priv->main_vbox);
+    priv->main_vbox = ctk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    ctk_container_add (GTK_CONTAINER (window), priv->main_vbox);
+    ctk_widget_show (priv->main_vbox);
 
-    priv->notebook = gtk_notebook_new ();
-    gtk_notebook_set_scrollable (GTK_NOTEBOOK (priv->notebook), TRUE);
-    gtk_notebook_set_show_border (GTK_NOTEBOOK (priv->notebook), FALSE);
-    gtk_notebook_set_show_tabs (GTK_NOTEBOOK (priv->notebook), FALSE);
-    gtk_notebook_set_group_name (GTK_NOTEBOOK (priv->notebook), I_("cafe-terminal-window"));
+    priv->notebook = ctk_notebook_new ();
+    ctk_notebook_set_scrollable (GTK_NOTEBOOK (priv->notebook), TRUE);
+    ctk_notebook_set_show_border (GTK_NOTEBOOK (priv->notebook), FALSE);
+    ctk_notebook_set_show_tabs (GTK_NOTEBOOK (priv->notebook), FALSE);
+    ctk_notebook_set_group_name (GTK_NOTEBOOK (priv->notebook), I_("cafe-terminal-window"));
     g_signal_connect (priv->notebook, "button-press-event",
                       G_CALLBACK (notebook_button_press_cb), settings_global);
     g_signal_connect (window, "key-press-event",
@@ -2176,15 +2176,15 @@ terminal_window_init (TerminalWindow *window)
                            G_CALLBACK (terminal_window_update_tabs_menu_sensitivity),
                            window, NULL, G_CONNECT_SWAPPED | G_CONNECT_AFTER);
 
-    gtk_widget_add_events (priv->notebook, GDK_SCROLL_MASK);
+    ctk_widget_add_events (priv->notebook, GDK_SCROLL_MASK);
     g_signal_connect (priv->notebook, "scroll-event",
                             G_CALLBACK (notebook_scroll_event_cb), window);
 
     g_signal_connect (priv->notebook, "create-window",
                     G_CALLBACK (handle_tab_droped_on_desktop), window);
 
-    gtk_box_pack_end (GTK_BOX (priv->main_vbox), priv->notebook, TRUE, TRUE, 0);
-    gtk_widget_show (priv->notebook);
+    ctk_box_pack_end (GTK_BOX (priv->main_vbox), priv->notebook, TRUE, TRUE, 0);
+    ctk_widget_show (priv->notebook);
 
     priv->old_char_width = -1;
     priv->old_char_height = -1;
@@ -2197,49 +2197,49 @@ terminal_window_init (TerminalWindow *window)
     priv->old_geometry_widget = NULL;
 
     /* Create the UI manager */
-    manager = priv->ui_manager = gtk_ui_manager_new ();
+    manager = priv->ui_manager = ctk_ui_manager_new ();
 
-    accel_group = gtk_ui_manager_get_accel_group (manager);
-    gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
+    accel_group = ctk_ui_manager_get_accel_group (manager);
+    ctk_window_add_accel_group (GTK_WINDOW (window), accel_group);
     /* Workaround for bug #453193, bug #138609 and bug #559728 */
     g_signal_connect_after (accel_group, "accel-activate",
                             G_CALLBACK (terminal_window_accel_activate_cb), window);
 
     /* Create the actions */
     /* Note that this action group name is used in terminal-accels.c; do not change it */
-    priv->action_group = action_group = gtk_action_group_new ("Main");
-    gtk_action_group_set_translation_domain (action_group, NULL);
-    gtk_action_group_add_actions (action_group, menu_entries,
+    priv->action_group = action_group = ctk_action_group_new ("Main");
+    ctk_action_group_set_translation_domain (action_group, NULL);
+    ctk_action_group_add_actions (action_group, menu_entries,
                                   G_N_ELEMENTS (menu_entries), window);
-    gtk_action_group_add_toggle_actions (action_group,
+    ctk_action_group_add_toggle_actions (action_group,
                                          toggle_menu_entries,
                                          G_N_ELEMENTS (toggle_menu_entries),
                                          window);
-    gtk_ui_manager_insert_action_group (manager, action_group, 0);
+    ctk_ui_manager_insert_action_group (manager, action_group, 0);
     g_object_unref (action_group);
 
-   clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+   clipboard = ctk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
    g_signal_connect_swapped (clipboard, "owner-change",
                              G_CALLBACK (update_edit_menu), window);
    update_edit_menu (window);
     /* Idem for this action, since the window is not fullscreen. */
-    action = gtk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
-    gtk_action_set_visible (action, FALSE);
+    action = ctk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
+    ctk_action_set_visible (action, FALSE);
 
 #ifndef ENABLE_SAVE
-    action = gtk_action_group_get_action (priv->action_group, "FileSaveContents");
-    gtk_action_set_visible (action, FALSE);
+    action = ctk_action_group_get_action (priv->action_group, "FileSaveContents");
+    ctk_action_set_visible (action, FALSE);
 #endif
 
     /* Load the UI */
     error = NULL;
-    priv->ui_id = gtk_ui_manager_add_ui_from_resource (manager,
+    priv->ui_id = ctk_ui_manager_add_ui_from_resource (manager,
                   TERMINAL_RESOURCES_PATH_PREFIX G_DIR_SEPARATOR_S "ui/terminal.xml",
                   &error);
     g_assert_no_error (error);
 
-    priv->menubar = gtk_ui_manager_get_widget (manager, "/menubar");
-    gtk_box_pack_start (GTK_BOX (priv->main_vbox),
+    priv->menubar = ctk_ui_manager_get_widget (manager, "/menubar");
+    ctk_box_pack_start (GTK_BOX (priv->main_vbox),
                         priv->menubar,
                         FALSE, FALSE, 0);
 
@@ -2263,10 +2263,10 @@ terminal_window_init (TerminalWindow *window)
     /* We have to explicitly call this, since screen-changed is NOT
      * emitted for the toplevel the first time!
      */
-    terminal_window_screen_update (window, gtk_widget_get_screen (GTK_WIDGET (window)));
+    terminal_window_screen_update (window, ctk_widget_get_screen (GTK_WIDGET (window)));
 
-    window_group = gtk_window_group_new ();
-    gtk_window_group_add_window (window_group, GTK_WINDOW (window));
+    window_group = ctk_window_group_new ();
+    ctk_window_group_add_window (window_group, GTK_WINDOW (window));
     g_object_unref (window_group);
 
     terminal_util_set_unique_role (GTK_WINDOW (window), "cafe-terminal-window");
@@ -2321,13 +2321,13 @@ terminal_window_dispose (GObject *object)
     g_signal_handlers_disconnect_by_func (app,
                                           G_CALLBACK (terminal_window_encoding_list_changed_cb),
                                           window);
-    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    clipboard = ctk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
     g_signal_handlers_disconnect_by_func (clipboard,
                                           G_CALLBACK (update_edit_menu),
                                           window);
 
 #ifdef GDK_WINDOWING_X11
-    screen = gtk_widget_get_screen (GTK_WIDGET (object));
+    screen = ctk_widget_get_screen (GTK_WIDGET (object));
     if (screen && GDK_IS_X11_SCREEN (screen))
     {
         g_signal_handlers_disconnect_by_func (screen,
@@ -2348,11 +2348,11 @@ terminal_window_finalize (GObject *object)
     g_object_unref (priv->ui_manager);
 
     if (priv->confirm_close_dialog)
-        gtk_dialog_response (GTK_DIALOG (priv->confirm_close_dialog),
+        ctk_dialog_response (GTK_DIALOG (priv->confirm_close_dialog),
                              GTK_RESPONSE_DELETE_EVENT);
 
     if (priv->search_find_dialog)
-        gtk_dialog_response (GTK_DIALOG (priv->search_find_dialog),
+        ctk_dialog_response (GTK_DIALOG (priv->search_find_dialog),
                              GTK_RESPONSE_DELETE_EVENT);
 
     G_OBJECT_CLASS (terminal_window_parent_class)->finalize (object);
@@ -2386,7 +2386,7 @@ terminal_window_show (GtkWidget *widget)
     TerminalWindow *window = TERMINAL_WINDOW (widget);
     GtkAllocation widget_allocation;
 
-    gtk_widget_get_allocation (widget, &widget_allocation);
+    ctk_widget_get_allocation (widget, &widget_allocation);
 
     TerminalWindowPrivate *priv = window->priv;
 
@@ -2427,7 +2427,7 @@ void
 terminal_window_set_is_restored (TerminalWindow *window)
 {
     g_return_if_fail (TERMINAL_IS_WINDOW (window));
-    g_return_if_fail (!gtk_widget_get_mapped (GTK_WIDGET (window)));
+    g_return_if_fail (!ctk_widget_get_mapped (GTK_WIDGET (window)));
 
     window->priv->clear_demands_attention = TRUE;
 }
@@ -2439,7 +2439,7 @@ profile_set_callback (TerminalScreen *screen,
 {
     TerminalWindowPrivate *priv = window->priv;
 
-    if (!gtk_widget_get_realized (GTK_WIDGET (window)))
+    if (!ctk_widget_get_realized (GTK_WIDGET (window)))
         return;
 
     if (screen != priv->active_screen)
@@ -2458,7 +2458,7 @@ sync_screen_title (TerminalScreen *screen,
     if (screen != priv->active_screen)
         return;
 
-    gtk_window_set_title (GTK_WINDOW (window), terminal_screen_get_title (screen));
+    ctk_window_set_title (GTK_WINDOW (window), terminal_screen_get_title (screen));
 }
 
 static void
@@ -2468,7 +2468,7 @@ sync_screen_icon_title (TerminalScreen *screen,
 {
     TerminalWindowPrivate *priv = window->priv;
 
-    if (!gtk_widget_get_realized (GTK_WIDGET (window)))
+    if (!ctk_widget_get_realized (GTK_WIDGET (window)))
         return;
 
     if (screen != priv->active_screen)
@@ -2477,7 +2477,7 @@ sync_screen_icon_title (TerminalScreen *screen,
     if (!terminal_screen_get_icon_title_set (screen))
         return;
 
-    gdk_window_set_icon_name (gtk_widget_get_window (GTK_WIDGET (window)), terminal_screen_get_icon_title (screen));
+    gdk_window_set_icon_name (ctk_widget_get_window (GTK_WIDGET (window)), terminal_screen_get_icon_title (screen));
 
     priv->icon_title_set = TRUE;
 }
@@ -2489,7 +2489,7 @@ sync_screen_icon_title_set (TerminalScreen *screen,
 {
     TerminalWindowPrivate *priv = window->priv;
 
-    if (!gtk_widget_get_realized (GTK_WIDGET (window)))
+    if (!ctk_widget_get_realized (GTK_WIDGET (window)))
         return;
 
     /* No need to restore the title if we never set an icon title */
@@ -2503,9 +2503,9 @@ sync_screen_icon_title_set (TerminalScreen *screen,
         return;
 
     /* Need to reset the icon name */
-    /* FIXME: Once gtk+ bug 535557 is fixed, use that to unset the icon title. */
+    /* FIXME: Once ctk+ bug 535557 is fixed, use that to unset the icon title. */
 
-    g_object_set_qdata (G_OBJECT (gtk_widget_get_window (GTK_WIDGET (window))),
+    g_object_set_qdata (G_OBJECT (ctk_widget_get_window (GTK_WIDGET (window))),
                         g_quark_from_static_string ("gdk-icon-name-set"),
                         GUINT_TO_POINTER (FALSE));
     priv->icon_title_set = FALSE;
@@ -2523,8 +2523,8 @@ close_button_clicked_cb (GtkWidget *tab_label,
     TerminalWindow *window;
     TerminalScreen *screen;
 
-    toplevel = gtk_widget_get_toplevel (screen_container);
-    if (!gtk_widget_is_toplevel (toplevel))
+    toplevel = ctk_widget_get_toplevel (screen_container);
+    if (!ctk_widget_is_toplevel (toplevel))
         return;
 
     if (!TERMINAL_IS_WINDOW (toplevel))
@@ -2548,8 +2548,8 @@ terminal_window_add_screen (TerminalWindow *window,
     GtkWidget *old_window;
     GtkWidget *screen_container, *tab_label;
 
-    old_window = gtk_widget_get_toplevel (GTK_WIDGET (screen));
-    if (gtk_widget_is_toplevel (old_window) &&
+    old_window = ctk_widget_get_toplevel (GTK_WIDGET (screen));
+    if (ctk_widget_is_toplevel (old_window) &&
             TERMINAL_IS_WINDOW (old_window) &&
             TERMINAL_WINDOW (old_window)== window)
         return;
@@ -2558,7 +2558,7 @@ terminal_window_add_screen (TerminalWindow *window,
         terminal_window_remove_screen (TERMINAL_WINDOW (old_window), screen);
 
     screen_container = terminal_screen_container_new (screen);
-    gtk_widget_show (screen_container);
+    ctk_widget_show (screen_container);
 
     update_tab_visibility (window, +1);
 
@@ -2566,19 +2566,19 @@ terminal_window_add_screen (TerminalWindow *window,
     g_signal_connect (tab_label, "close-button-clicked",
                       G_CALLBACK (close_button_clicked_cb), screen_container);
 
-    gtk_notebook_insert_page (GTK_NOTEBOOK (priv->notebook),
+    ctk_notebook_insert_page (GTK_NOTEBOOK (priv->notebook),
                               screen_container,
                               tab_label,
                               position);
-    gtk_container_child_set (GTK_CONTAINER (priv->notebook),
+    ctk_container_child_set (GTK_CONTAINER (priv->notebook),
                              screen_container,
                              "tab-expand", TRUE,
                              "tab-fill", TRUE,
                              NULL);
-    gtk_notebook_set_tab_reorderable (GTK_NOTEBOOK (priv->notebook),
+    ctk_notebook_set_tab_reorderable (GTK_NOTEBOOK (priv->notebook),
                                       screen_container,
                                       TRUE);
-    gtk_notebook_set_tab_detachable (GTK_NOTEBOOK (priv->notebook),
+    ctk_notebook_set_tab_detachable (GTK_NOTEBOOK (priv->notebook),
                                      screen_container,
                                      TRUE);
 }
@@ -2590,19 +2590,19 @@ terminal_window_remove_screen (TerminalWindow *window,
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreenContainer *screen_container;
 
-    g_return_if_fail (gtk_widget_get_toplevel (GTK_WIDGET (screen)) == GTK_WIDGET (window));
+    g_return_if_fail (ctk_widget_get_toplevel (GTK_WIDGET (screen)) == GTK_WIDGET (window));
 
     update_tab_visibility (window, -1);
 
     screen_container = terminal_screen_container_get_from_screen (screen);
     if (detach_tab)
     {
-        gtk_notebook_detach_tab (GTK_NOTEBOOK (priv->notebook),
+        ctk_notebook_detach_tab (GTK_NOTEBOOK (priv->notebook),
                                  GTK_WIDGET (screen_container));
         detach_tab = FALSE;
     }
     else
-        gtk_container_remove (GTK_CONTAINER (priv->notebook),
+        ctk_container_remove (GTK_CONTAINER (priv->notebook),
                               GTK_WIDGET (screen_container));
 }
 
@@ -2617,7 +2617,7 @@ terminal_window_move_screen (TerminalWindow *source_window,
     g_return_if_fail (TERMINAL_IS_WINDOW (source_window));
     g_return_if_fail (TERMINAL_IS_WINDOW (dest_window));
     g_return_if_fail (TERMINAL_IS_SCREEN (screen));
-    g_return_if_fail (gtk_widget_get_toplevel (GTK_WIDGET (screen)) == GTK_WIDGET (source_window));
+    g_return_if_fail (ctk_widget_get_toplevel (GTK_WIDGET (screen)) == GTK_WIDGET (source_window));
     g_return_if_fail (dest_position >= -1);
 
     screen_container = terminal_screen_container_get_from_screen (screen);
@@ -2626,7 +2626,7 @@ terminal_window_move_screen (TerminalWindow *source_window,
     /* We have to ref the screen container as well as the screen,
      * because otherwise removing the screen container from the source
      * window's notebook will cause the container and its containing
-     * screen to be gtk_widget_destroy()ed!
+     * screen to be ctk_widget_destroy()ed!
      */
     g_object_ref_sink (screen_container);
     g_object_ref_sink (screen);
@@ -2636,11 +2636,11 @@ terminal_window_move_screen (TerminalWindow *source_window,
     terminal_window_remove_screen (source_window, screen);
 
     /* Now we can safely remove the screen from the container and let the container die */
-    gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (GTK_WIDGET (screen))), GTK_WIDGET (screen));
+    ctk_container_remove (GTK_CONTAINER (ctk_widget_get_parent (GTK_WIDGET (screen))), GTK_WIDGET (screen));
     g_object_unref (screen_container);
 
     terminal_window_add_screen (dest_window, screen, dest_position);
-    gtk_notebook_set_current_page (GTK_NOTEBOOK (dest_window->priv->notebook), dest_position);
+    ctk_notebook_set_current_page (GTK_NOTEBOOK (dest_window->priv->notebook), dest_position);
     g_object_unref (screen);
 }
 
@@ -2650,7 +2650,7 @@ terminal_window_list_screen_containers (TerminalWindow *window)
     TerminalWindowPrivate *priv = window->priv;
 
     /* We are trusting that GtkNotebook will return pages in order */
-    return gtk_container_get_children (GTK_CONTAINER (priv->notebook));
+    return ctk_container_get_children (GTK_CONTAINER (priv->notebook));
 }
 
 void
@@ -2670,12 +2670,12 @@ terminal_window_set_menubar_visible (TerminalWindow *window,
 
     priv->menubar_visible = setting;
 
-    action = gtk_action_group_get_action (priv->action_group, "ViewMenubar");
-    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), setting);
+    action = ctk_action_group_get_action (priv->action_group, "ViewMenubar");
+    ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), setting);
 
     g_object_set (priv->menubar, "visible", setting, NULL);
 
-    /* FIXMEchpe: use gtk_widget_get_realized instead? */
+    /* FIXMEchpe: use ctk_widget_get_realized instead? */
     if (priv->active_screen)
     {
         _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY,
@@ -2731,7 +2731,7 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
     GdkWindow *gdk_window;
     GdkGravity pos_gravity;
 
-    gdk_window = gtk_widget_get_window (GTK_WIDGET (window));
+    gdk_window = ctk_widget_get_window (GTK_WIDGET (window));
     result = TRUE;
 
     if (gdk_window != NULL &&
@@ -2752,7 +2752,7 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
     else
         widget = GTK_WIDGET (window);
 
-    app = gtk_widget_get_toplevel (widget);
+    app = ctk_widget_get_toplevel (widget);
     g_assert (app != NULL);
 
     terminal_screen_get_size (screen, &grid_width, &grid_height);
@@ -2805,11 +2805,11 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
 
     if (pos_gravity == GDK_GRAVITY_SOUTH_EAST ||
         pos_gravity == GDK_GRAVITY_NORTH_EAST)
-        force_pos_x = WidthOfScreen (gdk_x11_screen_get_xscreen (gtk_widget_get_screen (app))) -
+        force_pos_x = WidthOfScreen (gdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
                       pixel_width + force_pos_x;
     if (pos_gravity == GDK_GRAVITY_SOUTH_WEST ||
         pos_gravity == GDK_GRAVITY_SOUTH_EAST)
-        force_pos_y = HeightOfScreen (gdk_x11_screen_get_xscreen (gtk_widget_get_screen (app))) -
+        force_pos_y = HeightOfScreen (gdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
                       pixel_height + force_pos_y;
 
     /* we don't let you put a window offscreen; maybe some people would
@@ -2820,15 +2820,15 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
     if (force_pos_y < 0)
         force_pos_y = 0;
 
-    if (even_if_mapped && gtk_widget_get_mapped (app))
-        gtk_window_resize (GTK_WINDOW (app), pixel_width, pixel_height);
+    if (even_if_mapped && ctk_widget_get_mapped (app))
+        ctk_window_resize (GTK_WINDOW (app), pixel_width, pixel_height);
     else
-        gtk_window_set_default_size (GTK_WINDOW (app), pixel_width, pixel_height);
+        ctk_window_set_default_size (GTK_WINDOW (app), pixel_width, pixel_height);
 
     if ((geom_result & XValue) != 0 || (geom_result & YValue) != 0)
     {
-        gtk_window_set_gravity (GTK_WINDOW (app), pos_gravity);
-        gtk_window_move (GTK_WINDOW (app), force_pos_x, force_pos_y);
+        ctk_window_set_gravity (GTK_WINDOW (app), pos_gravity);
+        ctk_window_move (GTK_WINDOW (app), force_pos_x, force_pos_y);
     }
 
     return result;
@@ -2844,9 +2844,9 @@ terminal_window_switch_screen (TerminalWindow *window,
 
     screen_container = terminal_screen_container_get_from_screen (screen);
     g_assert (TERMINAL_IS_SCREEN_CONTAINER (screen_container));
-    page_num = gtk_notebook_page_num (GTK_NOTEBOOK (priv->notebook),
+    page_num = ctk_notebook_page_num (GTK_NOTEBOOK (priv->notebook),
                                       GTK_WIDGET (screen_container));
-    gtk_notebook_set_current_page (GTK_NOTEBOOK (priv->notebook), page_num);
+    ctk_notebook_set_current_page (GTK_NOTEBOOK (priv->notebook), page_num);
 }
 
 TerminalScreen*
@@ -2862,7 +2862,7 @@ notebook_button_press_cb (GtkWidget *widget,
                           GdkEventButton *event,
                           GSettings *settings)
 {
-    TerminalWindow *window = TERMINAL_WINDOW (gtk_widget_get_toplevel (widget));
+    TerminalWindow *window = TERMINAL_WINDOW (ctk_widget_get_toplevel (widget));
     TerminalWindowPrivate *priv = window->priv;
     GtkNotebook *notebook = GTK_NOTEBOOK (widget);
     GtkWidget *tab;
@@ -2880,34 +2880,34 @@ notebook_button_press_cb (GtkWidget *widget,
             int before_pages;
             int later_pages;
 
-            before_pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
-            page_num = gtk_notebook_get_current_page (notebook);
-            gtk_notebook_set_current_page (notebook, tab_clicked);
+            before_pages = ctk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
+            page_num = ctk_notebook_get_current_page (notebook);
+            ctk_notebook_set_current_page (notebook, tab_clicked);
             TerminalScreen *active_screen = priv->active_screen;
 
             if (!(confirm_close_window_or_tab (window, active_screen)))
             {
                 update_tab_visibility (window, -1);
-                gtk_notebook_remove_page(notebook, tab_clicked);
+                ctk_notebook_remove_page(notebook, tab_clicked);
             }
 
-            later_pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
+            later_pages = ctk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
 
             if (before_pages > later_pages) {
                 if (tab_clicked > page_num)
-                    gtk_notebook_set_current_page (notebook, page_num);
+                    ctk_notebook_set_current_page (notebook, page_num);
                 else if (tab_clicked < page_num)
-                    gtk_notebook_set_current_page (notebook, page_num - 1);
+                    ctk_notebook_set_current_page (notebook, page_num - 1);
             }
             else
-                gtk_notebook_set_current_page (notebook, page_num);
+                ctk_notebook_set_current_page (notebook, page_num);
 
         }
     }
 
     if (event->type != GDK_BUTTON_PRESS ||
             event->button != 3 ||
-            (event->state & gtk_accelerator_get_default_mod_mask ()) != 0)
+            (event->state & ctk_accelerator_get_default_mod_mask ()) != 0)
         return FALSE;
 
     tab_clicked = find_tab_num_at_pos (notebook, event->x_root, event->y_root);
@@ -2915,17 +2915,17 @@ notebook_button_press_cb (GtkWidget *widget,
         return FALSE;
 
     /* switch to the page the mouse is over */
-    gtk_notebook_set_current_page (notebook, tab_clicked);
+    ctk_notebook_set_current_page (notebook, tab_clicked);
 
-    action = gtk_action_group_get_action (priv->action_group, "NotebookPopup");
-    gtk_action_activate (action);
+    action = ctk_action_group_get_action (priv->action_group, "NotebookPopup");
+    ctk_action_activate (action);
 
-    menu = gtk_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
-    if (gtk_menu_get_attach_widget (GTK_MENU (menu)))
-      gtk_menu_detach (GTK_MENU (menu));
-    tab = gtk_notebook_get_nth_page (notebook, tab_clicked);
-    gtk_menu_attach_to_widget (GTK_MENU (menu), tab, NULL);
-    gtk_menu_popup_at_pointer (GTK_MENU (menu), NULL);
+    menu = ctk_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
+    if (ctk_menu_get_attach_widget (GTK_MENU (menu)))
+      ctk_menu_detach (GTK_MENU (menu));
+    tab = ctk_notebook_get_nth_page (notebook, tab_clicked);
+    ctk_menu_attach_to_widget (GTK_MENU (menu), tab, NULL);
+    ctk_menu_popup_at_pointer (GTK_MENU (menu), NULL);
 
     return TRUE;
 }
@@ -2942,24 +2942,24 @@ window_key_press_cb (GtkWidget *widget,
         TerminalWindowPrivate *priv = window->priv;
         GtkNotebook *notebook = GTK_NOTEBOOK (priv->notebook);
 
-        int pages = gtk_notebook_get_n_pages (notebook);
-        int page_num = gtk_notebook_get_current_page (notebook);
+        int pages = ctk_notebook_get_n_pages (notebook);
+        int page_num = ctk_notebook_get_current_page (notebook);
 
         if (event->keyval == GDK_KEY_ISO_Left_Tab)
         {
             if (page_num != 0)
-                gtk_notebook_prev_page (notebook);
+                ctk_notebook_prev_page (notebook);
             else
-                gtk_notebook_set_current_page (notebook, (pages - 1));
+                ctk_notebook_set_current_page (notebook, (pages - 1));
             return TRUE;
         }
 
         if (event->keyval == GDK_KEY_Tab)
         {
             if (page_num != (pages -1))
-                gtk_notebook_next_page (notebook);
+                ctk_notebook_next_page (notebook);
             else
-                gtk_notebook_set_current_page (notebook, 0);
+                ctk_notebook_set_current_page (notebook, 0);
             return TRUE;
         }
     }
@@ -2976,28 +2976,28 @@ notebook_popup_menu_cb (GtkWidget *widget,
     GtkAction *action;
     int page_num;
 
-    focus_widget = gtk_window_get_focus (GTK_WINDOW (window));
+    focus_widget = ctk_window_get_focus (GTK_WINDOW (window));
     /* Only respond if the notebook is the actual focus */
     if (focus_widget != priv->notebook)
         return FALSE;
 
-    page_num = gtk_notebook_get_current_page (notebook);
-    tab = gtk_notebook_get_nth_page (notebook, page_num);
-    tab_label = gtk_notebook_get_tab_label (notebook, tab);
+    page_num = ctk_notebook_get_current_page (notebook);
+    tab = ctk_notebook_get_nth_page (notebook, page_num);
+    tab_label = ctk_notebook_get_tab_label (notebook, tab);
 
-    action = gtk_action_group_get_action (priv->action_group, "NotebookPopup");
-    gtk_action_activate (action);
+    action = ctk_action_group_get_action (priv->action_group, "NotebookPopup");
+    ctk_action_activate (action);
 
-    menu = gtk_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
-    if (gtk_menu_get_attach_widget (GTK_MENU (menu)))
-      gtk_menu_detach (GTK_MENU (menu));
-    gtk_menu_attach_to_widget (GTK_MENU (menu), tab_label, NULL);
-    gtk_menu_popup_at_widget (GTK_MENU (menu),
+    menu = ctk_ui_manager_get_widget (priv->ui_manager, "/NotebookPopup");
+    if (ctk_menu_get_attach_widget (GTK_MENU (menu)))
+      ctk_menu_detach (GTK_MENU (menu));
+    ctk_menu_attach_to_widget (GTK_MENU (menu), tab_label, NULL);
+    ctk_menu_popup_at_widget (GTK_MENU (menu),
                               tab_label,
                               GDK_GRAVITY_SOUTH_WEST,
                               GDK_GRAVITY_NORTH_WEST,
                               NULL);
-    gtk_menu_shell_select_first (GTK_MENU_SHELL (menu), FALSE);
+    ctk_menu_shell_select_first (GTK_MENU_SHELL (menu), FALSE);
 
     return TRUE;
 }
@@ -3039,15 +3039,15 @@ notebook_page_selected_callback (GtkWidget       *notebook,
         vte_terminal_set_size (VTE_TERMINAL (screen), old_grid_width, old_grid_height);
     }
 
-    /* Workaround to remove gtknotebook's feature of computing its size based on
+    /* Workaround to remove ctknotebook's feature of computing its size based on
      * all pages. When the widget is hidden, its size will not be taken into
      * account.
      */
     if (priv->active_screen)
-        gtk_widget_hide (GTK_WIDGET (priv->active_screen)); /* FIXME */
+        ctk_widget_hide (GTK_WIDGET (priv->active_screen)); /* FIXME */
 
     /* Make sure that the widget is no longer hidden due to the workaround */
-    gtk_widget_show (widget);
+    ctk_widget_show (widget);
 
     priv->active_screen = screen;
 
@@ -3142,10 +3142,10 @@ notebook_page_added_callback (GtkWidget       *notebook,
 
     if (priv->present_on_insert)
     {
-        gtk_window_present_with_time (GTK_WINDOW (window), gtk_get_current_event_time ());
+        ctk_window_present_with_time (GTK_WINDOW (window), ctk_get_current_event_time ());
         priv->present_on_insert = FALSE;
     }
-    pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
+    pages = ctk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
     if (pages == 2) terminal_window_update_size (window, priv->active_screen, TRUE);
 }
 
@@ -3207,14 +3207,14 @@ notebook_page_removed_callback (GtkWidget       *notebook,
     update_tab_visibility (window, 0);
     terminal_window_update_search_sensitivity (screen, window);
 
-    pages = gtk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
+    pages = ctk_notebook_get_n_pages (GTK_NOTEBOOK (notebook));
     if (pages == 1)
     {
         terminal_window_update_size (window, priv->active_screen, TRUE);
     }
     else if (pages == 0)
     {
-        gtk_widget_destroy (GTK_WIDGET (window));
+        ctk_widget_destroy (GTK_WIDGET (window));
     }
 }
 
@@ -3236,52 +3236,52 @@ notebook_scroll_event_cb (GtkWidget      *widget,
   GtkNotebook *notebook = GTK_NOTEBOOK (widget);
   GtkWidget *child, *event_widget, *action_widget;
 
-  child = gtk_notebook_get_nth_page (notebook, gtk_notebook_get_current_page (notebook));
+  child = ctk_notebook_get_nth_page (notebook, ctk_notebook_get_current_page (notebook));
   if (child == NULL)
     return FALSE;
 
-  event_widget = gtk_get_event_widget ((GdkEvent *) event);
+  event_widget = ctk_get_event_widget ((GdkEvent *) event);
 
   /* Ignore scroll events from the content of the page */
   if (event_widget == NULL ||
       event_widget == child ||
-      gtk_widget_is_ancestor (event_widget, child))
+      ctk_widget_is_ancestor (event_widget, child))
     return FALSE;
 
   /* And also from the action widgets */
-  action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_START);
+  action_widget = ctk_notebook_get_action_widget (notebook, GTK_PACK_START);
   if (event_widget == action_widget ||
-      (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+      (action_widget != NULL && ctk_widget_is_ancestor (event_widget, action_widget)))
     return FALSE;
-  action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_END);
+  action_widget = ctk_notebook_get_action_widget (notebook, GTK_PACK_END);
   if (event_widget == action_widget ||
-      (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+      (action_widget != NULL && ctk_widget_is_ancestor (event_widget, action_widget)))
     return FALSE;
 
   switch (event->direction) {
     case GDK_SCROLL_RIGHT:
     case GDK_SCROLL_DOWN:
-      gtk_notebook_next_page (notebook);
+      ctk_notebook_next_page (notebook);
       break;
     case GDK_SCROLL_LEFT:
     case GDK_SCROLL_UP:
-      gtk_notebook_prev_page (notebook);
+      ctk_notebook_prev_page (notebook);
       break;
     case GDK_SCROLL_SMOOTH:
-      switch (gtk_notebook_get_tab_pos (notebook)) {
+      switch (ctk_notebook_get_tab_pos (notebook)) {
         case GTK_POS_LEFT:
         case GTK_POS_RIGHT:
           if (event->delta_y > 0)
-            gtk_notebook_next_page (notebook);
+            ctk_notebook_next_page (notebook);
           else if (event->delta_y < 0)
-            gtk_notebook_prev_page (notebook);
+            ctk_notebook_prev_page (notebook);
           break;
         case GTK_POS_TOP:
         case GTK_POS_BOTTOM:
           if (event->delta_x > 0)
-            gtk_notebook_next_page (notebook);
+            ctk_notebook_next_page (notebook);
           else if (event->delta_x < 0)
-            gtk_notebook_prev_page (notebook);
+            ctk_notebook_prev_page (notebook);
           break;
       }
       break;
@@ -3319,19 +3319,19 @@ terminal_window_update_geometry (TerminalWindow *window)
                            grid_width, grid_height, char_width, char_height,
                            char_width * grid_width, char_height * grid_height);
 
-    gtk_style_context_get_padding(gtk_widget_get_style_context (widget),
-                                  gtk_widget_get_state_flags (widget),
+    ctk_style_context_get_padding(ctk_widget_get_style_context (widget),
+                                  ctk_widget_get_state_flags (widget),
                                   &padding);
 
     _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY, "padding = %dx%d px\n",
                            padding.left + padding.right,
                            padding.top + padding.bottom);
 
-    gtk_widget_get_preferred_size (priv->main_vbox, NULL, &vbox_request);
+    ctk_widget_get_preferred_size (priv->main_vbox, NULL, &vbox_request);
     _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY, "content area requests %dx%d px\n",
                            vbox_request.width, vbox_request.height);
 
-    gtk_widget_get_preferred_size (GTK_WIDGET (window), NULL, &toplevel_request);
+    ctk_widget_get_preferred_size (GTK_WIDGET (window), NULL, &toplevel_request);
     _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY, "window requests %dx%d px\n",
                            toplevel_request.width, toplevel_request.height);
 
@@ -3340,7 +3340,7 @@ terminal_window_update_geometry (TerminalWindow *window)
     _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY, "chrome: %dx%d px\n",
                            chrome_width, chrome_height);
 
-    gtk_widget_get_preferred_size (widget, NULL, &widget_request);
+    ctk_widget_get_preferred_size (widget, NULL, &widget_request);
     _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY, "terminal widget requests %dx%d px\n",
                            widget_request.width, widget_request.height);
 
@@ -3365,7 +3365,7 @@ terminal_window_update_geometry (TerminalWindow *window)
         hints.min_width = hints.base_width + hints.width_inc * MIN_WIDTH_CHARS;
         hints.min_height = hints.base_height + hints.height_inc * MIN_HEIGHT_CHARS;
 
-        gtk_window_set_geometry_hints (GTK_WINDOW (window),
+        ctk_window_set_geometry_hints (GTK_WINDOW (window),
                                        NULL,
                                        &hints,
                                        GDK_HINT_RESIZE_INC |
@@ -3424,7 +3424,7 @@ file_new_window_callback (GtkAction *action,
     if (_terminal_profile_get_forgotten (profile))
         return;
 
-    new_window = terminal_app_new_window (app, gtk_widget_get_screen (GTK_WIDGET (window)));
+    new_window = terminal_app_new_window (app, ctk_widget_get_screen (GTK_WIDGET (window)));
 
     new_working_directory = terminal_screen_get_current_dir_with_fallback (priv->active_screen);
     terminal_app_new_terminal (app, new_window, profile,
@@ -3434,7 +3434,7 @@ file_new_window_callback (GtkAction *action,
                                1.0);
     g_free (new_working_directory);
 
-    gtk_window_present (GTK_WINDOW (new_window));
+    ctk_window_present (GTK_WINDOW (new_window));
 }
 
 static void
@@ -3476,7 +3476,7 @@ confirm_close_response_cb (GtkWidget *dialog,
 
     screen = g_object_get_data (G_OBJECT (dialog), "close-screen");
 
-    gtk_widget_destroy (dialog);
+    ctk_widget_destroy (dialog);
 
     if (response != GTK_RESPONSE_ACCEPT)
         return;
@@ -3484,7 +3484,7 @@ confirm_close_response_cb (GtkWidget *dialog,
     if (screen)
         terminal_window_remove_screen (window, screen);
     else
-        gtk_widget_destroy (GTK_WIDGET (window));
+        ctk_widget_destroy (GTK_WIDGET (window));
 }
 
 /* Returns: TRUE if closing needs to wait until user confirmation;
@@ -3504,7 +3504,7 @@ confirm_close_window_or_tab (TerminalWindow *window,
     if (priv->confirm_close_dialog)
     {
         /* WTF, already have one? It's modal, so how did that happen? */
-        gtk_dialog_response (GTK_DIALOG (priv->confirm_close_dialog),
+        ctk_dialog_response (GTK_DIALOG (priv->confirm_close_dialog),
                              GTK_RESPONSE_DELETE_EVENT);
     }
 
@@ -3552,28 +3552,28 @@ confirm_close_window_or_tab (TerminalWindow *window,
         return FALSE;
 
     dialog = priv->confirm_close_dialog =
-                 gtk_message_dialog_new (GTK_WINDOW (window),
+                 ctk_message_dialog_new (GTK_WINDOW (window),
                                          GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                          GTK_MESSAGE_WARNING,
                                          GTK_BUTTONS_CANCEL,
                                          "%s", n_tabs > 1 ? _("Close this window?") : _("Close this terminal?"));
 
-    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+    ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
             "%s", confirm_msg);
 
-    gtk_window_set_title (GTK_WINDOW (dialog), "");
+    ctk_window_set_title (GTK_WINDOW (dialog), "");
 
-    gtk_dialog_add_button (GTK_DIALOG (dialog), n_tabs > 1 ? _("C_lose Window") : _("C_lose Terminal"), GTK_RESPONSE_ACCEPT);
-    gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
+    ctk_dialog_add_button (GTK_DIALOG (dialog), n_tabs > 1 ? _("C_lose Window") : _("C_lose Terminal"), GTK_RESPONSE_ACCEPT);
+    ctk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
 
     g_object_set_data (G_OBJECT (dialog), "close-screen", screen);
 
     g_signal_connect (dialog, "destroy",
-                      G_CALLBACK (gtk_widget_destroyed), &priv->confirm_close_dialog);
+                      G_CALLBACK (ctk_widget_destroyed), &priv->confirm_close_dialog);
     g_signal_connect (dialog, "response",
                       G_CALLBACK (confirm_close_response_cb), window);
 
-    gtk_window_present (GTK_WINDOW (dialog));
+    ctk_window_present (GTK_WINDOW (dialog));
 
     return TRUE;
 }
@@ -3585,7 +3585,7 @@ file_close_window_callback (GtkAction *action,
     if (confirm_close_window_or_tab (window, NULL))
         return;
 
-    gtk_widget_destroy (GTK_WIDGET (window));
+    ctk_widget_destroy (GTK_WIDGET (window));
 }
 
 #ifdef ENABLE_SAVE
@@ -3600,14 +3600,14 @@ save_contents_dialog_on_response (GtkDialog *dialog, gint response_id, gpointer 
 
     if (response_id != GTK_RESPONSE_ACCEPT)
     {
-        gtk_widget_destroy (GTK_WIDGET (dialog));
+        ctk_widget_destroy (GTK_WIDGET (dialog));
         return;
     }
 
-    parent = (GtkWindow*) gtk_widget_get_ancestor (GTK_WIDGET (terminal), GTK_TYPE_WINDOW);
-    filename_uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (dialog));
+    parent = (GtkWindow*) ctk_widget_get_ancestor (GTK_WIDGET (terminal), GTK_TYPE_WINDOW);
+    filename_uri = ctk_file_chooser_get_uri (GTK_FILE_CHOOSER (dialog));
 
-    gtk_widget_destroy (GTK_WIDGET (dialog));
+    ctk_widget_destroy (GTK_WIDGET (dialog));
 
     if (filename_uri == NULL)
         return;
@@ -3653,25 +3653,25 @@ file_save_contents_callback (GtkAction *action,
     terminal = VTE_TERMINAL (priv->active_screen);
     g_return_if_fail (VTE_IS_TERMINAL (terminal));
 
-    dialog = gtk_file_chooser_dialog_new (_("Save as..."),
+    dialog = ctk_file_chooser_dialog_new (_("Save as..."),
                                           GTK_WINDOW(window),
                                           GTK_FILE_CHOOSER_ACTION_SAVE,
-                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
-                                          "gtk-save", GTK_RESPONSE_ACCEPT,
+                                          "ctk-cancel", GTK_RESPONSE_CANCEL,
+                                          "ctk-save", GTK_RESPONSE_ACCEPT,
                                           NULL);
 
-    gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (dialog), TRUE);
+    ctk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (dialog), TRUE);
     /* XXX where should we save to? */
-    gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
+    ctk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
 
-    gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW(window));
-    gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
-    gtk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);
+    ctk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW(window));
+    ctk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+    ctk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);
 
     g_signal_connect (dialog, "response", G_CALLBACK (save_contents_dialog_on_response), terminal);
     g_signal_connect (dialog, "delete_event", G_CALLBACK (terminal_util_dialog_response_on_delete), NULL);
 
-    gtk_window_present (GTK_WINDOW (dialog));
+    ctk_window_present (GTK_WINDOW (dialog));
 #endif /* ENABLE_SAVE */
 }
 
@@ -3753,14 +3753,14 @@ clipboard_targets_received_cb (GtkClipboard *clipboard,
         return;
     }
 
-    if (gtk_targets_include_uri (targets, n_targets))
+    if (ctk_targets_include_uri (targets, n_targets))
     {
-        gtk_clipboard_request_uris (clipboard,
+        ctk_clipboard_request_uris (clipboard,
                                     (GtkClipboardURIReceivedFunc) clipboard_uris_received_cb,
                                     data);
         return;
     }
-    else /* if (gtk_targets_include_text (targets, n_targets)) */
+    else /* if (ctk_targets_include_text (targets, n_targets)) */
     {
         vte_terminal_paste_clipboard (VTE_TERMINAL (data->screen));
     }
@@ -3781,14 +3781,14 @@ edit_paste_callback (GtkAction *action,
     if (!priv->active_screen)
         return;
 
-    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
-    name = gtk_action_get_name (action);
+    clipboard = ctk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    name = ctk_action_get_name (action);
 
     data = g_slice_new (PasteData);
     data->screen = g_object_ref (priv->active_screen);
     data->uris_as_paths = (name == I_("EditPasteURIPaths") || name == I_("PopupPasteURIPaths"));
 
-    gtk_clipboard_request_targets (clipboard,
+    ctk_clipboard_request_targets (clipboard,
                                    (GtkClipboardTargetsReceivedFunc) clipboard_targets_received_cb,
                                    data);
 }
@@ -3848,7 +3848,7 @@ static void
 view_menubar_toggled_callback (GtkToggleAction *action,
                                TerminalWindow *window)
 {
-    terminal_window_set_menubar_visible (window, gtk_toggle_action_get_active (action));
+    terminal_window_set_menubar_visible (window, ctk_toggle_action_get_active (action));
 }
 
 static void
@@ -3857,13 +3857,13 @@ view_fullscreen_toggled_callback (GtkToggleAction *action,
 {
     gboolean toggle_action_check;
 
-    g_return_if_fail (gtk_widget_get_realized (GTK_WIDGET (window)));
+    g_return_if_fail (ctk_widget_get_realized (GTK_WIDGET (window)));
 
-    toggle_action_check = gtk_toggle_action_get_active (action);
+    toggle_action_check = ctk_toggle_action_get_active (action);
     if (toggle_action_check)
-        gtk_window_fullscreen (GTK_WINDOW (window));
+        ctk_window_fullscreen (GTK_WINDOW (window));
     else
-        gtk_window_unfullscreen (GTK_WINDOW (window));
+        ctk_window_unfullscreen (GTK_WINDOW (window));
 }
 
 static const double zoom_factors[] =
@@ -4031,7 +4031,7 @@ search_find_callback (GtkAction *action,
         dialog = priv->search_find_dialog = terminal_search_dialog_new (GTK_WINDOW (window));
 
         g_signal_connect (dialog, "destroy",
-                          G_CALLBACK (gtk_widget_destroyed), &priv->search_find_dialog);
+                          G_CALLBACK (ctk_widget_destroyed), &priv->search_find_dialog);
         g_signal_connect (dialog, "response",
                           G_CALLBACK (search_find_response_callback), window);
         g_signal_connect (dialog, "delete-event",
@@ -4082,7 +4082,7 @@ terminal_next_or_previous_profile_cb (GtkAction *action,
     const char *name;
     guint backwards = 0;
 
-    name = gtk_action_get_name (action);
+    name = ctk_action_get_name (action);
     if (strcmp (name, "ProfilePrevious") == 0)
     {
         backwards = 1;
@@ -4137,11 +4137,11 @@ terminal_set_title_dialog_response_cb (GtkWidget *dialog,
         const char *text;
 
         entry = GTK_ENTRY (g_object_get_data (G_OBJECT (dialog), "title-entry"));
-        text = gtk_entry_get_text (entry);
+        text = ctk_entry_get_text (entry);
         terminal_screen_set_user_title (screen, text);
     }
 
-    gtk_widget_destroy (dialog);
+    ctk_widget_destroy (dialog);
 }
 
 static void
@@ -4156,16 +4156,16 @@ terminal_set_title_callback (GtkAction *action,
 
     /* FIXME: hook the screen up so this dialogue closes if the terminal screen closes */
 
-    dialog = gtk_message_dialog_new (GTK_WINDOW (window),
+    dialog = ctk_message_dialog_new (GTK_WINDOW (window),
                                      GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                      GTK_MESSAGE_OTHER,
                                      GTK_BUTTONS_OK_CANCEL,
                                      "%s", "");
 
-    gtk_window_set_title (GTK_WINDOW (dialog), _("Set Title"));
-    gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
-    gtk_window_set_role (GTK_WINDOW (dialog), "cafe-terminal-change-title");
-    gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
+    ctk_window_set_title (GTK_WINDOW (dialog), _("Set Title"));
+    ctk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
+    ctk_window_set_role (GTK_WINDOW (dialog), "cafe-terminal-change-title");
+    ctk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
     /* Alternative button order was set automatically by GtkMessageDialog */
 
     g_signal_connect (dialog, "response",
@@ -4173,30 +4173,30 @@ terminal_set_title_callback (GtkAction *action,
     g_signal_connect (dialog, "delete-event",
                       G_CALLBACK (terminal_util_dialog_response_on_delete), NULL);
 
-    message_area = gtk_message_dialog_get_message_area (GTK_MESSAGE_DIALOG (dialog));
-    gtk_container_foreach (GTK_CONTAINER (message_area), (GtkCallback) gtk_widget_hide, NULL);
+    message_area = ctk_message_dialog_get_message_area (GTK_MESSAGE_DIALOG (dialog));
+    ctk_container_foreach (GTK_CONTAINER (message_area), (GtkCallback) ctk_widget_hide, NULL);
 
-    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
-    gtk_box_pack_start (GTK_BOX (message_area), hbox, FALSE, FALSE, 0);
+    hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+    ctk_box_pack_start (GTK_BOX (message_area), hbox, FALSE, FALSE, 0);
 
-    label = gtk_label_new_with_mnemonic (_("_Title:"));
-    gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-    gtk_label_set_yalign (GTK_LABEL (label), 0.5);
-    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
+    label = ctk_label_new_with_mnemonic (_("_Title:"));
+    ctk_label_set_xalign (GTK_LABEL (label), 0.0);
+    ctk_label_set_yalign (GTK_LABEL (label), 0.5);
+    ctk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
 
-    entry = gtk_entry_new ();
-    gtk_entry_set_width_chars (GTK_ENTRY (entry), 32);
-    gtk_entry_set_activates_default (GTK_ENTRY (entry), TRUE);
-    gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
-    gtk_box_pack_start (GTK_BOX (hbox), entry, TRUE, TRUE, 0);
-    gtk_widget_show_all (hbox);
+    entry = ctk_entry_new ();
+    ctk_entry_set_width_chars (GTK_ENTRY (entry), 32);
+    ctk_entry_set_activates_default (GTK_ENTRY (entry), TRUE);
+    ctk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
+    ctk_box_pack_start (GTK_BOX (hbox), entry, TRUE, TRUE, 0);
+    ctk_widget_show_all (hbox);
 
-    gtk_widget_grab_focus (entry);
-    gtk_entry_set_text (GTK_ENTRY (entry), terminal_screen_get_raw_title (priv->active_screen));
-    gtk_editable_select_region (GTK_EDITABLE (entry), 0, -1);
+    ctk_widget_grab_focus (entry);
+    ctk_entry_set_text (GTK_ENTRY (entry), terminal_screen_get_raw_title (priv->active_screen));
+    ctk_editable_select_region (GTK_EDITABLE (entry), 0, -1);
     g_object_set_data (G_OBJECT (dialog), "title-entry", entry);
 
-    gtk_window_present (GTK_WINDOW (dialog));
+    ctk_window_present (GTK_WINDOW (dialog));
 }
 
 static void
@@ -4240,7 +4240,7 @@ tabs_next_or_previous_tab_cb (GtkAction *action,
     const char *name;
     guint keyval = 0;
 
-    name = gtk_action_get_name (action);
+    name = ctk_action_get_name (action);
     if (strcmp (name, "TabsNext") == 0)
     {
         keyval = GDK_KEY_Page_Down;
@@ -4251,7 +4251,7 @@ tabs_next_or_previous_tab_cb (GtkAction *action,
     }
 
     klass = GTK_NOTEBOOK_GET_CLASS (GTK_NOTEBOOK (priv->notebook));
-    gtk_binding_set_activate (gtk_binding_set_by_class (klass),
+    ctk_binding_set_activate (ctk_binding_set_by_class (klass),
                               keyval,
                               GDK_CONTROL_MASK,
                               G_OBJECT (priv->notebook));
@@ -4266,11 +4266,11 @@ tabs_move_left_callback (GtkAction *action,
     gint page_num,last_page;
     GtkWidget *page;
 
-    page_num = gtk_notebook_get_current_page (notebook);
-    last_page = gtk_notebook_get_n_pages (notebook) - 1;
-    page = gtk_notebook_get_nth_page (notebook, page_num);
+    page_num = ctk_notebook_get_current_page (notebook);
+    last_page = ctk_notebook_get_n_pages (notebook) - 1;
+    page = ctk_notebook_get_nth_page (notebook, page_num);
 
-    gtk_notebook_reorder_child (notebook, page, page_num == 0 ? last_page : page_num - 1);
+    ctk_notebook_reorder_child (notebook, page, page_num == 0 ? last_page : page_num - 1);
 }
 
 static void
@@ -4282,11 +4282,11 @@ tabs_move_right_callback (GtkAction *action,
     gint page_num,last_page;
     GtkWidget *page;
 
-    page_num = gtk_notebook_get_current_page (notebook);
-    last_page = gtk_notebook_get_n_pages (notebook) - 1;
-    page = gtk_notebook_get_nth_page (notebook, page_num);
+    page_num = ctk_notebook_get_current_page (notebook);
+    last_page = ctk_notebook_get_n_pages (notebook) - 1;
+    page = ctk_notebook_get_nth_page (notebook, page_num);
 
-    gtk_notebook_reorder_child (notebook, page, page_num == last_page ? 0 : page_num + 1);
+    ctk_notebook_reorder_child (notebook, page, page_num == last_page ? 0 : page_num + 1);
 }
 
 static void
@@ -4302,14 +4302,14 @@ tabs_detach_tab_callback (GtkAction *action,
 
     screen = priv->active_screen;
 
-    new_window = terminal_app_new_window (app, gtk_widget_get_screen (GTK_WIDGET (window)));
+    new_window = terminal_app_new_window (app, ctk_widget_get_screen (GTK_WIDGET (window)));
 
     terminal_window_move_screen (window, new_window, screen, -1);
 
     /* FIXME: this seems wrong if tabs are shown in the window */
     terminal_window_update_size (new_window, screen, FALSE);
 
-    gtk_window_present_with_time (GTK_WINDOW (new_window), gtk_get_current_event_time ());
+    ctk_window_present_with_time (GTK_WINDOW (new_window), ctk_get_current_event_time ());
 }
 
 static void
@@ -4378,7 +4378,7 @@ help_about_callback (GtkAction *action,
 
     licence_text = terminal_util_get_licence_text ();
 
-    gtk_show_about_dialog (GTK_WINDOW (window),
+    ctk_show_about_dialog (GTK_WINDOW (window),
                            "program-name", _("CAFE Terminal"),
                            "version", VERSION,
                            "title", _("About CAFE Terminal"),
@@ -4432,9 +4432,9 @@ terminal_window_save_state (TerminalWindow *window,
                             priv->menubar_visible);
 
     g_key_file_set_string (key_file, group, TERMINAL_CONFIG_WINDOW_PROP_ROLE,
-                           gtk_window_get_role (GTK_WINDOW (window)));
+                           ctk_window_get_role (GTK_WINDOW (window)));
 
-    state = gdk_window_get_state (gtk_widget_get_window (GTK_WIDGET (window)));
+    state = gdk_window_get_state (ctk_widget_get_window (GTK_WIDGET (window)));
     if (state & GDK_WINDOW_STATE_MAXIMIZED)
         g_key_file_set_boolean (key_file, group, TERMINAL_CONFIG_WINDOW_PROP_MAXIMIZED, TRUE);
     if (state & GDK_WINDOW_STATE_FULLSCREEN)
@@ -4466,7 +4466,7 @@ terminal_window_save_state (TerminalWindow *window,
 
             /* FIXME saving the geometry is not great :-/ */
             terminal_screen_get_size (screen, &w, &h);
-            gtk_window_get_position (GTK_WINDOW (window), &x, &y);
+            ctk_window_get_position (GTK_WINDOW (window), &x, &y);
             geometry = g_strdup_printf ("%dx%d+%d+%d", w, h, x, y);
             g_key_file_set_string (key_file, group, TERMINAL_CONFIG_WINDOW_PROP_GEOMETRY, geometry);
             g_free (geometry);

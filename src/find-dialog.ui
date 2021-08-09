@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.20.0 -->
 <!--*- mode: xml -*-->
 <interface>
-  <requires lib="gtk+" version="3.14"/>
+  <requires lib="ctk+" version="3.14"/>
   <!-- interface-license-type gplv3 -->
   <!-- interface-name cafe-terminal -->
   <!-- interface-description find dialog of cafe-terminal -->
@@ -14,7 +14,7 @@
     <property name="title" translatable="yes">Find</property>
     <property name="resizable">False</property>
     <property name="destroy_with_parent">True</property>
-    <property name="icon_name">gtk-find</property>
+    <property name="icon_name">ctk-find</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="vbox1">
@@ -29,7 +29,7 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="button-close">
-                <property name="label">gtk-close</property>
+                <property name="label">ctk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
@@ -44,7 +44,7 @@
             </child>
             <child>
               <object class="GtkButton" id="button-find">
-                <property name="label">gtk-find</property>
+                <property name="label">ctk-find</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>

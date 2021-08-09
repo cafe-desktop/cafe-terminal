@@ -126,11 +126,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
-"Әдетте сіз мәзір жолағына F10 пернесі көмегімен қатынай аласыз. Бұл gtkrc "
-"арқылы бапталады (gtk-menu-bar-accel = \"whatever\"). Бұл опция арқылы "
+"Әдетте сіз мәзір жолағына F10 пернесі көмегімен қатынай аласыз. Бұл ctkrc "
+"арқылы бапталады (ctk-menu-bar-accel = \"whatever\"). Бұл опция арқылы "
 "қалыпты мәзір жолағы үдеткіш пернесін сөндіру мүмкіндігін береді."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

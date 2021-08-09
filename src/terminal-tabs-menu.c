@@ -23,7 +23,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-tabs-menu.h"
 #include "terminal-screen.h"
@@ -123,7 +123,7 @@ free_tab_id (GtkAction *action)
 	guint8 *data;
 	guint b, bit;
 
-	name = gtk_action_get_name (action);
+	name = ctk_action_get_name (action);
 	id = g_ascii_strtoull (name + ACTION_VERB_FORMAT_PREFIX_LEN, NULL,
 	                       ACTION_VERB_FORMAT_BASE);
 	g_assert (id < tabs_id_array->len * 8);
@@ -149,7 +149,7 @@ tab_action_activate_cb (GtkToggleAction *action,
 	TerminalTabsMenuPrivate *priv = menu->priv;
 	TerminalScreen *screen;
 
-	if (gtk_toggle_action_get_active (action) == FALSE)
+	if (ctk_toggle_action_get_active (action) == FALSE)
 	{
 		return;
 	}
@@ -201,15 +201,15 @@ notebook_page_added_cb (GtkNotebook *notebook,
 	g_signal_connect_object (screen, "notify::title",
 	                         G_CALLBACK (sync_tab_title), action, 0);
 
-	gtk_action_group_add_action_with_accel (priv->action_group, action, NULL);
+	ctk_action_group_add_action_with_accel (priv->action_group, action, NULL);
 
-	group = gtk_radio_action_get_group (GTK_RADIO_ACTION (priv->anchor_action));
-	gtk_radio_action_set_group (GTK_RADIO_ACTION (action), group);
+	group = ctk_radio_action_get_group (GTK_RADIO_ACTION (priv->anchor_action));
+	ctk_radio_action_set_group (GTK_RADIO_ACTION (action), group);
 
 	/* set this here too, since tab-added comes after notify::active-child */
 	if (terminal_window_get_active (priv->window) == screen)
 	{
-		gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+		ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
 	}
 
 	g_object_set_data (G_OBJECT (screen), DATA_KEY, action);
@@ -247,7 +247,7 @@ notebook_page_removed_cb (GtkNotebook *notebook,
 	(action, G_CALLBACK (tab_action_activate_cb), menu);
 
 	g_object_set_data (G_OBJECT (screen), DATA_KEY, NULL);
-	gtk_action_group_remove_action (priv->action_group, action);
+	ctk_action_group_remove_action (priv->action_group, action);
 
 	terminal_tabs_menu_update (menu);
 }
@@ -276,7 +276,7 @@ notebook_page_switch_cb (GtkNotebook *notebook,
 
 	action = g_object_get_data (G_OBJECT (screen), DATA_KEY);
 	g_signal_handlers_block_by_func (action, G_CALLBACK (tab_action_activate_cb), menu);
-	gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+	ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
 	g_signal_handlers_unblock_by_func (action, G_CALLBACK (tab_action_activate_cb), menu);
 }
 
@@ -290,11 +290,11 @@ connect_proxy_cb (GtkActionGroup *action_group,
 	{
 		GtkLabel *label;
 
-		label = GTK_LABEL (gtk_bin_get_child (GTK_BIN (proxy)));
+		label = GTK_LABEL (ctk_bin_get_child (GTK_BIN (proxy)));
 
-		gtk_label_set_use_underline (label, FALSE);
-		gtk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
-		gtk_label_set_max_width_chars (label, LABEL_WIDTH_CHARS);
+		ctk_label_set_use_underline (label, FALSE);
+		ctk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
+		ctk_label_set_max_width_chars (label, LABEL_WIDTH_CHARS);
 	}
 }
 
@@ -309,14 +309,14 @@ terminal_tabs_menu_set_window (TerminalTabsMenu *menu,
 	priv->window = window;
 
 	manager = GTK_UI_MANAGER (terminal_window_get_ui_manager (window));
-	priv->action_group = gtk_action_group_new ("TabsActions");
-	gtk_ui_manager_insert_action_group (manager, priv->action_group, -1);
+	priv->action_group = ctk_action_group_new ("TabsActions");
+	ctk_ui_manager_insert_action_group (manager, priv->action_group, -1);
 	g_object_unref (priv->action_group);
 
 	priv->anchor_action = g_object_new (GTK_TYPE_RADIO_ACTION,
 	                                    "name", "TabsMenuAnchorAction",
 	                                    NULL);
-	gtk_action_group_add_action (priv->action_group, priv->anchor_action);
+	ctk_action_group_add_action (priv->action_group, priv->anchor_action);
 	g_object_unref (priv->anchor_action);
 
 	g_signal_connect (priv->action_group, "connect-proxy",
@@ -378,7 +378,7 @@ terminal_tabs_menu_class_init (TerminalTabsMenuClass *klass)
 	                                         G_PARAM_CONSTRUCT_ONLY));
 
 	/* We don't want to save accels, so skip them */
-	gtk_accel_map_add_filter ("<Actions>/Main/TabsSwitch*");
+	ctk_accel_map_add_filter ("<Actions>/Main/TabsSwitch*");
 }
 
 static void
@@ -395,8 +395,8 @@ terminal_tabs_menu_clean (TerminalTabsMenu *menu)
 
 	if (p->ui_id != 0)
 	{
-		gtk_ui_manager_remove_ui (manager, p->ui_id);
-		gtk_ui_manager_ensure_update (manager);
+		ctk_ui_manager_remove_ui (manager, p->ui_id);
+		ctk_ui_manager_ensure_update (manager);
 		p->ui_id = 0;
 	}
 }
@@ -421,11 +421,11 @@ tab_set_action_accelerator (GtkActionGroup *action_group,
 		char accel_path[ACCEL_PATH_FORMAT_LENGTH];
 
 		g_snprintf (accel_path, sizeof (accel_path), ACCEL_PATH_FORMAT, tab_number + 1);
-		gtk_action_set_accel_path (action, accel_path);
+		ctk_action_set_accel_path (action, accel_path);
 	}
 	else
 	{
-		gtk_action_set_accel_path (action, NULL);
+		ctk_action_set_accel_path (action, NULL);
 		return;
 	}
 }
@@ -449,7 +449,7 @@ terminal_tabs_menu_update (TerminalTabsMenu *menu)
 	is_single_tab = (n == 1);
 
 	manager =  GTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
-	p->ui_id = gtk_ui_manager_new_merge_id (manager);
+	p->ui_id = ctk_ui_manager_new_merge_id (manager);
 
 	for (l = tabs; l != NULL; l = l->next)
 	{
@@ -462,11 +462,11 @@ terminal_tabs_menu_update (TerminalTabsMenu *menu)
 		action = g_object_get_data (screen, DATA_KEY);
 		g_return_if_fail (action != NULL);
 
-		verb = gtk_action_get_name (action);
+		verb = ctk_action_get_name (action);
 
 		tab_set_action_accelerator (p->action_group, action, i++, is_single_tab);
 
-		gtk_ui_manager_add_ui (manager, p->ui_id,
+		ctk_ui_manager_add_ui (manager, p->ui_id,
 		                       UI_PATH,
 		                       verb, verb,
 		                       GTK_UI_MANAGER_MENUITEM, FALSE);

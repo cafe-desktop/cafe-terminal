@@ -134,11 +134,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Noklusētais īsinājumtaustiņš izvēlnes joslas piekļuvei ir F10. Šo "
-"īsinājumtaustiņa definīciju var nomainīt ar gtkrc palīdzību ( gtk-menu-bar-"
+"īsinājumtaustiņa definīciju var nomainīt ar ctkrc palīdzību ( ctk-menu-bar-"
 "accel = \"jusu_taustins\" ). Šī opcija ļauj standarta izvēlnes joslas "
 "īsinājumtaustiņu atslēgt."
 

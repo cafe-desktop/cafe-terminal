@@ -22,7 +22,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-app.h"
 #include "terminal-debug.h"
@@ -806,7 +806,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 		GString *string;
 		guint n_colors, i;
 
-		/* We need to do this ourselves, because the gtk_color_selection_palette_to_string
+		/* We need to do this ourselves, because the ctk_color_selection_palette_to_string
 		 * does not carry all the bytes, and xterm's palette is messed up...
 		 */
 

@@ -140,11 +140,11 @@ msgstr "Onko vakio GTK+ pikakuvake valikkoriville käytössä"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Tavallisesti valikkopalkkia voi käyttää näppäimistöltä painamalla F10. Tätä "
-"toimintaa voi muuttaa gtkrc:n avulla (gtk-menu-bar-accel = ”jotakin”). Tämä "
+"toimintaa voi muuttaa ctkrc:n avulla (ctk-menu-bar-accel = ”jotakin”). Tämä "
 "asetus poistaa tämän pikanäppäimen käytöstä."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

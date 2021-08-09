@@ -140,11 +140,11 @@ msgstr "Sama ada pintasan piawai GTK+ bagi capaian palang menu dibenarkan"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Biasanya anda boleh capai palang menu dengan F10. Ia juga boleh disuaikan "
-"melalui gtkrc (gtk-menu-bar-accel = \"whatever\"). Pilihan ini membolehkan "
+"melalui ctkrc (ctk-menu-bar-accel = \"whatever\"). Pilihan ini membolehkan "
 "pemecut palang menu piawai dilumpuhkan."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

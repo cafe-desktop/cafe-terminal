@@ -134,10 +134,10 @@ msgstr "메뉴 표시줄에 접근하는 표준 GTK+ 단축키를 사용할지 �
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
-"보통 F10 키로 메뉴 표시줄에 접근할 수 있습니다. gtkrc로 개별 정의할 수 있습니다(gtk-menu-bar-accel = "
+"보통 F10 키로 메뉴 표시줄에 접근할 수 있습니다. ctkrc로 개별 정의할 수 있습니다(ctk-menu-bar-accel = "
 "\"뭐든지\"). 이 옵션은 표준 메뉴 표시줄 단축키를 비활성화합니다."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

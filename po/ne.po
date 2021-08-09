@@ -130,11 +130,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "सामान्यतया तपाईँले F10 बाट मेनुपट्टीमा पहुँच प्राप्त गर्न सक्नुहुन्छ । यसलाई"
-" gtkrc (gtk-menu-bar-accel = \"whatever\")बाट पनि अनुकूलन गर्न सकिन्छ । यस "
+" ctkrc (ctk-menu-bar-accel = \"whatever\")बाट पनि अनुकूलन गर्न सकिन्छ । यस "
 "विकल्पले अक्षम पारिने मानक मेनुपट्टी गतिवर्धकलाई अनुमति दिन्छ ।"
 
 #: src/org.cafe.terminal.gschema.xml.in:68

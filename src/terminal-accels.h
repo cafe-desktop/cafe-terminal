@@ -20,7 +20,7 @@
 #ifndef TERMINAL_ACCELS_H
 #define TERMINAL_ACCELS_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

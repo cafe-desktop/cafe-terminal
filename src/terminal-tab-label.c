@@ -19,7 +19,7 @@
 
 #include <config.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-intl.h"
 #include "terminal-tab-label.h"
@@ -69,11 +69,11 @@ sync_tab_label (TerminalScreen *screen,
 	const char *title;
 
 	title = terminal_screen_get_title (screen);
-	hbox = gtk_widget_get_parent (label);
+	hbox = ctk_widget_get_parent (label);
 
-	gtk_label_set_text (GTK_LABEL (label), title);
+	ctk_label_set_text (GTK_LABEL (label), title);
 
-	gtk_widget_set_tooltip_text (hbox, title);
+	ctk_widget_set_tooltip_text (hbox, title);
 }
 
 /* public functions */
@@ -115,21 +115,21 @@ terminal_tab_label_constructor (GType type,
 
 	g_assert (priv->screen != NULL);
 
-	gtk_box_set_spacing (GTK_BOX (hbox), SPACING);
+	ctk_box_set_spacing (GTK_BOX (hbox), SPACING);
 
-	priv->label = label = gtk_label_new (NULL);
+	priv->label = label = ctk_label_new (NULL);
 
-	gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-	gtk_label_set_yalign (GTK_LABEL (label), 0.5);
-	gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
-	gtk_label_set_single_line_mode (GTK_LABEL (label), TRUE);
+	ctk_label_set_xalign (GTK_LABEL (label), 0.0);
+	ctk_label_set_yalign (GTK_LABEL (label), 0.5);
+	ctk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
+	ctk_label_set_single_line_mode (GTK_LABEL (label), TRUE);
 
-	gtk_box_pack_start (GTK_BOX (hbox), label, TRUE, TRUE, 0);
+	ctk_box_pack_start (GTK_BOX (hbox), label, TRUE, TRUE, 0);
 
 	priv->close_button = close_button = terminal_close_button_new ();
-	gtk_widget_set_tooltip_text (close_button, _("Close tab"));
+	ctk_widget_set_tooltip_text (close_button, _("Close tab"));
 
-	gtk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
+	ctk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
 
 	sync_tab_label (priv->screen, NULL, label);
 	g_signal_connect (priv->screen, "notify::title",
@@ -138,7 +138,7 @@ terminal_tab_label_constructor (GType type,
 	g_signal_connect (close_button, "clicked",
 	                  G_CALLBACK (close_button_clicked_cb), tab_label);
 
-	gtk_widget_show_all (hbox);
+	ctk_widget_show_all (hbox);
 
 	return object;
 }
@@ -258,7 +258,7 @@ terminal_tab_label_set_bold (TerminalTabLabel *tab_label,
 
 	priv->bold = bold;
 
-	attr_list = gtk_label_get_attributes (GTK_LABEL (priv->label));
+	attr_list = ctk_label_get_attributes (GTK_LABEL (priv->label));
 	if (!attr_list)
 	{
 		attr_list = pango_attr_list_new ();
@@ -270,13 +270,13 @@ terminal_tab_label_set_bold (TerminalTabLabel *tab_label,
 	else
 		weight_attr = pango_attr_weight_new (PANGO_WEIGHT_NORMAL);
 
-	/* gtk_label_get_attributes() returns the label's internal list,
+	/* ctk_label_get_attributes() returns the label's internal list,
 	 * which we're probably not supposed to modify directly.
 	 * It seems to work ok however.
 	 */
 	pango_attr_list_change (attr_list, weight_attr);
 
-	gtk_label_set_attributes (GTK_LABEL (priv->label), attr_list);
+	ctk_label_set_attributes (GTK_LABEL (priv->label), attr_list);
 
 	if (free_list)
 		pango_attr_list_unref (attr_list);

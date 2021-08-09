@@ -139,11 +139,11 @@ msgstr "A menüsor eléréséhez a szabvány GTK gyorsbillentyű engedélyezése
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "A menüsort alapértelmezésben az F10-zel érheti el. Ez megváltoztatható a "
-"gtkrc-vel (gtk-menu-bar-accel = „Akármi”). Ezt a gyorsbillentyűt itt "
+"ctkrc-vel (ctk-menu-bar-accel = „Akármi”). Ezt a gyorsbillentyűt itt "
 "kikapcsolhatja."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

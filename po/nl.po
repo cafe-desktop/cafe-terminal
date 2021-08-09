@@ -149,11 +149,11 @@ msgstr "Of de standaard GTK+-sneltoets voor menubalktoegang is ingeschakeld"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Normaal gesproken kan de menubalk benaderd worden met F10. Dit kan anders in"
-" worden gesteld via gtkrc (gtk-menu-bar-accel = ‘watdanook’). Deze optie "
+" worden gesteld via ctkrc (ctk-menu-bar-accel = ‘watdanook’). Deze optie "
 "maakt het mogelijk om de standaard-menubalksneltoets uit te schakelen."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

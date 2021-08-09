@@ -138,11 +138,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "به طور طبیعی می‌توان با کلید F10 به نوار منو دسترسی یافت. این کار را می‌توان"
-" با سفارشی کردن از طریق gtkrc (gtk-menu-bar-accel = «whatever»)‎ نیز انجام "
+" با سفارشی کردن از طریق ctkrc (ctk-menu-bar-accel = «whatever»)‎ نیز انجام "
 "داد. این گزینه همچنین از کار انداختن شتاب‌ده استاندارد نوار منو را ممکن "
 "می‌سازد."
 

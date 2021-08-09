@@ -584,7 +584,7 @@ egg_sm_client_quit (EggSMClient *client)
 	g_signal_emit (client, signals[QUIT], 0);
 	g_debug ("Done emitting quit");
 
-	/* FIXME: should we just call gtk_main_quit() here? */
+	/* FIXME: should we just call ctk_main_quit() here? */
 }
 
 static void

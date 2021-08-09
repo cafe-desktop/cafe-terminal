@@ -19,7 +19,7 @@
 #ifndef TERMINAL_TAB_LABEL_H
 #define TERMINAL_TAB_LABEL_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-screen.h"
 

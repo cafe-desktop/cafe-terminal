@@ -137,11 +137,11 @@ msgstr "Dacă scurtătura standard GTK+ pentru bara de meniuri este activată"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "În mod normal poți accesa bara de meniuri cu tasta F10. Această acțiune "
-"poate fi personalizată via gtkrc (gtk-menu-bar-accel = \"whatever\"). "
+"poate fi personalizată via ctkrc (ctk-menu-bar-accel = \"whatever\"). "
 "Această opțiune permite ca acceleratorul barei de meniu standard să fie "
 "dezactivat."
 

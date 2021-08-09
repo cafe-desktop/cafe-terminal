@@ -138,10 +138,10 @@ msgstr "メニューバーへのアクセスのために GTK+ 標準のショー
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
-"通常は、F10 キーでメニューバーにアクセスできます。この設定を gtkrc (gtk-menu-bar-accel = \"whatever\") "
+"通常は、F10 キーでメニューバーにアクセスできます。この設定を ctkrc (ctk-menu-bar-accel = \"whatever\") "
 "経由でカスタマイズすることも可能です。このオプションにより標準的なメニューバーアクセラレーターを無効にすることが可能です。"
 
 #: src/org.cafe.terminal.gschema.xml.in:68

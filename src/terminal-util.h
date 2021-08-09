@@ -21,7 +21,7 @@
 #ifndef TERMINAL_UTIL_H
 #define TERMINAL_UTIL_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-screen.h"
 

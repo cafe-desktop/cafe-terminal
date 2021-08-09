@@ -49,7 +49,7 @@ PKG_CHECK_MODULES([TERM],
    glib-2.0 >= $GLIB_REQUIRED
    gthread-2.0
    gio-2.0 >= $GIO_REQUIRED
-   gtk+-3.0 >= $GTK_REQUIRED
+   ctk+-3.0 >= $GTK_REQUIRED
    dconf >= $DCONF_REQUIRED
    x11])
 
