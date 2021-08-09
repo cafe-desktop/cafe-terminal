@@ -281,7 +281,7 @@ terminal_screen_class_enable_menu_bar_accel_notify_cb (TerminalApp *app,
 static TerminalWindow *
 terminal_screen_get_window (TerminalScreen *screen)
 {
-	CtkWidget *widget = GTK_WIDGET (screen);
+	CtkWidget *widget = CTK_WIDGET (screen);
 	CtkWidget *toplevel;
 
 	toplevel = ctk_widget_get_toplevel (widget);
@@ -296,7 +296,7 @@ terminal_screen_realize (CtkWidget *widget)
 {
     TerminalScreen *screen = TERMINAL_SCREEN (widget);
 
-    GTK_WIDGET_CLASS (terminal_screen_parent_class)->realize (widget);
+    CTK_WIDGET_CLASS (terminal_screen_parent_class)->realize (widget);
 
     terminal_screen_set_font (screen);
 }
@@ -306,7 +306,7 @@ terminal_screen_style_updated (CtkWidget *widget)
 {
     TerminalScreen *screen = TERMINAL_SCREEN (widget);
 
-    GTK_WIDGET_CLASS (terminal_screen_parent_class)->style_updated (widget);
+    CTK_WIDGET_CLASS (terminal_screen_parent_class)->style_updated (widget);
 
     update_color_scheme (screen);
 
@@ -330,7 +330,7 @@ terminal_screen_init (TerminalScreen *screen)
 {
 	const CtkTargetEntry target_table[] =
 	{
-		{ "GTK_NOTEBOOK_TAB", GTK_TARGET_SAME_APP, TARGET_TAB },
+		{ "CTK_NOTEBOOK_TAB", CTK_TARGET_SAME_APP, TARGET_TAB },
 		{ "application/x-color", 0, TARGET_COLOR },
 		{ "property/bgimage",    0, TARGET_BGIMAGE },
 		{ "x-special/cafe-reset-background", 0, TARGET_RESET_BG },
@@ -361,10 +361,10 @@ terminal_screen_init (TerminalScreen *screen)
 
 	targets = ctk_target_table_new_from_list (target_list, &n_targets);
 
-	ctk_drag_dest_set (GTK_WIDGET (screen),
-	                   GTK_DEST_DEFAULT_MOTION |
-	                   GTK_DEST_DEFAULT_HIGHLIGHT |
-	                   GTK_DEST_DEFAULT_DROP,
+	ctk_drag_dest_set (CTK_WIDGET (screen),
+	                   CTK_DEST_DEFAULT_MOTION |
+	                   CTK_DEST_DEFAULT_HIGHLIGHT |
+	                   CTK_DEST_DEFAULT_DROP,
 	                   targets, n_targets,
 	                   GDK_ACTION_COPY | GDK_ACTION_MOVE);
 
@@ -468,7 +468,7 @@ static void
 terminal_screen_class_init (TerminalScreenClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	CtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS(klass);
 	VteTerminalClass *terminal_class = VTE_TERMINAL_CLASS (klass);
 	TerminalApp *app;
 	guint i;
@@ -621,7 +621,7 @@ terminal_screen_dispose (GObject *object)
 	TerminalScreenPrivate *priv = screen->priv;
 	CtkSettings *settings;
 
-	settings = ctk_widget_get_settings (GTK_WIDGET (screen));
+	settings = ctk_widget_get_settings (CTK_WIDGET (screen));
 	g_signal_handlers_disconnect_matched (settings, G_SIGNAL_MATCH_DATA,
 	                                      0, 0, NULL, NULL,
 	                                      screen);
@@ -962,7 +962,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 		terminal_screen_cook_icon_title (screen);
 	}
 
-	if (ctk_widget_get_realized (GTK_WIDGET (screen)) &&
+	if (ctk_widget_get_realized (CTK_WIDGET (screen)) &&
 	        (!prop_name ||
 	         prop_name == I_(TERMINAL_PROFILE_USE_SYSTEM_FONT) ||
 	         prop_name == I_(TERMINAL_PROFILE_FONT)))
@@ -1088,13 +1088,13 @@ update_color_scheme (TerminalScreen *screen)
 	CtkStyleContext *context;
 	GError *error = NULL;
 
-	context = ctk_widget_get_style_context (GTK_WIDGET (screen));
+	context = ctk_widget_get_style_context (CTK_WIDGET (screen));
 	ctk_style_context_save (context);
-	ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-	ctk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &fg);
+	ctk_style_context_set_state (context, CTK_STATE_FLAG_NORMAL);
+	ctk_style_context_get_color (context, CTK_STATE_FLAG_NORMAL, &fg);
 
-	ctk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
-			       GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+	ctk_style_context_get (context, CTK_STATE_FLAG_NORMAL,
+			       CTK_STYLE_PROPERTY_BACKGROUND_COLOR,
 			       &c, NULL);
 	bg = *c;
 	gdk_rgba_free (c);
@@ -1144,7 +1144,7 @@ update_color_scheme (TerminalScreen *screen)
 			g_clear_error (&error);
 		}
 
-		ctk_widget_queue_draw (GTK_WIDGET (screen));
+		ctk_widget_queue_draw (CTK_WIDGET (screen));
 	} else {
 		if (priv->bg_image_callback_id)
 		{
@@ -1197,7 +1197,7 @@ terminal_screen_system_font_notify_cb (TerminalApp *app,
 {
 	TerminalScreenPrivate *priv = screen->priv;
 
-	if (!ctk_widget_get_realized (GTK_WIDGET (screen)))
+	if (!ctk_widget_get_realized (CTK_WIDGET (screen)))
 		return;
 
 	if (!terminal_profile_get_property_boolean (priv->profile, TERMINAL_PROFILE_USE_SYSTEM_FONT))
@@ -1399,7 +1399,7 @@ get_child_environment (TerminalScreen *screen,
                        char **shell)
 {
 	TerminalScreenPrivate *priv = screen->priv;
-	CtkWidget *term = GTK_WIDGET (screen);
+	CtkWidget *term = CTK_WIDGET (screen);
 	CtkWidget *window;
 	GdkDisplay *display;
 	char **env;
@@ -1488,11 +1488,11 @@ info_bar_response_cb (CtkWidget *info_bar,
                       int response,
                       TerminalScreen *screen)
 {
-	ctk_widget_grab_focus (GTK_WIDGET (screen));
+	ctk_widget_grab_focus (CTK_WIDGET (screen));
 
 	switch (response)
 	{
-	case GTK_RESPONSE_CANCEL:
+	case CTK_RESPONSE_CANCEL:
 		ctk_widget_destroy (info_bar);
 		g_signal_emit (screen, signals[CLOSE_SCREEN], 0);
 		break;
@@ -1503,7 +1503,7 @@ info_bar_response_cb (CtkWidget *info_bar,
 	case RESPONSE_EDIT_PROFILE:
 		terminal_app_edit_profile (terminal_app_get (),
 		                           terminal_screen_get_profile (screen),
-		                           GTK_WINDOW (terminal_screen_get_window (screen)),
+		                           CTK_WINDOW (terminal_screen_get_window (screen)),
 		                           "custom-command-entry");
 		break;
 	default:
@@ -1517,7 +1517,7 @@ static void handle_error_child (TerminalScreen *screen,
 {
 	CtkWidget *info_bar;
 
-	info_bar = terminal_info_bar_new (GTK_MESSAGE_ERROR,
+	info_bar = terminal_info_bar_new (CTK_MESSAGE_ERROR,
 	                                  _("_Profile Preferences"), RESPONSE_EDIT_PROFILE,
 	                                  _("_Relaunch"), RESPONSE_RELAUNCH,
 	                                  NULL);
@@ -1528,9 +1528,9 @@ static void handle_error_child (TerminalScreen *screen,
 	g_signal_connect (info_bar, "response",
 	                  G_CALLBACK (info_bar_response_cb), screen);
 
-	ctk_box_pack_start (GTK_BOX (terminal_screen_container_get_from_screen (screen)),
+	ctk_box_pack_start (CTK_BOX (terminal_screen_container_get_from_screen (screen)),
 	                    info_bar, FALSE, FALSE, 0);
-	ctk_info_bar_set_default_response (GTK_INFO_BAR (info_bar), GTK_RESPONSE_CANCEL);
+	ctk_info_bar_set_default_response (CTK_INFO_BAR (info_bar), CTK_RESPONSE_CANCEL);
 	ctk_widget_show (info_bar);
 }
 
@@ -1681,7 +1681,7 @@ terminal_screen_button_press (CtkWidget      *widget,
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	gboolean (* button_press_event) (CtkWidget*, GdkEventButton*) =
-	    GTK_WIDGET_CLASS (terminal_screen_parent_class)->button_press_event;
+	    CTK_WIDGET_CLASS (terminal_screen_parent_class)->button_press_event;
 	char *matched_string;
 	int matched_flavor = 0;
 	guint state;
@@ -1895,7 +1895,7 @@ terminal_screen_set_font_scale (TerminalScreen *screen,
 
 	priv->font_scale = factor;
 
-	if (ctk_widget_get_realized (GTK_WIDGET (screen)))
+	if (ctk_widget_get_realized (CTK_WIDGET (screen)))
 	{
 		/* Update the font */
 		terminal_screen_change_font (screen);
@@ -1961,7 +1961,7 @@ terminal_screen_child_exited (VteTerminal *terminal, int status)
 
 		CtkWidget *info_bar;
 
-		info_bar = terminal_info_bar_new (GTK_MESSAGE_INFO,
+		info_bar = terminal_info_bar_new (CTK_MESSAGE_INFO,
 		                                  _("_Relaunch"), RESPONSE_RELAUNCH,
 		                                  NULL);
 		if (WIFEXITED (status))
@@ -1982,9 +1982,9 @@ terminal_screen_child_exited (VteTerminal *terminal, int status)
 		g_signal_connect (info_bar, "response",
 		                  G_CALLBACK (info_bar_response_cb), screen);
 
-		ctk_box_pack_start (GTK_BOX (terminal_screen_container_get_from_screen (screen)),
+		ctk_box_pack_start (CTK_BOX (terminal_screen_container_get_from_screen (screen)),
 		                    info_bar, FALSE, FALSE, 0);
-		ctk_info_bar_set_default_response (GTK_INFO_BAR (info_bar), RESPONSE_RELAUNCH);
+		ctk_info_bar_set_default_response (CTK_INFO_BAR (info_bar), RESPONSE_RELAUNCH);
 		ctk_widget_show (info_bar);
 		break;
 	}
@@ -2221,7 +2221,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 			int page_num;
 
 			container = *(CtkWidget**) selection_data_data;
-			if (!GTK_IS_WIDGET (container))
+			if (!CTK_IS_WIDGET (container))
 				return;
 
 			moving_screen = terminal_screen_container_get_screen (TERMINAL_SCREEN_CONTAINER (container));
@@ -2232,8 +2232,8 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 			source_window = terminal_screen_get_window (moving_screen);
 			dest_window = terminal_screen_get_window (screen);
 			dest_notebook = terminal_window_get_notebook (dest_window);
-			page_num = ctk_notebook_page_num (GTK_NOTEBOOK (dest_notebook),
-			                                  GTK_WIDGET (screen));
+			page_num = ctk_notebook_page_num (CTK_NOTEBOOK (dest_notebook),
+			                                  CTK_WIDGET (screen));
 			terminal_window_move_screen (source_window, dest_window, moving_screen, page_num + 1);
 
 			ctk_drag_finish (context, TRUE, TRUE, timestamp);
@@ -2250,8 +2250,8 @@ _terminal_screen_update_scrollbar (TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
 	TerminalScreenContainer *container;
-	CtkPolicyType policy = GTK_POLICY_ALWAYS;
-	CtkCornerType corner = GTK_CORNER_TOP_LEFT;
+	CtkPolicyType policy = CTK_POLICY_ALWAYS;
+	CtkCornerType corner = CTK_CORNER_TOP_LEFT;
 
 	container = terminal_screen_container_get_from_screen (screen);
 	if (container == NULL)
@@ -2260,15 +2260,15 @@ _terminal_screen_update_scrollbar (TerminalScreen *screen)
 	switch (terminal_profile_get_property_enum (priv->profile, TERMINAL_PROFILE_SCROLLBAR_POSITION))
 	{
 	case TERMINAL_SCROLLBAR_HIDDEN:
-		policy = GTK_POLICY_NEVER;
+		policy = CTK_POLICY_NEVER;
 		break;
 	case TERMINAL_SCROLLBAR_RIGHT:
-		policy = GTK_POLICY_ALWAYS;
-		corner = GTK_CORNER_TOP_LEFT;
+		policy = CTK_POLICY_ALWAYS;
+		corner = CTK_CORNER_TOP_LEFT;
 		break;
 	case TERMINAL_SCROLLBAR_LEFT:
-		policy = GTK_POLICY_ALWAYS;
-		corner = GTK_CORNER_TOP_RIGHT;
+		policy = CTK_POLICY_ALWAYS;
+		corner = CTK_CORNER_TOP_RIGHT;
 		break;
 	default:
 		g_assert_not_reached ();
@@ -2276,7 +2276,7 @@ _terminal_screen_update_scrollbar (TerminalScreen *screen)
 	}
 
 	terminal_screen_container_set_placement (container, corner);
-	terminal_screen_container_set_policy (container, GTK_POLICY_NEVER, policy);
+	terminal_screen_container_set_policy (container, CTK_POLICY_NEVER, policy);
 }
 
 void

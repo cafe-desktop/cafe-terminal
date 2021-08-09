@@ -127,8 +127,8 @@ msgid ""
 msgstr "是否使用 Alt + 字母來使用選單列中的項目。終端機執行程式時，某些程式可能需要使用這些按鍵組合，因此允許終端機不截取這類按鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:64
-msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
-msgstr "選單列可否通過標準的 GTK+ 捷徑鍵來使用"
+msgid "Whether the standard CTK+ shortcut for menubar access is enabled"
+msgstr "選單列可否通過標準的 CTK+ 捷徑鍵來使用"
 
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
@@ -606,11 +606,11 @@ msgstr "用來新增分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"開啟新終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"開啟新終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:295
 msgid "Keyboard shortcut to open a new window"
@@ -619,11 +619,11 @@ msgstr "用來新增視窗的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for GTK+ resource files. If you set the option to the "
+" same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"開啟新終端機視窗的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"開啟新終端機視窗的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:300
 msgid "Keyboard shortcut to create a new profile"
@@ -632,11 +632,11 @@ msgstr "用來建立新的設定檔的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
-"Expressed as a string in the same format used for GTK+ resource files. If "
+"Expressed as a string in the same format used for CTK+ resource files. If "
 "you set the option to the special string \"disabled\", then there will be no"
 " keyboard shortcut for this action."
 msgstr ""
-"顯示建立設定檔對話框的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"顯示建立設定檔對話框的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該操作程序不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:305
@@ -646,11 +646,11 @@ msgstr "用來將目前的分頁內容儲存為檔案的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"用來將目前的分頁內容儲存為檔案的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"用來將目前的分頁內容儲存為檔案的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該操作程序不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:310
@@ -660,11 +660,11 @@ msgstr "用來關閉分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"關閉終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"關閉終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:315
 msgid "Keyboard shortcut to close a window"
@@ -673,11 +673,11 @@ msgstr "用來關閉視窗的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"關閉終端機視窗的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"關閉終端機視窗的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:320
 msgid "Keyboard shortcut to copy text"
@@ -686,11 +686,11 @@ msgstr "用來複製文字的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"將已選文字複製至剪貼簿的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"將已選文字複製至剪貼簿的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:325
@@ -700,11 +700,11 @@ msgstr "用來貼上剪貼簿內容的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
-"terminal. Expressed as a string in the same format used for GTK+ resource "
+"terminal. Expressed as a string in the same format used for CTK+ resource "
 "files. If you set the option to the special string \"disabled\", then there "
 "will be no keyboard shortcut for this action."
 msgstr ""
-"貼上剪貼簿中內容的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"貼上剪貼簿中內容的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串“disabled”，則表示該操作程序不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:330
@@ -714,11 +714,11 @@ msgstr "用來選取所有文字的快捷鍵"
 #: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"選取所有在終端機內的文字的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串 “disabled” "
+"選取所有在終端機內的文字的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串 “disabled” "
 "，則表示該操作程序不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:335
@@ -728,11 +728,11 @@ msgstr "顯示搜尋對話框的鍵盤快捷鍵"
 #: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"顯示搜尋對話框的鍵盤快捷鍵。它的字串表示方式和其它 GTK+ "
+"顯示搜尋對話框的鍵盤快捷鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串“disabled”，則表示該動作不會有鍵盤快捷鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:340
@@ -742,11 +742,11 @@ msgstr "在搜尋結果中，尋找下一個文字的鍵盤捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
-"the terminal. Expressed as a string in the same format used for GTK+ "
+"the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
-"在終端機中，於本次搜尋結果中尋找下一個文字的捷徑鍵。文字表達式與 GTK+ 設定檔使用相同的格式。假如你設定這個選項為特殊字串 \"disabled\""
+"在終端機中，於本次搜尋結果中尋找下一個文字的捷徑鍵。文字表達式與 CTK+ 設定檔使用相同的格式。假如你設定這個選項為特殊字串 \"disabled\""
 " （已停用），那這個功能將不會有任何捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:345
@@ -756,11 +756,11 @@ msgstr "於本次搜尋結果中，尋找上一個搜尋字串的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for GTK+ "
+" in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
-"在終端機中，於本次搜尋結果中尋找上一個搜尋字串的捷徑鍵。文字表達式與 GTK+ 設定檔使用相同的格式。假如你設定這個選項為特殊字串 "
+"在終端機中，於本次搜尋結果中尋找上一個搜尋字串的捷徑鍵。文字表達式與 CTK+ 設定檔使用相同的格式。假如你設定這個選項為特殊字串 "
 "\"disabled\" （已停用），那這個功能將不會有任何捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:350
@@ -770,11 +770,11 @@ msgstr "用來切換是否進入全螢幕模式的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
-"切換全螢幕模式的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"切換全螢幕模式的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:355
 msgid "Keyboard shortcut to toggle the visibility of the menubar"
@@ -783,11 +783,11 @@ msgstr "用來切換是否顯示選單列的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
-"a string in the same format used for GTK+ resource files. If you set the "
+"a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"切換是否顯示選單列的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"切換是否顯示選單列的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:360
 msgid "Keyboard shortcut to set the terminal title"
@@ -796,11 +796,11 @@ msgstr "用來設定終端機標題的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"指定終端機標題的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"指定終端機標題的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:365
 msgid "Keyboard shortcut to reset the terminal"
@@ -809,11 +809,11 @@ msgstr "用來重設終端機畫面的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"重設終端機的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"重設終端機的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:370
 msgid "Keyboard shortcut to reset and clear the terminal"
@@ -822,11 +822,11 @@ msgstr "用來重設及清除終端機畫面的捷徑鍵。"
 #: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
-"清除及重設終端機的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"清除及重設終端機的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:375
 msgid "Keyboard shortcut to switch to the previous tab"
@@ -835,11 +835,11 @@ msgstr "用來切換至上一個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
-"切換至上一個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至上一個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:380
@@ -849,11 +849,11 @@ msgstr "用來切換至下一個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"切換至下一個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至下一個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:385
@@ -863,11 +863,11 @@ msgstr "用來切換至上一個設定檔的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
-"string in the same format used for GTK+ resource files. If you set the "
+"string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"切換至上一個設定檔的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"切換至上一個設定檔的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:390
 msgid "Keyboard shortcut to switch to the next profile"
@@ -876,11 +876,11 @@ msgstr "用來切換至下一個設定檔的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
-"切換至下一個設定檔的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"切換至下一個設定檔的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:395
 msgid "Accelerator to move the current tab to the left."
@@ -889,11 +889,11 @@ msgstr "分頁向左移動的捷徑鍵。"
 #: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
-"分頁向左移動的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"分頁向左移動的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:400
 msgid "Accelerator to move the current tab to the right."
@@ -902,11 +902,11 @@ msgstr "分頁向左移動的捷徑鍵。"
 #: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
-"分頁向右移動的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"分頁向右移動的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:405
 msgid "Accelerator to detach current tab."
@@ -915,10 +915,10 @@ msgstr "分頁脫離為獨立視窗的捷徑鍵。"
 #: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
-"切換至下一個分頁的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"切換至下一個分頁的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:410
 msgid "Keyboard shortcut to switch to tab 1"
@@ -927,11 +927,11 @@ msgstr "用來切換至第 1 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 1 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 1 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:415
@@ -941,11 +941,11 @@ msgstr "用來切換至第 2 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 2 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 2 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:420
@@ -955,11 +955,11 @@ msgstr "用來切換至第 3 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 3 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 3 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:425
@@ -969,11 +969,11 @@ msgstr "用來切換至第 4 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 4 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 4 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:430
@@ -983,11 +983,11 @@ msgstr "用來切換至第 5 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 5 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 5 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:435
@@ -997,11 +997,11 @@ msgstr "用來切換至第 6 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 6 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 6 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:440
@@ -1011,11 +1011,11 @@ msgstr "用來切換至第 7 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 7 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 7 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:445
@@ -1025,11 +1025,11 @@ msgstr "用來切換至第 8 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 8 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 8 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:450
@@ -1039,11 +1039,11 @@ msgstr "用來切換至第 9 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"切換至第 9 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 9 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:455
@@ -1053,11 +1053,11 @@ msgstr "用來切換至第 10 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"切換至第 10 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 10 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:460
@@ -1067,11 +1067,11 @@ msgstr "用來切換至第 11 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"切換至第 11 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 11 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:465
@@ -1081,11 +1081,11 @@ msgstr "用來切換至第 12 個分頁的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"切換至第 12 個終端機分頁的捷徑鍵。它的字串表示方式和其它 GTK+ "
+"切換至第 12 個終端機分頁的捷徑鍵。它的字串表示方式和其它 CTK+ "
 "設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:470
@@ -1095,11 +1095,11 @@ msgstr "用來顯示說明文件的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
-"顯示說明文件的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"顯示說明文件的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:475
 msgid "Keyboard shortcut to make font larger"
@@ -1108,11 +1108,11 @@ msgstr "用來令字型變大的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"令字型變大的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"令字型變大的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:480
 msgid "Keyboard shortcut to make font smaller"
@@ -1121,11 +1121,11 @@ msgstr "用來令字型變小的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"令字型變小的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"令字型變小的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/org.cafe.terminal.gschema.xml.in:485
 msgid "Keyboard shortcut to make font normal-size"
@@ -1134,11 +1134,11 @@ msgstr "用來令字型回復原來大小的捷徑鍵"
 #: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
-"令字型大小回復正常的捷徑鍵。它的字串表示方式和其它 GTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
+"令字型大小回復正常的捷徑鍵。它的字串表示方式和其它 CTK+ 設定檔所用的一樣。如果它的設定值是特殊字串「disabled」，則表示該動作不會有捷徑鍵。"
 
 #: src/profile-editor.c:44
 msgid "Black on light yellow"

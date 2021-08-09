@@ -120,14 +120,14 @@ skey_challenge_response_cb (CtkWidget *dialog,
                             int response_id,
                             SkeyData *data)
 {
-	if (response_id == GTK_RESPONSE_OK)
+	if (response_id == CTK_RESPONSE_OK)
 	{
 		CtkWidget *entry;
 		const char *password;
 		char *response;
 
 		entry = g_object_get_data (G_OBJECT (dialog), "skey-entry");
-		password = ctk_entry_get_text (GTK_ENTRY (entry));
+		password = ctk_entry_get_text (CTK_ENTRY (entry));
 
 		/* FIXME: fix skey to use g_malloc */
 		response = skey (data->hash, data->seq, data->seed, password);
@@ -192,19 +192,19 @@ terminal_skey_do_popup (CtkWindow *window,
 	}
 
 	title_text = g_strdup_printf ("<big><b>%s</b></big>",
-	                              ctk_label_get_text (GTK_LABEL (label)));
-	ctk_label_set_label (GTK_LABEL (label), title_text);
+	                              ctk_label_get_text (CTK_LABEL (label)));
+	ctk_label_set_label (CTK_LABEL (label), title_text);
 	g_free (title_text);
 
 	g_object_set_data (G_OBJECT (dialog), "skey-entry", entry);
 
 	ctk_widget_grab_focus (entry);
 	ctk_widget_grab_default (ok_button);
-	ctk_entry_set_text (GTK_ENTRY (entry), "");
+	ctk_entry_set_text (CTK_ENTRY (entry), "");
 
-	ctk_window_set_transient_for (GTK_WINDOW (dialog), window);
-	ctk_window_set_modal (GTK_WINDOW (dialog), TRUE);
-	ctk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);
+	ctk_window_set_transient_for (CTK_WINDOW (dialog), window);
+	ctk_window_set_modal (CTK_WINDOW (dialog), TRUE);
+	ctk_window_set_destroy_with_parent (CTK_WINDOW (dialog), TRUE);
 
 	/* FIXME: make this dialogue close if the screen closes! */
 
@@ -220,5 +220,5 @@ terminal_skey_do_popup (CtkWindow *window,
 	g_signal_connect (dialog, "delete-event",
 	                  G_CALLBACK (terminal_util_dialog_response_on_delete), NULL);
 
-	ctk_window_present (GTK_WINDOW (dialog));
+	ctk_window_present (CTK_WINDOW (dialog));
 }

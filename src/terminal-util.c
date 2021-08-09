@@ -89,14 +89,14 @@ terminal_util_show_error_dialog (CtkWindow *transient_parent,
 	{
 		CtkWidget *dialog;
 		dialog = ctk_message_dialog_new (transient_parent,
-		                                 GTK_DIALOG_DESTROY_WITH_PARENT,
-		                                 GTK_MESSAGE_ERROR,
-		                                 GTK_BUTTONS_OK,
+		                                 CTK_DIALOG_DESTROY_WITH_PARENT,
+		                                 CTK_MESSAGE_ERROR,
+		                                 CTK_BUTTONS_OK,
 		                                 message ? "%s" : NULL,
 		                                 message);
 
 		if (error != NULL)
-			ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+			ctk_message_dialog_format_secondary_text (CTK_MESSAGE_DIALOG (dialog),
 			        "%s", error->message);
 
 		g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (ctk_widget_destroy), NULL);
@@ -107,18 +107,18 @@ terminal_util_show_error_dialog (CtkWindow *transient_parent,
 			g_object_add_weak_pointer (G_OBJECT (dialog), (void**)weak_ptr);
 		}
 
-		ctk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
+		ctk_window_set_resizable (CTK_WINDOW (dialog), FALSE);
 
 		ctk_widget_show_all (dialog);
 	}
 	else
 	{
-		g_return_if_fail (GTK_IS_MESSAGE_DIALOG (*weak_ptr));
+		g_return_if_fail (CTK_IS_MESSAGE_DIALOG (*weak_ptr));
 
 		/* Sucks that there's no direct accessor for "text" property */
 		g_object_set (G_OBJECT (*weak_ptr), "text", message, NULL);
 
-		ctk_window_present (GTK_WINDOW (*weak_ptr));
+		ctk_window_present (CTK_WINDOW (*weak_ptr));
 	}
 
 	g_free (message);
@@ -140,9 +140,9 @@ terminal_util_show_help (const char *topic,
 		url = g_strdup ("help:cafe-terminal");
 	}
 
-	if (!ctk_show_uri_on_window (GTK_WINDOW (parent), url, ctk_get_current_event_time (), &error))
+	if (!ctk_show_uri_on_window (CTK_WINDOW (parent), url, ctk_get_current_event_time (), &error))
 	{
-		terminal_util_show_error_dialog (GTK_WINDOW (parent), NULL, error,
+		terminal_util_show_error_dialog (CTK_WINDOW (parent), NULL, error,
 		                                 _("There was an error displaying help"));
 		g_error_free (error);
 	}
@@ -169,10 +169,10 @@ terminal_util_set_atk_name_description (CtkWidget  *widget,
 	}
 
 
-	if (!GTK_IS_ACCESSIBLE (obj))
+	if (!CTK_IS_ACCESSIBLE (obj))
 		return; /* This means GAIL is not loaded so we have the NoOp accessible */
 
-	g_return_if_fail (GTK_IS_ACCESSIBLE (obj));
+	g_return_if_fail (CTK_IS_ACCESSIBLE (obj));
 	if (desc)
 		atk_object_set_description (obj, desc);
 	if (name)
@@ -212,9 +212,9 @@ terminal_util_open_url (CtkWidget *parent,
 		g_assert_not_reached ();
 	}
 
-	if (!ctk_show_uri_on_window (GTK_WINDOW (parent), uri, user_time, &error))
+	if (!ctk_show_uri_on_window (CTK_WINDOW (parent), uri, user_time, &error))
 	{
-		terminal_util_show_error_dialog (GTK_WINDOW (parent), NULL, error,
+		terminal_util_show_error_dialog (CTK_WINDOW (parent), NULL, error,
 		                                 _("Could not open the address “%s”"),
 		                                 uri);
 
@@ -378,7 +378,7 @@ terminal_util_load_builder_resource (const char *path,
 gboolean
 terminal_util_dialog_response_on_delete (CtkWindow *widget)
 {
-	ctk_dialog_response (GTK_DIALOG (widget), GTK_RESPONSE_DELETE_EVENT);
+	ctk_dialog_response (CTK_DIALOG (widget), CTK_RESPONSE_DELETE_EVENT);
 	return TRUE;
 }
 
@@ -749,65 +749,65 @@ object_change_notify_cb (PropertyChange *change)
 
 	g_signal_handler_block (widget, change->widget_notify_id);
 
-	if (GTK_IS_RADIO_BUTTON (widget))
+	if (CTK_IS_RADIO_BUTTON (widget))
 	{
 		int ovalue, rvalue;
 
 		g_object_get (object, object_prop, &ovalue, NULL);
 		rvalue = (gint) (glong) (void *) (g_object_get_data (G_OBJECT (widget), "enum-value"));
-		ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ovalue == rvalue);
+		ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (widget), ovalue == rvalue);
 	}
-	else if (GTK_IS_TOGGLE_BUTTON (widget))
+	else if (CTK_IS_TOGGLE_BUTTON (widget))
 	{
 		gboolean enabled;
 
 		g_object_get (object, object_prop, &enabled, NULL);
-		ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget),
+		ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (widget),
 		                              transform_boolean (enabled, change->flags));
 	}
-	else if (GTK_IS_SPIN_BUTTON (widget))
+	else if (CTK_IS_SPIN_BUTTON (widget))
 	{
 		int value;
 
 		g_object_get (object, object_prop, &value, NULL);
-		ctk_spin_button_set_value (GTK_SPIN_BUTTON (widget), value);
+		ctk_spin_button_set_value (CTK_SPIN_BUTTON (widget), value);
 	}
-	else if (GTK_IS_ENTRY (widget))
+	else if (CTK_IS_ENTRY (widget))
 	{
 		char *text;
 
 		g_object_get (object, object_prop, &text, NULL);
-		ctk_entry_set_text (GTK_ENTRY (widget), text ? text : "");
+		ctk_entry_set_text (CTK_ENTRY (widget), text ? text : "");
 		g_free (text);
 	}
-	else if (GTK_IS_COMBO_BOX (widget))
+	else if (CTK_IS_COMBO_BOX (widget))
 	{
 		int value;
 
 		g_object_get (object, object_prop, &value, NULL);
-		ctk_combo_box_set_active (GTK_COMBO_BOX (widget), value);
+		ctk_combo_box_set_active (CTK_COMBO_BOX (widget), value);
 	}
-	else if (GTK_IS_RANGE (widget))
+	else if (CTK_IS_RANGE (widget))
 	{
 		double value;
 
 		g_object_get (object, object_prop, &value, NULL);
-		ctk_range_set_value (GTK_RANGE (widget), value);
+		ctk_range_set_value (CTK_RANGE (widget), value);
 	}
-	else if (GTK_IS_COLOR_CHOOSER (widget))
+	else if (CTK_IS_COLOR_CHOOSER (widget))
 	{
 		GdkRGBA *color;
 		GdkRGBA old_color;
 
 		g_object_get (object, object_prop, &color, NULL);
-		ctk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (widget), &old_color);
+		ctk_color_chooser_get_rgba (CTK_COLOR_CHOOSER (widget), &old_color);
 
 		if (color && !gdk_rgba_equal (color, &old_color))
-			ctk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (widget), color);
+			ctk_color_chooser_set_rgba (CTK_COLOR_CHOOSER (widget), color);
 		if (color)
 			gdk_rgba_free (color);
 	}
-	else if (GTK_IS_FONT_BUTTON (widget))
+	else if (CTK_IS_FONT_BUTTON (widget))
 	{
 		PangoFontDescription *font_desc;
 		char *font;
@@ -817,11 +817,11 @@ object_change_notify_cb (PropertyChange *change)
 			goto out;
 
 		font = pango_font_description_to_string (font_desc);
-		ctk_font_button_set_font_name (GTK_FONT_BUTTON (widget), font);
+		ctk_font_button_set_font_name (CTK_FONT_BUTTON (widget), font);
 		g_free (font);
 		pango_font_description_free (font_desc);
 	}
-	else if (GTK_IS_FILE_CHOOSER (widget))
+	else if (CTK_IS_FILE_CHOOSER (widget))
 	{
 		char *name = NULL, *filename = NULL;
 
@@ -830,9 +830,9 @@ object_change_notify_cb (PropertyChange *change)
 			filename = g_filename_from_utf8 (name, -1, NULL, NULL, NULL);
 
 		if (filename)
-			ctk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), filename);
+			ctk_file_chooser_set_filename (CTK_FILE_CHOOSER (widget), filename);
 		else
-			ctk_file_chooser_unselect_all (GTK_FILE_CHOOSER (widget));
+			ctk_file_chooser_unselect_all (CTK_FILE_CHOOSER (widget));
 		g_free (filename);
 		g_free (name);
 	}
@@ -850,75 +850,75 @@ widget_change_notify_cb (PropertyChange *change)
 
 	g_signal_handler_block (change->object, change->object_notify_id);
 
-	if (GTK_IS_RADIO_BUTTON (widget))
+	if (CTK_IS_RADIO_BUTTON (widget))
 	{
 		gboolean active;
 		int value;
 
-		active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+		active = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (widget));
 		if (!active)
 			goto out;
 
 		value = (gint) (glong) (void *) (g_object_get_data (G_OBJECT (widget), "enum-value"));
 		g_object_set (object, object_prop, value, NULL);
 	}
-	else if (GTK_IS_TOGGLE_BUTTON (widget))
+	else if (CTK_IS_TOGGLE_BUTTON (widget))
 	{
 		gboolean enabled;
 
-		enabled = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+		enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (widget));
 		g_object_set (object, object_prop, transform_boolean (enabled, change->flags), NULL);
 	}
-	else if (GTK_IS_SPIN_BUTTON (widget))
+	else if (CTK_IS_SPIN_BUTTON (widget))
 	{
 		int value;
 
-		value = ctk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+		value = ctk_spin_button_get_value_as_int (CTK_SPIN_BUTTON (widget));
 		g_object_set (object, object_prop, value, NULL);
 	}
-	else if (GTK_IS_ENTRY (widget))
+	else if (CTK_IS_ENTRY (widget))
 	{
 		const char *text;
 
-		text = ctk_entry_get_text (GTK_ENTRY (widget));
+		text = ctk_entry_get_text (CTK_ENTRY (widget));
 		g_object_set (object, object_prop, text, NULL);
 	}
-	else if (GTK_IS_COMBO_BOX (widget))
+	else if (CTK_IS_COMBO_BOX (widget))
 	{
 		int value;
 
-		value = ctk_combo_box_get_active (GTK_COMBO_BOX (widget));
+		value = ctk_combo_box_get_active (CTK_COMBO_BOX (widget));
 		g_object_set (object, object_prop, value, NULL);
 	}
-	else if (GTK_IS_COLOR_CHOOSER (widget))
+	else if (CTK_IS_COLOR_CHOOSER (widget))
 	{
 		GdkRGBA color;
 
-		ctk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (widget), &color);
+		ctk_color_chooser_get_rgba (CTK_COLOR_CHOOSER (widget), &color);
 		g_object_set (object, object_prop, &color, NULL);
 	}
-	else if (GTK_IS_FONT_BUTTON (widget))
+	else if (CTK_IS_FONT_BUTTON (widget))
 	{
 		PangoFontDescription *font_desc;
 		const char *font;
 
-		font = ctk_font_button_get_font_name (GTK_FONT_BUTTON (widget));
+		font = ctk_font_button_get_font_name (CTK_FONT_BUTTON (widget));
 		font_desc = pango_font_description_from_string (font);
 		g_object_set (object, object_prop, font_desc, NULL);
 		pango_font_description_free (font_desc);
 	}
-	else if (GTK_IS_RANGE (widget))
+	else if (CTK_IS_RANGE (widget))
 	{
 		double value;
 
-		value = ctk_range_get_value (GTK_RANGE (widget));
+		value = ctk_range_get_value (CTK_RANGE (widget));
 		g_object_set (object, object_prop, value, NULL);
 	}
-	else if (GTK_IS_FILE_CHOOSER (widget))
+	else if (CTK_IS_FILE_CHOOSER (widget))
 	{
 		char *filename, *name = NULL;
 
-		filename = ctk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
+		filename = ctk_file_chooser_get_filename (CTK_FILE_CHOOSER (widget));
 		if (filename)
 			name = g_filename_to_utf8 (filename, -1, NULL, NULL, NULL);
 
@@ -947,23 +947,23 @@ terminal_util_bind_object_property_to_widget (GObject *object,
 	g_assert (g_object_get_data (G_OBJECT (widget), "GT:PCD") == NULL);
 	g_object_set_data_full (G_OBJECT (widget), "GT:PCD", change, (GDestroyNotify) property_change_free);
 
-	if (GTK_IS_TOGGLE_BUTTON (widget))
+	if (CTK_IS_TOGGLE_BUTTON (widget))
 		signal_name = "notify::active";
-	else if (GTK_IS_SPIN_BUTTON (widget))
+	else if (CTK_IS_SPIN_BUTTON (widget))
 		signal_name = "notify::value";
-	else if (GTK_IS_ENTRY (widget))
+	else if (CTK_IS_ENTRY (widget))
 		signal_name = "notify::text";
-	else if (GTK_IS_COMBO_BOX (widget))
+	else if (CTK_IS_COMBO_BOX (widget))
 		signal_name = "notify::active";
-	else if (GTK_IS_COLOR_CHOOSER (widget))
+	else if (CTK_IS_COLOR_CHOOSER (widget))
 		signal_name = "notify::color";
-	else if (GTK_IS_FONT_BUTTON (widget))
+	else if (CTK_IS_FONT_BUTTON (widget))
 		signal_name = "notify::font-name";
-	else if (GTK_IS_RANGE (widget))
+	else if (CTK_IS_RANGE (widget))
 		signal_name = "value-changed";
-	else if (GTK_IS_FILE_CHOOSER_BUTTON (widget))
+	else if (CTK_IS_FILE_CHOOSER_BUTTON (widget))
 		signal_name = "file-set";
-	else if (GTK_IS_FILE_CHOOSER (widget))
+	else if (CTK_IS_FILE_CHOOSER (widget))
 		signal_name = "selection-changed";
 	else
 		g_assert_not_reached ();

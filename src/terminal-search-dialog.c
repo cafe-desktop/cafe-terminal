@@ -46,7 +46,7 @@ get_quark (void)
 #define TERMINAL_SEARCH_DIALOG_GET_PRIVATE(object) \
   ((TerminalSearchDialogPrivate *) g_object_get_qdata (G_OBJECT (object), get_quark ()))
 
-#define GET_FLAG(widget) ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->widget))
+#define GET_FLAG(widget) ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (priv->widget))
 
 typedef struct _TerminalSearchDialogPrivate
 {
@@ -105,7 +105,7 @@ terminal_search_dialog_new (CtkWindow   *parent)
 	                         (GDestroyNotify) terminal_search_dialog_private_destroy);
 
 
-	priv->search_text_entry = ctk_bin_get_child (GTK_BIN (priv->search_entry));
+	priv->search_text_entry = ctk_bin_get_child (CTK_BIN (priv->search_entry));
 	ctk_widget_set_size_request (priv->search_entry, 300, -1);
 
 	priv->store = store = ctk_list_store_new (1, G_TYPE_STRING);
@@ -115,26 +115,26 @@ terminal_search_dialog_new (CtkWindow   *parent)
 	              NULL);
 
 	priv->completion = completion = ctk_entry_completion_new ();
-	ctk_entry_completion_set_model (completion, GTK_TREE_MODEL (store));
+	ctk_entry_completion_set_model (completion, CTK_TREE_MODEL (store));
 	ctk_entry_completion_set_text_column (completion, 0);
 	ctk_entry_completion_set_minimum_key_length (completion, HISTORY_MIN_ITEM_LEN);
 	ctk_entry_completion_set_popup_completion (completion, FALSE);
 	ctk_entry_completion_set_inline_completion (completion, TRUE);
-	ctk_entry_set_completion (GTK_ENTRY (priv->search_text_entry), completion);
+	ctk_entry_set_completion (CTK_ENTRY (priv->search_text_entry), completion);
 
-	ctk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
-	ctk_dialog_set_response_sensitive (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT, FALSE);
+	ctk_dialog_set_default_response (CTK_DIALOG (dialog), CTK_RESPONSE_ACCEPT);
+	ctk_dialog_set_response_sensitive (CTK_DIALOG (dialog), CTK_RESPONSE_ACCEPT, FALSE);
 
-	ctk_entry_set_activates_default (GTK_ENTRY (priv->search_text_entry), TRUE);
+	ctk_entry_set_activates_default (CTK_ENTRY (priv->search_text_entry), TRUE);
 	g_signal_connect (priv->search_text_entry, "changed", G_CALLBACK (update_sensitivity), dialog);
 	g_signal_connect (priv->regex_checkbutton, "toggled", G_CALLBACK (update_sensitivity), dialog);
 
 	g_signal_connect (dialog, "response", G_CALLBACK (response_handler), NULL);
 
 	if (parent)
-		ctk_window_set_transient_for (GTK_WINDOW (dialog), parent);
+		ctk_window_set_transient_for (CTK_WINDOW (dialog), parent);
 
-	return GTK_WIDGET (dialog);
+	return CTK_WIDGET (dialog);
 }
 
 void
@@ -142,12 +142,12 @@ terminal_search_dialog_present (CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv;
 
-	g_return_if_fail (GTK_IS_DIALOG (dialog));
+	g_return_if_fail (CTK_IS_DIALOG (dialog));
 
 	priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 	g_return_if_fail (priv);
 
-	ctk_window_present (GTK_WINDOW (dialog));
+	ctk_window_present (CTK_WINDOW (dialog));
 	ctk_widget_grab_focus (priv->search_text_entry);
 }
 
@@ -178,7 +178,7 @@ update_sensitivity (void *unused, CtkWidget *dialog)
 		priv->regex = NULL;
 	}
 
-	search_string = ctk_entry_get_text (GTK_ENTRY (priv->search_text_entry));
+	search_string = ctk_entry_get_text (CTK_ENTRY (priv->search_text_entry));
 	g_return_if_fail (search_string != NULL);
 
 	valid = *search_string != '\0';
@@ -190,7 +190,7 @@ update_sensitivity (void *unused, CtkWidget *dialog)
 		/* TODO show the error message somewhere */
 	}
 
-	ctk_dialog_set_response_sensitive (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT, valid);
+	ctk_dialog_set_response_sensitive (CTK_DIALOG (dialog), CTK_RESPONSE_ACCEPT, valid);
 }
 
 static gboolean
@@ -201,14 +201,14 @@ remove_item (CtkListStore *store,
 
 	g_return_val_if_fail (text != NULL, FALSE);
 
-	if (!ctk_tree_model_get_iter_first (GTK_TREE_MODEL (store), &iter))
+	if (!ctk_tree_model_get_iter_first (CTK_TREE_MODEL (store), &iter))
 		return FALSE;
 
 	do
 	{
 		gchar *item_text;
 
-		ctk_tree_model_get (GTK_TREE_MODEL (store), &iter, 0, &item_text, -1);
+		ctk_tree_model_get (CTK_TREE_MODEL (store), &iter, 0, &item_text, -1);
 
 		if (item_text != NULL && strcmp (item_text, text) == 0)
 		{
@@ -219,7 +219,7 @@ remove_item (CtkListStore *store,
 
 		g_free (item_text);
 	}
-	while (ctk_tree_model_iter_next (GTK_TREE_MODEL (store), &iter));
+	while (ctk_tree_model_iter_next (CTK_TREE_MODEL (store), &iter));
 
 	return FALSE;
 }
@@ -234,7 +234,7 @@ clamp_list_store (CtkListStore *store,
 	/* -1 because TreePath counts from 0 */
 	path = ctk_tree_path_new_from_indices (max - 1, -1);
 
-	if (ctk_tree_model_get_iter (GTK_TREE_MODEL (store), &iter, path))
+	if (ctk_tree_model_get_iter (CTK_TREE_MODEL (store), &iter, path))
 		while (1)
 			if (!ctk_list_store_remove (store, &iter))
 				break;
@@ -273,7 +273,7 @@ response_handler (CtkWidget *dialog,
 	TerminalSearchDialogPrivate *priv;
 	const gchar *str;
 
-	if (response_id != GTK_RESPONSE_ACCEPT)
+	if (response_id != CTK_RESPONSE_ACCEPT)
 	{
 		ctk_widget_hide (dialog);
 		return;
@@ -281,7 +281,7 @@ response_handler (CtkWidget *dialog,
 
 	priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 
-	str = ctk_entry_get_text (GTK_ENTRY (priv->search_text_entry));
+	str = ctk_entry_get_text (CTK_ENTRY (priv->search_text_entry));
 	if (*str != '\0')
 		history_entry_insert (priv->store, str);
 }
@@ -293,16 +293,16 @@ terminal_search_dialog_set_search_text (CtkWidget   *dialog,
 {
 	TerminalSearchDialogPrivate *priv;
 
-	g_return_if_fail (GTK_IS_DIALOG (dialog));
+	g_return_if_fail (CTK_IS_DIALOG (dialog));
 	g_return_if_fail (text != NULL);
 
 	priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 	g_return_if_fail (priv);
 
-	ctk_entry_set_text (GTK_ENTRY (priv->search_text_entry), text);
+	ctk_entry_set_text (CTK_ENTRY (priv->search_text_entry), text);
 
-	ctk_dialog_set_response_sensitive (GTK_DIALOG (dialog),
-	                                   GTK_RESPONSE_ACCEPT,
+	ctk_dialog_set_response_sensitive (CTK_DIALOG (dialog),
+	                                   CTK_RESPONSE_ACCEPT,
 	                                   (*text != '\0'));
 }
 
@@ -311,12 +311,12 @@ terminal_search_dialog_get_search_text (CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv;
 
-	g_return_val_if_fail (GTK_IS_DIALOG (dialog), NULL);
+	g_return_val_if_fail (CTK_IS_DIALOG (dialog), NULL);
 
 	priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 	g_return_val_if_fail (priv, NULL);
 
-	return ctk_entry_get_text (GTK_ENTRY (priv->search_text_entry));
+	return ctk_entry_get_text (CTK_ENTRY (priv->search_text_entry));
 }
 
 TerminalSearchFlags
@@ -325,7 +325,7 @@ terminal_search_dialog_get_search_flags (CtkWidget *dialog)
 	TerminalSearchDialogPrivate *priv;
 	TerminalSearchFlags flags = 0;
 
-	g_return_val_if_fail (GTK_IS_DIALOG (dialog), flags);
+	g_return_val_if_fail (CTK_IS_DIALOG (dialog), flags);
 
 	priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 	g_return_val_if_fail (priv, flags);
@@ -346,7 +346,7 @@ terminal_search_dialog_get_regex (CtkWidget *dialog)
 	guint32 compile_flags;
 	const char *text, *pattern;
 
-	g_return_val_if_fail (GTK_IS_DIALOG (dialog), NULL);
+	g_return_val_if_fail (CTK_IS_DIALOG (dialog), NULL);
 
 	priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 	g_return_val_if_fail (priv, NULL);

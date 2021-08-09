@@ -314,10 +314,10 @@ response_callback (CtkWidget *window,
                    int        id,
                    EncodingDialogData *data)
 {
-	if (id == GTK_RESPONSE_HELP)
-		terminal_util_show_help ("cafe-terminal-encoding-add", GTK_WINDOW (window));
+	if (id == CTK_RESPONSE_HELP)
+		terminal_util_show_help ("cafe-terminal-encoding-add", CTK_WINDOW (window));
 	else
-		ctk_widget_destroy (GTK_WIDGET (window));
+		ctk_widget_destroy (CTK_WIDGET (window));
 }
 
 enum
@@ -365,11 +365,11 @@ button_clicked_cb (CtkWidget *button,
 	if (!ctk_tree_selection_get_selected (selection, &model, &filter_iter))
 		return;
 
-	ctk_tree_model_filter_convert_iter_to_child_iter (GTK_TREE_MODEL_FILTER (model),
+	ctk_tree_model_filter_convert_iter_to_child_iter (CTK_TREE_MODEL_FILTER (model),
 	        &iter,
 	        &filter_iter);
 
-	model = GTK_TREE_MODEL (data->base_store);
+	model = CTK_TREE_MODEL (data->base_store);
 	ctk_tree_model_get (model, &iter, COLUMN_DATA, &encoding, -1);
 	g_assert (encoding != NULL);
 
@@ -427,8 +427,8 @@ encodings_create_treemodel (CtkListStore *base_store,
 {
 	CtkTreeModel *model;
 
-	model = ctk_tree_model_filter_new (GTK_TREE_MODEL (base_store), NULL);
-	ctk_tree_model_filter_set_visible_func (GTK_TREE_MODEL_FILTER (model),
+	model = ctk_tree_model_filter_new (CTK_TREE_MODEL (base_store), NULL);
+	ctk_tree_model_filter_set_visible_func (CTK_TREE_MODEL_FILTER (model),
 	                                        filter_active_encodings,
 	                                        GUINT_TO_POINTER (active), NULL);
 
@@ -465,8 +465,8 @@ terminal_encoding_dialog_show (CtkWindow *transient_parent)
 
 	if (encoding_dialog)
 	{
-		ctk_window_set_transient_for (GTK_WINDOW (encoding_dialog), transient_parent);
-		ctk_window_present (GTK_WINDOW (encoding_dialog));
+		ctk_window_set_transient_for (CTK_WINDOW (encoding_dialog), transient_parent);
+		ctk_window_present (CTK_WINDOW (encoding_dialog));
 		return;
 	}
 
@@ -486,8 +486,8 @@ terminal_encoding_dialog_show (CtkWindow *transient_parent)
 
 	g_object_set_data_full (G_OBJECT (data->dialog), "GT::Data", data, (GDestroyNotify) encoding_dialog_data_free);
 
-	ctk_window_set_transient_for (GTK_WINDOW (data->dialog), transient_parent);
-	ctk_window_set_role (GTK_WINDOW (data->dialog), "cafe-terminal-encodings");
+	ctk_window_set_transient_for (CTK_WINDOW (data->dialog), transient_parent);
+	ctk_window_set_role (CTK_WINDOW (data->dialog), "cafe-terminal-encodings");
 	g_signal_connect (data->dialog, "response",
 	                  G_CALLBACK (response_callback), data);
 
@@ -518,7 +518,7 @@ terminal_encoding_dialog_show (CtkWindow *transient_parent)
 	ctk_tree_view_column_set_sort_column_id (column, COLUMN_CHARSET);
 
 	data->available_selection = ctk_tree_view_get_selection (data->available_tree_view);
-	ctk_tree_selection_set_mode (data->available_selection, GTK_SELECTION_BROWSE);
+	ctk_tree_selection_set_mode (data->available_selection, CTK_SELECTION_BROWSE);
 
 	g_signal_connect (data->available_selection, "changed",
 	                  G_CALLBACK (selection_changed_cb), data);
@@ -545,7 +545,7 @@ terminal_encoding_dialog_show (CtkWindow *transient_parent)
 	/* Add the data */
 
 	data->active_selection = ctk_tree_view_get_selection (data->active_tree_view);
-	ctk_tree_selection_set_mode (data->active_selection, GTK_SELECTION_BROWSE);
+	ctk_tree_selection_set_mode (data->active_selection, CTK_SELECTION_BROWSE);
 
 	g_signal_connect (data->active_selection, "changed",
 	                  G_CALLBACK (selection_changed_cb), data);
@@ -558,9 +558,9 @@ terminal_encoding_dialog_show (CtkWindow *transient_parent)
 	                  G_CALLBACK (encodings_list_changed_cb), data);
 
 	/* Now turn on sorting */
-	ctk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (data->base_store),
+	ctk_tree_sortable_set_sort_column_id (CTK_TREE_SORTABLE (data->base_store),
 	                                      COLUMN_NAME,
-	                                      GTK_SORT_ASCENDING);
+	                                      CTK_SORT_ASCENDING);
 
 	model = encodings_create_treemodel (data->base_store, FALSE);
 	ctk_tree_view_set_model (data->available_tree_view, model);
@@ -572,7 +572,7 @@ terminal_encoding_dialog_show (CtkWindow *transient_parent)
 
 	g_object_unref (data->base_store);
 
-	ctk_window_present (GTK_WINDOW (data->dialog));
+	ctk_window_present (CTK_WINDOW (data->dialog));
 
 	encoding_dialog = data->dialog;
 	g_signal_connect (data->dialog, "destroy",

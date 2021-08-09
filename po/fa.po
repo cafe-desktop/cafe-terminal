@@ -132,7 +132,7 @@ msgstr ""
 " می‌توان خاموششان کرد."
 
 #: src/org.cafe.terminal.gschema.xml.in:64
-msgid "Whether the standard GTK+ shortcut for menubar access is enabled"
+msgid "Whether the standard CTK+ shortcut for menubar access is enabled"
 msgstr ""
 
 #: src/org.cafe.terminal.gschema.xml.in:65
@@ -648,12 +648,12 @@ msgstr "میانبر صفحه‌کلید برای باز کردن یک زبان�
 #: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای باز کردن یک زبانه‌ی جدید. به شکل یک رشته با قالبی "
-"مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
+"مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
 "«disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:295
@@ -663,12 +663,12 @@ msgstr "میانبر صفحه‌کلید برای باز کردن یک پنجر�
 #: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for GTK+ resource files. If you set the option to the "
+" same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای باز کردن یک پنجره‌ی جدید. به شکل یک رشته با قالبی "
-"مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
+"مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
 "«disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:300
@@ -678,12 +678,12 @@ msgstr "میانبر صفحه‌کلید برای ایجاد مجموعه تنظ
 #: src/org.cafe.terminal.gschema.xml.in:301
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
-"Expressed as a string in the same format used for GTK+ resource files. If "
+"Expressed as a string in the same format used for CTK+ resource files. If "
 "you set the option to the special string \"disabled\", then there will be no"
 " keyboard shortcut for this action."
 msgstr ""
 "میانبر صفحه‌کلید برای بالا آوردن محاوره‌ی ایجاد مجموعه تنظیمات. به شکل یک "
-"رشته با قالبی مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی "
+"رشته با قالبی مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی "
 "رشته‌ی ویژه‌ی «disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش "
 "وجود نخواهد داشت."
 
@@ -694,7 +694,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:306
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -706,12 +706,12 @@ msgstr "میانبر صفحه‌کلید برای بستن زبانه"
 #: src/org.cafe.terminal.gschema.xml.in:311
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای بستن زبانه. به شکل یک رشته با قالبی مشابه پرونده‌های "
-"منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled» تنظیم "
+"منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled» تنظیم "
 "کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:315
@@ -721,12 +721,12 @@ msgstr "میانبر صفحه‌کلید برای بستن پنجره"
 #: src/org.cafe.terminal.gschema.xml.in:316
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای بستن پنجره. به شکل یک رشته با قالبی مشابه پرونده‌های "
-"منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled» تنظیم "
+"منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled» تنظیم "
 "کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:320
@@ -736,12 +736,12 @@ msgstr "میانبر صفحه‌کلید برای نسخه‌برداری از �
 #: src/org.cafe.terminal.gschema.xml.in:321
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "میانبر صفحه‌کلید برای نسخه‌برداری از متن انتخاب‌شده در تخته‌گیره. به شکل یک "
-"رشته با قالبی مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی "
+"رشته با قالبی مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی "
 "رشته‌ی ویژه‌ی «disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش "
 "وجود نخواهد داشت."
 
@@ -752,7 +752,7 @@ msgstr "میانبر صفحه‌کلید برای چسباندن متن"
 #: src/org.cafe.terminal.gschema.xml.in:326
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
-"terminal. Expressed as a string in the same format used for GTK+ resource "
+"terminal. Expressed as a string in the same format used for CTK+ resource "
 "files. If you set the option to the special string \"disabled\", then there "
 "will be no keyboard shortcut for this action."
 msgstr ""
@@ -764,7 +764,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:331
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
-"as a string in the same format used for GTK+ resource files. If you set the "
+"as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -776,7 +776,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:336
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -788,7 +788,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:341
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
-"the terminal. Expressed as a string in the same format used for GTK+ "
+"the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
@@ -800,7 +800,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:346
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for GTK+ "
+" in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
@@ -812,12 +812,12 @@ msgstr "میانبر صفحه‌کلید برای زدن ضامن حالت تم�
 #: src/org.cafe.terminal.gschema.xml.in:351
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "میانبر صفحه‌کلید برای زدن ضامن حالت تمام‌صفحه. به شکل یک رشته با قالبی مشابه"
-" پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
+" پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
 "«disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:355
@@ -827,12 +827,12 @@ msgstr "میانبر صفحه‌کلید برای زدن ضامن مرئی بو�
 #: src/org.cafe.terminal.gschema.xml.in:356
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
-"a string in the same format used for GTK+ resource files. If you set the "
+"a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
 "میانبر صفحه‌کلید برای زدن ضامن مرئی بودن نوار منو. به شکل یک رشته با قالبی "
-"مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
+"مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
 "«disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:360
@@ -842,12 +842,12 @@ msgstr "میانبر صفحه‌کلید برای تنظیم عنوان پایا
 #: src/org.cafe.terminal.gschema.xml.in:361
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "کلید میانبر صفحه‌کلید برای تنظیم عنوان پایانه. به شکل یک رشته با قالبی مشابه"
-" پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
+" پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
 "«disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:365
@@ -857,12 +857,12 @@ msgstr "میانبر صفحه‌کلید برای برگرداندن تنظیم�
 #: src/org.cafe.terminal.gschema.xml.in:366
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای برگرداندن پایانه به شرایط اولیه. به شکل یک رشته با "
-"قالبی مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی "
+"قالبی مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی "
 "ویژه‌ی «disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود "
 "نخواهد داشت."
 
@@ -874,12 +874,12 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:371
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "میانبر صفحه‌کلید برای برگرداندن پایانه به شرایط اولیه و پاک کردن آن. به شکل "
-"یک رشته با قالبی مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی "
+"یک رشته با قالبی مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی "
 "رشته‌ی ویژه‌ی «disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش "
 "وجود نخواهد داشت."
 
@@ -890,12 +890,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:376
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی قبلی. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:380
@@ -905,12 +905,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:381
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
-"the same format used for GTK+ resource files. If you set the option to the "
+"the same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "کلید میانبر صفحه‌کلید برای تعویض به زبانه‌ی بعدی. به شکل یک رشته با قالبی "
-"مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
+"مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی "
 "«disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:385
@@ -920,7 +920,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:386
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
-"string in the same format used for GTK+ resource files. If you set the "
+"string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
@@ -932,7 +932,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:391
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
@@ -944,7 +944,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:396
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
@@ -956,7 +956,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:401
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
-"in the same format used for GTK+ resource files. If you set the option to "
+"in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
@@ -968,7 +968,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:406
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
 
@@ -979,12 +979,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:411
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۱. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:415
@@ -994,12 +994,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:416
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۲. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:420
@@ -1009,12 +1009,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:421
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۳. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:425
@@ -1024,12 +1024,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:426
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۴. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:430
@@ -1039,12 +1039,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:431
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۵. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:435
@@ -1054,12 +1054,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:436
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۶. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:440
@@ -1069,12 +1069,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:441
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۷. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:445
@@ -1084,12 +1084,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:446
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۸. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:450
@@ -1099,12 +1099,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:451
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for GTK+ resource files. If you set the option to the special "
+" format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۹. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:455
@@ -1114,12 +1114,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:456
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۱۰. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:460
@@ -1129,12 +1129,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۱۱. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:465
@@ -1144,12 +1144,12 @@ msgstr "میانبر صفحه‌کلید برای تعویض به زبانه‌�
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای تعویض به زبانه‌ی ۱۲. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:470
@@ -1159,12 +1159,12 @@ msgstr "میانبر صفحه‌کلید برای راه‌اندازی راهن
 #: src/org.cafe.terminal.gschema.xml.in:471
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
-"format used for GTK+ resource files. If you set the option to the special "
+"format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this "
 "action."
 msgstr ""
 "میانبر صفحه‌کلید برای راه‌اندازی راهنما. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:475
@@ -1174,12 +1174,12 @@ msgstr "میانبر صفحه‌کلید برای بزرگتر کردن قلم"
 #: src/org.cafe.terminal.gschema.xml.in:476
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای بزرگتر کردن قلم. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:480
@@ -1189,12 +1189,12 @@ msgstr "میانبر صفحه‌کلید برای کوچکتر کردن قلم"
 #: src/org.cafe.terminal.gschema.xml.in:481
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
-"same format used for GTK+ resource files. If you set the option to the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
 "میانبر صفحه‌کلید برای کوچکتر کردن قلم. به شکل یک رشته با قالبی مشابه "
-"پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
+"پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی ویژه‌ی «disabled»"
 " تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود نخواهد داشت."
 
 #: src/org.cafe.terminal.gschema.xml.in:485
@@ -1204,12 +1204,12 @@ msgstr "میانبر صفحه‌کلید برای برگرداندن قلم به
 #: src/org.cafe.terminal.gschema.xml.in:486
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for GTK+ resource files. If you set the option to "
+" in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keyboard shortcut for"
 " this action."
 msgstr ""
 "میانبر صفحه‌کلید برای برگرداندن قلم به اندازه‌ی عادی. به شکل یک رشته با "
-"قالبی مشابه پرونده‌های منبع GTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی "
+"قالبی مشابه پرونده‌های منبع CTK+‎ بیان می‌شود. اگر گزینه را روی رشته‌ی "
 "ویژه‌ی «disabled» تنظیم کنید، دیگر میانبر صفحه‌کلیدی برای این کنش وجود "
 "نخواهد داشت."
 

@@ -49,7 +49,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (TerminalTabLabel, terminal_tab_label, GTK_TYPE_BOX);
+G_DEFINE_TYPE_WITH_PRIVATE (TerminalTabLabel, terminal_tab_label, CTK_TYPE_BOX);
 
 /* helper functions */
 
@@ -71,7 +71,7 @@ sync_tab_label (TerminalScreen *screen,
 	title = terminal_screen_get_title (screen);
 	hbox = ctk_widget_get_parent (label);
 
-	ctk_label_set_text (GTK_LABEL (label), title);
+	ctk_label_set_text (CTK_LABEL (label), title);
 
 	ctk_widget_set_tooltip_text (hbox, title);
 }
@@ -84,7 +84,7 @@ static void
 terminal_tab_label_parent_set (CtkWidget *widget,
                                CtkWidget *old_parent)
 {
-	void (* parent_set) (CtkWidget *, CtkWidget *) = GTK_WIDGET_CLASS (terminal_tab_label_parent_class)->parent_set;
+	void (* parent_set) (CtkWidget *, CtkWidget *) = CTK_WIDGET_CLASS (terminal_tab_label_parent_class)->parent_set;
 
 	if (parent_set)
 		parent_set (widget, old_parent);
@@ -110,26 +110,26 @@ terminal_tab_label_constructor (GType type,
 	         (type, n_construct_properties, construct_params);
 
 	tab_label = TERMINAL_TAB_LABEL (object);
-	hbox = GTK_WIDGET (tab_label);
+	hbox = CTK_WIDGET (tab_label);
 	priv = tab_label->priv;
 
 	g_assert (priv->screen != NULL);
 
-	ctk_box_set_spacing (GTK_BOX (hbox), SPACING);
+	ctk_box_set_spacing (CTK_BOX (hbox), SPACING);
 
 	priv->label = label = ctk_label_new (NULL);
 
-	ctk_label_set_xalign (GTK_LABEL (label), 0.0);
-	ctk_label_set_yalign (GTK_LABEL (label), 0.5);
-	ctk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
-	ctk_label_set_single_line_mode (GTK_LABEL (label), TRUE);
+	ctk_label_set_xalign (CTK_LABEL (label), 0.0);
+	ctk_label_set_yalign (CTK_LABEL (label), 0.5);
+	ctk_label_set_ellipsize (CTK_LABEL (label), PANGO_ELLIPSIZE_END);
+	ctk_label_set_single_line_mode (CTK_LABEL (label), TRUE);
 
-	ctk_box_pack_start (GTK_BOX (hbox), label, TRUE, TRUE, 0);
+	ctk_box_pack_start (CTK_BOX (hbox), label, TRUE, TRUE, 0);
 
 	priv->close_button = close_button = terminal_close_button_new ();
 	ctk_widget_set_tooltip_text (close_button, _("Close tab"));
 
-	ctk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
+	ctk_box_pack_end (CTK_BOX (hbox), close_button, FALSE, FALSE, 0);
 
 	sync_tab_label (priv->screen, NULL, label);
 	g_signal_connect (priv->screen, "notify::title",
@@ -192,7 +192,7 @@ static void
 terminal_tab_label_class_init (TerminalTabLabelClass *klass)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
-	CtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	gobject_class->constructor = terminal_tab_label_constructor;
 	gobject_class->dispose = terminal_tab_label_dispose;
@@ -258,7 +258,7 @@ terminal_tab_label_set_bold (TerminalTabLabel *tab_label,
 
 	priv->bold = bold;
 
-	attr_list = ctk_label_get_attributes (GTK_LABEL (priv->label));
+	attr_list = ctk_label_get_attributes (CTK_LABEL (priv->label));
 	if (!attr_list)
 	{
 		attr_list = pango_attr_list_new ();
@@ -276,7 +276,7 @@ terminal_tab_label_set_bold (TerminalTabLabel *tab_label,
 	 */
 	pango_attr_list_change (attr_list, weight_attr);
 
-	ctk_label_set_attributes (GTK_LABEL (priv->label), attr_list);
+	ctk_label_set_attributes (CTK_LABEL (priv->label), attr_list);
 
 	if (free_list)
 		pango_attr_list_unref (attr_list);

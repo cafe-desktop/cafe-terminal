@@ -27,20 +27,20 @@ struct _TerminalInfoBarPrivate
 	CtkWidget *content_box;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (TerminalInfoBar, terminal_info_bar, GTK_TYPE_INFO_BAR)
+G_DEFINE_TYPE_WITH_PRIVATE (TerminalInfoBar, terminal_info_bar, CTK_TYPE_INFO_BAR)
 
 /* helper functions */
 
 static void
 terminal_info_bar_init (TerminalInfoBar *bar)
 {
-	CtkInfoBar *info_bar = GTK_INFO_BAR (bar);
+	CtkInfoBar *info_bar = CTK_INFO_BAR (bar);
 	TerminalInfoBarPrivate *priv;
 
 	priv = bar->priv = terminal_info_bar_get_instance_private (bar);
 
-	priv->content_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-	ctk_box_pack_start (GTK_BOX (ctk_info_bar_get_content_area (info_bar)),
+	priv->content_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);
+	ctk_box_pack_start (CTK_BOX (ctk_info_bar_get_content_area (info_bar)),
 	                    priv->content_box, TRUE, TRUE, 0);
 }
 
@@ -75,7 +75,7 @@ terminal_info_bar_new (CtkMessageType type,
 		int response_id;
 
 		response_id = va_arg (args, int);
-		ctk_info_bar_add_button (GTK_INFO_BAR (info_bar),
+		ctk_info_bar_add_button (CTK_INFO_BAR (info_bar),
 		                         first_button_text, response_id);
 
 		first_button_text = va_arg (args, const char *);
@@ -106,11 +106,11 @@ terminal_info_bar_format_text (TerminalInfoBar *bar,
 	label = ctk_label_new (text);
 	g_free (text);
 
-	ctk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-	ctk_label_set_selectable (GTK_LABEL (label), TRUE);
-	ctk_label_set_xalign (GTK_LABEL (label), 0.0);
-	ctk_label_set_yalign (GTK_LABEL (label), 0.0);
+	ctk_label_set_line_wrap (CTK_LABEL (label), TRUE);
+	ctk_label_set_selectable (CTK_LABEL (label), TRUE);
+	ctk_label_set_xalign (CTK_LABEL (label), 0.0);
+	ctk_label_set_yalign (CTK_LABEL (label), 0.0);
 
-	ctk_box_pack_start (GTK_BOX (priv->content_box), label, FALSE, FALSE, 0);
+	ctk_box_pack_start (CTK_BOX (priv->content_box), label, FALSE, FALSE, 0);
 	ctk_widget_show_all (priv->content_box);
 }

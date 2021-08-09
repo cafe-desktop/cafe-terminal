@@ -191,7 +191,7 @@ notebook_page_added_cb (CtkNotebook *notebook,
 
 	g_snprintf (verb, sizeof (verb), ACTION_VERB_FORMAT, allocate_tab_id ());
 
-	action = g_object_new (GTK_TYPE_RADIO_ACTION,
+	action = g_object_new (CTK_TYPE_RADIO_ACTION,
 	                       "name", verb,
 	                       "tooltip", _("Switch to this tab"),
 	                       NULL);
@@ -203,13 +203,13 @@ notebook_page_added_cb (CtkNotebook *notebook,
 
 	ctk_action_group_add_action_with_accel (priv->action_group, action, NULL);
 
-	group = ctk_radio_action_get_group (GTK_RADIO_ACTION (priv->anchor_action));
-	ctk_radio_action_set_group (GTK_RADIO_ACTION (action), group);
+	group = ctk_radio_action_get_group (CTK_RADIO_ACTION (priv->anchor_action));
+	ctk_radio_action_set_group (CTK_RADIO_ACTION (action), group);
 
 	/* set this here too, since tab-added comes after notify::active-child */
 	if (terminal_window_get_active (priv->window) == screen)
 	{
-		ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+		ctk_toggle_action_set_active (CTK_TOGGLE_ACTION (action), TRUE);
 	}
 
 	g_object_set_data (G_OBJECT (screen), DATA_KEY, action);
@@ -276,7 +276,7 @@ notebook_page_switch_cb (CtkNotebook *notebook,
 
 	action = g_object_get_data (G_OBJECT (screen), DATA_KEY);
 	g_signal_handlers_block_by_func (action, G_CALLBACK (tab_action_activate_cb), menu);
-	ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+	ctk_toggle_action_set_active (CTK_TOGGLE_ACTION (action), TRUE);
 	g_signal_handlers_unblock_by_func (action, G_CALLBACK (tab_action_activate_cb), menu);
 }
 
@@ -286,11 +286,11 @@ connect_proxy_cb (CtkActionGroup *action_group,
                   CtkWidget *proxy,
                   gpointer dummy)
 {
-	if (GTK_IS_MENU_ITEM (proxy))
+	if (CTK_IS_MENU_ITEM (proxy))
 	{
 		CtkLabel *label;
 
-		label = GTK_LABEL (ctk_bin_get_child (GTK_BIN (proxy)));
+		label = CTK_LABEL (ctk_bin_get_child (CTK_BIN (proxy)));
 
 		ctk_label_set_use_underline (label, FALSE);
 		ctk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
@@ -308,12 +308,12 @@ terminal_tabs_menu_set_window (TerminalTabsMenu *menu,
 
 	priv->window = window;
 
-	manager = GTK_UI_MANAGER (terminal_window_get_ui_manager (window));
+	manager = CTK_UI_MANAGER (terminal_window_get_ui_manager (window));
 	priv->action_group = ctk_action_group_new ("TabsActions");
 	ctk_ui_manager_insert_action_group (manager, priv->action_group, -1);
 	g_object_unref (priv->action_group);
 
-	priv->anchor_action = g_object_new (GTK_TYPE_RADIO_ACTION,
+	priv->anchor_action = g_object_new (CTK_TYPE_RADIO_ACTION,
 	                                    "name", "TabsMenuAnchorAction",
 	                                    NULL);
 	ctk_action_group_add_action (priv->action_group, priv->anchor_action);
@@ -391,7 +391,7 @@ static void
 terminal_tabs_menu_clean (TerminalTabsMenu *menu)
 {
 	TerminalTabsMenuPrivate *p = menu->priv;
-	CtkUIManager *manager = GTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
+	CtkUIManager *manager = CTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
 
 	if (p->ui_id != 0)
 	{
@@ -448,7 +448,7 @@ terminal_tabs_menu_update (TerminalTabsMenu *menu)
 
 	is_single_tab = (n == 1);
 
-	manager =  GTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
+	manager =  CTK_UI_MANAGER (terminal_window_get_ui_manager (p->window));
 	p->ui_id = ctk_ui_manager_new_merge_id (manager);
 
 	for (l = tabs; l != NULL; l = l->next)
@@ -469,7 +469,7 @@ terminal_tabs_menu_update (TerminalTabsMenu *menu)
 		ctk_ui_manager_add_ui (manager, p->ui_id,
 		                       UI_PATH,
 		                       verb, verb,
-		                       GTK_UI_MANAGER_MENUITEM, FALSE);
+		                       CTK_UI_MANAGER_MENUITEM, FALSE);
 	}
 
 	g_list_free (tabs);
