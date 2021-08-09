@@ -33,7 +33,7 @@
 #include <ctk/ctk.h>
 
 #ifdef GDK_WINDOWING_X11
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 #include <X11/Xatom.h>
 #endif
 
@@ -802,10 +802,10 @@ object_change_notify_cb (PropertyChange *change)
 		g_object_get (object, object_prop, &color, NULL);
 		ctk_color_chooser_get_rgba (CTK_COLOR_CHOOSER (widget), &old_color);
 
-		if (color && !gdk_rgba_equal (color, &old_color))
+		if (color && !cdk_rgba_equal (color, &old_color))
 			ctk_color_chooser_set_rgba (CTK_COLOR_CHOOSER (widget), color);
 		if (color)
-			gdk_rgba_free (color);
+			cdk_rgba_free (color);
 	}
 	else if (CTK_IS_FONT_BUTTON (widget))
 	{
@@ -991,8 +991,8 @@ void
 terminal_util_x11_clear_demands_attention (GdkWindow *window)
 {
 
-	GdkScreen *screen = gdk_window_get_screen (window);
-	GdkDisplay *display = gdk_screen_get_display (screen);
+	GdkScreen *screen = cdk_window_get_screen (window);
+	GdkDisplay *display = cdk_screen_get_display (screen);
 	XClientMessageEvent xclient;
 
 	memset (&xclient, 0, sizeof (xclient));
@@ -1000,17 +1000,17 @@ terminal_util_x11_clear_demands_attention (GdkWindow *window)
 	xclient.serial = 0;
 	xclient.send_event = True;
 	xclient.window = GDK_WINDOW_XID (window);
-	xclient.message_type = gdk_x11_get_xatom_by_name_for_display (display, "_NET_WM_STATE");
+	xclient.message_type = cdk_x11_get_xatom_by_name_for_display (display, "_NET_WM_STATE");
 	xclient.format = 32;
 
 	xclient.data.l[0] = 0; /* _NET_WM_STATE_REMOVE */
-	xclient.data.l[1] = gdk_x11_get_xatom_by_name_for_display (display, "_NET_WM_STATE_DEMANDS_ATTENTION");
+	xclient.data.l[1] = cdk_x11_get_xatom_by_name_for_display (display, "_NET_WM_STATE_DEMANDS_ATTENTION");
 	xclient.data.l[2] = 0;
 	xclient.data.l[3] = 0;
 	xclient.data.l[4] = 0;
 
 	XSendEvent (GDK_DISPLAY_XDISPLAY (display),
-	            GDK_WINDOW_XID (gdk_screen_get_root_window (screen)),
+	            GDK_WINDOW_XID (cdk_screen_get_root_window (screen)),
 	            False,
 	            SubstructureRedirectMask | SubstructureNotifyMask,
 	            (XEvent *)&xclient);

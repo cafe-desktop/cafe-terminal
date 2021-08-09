@@ -35,8 +35,8 @@
 #include <unistd.h>
 #include <X11/SM/SMlib.h>
 
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 
 #define EGG_TYPE_SM_CLIENT_XSMP            (egg_sm_client_xsmp_get_type ())
 
@@ -371,7 +371,7 @@ sm_client_xsmp_startup (EggSMClient *client,
 		xsmp->client_id = g_strdup (ret_client_id);
 		free (ret_client_id);
 
-		gdk_x11_set_sm_client_id (xsmp->client_id);
+		cdk_x11_set_sm_client_id (xsmp->client_id);
 
 		g_debug ("Got client ID \"%s\"", xsmp->client_id);
 	}

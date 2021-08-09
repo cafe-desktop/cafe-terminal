@@ -20,7 +20,7 @@
 
 #include <string.h>
 
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 
 #include "terminal-accels.h"
 #include "terminal-app.h"
@@ -870,7 +870,7 @@ other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gset
 	_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
 	                       "Edited path %s keyval %s, setting GSettings to %s\n",
 	                       ke->accel_path,
-	                       gdk_keyval_name (keyval) ? gdk_keyval_name (keyval) : "null",
+	                       cdk_keyval_name (keyval) ? cdk_keyval_name (keyval) : "null",
 	                       str);
 #ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_ACCELS)
@@ -881,7 +881,7 @@ other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gset
 		{
 			_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
 			                       "  Old entry of path %s is keyval %s mask %x\n",
-			                       ke->accel_path, gdk_keyval_name (old_key.accel_key), old_key.accel_mods);
+			                       ke->accel_path, cdk_keyval_name (old_key.accel_key), old_key.accel_mods);
 		}
 		else
 		{

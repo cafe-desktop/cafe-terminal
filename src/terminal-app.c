@@ -228,21 +228,21 @@ terminal_app_get_screen_by_display_name (const char *display_name)
 	GdkScreen *screen = NULL;
 
 	if (display_name == NULL)
-		display = gdk_display_get_default ();
+		display = cdk_display_get_default ();
 	else
 	{
 		GSList *displays, *l;
 		const char *period;
 
 		period = strrchr (display_name, '.');
-		displays = gdk_display_manager_list_displays (gdk_display_manager_get ());
+		displays = cdk_display_manager_list_displays (cdk_display_manager_get ());
 		for (l = displays; l != NULL; l = l->next)
 		{
 			GdkDisplay *disp = l->data;
 
 			/* compare without the screen number part, if present */
-			if ((period && strncmp (gdk_display_get_name (disp), display_name, period - display_name) == 0) ||
-			        (period == NULL && strcmp (gdk_display_get_name (disp), display_name) == 0))
+			if ((period && strncmp (cdk_display_get_name (disp), display_name, period - display_name) == 0) ||
+			        (period == NULL && strcmp (cdk_display_get_name (disp), display_name) == 0))
 			{
 				display = disp;
 				break;
@@ -251,13 +251,13 @@ terminal_app_get_screen_by_display_name (const char *display_name)
 		g_slist_free (displays);
 
 		if (display == NULL)
-			display = gdk_display_open (display_name); /* FIXME we never close displays */
+			display = cdk_display_open (display_name); /* FIXME we never close displays */
 	}
 
 	if (display == NULL)
 		return NULL;
 	else
-		screen = gdk_display_get_default_screen (display);
+		screen = cdk_display_get_default_screen (display);
 
 	return screen;
 }
@@ -270,10 +270,10 @@ terminal_app_get_workspace_for_window (TerminalWindow *window)
   GdkAtom atom;
   GdkAtom cardinal_atom;
 
-  atom = gdk_atom_intern_static_string ("_NET_WM_DESKTOP");
-  cardinal_atom = gdk_atom_intern_static_string ("CARDINAL");
+  atom = cdk_atom_intern_static_string ("_NET_WM_DESKTOP");
+  cardinal_atom = cdk_atom_intern_static_string ("CARDINAL");
 
-  gdk_property_get (ctk_widget_get_window(CTK_WIDGET(window)),
+  cdk_property_get (ctk_widget_get_window(CTK_WIDGET(window)),
                     atom, cardinal_atom, 0, 8, FALSE,
 		    NULL, NULL, NULL, &data);
 
@@ -1713,9 +1713,9 @@ terminal_app_handle_options (TerminalApp *app,
                              GError **error)
 {
 	GList *lw;
-	GdkScreen *gdk_screen;
+	GdkScreen *cdk_screen;
 
-	gdk_screen = terminal_app_get_screen_by_display_name (options->display_name);
+	cdk_screen = terminal_app_get_screen_by_display_name (options->display_name);
 
 	if (options->save_config)
 	{
@@ -1774,12 +1774,12 @@ terminal_app_handle_options (TerminalApp *app,
 		g_assert (iw->tabs);
 
         if ( lw == options->initial_windows && ((InitialTab *)iw->tabs->data)->attach_window )
-            window = terminal_app_get_current_window(app, gdk_screen, options->initial_workspace);
+            window = terminal_app_get_current_window(app, cdk_screen, options->initial_workspace);
 
         if (!window)
         {
             /* Create & setup new window */
-            window = terminal_app_new_window (app, gdk_screen);
+            window = terminal_app_new_window (app, cdk_screen);
 
             /* Restored windows shouldn't demand attention; see bug #586308. */
             if (iw->source_tag == SOURCE_SESSION)
