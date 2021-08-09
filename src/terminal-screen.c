@@ -273,9 +273,9 @@ terminal_screen_class_enable_menu_bar_accel_notify_cb (TerminalApp *app,
 
 	binding_set = ctk_binding_set_by_class (klass);
 	if (enable)
-		ctk_binding_entry_remove (binding_set, GDK_KEY_F10, GDK_SHIFT_MASK);
+		ctk_binding_entry_remove (binding_set, CDK_KEY_F10, CDK_SHIFT_MASK);
 	else
-		ctk_binding_entry_skip (binding_set, GDK_KEY_F10, GDK_SHIFT_MASK);
+		ctk_binding_entry_skip (binding_set, CDK_KEY_F10, CDK_SHIFT_MASK);
 }
 
 static TerminalWindow *
@@ -366,7 +366,7 @@ terminal_screen_init (TerminalScreen *screen)
 	                   CTK_DEST_DEFAULT_HIGHLIGHT |
 	                   CTK_DEST_DEFAULT_DROP,
 	                   targets, n_targets,
-	                   GDK_ACTION_COPY | GDK_ACTION_MOVE);
+	                   CDK_ACTION_COPY | CDK_ACTION_MOVE);
 
 	ctk_target_table_free (targets, n_targets);
 	ctk_target_list_unref (target_list);
@@ -1445,7 +1445,7 @@ get_child_environment (TerminalScreen *screen,
 	g_hash_table_replace (env_table, g_strdup ("TERM"), g_strdup ("xterm-256color")); /* FIXME configurable later? */
 
 	/* FIXME: moving the tab between windows, or the window between displays will make the next two invalid... */
-	g_hash_table_replace (env_table, g_strdup ("WINDOWID"), g_strdup_printf ("%ld", GDK_WINDOW_XID (ctk_widget_get_window (window))));
+	g_hash_table_replace (env_table, g_strdup ("WINDOWID"), g_strdup_printf ("%ld", CDK_WINDOW_XID (ctk_widget_get_window (window))));
 	g_hash_table_replace (env_table, g_strdup ("DISPLAY"), g_strdup (cdk_display_get_name (display)));
 
 	g_settings_schema_source_list_schemas (g_settings_schema_source_get_default (), TRUE, &list_schemas, NULL);
@@ -1692,7 +1692,7 @@ terminal_screen_button_press (CtkWidget      *widget,
 
 	if (matched_string != NULL &&
 	        (event->button == 1 || event->button == 2) &&
-	        (state & GDK_CONTROL_MASK))
+	        (state & CDK_CONTROL_MASK))
 	{
 		gboolean handled = FALSE;
 
@@ -1715,7 +1715,7 @@ terminal_screen_button_press (CtkWidget      *widget,
 	}
 
 	if (event->button == 3 &&
-	        (state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK | GDK_MOD1_MASK)) == 0)
+	        (state & (CDK_SHIFT_MASK | CDK_CONTROL_MASK | CDK_MOD1_MASK)) == 0)
 	{
 		TerminalScreenPopupInfo *info;
 
@@ -2040,7 +2040,7 @@ terminal_screen_drag_data_received (CtkWidget        *widget,
 		tmp = context->targets;
 		while (tmp != NULL)
 		{
-			CdkAtom atom = GDK_POINTER_TO_ATOM (tmp->data);
+			CdkAtom atom = CDK_POINTER_TO_ATOM (tmp->data);
 
 			g_print ("Target: %s\n", cdk_atom_name (atom));
 

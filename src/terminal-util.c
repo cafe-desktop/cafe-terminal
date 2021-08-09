@@ -32,7 +32,7 @@
 #include <gio/gio.h>
 #include <ctk/ctk.h>
 
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
 #include <cdk/cdkx.h>
 #include <X11/Xatom.h>
 #endif
@@ -979,7 +979,7 @@ terminal_util_bind_object_property_to_widget (GObject *object,
 	change->object_notify_id = g_signal_connect_swapped (object, notify_signal_name, G_CALLBACK (object_change_notify_cb), change);
 }
 
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
 
 /* Asks the window manager to turn off the "demands attention" state on the window.
  *
@@ -999,7 +999,7 @@ terminal_util_x11_clear_demands_attention (CdkWindow *window)
 	xclient.type = ClientMessage;
 	xclient.serial = 0;
 	xclient.send_event = True;
-	xclient.window = GDK_WINDOW_XID (window);
+	xclient.window = CDK_WINDOW_XID (window);
 	xclient.message_type = cdk_x11_get_xatom_by_name_for_display (display, "_NET_WM_STATE");
 	xclient.format = 32;
 
@@ -1009,11 +1009,11 @@ terminal_util_x11_clear_demands_attention (CdkWindow *window)
 	xclient.data.l[3] = 0;
 	xclient.data.l[4] = 0;
 
-	XSendEvent (GDK_DISPLAY_XDISPLAY (display),
-	            GDK_WINDOW_XID (cdk_screen_get_root_window (screen)),
+	XSendEvent (CDK_DISPLAY_XDISPLAY (display),
+	            CDK_WINDOW_XID (cdk_screen_get_root_window (screen)),
 	            False,
 	            SubstructureRedirectMask | SubstructureNotifyMask,
 	            (XEvent *)&xclient);
 }
 
-#endif /* GDK_WINDOWING_X11 */
+#endif /* CDK_WINDOWING_X11 */

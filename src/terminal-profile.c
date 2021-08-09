@@ -388,7 +388,7 @@ set_value_from_palette (GValue *ret_value,
 	{
 		GValue *value = cafe_value_array_index (array, i);
 
-		g_value_init (value, GDK_TYPE_RGBA);
+		g_value_init (value, CDK_TYPE_RGBA);
 		g_value_set_boxed (value, &colors[i]);
 	}
 
@@ -397,7 +397,7 @@ set_value_from_palette (GValue *ret_value,
 	{
 		GValue *value = cafe_value_array_index (array, i);
 
-		g_value_init (value, GDK_TYPE_RGBA);
+		g_value_init (value, CDK_TYPE_RGBA);
 		g_value_set_boxed (value, &DEFAULT_PALETTE[i]);
 	}
 
@@ -420,14 +420,14 @@ values_equal (GParamSpec *pspec,
 	if (g_param_values_cmp (pspec, va, vb) == 0)
 		return TRUE;
 
-	if (G_PARAM_SPEC_VALUE_TYPE (pspec) == GDK_TYPE_RGBA)
+	if (G_PARAM_SPEC_VALUE_TYPE (pspec) == CDK_TYPE_RGBA)
 		return rgba_equal (g_value_get_boxed (va), g_value_get_boxed (vb));
 
 	if (G_PARAM_SPEC_VALUE_TYPE (pspec) == PANGO_TYPE_FONT_DESCRIPTION)
 		return pango_font_description_equal (g_value_get_boxed (va), g_value_get_boxed (vb));
 
 	if (CAFE_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
-	        G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
+	        G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == CDK_TYPE_RGBA)
 	{
 		CafeValueArray *ara, *arb;
 		gint i;
@@ -606,7 +606,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 
 		g_value_set_enum (&value, g_settings_get_enum (settings, key));
 	}
-	else if (G_PARAM_SPEC_VALUE_TYPE (pspec) == GDK_TYPE_RGBA)
+	else if (G_PARAM_SPEC_VALUE_TYPE (pspec) == CDK_TYPE_RGBA)
 	{
 		CdkRGBA color;
 
@@ -642,7 +642,7 @@ terminal_profile_gsettings_notify_cb (GSettings *settings,
 		g_value_set_int (&value, g_settings_get_int(settings, key));
 	}
 	else if (CAFE_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
-	         G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
+	         G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == CDK_TYPE_RGBA)
 	{
 		char **color_strings;
 		CdkRGBA *colors;
@@ -765,7 +765,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 
 		g_settings_set_enum (changeset, key, eval->value);
 	}
-	else if (G_PARAM_SPEC_VALUE_TYPE (pspec) == GDK_TYPE_RGBA)
+	else if (G_PARAM_SPEC_VALUE_TYPE (pspec) == CDK_TYPE_RGBA)
 	{
 		CdkRGBA *color;
 		char str[16];
@@ -800,7 +800,7 @@ terminal_profile_gsettings_changeset_add (TerminalProfile *profile,
 	else if (G_IS_PARAM_SPEC_INT (pspec))
 		g_settings_set_int (changeset, key, g_value_get_int (value));
 	else if (CAFE_IS_PARAM_SPEC_VALUE_ARRAY (pspec) &&
-	         G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == GDK_TYPE_RGBA)
+	         G_PARAM_SPEC_VALUE_TYPE (CAFE_PARAM_SPEC_VALUE_ARRAY (pspec)->element_spec) == CDK_TYPE_RGBA)
 	{
 		CafeValueArray *array;
 		GString *string;
@@ -1304,10 +1304,10 @@ terminal_profile_class_init (TerminalProfileClass *klass)
 	TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_SYSTEM_FONT, DEFAULT_USE_SYSTEM_FONT, KEY_USE_SYSTEM_FONT);
 	TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_THEME_COLORS, DEFAULT_USE_THEME_COLORS, KEY_USE_THEME_COLORS);
 
-	TERMINAL_PROFILE_PROPERTY_BOXED (BACKGROUND_COLOR, GDK_TYPE_RGBA, KEY_BACKGROUND_COLOR);
-	TERMINAL_PROFILE_PROPERTY_BOXED (BOLD_COLOR, GDK_TYPE_RGBA, KEY_BOLD_COLOR);
+	TERMINAL_PROFILE_PROPERTY_BOXED (BACKGROUND_COLOR, CDK_TYPE_RGBA, KEY_BACKGROUND_COLOR);
+	TERMINAL_PROFILE_PROPERTY_BOXED (BOLD_COLOR, CDK_TYPE_RGBA, KEY_BOLD_COLOR);
 	TERMINAL_PROFILE_PROPERTY_BOXED (FONT, PANGO_TYPE_FONT_DESCRIPTION, KEY_FONT);
-	TERMINAL_PROFILE_PROPERTY_BOXED (FOREGROUND_COLOR, GDK_TYPE_RGBA, KEY_FOREGROUND_COLOR);
+	TERMINAL_PROFILE_PROPERTY_BOXED (FOREGROUND_COLOR, CDK_TYPE_RGBA, KEY_FOREGROUND_COLOR);
 
 	/* 0.0 = normal bg, 1.0 = all black bg, 0.5 = half darkened */
 	TERMINAL_PROFILE_PROPERTY_DOUBLE (BACKGROUND_DARKNESS, 0.0, 1.0, DEFAULT_BACKGROUND_DARKNESS, KEY_BACKGROUND_DARKNESS);
@@ -1325,7 +1325,7 @@ terminal_profile_class_init (TerminalProfileClass *klass)
 	TERMINAL_PROFILE_PROPERTY_INT (DEFAULT_SIZE_ROWS, 1, 1024, DEFAULT_DEFAULT_SIZE_ROWS, KEY_DEFAULT_SIZE_ROWS);
 	TERMINAL_PROFILE_PROPERTY_INT (SCROLLBACK_LINES, 1, G_MAXINT, DEFAULT_SCROLLBACK_LINES, KEY_SCROLLBACK_LINES);
 
-	TERMINAL_PROFILE_PROPERTY_OBJECT (BACKGROUND_IMAGE, GDK_TYPE_PIXBUF, NULL);
+	TERMINAL_PROFILE_PROPERTY_OBJECT (BACKGROUND_IMAGE, CDK_TYPE_PIXBUF, NULL);
 
 	TERMINAL_PROFILE_PROPERTY_STRING_CO (NAME, DEFAULT_NAME, NULL);
 	TERMINAL_PROFILE_PROPERTY_STRING (BACKGROUND_IMAGE_FILE, DEFAULT_BACKGROUND_IMAGE_FILE, KEY_BACKGROUND_IMAGE_FILE);
@@ -1334,7 +1334,7 @@ terminal_profile_class_init (TerminalProfileClass *klass)
 	TERMINAL_PROFILE_PROPERTY_STRING (VISIBLE_NAME, _(DEFAULT_VISIBLE_NAME), KEY_VISIBLE_NAME);
 	TERMINAL_PROFILE_PROPERTY_STRING (WORD_CHARS, DEFAULT_WORD_CHARS, KEY_WORD_CHARS);
 
-	TERMINAL_PROFILE_PROPERTY_VALUE_ARRAY_BOXED (PALETTE, "palette-color", GDK_TYPE_RGBA, KEY_PALETTE);
+	TERMINAL_PROFILE_PROPERTY_VALUE_ARRAY_BOXED (PALETTE, "palette-color", CDK_TYPE_RGBA, KEY_PALETTE);
 }
 
 /* Semi-Public API */
