@@ -52,6 +52,9 @@ requires:
     - libxrandr-dev
     - wayland-protocols
 
+    #packages required for bte
+    - libgnutls28-dev
+
 before_scripts:
   - export TITLECPPCHECK="${REPO_NAME} (cppcheck `dpkg -s cppcheck|grep -i version|cut -d " " -f 2`)"
   - cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude .
