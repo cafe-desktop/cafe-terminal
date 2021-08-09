@@ -606,7 +606,7 @@ main (int argc, char **argv)
 		/* Create a fake one containing a timestamp that we can use */
 		Time timestamp;
 
-		timestamp = slowly_and_stupidly_obtain_timestamp (GDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
+		timestamp = slowly_and_stupidly_obtain_timestamp (CDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
 
 		options->startup_id = g_strdup_printf ("_TIME%lu", timestamp);
 	}

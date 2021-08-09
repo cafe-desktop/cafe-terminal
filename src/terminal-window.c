@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <ctk/ctk.h>
 #include <cdk/cdk.h>
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
 #include <cdk/cdkx.h>
 #endif
 #include <cdk/cdkkeysyms.h>
@@ -1187,7 +1187,7 @@ update_edit_menu(TerminalWindow *window)
 {
     CtkClipboard *clipboard;
 
-    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
     ctk_clipboard_request_targets (clipboard,
                                    (CtkClipboardTargetsReceivedFunc) update_edit_menu_cb,
                                    g_object_ref (window));
@@ -1206,7 +1206,7 @@ screen_resize_window_cb (TerminalScreen *screen,
     /* Don't do anything if we're maximised or fullscreened */
     // FIXME: realized && ... instead?
     if (!ctk_widget_get_realized (widget) ||
-            (cdk_window_get_state (ctk_widget_get_window (widget)) & (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_FULLSCREEN)) != 0)
+            (cdk_window_get_state (ctk_widget_get_window (widget)) & (CDK_WINDOW_STATE_MAXIMIZED | CDK_WINDOW_STATE_FULLSCREEN)) != 0)
         return;
 
     bte_terminal_set_size (terminal, width, height);
@@ -1337,7 +1337,7 @@ popup_copy_url_callback (CtkAction *action,
     if (info->string == NULL)
         return;
 
-    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
     ctk_clipboard_set_text (clipboard, info->string, -1);
 }
 
@@ -1513,7 +1513,7 @@ screen_show_popup_menu_callback (TerminalScreen *screen,
 
     g_return_if_fail (info->window == window);
 
-    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
     ctk_clipboard_request_targets (clipboard,
                                    (CtkClipboardTargetsReceivedFunc) popup_clipboard_targets_received_cb,
                                    terminal_screen_popup_info_ref (info));
@@ -1622,7 +1622,7 @@ terminal_window_realize (CtkWidget *widget)
 {
     TerminalWindow *window = TERMINAL_WINDOW (widget);
     TerminalWindowPrivate *priv = window->priv;
-#if defined(GDK_WINDOWING_X11) || defined(GDK_WINDOWING_WAYLAND)
+#if defined(CDK_WINDOWING_X11) || defined(CDK_WINDOWING_WAYLAND)
     CdkScreen *screen;
     CtkAllocation widget_allocation;
     CdkVisual *visual;
@@ -1676,7 +1676,7 @@ terminal_window_map_event (CtkWidget    *widget,
 
     if (priv->clear_demands_attention)
     {
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
         terminal_util_x11_clear_demands_attention (ctk_widget_get_window (widget));
 #endif
 
@@ -1697,14 +1697,14 @@ terminal_window_state_event (CtkWidget            *widget,
     gboolean (* window_state_event) (CtkWidget *, CdkEventWindowState *event) =
         CTK_WIDGET_CLASS (terminal_window_parent_class)->window_state_event;
 
-    if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
+    if (event->changed_mask & CDK_WINDOW_STATE_FULLSCREEN)
     {
         TerminalWindow *window = TERMINAL_WINDOW (widget);
         TerminalWindowPrivate *priv = window->priv;
         CtkAction *action;
         gboolean is_fullscreen;
 
-        is_fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN) != 0;
+        is_fullscreen = (event->new_window_state & CDK_WINDOW_STATE_FULLSCREEN) != 0;
 
         action = ctk_action_group_get_action (priv->action_group, "ViewFullscreen");
         ctk_toggle_action_set_active (CTK_TOGGLE_ACTION (action), is_fullscreen);
@@ -1719,7 +1719,7 @@ terminal_window_state_event (CtkWidget            *widget,
     return FALSE;
 }
 
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
 static void
 terminal_window_window_manager_changed_cb (CdkScreen *screen,
         TerminalWindow *window)
@@ -1741,8 +1741,8 @@ terminal_window_screen_update (TerminalWindow *window,
 {
     TerminalApp *app;
 
-#ifdef GDK_WINDOWING_X11
-    if (screen && GDK_IS_X11_SCREEN (screen))
+#ifdef CDK_WINDOWING_X11
+    if (screen && CDK_IS_X11_SCREEN (screen))
     {
         terminal_window_window_manager_changed_cb (screen, window);
         g_signal_connect (screen, "window-manager-changed",
@@ -1781,8 +1781,8 @@ terminal_window_screen_changed (CtkWidget *widget,
     if (previous_screen == screen)
         return;
 
-#ifdef GDK_WINDOWING_X11
-    if (previous_screen && GDK_IS_X11_SCREEN (previous_screen))
+#ifdef CDK_WINDOWING_X11
+    if (previous_screen && CDK_IS_X11_SCREEN (previous_screen))
     {
         g_signal_handlers_disconnect_by_func (previous_screen,
                                               G_CALLBACK (terminal_window_window_manager_changed_cb),
@@ -2176,7 +2176,7 @@ terminal_window_init (TerminalWindow *window)
                            G_CALLBACK (terminal_window_update_tabs_menu_sensitivity),
                            window, NULL, G_CONNECT_SWAPPED | G_CONNECT_AFTER);
 
-    ctk_widget_add_events (priv->notebook, GDK_SCROLL_MASK);
+    ctk_widget_add_events (priv->notebook, CDK_SCROLL_MASK);
     g_signal_connect (priv->notebook, "scroll-event",
                             G_CALLBACK (notebook_scroll_event_cb), window);
 
@@ -2218,7 +2218,7 @@ terminal_window_init (TerminalWindow *window)
     ctk_ui_manager_insert_action_group (manager, action_group, 0);
     g_object_unref (action_group);
 
-   clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+   clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
    g_signal_connect_swapped (clipboard, "owner-change",
                              G_CALLBACK (update_edit_menu), window);
    update_edit_menu (window);
@@ -2295,7 +2295,7 @@ terminal_window_dispose (GObject *object)
     TerminalWindowPrivate *priv = window->priv;
     TerminalApp *app;
     CtkClipboard *clipboard;
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
     CdkScreen *screen;
 #endif
 
@@ -2321,14 +2321,14 @@ terminal_window_dispose (GObject *object)
     g_signal_handlers_disconnect_by_func (app,
                                           G_CALLBACK (terminal_window_encoding_list_changed_cb),
                                           window);
-    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
     g_signal_handlers_disconnect_by_func (clipboard,
                                           G_CALLBACK (update_edit_menu),
                                           window);
 
-#ifdef GDK_WINDOWING_X11
+#ifdef CDK_WINDOWING_X11
     screen = ctk_widget_get_screen (CTK_WIDGET (object));
-    if (screen && GDK_IS_X11_SCREEN (screen))
+    if (screen && CDK_IS_X11_SCREEN (screen))
     {
         g_signal_handlers_disconnect_by_func (screen,
                                               G_CALLBACK (terminal_window_window_manager_changed_cb),
@@ -2736,7 +2736,7 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
 
     if (cdk_window != NULL &&
         (cdk_window_get_state (cdk_window) &
-         (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_TILED)))
+         (CDK_WINDOW_STATE_MAXIMIZED | CDK_WINDOW_STATE_TILED)))
     {
         /* Don't adjust the size of maximized or tiled (snapped, half-maximized)
          * windows: if we do, there will be ugly gaps of up to 1 character cell
@@ -2790,25 +2790,25 @@ terminal_window_update_size_set_geometry (TerminalWindow *window,
                            priv->old_chrome_width, priv->old_chrome_height,
                            pixel_width, pixel_height);
 
-    pos_gravity = GDK_GRAVITY_NORTH_WEST;
+    pos_gravity = CDK_GRAVITY_NORTH_WEST;
     if ((geom_result & XNegative) != 0 && (geom_result & YNegative) != 0)
-        pos_gravity = GDK_GRAVITY_SOUTH_EAST;
+        pos_gravity = CDK_GRAVITY_SOUTH_EAST;
     else if ((geom_result & XNegative) != 0)
-        pos_gravity = GDK_GRAVITY_NORTH_EAST;
+        pos_gravity = CDK_GRAVITY_NORTH_EAST;
     else if ((geom_result & YNegative) != 0)
-        pos_gravity = GDK_GRAVITY_SOUTH_WEST;
+        pos_gravity = CDK_GRAVITY_SOUTH_WEST;
 
     if ((geom_result & XValue) == 0)
         force_pos_x = 0;
     if ((geom_result & YValue) == 0)
         force_pos_y = 0;
 
-    if (pos_gravity == GDK_GRAVITY_SOUTH_EAST ||
-        pos_gravity == GDK_GRAVITY_NORTH_EAST)
+    if (pos_gravity == CDK_GRAVITY_SOUTH_EAST ||
+        pos_gravity == CDK_GRAVITY_NORTH_EAST)
         force_pos_x = WidthOfScreen (cdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
                       pixel_width + force_pos_x;
-    if (pos_gravity == GDK_GRAVITY_SOUTH_WEST ||
-        pos_gravity == GDK_GRAVITY_SOUTH_EAST)
+    if (pos_gravity == CDK_GRAVITY_SOUTH_WEST ||
+        pos_gravity == CDK_GRAVITY_SOUTH_EAST)
         force_pos_y = HeightOfScreen (cdk_x11_screen_get_xscreen (ctk_widget_get_screen (app))) -
                       pixel_height + force_pos_y;
 
@@ -2870,7 +2870,7 @@ notebook_button_press_cb (CtkWidget *widget,
     CtkAction *action;
     int tab_clicked;
 
-    if ((event->type == GDK_BUTTON_PRESS && event->button == 2) &&
+    if ((event->type == CDK_BUTTON_PRESS && event->button == 2) &&
             (g_settings_get_boolean (settings, "middle-click-closes-tabs")))
     {
         tab_clicked = find_tab_num_at_pos (notebook, event->x_root, event->y_root);
@@ -2905,7 +2905,7 @@ notebook_button_press_cb (CtkWidget *widget,
         }
     }
 
-    if (event->type != GDK_BUTTON_PRESS ||
+    if (event->type != CDK_BUTTON_PRESS ||
             event->button != 3 ||
             (event->state & ctk_accelerator_get_default_mod_mask ()) != 0)
         return FALSE;
@@ -2936,7 +2936,7 @@ window_key_press_cb (CtkWidget *widget,
                      GSettings *settings)
 {
     if (g_settings_get_boolean (settings, "ctrl-tab-switch-tabs") &&
-        event->state & GDK_CONTROL_MASK)
+        event->state & CDK_CONTROL_MASK)
     {
         TerminalWindow *window = TERMINAL_WINDOW (widget);
         TerminalWindowPrivate *priv = window->priv;
@@ -2945,7 +2945,7 @@ window_key_press_cb (CtkWidget *widget,
         int pages = ctk_notebook_get_n_pages (notebook);
         int page_num = ctk_notebook_get_current_page (notebook);
 
-        if (event->keyval == GDK_KEY_ISO_Left_Tab)
+        if (event->keyval == CDK_KEY_ISO_Left_Tab)
         {
             if (page_num != 0)
                 ctk_notebook_prev_page (notebook);
@@ -2954,7 +2954,7 @@ window_key_press_cb (CtkWidget *widget,
             return TRUE;
         }
 
-        if (event->keyval == GDK_KEY_Tab)
+        if (event->keyval == CDK_KEY_Tab)
         {
             if (page_num != (pages -1))
                 ctk_notebook_next_page (notebook);
@@ -2994,8 +2994,8 @@ notebook_popup_menu_cb (CtkWidget *widget,
     ctk_menu_attach_to_widget (CTK_MENU (menu), tab_label, NULL);
     ctk_menu_popup_at_widget (CTK_MENU (menu),
                               tab_label,
-                              GDK_GRAVITY_SOUTH_WEST,
-                              GDK_GRAVITY_NORTH_WEST,
+                              CDK_GRAVITY_SOUTH_WEST,
+                              CDK_GRAVITY_NORTH_WEST,
                               NULL);
     ctk_menu_shell_select_first (CTK_MENU_SHELL (menu), FALSE);
 
@@ -3259,15 +3259,15 @@ notebook_scroll_event_cb (CtkWidget      *widget,
     return FALSE;
 
   switch (event->direction) {
-    case GDK_SCROLL_RIGHT:
-    case GDK_SCROLL_DOWN:
+    case CDK_SCROLL_RIGHT:
+    case CDK_SCROLL_DOWN:
       ctk_notebook_next_page (notebook);
       break;
-    case GDK_SCROLL_LEFT:
-    case GDK_SCROLL_UP:
+    case CDK_SCROLL_LEFT:
+    case CDK_SCROLL_UP:
       ctk_notebook_prev_page (notebook);
       break;
-    case GDK_SCROLL_SMOOTH:
+    case CDK_SCROLL_SMOOTH:
       switch (ctk_notebook_get_tab_pos (notebook)) {
         case CTK_POS_LEFT:
         case CTK_POS_RIGHT:
@@ -3368,9 +3368,9 @@ terminal_window_update_geometry (TerminalWindow *window)
         ctk_window_set_geometry_hints (CTK_WINDOW (window),
                                        NULL,
                                        &hints,
-                                       GDK_HINT_RESIZE_INC |
-                                       GDK_HINT_MIN_SIZE |
-                                       GDK_HINT_BASE_SIZE);
+                                       CDK_HINT_RESIZE_INC |
+                                       CDK_HINT_MIN_SIZE |
+                                       CDK_HINT_BASE_SIZE);
 
         _terminal_debug_print (TERMINAL_DEBUG_GEOMETRY,
                                "[window %p] hints: base %dx%d min %dx%d inc %d %d\n",
@@ -3781,7 +3781,7 @@ edit_paste_callback (CtkAction *action,
     if (!priv->active_screen)
         return;
 
-    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
     name = ctk_action_get_name (action);
 
     data = g_slice_new (PasteData);
@@ -4243,17 +4243,17 @@ tabs_next_or_previous_tab_cb (CtkAction *action,
     name = ctk_action_get_name (action);
     if (strcmp (name, "TabsNext") == 0)
     {
-        keyval = GDK_KEY_Page_Down;
+        keyval = CDK_KEY_Page_Down;
     }
     else if (strcmp (name, "TabsPrevious") == 0)
     {
-        keyval = GDK_KEY_Page_Up;
+        keyval = CDK_KEY_Page_Up;
     }
 
     klass = CTK_NOTEBOOK_GET_CLASS (CTK_NOTEBOOK (priv->notebook));
     ctk_binding_set_activate (ctk_binding_set_by_class (klass),
                               keyval,
-                              GDK_CONTROL_MASK,
+                              CDK_CONTROL_MASK,
                               G_OBJECT (priv->notebook));
 }
 
@@ -4435,9 +4435,9 @@ terminal_window_save_state (TerminalWindow *window,
                            ctk_window_get_role (CTK_WINDOW (window)));
 
     state = cdk_window_get_state (ctk_widget_get_window (CTK_WIDGET (window)));
-    if (state & GDK_WINDOW_STATE_MAXIMIZED)
+    if (state & CDK_WINDOW_STATE_MAXIMIZED)
         g_key_file_set_boolean (key_file, group, TERMINAL_CONFIG_WINDOW_PROP_MAXIMIZED, TRUE);
-    if (state & GDK_WINDOW_STATE_FULLSCREEN)
+    if (state & CDK_WINDOW_STATE_FULLSCREEN)
         g_key_file_set_boolean (key_file, group, TERMINAL_CONFIG_WINDOW_PROP_FULLSCREEN, TRUE);
 
     active_screen = terminal_window_get_active (window);
