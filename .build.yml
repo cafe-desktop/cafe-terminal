@@ -17,7 +17,6 @@ requires:
     - libglib2.0-dev
     - libsm-dev
     - libtool
-    - libvte-2.91-dev
     - libx11-dev
     - make
     - wget
@@ -70,6 +69,7 @@ before_scripts:
   - fi
   - make
   - make install
+  - cd ..
 
   # Install required ctk .deb packages
   - wget https://github.com/cafe-desktop/ctk/releases/download/v`echo $CTK_MASTERV`/libctk-3-dev_`echo $CTK_MASTERV`-1_amd64.deb
@@ -77,6 +77,16 @@ before_scripts:
   - wget https://github.com/cafe-desktop/ctk/releases/download/v`echo $CTK_MASTERV`/libctk-3-common_`echo $CTK_MASTERV`-1_all.deb
   - wget https://github.com/cafe-desktop/ctk/releases/download/v`echo $CTK_MASTERV`/libctk-3-0_`echo $CTK_MASTERV`-1_amd64.deb
   - dpkg -i *.deb
+
+  # Install required bte .deb packages
+  - git clone --depth 1  https://github.com/cafe-desktop/bte.git -b master bte-master
+  - cd bte-master
+  - wget https://github.com/cafe-desktop/bte/releases/download/`git describe --abbrev=0 --tags`/libbte-2.91-dev_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
+  - wget https://github.com/cafe-desktop/bte/releases/download/`git describe --abbrev=0 --tags`/gir1.2-bte-2.91_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
+  - wget https://github.com/cafe-desktop/bte/releases/download/`git describe --abbrev=0 --tags`/libbte-2.91-common_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
+  - wget https://github.com/cafe-desktop/bte/releases/download/`git describe --abbrev=0 --tags`/libbte-2.91-0_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
+  - dpkg -i *.deb
+  - cd ..
 
 build_scripts:
   - export TITLESCANBUILD="${REPO_NAME} (clang-tools `dpkg -s clang-tools|grep -i version|cut -d " " -f 2`) - scan-build results"
