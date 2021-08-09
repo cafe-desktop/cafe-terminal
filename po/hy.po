@@ -134,11 +134,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Սովորաբար դուք կարող եք մուտք գործել ընտրացանկ  F10 ֊ով։ Դա կարող է նաև "
-"հարմարեցված լինել gtkrc միջոցով (gtk-menu-bar-accel = \"whatever\")։ Այս "
+"հարմարեցված լինել ctkrc միջոցով (ctk-menu-bar-accel = \"whatever\")։ Այս "
 "տարբերակը թույլ է տալիս, երբ ստանդարտ ցանկի բար արագացուցիչ անջատված է:"
 
 #: src/org.cafe.terminal.gschema.xml.in:68

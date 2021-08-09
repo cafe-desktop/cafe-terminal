@@ -21,7 +21,7 @@
 #ifndef TERMINAL_APP_H
 #define TERMINAL_APP_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-encoding.h"
 #include "terminal-screen.h"

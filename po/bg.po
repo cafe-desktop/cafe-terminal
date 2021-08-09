@@ -140,11 +140,11 @@ msgstr "Дали стандартните клавишни комбинации 
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Можете да достигате до лентата с инструменти чрез „F10“. Това може да се "
-"променя чрез файла gtkrc (gtk-menu-bar-accel = „каквото_трябва“). Тази "
+"променя чрез файла ctkrc (ctk-menu-bar-accel = „каквото_трябва“). Тази "
 "настройка изключва клавишната комбинация за достъп до лентата с инструменти."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

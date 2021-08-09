@@ -22,7 +22,7 @@
 #ifndef TERMINAL_ENCODING_H
 #define TERMINAL_ENCODING_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #define TERMINAL_TYPE_ENCODING (terminal_encoding_get_type ())
 

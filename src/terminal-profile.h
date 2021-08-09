@@ -22,7 +22,7 @@
 #ifndef TERMINAL_PROFILE_H
 #define TERMINAL_PROFILE_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

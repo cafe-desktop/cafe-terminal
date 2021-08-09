@@ -133,10 +133,10 @@ msgstr "選單列可否通過標準的 GTK+ 捷徑鍵來使用"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
-"在正常情況下按 F10 可使用選單列。該設定也可以通過 gtkrc 變更 (gtk-menu-bar-accel = "
+"在正常情況下按 F10 可使用選單列。該設定也可以通過 ctkrc 變更 (ctk-menu-bar-accel = "
 "\"whatever\")。本選項可以令正常的選單列捷徑鍵失效。"
 
 #: src/org.cafe.terminal.gschema.xml.in:68

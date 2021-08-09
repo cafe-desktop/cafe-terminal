@@ -23,7 +23,7 @@
 #include "terminal-debug.h"
 #include "terminal-intl.h"
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 struct _TerminalScreenContainerPrivate
 {
@@ -61,17 +61,17 @@ terminal_screen_container_set_placement_internal (TerminalScreenContainer *conta
 	TerminalScreenContainerPrivate *priv = container->priv;
 
 #ifdef USE_SCROLLED_WINDOW
-	gtk_scrolled_window_set_placement (GTK_SCROLLED_WINDOW (priv->scrolled_window), corner);
+	ctk_scrolled_window_set_placement (GTK_SCROLLED_WINDOW (priv->scrolled_window), corner);
 #else
 	switch (corner)
 	{
 	case GTK_CORNER_TOP_LEFT:
 	case GTK_CORNER_BOTTOM_LEFT:
-		gtk_box_reorder_child (GTK_BOX (priv->hbox), priv->vscrollbar, 1);
+		ctk_box_reorder_child (GTK_BOX (priv->hbox), priv->vscrollbar, 1);
 		break;
 	case GTK_CORNER_TOP_RIGHT:
 	case GTK_CORNER_BOTTOM_RIGHT:
-		gtk_box_reorder_child (GTK_BOX (priv->hbox), priv->vscrollbar, 0);
+		ctk_box_reorder_child (GTK_BOX (priv->hbox), priv->vscrollbar, 0);
 		break;
 	default:
 		g_assert_not_reached ();
@@ -122,7 +122,7 @@ terminal_screen_container_init (TerminalScreenContainer *container)
 	priv->window_placement = GTK_CORNER_BOTTOM_RIGHT;
 	priv->window_placement_set = FALSE;
 
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (container), GTK_ORIENTATION_VERTICAL);
+	ctk_orientable_set_orientation (GTK_ORIENTABLE (container), GTK_ORIENTATION_VERTICAL);
 }
 
 static GObject *
@@ -143,17 +143,17 @@ terminal_screen_container_constructor (GType type,
 	g_assert (priv->screen != NULL);
 
 #ifdef USE_SCROLLED_WINDOW
-	priv->scrolled_window = gtk_scrolled_window_new (NULL, gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->screen)));
+	priv->scrolled_window = ctk_scrolled_window_new (NULL, ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->screen)));
 
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->scrolled_window),
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->scrolled_window),
 	                                priv->hscrollbar_policy,
 	                                priv->vscrollbar_policy);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (priv->scrolled_window),
+	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (priv->scrolled_window),
 	                                     GTK_SHADOW_NONE);
-	gtk_container_add (GTK_CONTAINER (priv->scrolled_window), GTK_WIDGET (priv->screen));
-	gtk_widget_show (GTK_WIDGET (priv->screen));
-	gtk_box_pack_end (GTK_BOX (container), priv->scrolled_window, TRUE, TRUE, 0);
-	gtk_widget_show (priv->scrolled_window);
+	ctk_container_add (GTK_CONTAINER (priv->scrolled_window), GTK_WIDGET (priv->screen));
+	ctk_widget_show (GTK_WIDGET (priv->screen));
+	ctk_box_pack_end (GTK_BOX (container), priv->scrolled_window, TRUE, TRUE, 0);
+	ctk_widget_show (priv->scrolled_window);
 
 #ifdef CAFE_ENABLE_DEBUG
 	g_signal_connect (priv->scrolled_window, "size-allocate", G_CALLBACK (size_allocate_cb), container);
@@ -161,15 +161,15 @@ terminal_screen_container_constructor (GType type,
 
 #else
 
-	priv->hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	priv->hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 
-	priv->vscrollbar = gtk_scrollbar_new (GTK_ORIENTATION_VERTICAL, gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->screen)));
+	priv->vscrollbar = ctk_scrollbar_new (GTK_ORIENTATION_VERTICAL, ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->screen)));
 
-	gtk_box_pack_start (GTK_BOX (priv->hbox), GTK_WIDGET (priv->screen), TRUE, TRUE, 0);
-	gtk_box_pack_start (GTK_BOX (priv->hbox), priv->vscrollbar, FALSE, FALSE, 0);
+	ctk_box_pack_start (GTK_BOX (priv->hbox), GTK_WIDGET (priv->screen), TRUE, TRUE, 0);
+	ctk_box_pack_start (GTK_BOX (priv->hbox), priv->vscrollbar, FALSE, FALSE, 0);
 
-	gtk_box_pack_end (GTK_BOX (container), priv->hbox, TRUE, TRUE, 0);
-	gtk_widget_show_all (priv->hbox);
+	ctk_box_pack_end (GTK_BOX (container), priv->hbox, TRUE, TRUE, 0);
+	ctk_widget_show_all (priv->hbox);
 #endif /* USE_SCROLLED_WINDOW */
 
 	_terminal_screen_update_scrollbar (priv->screen);
@@ -338,7 +338,7 @@ terminal_screen_container_get_from_screen (TerminalScreen *screen)
 {
 	g_return_val_if_fail (TERMINAL_IS_SCREEN (screen), NULL);
 
-	return TERMINAL_SCREEN_CONTAINER (gtk_widget_get_ancestor (GTK_WIDGET (screen), TERMINAL_TYPE_SCREEN_CONTAINER));
+	return TERMINAL_SCREEN_CONTAINER (ctk_widget_get_ancestor (GTK_WIDGET (screen), TERMINAL_TYPE_SCREEN_CONTAINER));
 }
 
 /**
@@ -376,16 +376,16 @@ terminal_screen_container_set_policy (TerminalScreenContainer *container,
 	}
 
 #ifdef USE_SCROLLED_WINDOW
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->scrolled_window), hpolicy, vpolicy);
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->scrolled_window), hpolicy, vpolicy);
 #else
 	switch (vpolicy)
 	{
 	case GTK_POLICY_NEVER:
-		gtk_widget_hide (priv->vscrollbar);
+		ctk_widget_hide (priv->vscrollbar);
 		break;
 	case GTK_POLICY_AUTOMATIC:
 	case GTK_POLICY_ALWAYS:
-		gtk_widget_show (priv->vscrollbar);
+		ctk_widget_show (priv->vscrollbar);
 		break;
 	default:
 		g_assert_not_reached ();

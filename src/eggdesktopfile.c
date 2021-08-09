@@ -32,7 +32,7 @@
 
 #include <glib/gi18n.h>
 #include <gdk/gdkx.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 struct EggDesktopFile
 {
@@ -1111,7 +1111,7 @@ egg_desktop_file_launchv (EggDesktopFile *desktop_file,
 	/* Read the options: technically it's incorrect for the caller to
 	 * NULL-terminate the list of options (rather than 0-terminating
 	 * it), but NULL-terminating lets us use G_GNUC_NULL_TERMINATED,
-	 * it's more consistent with other glib/gtk methods, and it will
+	 * it's more consistent with other glib/ctk methods, and it will
 	 * work as long as sizeof (int) <= sizeof (NULL), and NULL is
 	 * represented as 0. (Which is true everywhere we care about.)
 	 */
@@ -1436,9 +1436,9 @@ egg_set_desktop_file_internal (const char *desktop_file_path,
 		if (egg_desktop_file->icon)
 		{
 			if (g_path_is_absolute (egg_desktop_file->icon))
-				gtk_window_set_default_icon_from_file (egg_desktop_file->icon, NULL);
+				ctk_window_set_default_icon_from_file (egg_desktop_file->icon, NULL);
 			else
-				gtk_window_set_default_icon_name (egg_desktop_file->icon);
+				ctk_window_set_default_icon_name (egg_desktop_file->icon);
 		}
 	}
 
@@ -1452,8 +1452,8 @@ egg_set_desktop_file_internal (const char *desktop_file_path,
  * Creates an #EggDesktopFile for the application from the data at
  * @desktop_file_path. This will also call g_set_application_name()
  * with the localized application name from the desktop file, and
- * gtk_window_set_default_icon_name() or
- * gtk_window_set_default_icon_from_file() with the application's
+ * ctk_window_set_default_icon_name() or
+ * ctk_window_set_default_icon_from_file() with the application's
  * icon. Other code may use additional information from the desktop
  * file.
  * See egg_set_desktop_file_without_defaults() for a variant of this

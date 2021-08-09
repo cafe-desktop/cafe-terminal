@@ -137,11 +137,11 @@ msgstr "Kast standardne GTK+ kiirklahv menüüriba kasutamiseks on lubatud"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Tavaliselt saab menüüribale ligi F10 klahvi abil. Seda saab ka kohandada "
-"gtkrc abil (gtk-menu-bar-accel = \"misiganes\"). Selle võtme abil saab "
+"ctkrc abil (ctk-menu-bar-accel = \"misiganes\"). Selle võtme abil saab "
 "standardset menüüriba kiirklahvi keelata."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

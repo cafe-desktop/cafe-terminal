@@ -20,7 +20,7 @@
 #ifndef SKEY_POPUP_H
 #define SKEY_POPUP_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-screen.h"
 

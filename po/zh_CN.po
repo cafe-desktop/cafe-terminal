@@ -139,10 +139,10 @@ msgstr "是否启用 GTK+ 标准的快捷键访问菜单栏"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
-"通常您可以用 F10 访问菜单栏。这也可以通过 gtkrc 自定义（gtk-menu-bar-accel = "
+"通常您可以用 F10 访问菜单栏。这也可以通过 ctkrc 自定义（ctk-menu-bar-accel = "
 "\"任意值\"）。此选项允许禁用标准的菜单栏加速键。"
 
 #: src/org.cafe.terminal.gschema.xml.in:68

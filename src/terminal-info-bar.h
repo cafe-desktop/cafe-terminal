@@ -19,7 +19,7 @@
 #ifndef TERMINAL_INFO_BAR_H
 #define TERMINAL_INFO_BAR_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

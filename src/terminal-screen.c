@@ -24,7 +24,7 @@
 #include <sys/wait.h>
 
 #include <gio/gio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkkeysyms.h>
 
 #include <gdk/gdk.h>
@@ -271,11 +271,11 @@ terminal_screen_class_enable_menu_bar_accel_notify_cb (TerminalApp *app,
 
 	is_enabled = enable;
 
-	binding_set = gtk_binding_set_by_class (klass);
+	binding_set = ctk_binding_set_by_class (klass);
 	if (enable)
-		gtk_binding_entry_remove (binding_set, GDK_KEY_F10, GDK_SHIFT_MASK);
+		ctk_binding_entry_remove (binding_set, GDK_KEY_F10, GDK_SHIFT_MASK);
 	else
-		gtk_binding_entry_skip (binding_set, GDK_KEY_F10, GDK_SHIFT_MASK);
+		ctk_binding_entry_skip (binding_set, GDK_KEY_F10, GDK_SHIFT_MASK);
 }
 
 static TerminalWindow *
@@ -284,8 +284,8 @@ terminal_screen_get_window (TerminalScreen *screen)
 	GtkWidget *widget = GTK_WIDGET (screen);
 	GtkWidget *toplevel;
 
-	toplevel = gtk_widget_get_toplevel (widget);
-	if (!gtk_widget_is_toplevel (toplevel))
+	toplevel = ctk_widget_get_toplevel (widget);
+	if (!ctk_widget_is_toplevel (toplevel))
 		return NULL;
 
 	return TERMINAL_WINDOW (toplevel);
@@ -310,7 +310,7 @@ terminal_screen_style_updated (GtkWidget *widget)
 
     update_color_scheme (screen);
 
-    if (gtk_widget_get_realized (widget))
+    if (ctk_widget_get_realized (widget))
       terminal_screen_change_font (screen);
 }
 
@@ -354,22 +354,22 @@ terminal_screen_init (TerminalScreen *screen)
 	priv->font_scale = PANGO_SCALE_MEDIUM;
 
 	/* Setup DND */
-	target_list = gtk_target_list_new (NULL, 0);
-	gtk_target_list_add_uri_targets (target_list, 0);
-	gtk_target_list_add_text_targets (target_list, 0);
-	gtk_target_list_add_table (target_list, target_table, G_N_ELEMENTS (target_table));
+	target_list = ctk_target_list_new (NULL, 0);
+	ctk_target_list_add_uri_targets (target_list, 0);
+	ctk_target_list_add_text_targets (target_list, 0);
+	ctk_target_list_add_table (target_list, target_table, G_N_ELEMENTS (target_table));
 
-	targets = gtk_target_table_new_from_list (target_list, &n_targets);
+	targets = ctk_target_table_new_from_list (target_list, &n_targets);
 
-	gtk_drag_dest_set (GTK_WIDGET (screen),
+	ctk_drag_dest_set (GTK_WIDGET (screen),
 	                   GTK_DEST_DEFAULT_MOTION |
 	                   GTK_DEST_DEFAULT_HIGHLIGHT |
 	                   GTK_DEST_DEFAULT_DROP,
 	                   targets, n_targets,
 	                   GDK_ACTION_COPY | GDK_ACTION_MOVE);
 
-	gtk_target_table_free (targets, n_targets);
-	gtk_target_list_unref (target_list);
+	ctk_target_table_free (targets, n_targets);
+	ctk_target_list_unref (target_list);
 
 	priv->override_title = NULL;
 	priv->user_title = FALSE;
@@ -621,7 +621,7 @@ terminal_screen_dispose (GObject *object)
 	TerminalScreenPrivate *priv = screen->priv;
 	GtkSettings *settings;
 
-	settings = gtk_widget_get_settings (GTK_WIDGET (screen));
+	settings = ctk_widget_get_settings (GTK_WIDGET (screen));
 	g_signal_handlers_disconnect_matched (settings, G_SIGNAL_MATCH_DATA,
 	                                      0, 0, NULL, NULL,
 	                                      screen);
@@ -679,7 +679,7 @@ terminal_screen_image_draw_cb (GtkWidget *widget, cairo_t *cr, void *userdata)
 	if (!bg_image)
 		return FALSE;
 
-	gtk_widget_get_allocation (widget, &alloc);
+	ctk_widget_get_allocation (widget, &alloc);
 
 	target_rect.x = 0;
 	target_rect.y = 0;
@@ -690,7 +690,7 @@ terminal_screen_image_draw_cb (GtkWidget *widget, cairo_t *cr, void *userdata)
 	child_cr = cairo_create (child_surface);
 
 	g_signal_handler_block (screen, priv->bg_image_callback_id);
-	gtk_widget_draw (widget, child_cr);
+	ctk_widget_draw (widget, child_cr);
 	g_signal_handler_unblock (screen, priv->bg_image_callback_id);
 
 	gdk_cairo_set_source_pixbuf (cr, bg_image, 0, 0);
@@ -962,7 +962,7 @@ terminal_screen_profile_notify_cb (TerminalProfile *profile,
 		terminal_screen_cook_icon_title (screen);
 	}
 
-	if (gtk_widget_get_realized (GTK_WIDGET (screen)) &&
+	if (ctk_widget_get_realized (GTK_WIDGET (screen)) &&
 	        (!prop_name ||
 	         prop_name == I_(TERMINAL_PROFILE_USE_SYSTEM_FONT) ||
 	         prop_name == I_(TERMINAL_PROFILE_FONT)))
@@ -1088,18 +1088,18 @@ update_color_scheme (TerminalScreen *screen)
 	GtkStyleContext *context;
 	GError *error = NULL;
 
-	context = gtk_widget_get_style_context (GTK_WIDGET (screen));
-	gtk_style_context_save (context);
-	gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-	gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &fg);
+	context = ctk_widget_get_style_context (GTK_WIDGET (screen));
+	ctk_style_context_save (context);
+	ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
+	ctk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &fg);
 
-	gtk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
+	ctk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
 			       GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
 			       &c, NULL);
 	bg = *c;
 	gdk_rgba_free (c);
 
-	gtk_style_context_restore (context);
+	ctk_style_context_restore (context);
 
 	bold_rgba = NULL;
 
@@ -1144,7 +1144,7 @@ update_color_scheme (TerminalScreen *screen)
 			g_clear_error (&error);
 		}
 
-		gtk_widget_queue_draw (GTK_WIDGET (screen));
+		ctk_widget_queue_draw (GTK_WIDGET (screen));
 	} else {
 		if (priv->bg_image_callback_id)
 		{
@@ -1197,7 +1197,7 @@ terminal_screen_system_font_notify_cb (TerminalApp *app,
 {
 	TerminalScreenPrivate *priv = screen->priv;
 
-	if (!gtk_widget_get_realized (GTK_WIDGET (screen)))
+	if (!ctk_widget_get_realized (GTK_WIDGET (screen)))
 		return;
 
 	if (!terminal_profile_get_property_boolean (priv->profile, TERMINAL_PROFILE_USE_SYSTEM_FONT))
@@ -1411,10 +1411,10 @@ get_child_environment (TerminalScreen *screen,
 	gchar **list_schemas = NULL;
 	gboolean schema_exists;
 
-	window = gtk_widget_get_toplevel (term);
+	window = ctk_widget_get_toplevel (term);
 	g_assert (window != NULL);
-	g_assert (gtk_widget_is_toplevel (window));
-	display = gdk_window_get_display (gtk_widget_get_window (window));
+	g_assert (ctk_widget_is_toplevel (window));
+	display = gdk_window_get_display (ctk_widget_get_window (window));
 
 	env_table = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
@@ -1445,7 +1445,7 @@ get_child_environment (TerminalScreen *screen,
 	g_hash_table_replace (env_table, g_strdup ("TERM"), g_strdup ("xterm-256color")); /* FIXME configurable later? */
 
 	/* FIXME: moving the tab between windows, or the window between displays will make the next two invalid... */
-	g_hash_table_replace (env_table, g_strdup ("WINDOWID"), g_strdup_printf ("%ld", GDK_WINDOW_XID (gtk_widget_get_window (window))));
+	g_hash_table_replace (env_table, g_strdup ("WINDOWID"), g_strdup_printf ("%ld", GDK_WINDOW_XID (ctk_widget_get_window (window))));
 	g_hash_table_replace (env_table, g_strdup ("DISPLAY"), g_strdup (gdk_display_get_name (display)));
 
 	g_settings_schema_source_list_schemas (g_settings_schema_source_get_default (), TRUE, &list_schemas, NULL);
@@ -1488,16 +1488,16 @@ info_bar_response_cb (GtkWidget *info_bar,
                       int response,
                       TerminalScreen *screen)
 {
-	gtk_widget_grab_focus (GTK_WIDGET (screen));
+	ctk_widget_grab_focus (GTK_WIDGET (screen));
 
 	switch (response)
 	{
 	case GTK_RESPONSE_CANCEL:
-		gtk_widget_destroy (info_bar);
+		ctk_widget_destroy (info_bar);
 		g_signal_emit (screen, signals[CLOSE_SCREEN], 0);
 		break;
 	case RESPONSE_RELAUNCH:
-		gtk_widget_destroy (info_bar);
+		ctk_widget_destroy (info_bar);
 		terminal_screen_launch_child_on_idle (screen);
 		break;
 	case RESPONSE_EDIT_PROFILE:
@@ -1507,7 +1507,7 @@ info_bar_response_cb (GtkWidget *info_bar,
 		                           "custom-command-entry");
 		break;
 	default:
-		gtk_widget_destroy (info_bar);
+		ctk_widget_destroy (info_bar);
 		break;
 	}
 }
@@ -1528,10 +1528,10 @@ static void handle_error_child (TerminalScreen *screen,
 	g_signal_connect (info_bar, "response",
 	                  G_CALLBACK (info_bar_response_cb), screen);
 
-	gtk_box_pack_start (GTK_BOX (terminal_screen_container_get_from_screen (screen)),
+	ctk_box_pack_start (GTK_BOX (terminal_screen_container_get_from_screen (screen)),
 	                    info_bar, FALSE, FALSE, 0);
-	gtk_info_bar_set_default_response (GTK_INFO_BAR (info_bar), GTK_RESPONSE_CANCEL);
-	gtk_widget_show (info_bar);
+	ctk_info_bar_set_default_response (GTK_INFO_BAR (info_bar), GTK_RESPONSE_CANCEL);
+	ctk_widget_show (info_bar);
 }
 
 static void term_spawn_callback (GtkWidget *terminal,
@@ -1667,7 +1667,7 @@ terminal_screen_popup_menu (GtkWidget *widget)
 
 	info = terminal_screen_popup_info_new (screen);
 	info->button = 0;
-	info->timestamp = gtk_get_current_event_time ();
+	info->timestamp = ctk_get_current_event_time ();
 
 	g_signal_emit (screen, signals[SHOW_POPUP_MENU], 0, info);
 	terminal_screen_popup_info_unref (info);
@@ -1686,7 +1686,7 @@ terminal_screen_button_press (GtkWidget      *widget,
 	int matched_flavor = 0;
 	guint state;
 
-	state = event->state & gtk_accelerator_get_default_mod_mask ();
+	state = event->state & ctk_accelerator_get_default_mod_mask ();
 
 	matched_string = terminal_screen_check_match (screen, (GdkEvent*)event, &matched_flavor);
 
@@ -1895,7 +1895,7 @@ terminal_screen_set_font_scale (TerminalScreen *screen,
 
 	priv->font_scale = factor;
 
-	if (gtk_widget_get_realized (GTK_WIDGET (screen)))
+	if (ctk_widget_get_realized (GTK_WIDGET (screen)))
 	{
 		/* Update the font */
 		terminal_screen_change_font (screen);
@@ -1982,10 +1982,10 @@ terminal_screen_child_exited (VteTerminal *terminal, int status)
 		g_signal_connect (info_bar, "response",
 		                  G_CALLBACK (info_bar_response_cb), screen);
 
-		gtk_box_pack_start (GTK_BOX (terminal_screen_container_get_from_screen (screen)),
+		ctk_box_pack_start (GTK_BOX (terminal_screen_container_get_from_screen (screen)),
 		                    info_bar, FALSE, FALSE, 0);
-		gtk_info_bar_set_default_response (GTK_INFO_BAR (info_bar), RESPONSE_RELAUNCH);
-		gtk_widget_show (info_bar);
+		ctk_info_bar_set_default_response (GTK_INFO_BAR (info_bar), RESPONSE_RELAUNCH);
+		ctk_widget_show (info_bar);
 		break;
 	}
 
@@ -2027,10 +2027,10 @@ terminal_screen_drag_data_received (GtkWidget        *widget,
 	GdkAtom selection_data_target;
 	gint selection_data_length, selection_data_format;
 
-	selection_data_data = gtk_selection_data_get_data (selection_data);
-	selection_data_target = gtk_selection_data_get_target (selection_data);
-	selection_data_length = gtk_selection_data_get_length (selection_data);
-	selection_data_format = gtk_selection_data_get_format (selection_data);
+	selection_data_data = ctk_selection_data_get_data (selection_data);
+	selection_data_target = ctk_selection_data_get_target (selection_data);
+	selection_data_length = ctk_selection_data_get_length (selection_data);
+	selection_data_format = ctk_selection_data_get_format (selection_data);
 
 #if 0
 	{
@@ -2051,13 +2051,13 @@ terminal_screen_drag_data_received (GtkWidget        *widget,
 	}
 #endif
 
-	if (gtk_targets_include_uri (&selection_data_target, 1))
+	if (ctk_targets_include_uri (&selection_data_target, 1))
 	{
 		char **uris;
 		char *text;
 		gsize len;
 
-		uris = gtk_selection_data_get_uris (selection_data);
+		uris = ctk_selection_data_get_uris (selection_data);
 		if (!uris)
 			return;
 
@@ -2069,11 +2069,11 @@ terminal_screen_drag_data_received (GtkWidget        *widget,
 
 		g_strfreev (uris);
 	}
-	else if (gtk_targets_include_text (&selection_data_target, 1))
+	else if (ctk_targets_include_text (&selection_data_target, 1))
 	{
 		char *text;
 
-		text = (char *) gtk_selection_data_get_text (selection_data);
+		text = (char *) ctk_selection_data_get_text (selection_data);
 		if (text && text[0])
 			vte_terminal_feed_child (VTE_TERMINAL (screen), text, strlen (text));
 		g_free (text);
@@ -2232,11 +2232,11 @@ terminal_screen_drag_data_received (GtkWidget        *widget,
 			source_window = terminal_screen_get_window (moving_screen);
 			dest_window = terminal_screen_get_window (screen);
 			dest_notebook = terminal_window_get_notebook (dest_window);
-			page_num = gtk_notebook_page_num (GTK_NOTEBOOK (dest_notebook),
+			page_num = ctk_notebook_page_num (GTK_NOTEBOOK (dest_notebook),
 			                                  GTK_WIDGET (screen));
 			terminal_window_move_screen (source_window, dest_window, moving_screen, page_num + 1);
 
-			gtk_drag_finish (context, TRUE, TRUE, timestamp);
+			ctk_drag_finish (context, TRUE, TRUE, timestamp);
 		}
 		break;
 

@@ -135,11 +135,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Bình thường bạn có thể truy cập thanh trình đơn bằng bấm phím chức năng F10."
-" Điều này có thể được điều chỉnh trong « gtkrc » (gtk-menu-bar-accel = « cái"
+" Điều này có thể được điều chỉnh trong « ctkrc » (ctk-menu-bar-accel = « cái"
 " gì đó »). Tùy chọn này cho phép tắt phím tắt chuẩn để kích hoạt thanh trình"
 " đơn."
 

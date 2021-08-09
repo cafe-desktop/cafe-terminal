@@ -145,10 +145,10 @@ msgstr "Om forvalgt GTK+-snarvei for tilgang til menylinjen er aktivert"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
-"Normalt kan menylinjen nås med F10. Dette kan endres via gtkrc (gtk-menu-"
+"Normalt kan menylinjen nås med F10. Dette kan endres via ctkrc (ctk-menu-"
 "bar-accel = \"et eller annet\"). Dette valget tillater å skru av forvalgt "
 "menylinje-aksellerator."
 

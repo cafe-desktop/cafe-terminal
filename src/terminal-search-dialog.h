@@ -21,7 +21,7 @@
 #ifndef TERMINAL_SEARCH_DIALOG_H
 #define TERMINAL_SEARCH_DIALOG_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <vte/vte.h>
 
 G_BEGIN_DECLS

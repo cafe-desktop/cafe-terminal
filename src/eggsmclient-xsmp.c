@@ -1284,7 +1284,7 @@ card8_prop (const char *name, unsigned char value)
  * than SM. (DCOP uses ICE, but it has its own private copy of
  * libICE.)
  *
- * When this moves to gtk, it will need to be cleverer, to avoid
+ * When this moves to ctk, it will need to be cleverer, to avoid
  * tripping over old apps that use CafeClient or that use libSM
  * directly.
  */

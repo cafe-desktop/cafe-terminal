@@ -145,11 +145,11 @@ msgstr "Ar įjungta standartinė GTK+ meniu prieigos klavišų kombinacija"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Paprastai jūs galite gauti prieigą prie meniu juostos klavišu F10. Tai gali "
-"būti pakeista per gtkrc (gtk-menu-bar-accel = \"kažkas\"). Šis parametras "
+"būti pakeista per ctkrc (ctk-menu-bar-accel = \"kažkas\"). Šis parametras "
 "leidžia išjungti įprastą meniu juostos susiejimo klavišą."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

@@ -30,7 +30,7 @@
 #include <glib.h>
 
 #include <gio/gio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #ifdef GDK_WINDOWING_X11
 #include <gdk/gdkx.h>
@@ -49,7 +49,7 @@ terminal_util_set_unique_role (GtkWindow *window, const char *prefix)
 	char *role;
 
 	role = g_strdup_printf ("%s-%d-%d-%d", prefix, getpid (), g_random_int (), (int) time (NULL));
-	gtk_window_set_role (window, role);
+	ctk_window_set_role (window, role);
 	g_free (role);
 }
 
@@ -88,7 +88,7 @@ terminal_util_show_error_dialog (GtkWindow *transient_parent,
 	if (weak_ptr == NULL || *weak_ptr == NULL)
 	{
 		GtkWidget *dialog;
-		dialog = gtk_message_dialog_new (transient_parent,
+		dialog = ctk_message_dialog_new (transient_parent,
 		                                 GTK_DIALOG_DESTROY_WITH_PARENT,
 		                                 GTK_MESSAGE_ERROR,
 		                                 GTK_BUTTONS_OK,
@@ -96,10 +96,10 @@ terminal_util_show_error_dialog (GtkWindow *transient_parent,
 		                                 message);
 
 		if (error != NULL)
-			gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+			ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
 			        "%s", error->message);
 
-		g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (gtk_widget_destroy), NULL);
+		g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (ctk_widget_destroy), NULL);
 
 		if (weak_ptr != NULL)
 		{
@@ -107,9 +107,9 @@ terminal_util_show_error_dialog (GtkWindow *transient_parent,
 			g_object_add_weak_pointer (G_OBJECT (dialog), (void**)weak_ptr);
 		}
 
-		gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
+		ctk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
 
-		gtk_widget_show_all (dialog);
+		ctk_widget_show_all (dialog);
 	}
 	else
 	{
@@ -118,7 +118,7 @@ terminal_util_show_error_dialog (GtkWindow *transient_parent,
 		/* Sucks that there's no direct accessor for "text" property */
 		g_object_set (G_OBJECT (*weak_ptr), "text", message, NULL);
 
-		gtk_window_present (GTK_WINDOW (*weak_ptr));
+		ctk_window_present (GTK_WINDOW (*weak_ptr));
 	}
 
 	g_free (message);
@@ -140,7 +140,7 @@ terminal_util_show_help (const char *topic,
 		url = g_strdup ("help:cafe-terminal");
 	}
 
-	if (!gtk_show_uri_on_window (GTK_WINDOW (parent), url, gtk_get_current_event_time (), &error))
+	if (!ctk_show_uri_on_window (GTK_WINDOW (parent), url, ctk_get_current_event_time (), &error))
 	{
 		terminal_util_show_error_dialog (GTK_WINDOW (parent), NULL, error,
 		                                 _("There was an error displaying help"));
@@ -159,7 +159,7 @@ terminal_util_set_atk_name_description (GtkWidget  *widget,
 {
 	AtkObject *obj;
 
-	obj = gtk_widget_get_accessible (widget);
+	obj = ctk_widget_get_accessible (widget);
 
 	if (obj == NULL)
 	{
@@ -212,7 +212,7 @@ terminal_util_open_url (GtkWidget *parent,
 		g_assert_not_reached ();
 	}
 
-	if (!gtk_show_uri_on_window (GTK_WINDOW (parent), uri, user_time, &error))
+	if (!ctk_show_uri_on_window (GTK_WINDOW (parent), uri, user_time, &error))
 	{
 		terminal_util_show_error_dialog (GTK_WINDOW (parent), NULL, error,
 		                                 _("Could not open the address “%s”"),
@@ -348,8 +348,8 @@ terminal_util_load_builder_resource (const char *path,
 	GError *error = NULL;
 	va_list args;
 
-	builder = gtk_builder_new ();
-	gtk_builder_add_from_resource (builder, path, &error);
+	builder = ctk_builder_new ();
+	ctk_builder_add_from_resource (builder, path, &error);
 	g_assert_no_error (error);
 
 	va_start (args, object_name);
@@ -359,7 +359,7 @@ terminal_util_load_builder_resource (const char *path,
 		GObject **objectptr;
 
 		objectptr = va_arg (args, GObject**);
-		*objectptr = gtk_builder_get_object (builder, object_name);
+		*objectptr = ctk_builder_get_object (builder, object_name);
 		if (!*objectptr)
 		{
 			g_warning ("Failed to fetch object \"%s\"\n", object_name);
@@ -378,7 +378,7 @@ terminal_util_load_builder_resource (const char *path,
 gboolean
 terminal_util_dialog_response_on_delete (GtkWindow *widget)
 {
-	gtk_dialog_response (GTK_DIALOG (widget), GTK_RESPONSE_DELETE_EVENT);
+	ctk_dialog_response (GTK_DIALOG (widget), GTK_RESPONSE_DELETE_EVENT);
 	return TRUE;
 }
 
@@ -755,14 +755,14 @@ object_change_notify_cb (PropertyChange *change)
 
 		g_object_get (object, object_prop, &ovalue, NULL);
 		rvalue = (gint) (glong) (void *) (g_object_get_data (G_OBJECT (widget), "enum-value"));
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ovalue == rvalue);
+		ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ovalue == rvalue);
 	}
 	else if (GTK_IS_TOGGLE_BUTTON (widget))
 	{
 		gboolean enabled;
 
 		g_object_get (object, object_prop, &enabled, NULL);
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget),
+		ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget),
 		                              transform_boolean (enabled, change->flags));
 	}
 	else if (GTK_IS_SPIN_BUTTON (widget))
@@ -770,14 +770,14 @@ object_change_notify_cb (PropertyChange *change)
 		int value;
 
 		g_object_get (object, object_prop, &value, NULL);
-		gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), value);
+		ctk_spin_button_set_value (GTK_SPIN_BUTTON (widget), value);
 	}
 	else if (GTK_IS_ENTRY (widget))
 	{
 		char *text;
 
 		g_object_get (object, object_prop, &text, NULL);
-		gtk_entry_set_text (GTK_ENTRY (widget), text ? text : "");
+		ctk_entry_set_text (GTK_ENTRY (widget), text ? text : "");
 		g_free (text);
 	}
 	else if (GTK_IS_COMBO_BOX (widget))
@@ -785,14 +785,14 @@ object_change_notify_cb (PropertyChange *change)
 		int value;
 
 		g_object_get (object, object_prop, &value, NULL);
-		gtk_combo_box_set_active (GTK_COMBO_BOX (widget), value);
+		ctk_combo_box_set_active (GTK_COMBO_BOX (widget), value);
 	}
 	else if (GTK_IS_RANGE (widget))
 	{
 		double value;
 
 		g_object_get (object, object_prop, &value, NULL);
-		gtk_range_set_value (GTK_RANGE (widget), value);
+		ctk_range_set_value (GTK_RANGE (widget), value);
 	}
 	else if (GTK_IS_COLOR_CHOOSER (widget))
 	{
@@ -800,10 +800,10 @@ object_change_notify_cb (PropertyChange *change)
 		GdkRGBA old_color;
 
 		g_object_get (object, object_prop, &color, NULL);
-		gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (widget), &old_color);
+		ctk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (widget), &old_color);
 
 		if (color && !gdk_rgba_equal (color, &old_color))
-			gtk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (widget), color);
+			ctk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (widget), color);
 		if (color)
 			gdk_rgba_free (color);
 	}
@@ -817,7 +817,7 @@ object_change_notify_cb (PropertyChange *change)
 			goto out;
 
 		font = pango_font_description_to_string (font_desc);
-		gtk_font_button_set_font_name (GTK_FONT_BUTTON (widget), font);
+		ctk_font_button_set_font_name (GTK_FONT_BUTTON (widget), font);
 		g_free (font);
 		pango_font_description_free (font_desc);
 	}
@@ -830,9 +830,9 @@ object_change_notify_cb (PropertyChange *change)
 			filename = g_filename_from_utf8 (name, -1, NULL, NULL, NULL);
 
 		if (filename)
-			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), filename);
+			ctk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), filename);
 		else
-			gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (widget));
+			ctk_file_chooser_unselect_all (GTK_FILE_CHOOSER (widget));
 		g_free (filename);
 		g_free (name);
 	}
@@ -855,7 +855,7 @@ widget_change_notify_cb (PropertyChange *change)
 		gboolean active;
 		int value;
 
-		active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+		active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 		if (!active)
 			goto out;
 
@@ -866,35 +866,35 @@ widget_change_notify_cb (PropertyChange *change)
 	{
 		gboolean enabled;
 
-		enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+		enabled = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 		g_object_set (object, object_prop, transform_boolean (enabled, change->flags), NULL);
 	}
 	else if (GTK_IS_SPIN_BUTTON (widget))
 	{
 		int value;
 
-		value = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+		value = ctk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
 		g_object_set (object, object_prop, value, NULL);
 	}
 	else if (GTK_IS_ENTRY (widget))
 	{
 		const char *text;
 
-		text = gtk_entry_get_text (GTK_ENTRY (widget));
+		text = ctk_entry_get_text (GTK_ENTRY (widget));
 		g_object_set (object, object_prop, text, NULL);
 	}
 	else if (GTK_IS_COMBO_BOX (widget))
 	{
 		int value;
 
-		value = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
+		value = ctk_combo_box_get_active (GTK_COMBO_BOX (widget));
 		g_object_set (object, object_prop, value, NULL);
 	}
 	else if (GTK_IS_COLOR_CHOOSER (widget))
 	{
 		GdkRGBA color;
 
-		gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (widget), &color);
+		ctk_color_chooser_get_rgba (GTK_COLOR_CHOOSER (widget), &color);
 		g_object_set (object, object_prop, &color, NULL);
 	}
 	else if (GTK_IS_FONT_BUTTON (widget))
@@ -902,7 +902,7 @@ widget_change_notify_cb (PropertyChange *change)
 		PangoFontDescription *font_desc;
 		const char *font;
 
-		font = gtk_font_button_get_font_name (GTK_FONT_BUTTON (widget));
+		font = ctk_font_button_get_font_name (GTK_FONT_BUTTON (widget));
 		font_desc = pango_font_description_from_string (font);
 		g_object_set (object, object_prop, font_desc, NULL);
 		pango_font_description_free (font_desc);
@@ -911,14 +911,14 @@ widget_change_notify_cb (PropertyChange *change)
 	{
 		double value;
 
-		value = gtk_range_get_value (GTK_RANGE (widget));
+		value = ctk_range_get_value (GTK_RANGE (widget));
 		g_object_set (object, object_prop, value, NULL);
 	}
 	else if (GTK_IS_FILE_CHOOSER (widget))
 	{
 		char *filename, *name = NULL;
 
-		filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
+		filename = ctk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
 		if (filename)
 			name = g_filename_to_utf8 (filename, -1, NULL, NULL, NULL);
 

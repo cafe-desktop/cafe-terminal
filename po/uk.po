@@ -139,11 +139,11 @@ msgstr "Чи дозволяти стандартне сполучення кла
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Як правило Ви можете отримати доступ до меню, натиснувши F10. Ця клавіша "
-"може бути змінена у файлі gtkrc (gtk-menu-bar-accel = «що-небуть»). Цей ключ"
+"може бути змінена у файлі ctkrc (ctk-menu-bar-accel = «що-небуть»). Цей ключ"
 " дозволяє вимкнути стандартний акселератор доступу до меню."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

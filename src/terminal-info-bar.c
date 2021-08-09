@@ -20,7 +20,7 @@
 
 #include "terminal-info-bar.h"
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 struct _TerminalInfoBarPrivate
 {
@@ -39,8 +39,8 @@ terminal_info_bar_init (TerminalInfoBar *bar)
 
 	priv = bar->priv = terminal_info_bar_get_instance_private (bar);
 
-	priv->content_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-	gtk_box_pack_start (GTK_BOX (gtk_info_bar_get_content_area (info_bar)),
+	priv->content_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+	ctk_box_pack_start (GTK_BOX (ctk_info_bar_get_content_area (info_bar)),
 	                    priv->content_box, TRUE, TRUE, 0);
 }
 
@@ -75,7 +75,7 @@ terminal_info_bar_new (GtkMessageType type,
 		int response_id;
 
 		response_id = va_arg (args, int);
-		gtk_info_bar_add_button (GTK_INFO_BAR (info_bar),
+		ctk_info_bar_add_button (GTK_INFO_BAR (info_bar),
 		                         first_button_text, response_id);
 
 		first_button_text = va_arg (args, const char *);
@@ -103,14 +103,14 @@ terminal_info_bar_format_text (TerminalInfoBar *bar,
 	text = g_strdup_vprintf (format, args);
 	va_end (args);
 
-	label = gtk_label_new (text);
+	label = ctk_label_new (text);
 	g_free (text);
 
-	gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-	gtk_label_set_selectable (GTK_LABEL (label), TRUE);
-	gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-	gtk_label_set_yalign (GTK_LABEL (label), 0.0);
+	ctk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+	ctk_label_set_selectable (GTK_LABEL (label), TRUE);
+	ctk_label_set_xalign (GTK_LABEL (label), 0.0);
+	ctk_label_set_yalign (GTK_LABEL (label), 0.0);
 
-	gtk_box_pack_start (GTK_BOX (priv->content_box), label, FALSE, FALSE, 0);
-	gtk_widget_show_all (priv->content_box);
+	ctk_box_pack_start (GTK_BOX (priv->content_box), label, FALSE, FALSE, 0);
+	ctk_widget_show_all (priv->content_box);
 }

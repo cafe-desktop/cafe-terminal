@@ -268,7 +268,7 @@ bus_acquired_cb (GDBusConnection *connection,
 		g_printerr ("Failed to register object: %s\n", error->message);
 		g_error_free (error);
 		data->exit_code = EXIT_FAILURE;
-		gtk_main_quit ();
+		ctk_main_quit ();
 	}
 }
 
@@ -295,7 +295,7 @@ name_acquired_cb (GDBusConnection *connection,
 		g_printerr ("Failed to handle options: %s\n", error->message);
 		g_error_free (error);
 		data->exit_code = EXIT_FAILURE;
-		gtk_main_quit ();
+		ctk_main_quit ();
 	}
 
 	terminal_options_free (data->options);
@@ -324,7 +324,7 @@ name_lost_cb (GDBusConnection *connection,
 	if (connection == NULL)
 	{
 		data->exit_code = EXIT_FAILURE;
-		gtk_main_quit ();
+		ctk_main_quit ();
 		return;
 	}
 
@@ -332,7 +332,7 @@ name_lost_cb (GDBusConnection *connection,
 	{
 		/* Already handled */
 		data->exit_code = EXIT_SUCCESS;
-		gtk_main_quit ();
+		ctk_main_quit ();
 		return;
 	}
 
@@ -393,7 +393,7 @@ name_lost_cb (GDBusConnection *connection,
 		g_printerr ("Failed to forward arguments: %s\n", error->message);
 		g_error_free (error);
 		data->exit_code = EXIT_FAILURE;
-		gtk_main_quit ();
+		ctk_main_quit ();
 	}
 	else
 	{
@@ -404,7 +404,7 @@ name_lost_cb (GDBusConnection *connection,
 	terminal_options_free (data->options);
 	data->options = NULL;
 
-	gtk_main_quit ();
+	ctk_main_quit ();
 }
 
 /* Settings storage works as follows:
@@ -575,7 +575,7 @@ main (int argc, char **argv)
 	                                  FALSE,
 	                                  &argc, &argv,
 	                                  &error,
-	                                  gtk_get_option_group (TRUE),
+	                                  ctk_get_option_group (TRUE),
 	                                  egg_sm_client_get_option_group (),
 	                                  NULL);
 
@@ -623,7 +623,7 @@ main (int argc, char **argv)
 		data->argv = argv_copy;
 		data->argc = argc_copy;
 
-		gtk_init(&argc, &argv);
+		ctk_init(&argc, &argv);
 		options->initial_workspace = get_initial_workspace ();
 
 		owner_id = g_bus_own_name (G_BUS_TYPE_SESSION,
@@ -634,7 +634,7 @@ main (int argc, char **argv)
 		                           name_lost_cb,
 		                           data, NULL);
 
-		gtk_main ();
+		ctk_main ();
 
 		ret = data->exit_code;
 		g_bus_unown_name (owner_id);
@@ -651,7 +651,7 @@ main (int argc, char **argv)
 
 		if (error == NULL)
 		{
-			gtk_main ();
+			ctk_main ();
 		}
 		else
 		{

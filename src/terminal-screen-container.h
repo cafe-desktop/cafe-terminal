@@ -20,7 +20,7 @@
 #ifndef TERMINAL_SCREEN_CONTAINER_H
 #define TERMINAL_SCREEN_CONTAINER_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include "terminal-screen.h"
 
 G_BEGIN_DECLS

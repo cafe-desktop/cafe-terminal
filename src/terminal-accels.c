@@ -130,7 +130,7 @@ typedef struct
 	GdkModifierType gsettings_mask;
 	guint gsettings_keyval;
 	GClosure *closure;
-	/* have gotten a notification from gtk */
+	/* have gotten a notification from ctk */
 	gboolean needs_gsettings_sync;
 	gboolean accel_path_unlocked;
 } KeyEntry;
@@ -393,7 +393,7 @@ binding_name (guint            keyval,
               GdkModifierType  mask)
 {
 	if (keyval != 0)
-		return gtk_accelerator_name (keyval, mask);
+		return ctk_accelerator_name (keyval, mask);
 
 	return g_strdup ("disabled");
 }
@@ -403,7 +403,7 @@ binding_display_name (guint            keyval,
                       GdkModifierType  mask)
 {
 	if (keyval != 0)
-		return gtk_accelerator_get_label (keyval, mask);
+		return ctk_accelerator_get_label (keyval, mask);
 
 	return g_strdup (_("Disabled"));
 }
@@ -422,7 +422,7 @@ terminal_accels_init (void)
 
 	gsettings_key_to_entry = g_hash_table_new (g_str_hash, g_str_equal);
 
-	notification_group = gtk_accel_group_new ();
+	notification_group = ctk_accel_group_new ();
 
 	for (i = 0; i < G_N_ELEMENTS (all_entries); ++i)
 	{
@@ -441,7 +441,7 @@ terminal_accels_init (void)
 			g_closure_ref (key_entry->closure);
 			g_closure_sink (key_entry->closure);
 
-			gtk_accel_group_connect_by_path (notification_group,
+			ctk_accel_group_connect_by_path (notification_group,
 			                                 I_(key_entry->accel_path),
 			                                 key_entry->closure);
 			keys_change_notify (settings_keybindings, key_entry->gsettings_key, NULL);
@@ -484,13 +484,13 @@ update_model_foreach (GtkTreeModel *model,
 {
 	KeyEntry *key_entry = NULL;
 
-	gtk_tree_model_get (model, iter,
+	ctk_tree_model_get (model, iter,
 	                    KEYVAL_COLUMN, &key_entry,
 	                    -1);
 
 	if (key_entry == (KeyEntry *) data)
 	{
-		gtk_tree_model_row_changed (model, path, iter);
+		ctk_tree_model_row_changed (model, path, iter);
 		return TRUE;
 	}
 	return FALSE;
@@ -548,7 +548,7 @@ keys_change_notify (GSettings *settings,
 
 	/* Unlock the path, so we can change its accel */
 	if (!key_entry->accel_path_unlocked)
-		gtk_accel_map_unlock_path (key_entry->accel_path);
+		ctk_accel_map_unlock_path (key_entry->accel_path);
 
 	/* sync over to GTK */
 	_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
@@ -557,7 +557,7 @@ keys_change_notify (GSettings *settings,
 	                       binding_name (keyval, mask)); /* memleak */
 	inside_gsettings_notify += 1;
 	/* Note that this may return FALSE, e.g. when the entry was already set correctly. */
-	gtk_accel_map_change_entry (key_entry->accel_path,
+	ctk_accel_map_change_entry (key_entry->accel_path,
 	                            keyval, mask,
 	                            TRUE);
 	inside_gsettings_notify -= 1;
@@ -565,7 +565,7 @@ keys_change_notify (GSettings *settings,
 	/* Lock the path if the GSettings key isn't writable */
 	key_entry->accel_path_unlocked = g_settings_is_writable (settings, key);
 	if (!key_entry->accel_path_unlocked)
-		gtk_accel_map_lock_path (key_entry->accel_path);
+		ctk_accel_map_lock_path (key_entry->accel_path);
 
 	/* This seems necessary to update the tree model, since sometimes the
 	 * notification on the notification_group seems not to be emitted correctly.
@@ -575,7 +575,7 @@ keys_change_notify (GSettings *settings,
 	 * FIXME: Find out *why* the accel-changed signal is wrong here!
 	 */
 	if (edit_keys_store)
-		gtk_tree_model_foreach (GTK_TREE_MODEL (edit_keys_store), update_model_foreach, key_entry);
+		ctk_tree_model_foreach (GTK_TREE_MODEL (edit_keys_store), update_model_foreach, key_entry);
 
 	g_variant_unref(val);
 }
@@ -605,7 +605,7 @@ accel_changed_callback (GtkAccelGroup  *accel_group,
 	if (inside_gsettings_notify)
 	{
 		_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
-		                       "Ignoring change from gtk because we're inside a GSettings notify\n");
+		                       "Ignoring change from ctk because we're inside a GSettings notify\n");
 		return;
 	}
 
@@ -631,7 +631,7 @@ binding_from_string (const char      *str,
 		return TRUE;
 	}
 
-	gtk_accelerator_parse (str, accelerator_key, accelerator_mods);
+	ctk_accelerator_parse (str, accelerator_key, accelerator_mods);
 	if (*accelerator_key == 0 &&
 	        *accelerator_mods == 0)
 		return FALSE;
@@ -665,20 +665,20 @@ add_key_entry_to_changeset (gpointer key,
                             KeyEntry *key_entry,
                             GSettings *changeset)
 {
-	GtkAccelKey gtk_key;
+	GtkAccelKey ctk_key;
 
 	if (!key_entry->needs_gsettings_sync)
 		return;
 
 	key_entry->needs_gsettings_sync = FALSE;
 
-	if (gtk_accel_map_lookup_entry (key_entry->accel_path, &gtk_key) &&
-	        (gtk_key.accel_key != key_entry->gsettings_keyval ||
-	         gtk_key.accel_mods != key_entry->gsettings_mask))
+	if (ctk_accel_map_lookup_entry (key_entry->accel_path, &ctk_key) &&
+	        (ctk_key.accel_key != key_entry->gsettings_keyval ||
+	         ctk_key.accel_mods != key_entry->gsettings_mask))
 	{
 		char *accel_name;
 
-		accel_name = binding_name (gtk_key.accel_key, gtk_key.accel_mods);
+		accel_name = binding_name (ctk_key.accel_key, ctk_key.accel_mods);
 		g_settings_set_string (changeset, key_entry->gsettings_key, accel_name);
 		g_free (accel_name);
 	}
@@ -719,7 +719,7 @@ accel_set_func (GtkTreeViewColumn *tree_column,
 {
 	KeyEntry *ke;
 
-	gtk_tree_model_get (model, iter,
+	ctk_tree_model_get (model, iter,
 	                    KEYVAL_COLUMN, &ke,
 	                    -1);
 
@@ -750,12 +750,12 @@ accel_compare_func (GtkTreeModel *model,
 	char *name_b;
 	int result;
 
-	gtk_tree_model_get (model, a,
+	ctk_tree_model_get (model, a,
 	                    KEYVAL_COLUMN, &ke_a,
 	                    -1);
 	if (ke_a == NULL)
 	{
-		gtk_tree_model_get (model, a,
+		ctk_tree_model_get (model, a,
 		                    ACTION_COLUMN, &name_a,
 		                    -1);
 	}
@@ -765,12 +765,12 @@ accel_compare_func (GtkTreeModel *model,
 		                               ke_a->gsettings_mask);
 	}
 
-	gtk_tree_model_get (model, b,
+	ctk_tree_model_get (model, b,
 	                    KEYVAL_COLUMN, &ke_b,
 	                    -1);
 	if (ke_b == NULL)
 	{
-		gtk_tree_model_get (model, b,
+		ctk_tree_model_get (model, b,
 		                    ACTION_COLUMN, &name_b,
 		                    -1);
 	}
@@ -795,7 +795,7 @@ treeview_accel_changed_cb (GtkAccelGroup  *accel_group,
                            GClosure *accel_closure,
                            GtkTreeModel *model)
 {
-	gtk_tree_model_foreach (model, update_model_foreach, accel_closure->data);
+	ctk_tree_model_foreach (model, update_model_foreach, accel_closure->data);
 }
 
 static void
@@ -814,27 +814,27 @@ accel_edited_callback (GtkCellRendererAccel *cell,
 	guint n_entries;
 	char *str;
 
-	model = gtk_tree_view_get_model (view);
+	model = ctk_tree_view_get_model (view);
 
-	path = gtk_tree_path_new_from_string (path_string);
+	path = ctk_tree_path_new_from_string (path_string);
 	if (!path)
 		return;
 
-	if (!gtk_tree_model_get_iter (model, &iter, path))
+	if (!ctk_tree_model_get_iter (model, &iter, path))
 	{
-		gtk_tree_path_free (path);
+		ctk_tree_path_free (path);
 		return;
 	}
-	gtk_tree_path_free (path);
+	ctk_tree_path_free (path);
 
-	gtk_tree_model_get (model, &iter, KEYVAL_COLUMN, &ke, -1);
+	ctk_tree_model_get (model, &iter, KEYVAL_COLUMN, &ke, -1);
 
 	/* sanity check */
 	if (ke == NULL)
 		return;
 
 	/* Check if we already have an entry using this accel */
-	entries = gtk_accel_group_query (notification_group, keyval, mask, &n_entries);
+	entries = ctk_accel_group_query (notification_group, keyval, mask, &n_entries);
 	if (n_entries > 0)
 	{
 		if (entries[0].accel_path_quark != g_quark_from_string (ke->accel_path))
@@ -843,12 +843,12 @@ accel_edited_callback (GtkCellRendererAccel *cell,
 			char *name;
 			KeyEntry *other_key;
 
-			name = gtk_accelerator_get_label (keyval, mask);
+			name = ctk_accelerator_get_label (keyval, mask);
 			other_key = entries[0].closure->data;
 			g_assert (other_key);
 
 			dialog =
-			    gtk_message_dialog_new (GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view))),
+			    ctk_message_dialog_new (GTK_WINDOW (ctk_widget_get_toplevel (GTK_WIDGET (view))),
 			                            GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
 			                            GTK_MESSAGE_WARNING,
 			                            GTK_BUTTONS_OK,
@@ -858,8 +858,8 @@ accel_edited_callback (GtkCellRendererAccel *cell,
 other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gsettings_key);
 			g_free (name);
 
-			g_signal_connect (dialog, "response", G_CALLBACK (gtk_widget_destroy), NULL);
-			gtk_window_present (GTK_WINDOW (dialog));
+			g_signal_connect (dialog, "response", G_CALLBACK (ctk_widget_destroy), NULL);
+			ctk_window_present (GTK_WINDOW (dialog));
 		}
 
 		return;
@@ -877,7 +877,7 @@ other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gset
 	{
 		GtkAccelKey old_key;
 
-		if (gtk_accel_map_lookup_entry (ke->accel_path, &old_key))
+		if (ctk_accel_map_lookup_entry (ke->accel_path, &old_key))
 		{
 			_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
 			                       "  Old entry of path %s is keyval %s mask %x\n",
@@ -909,20 +909,20 @@ accel_cleared_callback (GtkCellRendererAccel *cell,
 	KeyEntry *ke;
 	char *str;
 
-	model = gtk_tree_view_get_model (view);
+	model = ctk_tree_view_get_model (view);
 
-	path = gtk_tree_path_new_from_string (path_string);
+	path = ctk_tree_path_new_from_string (path_string);
 	if (!path)
 		return;
 
-	if (!gtk_tree_model_get_iter (model, &iter, path))
+	if (!ctk_tree_model_get_iter (model, &iter, path))
 	{
-		gtk_tree_path_free (path);
+		ctk_tree_path_free (path);
 		return;
 	}
-	gtk_tree_path_free (path);
+	ctk_tree_path_free (path);
 
-	gtk_tree_model_get (model, &iter, KEYVAL_COLUMN, &ke, -1);
+	ctk_tree_model_get (model, &iter, KEYVAL_COLUMN, &ke, -1);
 
 	/* sanity check */
 	if (ke == NULL)
@@ -964,7 +964,7 @@ edit_keys_dialog_response_cb (GtkWidget *editor,
 		return;
 	}
 
-	gtk_widget_destroy (editor);
+	ctk_widget_destroy (editor);
 }
 
 #ifdef CAFE_ENABLE_DEBUG
@@ -975,7 +975,7 @@ row_changed (GtkTreeModel *tree_model,
              gpointer      user_data)
 {
 	_terminal_debug_print (TERMINAL_DEBUG_ACCELS,
-	                       "ROW-CHANGED [%s]\n", gtk_tree_path_to_string (path) /* leak */);
+	                       "ROW-CHANGED [%s]\n", ctk_tree_path_to_string (path) /* leak */);
 }
 #endif
 
@@ -1007,16 +1007,16 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 	        disable_menu_accel_button, 0);
 
 	/* Column 1 */
-	cell_renderer = gtk_cell_renderer_text_new ();
-	column = gtk_tree_view_column_new_with_attributes (_("_Action"),
+	cell_renderer = ctk_cell_renderer_text_new ();
+	column = ctk_tree_view_column_new_with_attributes (_("_Action"),
 	         cell_renderer,
 	         "text", ACTION_COLUMN,
 	         NULL);
-	gtk_tree_view_append_column (GTK_TREE_VIEW (tree_view), column);
-	gtk_tree_view_column_set_sort_column_id (column, ACTION_COLUMN);
+	ctk_tree_view_append_column (GTK_TREE_VIEW (tree_view), column);
+	ctk_tree_view_column_set_sort_column_id (column, ACTION_COLUMN);
 
 	/* Column 2 */
-	cell_renderer = gtk_cell_renderer_accel_new ();
+	cell_renderer = ctk_cell_renderer_accel_new ();
 	g_object_set (cell_renderer,
 	              "editable", TRUE,
 	              "accel-mode", GTK_CELL_RENDERER_ACCEL_MODE_GTK,
@@ -1026,16 +1026,16 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 	g_signal_connect (cell_renderer, "accel-cleared",
 	                  G_CALLBACK (accel_cleared_callback), tree_view);
 
-	column = gtk_tree_view_column_new ();
-	gtk_tree_view_column_set_title (column, _("Shortcut _Key"));
-	gtk_tree_view_column_pack_start (column, cell_renderer, TRUE);
-	gtk_tree_view_column_set_cell_data_func (column, cell_renderer, accel_set_func, NULL, NULL);
-	gtk_tree_view_column_set_sort_column_id (column, KEYVAL_COLUMN);
-	gtk_tree_view_append_column (GTK_TREE_VIEW (tree_view), column);
+	column = ctk_tree_view_column_new ();
+	ctk_tree_view_column_set_title (column, _("Shortcut _Key"));
+	ctk_tree_view_column_pack_start (column, cell_renderer, TRUE);
+	ctk_tree_view_column_set_cell_data_func (column, cell_renderer, accel_set_func, NULL, NULL);
+	ctk_tree_view_column_set_sort_column_id (column, KEYVAL_COLUMN);
+	ctk_tree_view_append_column (GTK_TREE_VIEW (tree_view), column);
 
 	/* Add the data */
 
-	tree = edit_keys_store = gtk_tree_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_POINTER);
+	tree = edit_keys_store = ctk_tree_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_POINTER);
 
 #ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_ACCELS)
@@ -1047,8 +1047,8 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 		GtkTreeIter parent_iter;
 		guint j;
 
-		gtk_tree_store_append (tree, &parent_iter, NULL);
-		gtk_tree_store_set (tree, &parent_iter,
+		ctk_tree_store_append (tree, &parent_iter, NULL);
+		ctk_tree_store_set (tree, &parent_iter,
 		                    ACTION_COLUMN, _(all_entries[i].user_visible_name),
 		                    -1);
 
@@ -1057,23 +1057,23 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 			KeyEntry *key_entry = &(all_entries[i].key_entry[j]);
 			GtkTreeIter iter;
 
-			gtk_tree_store_insert_with_values (tree, &iter, &parent_iter, -1,
+			ctk_tree_store_insert_with_values (tree, &iter, &parent_iter, -1,
 			                                   ACTION_COLUMN, _(key_entry->user_visible_name),
 			                                   KEYVAL_COLUMN, key_entry,
 			                                   -1);
 		}
 	}
 
-	gtk_tree_sortable_set_sort_func (GTK_TREE_SORTABLE (tree),
+	ctk_tree_sortable_set_sort_func (GTK_TREE_SORTABLE (tree),
 	                                 KEYVAL_COLUMN, accel_compare_func,
 	                                 NULL, NULL);
-	gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (tree), ACTION_COLUMN,
+	ctk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (tree), ACTION_COLUMN,
 	                                      GTK_SORT_ASCENDING);
 
-	gtk_tree_view_set_model (GTK_TREE_VIEW (tree_view), GTK_TREE_MODEL (tree));
+	ctk_tree_view_set_model (GTK_TREE_VIEW (tree_view), GTK_TREE_MODEL (tree));
 	g_object_unref (tree);
 
-	gtk_tree_view_expand_all (GTK_TREE_VIEW (tree_view));
+	ctk_tree_view_expand_all (GTK_TREE_VIEW (tree_view));
 
 	g_signal_connect (notification_group, "accel-changed",
 	                  G_CALLBACK (treeview_accel_changed_cb), tree);
@@ -1084,9 +1084,9 @@ terminal_edit_keys_dialog_show (GtkWindow *transient_parent)
 	g_signal_connect (dialog, "response",
 	                  G_CALLBACK (edit_keys_dialog_response_cb),
 	                  NULL);
-	gtk_window_set_default_size (GTK_WINDOW (dialog), -1, 350);
+	ctk_window_set_default_size (GTK_WINDOW (dialog), -1, 350);
 
 done:
-	gtk_window_set_transient_for (GTK_WINDOW (edit_keys_dialog), transient_parent);
-	gtk_window_present (GTK_WINDOW (edit_keys_dialog));
+	ctk_window_set_transient_for (GTK_WINDOW (edit_keys_dialog), transient_parent);
+	ctk_window_present (GTK_WINDOW (edit_keys_dialog));
 }

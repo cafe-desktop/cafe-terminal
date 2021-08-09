@@ -130,11 +130,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Azonao aseho amin'ny alalan'ny F10 ny anjan'ny tolotra raha ny tokony ho "
-"izy. Azo ovaina amin'ny alalan'ny gtkrc (gtk-menu-bar-accel = \"whatever\") "
+"izy. Azo ovaina amin'ny alalan'ny ctkrc (ctk-menu-bar-accel = \"whatever\") "
 "koa io hitsin-dàlana io. Io safidy farany io dia ahafahana manatsahatra ny "
 "mpanafaingan'ny anjan'ny tolotra."
 

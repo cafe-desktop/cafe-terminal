@@ -138,11 +138,11 @@ msgstr "Ali je običajna tipka za dostop do menijske vrstice omogočena"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Običajno je mogoče menijsko vrstico priklicati s tipko F10. Možnost je "
-"mogoče prilagoditi preko nastavitve gtkrc (gtk-menu-bar-accel = "
+"mogoče prilagoditi preko nastavitve ctkrc (ctk-menu-bar-accel = "
 "\"karkoli\"). S tem je običajna bližnjica menija onemogočena."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

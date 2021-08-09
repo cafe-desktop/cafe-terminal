@@ -153,11 +153,11 @@ msgstr "Apakah pintasan standar GTK + untuk akses bilah menu diaktifkan"
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Batang menu biasanya dapat diakses dengan tombol F10. Tombol ini dapat "
-"diatur pula lewat berkas gtkrc (di bagian gtk-menu-bar-accel). Pilihan ini "
+"diatur pula lewat berkas ctkrc (di bagian ctk-menu-bar-accel). Pilihan ini "
 "dapat digunakan untuk mematikan fungsi akselerator batang menu."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

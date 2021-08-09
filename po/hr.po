@@ -133,11 +133,11 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:65
 msgid ""
 "Normally you can access the menubar with F10. This can also be customized "
-"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"via ctkrc (ctk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
 "Obično se traci izbornika može pristupiti sa tipkom F10. Ovo može biti "
-"prilagođeno kroz gtkrc (gtk-menu-bar-accel = \"whatever\"). Ova postavka "
+"prilagođeno kroz ctkrc (ctk-menu-bar-accel = \"whatever\"). Ova postavka "
 "dopušta onemogućavanjestandardnog akceleratora za traku izbornika."
 
 #: src/org.cafe.terminal.gschema.xml.in:68

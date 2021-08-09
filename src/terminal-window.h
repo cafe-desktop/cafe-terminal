@@ -20,7 +20,7 @@
 #ifndef TERMINAL_WINDOW_H
 #define TERMINAL_WINDOW_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "terminal-screen.h"
 

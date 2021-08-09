@@ -21,7 +21,7 @@
 #define TERMINAL_PROFILE_EDITOR_H
 
 #include "terminal-profile.h"
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
