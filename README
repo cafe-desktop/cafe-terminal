@@ -1,7 +1,7 @@
 
 This is the CAFE terminal emulator application.  cafe-terminal is
 only the shell (menubar, prefs dialog); the terminal emulation ("stuff
-in the middle") comes from the VTE widget. Remember this when you
+in the middle") comes from the BTE widget. Remember this when you
 report a bug. ;-)
 
 CAFE terminal is a fork of GNOME terminal.

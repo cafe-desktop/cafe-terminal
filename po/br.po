@@ -2155,7 +2155,7 @@ msgstr ""
 
 #: src/terminal-options.c:1105
 msgid "DIRNAME"
-msgstr "ANVTEULIAD"
+msgstr "ANBTEULIAD"
 
 #: src/terminal-options.c:1113
 msgid "Set the terminal's zoom factor (1.0 = normal size)"
