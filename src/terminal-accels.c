@@ -107,7 +107,7 @@
 
 #if 1
 /*
-* We don't want to enable content saving until vte supports it async.
+* We don't want to enable content saving until bte supports it async.
 * So we disable this code for stable versions.
 */
 #include "terminal-version.h"

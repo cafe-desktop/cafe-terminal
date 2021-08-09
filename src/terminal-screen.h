@@ -21,7 +21,7 @@
 #ifndef TERMINAL_SCREEN_H
 #define TERMINAL_SCREEN_H
 
-#include <vte/vte.h>
+#include <bte/bte.h>
 
 #include "terminal-profile.h"
 

@@ -2465,7 +2465,7 @@ msgstr "Terminálonkénti kapcsolók megjelenítése"
 
 #: src/terminal-profile.c:168
 msgid "Unnamed"
-msgstr "Névtelen"
+msgstr "Nébtelen"
 
 #: src/terminal-screen.c:1520
 msgid "_Profile Preferences"

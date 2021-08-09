@@ -133,11 +133,11 @@ skey_challenge_response_cb (CtkWidget *dialog,
 		response = skey (data->hash, data->seq, data->seed, password);
 		if (response)
 		{
-			VteTerminal *vte_terminal = VTE_TERMINAL (data->screen);
+			VteTerminal *bte_terminal = VTE_TERMINAL (data->screen);
 			static const char newline[2] = "\n";
 
-			vte_terminal_feed_child (vte_terminal, response, strlen (response));
-			vte_terminal_feed_child (vte_terminal, newline, strlen (newline));
+			bte_terminal_feed_child (bte_terminal, response, strlen (response));
+			bte_terminal_feed_child (bte_terminal, newline, strlen (newline));
 			free (response);
 		}
 	}

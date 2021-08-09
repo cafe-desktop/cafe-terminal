@@ -1147,7 +1147,7 @@ msgstr ""
 
 #: src/org.cafe.terminal.gschema.xml.in:460
 msgid "Keyboard shortcut to switch to tab 11"
-msgstr "Snøggtast som byter til ellevte arkfane"
+msgstr "Snøggtast som byter til ellebte arkfane"
 
 #: src/org.cafe.terminal.gschema.xml.in:461
 msgid ""
@@ -1156,14 +1156,14 @@ msgid ""
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"Snøggtast som byter til den ellevte arkfana. Vert uttrykt i ein streng med "
+"Snøggtast som byter til den ellebte arkfana. Vert uttrykt i ein streng med "
 "det same forcafet som CTK+-ressursfiler. Dersom du set denne til den "
 "spesielle strengen «disabled», vil det ikkje vera nokon snøggtast for denne "
 "handlinga."
 
 #: src/org.cafe.terminal.gschema.xml.in:465
 msgid "Keyboard shortcut to switch to tab 12"
-msgstr "Snøggtast som byter til tolvte arkfane"
+msgstr "Snøggtast som byter til tolbte arkfane"
 
 #: src/org.cafe.terminal.gschema.xml.in:466
 msgid ""
@@ -1172,7 +1172,7 @@ msgid ""
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"Snøggtast som byter til den tolvte arkfana. Vert uttrykt i ein streng med "
+"Snøggtast som byter til den tolbte arkfana. Vert uttrykt i ein streng med "
 "det same forcafet som CTK+-ressursfiler. Dersom du set denne til den "
 "spesielle strengen «disabled», vil det ikkje vera nokon snøggtast for denne "
 "handlinga."
@@ -1951,11 +1951,11 @@ msgstr "Byt til tiande arkfane"
 
 #: src/terminal-accels.c:328
 msgid "Switch to Tab 11"
-msgstr "Byt til ellevte arkfane"
+msgstr "Byt til ellebte arkfane"
 
 #: src/terminal-accels.c:333
 msgid "Switch to Tab 12"
-msgstr "Byt til tolvte arkfane"
+msgstr "Byt til tolbte arkfane"
 
 #: src/terminal-accels.c:341
 msgid "Contents"

@@ -22,7 +22,7 @@
 #define TERMINAL_SEARCH_DIALOG_H
 
 #include <ctk/ctk.h>
-#include <vte/vte.h>
+#include <bte/bte.h>
 
 G_BEGIN_DECLS
 

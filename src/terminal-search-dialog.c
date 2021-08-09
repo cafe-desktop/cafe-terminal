@@ -156,7 +156,7 @@ terminal_search_dialog_private_destroy (TerminalSearchDialogPrivate *priv)
 {
 
 	if (priv->regex)
-		vte_regex_unref (priv->regex);
+		bte_regex_unref (priv->regex);
 
 	g_object_unref (priv->store);
 	g_object_unref (priv->completion);
@@ -174,7 +174,7 @@ update_sensitivity (void *unused, CtkWidget *dialog)
 
 	if (priv->regex)
 	{
-		vte_regex_unref (priv->regex);
+		bte_regex_unref (priv->regex);
 		priv->regex = NULL;
 	}
 
@@ -375,10 +375,10 @@ terminal_search_dialog_get_regex (CtkWidget *dialog)
 	{
 		priv->regex_compile_flags = compile_flags;
 		if (priv->regex)
-			vte_regex_unref (priv->regex);
+			bte_regex_unref (priv->regex);
 
 		/* TODO Error handling */
-		priv->regex = vte_regex_new_for_search(pattern, -1,
+		priv->regex = bte_regex_new_for_search(pattern, -1,
 						       compile_flags, NULL);
 
 	}
