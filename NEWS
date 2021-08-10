@@ -1,3 +1,18 @@
-### cafe-terminal 0.0.1
+### cafe-terminal 1.25.0
 
-  * initial job
+  * initial release
+  * forked from mate-terminal 1.24.1
+  * enable ci with Github Actions
+  * terminal-screen: avoid deprecated 'vte_terminal_match_set_cursor_type'
+  * avoid deprecated GValueArray
+  * Fix -Wsign-compare warnings
+  * avoid deprecated GParameter
+  * Remove unused macros
+  * reduce the scope of some variables
+  * terminal-window: avoid unused variables
+  * Fix -Wmissing-field-initializers warnings
+  * avoid casting a non-structure type to a structure type
+  * Fix -Wbad-function-cast warnings
+  * po: Makevars: msgmerge: suppress progress indicators
+  * port from gtk to ctk
+  * port from vte to bte
