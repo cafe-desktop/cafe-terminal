@@ -4332,6 +4332,7 @@ help_about_callback (CtkAction *action,
     GKeyFile *key_file;
     GError *error = NULL;
     char **authors, **contributors, **artists, **documenters, **array_strv;
+    gchar *comments = NULL;
     gsize data_len, n_authors = 0, n_contributors = 0, n_artists = 0, n_documenters = 0 , i;
     GPtrArray *array;
 
@@ -4378,6 +4379,10 @@ help_about_callback (CtkAction *action,
 
     licence_text = terminal_util_get_licence_text ();
 
+    comments = g_strdup_printf (_("A terminal emulator for the CAFE desktop\nUsing CTK %d.%d.%d\nand BTE %d.%d.%d"),
+                                ctk_get_major_version (), ctk_get_minor_version (), ctk_get_micro_version (),
+                                bte_get_major_version (), bte_get_minor_version (), bte_get_micro_version ());
+
     ctk_show_about_dialog (CTK_WINDOW (window),
                            "program-name", _("CAFE Terminal"),
                            "version", VERSION,
@@ -4389,7 +4394,7 @@ help_about_callback (CtkAction *action,
                                           "Copyright \xc2\xa9 2011 Perberos\n"
                                           "Copyright \xc2\xa9 2012-2020 MATE developers\n"
                                           "Copyright \xc2\xa9 2020 CAFE developers"),
-                           "comments", _("A terminal emulator for the CAFE desktop"),
+                           "comments", comments,
                            "authors", array_strv,
                            "artists", artists,
                            "documenters", documenters,
@@ -4400,6 +4405,7 @@ help_about_callback (CtkAction *action,
                            "website", "https://cafe-desktop.org",
                            NULL);
 
+    g_free (comments);
     g_strfreev (array_strv);
     g_strfreev (artists);
     g_strfreev (documenters);
