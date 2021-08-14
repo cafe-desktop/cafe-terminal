@@ -76,7 +76,7 @@ before_scripts:
   - rm -rf cafe-common-master
 
   # Install required ctk .deb packages
-  - git clone --depth 1  https://github.com/cafe-desktop/ctk.git -b master ctk-master
+  - git clone https://github.com/cafe-desktop/ctk.git -b master ctk-master
   - cd ctk-master
   - wget https://github.com/cafe-desktop/ctk/releases/download/`git describe --abbrev=0 --tags`/libctk-3-dev_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
   - wget https://github.com/cafe-desktop/ctk/releases/download/`git describe --abbrev=0 --tags`/gir1.2-ctk-3.0_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
@@ -87,7 +87,7 @@ before_scripts:
   - rm -rf ctk-master
 
   # Install required bte .deb packages
-  - git clone --depth 1  https://github.com/cafe-desktop/bte.git -b master bte-master
+  - git clone https://github.com/cafe-desktop/bte.git -b master bte-master
   - cd bte-master
   - wget https://github.com/cafe-desktop/bte/releases/download/`git describe --abbrev=0 --tags`/libbte-2.91-dev_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
   - wget https://github.com/cafe-desktop/bte/releases/download/`git describe --abbrev=0 --tags`/gir1.2-bte-2.91_`git describe --abbrev=0 --tags|sed 's/^.//'`-1_amd64.deb
