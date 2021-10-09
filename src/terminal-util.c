@@ -817,7 +817,7 @@ object_change_notify_cb (PropertyChange *change)
 			goto out;
 
 		font = pango_font_description_to_string (font_desc);
-		ctk_font_button_set_font_name (CTK_FONT_BUTTON (widget), font);
+		ctk_font_chooser_set_font (CTK_FONT_CHOOSER (widget), font);
 		g_free (font);
 		pango_font_description_free (font_desc);
 	}
@@ -902,7 +902,7 @@ widget_change_notify_cb (PropertyChange *change)
 		PangoFontDescription *font_desc;
 		const char *font;
 
-		font = ctk_font_button_get_font_name (CTK_FONT_BUTTON (widget));
+		font = ctk_font_chooser_get_font (CTK_FONT_CHOOSER (widget));
 		font_desc = pango_font_description_from_string (font);
 		g_object_set (object, object_prop, font_desc, NULL);
 		pango_font_description_free (font_desc);
