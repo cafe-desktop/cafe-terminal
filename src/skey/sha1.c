@@ -62,9 +62,8 @@ int SHA1Keycrunch(char *result, const char *seed, const char *passphrase)
 	g_checksum_get_digest (checksum, digest, &digest_len);
 	g_assert (digest_len == 20);
 
-	results = (guint32 *) digest;
-
 #ifndef WORDS_BIGENDIAN
+	results = (guint32 *) digest;
 	HTONDIGEST(results);
 #else
 	byteReverse((unsigned char *)digest, 5);
