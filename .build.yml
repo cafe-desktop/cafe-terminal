@@ -99,4 +99,4 @@ build_scripts:
 
 after_scripts:
   - make distcheck
-  - if [ -f "gen-index" ]; then ./gen-index -l 20; fi
+  - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/cafe-icon-theme/raw/master/cafe/16x16/apps/utilities-terminal.png; fi
