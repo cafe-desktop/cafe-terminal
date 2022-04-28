@@ -78,9 +78,7 @@ before_scripts:
   - ./install-from-debs https://github.com/cafe-desktop/bte master libbte-2.91-dev gir1.2-bte-2.91 libbte-2.91-common libbte-2.91-0
 
 build_scripts:
-  - export TITLESCANBUILD="${REPO_NAME} (clang-tools `dpkg -s clang-tools|grep -i version|cut -d " " -f 2`) - scan-build results"
-  - mkdir html-report
-  - cppcheck --enable=warning,style,performance,portability,information,missingInclude . 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
+  - ./before-build
 
   - NOCONFIGURE=1 ./autogen.sh
   - scan-build $CHECKERS ./configure --enable-compile-warnings=maximum
