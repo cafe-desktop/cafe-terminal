@@ -57,9 +57,7 @@ requires:
     - libgnutls28-dev
 
 before_scripts:
-  - export TITLECPPCHECK="${REPO_NAME} (cppcheck `dpkg -s cppcheck|grep -i version|cut -d " " -f 2`)"
-  - cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude .
-  - cppcheck-htmlreport --title="$TITLECPPCHECK" --file=cppcheck.xml --report-dir=cppcheck-htmlreport
+  - ./html-cppcheck
 
   # Install cafe-common from master branch
   - cd ${START_DIR}
