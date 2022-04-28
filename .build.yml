@@ -65,13 +65,7 @@ before_scripts:
 build_scripts:
   - ./before-build
   - ./make-scanbuild '--enable-compile-warnings=maximum'
-
-  - make check 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
-  - apt list --installed cafe-common libctk-3-dev libbte-2.91-dev 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
-  - echo Errors detected in the build `cat ./html-report/output_${TRAVIS_COMMIT} | grep ' error:' | grep -v "\[" | wc -l` 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
-  - echo Warnings detected in the logs `cat ./html-report/output_${TRAVIS_COMMIT} | grep -i warning | wc -l` 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
-  - make install
+  - ./after-build
 
 after_scripts:
-  - make distcheck
   - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/cafe-icon-theme/raw/master/cafe/16x16/apps/utilities-terminal.png; fi
