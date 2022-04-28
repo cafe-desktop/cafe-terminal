@@ -64,14 +64,7 @@ before_scripts:
 
 build_scripts:
   - ./before-build
-
-  - NOCONFIGURE=1 ./autogen.sh
-  - scan-build $CHECKERS ./configure --enable-compile-warnings=maximum
-  - if [ $CPU_COUNT -gt 1 ]; then
-  -     scan-build $CHECKERS --html-title="$TITLESCANBUILD" --keep-cc -o html-report make -j $CPU_COUNT 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
-  - else
-  -     scan-build $CHECKERS --html-title="$TITLESCANBUILD" --keep-cc -o html-report make 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
-  - fi
+  - ./make-scanbuild '--enable-compile-warnings=maximum'
 
   - make check 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
   - apt list --installed cafe-common libctk-3-dev libbte-2.91-dev 2>&1 | tee -a ./html-report/output_${TRAVIS_COMMIT}
