@@ -176,7 +176,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:92
 msgctxt "visible-name"
 msgid "'Default'"
-msgstr "«Prèdèfini»"
+msgstr "'Prèdèfini'"
 
 #: src/org.cafe.terminal.gschema.xml.in:93
 msgid "Human-readable name of the profile"

@@ -186,7 +186,7 @@ msgstr "若為 true，它會啟用使用 [Ctrl+Tab] 與 [Ctrl+Shift+Tab] 切換�
 #: src/org.cafe.terminal.gschema.xml.in:92
 msgctxt "visible-name"
 msgid "'Default'"
-msgstr "「預設值」"
+msgstr "'預設值'"
 
 #: src/org.cafe.terminal.gschema.xml.in:93
 msgid "Human-readable name of the profile"
@@ -263,7 +263,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:127
 msgctxt "title"
 msgid "'Terminal'"
-msgstr "「終端機」"
+msgstr "'終端機'"
 
 #: src/org.cafe.terminal.gschema.xml.in:128
 msgid "Title for terminal"

@@ -199,7 +199,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:92
 msgctxt "visible-name"
 msgid "'Default'"
-msgstr "Predetermináu"
+msgstr "'Predetermináu'"
 
 #: src/org.cafe.terminal.gschema.xml.in:93
 msgid "Human-readable name of the profile"

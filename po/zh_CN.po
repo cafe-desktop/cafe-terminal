@@ -271,7 +271,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:127
 msgctxt "title"
 msgid "'Terminal'"
-msgstr "‘终端’"
+msgstr "'终端'"
 
 #: src/org.cafe.terminal.gschema.xml.in:128
 msgid "Title for terminal"

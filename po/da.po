@@ -206,7 +206,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:92
 msgctxt "visible-name"
 msgid "'Default'"
-msgstr "»Forvalgt«"
+msgstr "'Forvalgt'"
 
 #: src/org.cafe.terminal.gschema.xml.in:93
 msgid "Human-readable name of the profile"
@@ -294,7 +294,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:127
 msgctxt "title"
 msgid "'Terminal'"
-msgstr "»Terminal«"
+msgstr "'Terminal'"
 
 #: src/org.cafe.terminal.gschema.xml.in:128
 msgid "Title for terminal"

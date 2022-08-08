@@ -255,7 +255,7 @@ msgstr ""
 #: src/org.cafe.terminal.gschema.xml.in:127
 msgctxt "title"
 msgid "'Terminal'"
-msgstr "\"Терминал\""
+msgstr "'Терминал'"
 
 #: src/org.cafe.terminal.gschema.xml.in:128
 msgid "Title for terminal"
