@@ -89,6 +89,7 @@
   </schema>
   <schema id="org.cafe.terminal.profile">
     <key name="visible-name" type="s">
+      <!-- Translators: keep the single quotes, please don't change it -->
       <default context="visible-name" l10n="messages">'Default'</default>
       <summary>Human-readable name of the profile</summary>
       <description>Human-readable name of the profile.</description>
@@ -124,6 +125,7 @@
       <description>If the application in the terminal sets the title (most typically people have their shell set up to  do this), the dynamically-set title can  erase the configured title, go before it, go after it,  or replace it. The possible values are "replace",  "before", "after", and "ignore".</description>
     </key>
     <key name="title" type="s">
+      <!-- Translators: keep the single quotes, please don't change it -->
       <default context="title" l10n="messages">'Terminal'</default>
       <summary>Title for terminal</summary>
       <description>Title to display for the terminal window or tab. This title may be replaced by or combined with  the title set by the application inside the terminal,  depending on the title_mode setting.</description>
