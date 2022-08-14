@@ -429,7 +429,7 @@ name_lost_cb (GDBusConnection *connection,
  *
  */
 
-/* Copied from libcaja/caja-program-choosing.c; Needed in case
+/* Copied from libbaul/baul-program-choosing.c; Needed in case
  * we have no DESKTOP_STARTUP_ID (with its accompanying timestamp).
  */
 static Time
@@ -559,7 +559,7 @@ main (int argc, char **argv)
 	cdk_set_allowed_backends ("x11");
 
 	/* Now change directory to $HOME so we don't prevent unmounting, e.g. if the
-	 * factory is started by caja-open-terminal. See bug #565328.
+	 * factory is started by baul-open-terminal. See bug #565328.
 	 * On failure back to /.
 	 */
 	home_dir = g_get_home_dir ();
