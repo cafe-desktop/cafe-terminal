@@ -55,7 +55,13 @@ requires:
     - wayland-protocols
 
     #packages required for bte
+    - gtk-doc-tools
+    - libgirepository1.0-dev
     - libgnutls28-dev
+    - libpcre2-dev
+    - libsystemd-dev
+    - libxml2-utils
+    - meson
 
 before_scripts:
   - ./html-cppcheck
