@@ -100,17 +100,17 @@
       <description>True if the menubar should be shown in new windows, for windows/tabs with this profile.</description>
     </key>
     <key name="foreground-color" type="s">
-      <default>'#000000'</default>
+      <default>'#00FFFF'</default>
       <summary>Default color of text in the terminal</summary>
       <description>Default color of text in the terminal, as a color specification (can be HTML-style hex digits, or a color name such as "red").</description>
     </key>
     <key name="background-color" type="s">
-      <default>'#FFFFDD'</default>
+      <default>'#000000'</default>
       <summary>Default color of terminal background</summary>
       <description>Default color of terminal background, as a color specification (can be HTML-style hex digits, or a color name such as "red").</description>
     </key>
     <key name="bold-color" type="s">
-      <default>'#000000'</default>
+      <default>'#00FFFF'</default>
       <summary>Default color of bold text in the terminal</summary>
       <description>Default color of bold text in the terminal, as a color specification (can be HTML-style hex digits, or a color name such as "red"). This is ignored if bold_color_same_as_fg is true.</description>
     </key>
