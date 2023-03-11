@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-terminal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Дмитрий Михирев, 2020
 # Victor Kukshiev <andrey0bolkonsky@gmail.com>, 2020
@@ -18,23 +18,25 @@
 # Dmitriy Kulikov <kulikov@dima.perm.ru>, 2020
 # Alex Putz, 2020
 # Anna Vyalkova <cybertailor@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 1.23\n"
+"Project-Id-Version: cafe-terminal 1.25.1\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2020-01-13 14:52+0100\n"
+"POT-Creation-Date: 2023-03-11 17:16+0100\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Anna Vyalkova <cybertailor@gmail.com>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/cafe/teams/13566/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:3
-#: src/terminal-options.c:189 src/terminal-window.c:4466
+#: src/terminal-options.c:189 src/terminal-window.c:4387
 msgid "CAFE Terminal"
 msgstr "Терминал CAFE"
 
@@ -44,8 +46,8 @@ msgstr "Эмулятор терминала для рабочего стола C
 
 #: cafe-terminal.appdata.xml.in:10
 msgid ""
-"CAFE Terminal is a terminal emulation application that you can use to access"
-" a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
+"CAFE Terminal is a terminal emulation application that you can use to access "
+"a UNIX shell in the CAFE environment. CAFE Terminal emulates the xterm "
 "program developed by the X Consortium. It supports translucent backgrounds, "
 "opening multiple terminals in a single window (tabs) and clickable URLs."
 msgstr ""
@@ -64,20 +66,14 @@ msgstr ""
 "хотите знать больше о CAFE и CAFE Terminal, пожалуйста, посетите домашнюю "
 "страницу проекта."
 
-#: cafe-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:590
-#: src/terminal-profile.c:161 src/terminal-window.c:2214
+#: cafe-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:591
+#: src/terminal-profile.c:162 src/terminal-window.c:2149
 msgid "Terminal"
 msgstr "Терминал"
 
 #: cafe-terminal.desktop.in.in:5
 msgid "Use the command line"
 msgstr "Использовать командную строку"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: cafe-terminal.desktop.in.in:9
-msgid "utilities-terminal"
-msgstr "utilities-terminal"
 
 #: src/eggsmclient.c:225
 msgid "Disable connection to session manager"
@@ -87,7 +83,7 @@ msgstr "Не соединяться с менеджером сеансов"
 msgid "Specify file containing saved configuration"
 msgstr "Указать файл, содержащий сохранённую конфигурацию"
 
-#: src/eggsmclient.c:230 src/terminal-options.c:963 src/terminal-options.c:972
+#: src/eggsmclient.c:230 src/terminal-options.c:969 src/terminal-options.c:978
 msgid "FILE"
 msgstr "ФАЙЛ"
 
@@ -125,8 +121,7 @@ msgstr "Профиль, используемый для новых термин�
 
 #: src/org.cafe.terminal.gschema.xml.in:55
 msgid ""
-"Profile to be used when opening a new window or tab. Must be in "
-"profile_list."
+"Profile to be used when opening a new window or tab. Must be in profile_list."
 msgstr ""
 "Профиль, используемый при открытии нового окна или вкладки. Должен быть в "
 "profile_list."
@@ -138,8 +133,8 @@ msgstr "Имеет ли панель меню клавиши доступа"
 #: src/org.cafe.terminal.gschema.xml.in:60
 msgid ""
 "Whether to have Alt+letter access keys for the menubar. They may interfere "
-"with some applications run inside the terminal so it's possible to turn them"
-" off."
+"with some applications run inside the terminal so it's possible to turn them "
+"off."
 msgstr ""
 "Использовать ли комбинации клавиш Alt+буква для доступа к меню. Эта функция "
 "может мешать работе некоторых приложений внутри терминала, в этом случае ее "
@@ -211,24 +206,25 @@ msgstr ""
 "Если включено, позволяет переключаться между вкладками с помощью комбинации "
 "клавиш [Ctrl+Tab] и [Ctrl+Shift+Tab]."
 
-#: src/org.cafe.terminal.gschema.xml.in:92
+#. Translators: keep the single quotes, please don't change it
+#: src/org.cafe.terminal.gschema.xml.in:93
 msgctxt "visible-name"
 msgid "'Default'"
 msgstr "'По умолчанию'"
 
-#: src/org.cafe.terminal.gschema.xml.in:93
+#: src/org.cafe.terminal.gschema.xml.in:94
 msgid "Human-readable name of the profile"
 msgstr "Читабельное название профиля"
 
-#: src/org.cafe.terminal.gschema.xml.in:94
+#: src/org.cafe.terminal.gschema.xml.in:95
 msgid "Human-readable name of the profile."
 msgstr "Читабельное название профиля."
 
-#: src/org.cafe.terminal.gschema.xml.in:98
+#: src/org.cafe.terminal.gschema.xml.in:99
 msgid "Whether to show menubar in new windows/tabs"
 msgstr "Отображать ли меню в новых окнах/вкладках"
 
-#: src/org.cafe.terminal.gschema.xml.in:99
+#: src/org.cafe.terminal.gschema.xml.in:100
 msgid ""
 "True if the menubar should be shown in new windows, for windows/tabs with "
 "this profile."
@@ -236,23 +232,23 @@ msgstr ""
 "Если установлено, показывать панель меню в новых окнах, для окон/вкладок с "
 "этим профилем."
 
-#: src/org.cafe.terminal.gschema.xml.in:103
+#: src/org.cafe.terminal.gschema.xml.in:104
 msgid "Default color of text in the terminal"
 msgstr "Цвет текста в терминале по умолчанию"
 
-#: src/org.cafe.terminal.gschema.xml.in:104
+#: src/org.cafe.terminal.gschema.xml.in:105
 msgid ""
-"Default color of text in the terminal, as a color specification (can be "
-"HTML-style hex digits, or a color name such as \"red\")."
+"Default color of text in the terminal, as a color specification (can be HTML-"
+"style hex digits, or a color name such as \"red\")."
 msgstr ""
 "Цвет текста в терминале по умолчанию (может быть в шестнадцатеричном HTML-"
 "стиле или названием цвета, например, «red»)."
 
-#: src/org.cafe.terminal.gschema.xml.in:108
+#: src/org.cafe.terminal.gschema.xml.in:109
 msgid "Default color of terminal background"
 msgstr "Цвет фона терминала по умолчанию"
 
-#: src/org.cafe.terminal.gschema.xml.in:109
+#: src/org.cafe.terminal.gschema.xml.in:110
 msgid ""
 "Default color of terminal background, as a color specification (can be HTML-"
 "style hex digits, or a color name such as \"red\")."
@@ -260,57 +256,58 @@ msgstr ""
 "Цвет фона в терминале по умолчанию (может быть в шестнадцатеричном HTML-"
 "стиле или названием цвета, например, «red»)."
 
-#: src/org.cafe.terminal.gschema.xml.in:113
+#: src/org.cafe.terminal.gschema.xml.in:114
 msgid "Default color of bold text in the terminal"
 msgstr "Цвет полужирного текста в терминале по умолчанию"
 
-#: src/org.cafe.terminal.gschema.xml.in:114
+#: src/org.cafe.terminal.gschema.xml.in:115
 msgid ""
-"Default color of bold text in the terminal, as a color specification (can be"
-" HTML-style hex digits, or a color name such as \"red\"). This is ignored if"
-" bold_color_same_as_fg is true."
+"Default color of bold text in the terminal, as a color specification (can be "
+"HTML-style hex digits, or a color name such as \"red\"). This is ignored if "
+"bold_color_same_as_fg is true."
 msgstr ""
 "Цвет полужирного текста в терминале по умолчанию (может быть в "
 "шестнадцатеричном HTML-стиле или названием цвета, например, «red»). "
 "Игнорируется, если задана опция \"bold_color_same_as_fg\"."
 
-#: src/org.cafe.terminal.gschema.xml.in:118
+#: src/org.cafe.terminal.gschema.xml.in:119
 msgid "Whether bold text should use the same color as normal text"
 msgstr "Выводить ли полужирный текст тем же цветом что и обычный текст"
 
-#: src/org.cafe.terminal.gschema.xml.in:119
+#: src/org.cafe.terminal.gschema.xml.in:120
 msgid ""
 "If true, boldface text will be rendered using the same color as normal text."
 msgstr ""
 "Если включено, выделенный полужирным текст будет выводиться тем же цветом "
 "что и обычный текст."
 
-#: src/org.cafe.terminal.gschema.xml.in:123
+#: src/org.cafe.terminal.gschema.xml.in:124
 msgid "What to do with dynamic title"
 msgstr "Что делать с динамическим заголовком"
 
-#: src/org.cafe.terminal.gschema.xml.in:124
+#: src/org.cafe.terminal.gschema.xml.in:125
 msgid ""
 "If the application in the terminal sets the title (most typically people "
-"have their shell set up to do this), the dynamically-set title can erase the"
-" configured title, go before it, go after it, or replace it. The possible "
+"have their shell set up to do this), the dynamically-set title can erase the "
+"configured title, go before it, go after it, or replace it. The possible "
 "values are \"replace\", \"before\", \"after\", and \"ignore\"."
 msgstr ""
-"Если приложение в терминале задаёт заголовок (как правило, у людей командная"
-" оболочка настроена на это), динамически-задаваемый заголовок может стереть "
+"Если приложение в терминале задаёт заголовок (как правило, у людей командная "
+"оболочка настроена на это), динамически-задаваемый заголовок может стереть "
 "настроенный, быть до или после него или заменить. Возможные значения: "
 "\"replace\", \"before\", \"after\", and \"ignore\"."
 
-#: src/org.cafe.terminal.gschema.xml.in:127
+#. Translators: keep the single quotes, please don't change it
+#: src/org.cafe.terminal.gschema.xml.in:129
 msgctxt "title"
 msgid "'Terminal'"
 msgstr "'Терминал'"
 
-#: src/org.cafe.terminal.gschema.xml.in:128
+#: src/org.cafe.terminal.gschema.xml.in:130
 msgid "Title for terminal"
 msgstr "Заголовок терминала"
 
-#: src/org.cafe.terminal.gschema.xml.in:129
+#: src/org.cafe.terminal.gschema.xml.in:131
 msgid ""
 "Title to display for the terminal window or tab. This title may be replaced "
 "by or combined with the title set by the application inside the terminal, "
@@ -320,21 +317,21 @@ msgstr ""
 "совмещен с заголовком, устанавливаемым приложением внутри терминала, в "
 "зависимости от значения \"title_mode\"."
 
-#: src/org.cafe.terminal.gschema.xml.in:133
+#: src/org.cafe.terminal.gschema.xml.in:135
 msgid "Whether to allow bold text"
 msgstr "Разрешать ли полужирный текст"
 
-#: src/org.cafe.terminal.gschema.xml.in:134
+#: src/org.cafe.terminal.gschema.xml.in:136
 msgid "If true, allow applications in the terminal to make text boldface."
 msgstr ""
 "Если включено, позволяет приложениям в терминале устанавливать полужирный "
 "шрифт."
 
-#: src/org.cafe.terminal.gschema.xml.in:138
+#: src/org.cafe.terminal.gschema.xml.in:140
 msgid "Whether to silence terminal bell"
 msgstr "Подавлять ли сигнал терминала"
 
-#: src/org.cafe.terminal.gschema.xml.in:139
+#: src/org.cafe.terminal.gschema.xml.in:141
 msgid ""
 "If true, don't make a noise when applications send the escape sequence for "
 "the terminal bell."
@@ -342,36 +339,35 @@ msgstr ""
 "Если включено, не шуметь, когда приложения посылают escape-"
 "последовательность для терминального звонка."
 
-#: src/org.cafe.terminal.gschema.xml.in:143
+#: src/org.cafe.terminal.gschema.xml.in:145
 msgid "Copy selection to clipboard"
 msgstr "Копировать выделение в буфер обмена"
 
-#: src/org.cafe.terminal.gschema.xml.in:144
+#: src/org.cafe.terminal.gschema.xml.in:146
 msgid "If true, selection is automatically copied to clipboard buffer."
 msgstr ""
 "Если отмечено, выделение будет автоматически копироваться в буфер обмена."
 
-#: src/org.cafe.terminal.gschema.xml.in:148
+#: src/org.cafe.terminal.gschema.xml.in:150
 msgid "Characters that are considered \"part of a word\""
 msgstr "Символы, считающиеся «частью слова»"
 
-#: src/org.cafe.terminal.gschema.xml.in:149
+#: src/org.cafe.terminal.gschema.xml.in:151
 msgid ""
 "When selecting text by word, sequences of these characters are considered "
-"single words. Ranges can be given as \"A-Z\". Literal hyphen (not expressing"
-" a range) should be the first character given."
+"single words. Ranges can be given as \"A-Z\". Literal hyphen (not expressing "
+"a range) should be the first character given."
 msgstr ""
 "При выборе текста по словам последовательности этих символов воспринимается "
 "как отдельные слова. Диапазоны могут быть указаны как «A-Z». Знак переноса "
 "(не означающий диапазон) должен быть первым из указанных символов."
 
-#: src/org.cafe.terminal.gschema.xml.in:153
+#: src/org.cafe.terminal.gschema.xml.in:155
 msgid "Whether to use custom terminal size for new windows"
 msgstr ""
-"Использовать ли заданный пользователем размер для создаваемых окон "
-"терминалов"
+"Использовать ли заданный пользователем размер для создаваемых окон терминалов"
 
-#: src/org.cafe.terminal.gschema.xml.in:154
+#: src/org.cafe.terminal.gschema.xml.in:156
 msgid ""
 "If true, newly created terminal windows will have custom size specified by "
 "default_size_columns and default_size_rows."
@@ -379,11 +375,11 @@ msgstr ""
 "Если включено, новые окна терминалов будут иметь размер, определяемый "
 "параметрами default_size_columns и default_size_rows."
 
-#: src/org.cafe.terminal.gschema.xml.in:158
+#: src/org.cafe.terminal.gschema.xml.in:160
 msgid "Default number of columns"
 msgstr "Число столбцов по умолчанию"
 
-#: src/org.cafe.terminal.gschema.xml.in:159
+#: src/org.cafe.terminal.gschema.xml.in:161
 msgid ""
 "Number of columns in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
@@ -391,83 +387,83 @@ msgstr ""
 "Количество столбцов в создаваемых окнах терминалов. Используется при "
 "включённом use_custom_default_size."
 
-#: src/org.cafe.terminal.gschema.xml.in:163
+#: src/org.cafe.terminal.gschema.xml.in:165
 msgid "Default number of rows"
 msgstr "Число строк по умолчанию"
 
-#: src/org.cafe.terminal.gschema.xml.in:164
+#: src/org.cafe.terminal.gschema.xml.in:166
 msgid ""
 "Number of rows in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
 msgstr ""
-"Количество строк в создаваемых окнах терминалов. Используется при включённом"
-" use_custom_default_size."
+"Количество строк в создаваемых окнах терминалов. Используется при включённом "
+"use_custom_default_size."
 
-#: src/org.cafe.terminal.gschema.xml.in:168
+#: src/org.cafe.terminal.gschema.xml.in:170
 msgid "Position of the scrollbar"
 msgstr "Положение линейки прокрутки"
 
-#: src/org.cafe.terminal.gschema.xml.in:169
+#: src/org.cafe.terminal.gschema.xml.in:171
 msgid ""
 "Where to put the terminal scrollbar. Possibilities are \"left\", \"right\", "
 "and \"hidden\"."
 msgstr ""
-"Размещение линейки прокрутки терминала. Возможные варианты «left», «right» и"
-" «hidden»."
+"Размещение линейки прокрутки терминала. Возможные варианты «left», «right» и "
+"«hidden»."
 
-#: src/org.cafe.terminal.gschema.xml.in:173
+#: src/org.cafe.terminal.gschema.xml.in:175
 msgid "Number of lines to keep in scrollback"
 msgstr "Количество строк в буфере прокрутки"
 
-#: src/org.cafe.terminal.gschema.xml.in:174
+#: src/org.cafe.terminal.gschema.xml.in:176
 msgid ""
 "Number of scrollback lines to keep around. You can scroll back in the "
-"terminal by this number of lines; lines that don't fit in the scrollback are"
-" discarded. If scrollback_unlimited is true, this value is ignored."
+"terminal by this number of lines; lines that don't fit in the scrollback are "
+"discarded. If scrollback_unlimited is true, this value is ignored."
 msgstr ""
-"Количество строк, сохраняемых в буфере прокрутки. Вы можете прокрутить вывод"
-" терминала назад на это количество строк, при превышении этого количества "
+"Количество строк, сохраняемых в буфере прокрутки. Вы можете прокрутить вывод "
+"терминала назад на это количество строк, при превышении этого количества "
 "самые старые строки отбрасываются. Если scrollback_unlimited равно true, то "
 "это значение игнорируется."
 
-#: src/org.cafe.terminal.gschema.xml.in:178
+#: src/org.cafe.terminal.gschema.xml.in:180
 msgid "Whether an unlimited number of lines should be kept in scrollback"
 msgstr "Включение в буфере прокрутки бесконечного количества строк"
 
-#: src/org.cafe.terminal.gschema.xml.in:179
+#: src/org.cafe.terminal.gschema.xml.in:181
 msgid ""
-"If true, scrollback lines will never be discarded. The scrollback history is"
-" stored on disk temporarily, so this may cause the system to run out of disk"
-" space if there is a lot of output to the terminal."
+"If true, scrollback lines will never be discarded. The scrollback history is "
+"stored on disk temporarily, so this may cause the system to run out of disk "
+"space if there is a lot of output to the terminal."
 msgstr ""
 "Если включено, то перемотанные строки не будут отбрасываться. Они будут "
 "временно сохраняться на диск, что при большом количестве вывода в терминал "
 "может привести к заполнению дискового пространства."
 
-#: src/org.cafe.terminal.gschema.xml.in:183
+#: src/org.cafe.terminal.gschema.xml.in:185
 msgid "Whether to scroll to the bottom when a key is pressed"
 msgstr "Прокручивать ли окно вниз при нажатии клавиши"
 
-#: src/org.cafe.terminal.gschema.xml.in:184
+#: src/org.cafe.terminal.gschema.xml.in:186
 msgid "If true, pressing a key jumps the scrollbar to the bottom."
 msgstr "Если включено, нажатие клавиши приводит к перемотке до низа."
 
-#: src/org.cafe.terminal.gschema.xml.in:188
+#: src/org.cafe.terminal.gschema.xml.in:190
 msgid "Whether to scroll to the bottom when there's new output"
 msgstr "Прокручивать ли вниз при появлении нового вывода"
 
-#: src/org.cafe.terminal.gschema.xml.in:189
+#: src/org.cafe.terminal.gschema.xml.in:191
 msgid ""
 "If true, whenever there's new output the terminal will scroll to the bottom."
 msgstr ""
 "Если установлено, появление нового вывода в терминале будет приводить к "
 "прокрутке вниз."
 
-#: src/org.cafe.terminal.gschema.xml.in:193
+#: src/org.cafe.terminal.gschema.xml.in:195
 msgid "What to do with the terminal when the child command exits"
 msgstr "Что делать с терминалом после завершения дочерней команды"
 
-#: src/org.cafe.terminal.gschema.xml.in:194
+#: src/org.cafe.terminal.gschema.xml.in:196
 msgid ""
 "Possible values are \"close\" to close the terminal, and \"restart\" to "
 "restart the command."
@@ -475,12 +471,12 @@ msgstr ""
 "Возможные значения: «close» - закрыть терминал, «restart» - перезапустить "
 "команду."
 
-#: src/org.cafe.terminal.gschema.xml.in:198
+#: src/org.cafe.terminal.gschema.xml.in:200
 msgid "Whether to launch the command in the terminal as a login shell"
 msgstr ""
 "Запускать ли команду в терминале как регистрационную оболочку (login shell)"
 
-#: src/org.cafe.terminal.gschema.xml.in:199
+#: src/org.cafe.terminal.gschema.xml.in:201
 msgid ""
 "If true, the command inside the terminal will be launched as a login shell. "
 "(argv[0] will have a hyphen in front of it.)"
@@ -488,11 +484,11 @@ msgstr ""
 "Если включено, команда в терминале будет запущена как login shell. (будет "
 "поставлено тире перед argv[0].)"
 
-#: src/org.cafe.terminal.gschema.xml.in:203
+#: src/org.cafe.terminal.gschema.xml.in:205
 msgid "Whether to run a custom command instead of the shell"
 msgstr "Запускать ли другую команду вместо оболочки"
 
-#: src/org.cafe.terminal.gschema.xml.in:204
+#: src/org.cafe.terminal.gschema.xml.in:206
 msgid ""
 "If true, the value of the custom_command setting will be used in place of "
 "running a shell."
@@ -500,11 +496,11 @@ msgstr ""
 "Если этот ключ установлен, вместо оболочки будет использоваться значение "
 "параметра custom_command."
 
-#: src/org.cafe.terminal.gschema.xml.in:208
+#: src/org.cafe.terminal.gschema.xml.in:210
 msgid "Whether to blink the cursor"
 msgstr "Должен ли курсор мигать"
 
-#: src/org.cafe.terminal.gschema.xml.in:209
+#: src/org.cafe.terminal.gschema.xml.in:211
 msgid ""
 "The possible values are \"system\" to use the global cursor blinking "
 "settings, or \"on\" or \"off\" to set the mode explicitly."
@@ -512,11 +508,11 @@ msgstr ""
 "Возможные значения: «system» для использования системных настроек мигания "
 "курсора, либо «on» или «off» для явной установки режима мигания."
 
-#: src/org.cafe.terminal.gschema.xml.in:213
+#: src/org.cafe.terminal.gschema.xml.in:215
 msgid "The cursor appearance"
 msgstr "Внешний вид курсора"
 
-#: src/org.cafe.terminal.gschema.xml.in:214
+#: src/org.cafe.terminal.gschema.xml.in:216
 msgid ""
 "The possible values are \"block\" to use a block cursor, \"ibeam\" to use a "
 "vertical line cursor, or \"underline\" to use an underline cursor."
@@ -524,30 +520,29 @@ msgstr ""
 "Возможные значения: «block» - прямоугольный курсор, «ibeam» - курсор в виде "
 "вертикальной линии или «underline» - курсор в виде подчёркивания."
 
-#: src/org.cafe.terminal.gschema.xml.in:218
+#: src/org.cafe.terminal.gschema.xml.in:220
 msgid "Custom command to use instead of the shell"
 msgstr "Команда, используемая вместо оболочки"
 
-#: src/org.cafe.terminal.gschema.xml.in:219
+#: src/org.cafe.terminal.gschema.xml.in:221
 msgid "Run this command in place of the shell, if use_custom_command is true."
 msgstr ""
 "Выполнять эту команду вместо оболочки, если установлен ключ "
 "\"use_custom_command\"."
 
-#: src/org.cafe.terminal.gschema.xml.in:223
+#: src/org.cafe.terminal.gschema.xml.in:225
 msgid "Icon for terminal window"
 msgstr "Значок окна терминала"
 
-#: src/org.cafe.terminal.gschema.xml.in:224
+#: src/org.cafe.terminal.gschema.xml.in:226
 msgid "Icon to use for tabs/windows containing this profile."
-msgstr ""
-"Значок для использования во вкладках/окнах, содержащих данный профиль."
+msgstr "Значок для использования во вкладках/окнах, содержащих данный профиль."
 
-#: src/org.cafe.terminal.gschema.xml.in:228
+#: src/org.cafe.terminal.gschema.xml.in:230
 msgid "Palette for terminal applications"
 msgstr "Палитра для терминальных приложений"
 
-#: src/org.cafe.terminal.gschema.xml.in:229
+#: src/org.cafe.terminal.gschema.xml.in:231
 msgid ""
 "Terminals have a 16-color palette that applications inside the terminal can "
 "use. This is that palette, in the form of a colon-separated list of color "
@@ -558,19 +553,19 @@ msgstr ""
 "запятыми списка имен цветов. Имена цветов должны быть в шестнадцатеричном "
 "формате, например «#FF00FF»"
 
-#: src/org.cafe.terminal.gschema.xml.in:233
+#: src/org.cafe.terminal.gschema.xml.in:235
 msgid "Font"
 msgstr "Шрифт"
 
-#: src/org.cafe.terminal.gschema.xml.in:234
+#: src/org.cafe.terminal.gschema.xml.in:236
 msgid "An Pango font name. Examples are \"Sans 12\" or \"Monospace Bold 14\"."
 msgstr "Имя шрифта Pango, например «Sans 12» или «Monospace Bold 14»."
 
-#: src/org.cafe.terminal.gschema.xml.in:238
+#: src/org.cafe.terminal.gschema.xml.in:240
 msgid "Background type"
 msgstr "Тип фона"
 
-#: src/org.cafe.terminal.gschema.xml.in:239
+#: src/org.cafe.terminal.gschema.xml.in:241
 msgid ""
 "Type of terminal background. May be \"solid\" for a solid color, \"image\" "
 "for an image, or \"transparent\" for either real transparency if a "
@@ -580,32 +575,32 @@ msgstr ""
 "изображение, «transparent» - полупрозрачный, если включен композитный "
 "менеджер окон или псевдо-полупрозрачный, если выключен."
 
-#: src/org.cafe.terminal.gschema.xml.in:243
+#: src/org.cafe.terminal.gschema.xml.in:245
 msgid "Background image"
 msgstr "Фоновое изображение"
 
-#: src/org.cafe.terminal.gschema.xml.in:244
+#: src/org.cafe.terminal.gschema.xml.in:246
 msgid "Filename of a background image."
 msgstr "Имя файла фонового изображения."
 
-#: src/org.cafe.terminal.gschema.xml.in:248
+#: src/org.cafe.terminal.gschema.xml.in:250
 msgid "Whether to scroll background image"
 msgstr "Прокручивать ли фоновое изображение"
 
-#: src/org.cafe.terminal.gschema.xml.in:249
+#: src/org.cafe.terminal.gschema.xml.in:251
 msgid ""
 "If true, scroll the background image with the foreground text; if false, "
 "keep the image in a fixed position and scroll the text above it."
 msgstr ""
 "Если включено, перематывать фоновое изображение вместе с текстом. Если "
-"выключено, оставить изображение в фиксированной позиции и перематывать текст"
-" поверх него."
+"выключено, оставить изображение в фиксированной позиции и перематывать текст "
+"поверх него."
 
-#: src/org.cafe.terminal.gschema.xml.in:253
+#: src/org.cafe.terminal.gschema.xml.in:255
 msgid "How much to darken the background image"
 msgstr "Насколько сильно затемнять фоновое изображение"
 
-#: src/org.cafe.terminal.gschema.xml.in:254
+#: src/org.cafe.terminal.gschema.xml.in:256
 msgid ""
 "A value between 0.0 and 1.0 indicating how much to darken the background "
 "image. 0.0 means no darkness, 1.0 means fully dark. In the current "
@@ -617,11 +612,11 @@ msgstr ""
 "реализации возможно только два уровня затемнения, то есть параметр работает "
 "как булевый, где 0.0 отключает эффект затемнения."
 
-#: src/org.cafe.terminal.gschema.xml.in:258
+#: src/org.cafe.terminal.gschema.xml.in:260
 msgid "Effect of the Backspace key"
 msgstr "Действие клавиши «Backspace»"
 
-#: src/org.cafe.terminal.gschema.xml.in:259
+#: src/org.cafe.terminal.gschema.xml.in:261
 msgid ""
 "Sets what code the backspace key generates. Possible values are \"ascii-"
 "del\" for the ASCII DEL character, \"control-h\" for Control-H (AKA the "
@@ -630,15 +625,15 @@ msgid ""
 "correct setting for the Backspace key."
 msgstr ""
 "Устанавливает, какой код генерирует клавиша «Backspace». Возможные значения "
-"- «ascii-del» (ASCII DEL), «control-h» (ASCII BS), «escape-sequence» "
-"(escape-последовательность, обычно соответствующая клавишам «Backspace» или "
+"- «ascii-del» (ASCII DEL), «control-h» (ASCII BS), «escape-sequence» (escape-"
+"последовательность, обычно соответствующая клавишам «Backspace» или "
 "«Delete»). Рекомендуется установить значение «ascii-del»."
 
-#: src/org.cafe.terminal.gschema.xml.in:263
+#: src/org.cafe.terminal.gschema.xml.in:265
 msgid "Effect of the Delete key"
 msgstr "Действие клавиши «Delete»"
 
-#: src/org.cafe.terminal.gschema.xml.in:264
+#: src/org.cafe.terminal.gschema.xml.in:266
 msgid ""
 "Sets what code the delete key generates. Possible values are \"ascii-del\" "
 "for the ASCII DEL character, \"control-h\" for Control-H (AKA the ASCII BS "
@@ -651,11 +646,11 @@ msgstr ""
 "последовательность, обычно соответствующая клавишам «Backspace» или "
 "«Delete»). Рекомендуется установить значение «escape-sequence»."
 
-#: src/org.cafe.terminal.gschema.xml.in:268
+#: src/org.cafe.terminal.gschema.xml.in:270
 msgid "Whether to use the colors from the theme for the terminal widget"
 msgstr "Использовать ли шрифт из текущей темы для объекта терминала"
 
-#: src/org.cafe.terminal.gschema.xml.in:269
+#: src/org.cafe.terminal.gschema.xml.in:271
 msgid ""
 "If true, the theme color scheme used for text entry boxes will be used for "
 "the terminal, instead of colors provided by the user."
@@ -663,11 +658,11 @@ msgstr ""
 "Если установлено, для терминала будет использоваться цветовая схема полей "
 "ввода из текущей темы, а не цвета пользователя."
 
-#: src/org.cafe.terminal.gschema.xml.in:273
+#: src/org.cafe.terminal.gschema.xml.in:275
 msgid "Whether to use the system font"
 msgstr "Использовать ли системный шрифт"
 
-#: src/org.cafe.terminal.gschema.xml.in:274
+#: src/org.cafe.terminal.gschema.xml.in:276
 msgid ""
 "If true, the terminal will use the desktop-global standard font if it's "
 "monospace (and the most similar font it can come up with otherwise)."
@@ -675,11 +670,11 @@ msgstr ""
 "Если включено, терминал будет использовать глобальный стандартный шрифт, "
 "если он моноширинный (и наиболее похожий шрифт в противном случае)."
 
-#: src/org.cafe.terminal.gschema.xml.in:278
+#: src/org.cafe.terminal.gschema.xml.in:280
 msgid "Highlight S/Key challenges"
 msgstr "Выделять запросы S/Key"
 
-#: src/org.cafe.terminal.gschema.xml.in:279
+#: src/org.cafe.terminal.gschema.xml.in:281
 msgid ""
 "Popup a dialog when an S/Key challenge response query is detected and "
 "clicked on. Typing a password into the dialog will send it to the terminal."
@@ -687,23 +682,23 @@ msgstr ""
 "Показывать диалог при обнаружении ответа на запрос S/Key и нажатии на него. "
 "Ввод пароля в диалоге приведет к отправке его в терминал."
 
-#: src/org.cafe.terminal.gschema.xml.in:283
+#: src/org.cafe.terminal.gschema.xml.in:285
 msgid "Highlight URLs under mouse pointer"
 msgstr "Подсвечивать URL под курсором мыши"
 
-#: src/org.cafe.terminal.gschema.xml.in:284
+#: src/org.cafe.terminal.gschema.xml.in:286
 msgid ""
-"If true, URLs under mouse pointer are highlighted and can be opened by mouse"
-" click together with control key or used in context menu."
+"If true, URLs under mouse pointer are highlighted and can be opened by mouse "
+"click together with control key or used in context menu."
 msgstr ""
 "Если включено, URL под курсором мыши будут выделены и смогут быть открыты "
 "щелчком мыши с зажатой клавишей Control или через меню."
 
-#: src/org.cafe.terminal.gschema.xml.in:290
+#: src/org.cafe.terminal.gschema.xml.in:292
 msgid "Keyboard shortcut to open a new tab"
 msgstr "Комбинация клавиш для открытия новой вкладки"
 
-#: src/org.cafe.terminal.gschema.xml.in:291
+#: src/org.cafe.terminal.gschema.xml.in:293
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -714,14 +709,14 @@ msgstr ""
 "формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:295
+#: src/org.cafe.terminal.gschema.xml.in:297
 msgid "Keyboard shortcut to open a new window"
 msgstr "Комбинация клавиш для открытия нового окна"
 
-#: src/org.cafe.terminal.gschema.xml.in:296
+#: src/org.cafe.terminal.gschema.xml.in:298
 msgid ""
-"Keyboard shortcut key for opening a new window. Expressed as a string in the"
-" same format used for CTK+ resource files. If you set the option to the "
+"Keyboard shortcut key for opening a new window. Expressed as a string in the "
+"same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
@@ -729,56 +724,55 @@ msgstr ""
 "формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:300
+#: src/org.cafe.terminal.gschema.xml.in:302
 msgid "Keyboard shortcut to create a new profile"
 msgstr "Комбинация клавиш для создания нового профиля"
 
-#: src/org.cafe.terminal.gschema.xml.in:301
+#: src/org.cafe.terminal.gschema.xml.in:303
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
 "Expressed as a string in the same format used for CTK+ resource files. If "
-"you set the option to the special string \"disabled\", then there will be no"
-" keyboard shortcut for this action."
+"you set the option to the special string \"disabled\", then there will be no "
+"keyboard shortcut for this action."
 msgstr ""
 "Комбинация клавиш для вызова диалога создания профиля. Указывается в виде "
 "строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:305
+#: src/org.cafe.terminal.gschema.xml.in:307
 msgid "Keyboard shortcut to save the current tab contents to file"
 msgstr "Комбинация клавиш для записи содержимого текущей вкладки в файл"
 
-#: src/org.cafe.terminal.gschema.xml.in:306
+#: src/org.cafe.terminal.gschema.xml.in:308
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"Комбинация клавиш для записи содержимого текущей вкладки в файл. Указывается"
-" в виде строки в формате файлов ресурсов CTK+. Если установить специальное "
+"Комбинация клавиш для записи содержимого текущей вкладки в файл. Указывается "
+"в виде строки в формате файлов ресурсов CTK+. Если установить специальное "
 "значение «Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:310
+#: src/org.cafe.terminal.gschema.xml.in:312
 msgid "Keyboard shortcut to close a tab"
 msgstr "Комбинация клавиш для закрытия вкладки"
 
-#: src/org.cafe.terminal.gschema.xml.in:311
+#: src/org.cafe.terminal.gschema.xml.in:313
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 "Комбинация клавиш для закрытия вкладки. Указывается в виде строки в формате "
 "файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:315
+#: src/org.cafe.terminal.gschema.xml.in:317
 msgid "Keyboard shortcut to close a window"
 msgstr "Комбинация клавиш для закрытия окна"
 
-#: src/org.cafe.terminal.gschema.xml.in:316
+#: src/org.cafe.terminal.gschema.xml.in:318
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -789,11 +783,11 @@ msgstr ""
 "файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:320
+#: src/org.cafe.terminal.gschema.xml.in:322
 msgid "Keyboard shortcut to copy text"
 msgstr "Комбинация клавиш для копирования текста"
 
-#: src/org.cafe.terminal.gschema.xml.in:321
+#: src/org.cafe.terminal.gschema.xml.in:323
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -805,11 +799,11 @@ msgstr ""
 "специальное значение «Выключено», для этого действия не будет комбинации "
 "клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:325
+#: src/org.cafe.terminal.gschema.xml.in:327
 msgid "Keyboard shortcut to paste text"
 msgstr "Комбинация клавиш для вставки текста"
 
-#: src/org.cafe.terminal.gschema.xml.in:326
+#: src/org.cafe.terminal.gschema.xml.in:328
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
 "terminal. Expressed as a string in the same format used for CTK+ resource "
@@ -821,11 +815,11 @@ msgstr ""
 "специальное значение «Выключено», для этого действия не будет комбинации "
 "клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:330
+#: src/org.cafe.terminal.gschema.xml.in:332
 msgid "Keyboard shortcut to select all text"
 msgstr "Комбинация клавиш для выделения всего текста"
 
-#: src/org.cafe.terminal.gschema.xml.in:331
+#: src/org.cafe.terminal.gschema.xml.in:333
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -836,11 +830,11 @@ msgstr ""
 "виде строки в формате файлов ресурсов CTK+. Если установить специальное "
 "значение «Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:335
+#: src/org.cafe.terminal.gschema.xml.in:337
 msgid "Keyboard shortcut to show the find dialog"
 msgstr "Комбинация клавиш для вызова диалогового окна поиска"
 
-#: src/org.cafe.terminal.gschema.xml.in:336
+#: src/org.cafe.terminal.gschema.xml.in:338
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -851,12 +845,12 @@ msgstr ""
 "строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:340
+#: src/org.cafe.terminal.gschema.xml.in:342
 msgid "Keyboard shortcut to find the next occurrence of the search term"
 msgstr ""
 "Комбинация клавиш для нахождения следующего вхождения искомого выражения"
 
-#: src/org.cafe.terminal.gschema.xml.in:341
+#: src/org.cafe.terminal.gschema.xml.in:343
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
 "the terminal. Expressed as a string in the same format used for CTK+ "
@@ -868,15 +862,15 @@ msgstr ""
 "установить эту настройку в значение определяемое строкой \"отключено\", "
 "тогда для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:345
+#: src/org.cafe.terminal.gschema.xml.in:347
 msgid "Keyboard shortcut to find the previous occurrence of the search term"
 msgstr ""
 "Комбинация клавиш для нахождения предыдущего вхождения искомого выражения"
 
-#: src/org.cafe.terminal.gschema.xml.in:346
+#: src/org.cafe.terminal.gschema.xml.in:348
 msgid ""
-"Keyboard shortcut key for finding the previous occurrence of the search term"
-" in the terminal. Expressed as a string in the same format used for CTK+ "
+"Keyboard shortcut key for finding the previous occurrence of the search term "
+"in the terminal. Expressed as a string in the same format used for CTK+ "
 "resource files. If you set the option to the special string \"disabled\", "
 "then there will be no keyboard shortcut for this action."
 msgstr ""
@@ -885,41 +879,41 @@ msgstr ""
 "установить эту настройку в значение определяемое строкой \"отключено\", "
 "тогда для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:350
+#: src/org.cafe.terminal.gschema.xml.in:352
 msgid "Keyboard shortcut to toggle full screen mode"
 msgstr "Комбинация клавиш для переключения в полноэкранный режим"
 
-#: src/org.cafe.terminal.gschema.xml.in:351
+#: src/org.cafe.terminal.gschema.xml.in:353
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
-"the special string \"disabled\", then there will be no keyboard shortcut for"
-" this action."
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
 msgstr ""
-"Комбинация клавиш для переключения полноэкранного режима. Указывается в виде"
-" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
-" «Выключено», для этого действия не будет комбинации клавиш."
+"Комбинация клавиш для переключения полноэкранного режима. Указывается в виде "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
+"«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:355
+#: src/org.cafe.terminal.gschema.xml.in:357
 msgid "Keyboard shortcut to toggle the visibility of the menubar"
 msgstr "Комбинация клавиш для переключения видимости меню"
 
-#: src/org.cafe.terminal.gschema.xml.in:356
+#: src/org.cafe.terminal.gschema.xml.in:358
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
 "a string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения видимости строки меню. Указывается в виде"
-" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
-" «Выключено», для этого действия не будет комбинации клавиш."
+"Комбинация клавиш для переключения видимости строки меню. Указывается в виде "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
+"«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:360
+#: src/org.cafe.terminal.gschema.xml.in:362
 msgid "Keyboard shortcut to set the terminal title"
 msgstr "Комбинация клавиш для установки заголовка терминала"
 
-#: src/org.cafe.terminal.gschema.xml.in:361
+#: src/org.cafe.terminal.gschema.xml.in:363
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -930,11 +924,11 @@ msgstr ""
 "строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:365
+#: src/org.cafe.terminal.gschema.xml.in:367
 msgid "Keyboard shortcut to reset the terminal"
 msgstr "Комбинация клавиш для сброса терминала"
 
-#: src/org.cafe.terminal.gschema.xml.in:366
+#: src/org.cafe.terminal.gschema.xml.in:368
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -945,41 +939,41 @@ msgstr ""
 "файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:370
+#: src/org.cafe.terminal.gschema.xml.in:372
 msgid "Keyboard shortcut to reset and clear the terminal"
 msgstr "Комбинация клавиш для сброса и очистки терминала"
 
-#: src/org.cafe.terminal.gschema.xml.in:371
+#: src/org.cafe.terminal.gschema.xml.in:373
 msgid ""
-"Keyboard shortcut key to reset and clear the terminal. Expressed as a string"
-" in the same format used for CTK+ resource files. If you set the option to "
-"the special string \"disabled\", then there will be no keyboard shortcut for"
-" this action."
+"Keyboard shortcut key to reset and clear the terminal. Expressed as a string "
+"in the same format used for CTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
 msgstr ""
 "Комбинация клавиш для сброса и очистки терминала. Указывается в виде строки "
 "в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:375
+#: src/org.cafe.terminal.gschema.xml.in:377
 msgid "Keyboard shortcut to switch to the previous tab"
 msgstr "Комбинация клавиш для переключения на предыдущую вкладку"
 
-#: src/org.cafe.terminal.gschema.xml.in:376
+#: src/org.cafe.terminal.gschema.xml.in:378
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
-"the special string \"disabled\", then there will be no keyboard shortcut for"
-" this action."
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
 msgstr ""
-"Комбинация клавиш для переключения на предыдущую вкладку. Указывается в виде"
-" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
-" «Выключено», для этого действия не будет комбинации клавиш."
+"Комбинация клавиш для переключения на предыдущую вкладку. Указывается в виде "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
+"«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:380
+#: src/org.cafe.terminal.gschema.xml.in:382
 msgid "Keyboard shortcut to switch to the next tab"
 msgstr "Комбинация клавиш для переключения на следующую вкладку"
 
-#: src/org.cafe.terminal.gschema.xml.in:381
+#: src/org.cafe.terminal.gschema.xml.in:383
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -990,41 +984,41 @@ msgstr ""
 "строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:385
+#: src/org.cafe.terminal.gschema.xml.in:387
 msgid "Keyboard shortcut to switch to the previous profile"
 msgstr "Комбинация клавиш для переключения на предыдущий профиль"
 
-#: src/org.cafe.terminal.gschema.xml.in:386
+#: src/org.cafe.terminal.gschema.xml.in:388
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
 "string in the same format used for CTK+ resource files. If you set the "
 "option to the special string \"disabled\", then there will be no keyboard "
 "shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на предыдущий профиль. Указывается в виде"
-" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
-" «Выключено», для этого действия не будет комбинации клавиш."
+"Комбинация клавиш для переключения на предыдущий профиль. Указывается в виде "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
+"«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:390
+#: src/org.cafe.terminal.gschema.xml.in:392
 msgid "Keyboard shortcut to switch to the next profile"
 msgstr "Комбинация клавиш для переключения на следующий профиль"
 
-#: src/org.cafe.terminal.gschema.xml.in:391
+#: src/org.cafe.terminal.gschema.xml.in:393
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
-"the special string \"disabled\", then there will be no keyboard shortcut for"
-" this action."
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
 msgstr ""
 "Комбинация клавиш для переключения на следующий профиль. Указывается в виде "
 "строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:395
+#: src/org.cafe.terminal.gschema.xml.in:397
 msgid "Accelerator to move the current tab to the left."
 msgstr "Комбинация клавиш для перемещения текущей вкладки влево."
 
-#: src/org.cafe.terminal.gschema.xml.in:396
+#: src/org.cafe.terminal.gschema.xml.in:398
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -1035,175 +1029,166 @@ msgstr ""
 "строки в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», то для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:400
+#: src/org.cafe.terminal.gschema.xml.in:402
 msgid "Accelerator to move the current tab to the right."
 msgstr "Комбинация клавиш для перемещения текущей вкладки вправо."
 
-#: src/org.cafe.terminal.gschema.xml.in:401
+#: src/org.cafe.terminal.gschema.xml.in:403
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
 "the special string \"disabled\", then there will be no keybinding for this "
 "action."
 msgstr ""
-"Комбинация клавиш для перемещения текущей вкладки вправо. Указывается в виде"
-" строки в формате файлов ресурсов CTK+. Если установить специальное значение"
-" «Выключено», то для этого действия не будет комбинации клавиш."
+"Комбинация клавиш для перемещения текущей вкладки вправо. Указывается в виде "
+"строки в формате файлов ресурсов CTK+. Если установить специальное значение "
+"«Выключено», то для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:405
+#: src/org.cafe.terminal.gschema.xml.in:407
 msgid "Accelerator to detach current tab."
 msgstr "Комбинация клавиш для отделения текущей вкладки."
 
-#: src/org.cafe.terminal.gschema.xml.in:406
+#: src/org.cafe.terminal.gschema.xml.in:408
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
-"Комбинация клавиш для отделения текущей вкладки. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для отделения текущей вкладки. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», то для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:410
+#: src/org.cafe.terminal.gschema.xml.in:412
 msgid "Keyboard shortcut to switch to tab 1"
 msgstr "Комбинация клавиш для переключения на вкладку 1"
 
-#: src/org.cafe.terminal.gschema.xml.in:411
+#: src/org.cafe.terminal.gschema.xml.in:413
 msgid ""
-"Keyboard shortcut key for switch to tab 1. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 1. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 1. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 1. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:415
+#: src/org.cafe.terminal.gschema.xml.in:417
 msgid "Keyboard shortcut to switch to tab 2"
 msgstr "Комбинация клавиш для переключения на вкладку 2"
 
-#: src/org.cafe.terminal.gschema.xml.in:416
+#: src/org.cafe.terminal.gschema.xml.in:418
 msgid ""
-"Keyboard shortcut key for switch to tab 2. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 2. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 2. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 2. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:420
+#: src/org.cafe.terminal.gschema.xml.in:422
 msgid "Keyboard shortcut to switch to tab 3"
 msgstr "Комбинация клавиш для переключения на вкладку 3"
 
-#: src/org.cafe.terminal.gschema.xml.in:421
+#: src/org.cafe.terminal.gschema.xml.in:423
 msgid ""
-"Keyboard shortcut key for switch to tab 3. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 3. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 3. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 3. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:425
+#: src/org.cafe.terminal.gschema.xml.in:427
 msgid "Keyboard shortcut to switch to tab 4"
 msgstr "Комбинация клавиш для переключения на вкладку 4"
 
-#: src/org.cafe.terminal.gschema.xml.in:426
+#: src/org.cafe.terminal.gschema.xml.in:428
 msgid ""
-"Keyboard shortcut key for switch to tab 4. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 4. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 4. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 4. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:430
+#: src/org.cafe.terminal.gschema.xml.in:432
 msgid "Keyboard shortcut to switch to tab 5"
 msgstr "Комбинация клавиш для переключения на вкладку 5"
 
-#: src/org.cafe.terminal.gschema.xml.in:431
+#: src/org.cafe.terminal.gschema.xml.in:433
 msgid ""
-"Keyboard shortcut key for switch to tab 5. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 5. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 5. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 5. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:435
+#: src/org.cafe.terminal.gschema.xml.in:437
 msgid "Keyboard shortcut to switch to tab 6"
 msgstr "Комбинация клавиш для переключения на вкладку 6"
 
-#: src/org.cafe.terminal.gschema.xml.in:436
+#: src/org.cafe.terminal.gschema.xml.in:438
 msgid ""
-"Keyboard shortcut key for switch to tab 6. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 6. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 6. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 6. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:440
+#: src/org.cafe.terminal.gschema.xml.in:442
 msgid "Keyboard shortcut to switch to tab 7"
 msgstr "Комбинация клавиш для переключения на вкладку 7"
 
-#: src/org.cafe.terminal.gschema.xml.in:441
+#: src/org.cafe.terminal.gschema.xml.in:443
 msgid ""
-"Keyboard shortcut key for switch to tab 7. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 7. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 7. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 7. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:445
+#: src/org.cafe.terminal.gschema.xml.in:447
 msgid "Keyboard shortcut to switch to tab 8"
 msgstr "Комбинация клавиш для переключения на вкладку 8"
 
-#: src/org.cafe.terminal.gschema.xml.in:446
+#: src/org.cafe.terminal.gschema.xml.in:448
 msgid ""
-"Keyboard shortcut key for switch to tab 8. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 8. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 8. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 8. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:450
+#: src/org.cafe.terminal.gschema.xml.in:452
 msgid "Keyboard shortcut to switch to tab 9"
 msgstr "Комбинация клавиш для переключения на вкладку 9"
 
-#: src/org.cafe.terminal.gschema.xml.in:451
+#: src/org.cafe.terminal.gschema.xml.in:453
 msgid ""
-"Keyboard shortcut key for switch to tab 9. Expressed as a string in the same"
-" format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"Keyboard shortcut key for switch to tab 9. Expressed as a string in the same "
+"format used for CTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
-"Комбинация клавиш для переключения на вкладку 9. Указывается в виде строки в"
-" формате файлов ресурсов CTK+. Если установить специальное значение "
+"Комбинация клавиш для переключения на вкладку 9. Указывается в виде строки в "
+"формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:455
+#: src/org.cafe.terminal.gschema.xml.in:457
 msgid "Keyboard shortcut to switch to tab 10"
 msgstr "Комбинация клавиш для переключения на вкладку 10"
 
-#: src/org.cafe.terminal.gschema.xml.in:456
+#: src/org.cafe.terminal.gschema.xml.in:458
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1214,11 +1199,11 @@ msgstr ""
 "в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:460
+#: src/org.cafe.terminal.gschema.xml.in:462
 msgid "Keyboard shortcut to switch to tab 11"
 msgstr "Комбинация клавиш для переключения на вкладку 11"
 
-#: src/org.cafe.terminal.gschema.xml.in:461
+#: src/org.cafe.terminal.gschema.xml.in:463
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1229,11 +1214,11 @@ msgstr ""
 "в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:465
+#: src/org.cafe.terminal.gschema.xml.in:467
 msgid "Keyboard shortcut to switch to tab 12"
 msgstr "Комбинация клавиш для переключения на вкладку 12"
 
-#: src/org.cafe.terminal.gschema.xml.in:466
+#: src/org.cafe.terminal.gschema.xml.in:468
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1244,61 +1229,60 @@ msgstr ""
 "в формате файлов ресурсов CTK+. Если установить специальное значение "
 "«Выключено», для этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:470
+#: src/org.cafe.terminal.gschema.xml.in:472
 msgid "Keyboard shortcut to launch help"
 msgstr "Комбинация клавиш для открытия справки"
 
-#: src/org.cafe.terminal.gschema.xml.in:471
+#: src/org.cafe.terminal.gschema.xml.in:473
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
-"string \"disabled\", then there will be no keyboard shortcut for this "
-"action."
+"string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 "Комбинация клавиш для открытия справки. Указывается в виде строки в формате "
 "файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
 "этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:475
+#: src/org.cafe.terminal.gschema.xml.in:477
 msgid "Keyboard shortcut to make font larger"
 msgstr "Комбинация клавиш для увеличения шрифта"
 
-#: src/org.cafe.terminal.gschema.xml.in:476
+#: src/org.cafe.terminal.gschema.xml.in:478
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"Комбинация клавиш для увеличения шрифта. Указывается в виде строки в формате"
-" файлов ресурсов CTK+. Если установить специальное значение «Выключено», для"
-" этого действия не будет комбинации клавиш."
+"Комбинация клавиш для увеличения шрифта. Указывается в виде строки в формате "
+"файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
+"этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:480
+#: src/org.cafe.terminal.gschema.xml.in:482
 msgid "Keyboard shortcut to make font smaller"
 msgstr "Комбинация клавиш для уменьшения шрифта"
 
-#: src/org.cafe.terminal.gschema.xml.in:481
+#: src/org.cafe.terminal.gschema.xml.in:483
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
 "special string \"disabled\", then there will be no keyboard shortcut for "
 "this action."
 msgstr ""
-"Комбинация клавиш для уменьшения шрифта. Указывается в виде строки в формате"
-" файлов ресурсов CTK+. Если установить специальное значение «Выключено», для"
-" этого действия не будет комбинации клавиш."
+"Комбинация клавиш для уменьшения шрифта. Указывается в виде строки в формате "
+"файлов ресурсов CTK+. Если установить специальное значение «Выключено», для "
+"этого действия не будет комбинации клавиш."
 
-#: src/org.cafe.terminal.gschema.xml.in:485
+#: src/org.cafe.terminal.gschema.xml.in:487
 msgid "Keyboard shortcut to make font normal-size"
 msgstr "Комбинация клавиш для установки нормального размера шрифта"
 
-#: src/org.cafe.terminal.gschema.xml.in:486
+#: src/org.cafe.terminal.gschema.xml.in:488
 msgid ""
-"Keyboard shortcut key for making font the normal size. Expressed as a string"
-" in the same format used for CTK+ resource files. If you set the option to "
-"the special string \"disabled\", then there will be no keyboard shortcut for"
-" this action."
+"Keyboard shortcut key for making font the normal size. Expressed as a string "
+"in the same format used for CTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
 msgstr ""
 "Комбинация клавиш для установки обычного размера шрифта. Указывается в виде "
 "строки в формате файлов ресурсов CTK+. Если установить специальное значение "
@@ -1324,14 +1308,12 @@ msgstr "зелёный на чёрном"
 msgid "White on black"
 msgstr "белый на чёрном"
 
-#. Translators: "Solarized" is the name of a colour scheme, "light" can be
-#. translated
+#. Translators: "Solarized" is the name of a colour scheme, "light" can be translated
 #: src/profile-editor.c:69
 msgid "Solarized light"
 msgstr "Solarized light"
 
-#. Translators: "Solarized" is the name of a colour scheme, "dark" can be
-#. translated
+#. Translators: "Solarized" is the name of a colour scheme, "dark" can be translated
 #: src/profile-editor.c:74
 msgid "Solarized dark"
 msgstr "Solarized dark"
@@ -1836,8 +1818,8 @@ msgstr "Прокрутка"
 msgid ""
 "<small><i><b>Note:</b> These options may cause some applications to behave "
 "incorrectly.  They are only here to allow you to work around certain "
-"applications and operating systems that expect different terminal "
-"behavior.</i></small>"
+"applications and operating systems that expect different terminal behavior.</"
+"i></small>"
 msgstr ""
 "<small><i><b>Замечание:</b> Эти параметры могут вызвать некорректную работу "
 "некоторых приложений. Они представлены только для того, чтобы позволить "
@@ -1870,8 +1852,7 @@ msgstr "_Пароль:"
 
 #: src/skey-popup.c:165
 msgid "The text you clicked on doesn't seem to be a valid S/Key challenge."
-msgstr ""
-"Текст, по которому вы щелкнули, не является правильным запросом S/Key."
+msgstr "Текст, по которому вы щелкнули, не является правильным запросом S/Key."
 
 #: src/skey-popup.c:176
 msgid "The text you clicked on doesn't seem to be a valid OTP challenge."
@@ -1937,7 +1918,7 @@ msgstr "Найти следующее"
 msgid "Find Previous"
 msgstr "Найти предыдущее"
 
-#: src/terminal-accels.c:234 src/terminal-window.c:4247
+#: src/terminal-accels.c:234 src/terminal-window.c:4165
 msgid "Set Title"
 msgstr "Установить заголовок"
 
@@ -2066,59 +2047,59 @@ msgstr "_Действие"
 msgid "Shortcut _Key"
 msgstr "_Комбинация клавиш"
 
-#: src/terminal-app.c:523
+#: src/terminal-app.c:525
 msgid "Click button to choose profile"
 msgstr "Нажать кнопку, чтобы выбрать профиль"
 
-#: src/terminal-app.c:606
+#: src/terminal-app.c:608
 msgid "Profile list"
 msgstr "Список профилей"
 
-#: src/terminal-app.c:683
+#: src/terminal-app.c:685
 #, c-format
 msgid "Delete profile “%s”?"
 msgstr "Удалить профиль «%s»?"
 
-#: src/terminal-app.c:687
+#: src/terminal-app.c:689
 msgid "_Cancel"
 msgstr "О_тмена"
 
-#: src/terminal-app.c:692
+#: src/terminal-app.c:694
 msgid "_Delete"
 msgstr "_Удалить"
 
-#: src/terminal-app.c:699
+#: src/terminal-app.c:701
 msgid "Delete Profile"
 msgstr "Удаление профиля"
 
-#: src/terminal-app.c:1146
+#: src/terminal-app.c:1150
 #, c-format
 msgid ""
 "You already have a profile called “%s”. Do you want to create another "
 "profile with the same name?"
 msgstr ""
-"Профиль с именем «%s» уже существует. Вы действительно хотите создать другой"
-" профиль с таким же именем?"
+"Профиль с именем «%s» уже существует. Вы действительно хотите создать другой "
+"профиль с таким же именем?"
 
-#: src/terminal-app.c:1241
+#: src/terminal-app.c:1245
 msgid "Choose base profile"
 msgstr "Выберите основной профиль"
 
-#: src/terminal-app.c:1828
+#: src/terminal-app.c:1832
 #, c-format
 msgid "No such profile \"%s\", using default profile\n"
 msgstr "Профиль «%s» не существует, используется профиль по умолчанию\n"
 
-#: src/terminal-app.c:1855
+#: src/terminal-app.c:1859
 #, c-format
 msgid "Invalid geometry string \"%s\"\n"
 msgstr "Строка размера «%s» недопустима\n"
 
-#: src/terminal-app.c:2061
+#: src/terminal-app.c:2065
 msgid "User Defined"
 msgstr "Определённая пользователем"
 
-#: src/terminal.c:585
+#: src/terminal.c:586
 #, c-format
 msgid "Failed to parse arguments: %s\n"
 msgstr "Не удалось  определить аргументы: %s\n"
@@ -2260,15 +2241,15 @@ msgstr "Вьетнамская"
 msgid "Thai"
 msgstr "Тайская"
 
-#: src/terminal-encoding.c:506 src/terminal-encoding.c:531
+#: src/terminal-encoding.c:504 src/terminal-encoding.c:529
 msgid "_Description"
 msgstr "_Описание"
 
-#: src/terminal-encoding.c:515 src/terminal-encoding.c:540
+#: src/terminal-encoding.c:513 src/terminal-encoding.c:538
 msgid "_Encoding"
 msgstr "_Кодировка"
 
-#: src/terminal-encoding.c:598
+#: src/terminal-encoding.c:596
 msgid "Current Locale"
 msgstr "Текущей локали"
 
@@ -2279,8 +2260,8 @@ msgid ""
 "might want to create a profile with the desired setting, and use the new '--"
 "profile' option\n"
 msgstr ""
-"Параметр «%s» больше не поддерживается этой версией программы cafe-terminal;"
-" вы можете создать профиль с желаемыми параметрами и использовать новый "
+"Параметр «%s» больше не поддерживается этой версией программы cafe-terminal; "
+"вы можете создать профиль с желаемыми параметрами и использовать новый "
 "параметр «--profile»\n"
 
 #: src/terminal-options.c:209
@@ -2288,31 +2269,31 @@ msgstr ""
 msgid "Argument to \"%s\" is not a valid command: %s"
 msgstr "Аргумент для «%s» не является допустимой командой: %s"
 
-#: src/terminal-options.c:348
+#: src/terminal-options.c:350
 msgid "Two roles given for one window"
 msgstr "Две роли заданы для одного окна"
 
-#: src/terminal-options.c:369 src/terminal-options.c:402
+#: src/terminal-options.c:372 src/terminal-options.c:406
 #, c-format
 msgid "\"%s\" option given twice for the same window\n"
 msgstr "Параметр «%s» задан дважды для одного окна\n"
 
-#: src/terminal-options.c:601
+#: src/terminal-options.c:606
 #, c-format
 msgid "\"%s\" is not a valid zoom factor"
 msgstr "Значение «%s» не является допустимым масштабом"
 
-#: src/terminal-options.c:608
+#: src/terminal-options.c:613
 #, c-format
 msgid "Zoom factor \"%g\" is too small, using %g\n"
 msgstr "Масштаб %g слишком мал, используется масштаб %g\n"
 
-#: src/terminal-options.c:616
+#: src/terminal-options.c:621
 #, c-format
 msgid "Zoom factor \"%g\" is too large, using %g\n"
 msgstr "Масштаб %g слишком велик, используется масштаб %g\n"
 
-#: src/terminal-options.c:651
+#: src/terminal-options.c:657
 #, c-format
 msgid ""
 "Option \"%s\" requires specifying the command to run on the rest of the "
@@ -2321,134 +2302,134 @@ msgstr ""
 "Параметр «%s» требует указания команды для запуска в оставшейся части "
 "командной строки"
 
-#: src/terminal-options.c:812
+#: src/terminal-options.c:818
 msgid "Not a valid terminal config file."
 msgstr "Неверный формат файла конфигурации терминала"
 
-#: src/terminal-options.c:825
+#: src/terminal-options.c:831
 msgid "Incompatible terminal config file version."
 msgstr "Версия файла конфигурации и терминала не совместимы"
 
-#: src/terminal-options.c:953
+#: src/terminal-options.c:959
 msgid ""
 "Do not register with the activation nameserver, do not re-use an active "
 "terminal"
 msgstr ""
-"Не регистрировать с помощью сервера имён активации, не использовать повторно"
-" терминал"
+"Не регистрировать с помощью сервера имён активации, не использовать повторно "
+"терминал"
 
-#: src/terminal-options.c:962
+#: src/terminal-options.c:968
 msgid "Load a terminal configuration file"
 msgstr "Загрузить конфигурацию терминала из файла"
 
-#: src/terminal-options.c:971
+#: src/terminal-options.c:977
 msgid "Save the terminal configuration to a file"
 msgstr "Сохранить конфигурацию терминала в файл"
 
-#: src/terminal-options.c:986
+#: src/terminal-options.c:992
 msgid "Open a new window containing a tab with the default profile"
 msgstr "Открыть новое окно, содержащее вкладку с профилем по умолчанию"
 
-#: src/terminal-options.c:995
+#: src/terminal-options.c:1001
 msgid "Open a new tab in the last-opened window with the default profile"
 msgstr ""
 "Открыть новую вкладку с профилем по умолчанию в последнем открытом окне"
 
-#: src/terminal-options.c:1009
+#: src/terminal-options.c:1015
 msgid "Turn on the menubar"
 msgstr "Показать строку меню"
 
-#: src/terminal-options.c:1018
+#: src/terminal-options.c:1024
 msgid "Turn off the menubar"
 msgstr "Скрыть строку меню"
 
-#: src/terminal-options.c:1027
+#: src/terminal-options.c:1033
 msgid "Maximize the window"
 msgstr "Развёртывание окна"
 
-#: src/terminal-options.c:1036
+#: src/terminal-options.c:1042
 msgid "Full-screen the window"
 msgstr "Развернуть во весь экран"
 
-#: src/terminal-options.c:1045
+#: src/terminal-options.c:1051
 msgid ""
 "Set the window size; for example: 80x24, or 80x24+200+200 (COLSxROWS+X+Y)"
 msgstr ""
 "Задать размер окна; пример: 80x24 или 80x24+200+200 (СТОЛБЦОВxСТРОК+X+Y)"
 
-#: src/terminal-options.c:1046
+#: src/terminal-options.c:1052
 msgid "GEOMETRY"
 msgstr "ГЕОМЕТРИЯ"
 
-#: src/terminal-options.c:1054
+#: src/terminal-options.c:1060
 msgid "Set the window role"
 msgstr "Установить роль окна"
 
-#: src/terminal-options.c:1055
+#: src/terminal-options.c:1061
 msgid "ROLE"
 msgstr "РОЛЬ"
 
-#: src/terminal-options.c:1063
+#: src/terminal-options.c:1069
 msgid "Set the last specified tab as the active one in its window"
 msgstr "Установить последнюю указанную вкладку как активную в этом окне"
 
-#: src/terminal-options.c:1077
+#: src/terminal-options.c:1083
 msgid "Execute the argument to this option inside the terminal"
 msgstr "Выполнить аргумент к этому параметру в терминале"
 
-#: src/terminal-options.c:1086
+#: src/terminal-options.c:1092
 msgid "Use the given profile instead of the default profile"
 msgstr "Использовать данный профиль вместо профиля по умолчанию"
 
-#: src/terminal-options.c:1087
+#: src/terminal-options.c:1093
 msgid "PROFILE-NAME"
 msgstr "ИМЯ-ПРОФИЛЯ"
 
-#: src/terminal-options.c:1095
+#: src/terminal-options.c:1101
 msgid "Set the terminal title"
 msgstr "Установить заголовок терминала"
 
-#: src/terminal-options.c:1096
+#: src/terminal-options.c:1102
 msgid "TITLE"
 msgstr "ЗАГОЛОВОК"
 
-#: src/terminal-options.c:1104
+#: src/terminal-options.c:1110
 msgid "Set the working directory"
 msgstr "Установить рабочий каталог"
 
-#: src/terminal-options.c:1105
+#: src/terminal-options.c:1111
 msgid "DIRNAME"
 msgstr "КАТАЛОГ"
 
-#: src/terminal-options.c:1113
+#: src/terminal-options.c:1119
 msgid "Set the terminal's zoom factor (1.0 = normal size)"
 msgstr "Установить масштаб терминала (1.0 = обычный размер)"
 
-#: src/terminal-options.c:1114
+#: src/terminal-options.c:1120
 msgid "ZOOM"
 msgstr "МАСШТАБ"
 
-#: src/terminal-options.c:1365 src/terminal-options.c:1368
+#: src/terminal-options.c:1371 src/terminal-options.c:1374
 msgid "CAFE Terminal Emulator"
 msgstr "Эмулятор терминала CAFE"
 
-#: src/terminal-options.c:1369
+#: src/terminal-options.c:1375
 msgid "Show CAFE Terminal options"
 msgstr "Показать параметры терминала CAFE"
 
-#: src/terminal-options.c:1379
+#: src/terminal-options.c:1385
 msgid ""
 "Options to open new windows or terminal tabs; more than one of these may be "
 "specified:"
 msgstr ""
-"Параметры для открытия новых окон или вкладов терминала; эти параметры могут"
-" быть использованы несколько раз:"
+"Параметры для открытия новых окон или вкладов терминала; эти параметры могут "
+"быть использованы несколько раз:"
 
-#: src/terminal-options.c:1380
+#: src/terminal-options.c:1386
 msgid "Show terminal options"
 msgstr "Показать параметры терминала"
 
-#: src/terminal-options.c:1388
+#: src/terminal-options.c:1394
 msgid ""
 "Window options; if used before the first --window or --tab argument, sets "
 "the default for all windows:"
@@ -2456,49 +2437,49 @@ msgstr ""
 "Параметры окна; если используются до первого аргумента --window или --tab, "
 "устанавливаются по умолчанию для всех окон"
 
-#: src/terminal-options.c:1389
+#: src/terminal-options.c:1395
 msgid "Show per-window options"
 msgstr "Показать параметры, применяемые к окну"
 
-#: src/terminal-options.c:1397
+#: src/terminal-options.c:1403
 msgid ""
 "Terminal options; if used before the first --window or --tab argument, sets "
 "the default for all terminals:"
 msgstr ""
-"Параметры терминала; Если используются до первого аргумента --window или "
-"--tab, устанавливаются по умолчанию для всех терминалов:"
+"Параметры терминала; Если используются до первого аргумента --window или --"
+"tab, устанавливаются по умолчанию для всех терминалов:"
 
-#: src/terminal-options.c:1398
+#: src/terminal-options.c:1404
 msgid "Show per-terminal options"
 msgstr "Показать параметры, применяемые к терминалу"
 
-#: src/terminal-profile.c:168
+#: src/terminal-profile.c:169
 msgid "Unnamed"
 msgstr "Безымянный"
 
-#: src/terminal-screen.c:1520
+#: src/terminal-screen.c:1521
 msgid "_Profile Preferences"
 msgstr "Параметры п_рофиля"
 
-#: src/terminal-screen.c:1521 src/terminal-screen.c:1966
+#: src/terminal-screen.c:1522 src/terminal-screen.c:1965
 msgid "_Relaunch"
 msgstr "Перезапуск"
 
-#: src/terminal-screen.c:1524
+#: src/terminal-screen.c:1525
 msgid "There was an error creating the child process for this terminal"
 msgstr "Произошла ошибка при создании дочернего процесса для этого терминала"
 
-#: src/terminal-screen.c:1971
+#: src/terminal-screen.c:1970
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "Дочерний процесс корректно завершился с кодом %d."
 
-#: src/terminal-screen.c:1976
+#: src/terminal-screen.c:1975
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "Работа дочернего процесса прервана по сигналу %d."
 
-#: src/terminal-screen.c:1981
+#: src/terminal-screen.c:1980
 msgid "The child process was terminated."
 msgstr "Работа дочернего процесса прервана."
 
@@ -2506,20 +2487,20 @@ msgstr "Работа дочернего процесса прервана."
 msgid "Close tab"
 msgstr "Закрыть вкладку"
 
-#: src/terminal-tabs-menu.c:201
+#: src/terminal-tabs-menu.c:196
 msgid "Switch to this tab"
 msgstr "Переключиться на эту вкладку"
 
-#: src/terminal-util.c:145
+#: src/terminal-util.c:146
 msgid "There was an error displaying help"
 msgstr "Ошибка при отображении справки"
 
-#: src/terminal-util.c:217
+#: src/terminal-util.c:218
 #, c-format
 msgid "Could not open the address “%s”"
 msgstr "Не удалось открыть адрес «%s»"
 
-#: src/terminal-util.c:325
+#: src/terminal-util.c:326
 msgid ""
 "CAFE Terminal is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
@@ -2531,10 +2512,10 @@ msgstr ""
 "опубликованной Фондом свободного программного обеспечения; либо версии 3 "
 "этой лицензии, либо (по вашему выбору) любой более поздней версии."
 
-#: src/terminal-util.c:329
+#: src/terminal-util.c:330
 msgid ""
-"CAFE Terminal is distributed in the hope that it will be useful, but WITHOUT"
-" ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"CAFE Terminal is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
 "FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
 "more details."
 msgstr ""
@@ -2544,21 +2525,22 @@ msgstr ""
 "ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Для получения дополнительных сведений "
 "обратитесь к лицензии GNU General Public License."
 
-#: src/terminal-util.c:333
+#: src/terminal-util.c:334
 msgid ""
-"You should have received a copy of the GNU General Public License along with"
-" CAFE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
+"You should have received a copy of the GNU General Public License along with "
+"CAFE Terminal; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
 "Вы должны были получить копию лицензии GNU General Public License c "
-"программой CAFE Terminal. Если это не так, известите об этом Фонд свободного"
-" программного обеспечения по адресу Free Software Foundation, Inc., 51 "
+"программой CAFE Terminal. Если это не так, известите об этом Фонд свободного "
+"программного обеспечения по адресу Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 
 #. Translators: This is the label of a menu item to choose a profile.
 #. * _%d is used as the accelerator (with d between 1 and 9), and
 #. * the %s is the name of the terminal profile.
-#: src/terminal-window.c:618
+#.
+#: src/terminal-window.c:613
 #, c-format
 msgid "_%d. %s"
 msgstr "_%d. %s"
@@ -2566,238 +2548,239 @@ msgstr "_%d. %s"
 #. Translators: This is the label of a menu item to choose a profile.
 #. * _%c is used as the accelerator (it will be a character between A and Z),
 #. * and the %s is the name of the terminal profile.
-#: src/terminal-window.c:624
+#.
+#: src/terminal-window.c:619
 #, c-format
 msgid "_%c. %s"
 msgstr "_%c. %s"
 
-#: src/terminal-window.c:1885
+#: src/terminal-window.c:1820
 msgid "_File"
 msgstr "_Файл"
 
-#: src/terminal-window.c:1886 src/terminal-window.c:1899
-#: src/terminal-window.c:2140
+#: src/terminal-window.c:1821 src/terminal-window.c:1834
+#: src/terminal-window.c:2075
 msgid "Open _Terminal"
 msgstr "Открыть _терминал"
 
-#: src/terminal-window.c:1887 src/terminal-window.c:1904
-#: src/terminal-window.c:2145
+#: src/terminal-window.c:1822 src/terminal-window.c:1839
+#: src/terminal-window.c:2080
 msgid "Open Ta_b"
 msgstr "Открыть _вкладку"
 
-#: src/terminal-window.c:1888
+#: src/terminal-window.c:1823
 msgid "_Edit"
 msgstr "_Правка"
 
-#: src/terminal-window.c:1889
+#: src/terminal-window.c:1824
 msgid "_View"
 msgstr "_Вид"
 
-#: src/terminal-window.c:1890
+#: src/terminal-window.c:1825
 msgid "_Search"
 msgstr "П_оиск"
 
-#: src/terminal-window.c:1891
+#: src/terminal-window.c:1826
 msgid "_Terminal"
 msgstr "_Терминал"
 
-#: src/terminal-window.c:1892
+#: src/terminal-window.c:1827
 msgid "Ta_bs"
 msgstr "В_кладки"
 
-#: src/terminal-window.c:1893
+#: src/terminal-window.c:1828
 msgid "_Help"
 msgstr "_Справка"
 
-#: src/terminal-window.c:1909
+#: src/terminal-window.c:1844
 msgid "New _Profile…"
 msgstr "Создать _профиль…"
 
-#: src/terminal-window.c:1914
+#: src/terminal-window.c:1849
 msgid "_Save Contents"
 msgstr "Со_хранить содержимое"
 
-#: src/terminal-window.c:1919 src/terminal-window.c:2155
+#: src/terminal-window.c:1854 src/terminal-window.c:2090
 msgid "C_lose Tab"
 msgstr "Закрыть в_кладку"
 
-#: src/terminal-window.c:1924
+#: src/terminal-window.c:1859
 msgid "_Close Window"
 msgstr "_Закрыть окно"
 
-#: src/terminal-window.c:1931 src/terminal-window.c:2125
+#: src/terminal-window.c:1866 src/terminal-window.c:2060
 msgid "_Copy"
 msgstr "_Копировать"
 
-#: src/terminal-window.c:1936 src/terminal-window.c:2130
+#: src/terminal-window.c:1871 src/terminal-window.c:2065
 msgid "_Paste"
 msgstr "Вст_авить"
 
-#: src/terminal-window.c:1941 src/terminal-window.c:2135
+#: src/terminal-window.c:1876 src/terminal-window.c:2070
 msgid "Paste _Filenames"
 msgstr "Вставить _имена файлов"
 
-#: src/terminal-window.c:1946
+#: src/terminal-window.c:1881
 msgid "Select _All"
 msgstr "Выделить _всё"
 
-#: src/terminal-window.c:1951
+#: src/terminal-window.c:1886
 msgid "P_rofiles…"
 msgstr "П_рофили…"
 
-#: src/terminal-window.c:1956
+#: src/terminal-window.c:1891
 msgid "_Keyboard Shortcuts…"
 msgstr "_Комбинации клавиш…"
 
-#: src/terminal-window.c:1961
+#: src/terminal-window.c:1896
 msgid "Pr_ofile Preferences"
 msgstr "Параметры п_рофиля"
 
-#: src/terminal-window.c:1968
+#: src/terminal-window.c:1903
 msgid "Zoom _In"
 msgstr "У_величить"
 
-#: src/terminal-window.c:1973
+#: src/terminal-window.c:1908
 msgid "Zoom _Out"
 msgstr "У_меньшить"
 
-#: src/terminal-window.c:1978
+#: src/terminal-window.c:1913
 msgid "_Normal Size"
 msgstr "_Нормальный размер"
 
-#: src/terminal-window.c:1985
+#: src/terminal-window.c:1920
 msgid "_Find..."
 msgstr "_Поиск..."
 
-#: src/terminal-window.c:1990
+#: src/terminal-window.c:1925
 msgid "Find Ne_xt"
 msgstr "Найти _следующее"
 
-#: src/terminal-window.c:1995
+#: src/terminal-window.c:1930
 msgid "Find Pre_vious"
 msgstr "Найти пр_едыдущее"
 
-#: src/terminal-window.c:2000
+#: src/terminal-window.c:1935
 msgid "_Clear Highlight"
 msgstr "Очистить выделение"
 
-#: src/terminal-window.c:2006
+#: src/terminal-window.c:1941
 msgid "Go to _Line..."
 msgstr "Перейти к _строке…"
 
-#: src/terminal-window.c:2011
+#: src/terminal-window.c:1946
 msgid "_Incremental Search..."
 msgstr "По_шаговый поиск…"
 
-#: src/terminal-window.c:2018
+#: src/terminal-window.c:1953
 msgid "Change _Profile"
 msgstr "Изменить _профиль"
 
-#: src/terminal-window.c:2020
+#: src/terminal-window.c:1955
 msgid "_Previous Profile"
 msgstr "_Предыдущий профиль"
 
-#: src/terminal-window.c:2025
+#: src/terminal-window.c:1960
 msgid "_Next Profile"
 msgstr "_Следующий профиль"
 
-#: src/terminal-window.c:2030
+#: src/terminal-window.c:1965
 msgid "_Set Title…"
 msgstr "_Установить заголовок…"
 
-#: src/terminal-window.c:2034
+#: src/terminal-window.c:1969
 msgid "Set _Character Encoding"
 msgstr "Установить _кодировку символов"
 
-#: src/terminal-window.c:2036
+#: src/terminal-window.c:1971
 msgid "_Reset"
 msgstr "_Сброс"
 
-#: src/terminal-window.c:2041
+#: src/terminal-window.c:1976
 msgid "Reset and C_lear"
 msgstr "Сброс и о_чистка"
 
-#: src/terminal-window.c:2048
+#: src/terminal-window.c:1983
 msgid "_Add or Remove…"
 msgstr "_Добавить или удалить…"
 
-#: src/terminal-window.c:2055
+#: src/terminal-window.c:1990
 msgid "_Previous Tab"
 msgstr "На п_редыдущую вкладку"
 
-#: src/terminal-window.c:2060
+#: src/terminal-window.c:1995
 msgid "_Next Tab"
 msgstr "На _следующую вкладку"
 
-#: src/terminal-window.c:2065
+#: src/terminal-window.c:2000
 msgid "Move Tab _Left"
 msgstr "Переместить вкладку в_лево"
 
-#: src/terminal-window.c:2070
+#: src/terminal-window.c:2005
 msgid "Move Tab _Right"
 msgstr "Переместить вкладку в_право"
 
-#: src/terminal-window.c:2075
+#: src/terminal-window.c:2010
 msgid "_Detach tab"
 msgstr "От_цепить вк_ладку"
 
-#: src/terminal-window.c:2082
+#: src/terminal-window.c:2017
 msgid "_Contents"
 msgstr "_Содержание"
 
-#: src/terminal-window.c:2087
+#: src/terminal-window.c:2022
 msgid "_About"
 msgstr "_О программе"
 
-#: src/terminal-window.c:2094
+#: src/terminal-window.c:2029
 msgid "_Send Mail To…"
 msgstr "_Послать E-mail…"
 
-#: src/terminal-window.c:2099
+#: src/terminal-window.c:2034
 msgid "_Copy E-mail Address"
 msgstr "Скопировать адрес E-mail"
 
-#: src/terminal-window.c:2104
+#: src/terminal-window.c:2039
 msgid "C_all To…"
 msgstr "_Позвонить…"
 
-#: src/terminal-window.c:2109
+#: src/terminal-window.c:2044
 msgid "_Copy Call Address"
 msgstr "_Скопировать адрес E-mail"
 
-#: src/terminal-window.c:2114
+#: src/terminal-window.c:2049
 msgid "_Open Link"
 msgstr "_Открыть ссылку"
 
-#: src/terminal-window.c:2119
+#: src/terminal-window.c:2054
 msgid "_Copy Link Address"
 msgstr "_Копировать адрес ссылки"
 
-#: src/terminal-window.c:2123
+#: src/terminal-window.c:2058
 msgid "P_rofiles"
 msgstr "П_рофили"
 
-#: src/terminal-window.c:2150 src/terminal-window.c:3640
+#: src/terminal-window.c:2085 src/terminal-window.c:3566
 msgid "C_lose Window"
 msgstr "_Закрыть окно"
 
-#: src/terminal-window.c:2160
+#: src/terminal-window.c:2095
 msgid "L_eave Full Screen"
 msgstr "Покинуть полны_й экран"
 
-#: src/terminal-window.c:2164
+#: src/terminal-window.c:2099
 msgid "_Input Methods"
 msgstr "Использовать метод вв_ода"
 
-#: src/terminal-window.c:2171
+#: src/terminal-window.c:2106
 msgid "Show _Menubar"
 msgstr "Показывать _меню"
 
-#: src/terminal-window.c:2177
+#: src/terminal-window.c:2112
 msgid "_Full Screen"
 msgstr "Развернуть на полный _экран"
 
-#: src/terminal-window.c:3618
+#: src/terminal-window.c:3544
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
@@ -2805,71 +2788,69 @@ msgstr ""
 "В некоторых терминалах этого окна запущены процессы. Закрытие окна прервёт "
 "выполнение всех этих процессов."
 
-#: src/terminal-window.c:3621
+#: src/terminal-window.c:3547
 msgid ""
-"There is still a process running in this terminal. Closing the terminal will"
-" kill it."
+"There is still a process running in this terminal. Closing the terminal will "
+"kill it."
 msgstr ""
-"В терминале запущен процесс.  Закрытие терминала прервёт выполнение "
-"процесса."
+"В терминале запущен процесс.  Закрытие терминала прервёт выполнение процесса."
 
-#: src/terminal-window.c:3624
+#: src/terminal-window.c:3550
 msgid "There are multiple tabs open in this window."
 msgstr "В этом окне открыто несколько вкладок"
 
-#: src/terminal-window.c:3633
+#: src/terminal-window.c:3559
 msgid "Close this window?"
 msgstr "Закрыть это окно?"
 
-#: src/terminal-window.c:3633
+#: src/terminal-window.c:3559
 msgid "Close this terminal?"
 msgstr "Закрыть этот терминал?"
 
-#: src/terminal-window.c:3640
+#: src/terminal-window.c:3566
 msgid "C_lose Terminal"
 msgstr "_Закрыть терминал"
 
-#: src/terminal-window.c:3706
+#: src/terminal-window.c:3632
 msgid "Could not save contents"
 msgstr "Не удалось сохранить содержимое"
 
-#: src/terminal-window.c:3730
+#: src/terminal-window.c:3656
 msgid "Save as..."
 msgstr "Сохранить как…"
 
-#: src/terminal-window.c:4264
+#: src/terminal-window.c:4182
 msgid "_Title:"
 msgstr "_Заголовок:"
 
-#: src/terminal-window.c:4449
+#: src/terminal-window.c:4366
 msgid "Contributors:"
 msgstr "Помощники:"
 
-#: src/terminal-window.c:4468
+#: src/terminal-window.c:4382
+#, c-format
+msgid ""
+"A terminal emulator for the CAFE desktop\n"
+"Using CTK %d.%d.%d\n"
+"and BTE %d.%d.%d"
+msgstr ""
+
+#: src/terminal-window.c:4389
 msgid "About CAFE Terminal"
 msgstr "О приложении Терминал CAFE"
 
-#: src/terminal-window.c:4469
+#: src/terminal-window.c:4390
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
 "Copyright © 2006 Guilherme de S. Pastore\n"
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
-"Copyright © 2012-2020 CAFE developers"
+"Copyright © 2012-2020 MATE developers\n"
+"Copyright © 2020-2023 Pablo Barciela"
 msgstr ""
-"Copyright © 2002–2004 Havoc Pennington\n"
-"Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
-"Copyright © 2006 Guilherme de S. Pastore\n"
-"Copyright © 2007–2010 Christian Persch\n"
-"Copyright © 2011 Perberos\n"
-"Copyright © 2012-2020 CAFE developers"
 
-#: src/terminal-window.c:4475
-msgid "A terminal emulator for the CAFE desktop"
-msgstr "Эмулятор терминала для рабочего стола CAFE"
-
-#: src/terminal-window.c:4481
+#: src/terminal-window.c:4403
 msgid "translator-credits"
 msgstr ""
 "Александр Сапрыкин <xelfium@gmail.com>\n"
@@ -2904,3 +2885,24 @@ msgstr ""
 "Сергей Яковлев\n"
 "Юрий Козлов <yuray@komyakino.ru>\n"
 "Evolve32 <evolve32@ya.ru>"
+
+#~ msgid "utilities-terminal"
+#~ msgstr "utilities-terminal"
+
+#~ msgid ""
+#~ "Copyright © 2002–2004 Havoc Pennington\n"
+#~ "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
+#~ "Copyright © 2006 Guilherme de S. Pastore\n"
+#~ "Copyright © 2007–2010 Christian Persch\n"
+#~ "Copyright © 2011 Perberos\n"
+#~ "Copyright © 2012-2020 CAFE developers"
+#~ msgstr ""
+#~ "Copyright © 2002–2004 Havoc Pennington\n"
+#~ "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
+#~ "Copyright © 2006 Guilherme de S. Pastore\n"
+#~ "Copyright © 2007–2010 Christian Persch\n"
+#~ "Copyright © 2011 Perberos\n"
+#~ "Copyright © 2012-2020 CAFE developers"
+
+#~ msgid "A terminal emulator for the CAFE desktop"
+#~ msgstr "Эмулятор терминала для рабочего стола CAFE"
