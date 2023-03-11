@@ -1,4 +1,4 @@
-# 
+#
 # Translators:
 # Wenbin Lv <wenbin816@gmail.com>, 2020
 # Mingtian Yang <i@skylee.xyz>, 2020
@@ -9,18 +9,19 @@
 # biqiu-ssw <shenshuaiwen@gmail.com>, 2020
 # zhineng404 <zhinengge@gmail.com>, 2020
 # 邢家朋 <xingjiapeng10@163.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-01-13 14:52+0100\n"
+"POT-Creation-Date: 2023-03-11 17:16+0100\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: 邢家朋 <xingjiapeng10@163.com>, 2020\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/cafe/teams/13566/zh_CN/)\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/cafe/teams/13566/"
+"zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
@@ -89,39 +90,40 @@ msgstr "CAFE 文档项目"
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:49
 msgid ""
-"<personname><surname>CAFE Documentation "
-"Team</surname></personname><affiliation> <orgname>CAFE DESKTOP</orgname> "
-"</affiliation>"
+"<personname><surname>CAFE Documentation Team</surname></"
+"personname><affiliation> <orgname>CAFE DESKTOP</orgname> </affiliation>"
 msgstr ""
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:52
 msgid ""
-"<personname><firstname>Sun</firstname><surname>GNOME Documentation "
-"Team</surname></personname><affiliation> <orgname>Sun Microsystems</orgname>"
-" </affiliation>"
+"<personname><firstname>Sun</firstname><surname>GNOME Documentation Team</"
+"surname></personname><affiliation> <orgname>Sun Microsystems</orgname> </"
+"affiliation>"
 msgstr ""
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:55
 msgid ""
-"<personname><firstname>Miguel</firstname><surname>de "
-"Icaza</surname></personname><affiliation> <orgname>GNOME Documentation "
-"Project</orgname> </affiliation>"
+"<personname><firstname>Miguel</firstname><surname>de Icaza</surname></"
+"personname><affiliation> <orgname>GNOME Documentation Project</orgname> </"
+"affiliation>"
 msgstr ""
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:58
 msgid ""
-"<personname><firstname>Michael</firstname><surname>Zucchi</surname></personname><affiliation>"
-" <orgname>GNOME Documentation Project</orgname> </affiliation>"
+"<personname><firstname>Michael</firstname><surname>Zucchi</surname></"
+"personname><affiliation> <orgname>GNOME Documentation Project</orgname> </"
+"affiliation>"
 msgstr ""
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:61
 msgid ""
-"<personname><firstname>Alexander</firstname><surname>Kirillov</surname></personname><affiliation>"
-" <orgname>GNOME Documentation Project</orgname> </affiliation>"
+"<personname><firstname>Alexander</firstname><surname>Kirillov</surname></"
+"personname><affiliation> <orgname>GNOME Documentation Project</orgname> </"
+"affiliation>"
 msgstr ""
 
 #. (itstool) path: publisher/publishername
@@ -212,8 +214,8 @@ msgstr ""
 #. (itstool) path: revdescription/para
 #: C/index.docbook:180
 msgid ""
-"Miguel de Icaza, Michael Zucchi, Alexander Kirollov "
-"<email>docs@gnome.org</email>"
+"Miguel de Icaza, Michael Zucchi, Alexander Kirollov <email>docs@gnome.org</"
+"email>"
 msgstr ""
 
 #. (itstool) path: revhistory/revision
@@ -244,8 +246,8 @@ msgstr "介绍"
 #. (itstool) path: section/para
 #: C/index.docbook:204
 msgid ""
-"<application>CAFE Terminal</application> is a terminal emulation application"
-" that you can use to perform the following tasks:"
+"<application>CAFE Terminal</application> is a terminal emulation application "
+"that you can use to perform the following tasks:"
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -256,11 +258,10 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:211
 msgid ""
-"A shell is a program that interprets and executes the commands that you type"
-" at a command line prompt. When you start <application>CAFE "
-"Terminal</application>, the application starts the default shell that is "
-"specified in your system account. You can switch to a different shell at any"
-" time."
+"A shell is a program that interprets and executes the commands that you type "
+"at a command line prompt. When you start <application>CAFE Terminal</"
+"application>, the application starts the default shell that is specified in "
+"your system account. You can switch to a different shell at any time."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -273,14 +274,14 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:219
 msgid ""
-"<application>CAFE Terminal</application> emulates the "
-"<application>xterm</application> application developed by the X Consortium. "
-"In turn, the <application>xterm</application> application emulates the DEC "
-"VT102 terminal and also supports the DEC VT220 escape sequences. An escape "
-"sequence is a series of characters that starts with the <keycap>Esc</keycap>"
-" character. <application>CAFE Terminal</application> accepts all of the "
-"escape sequences that the VT102 and VT220 terminals use for functions such "
-"as to position the cursor and to clear the screen."
+"<application>CAFE Terminal</application> emulates the <application>xterm</"
+"application> application developed by the X Consortium. In turn, the "
+"<application>xterm</application> application emulates the DEC VT102 terminal "
+"and also supports the DEC VT220 escape sequences. An escape sequence is a "
+"series of characters that starts with the <keycap>Esc</keycap> character. "
+"<application>CAFE Terminal</application> accepts all of the escape sequences "
+"that the VT102 and VT220 terminals use for functions such as to position the "
+"cursor and to clear the screen."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -291,8 +292,8 @@ msgstr "入门"
 #. (itstool) path: section/para
 #: C/index.docbook:230
 msgid ""
-"The following sections describe how to start <application>CAFE "
-"Terminal</application>."
+"The following sections describe how to start <application>CAFE Terminal</"
+"application>."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -303,8 +304,7 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:235
 msgid ""
-"You can start <application>CAFE Terminal</application> in the following "
-"ways:"
+"You can start <application>CAFE Terminal</application> in the following ways:"
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -315,8 +315,8 @@ msgstr "<guimenu>应用程序</guimenu>菜单"
 #. (itstool) path: listitem/para
 #: C/index.docbook:242
 msgid ""
-"Choose "
-"<menuchoice><guimenu>Accessories</guimenu><guimenuitem>Terminal</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>Accessories</guimenu><guimenuitem>Terminal</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -394,8 +394,8 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:279
 msgid ""
-"<application>CAFE Terminal</application> also sets the following environment"
-" variables:"
+"<application>CAFE Terminal</application> also sets the following environment "
+"variables:"
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -429,8 +429,8 @@ msgid ""
 "You can create a new profile, and apply the new profile to the terminal to "
 "modify characteristics such as font, color and effects, scroll behavior, "
 "window title, and compatibility. You can also specify a command that runs "
-"automatically when you start <application>CAFE Terminal</application> in the"
-" profile."
+"automatically when you start <application>CAFE Terminal</application> in the "
+"profile."
 msgstr ""
 
 #. (itstool) path: section/para
@@ -438,8 +438,8 @@ msgstr ""
 msgid ""
 "You define each terminal profile in the <guilabel>Profiles</guilabel> "
 "dialog, which you access from the <guimenu>Edit</guimenu> menu. You can "
-"define as many different profiles as you require. When you start a terminal,"
-" you can choose the profile that you want to use for the terminal. "
+"define as many different profiles as you require. When you start a terminal, "
+"you can choose the profile that you want to use for the terminal. "
 "Alternatively, you can change the terminal profile while you use the "
 "terminal. To specify an initial profile for a terminal when you start the "
 "application from a command line, use the following command:"
@@ -448,8 +448,8 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:308
 msgid ""
-"<command>cafe-terminal --window-with-"
-"profile=<replaceable>profilename</replaceable></command>"
+"<command>cafe-terminal --window-with-profile=<replaceable>profilename</"
+"replaceable></command>"
 msgstr ""
 
 #. (itstool) path: section/para
@@ -475,12 +475,12 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:318
 msgid ""
-"<application>CAFE Terminal</application> provides a tab feature that enables"
-" you to open several terminals in a single window. Each terminal opens in a "
+"<application>CAFE Terminal</application> provides a tab feature that enables "
+"you to open several terminals in a single window. Each terminal opens in a "
 "separate tab. Click on the appropriate tab to display the terminal in the "
 "window. Each tabbed terminal in a window is a separate subprocess, so you "
-"can use each terminal for different tasks. You can apply a different profile"
-" to each tabbed terminal in the window."
+"can use each terminal for different tasks. You can apply a different profile "
+"to each tabbed terminal in the window."
 msgstr ""
 
 #. (itstool) path: section/para
@@ -489,8 +489,8 @@ msgid ""
 "The titlebar of the terminal window shows either the name of the current "
 "profile, or the name specified by the current profile. <xref linkend=\"cafe-"
 "terminal-tabbed\"/> shows a <application>CAFE Terminal</application> window "
-"with four tabs. In this case, each of the four tabs has a different profile."
-" The name of the profile in the active tab, Profile 1, appears in the "
+"with four tabs. In this case, each of the four tabs has a different profile. "
+"The name of the profile in the active tab, Profile 1, appears in the "
 "titlebar."
 msgstr ""
 
@@ -544,8 +544,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:351
 msgid ""
-"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Open "
-"Terminal</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Open Terminal</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -563,8 +563,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:360
 msgid ""
-"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Close "
-"Window</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Close Window</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -583,10 +583,10 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:369
 msgid ""
-"Choose <menuchoice><guimenu>File</guimenu><guisubmenu>Open "
-"Tab</guisubmenu><guimenuitem>Default</guimenuitem></menuchoice> or just "
-"<menuchoice><guimenu>File</guimenu><guimenuitem>Open "
-"Tab</guimenuitem></menuchoice> if there is no submenu."
+"Choose <menuchoice><guimenu>File</guimenu><guisubmenu>Open Tab</"
+"guisubmenu><guimenuitem>Default</guimenuitem></menuchoice> or just "
+"<menuchoice><guimenu>File</guimenu><guimenuitem>Open Tab</guimenuitem></"
+"menuchoice> if there is no submenu."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -605,9 +605,9 @@ msgstr ""
 #: C/index.docbook:379
 msgid ""
 "Alternatively, choose <menuchoice><guimenu>Tabs</guimenu><guimenuitem>Next "
-"Tab</guimenuitem></menuchoice> or "
-"<menuchoice><guimenu>Tabs</guimenu><guimenuitem>Previous "
-"Tab</guimenuitem></menuchoice> to navigate between tabs."
+"Tab</guimenuitem></menuchoice> or <menuchoice><guimenu>Tabs</"
+"guimenu><guimenuitem>Previous Tab</guimenuitem></menuchoice> to navigate "
+"between tabs."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -623,8 +623,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:395
 msgid ""
-"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Close "
-"Tab</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>Close Tab</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -640,9 +640,9 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:413
 msgid ""
-"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>New "
-"Profile</guimenuitem></menuchoice> to display the <guilabel>New "
-"Profile</guilabel> dialog."
+"Choose <menuchoice><guimenu>File</guimenu><guimenuitem>New Profile</"
+"guimenuitem></menuchoice> to display the <guilabel>New Profile</guilabel> "
+"dialog."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -654,8 +654,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:421
 msgid ""
-"Use the <guilabel>Base on</guilabel> drop-down list to select the profile on"
-" which you want to base the new profile."
+"Use the <guilabel>Base on</guilabel> drop-down list to select the profile on "
+"which you want to base the new profile."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -668,10 +668,9 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:429
 msgid ""
-"Click <guibutton>Close</guibutton>. <application>CAFE Terminal</application>"
-" adds the profile to the "
-"<menuchoice><guimenu>Terminal</guimenu><guisubmenu>Change "
-"Profile</guisubmenu></menuchoice> submenu."
+"Click <guibutton>Close</guibutton>. <application>CAFE Terminal</application> "
+"adds the profile to the <menuchoice><guimenu>Terminal</"
+"guimenu><guisubmenu>Change Profile</guisubmenu></menuchoice> submenu."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -689,8 +688,9 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:446
 msgid ""
-"Choose <menuchoice><guimenu>Terminal</guimenu><guisubmenu>Change "
-"Profile</guisubmenu><guimenuitem><replaceable>profilename</replaceable></guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>Terminal</guimenu><guisubmenu>Change Profile</"
+"guisubmenu><guimenuitem><replaceable>profilename</replaceable></"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -709,8 +709,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:460
 msgid ""
-"Choose <menuchoice><guimenu>Edit</guimenu><guisubmenu>Current "
-"Profile</guisubmenu></menuchoice>."
+"Choose <menuchoice><guimenu>Edit</guimenu><guisubmenu>Current Profile</"
+"guisubmenu></menuchoice>."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -724,9 +724,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:468
 msgid ""
-"Choose "
-"<menuchoice><guimenu>Edit</guimenu><guisubmenu>Profiles</guisubmenu></menuchoice>,"
-" select the profile you want to edit, then click "
+"Choose <menuchoice><guimenu>Edit</guimenu><guisubmenu>Profiles</guisubmenu></"
+"menuchoice>, select the profile you want to edit, then click "
 "<guibutton>Edit</guibutton>. For information on the options you can set for "
 "profiles, see <xref linkend=\"cafe-terminal-prefs\"/>."
 msgstr ""
@@ -739,17 +738,16 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:480
 msgid ""
-"Choose "
-"<menuchoice><guimenu>Edit</guimenu><guimenuitem>Profiles</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Profiles</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:484
 msgid ""
 "Select the name of the profile that you want to delete in the "
-"<guilabel>Profiles</guilabel> list, then click "
-"<guibutton>Delete</guibutton>. The <guilabel>Delete Profile</guilabel> "
-"dialog is displayed."
+"<guilabel>Profiles</guilabel> list, then click <guibutton>Delete</"
+"guibutton>. The <guilabel>Delete Profile</guilabel> dialog is displayed."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -760,8 +758,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:492
 msgid ""
-"Click <guibutton>Close</guibutton> to close the <guilabel>Edit "
-"Profiles</guilabel> dialog."
+"Click <guibutton>Close</guibutton> to close the <guilabel>Edit Profiles</"
+"guilabel> dialog."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -777,8 +775,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:507
 msgid ""
-"Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Show "
-"Menubar</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Show Menubar</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -789,8 +787,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:514
 msgid ""
-"Right-click on the terminal window, then choose <guimenuitem>Show "
-"Menubar</guimenuitem> from the popup menu."
+"Right-click on the terminal window, then choose <guimenuitem>Show Menubar</"
+"guimenuitem> from the popup menu."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -803,12 +801,11 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:520
 msgid ""
-"Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Full "
-"Screen</guimenuitem></menuchoice>. Full-screen mode displays the text in a "
-"window that fills the full screen. The window does not contain a window "
-"frame or titlebar. To exit from this mode, choose "
-"<menuchoice><guimenu>View</guimenu><guimenuitem>Full "
-"Screen</guimenuitem></menuchoice> again."
+"Choose <menuchoice><guimenu>View</guimenu><guimenuitem>Full Screen</"
+"guimenuitem></menuchoice>. Full-screen mode displays the text in a window "
+"that fills the full screen. The window does not contain a window frame or "
+"titlebar. To exit from this mode, choose <menuchoice><guimenu>View</"
+"guimenu><guimenuitem>Full Screen</guimenuitem></menuchoice> again."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -821,8 +818,8 @@ msgstr ""
 msgid ""
 "See <xref linkend=\"cafe-terminal-prefs\"/> for information about the "
 "options that you can choose in the <guilabel>Editing Profile</guilabel> "
-"dialog to change the appearance of the terminal window. For example, you can"
-" change the background color, or the location of the scrollbar."
+"dialog to change the appearance of the terminal window. For example, you can "
+"change the background color, or the location of the scrollbar."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -850,11 +847,10 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:547
 msgid ""
-"Press the <keycombo><keycap>Shift</keycap><keycap>Page "
-"Up</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>Page "
-"Down</keycap></keycombo>, "
-"<keycombo><keycap>Shift</keycap><keycap>Home</keycap></keycombo>, or "
-"<keycombo><keycap>Shift</keycap><keycap>End</keycap></keycombo> keys."
+"Press the <keycombo><keycap>Shift</keycap><keycap>Page Up</keycap></"
+"keycombo>, <keycombo><keycap>Shift</keycap><keycap>Page Down</keycap></"
+"keycombo>, <keycombo><keycap>Shift</keycap><keycap>Home</keycap></keycombo>, "
+"or <keycombo><keycap>Shift</keycap><keycap>End</keycap></keycombo> keys."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -863,11 +859,10 @@ msgid ""
 "The number of lines that you can scroll back to in the terminal window is "
 "determined by the <guilabel>Scrollback</guilabel> setting in the "
 "<guilabel>Scrolling</guilabel> tabbed section of the <guilabel>Editing "
-"Profile</guilabel> dialog. You can also scroll up or down one line at a time"
-" by pressing "
-"<keycombo><keycap>Control</keycap><keycap>Shift</keycap><keycap>Up</keycap></keycombo>"
-" or "
-"<keycombo><keycap>Control</keycap><keycap>Shift</keycap><keycap>Down</keycap></keycombo>."
+"Profile</guilabel> dialog. You can also scroll up or down one line at a time "
+"by pressing <keycombo><keycap>Control</keycap><keycap>Shift</"
+"keycap><keycap>Up</keycap></keycombo> or <keycombo><keycap>Control</"
+"keycap><keycap>Shift</keycap><keycap>Down</keycap></keycombo>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -905,11 +900,11 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:575
 msgid ""
-"These actions select all text between the first and last items. For all text"
-" selections, <application>CAFE Terminal</application> copies the selected "
+"These actions select all text between the first and last items. For all text "
+"selections, <application>CAFE Terminal</application> copies the selected "
 "text into the clipboard when you release the mouse button. To explicitly "
-"copy the selected text, choose "
-"<menuchoice><guimenu>Edit</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
+"copy the selected text, choose <menuchoice><guimenu>Edit</"
+"guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -927,16 +922,16 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:586
 msgid ""
-"To paste text that you copied by selection only, middle-click at the command"
-" prompt. If you do not have a middle mouse button, refer to the X Server "
+"To paste text that you copied by selection only, middle-click at the command "
+"prompt. If you do not have a middle mouse button, refer to the X Server "
 "documentation for information about how to emulate the middle mouse button."
 msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:590
 msgid ""
-"To paste text that you explicitly copied, choose "
-"<menuchoice><guimenu>Edit</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>."
+"To paste text that you explicitly copied, choose <menuchoice><guimenu>Edit</"
+"guimenu><guimenuitem>Paste</guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -989,17 +984,16 @@ msgstr ""
 #: C/index.docbook:628
 msgid ""
 "To view the keyboard shortcut settings that are defined for "
-"<application>CAFE Terminal</application>, choose "
-"<menuchoice><guimenu>Edit</guimenu><guimenuitem>Keyboard "
-"Shortcuts</guimenuitem></menuchoice>. The <guilabel>Keyboard "
-"Shortcuts</guilabel> dialog contains the following items:"
+"<application>CAFE Terminal</application>, choose <menuchoice><guimenu>Edit</"
+"guimenu><guimenuitem>Keyboard Shortcuts</guimenuitem></menuchoice>. The "
+"<guilabel>Keyboard Shortcuts</guilabel> dialog contains the following items:"
 msgstr ""
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:632
 msgid ""
-"<guilabel>Disable all menu access keys (such as Alt+f to open File "
-"menu)</guilabel>"
+"<guilabel>Disable all menu access keys (such as Alt+f to open File menu)</"
+"guilabel>"
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -1007,8 +1001,8 @@ msgstr ""
 msgid ""
 "Deselect this option to disable the access keys that are defined to enable "
 "you to use the keyboard instead of the mouse to select a menu item. Each "
-"access key is identified by an underlined letter on a menu or dialog option."
-" In some cases, you must press the <keycap>Alt</keycap> key in combination "
+"access key is identified by an underlined letter on a menu or dialog option. "
+"In some cases, you must press the <keycap>Alt</keycap> key in combination "
 "with the access key to perform the action."
 msgstr ""
 
@@ -1058,25 +1052,22 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:659
 msgid ""
-"To increase the size of the text, choose "
-"<menuchoice><guimenu>View</guimenu><guimenuitem>Zoom "
-"In</guimenuitem></menuchoice>."
+"To increase the size of the text, choose <menuchoice><guimenu>View</"
+"guimenu><guimenuitem>Zoom In</guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:661
 msgid ""
-"To decrease the size of the text, choose "
-"<menuchoice><guimenu>View</guimenu><guimenuitem>Zoom "
-"Out</guimenuitem></menuchoice>."
+"To decrease the size of the text, choose <menuchoice><guimenu>View</"
+"guimenu><guimenuitem>Zoom Out</guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:663
 msgid ""
-"To view the text at actual size, choose "
-"<menuchoice><guimenu>View</guimenu><guimenuitem>Normal "
-"Size</guimenuitem></menuchoice>."
+"To view the text at actual size, choose <menuchoice><guimenu>View</"
+"guimenu><guimenuitem>Normal Size</guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -1094,8 +1085,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:673
 msgid ""
-"Choose <menuchoice><guimenu>Terminal</guimenu><guimenuitem>Set "
-"Title</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>Terminal</guimenu><guimenuitem>Set Title</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -1108,8 +1099,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:679
 msgid ""
-"Click <guibutton>Close</guibutton> to close the <guilabel>Set "
-"Title</guilabel> dialog."
+"Click <guibutton>Close</guibutton> to close the <guilabel>Set Title</"
+"guilabel> dialog."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -1120,9 +1111,9 @@ msgstr ""
 #. (itstool) path: section/para
 #: C/index.docbook:685
 msgid ""
-"To change the character encoding, choose "
-"<menuchoice><guimenu>Terminal</guimenu><guisubmenu>Set Character "
-"Encoding</guisubmenu></menuchoice>, then select the appropriate encoding."
+"To change the character encoding, choose <menuchoice><guimenu>Terminal</"
+"guimenu><guisubmenu>Set Character Encoding</guisubmenu></menuchoice>, then "
+"select the appropriate encoding."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -1155,9 +1146,9 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:703
 msgid ""
-"To remove an encoding from the <guisubmenu>Set Character "
-"Encoding</guisubmenu> menu, select the encoding in the <guilabel>Encodings "
-"shown in menu</guilabel> list box, then click the left arrow button."
+"To remove an encoding from the <guisubmenu>Set Character Encoding</"
+"guisubmenu> menu, select the encoding in the <guilabel>Encodings shown in "
+"menu</guilabel> list box, then click the left arrow button."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -1185,8 +1176,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:722
 msgid ""
-"Choose "
-"<menuchoice><guimenu>Terminal</guimenu><guimenuitem>Reset</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>Terminal</guimenu><guimenuitem>Reset</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -1197,8 +1188,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:732
 msgid ""
-"Choose <menuchoice><guimenu>Terminal</guimenu><guimenuitem>Reset and "
-"Clear</guimenuitem></menuchoice>."
+"Choose <menuchoice><guimenu>Terminal</guimenu><guimenuitem>Reset and Clear</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -1210,11 +1201,10 @@ msgstr "首选项"
 #: C/index.docbook:744
 msgid ""
 "To configure <application>CAFE Terminal</application>, choose "
-"<menuchoice><guimenu>Edit</guimenu><guimenuitem>Current "
-"Profile</guimenuitem></menuchoice>. To configure another profile that you "
-"set up choose "
-"<menuchoice><guimenu>Edit</guimenu><guimenuitem>Profiles</guimenuitem></menuchoice>,"
-" select the profile you want to edit, then click "
+"<menuchoice><guimenu>Edit</guimenu><guimenuitem>Current Profile</"
+"guimenuitem></menuchoice>. To configure another profile that you set up "
+"choose <menuchoice><guimenu>Edit</guimenu><guimenuitem>Profiles</"
+"guimenuitem></menuchoice>, select the profile you want to edit, then click "
 "<guibutton>Edit</guibutton>."
 msgstr ""
 
@@ -1222,8 +1212,8 @@ msgstr ""
 #: C/index.docbook:746
 msgid ""
 "The <guilabel>Editing Profile</guilabel> dialog contains the following "
-"tabbed sections that you can use to configure <application>CAFE "
-"Terminal</application>:"
+"tabbed sections that you can use to configure <application>CAFE Terminal</"
+"application>:"
 msgstr ""
 
 #. (itstool) path: info/title
@@ -1249,9 +1239,9 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:778
 msgid ""
-"Select this option to use the standard fixed width font that is specified in"
-" the <guilabel>Font</guilabel> tab of the "
-"<application>Appearance</application> preference tool."
+"Select this option to use the standard fixed width font that is specified in "
+"the <guilabel>Font</guilabel> tab of the <application>Appearance</"
+"application> preference tool."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -1263,8 +1253,8 @@ msgstr ""
 #: C/index.docbook:787
 msgid ""
 "Click on this button to select a font type and font size for the terminal. "
-"This button is only enabled if the <guilabel>Use the system terminal "
-"font</guilabel> option is unselected."
+"This button is only enabled if the <guilabel>Use the system terminal font</"
+"guilabel> option is unselected."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -1307,8 +1297,8 @@ msgstr ""
 msgid ""
 "Use this text box to specify characters or groups of characters that "
 "<application>CAFE Terminal</application> considers to be words when you "
-"select text by word. See <xref linkend=\"cafe-terminal-contents\"/> for more"
-" information about how to select text by word."
+"select text by word. See <xref linkend=\"cafe-terminal-contents\"/> for more "
+"information about how to select text by word."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -1350,8 +1340,8 @@ msgstr ""
 #: C/index.docbook:855
 msgid ""
 "Select this option to force the command that currently runs inside the "
-"terminal to run as a login shell. If the command is not a shell, the setting"
-" has no effect."
+"terminal to run as a login shell. If the command is not a shell, the setting "
+"has no effect."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -1375,8 +1365,8 @@ msgstr ""
 #: C/index.docbook:874
 msgid ""
 "Select this option to run a specified command, other than the normal shell, "
-"in the terminal. Specify the custom command in the <guilabel>Custom "
-"command</guilabel> text box."
+"in the terminal. Specify the custom command in the <guilabel>Custom command</"
+"guilabel> text box."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -1407,8 +1397,8 @@ msgid ""
 "Select the <guilabel>Use colours from system theme</guilabel> option to use "
 "the colors that are specified in the CAFE Desktop theme that is selected in "
 "the <guilabel>Theme</guilabel> tab of the <link xlink:href=\"help:cafe-user-"
-"guide/prefs-theme\"><application>Appearance</application> preference "
-"tool</link>."
+"guide/prefs-theme\"><application>Appearance</application> preference tool</"
+"link>."
 msgstr ""
 
 #. (itstool) path: listitem/para
@@ -1462,30 +1452,30 @@ msgstr ""
 msgid ""
 "The actual display of the foreground and background colors can vary "
 "depending on the color scheme that you choose. For example, if you choose "
-"<guilabel>White on black</guilabel> and the <guilabel>Linux "
-"console</guilabel> color scheme, the application displays the foreground and"
-" background colors as light gray on black. The <guilabel>Built-in "
-"schemes</guilabel> drop-down list is only enabled if the <guilabel>Use "
-"colours from system theme</guilabel> option is unselected."
+"<guilabel>White on black</guilabel> and the <guilabel>Linux console</"
+"guilabel> color scheme, the application displays the foreground and "
+"background colors as light gray on black. The <guilabel>Built-in schemes</"
+"guilabel> drop-down list is only enabled if the <guilabel>Use colours from "
+"system theme</guilabel> option is unselected."
 msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:942
 msgid ""
 "Click on the <guibutton>Text colour</guibutton> button to display the "
-"<guilabel>Choose terminal text colour</guilabel> dialog. Use the color wheel"
-" or the spin boxes to customize the color that you want to use as the text "
-"color, then click <guibutton>OK</guibutton>. The <guibutton>Text "
-"colour</guibutton> button is only enabled if the <guilabel>Use colours from "
-"system theme</guilabel> option is unselected."
+"<guilabel>Choose terminal text colour</guilabel> dialog. Use the color wheel "
+"or the spin boxes to customize the color that you want to use as the text "
+"color, then click <guibutton>OK</guibutton>. The <guibutton>Text colour</"
+"guibutton> button is only enabled if the <guilabel>Use colours from system "
+"theme</guilabel> option is unselected."
 msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:945
 msgid ""
 "Click on the <guibutton>Background colour</guibutton> button to display the "
-"<guilabel>Choose terminal background colour</guilabel> dialog. Use the color"
-" wheel or the spin boxes to customize the color that you want to use as the "
+"<guilabel>Choose terminal background colour</guilabel> dialog. Use the color "
+"wheel or the spin boxes to customize the color that you want to use as the "
 "background color, then click <guibutton>OK</guibutton>. The "
 "<guibutton>Background colour</guibutton> button is only enabled if the "
 "<guilabel>Use colours from system theme</guilabel> option is unselected."
@@ -1516,10 +1506,10 @@ msgstr ""
 #: C/index.docbook:957
 msgid ""
 "Use the <guilabel>Colour palette</guilabel> to customize the 16 default "
-"colors in the custom color palette. To customize a color, click on the color"
-" to display the <guilabel>Palette entry</guilabel> dialog. Use the color "
-"wheel or the spin boxes to customize the color, then click "
-"<guibutton>OK</guibutton>."
+"colors in the custom color palette. To customize a color, click on the color "
+"to display the <guilabel>Palette entry</guilabel> dialog. Use the color "
+"wheel or the spin boxes to customize the color, then click <guibutton>OK</"
+"guibutton>."
 msgstr ""
 
 #. (itstool) path: info/title
@@ -1560,8 +1550,8 @@ msgstr ""
 #: C/index.docbook:986
 msgid ""
 "Select this option to use an image file as the background for the terminal. "
-"Use the <guilabel>Image file</guilabel> drop-down combination box to specify"
-" the location and name of the image file. Alternatively, click "
+"Use the <guilabel>Image file</guilabel> drop-down combination box to specify "
+"the location and name of the image file. Alternatively, click "
 "<guibutton>Browse</guibutton> to search for and select the image file."
 msgstr ""
 
@@ -1624,8 +1614,8 @@ msgstr ""
 #: C/index.docbook:1030
 msgid ""
 "Use this spin box to specify the number of lines that you can scroll back "
-"using the scrollbar. For example, if you specify 100 you can scroll back the"
-" last 100 lines displayed in the terminal."
+"using the scrollbar. For example, if you specify 100 you can scroll back the "
+"last 100 lines displayed in the terminal."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -1691,8 +1681,8 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:1080
 msgid ""
-"Click on this button to reset the options on the "
-"<guilabel>Compatibility</guilabel> tabbed section to the default settings."
+"Click on this button to reset the options on the <guilabel>Compatibility</"
+"guilabel> tabbed section to the default settings."
 msgstr ""
 
 #. (itstool) path: legalnotice/para
@@ -1701,9 +1691,9 @@ msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
 "later version published by the Free Software Foundation with no Invariant "
-"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy"
-" of the GFDL at this <link xlink:href=\"help:fdl\" type=\"help\">link</link>"
-" or in the file COPYING-DOCS distributed with this manual."
+"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
+"of the GFDL at this <link xlink:href=\"help:fdl\" type=\"help\">link</link> "
+"or in the file COPYING-DOCS distributed with this manual."
 msgstr ""
 
 #. (itstool) path: legalnotice/para
@@ -1711,11 +1701,11 @@ msgstr ""
 msgid ""
 "This manual is part of a collection of CAFE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
-"you can do so by adding a copy of the license to the manual, as described in"
-" section 6 of the license."
+"you can do so by adding a copy of the license to the manual, as described in "
+"section 6 of the license."
 msgstr ""
-"本手册是在 GFDL 许可之下分发的 CAFE 手册集合的一部分。如果想要单独分发此手册，可以在手册中添加该许可证的一份副本然后分发，如该许可证的第 6"
-" 部分所述。"
+"本手册是在 GFDL 许可之下分发的 CAFE 手册集合的一部分。如果想要单独分发此手"
+"册，可以在手册中添加该许可证的一份副本然后分发，如该许可证的第 6 部分所述。"
 
 #. (itstool) path: legalnotice/para
 #: C/legal.xml:20
@@ -1726,8 +1716,9 @@ msgid ""
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
-"各个公司使用的许多用于区别它们产品和服务的名称都声明为商标。在所有的 CAFE 文档以及 CAFE "
-"文档项目的成员中，这些名称都是以全大写字母或首字母大写显示，从而表明它们是商标。"
+"各个公司使用的许多用于区别它们产品和服务的名称都声明为商标。在所有的 CAFE 文"
+"档以及 CAFE 文档项目的成员中，这些名称都是以全大写字母或首字母大写显示，从而"
+"表明它们是商标。"
 
 #. (itstool) path: listitem/para
 #: C/legal.xml:36
@@ -1744,23 +1735,33 @@ msgid ""
 "ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
 "OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
 msgstr ""
-"文档按“原样”提供，不提供任何明示或暗示的保证，包括但不限于：文档或文档的修改版本没有适销性方面的缺陷、适合特定目的的适用性，以及没有侵权行为。您将自行承担本文档以及文档修改版本的质量、准确性以及性能方面的风险。如果任何文档或文档修改版本存在缺陷，您(而不是最初的编写者、作者或撰写人)将承担所有必需的服务、维修或更正的费用。此免责声明是本许可证的重要组成部分。如果不接受此免责声明，那么您就没有权利使用任何文档或文档的修改版本；并且"
+"文档按“原样”提供，不提供任何明示或暗示的保证，包括但不限于：文档或文档的修改"
+"版本没有适销性方面的缺陷、适合特定目的的适用性，以及没有侵权行为。您将自行承"
+"担本文档以及文档修改版本的质量、准确性以及性能方面的风险。如果任何文档或文档"
+"修改版本存在缺陷，您(而不是最初的编写者、作者或撰写人)将承担所有必需的服务、"
+"维修或更正的费用。此免责声明是本许可证的重要组成部分。如果不接受此免责声明，"
+"那么您就没有权利使用任何文档或文档的修改版本；并且"
 
 #. (itstool) path: listitem/para
 #: C/legal.xml:56
 msgid ""
-"UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING"
-" NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
+"UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
+"NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
 "CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE "
 "DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON "
 "FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF "
 "ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, "
-"WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES"
-" OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED "
-"VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE"
-" POSSIBILITY OF SUCH DAMAGES."
+"WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES "
+"OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED "
+"VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
+"POSSIBILITY OF SUCH DAMAGES."
 msgstr ""
-"无论在任何情况以及在任何法律理论下，本文档或文档修改版本的作者、最初的编写者、任何撰写人或任何分发者，或者任意这些方的任何提供者都不对任何人由于使用本文档或文档修改版本引起或带来的任何直接的、间接的、特殊的、偶然的或继发的损失承担任何民事(包括疏忽)、合同或其它方面的责任，这些损失包括但不限于信誉损失、工作停止、计算机失败或故障，或任何以及所有其它损失或由此引发的或与之相关的损失，即使这些方已被告知存在出现此类损失的可能性时也是如此。"
+"无论在任何情况以及在任何法律理论下，本文档或文档修改版本的作者、最初的编写"
+"者、任何撰写人或任何分发者，或者任意这些方的任何提供者都不对任何人由于使用本"
+"文档或文档修改版本引起或带来的任何直接的、间接的、特殊的、偶然的或继发的损失"
+"承担任何民事(包括疏忽)、合同或其它方面的责任，这些损失包括但不限于信誉损失、"
+"工作停止、计算机失败或故障，或任何以及所有其它损失或由此引发的或与之相关的损"
+"失，即使这些方已被告知存在出现此类损失的可能性时也是如此。"
 
 #. (itstool) path: legalnotice/para
 #: C/legal.xml:29
@@ -1768,7 +1769,9 @@ msgid ""
 "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
 "<_:orderedlist-1/>"
-msgstr "本文档和文档是根据 GNU 免费文档许可协议的条款提供的，并且还有进一步的阐述: <_:orderedlist-1/>"
+msgstr ""
+"本文档和文档是根据 GNU 免费文档许可协议的条款提供的，并且还有进一步的阐述: "
+"<_:orderedlist-1/>"
 
 #. (itstool) path: formalpara/title
 #: C/legal.xml:77
@@ -1778,7 +1781,7 @@ msgstr "反馈"
 #. (itstool) path: formalpara/para
 #: C/legal.xml:78
 msgid ""
-"To report a bug or make a suggestion regarding the CAFE Terminal application"
-" or this manual, follow the directions in the <link xlink:href=\"help:cafe-"
+"To report a bug or make a suggestion regarding the CAFE Terminal application "
+"or this manual, follow the directions in the <link xlink:href=\"help:cafe-"
 "user-guide/feedback\">CAFE Feedback Page</link>."
 msgstr ""
