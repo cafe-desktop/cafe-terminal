@@ -1,3 +1,23 @@
+### cafe-terminal 1.25.1
+
+  * terminal-window: show ctk and bte version in about dialog
+  * ci: some improvements
+  * terminal-util: avoid deprecated 'ctk_font_button_set/get_font_name'
+  * sha1: avoid redundant assignment
+  * update AUTHORS
+  * Fix translations with single quote
+  * terminal: rename caja -> baul
+  * rename caferial -> material
+  * skey,btoe: rename CAFE -> MATE
+  * terminal-window: update copyright
+  * gschema:
+    - add comment for translators: keep single quotes
+    - scrollback unlimited by default
+    - new default colors: text blue, background black
+    - use-theme-colors disabled by default
+  * build: remove obsolete AC_HEADER_STDC
+  * update translations
+
 ### cafe-terminal 1.25.0
 
   * initial release
