@@ -64,6 +64,11 @@
       <summary>Whether the standard CTK+ shortcut for menubar access is enabled</summary>
       <description>Normally you can access the menubar with F10. This can also be customized via ctkrc (ctk-menu-bar-accel = "whatever"). This option allows the standard menubar accelerator to be disabled.</description>
     </key>
+    <key name="exit-ctrl-d" type="b">
+      <default>false</default>
+      <summary>Whether the standard Ctrl+D behavior to exit current terminal</summary>
+      <description>If enabled, Ctrl-D by itself (when nothing appears after the command prompt) terminates the shell, causing the terminal emulator to terminate as well.</description>
+    </key>
     <key name="active-encodings" type="as">
       <default context="active-encodings" l10n="messages">[ 'UTF-8', 'current' ]</default>
       <summary>List of available encodings</summary>

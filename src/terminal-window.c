@@ -2935,6 +2935,10 @@ window_key_press_cb (CtkWidget *widget,
                      CdkEventKey *event,
                      GSettings *settings)
 {
+    if ((g_settings_get_boolean (settings, "exit-ctrl-d") == FALSE) &&
+        (event->state & CDK_CONTROL_MASK) && (event->keyval == CDK_KEY_d))
+        return TRUE;
+
     if (g_settings_get_boolean (settings, "ctrl-tab-switch-tabs") &&
         event->state & CDK_CONTROL_MASK)
     {
