@@ -17,6 +17,7 @@ requires:
     - git
     - libdconf-dev
     - libglib2.0-dev
+    - libnotify-dev
     - libsm-dev
     - libtool
     - libx11-dev

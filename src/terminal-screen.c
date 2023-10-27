@@ -32,6 +32,8 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <cairo.h>
 
+#include <libnotify/notify.h>
+
 #include "terminal-accels.h"
 #include "terminal-app.h"
 #include "terminal-debug.h"
@@ -128,6 +130,8 @@ static void terminal_screen_child_exited (BteTerminal *terminal, int status);
 static void terminal_screen_window_title_changed      (BteTerminal *bte_terminal,
         TerminalScreen *screen);
 static void terminal_screen_icon_title_changed        (BteTerminal *bte_terminal,
+        TerminalScreen *screen);
+static void terminal_screen_text_inserted             (BteTerminal *bte_terminal,
         TerminalScreen *screen);
 
 static void update_color_scheme                      (TerminalScreen *screen);
@@ -379,6 +383,9 @@ terminal_screen_init (TerminalScreen *screen)
 	                  screen);
 	g_signal_connect (screen, "icon-title-changed",
 	                  G_CALLBACK (terminal_screen_icon_title_changed),
+	                  screen);
+	g_signal_connect (screen, "text-inserted",
+	                  G_CALLBACK (terminal_screen_text_inserted),
 	                  screen);
 
 	g_signal_connect (terminal_app_get (), "notify::system-font",
@@ -1926,6 +1933,26 @@ terminal_screen_icon_title_changed (BteTerminal *bte_terminal,
 	terminal_screen_set_dynamic_icon_title (screen,
 	                                        bte_terminal_get_icon_title (bte_terminal),
 	                                        FALSE);
+}
+
+static void
+terminal_screen_text_inserted (BteTerminal *bte_terminal,
+                               TerminalScreen *screen)
+{
+	if ((ctk_window_is_active (CTK_WINDOW (terminal_screen_get_window (screen))) == FALSE) &&
+	    (terminal_screen_has_foreground_process (screen) == FALSE))
+	{
+		notify_init ("cafe-terminal");
+		NotifyNotification *notification;
+
+		notification = notify_notification_new ("cafe-terminal",
+                                                        _("Process completed"),
+                                                        "utilities-terminal");
+
+		notify_notification_show (notification, NULL);
+		g_object_unref (G_OBJECT (notification));
+		notify_uninit();
+	}
 }
 
 static void

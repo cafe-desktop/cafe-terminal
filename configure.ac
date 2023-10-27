@@ -50,6 +50,7 @@ PKG_CHECK_MODULES([TERM],
    gio-2.0 >= $GIO_REQUIRED
    ctk+-3.0 >= $CTK_REQUIRED
    dconf >= $DCONF_REQUIRED
+   libnotify
    x11])
 
 # ********
