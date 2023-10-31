@@ -1945,7 +1945,7 @@ terminal_screen_text_inserted (BteTerminal *bte_terminal,
 		notify_init ("cafe-terminal");
 		NotifyNotification *notification;
 
-		notification = notify_notification_new ("cafe-terminal",
+		notification = notify_notification_new ("CAFE Terminal",
                                                         _("Process completed"),
                                                         "utilities-terminal");
 
