@@ -1,0 +1,4 @@
+terminal-screen: show notifications
+
+when a foreground process terminates
+if the window isn't active

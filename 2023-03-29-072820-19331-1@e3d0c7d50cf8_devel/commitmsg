@@ -1,0 +1,3 @@
+terminal-window: add the ability to enable/disable Ctrl+D behavior
+
+If enabled, Ctrl-D by itself (when nothing appears after the command prompt) terminates the shell, causing the terminal emulator to terminate as well.
