@@ -1939,6 +1939,9 @@ static void
 terminal_screen_text_inserted (BteTerminal *bte_terminal,
                                TerminalScreen *screen)
 {
+	if (g_settings_get_boolean (settings_global, "notifications") == FALSE)
+		return;
+
 	if ((ctk_window_is_active (CTK_WINDOW (terminal_screen_get_window (screen))) == FALSE) &&
 	    (terminal_screen_has_foreground_process (screen) == FALSE))
 	{

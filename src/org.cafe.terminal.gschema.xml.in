@@ -89,6 +89,11 @@
       <summary>Switch tabs with [Ctrl]+[Tab]</summary>
       <description>If true, it enables the ability to switch tabs using [Ctrl+Tab] and [Ctrl+Shift+Tab].</description>
     </key>
+    <key name="notifications" type="b">
+      <default>true</default>
+      <summary>Show notifications</summary>
+      <description>Show notifications when a foreground process terminates and the window isn't active.</description>
+    </key>
   </schema>
   <schema id="org.cafe.terminal.profiles" path="/org/cafe/terminal/profiles/">
   </schema>
