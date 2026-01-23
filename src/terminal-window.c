@@ -4397,7 +4397,7 @@ help_about_callback (CtkAction *action,
                                           "Copyright \xc2\xa9 2007–2010 Christian Persch\n"
                                           "Copyright \xc2\xa9 2011 Perberos\n"
                                           "Copyright \xc2\xa9 2012-2020 MATE developers\n"
-                                          "Copyright \xc2\xa9 2020-2024 Pablo Barciela"),
+                                          "Copyright \xc2\xa9 2020-2026 Pablo Barciela"),
                            "comments", comments,
                            "authors", array_strv,
                            "artists", artists,
