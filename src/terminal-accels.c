@@ -105,21 +105,9 @@
 #define KEY_ZOOM_OUT             "zoom-out"
 #define KEY_SWITCH_TAB_PREFIX    "switch-to-tab-"
 
-#if 1
-/*
-* We don't want to enable content saving until bte supports it async.
-* So we disable this code for stable versions.
-*/
-#include "terminal-version.h"
+#define ACCEL_PATH_SAVE_CONTENTS ACCEL_PATH_ROOT "FileSaveContents"
+#define KEY_SAVE_CONTENTS "save-contents"
 
-#if (TERMINAL_MINOR_VERSION & 1) != 0
-#	define ENABLE_SAVE
-#	define ACCEL_PATH_SAVE_CONTENTS ACCEL_PATH_ROOT "FileSaveContents"
-#	define KEY_SAVE_CONTENTS "save-contents"
-#else
-#	undef ENABLE_SAVE
-#endif
-#endif
 
 typedef struct
 {
@@ -156,12 +144,10 @@ static KeyEntry file_entries[] =
 		N_("New Profile"),
 		KEY_NEW_PROFILE, ACCEL_PATH_NEW_PROFILE, 0, 0, NULL, FALSE, TRUE
 	},
-#ifdef ENABLE_SAVE
 	{
 		N_("Save Contents"),
 		KEY_SAVE_CONTENTS, ACCEL_PATH_SAVE_CONTENTS, 0, 0, NULL, FALSE, TRUE
 	},
-#endif
 	{
 		N_("Close Tab"),
 		KEY_CLOSE_TAB, ACCEL_PATH_CLOSE_TAB, CDK_SHIFT_MASK | CDK_CONTROL_MASK, CDK_KEY_w, NULL, FALSE, TRUE

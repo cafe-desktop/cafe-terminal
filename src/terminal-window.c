@@ -130,19 +130,6 @@ struct _TerminalWindowPrivate
 
 #define ENCODING_DATA_KEY "encoding"
 
-#if 1
-/*
- * We don't want to enable content saving until bte supports it async.
- * So we disable this code for stable versions.
- */
-#include "terminal-version.h"
-
-#if (TERMINAL_MINOR_VERSION & 1) != 0
-#define ENABLE_SAVE
-#else
-#undef ENABLE_SAVE
-#endif
-#endif
 
 static void terminal_window_dispose     (GObject             *object);
 static void terminal_window_finalize    (GObject             *object);
@@ -2226,10 +2213,8 @@ terminal_window_init (TerminalWindow *window)
     action = ctk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
     ctk_action_set_visible (action, FALSE);
 
-#ifndef ENABLE_SAVE
     action = ctk_action_group_get_action (priv->action_group, "FileSaveContents");
     ctk_action_set_visible (action, FALSE);
-#endif
 
     /* Load the UI */
     error = NULL;
@@ -3592,7 +3577,6 @@ file_close_window_callback (CtkAction *action,
     ctk_widget_destroy (CTK_WIDGET (window));
 }
 
-#ifdef ENABLE_SAVE
 static void
 save_contents_dialog_on_response (CtkDialog *dialog, gint response_id, gpointer terminal)
 {
@@ -3640,13 +3624,11 @@ save_contents_dialog_on_response (CtkDialog *dialog, gint response_id, gpointer 
     g_object_unref(file);
     g_free(filename_uri);
 }
-#endif /* ENABLE_SAVE */
 
 static void
 file_save_contents_callback (CtkAction *action,
                              TerminalWindow *window)
 {
-#ifdef ENABLE_SAVE
     CtkWidget *dialog = NULL;
     TerminalWindowPrivate *priv = window->priv;
     BteTerminal *terminal;
@@ -3676,7 +3658,6 @@ file_save_contents_callback (CtkAction *action,
     g_signal_connect (dialog, "delete_event", G_CALLBACK (terminal_util_dialog_response_on_delete), NULL);
 
     ctk_window_present (CTK_WINDOW (dialog));
-#endif /* ENABLE_SAVE */
 }
 
 static void
