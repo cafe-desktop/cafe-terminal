@@ -654,8 +654,8 @@ setup_socks_proxy_env (GHashTable *env_table,
 }
 
 static void
-setup_autoconfig_proxy_env (GHashTable *env_table,
-                            GSettings *settings)
+setup_autoconfig_proxy_env (GHashTable *env_table G_GNUC_UNUSED,
+			    GSettings  *settings G_GNUC_UNUSED)
 {
 	/* XXX  Not sure what to do with this.  See bug #596688.
 	gchar *url;

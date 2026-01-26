@@ -52,7 +52,7 @@ static EggSMClient *global_client;
 static EggSMClientMode global_client_mode = EGG_SM_CLIENT_MODE_NORMAL;
 
 static void
-egg_sm_client_init (EggSMClient *client)
+egg_sm_client_init (EggSMClient *client G_GNUC_UNUSED)
 {
 	;
 }
@@ -179,10 +179,10 @@ static char *sm_client_id = NULL;
 static char *sm_config_prefix = NULL;
 
 static gboolean
-sm_client_post_parse_func (GOptionContext  *context,
-                           GOptionGroup    *group,
-                           gpointer         data,
-                           GError         **error)
+sm_client_post_parse_func (GOptionContext  *context G_GNUC_UNUSED,
+			   GOptionGroup    *group G_GNUC_UNUSED,
+			   gpointer         data G_GNUC_UNUSED,
+			   GError         **error G_GNUC_UNUSED)
 {
 	EggSMClient *client = egg_sm_client_get ();
 
@@ -588,10 +588,10 @@ egg_sm_client_quit (EggSMClient *client)
 }
 
 static void
-egg_sm_client_debug_handler (const char *log_domain,
-                             GLogLevelFlags log_level,
-                             const char *message,
-                             gpointer user_data)
+egg_sm_client_debug_handler (const char    *log_domain,
+			     GLogLevelFlags log_level,
+			     const char    *message,
+			     gpointer       user_data G_GNUC_UNUSED)
 {
 	static int debug = -1;
 

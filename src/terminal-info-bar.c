@@ -45,7 +45,7 @@ terminal_info_bar_init (TerminalInfoBar *bar)
 }
 
 static void
-terminal_info_bar_class_init (TerminalInfoBarClass *klass)
+terminal_info_bar_class_init (TerminalInfoBarClass *klass G_GNUC_UNUSED)
 {
 }
 

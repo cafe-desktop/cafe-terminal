@@ -574,8 +574,8 @@ terminal_set_profile_toggled_callback (CtkToggleAction *action,
 
 static void
 profile_visible_name_notify_cb (TerminalProfile *profile,
-                                GParamSpec *pspec,
-                                CtkAction *action)
+				GParamSpec      *pspec G_GNUC_UNUSED,
+				CtkAction       *action)
 {
     const char *visible_name;
     char *dot, *display_name;
@@ -763,11 +763,11 @@ terminal_window_update_set_profile_menu (TerminalWindow *window)
 }
 
 static void
-terminal_window_create_new_terminal_action (TerminalWindow *window,
-        TerminalProfile *profile,
-        const char *name,
-        guint num,
-        GCallback callback)
+terminal_window_create_new_terminal_action (TerminalWindow  *window,
+					    TerminalProfile *profile,
+					    const char      *name,
+					    guint            num G_GNUC_UNUSED,
+					    GCallback        callback)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkAction *action;
@@ -1147,10 +1147,10 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
 }
 
 static void
-update_edit_menu_cb (CtkClipboard *clipboard,
-                     CdkAtom *targets,
-                     int n_targets,
-                     TerminalWindow *window)
+update_edit_menu_cb (CtkClipboard   *clipboard G_GNUC_UNUSED,
+		     CdkAtom        *targets,
+		     int             n_targets,
+		     TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkAction *action;
@@ -1271,10 +1271,10 @@ update_tab_visibility (TerminalWindow *window,
 
 static CtkNotebook *
 handle_tab_droped_on_desktop (CtkNotebook *source_notebook,
-                              CtkWidget   *container,
-                              gint         x,
-                              gint         y,
-                              gpointer     data)
+			      CtkWidget   *container G_GNUC_UNUSED,
+			      gint         x G_GNUC_UNUSED,
+			      gint         y G_GNUC_UNUSED,
+			      gpointer     data G_GNUC_UNUSED)
 {
     TerminalWindow *source_window;
     TerminalWindow *new_window;
@@ -1297,8 +1297,8 @@ handle_tab_droped_on_desktop (CtkNotebook *source_notebook,
 /* Terminal screen popup menu handling */
 
 static void
-popup_open_url_callback (CtkAction *action,
-                         TerminalWindow *window)
+popup_open_url_callback (CtkAction      *action G_GNUC_UNUSED,
+			 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreenPopupInfo *info = priv->popup_info;
@@ -1311,8 +1311,8 @@ popup_open_url_callback (CtkAction *action,
 }
 
 static void
-popup_copy_url_callback (CtkAction *action,
-                         TerminalWindow *window)
+popup_copy_url_callback (CtkAction      *action G_GNUC_UNUSED,
+			 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreenPopupInfo *info = priv->popup_info;
@@ -1329,8 +1329,8 @@ popup_copy_url_callback (CtkAction *action,
 }
 
 static void
-popup_leave_fullscreen_callback (CtkAction *action,
-                                 TerminalWindow *window)
+popup_leave_fullscreen_callback (CtkAction      *action G_GNUC_UNUSED,
+				 TerminalWindow *window)
 {
     ctk_window_unfullscreen (CTK_WINDOW (window));
 }
@@ -1397,10 +1397,10 @@ popup_menu_deactivate_callback (CtkWidget *popup,
 }
 
 static void
-popup_clipboard_targets_received_cb (CtkClipboard *clipboard,
-                                     CdkAtom *targets,
-                                     int n_targets,
-                                     TerminalScreenPopupInfo *info)
+popup_clipboard_targets_received_cb (CtkClipboard            *clipboard G_GNUC_UNUSED,
+				     CdkAtom                 *targets,
+				     int                      n_targets,
+				     TerminalScreenPopupInfo *info)
 {
     TerminalWindow *window = info->window;
     TerminalWindowPrivate *priv = window->priv;
@@ -1492,9 +1492,9 @@ popup_clipboard_targets_received_cb (CtkClipboard *clipboard,
 }
 
 static void
-screen_show_popup_menu_callback (TerminalScreen *screen,
-                                 TerminalScreenPopupInfo *info,
-                                 TerminalWindow *window)
+screen_show_popup_menu_callback (TerminalScreen          *screen G_GNUC_UNUSED,
+				 TerminalScreenPopupInfo *info,
+				 TerminalWindow          *window)
 {
     CtkClipboard *clipboard;
 
@@ -1508,10 +1508,10 @@ screen_show_popup_menu_callback (TerminalScreen *screen,
 
 static gboolean
 screen_match_clicked_cb (TerminalScreen *screen,
-                         const char *match,
-                         int flavour,
-                         guint state,
-                         TerminalWindow *window)
+			 const char     *match,
+			 int             flavour,
+			 guint           state G_GNUC_UNUSED,
+			 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -1544,10 +1544,10 @@ screen_close_cb (TerminalScreen *screen,
 
 static gboolean
 terminal_window_accel_activate_cb (CtkAccelGroup  *accel_group,
-                                   GObject        *acceleratable,
-                                   guint           keyval,
-                                   CdkModifierType modifier,
-                                   TerminalWindow *window)
+				   GObject        *acceleratable G_GNUC_UNUSED,
+				   guint           keyval,
+				   CdkModifierType modifier,
+				   TerminalWindow *window G_GNUC_UNUSED)
 {
     CtkAccelGroupEntry *entries;
     guint n_entries;
@@ -1784,16 +1784,16 @@ terminal_window_screen_changed (CtkWidget *widget,
 }
 
 static void
-terminal_window_profile_list_changed_cb (TerminalApp *app,
-        TerminalWindow *window)
+terminal_window_profile_list_changed_cb (TerminalApp    *app G_GNUC_UNUSED,
+					 TerminalWindow *window)
 {
     terminal_window_update_set_profile_menu (window);
     terminal_window_update_new_terminal_menus (window);
 }
 
 static void
-terminal_window_encoding_list_changed_cb (TerminalApp *app,
-        TerminalWindow *window)
+terminal_window_encoding_list_changed_cb (TerminalApp    *app G_GNUC_UNUSED,
+					  TerminalWindow *window)
 {
     terminal_window_update_encoding_menu (window);
 }
@@ -2345,16 +2345,16 @@ terminal_window_finalize (GObject *object)
 
 static gboolean
 terminal_window_delete_event (CtkWidget *widget,
-                              CdkEvent *event,
-                              gpointer data)
+			      CdkEvent  *event G_GNUC_UNUSED,
+			      gpointer   data G_GNUC_UNUSED)
 {
     return confirm_close_window_or_tab (TERMINAL_WINDOW (widget), NULL);
 }
 
 static gboolean
-terminal_window_focus_in_event (CtkWidget *widget,
-                                CdkEventFocus *event,
-                                gpointer data)
+terminal_window_focus_in_event (CtkWidget     *widget,
+				CdkEventFocus *event,
+				gpointer       data G_GNUC_UNUSED)
 {
   TerminalWindow *window = TERMINAL_WINDOW (widget);
   TerminalWindowPrivate *priv = window->priv;
@@ -2418,9 +2418,9 @@ terminal_window_set_is_restored (TerminalWindow *window)
 }
 
 static void
-profile_set_callback (TerminalScreen *screen,
-                      TerminalProfile *old_profile,
-                      TerminalWindow *window)
+profile_set_callback (TerminalScreen  *screen,
+		      TerminalProfile *old_profile G_GNUC_UNUSED,
+		      TerminalWindow  *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -2435,8 +2435,8 @@ profile_set_callback (TerminalScreen *screen,
 
 static void
 sync_screen_title (TerminalScreen *screen,
-                   GParamSpec *psepc,
-                   TerminalWindow *window)
+		   GParamSpec     *psepc G_GNUC_UNUSED,
+		   TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -2448,8 +2448,8 @@ sync_screen_title (TerminalScreen *screen,
 
 static void
 sync_screen_icon_title (TerminalScreen *screen,
-                        GParamSpec *psepc,
-                        TerminalWindow *window)
+			GParamSpec     *psepc G_GNUC_UNUSED,
+			TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -2469,8 +2469,8 @@ sync_screen_icon_title (TerminalScreen *screen,
 
 static void
 sync_screen_icon_title_set (TerminalScreen *screen,
-                            GParamSpec *psepc,
-                            TerminalWindow *window)
+			    GParamSpec     *psepc G_GNUC_UNUSED,
+			    TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -2501,8 +2501,8 @@ sync_screen_icon_title_set (TerminalScreen *screen,
 /* Notebook callbacks */
 
 static void
-close_button_clicked_cb (CtkWidget *tab_label,
-                         CtkWidget *screen_container)
+close_button_clicked_cb (CtkWidget *tab_label G_GNUC_UNUSED,
+			 CtkWidget *screen_container)
 {
     CtkWidget *toplevel;
     TerminalWindow *window;
@@ -2956,8 +2956,8 @@ window_key_press_cb (CtkWidget *widget,
 }
 
 static gboolean
-notebook_popup_menu_cb (CtkWidget *widget,
-                        TerminalWindow *window)
+notebook_popup_menu_cb (CtkWidget      *widget G_GNUC_UNUSED,
+			TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkNotebook *notebook = CTK_NOTEBOOK (priv->notebook);
@@ -2992,10 +2992,10 @@ notebook_popup_menu_cb (CtkWidget *widget,
 }
 
 static void
-notebook_page_selected_callback (CtkWidget       *notebook,
-                                 CtkWidget       *page_widget,
-                                 guint            page_num,
-                                 TerminalWindow  *window)
+notebook_page_selected_callback (CtkWidget      *notebook G_GNUC_UNUSED,
+				 CtkWidget      *page_widget,
+				 guint           page_num,
+				 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkWidget *widget;
@@ -3069,9 +3069,9 @@ notebook_page_selected_callback (CtkWidget       *notebook,
 
 static void
 notebook_page_added_callback (CtkWidget       *notebook,
-                              CtkWidget       *container,
-                              guint            page_num,
-                              TerminalWindow  *window)
+			      CtkWidget       *container,
+			      guint            page_num G_GNUC_UNUSED,
+			      TerminalWindow  *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreen *screen;
@@ -3140,9 +3140,9 @@ notebook_page_added_callback (CtkWidget       *notebook,
 
 static void
 notebook_page_removed_callback (CtkWidget       *notebook,
-                                CtkWidget       *container,
-                                guint            page_num,
-                                TerminalWindow  *window)
+				CtkWidget       *container,
+				guint            page_num G_GNUC_UNUSED,
+				TerminalWindow  *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreen *screen;
@@ -3219,8 +3219,8 @@ terminal_window_update_copy_selection (TerminalScreen *screen,
 
 static gboolean
 notebook_scroll_event_cb (CtkWidget      *widget,
-                          CdkEventScroll *event,
-                          TerminalWindow *window)
+			  CdkEventScroll *event,
+			  TerminalWindow *window G_GNUC_UNUSED)
 {
   CtkNotebook *notebook = CTK_NOTEBOOK (widget);
   CtkWidget *child, *event_widget, *action_widget;
@@ -3568,8 +3568,8 @@ confirm_close_window_or_tab (TerminalWindow *window,
 }
 
 static void
-file_close_window_callback (CtkAction *action,
-                            TerminalWindow *window)
+file_close_window_callback (CtkAction      *action G_GNUC_UNUSED,
+			    TerminalWindow *window)
 {
     if (confirm_close_window_or_tab (window, NULL))
         return;
@@ -3626,8 +3626,8 @@ save_contents_dialog_on_response (CtkDialog *dialog, gint response_id, gpointer 
 }
 
 static void
-file_save_contents_callback (CtkAction *action,
-                             TerminalWindow *window)
+file_save_contents_callback (CtkAction      *action G_GNUC_UNUSED,
+			     TerminalWindow *window)
 {
     CtkWidget *dialog = NULL;
     TerminalWindowPrivate *priv = window->priv;
@@ -3661,8 +3661,8 @@ file_save_contents_callback (CtkAction *action,
 }
 
 static void
-file_close_tab_callback (CtkAction *action,
-                         TerminalWindow *window)
+file_close_tab_callback (CtkAction      *action G_GNUC_UNUSED,
+			 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalScreen *active_screen = priv->active_screen;
@@ -3677,8 +3677,8 @@ file_close_tab_callback (CtkAction *action,
 }
 
 static void
-edit_copy_callback (CtkAction *action,
-                    TerminalWindow *window)
+edit_copy_callback (CtkAction      *action G_GNUC_UNUSED,
+		    TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -3699,9 +3699,9 @@ typedef struct
 } PasteData;
 
 static void
-clipboard_uris_received_cb (CtkClipboard *clipboard,
-                            /* const */ char **uris,
-                            PasteData *data)
+clipboard_uris_received_cb (CtkClipboard      *clipboard G_GNUC_UNUSED,
+			    /* const */ char **uris,
+			    PasteData         *data)
 {
     char *text;
     gsize len;
@@ -3779,8 +3779,8 @@ edit_paste_callback (CtkAction *action,
 }
 
 static void
-edit_select_all_callback (CtkAction *action,
-                          TerminalWindow *window)
+edit_select_all_callback (CtkAction      *action G_GNUC_UNUSED,
+			  TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -3791,16 +3791,16 @@ edit_select_all_callback (CtkAction *action,
 }
 
 static void
-edit_keybindings_callback (CtkAction *action,
-                           TerminalWindow *window)
+edit_keybindings_callback (CtkAction      *action G_GNUC_UNUSED,
+			   TerminalWindow *window)
 {
     terminal_app_edit_keybindings (terminal_app_get (),
                                    CTK_WINDOW (window));
 }
 
 static void
-edit_current_profile_callback (CtkAction *action,
-                               TerminalWindow *window)
+edit_current_profile_callback (CtkAction      *action G_GNUC_UNUSED,
+			       TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -3811,8 +3811,8 @@ edit_current_profile_callback (CtkAction *action,
 }
 
 static void
-file_new_profile_callback (CtkAction *action,
-                           TerminalWindow *window)
+file_new_profile_callback (CtkAction      *action G_GNUC_UNUSED,
+			   TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -3822,8 +3822,8 @@ file_new_profile_callback (CtkAction *action,
 }
 
 static void
-edit_profiles_callback (CtkAction *action,
-                        TerminalWindow *window)
+edit_profiles_callback (CtkAction      *action G_GNUC_UNUSED,
+			TerminalWindow *window)
 {
     terminal_app_manage_profiles (terminal_app_get (),
                                   CTK_WINDOW (window));
@@ -3912,8 +3912,8 @@ find_smaller_zoom_factor (double  current,
 }
 
 static void
-view_zoom_in_callback (CtkAction *action,
-                       TerminalWindow *window)
+view_zoom_in_callback (CtkAction      *action G_GNUC_UNUSED,
+		       TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     double current;
@@ -3930,8 +3930,8 @@ view_zoom_in_callback (CtkAction *action,
 }
 
 static void
-view_zoom_out_callback (CtkAction *action,
-                        TerminalWindow *window)
+view_zoom_out_callback (CtkAction      *action G_GNUC_UNUSED,
+			TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     double current;
@@ -3948,8 +3948,8 @@ view_zoom_out_callback (CtkAction *action,
 }
 
 static void
-view_zoom_normal_callback (CtkAction *action,
-                           TerminalWindow *window)
+view_zoom_normal_callback (CtkAction      *action G_GNUC_UNUSED,
+			   TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -3995,17 +3995,17 @@ search_find_response_callback (CtkWidget *dialog,
 }
 
 static gboolean
-search_dialog_delete_event_cb (CtkWidget   *widget,
-                               CdkEventAny *event,
-                               gpointer     user_data)
+search_dialog_delete_event_cb (CtkWidget   *widget G_GNUC_UNUSED,
+			       CdkEventAny *event G_GNUC_UNUSED,
+			       gpointer     user_data G_GNUC_UNUSED)
 {
     /* prevent destruction */
     return TRUE;
 }
 
 static void
-search_find_callback (CtkAction *action,
-                      TerminalWindow *window)
+search_find_callback (CtkAction      *action G_GNUC_UNUSED,
+		      TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -4027,8 +4027,8 @@ search_find_callback (CtkAction *action,
 }
 
 static void
-search_find_next_callback (CtkAction *action,
-                           TerminalWindow *window)
+search_find_next_callback (CtkAction      *action G_GNUC_UNUSED,
+			   TerminalWindow *window)
 {
     if (G_UNLIKELY (!window->priv->active_screen))
         return;
@@ -4037,8 +4037,8 @@ search_find_next_callback (CtkAction *action,
 }
 
 static void
-search_find_prev_callback (CtkAction *action,
-                           TerminalWindow *window)
+search_find_prev_callback (CtkAction      *action G_GNUC_UNUSED,
+			   TerminalWindow *window)
 {
     if (G_UNLIKELY (!window->priv->active_screen))
         return;
@@ -4047,8 +4047,8 @@ search_find_prev_callback (CtkAction *action,
 }
 
 static void
-search_clear_highlight_callback (CtkAction *action,
-                                 TerminalWindow *window)
+search_clear_highlight_callback (CtkAction      *action G_GNUC_UNUSED,
+				 TerminalWindow *window)
 {
     if (G_UNLIKELY (!window->priv->active_screen))
         return;
@@ -4130,8 +4130,8 @@ terminal_set_title_dialog_response_cb (CtkWidget *dialog,
 }
 
 static void
-terminal_set_title_callback (CtkAction *action,
-                             TerminalWindow *window)
+terminal_set_title_callback (CtkAction      *action G_GNUC_UNUSED,
+			     TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkWidget *dialog, *message_area, *hbox, *label, *entry;
@@ -4185,16 +4185,16 @@ terminal_set_title_callback (CtkAction *action,
 }
 
 static void
-terminal_add_encoding_callback (CtkAction *action,
-                                TerminalWindow *window)
+terminal_add_encoding_callback (CtkAction      *action G_GNUC_UNUSED,
+				TerminalWindow *window)
 {
     terminal_app_edit_encodings (terminal_app_get (),
                                  CTK_WINDOW (window));
 }
 
 static void
-terminal_reset_callback (CtkAction *action,
-                         TerminalWindow *window)
+terminal_reset_callback (CtkAction      *action G_GNUC_UNUSED,
+			 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -4205,8 +4205,8 @@ terminal_reset_callback (CtkAction *action,
 }
 
 static void
-terminal_reset_clear_callback (CtkAction *action,
-                               TerminalWindow *window)
+terminal_reset_clear_callback (CtkAction      *action G_GNUC_UNUSED,
+			       TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
 
@@ -4243,8 +4243,8 @@ tabs_next_or_previous_tab_cb (CtkAction *action,
 }
 
 static void
-tabs_move_left_callback (CtkAction *action,
-                         TerminalWindow *window)
+tabs_move_left_callback (CtkAction      *action G_GNUC_UNUSED,
+			 TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkNotebook *notebook = CTK_NOTEBOOK (priv->notebook);
@@ -4259,8 +4259,8 @@ tabs_move_left_callback (CtkAction *action,
 }
 
 static void
-tabs_move_right_callback (CtkAction *action,
-                          TerminalWindow *window)
+tabs_move_right_callback (CtkAction      *action G_GNUC_UNUSED,
+			  TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     CtkNotebook *notebook = CTK_NOTEBOOK (priv->notebook);
@@ -4275,8 +4275,8 @@ tabs_move_right_callback (CtkAction *action,
 }
 
 static void
-tabs_detach_tab_callback (CtkAction *action,
-                          TerminalWindow *window)
+tabs_detach_tab_callback (CtkAction      *action G_GNUC_UNUSED,
+			  TerminalWindow *window)
 {
     TerminalWindowPrivate *priv = window->priv;
     TerminalApp *app;
@@ -4298,8 +4298,8 @@ tabs_detach_tab_callback (CtkAction *action,
 }
 
 static void
-help_contents_callback (CtkAction *action,
-                        TerminalWindow *window)
+help_contents_callback (CtkAction      *action G_GNUC_UNUSED,
+			TerminalWindow *window)
 {
     terminal_util_show_help (NULL, CTK_WINDOW (window));
 }
@@ -4308,8 +4308,8 @@ help_contents_callback (CtkAction *action,
 #define EMAILIFY(string) (g_strdelimit ((string), "%", '@'))
 
 static void
-help_about_callback (CtkAction *action,
-                     TerminalWindow *window)
+help_about_callback (CtkAction      *action G_GNUC_UNUSED,
+		     TerminalWindow *window)
 {
     char *licence_text;
     GBytes *bytes;

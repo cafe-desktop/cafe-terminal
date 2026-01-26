@@ -310,9 +310,9 @@ update_active_encodings_gsettings (void)
 }
 
 static void
-response_callback (CtkWidget *window,
-                   int        id,
-                   EncodingDialogData *data)
+response_callback (CtkWidget          *window,
+		   int                 id,
+		   EncodingDialogData *data G_GNUC_UNUSED)
 {
 	if (id == CTK_RESPONSE_HELP)
 		terminal_util_show_help ("cafe-terminal-encoding-add", CTK_WINDOW (window));
@@ -389,9 +389,9 @@ button_clicked_cb (CtkWidget *button,
 }
 
 static void
-liststore_insert_encoding (gpointer key,
-                           TerminalEncoding *encoding,
-                           CtkListStore *store)
+liststore_insert_encoding (gpointer          key G_GNUC_UNUSED,
+			   TerminalEncoding *encoding,
+			   CtkListStore     *store)
 {
 	CtkTreeIter iter;
 

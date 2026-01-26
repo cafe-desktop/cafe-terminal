@@ -165,8 +165,8 @@ tab_action_activate_cb (CtkToggleAction *action,
 
 static void
 sync_tab_title (TerminalScreen *screen,
-                GParamSpec *pspec,
-                CtkAction *action)
+		GParamSpec     *pspec G_GNUC_UNUSED,
+		CtkAction      *action)
 {
 	const char *title;
 
@@ -176,10 +176,10 @@ sync_tab_title (TerminalScreen *screen,
 }
 
 static void
-notebook_page_added_cb (CtkNotebook *notebook,
-                        TerminalScreenContainer *container,
-                        guint position,
-                        TerminalTabsMenu *menu)
+notebook_page_added_cb (CtkNotebook             *notebook G_GNUC_UNUSED,
+			TerminalScreenContainer *container,
+			guint                    position G_GNUC_UNUSED,
+			TerminalTabsMenu        *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
 	CtkAction *action;
@@ -224,10 +224,10 @@ notebook_page_added_cb (CtkNotebook *notebook,
 }
 
 static void
-notebook_page_removed_cb (CtkNotebook *notebook,
-                          TerminalScreenContainer *container,
-                          guint position,
-                          TerminalTabsMenu *menu)
+notebook_page_removed_cb (CtkNotebook             *notebook G_GNUC_UNUSED,
+			  TerminalScreenContainer *container,
+			  guint                    position G_GNUC_UNUSED,
+			  TerminalTabsMenu        *menu)
 {
 	TerminalTabsMenuPrivate *priv = menu->priv;
 	CtkAction *action;
@@ -253,19 +253,19 @@ notebook_page_removed_cb (CtkNotebook *notebook,
 }
 
 static void
-notebook_page_reordered_cb (CtkNotebook *notebook,
-                            CtkBin *bin,
-                            guint position,
-                            TerminalTabsMenu *menu)
+notebook_page_reordered_cb (CtkNotebook      *notebook G_GNUC_UNUSED,
+			    CtkBin           *bin G_GNUC_UNUSED,
+			    guint             position G_GNUC_UNUSED,
+			    TerminalTabsMenu *menu)
 {
 	terminal_tabs_menu_update (menu);
 }
 
 static void
-notebook_page_switch_cb (CtkNotebook *notebook,
-                         CtkWidget *page,
-                         guint position,
-                         TerminalTabsMenu *menu)
+notebook_page_switch_cb (CtkNotebook      *notebook G_GNUC_UNUSED,
+			 CtkWidget        *page,
+			 guint             position G_GNUC_UNUSED,
+			 TerminalTabsMenu *menu)
 {
 	TerminalScreenContainer *container;
 	TerminalScreen *screen;
@@ -281,10 +281,10 @@ notebook_page_switch_cb (CtkNotebook *notebook,
 }
 
 static void
-connect_proxy_cb (CtkActionGroup *action_group,
-                  CtkAction *action,
-                  CtkWidget *proxy,
-                  gpointer dummy)
+connect_proxy_cb (CtkActionGroup *action_group G_GNUC_UNUSED,
+		  CtkAction      *action G_GNUC_UNUSED,
+		  CtkWidget      *proxy,
+		  gpointer        dummy G_GNUC_UNUSED)
 {
 	if (CTK_IS_MENU_ITEM (proxy))
 	{
@@ -353,10 +353,10 @@ terminal_tabs_menu_set_property (GObject *object,
 }
 
 static void
-terminal_tabs_menu_get_property (GObject *object,
-                                 guint prop_id,
-                                 GValue *value,
-                                 GParamSpec *pspec)
+terminal_tabs_menu_get_property (GObject    *object G_GNUC_UNUSED,
+				 guint       prop_id G_GNUC_UNUSED,
+				 GValue     *value G_GNUC_UNUSED,
+				 GParamSpec *pspec G_GNUC_UNUSED)
 {
 	/* no readable properties */
 	g_return_if_reached ();
@@ -410,10 +410,10 @@ terminal_tabs_menu_new (TerminalWindow *window)
 }
 
 static void
-tab_set_action_accelerator (CtkActionGroup *action_group,
-                            CtkAction *action,
-                            guint tab_number,
-                            gboolean is_single_tab)
+tab_set_action_accelerator (CtkActionGroup *action_group G_GNUC_UNUSED,
+			    CtkAction      *action,
+			    guint           tab_number,
+			    gboolean        is_single_tab)
 {
 	if (!is_single_tab &&
 	        tab_number < TERMINAL_ACCELS_N_TABS_SWITCH)

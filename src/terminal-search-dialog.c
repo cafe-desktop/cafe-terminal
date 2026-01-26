@@ -166,7 +166,8 @@ terminal_search_dialog_private_destroy (TerminalSearchDialogPrivate *priv)
 
 
 static void
-update_sensitivity (void *unused, CtkWidget *dialog)
+update_sensitivity (void      *unused G_GNUC_UNUSED,
+		    CtkWidget *dialog)
 {
 	TerminalSearchDialogPrivate *priv = TERMINAL_SEARCH_DIALOG_GET_PRIVATE (dialog);
 	const gchar *search_string;
@@ -267,8 +268,8 @@ history_entry_insert (CtkListStore *store,
 
 static void
 response_handler (CtkWidget *dialog,
-                  gint       response_id,
-                  gpointer   data)
+		  gint       response_id,
+		  gpointer   data G_GNUC_UNUSED)
 {
 	TerminalSearchDialogPrivate *priv;
 	const gchar *str;
