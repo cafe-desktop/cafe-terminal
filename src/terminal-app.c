@@ -311,9 +311,9 @@ typedef struct
 } LookupInfo;
 
 static void
-profiles_lookup_by_visible_name_foreach (gpointer key,
-        gpointer value,
-        gpointer data)
+profiles_lookup_by_visible_name_foreach (gpointer key G_GNUC_UNUSED,
+					 gpointer value,
+					 gpointer data)
 {
 	LookupInfo *info = data;
 	const char *name;
@@ -385,11 +385,11 @@ terminal_app_delete_profile (TerminalProfile *profile)
 }
 
 static void
-terminal_app_profile_cell_data_func (CtkTreeViewColumn *tree_column,
-                                     CtkCellRenderer *cell,
-                                     CtkTreeModel *tree_model,
-                                     CtkTreeIter *iter,
-                                     gpointer data)
+terminal_app_profile_cell_data_func (CtkTreeViewColumn *tree_column G_GNUC_UNUSED,
+				     CtkCellRenderer   *cell,
+				     CtkTreeModel      *tree_model,
+				     CtkTreeIter       *iter,
+				     gpointer           data G_GNUC_UNUSED)
 {
 	TerminalProfile *profile;
 	GValue value = { 0, };
@@ -404,9 +404,9 @@ terminal_app_profile_cell_data_func (CtkTreeViewColumn *tree_column,
 
 static int
 terminal_app_profile_sort_func (CtkTreeModel *model,
-                                CtkTreeIter *a,
-                                CtkTreeIter *b,
-                                gpointer user_data)
+				CtkTreeIter  *a,
+				CtkTreeIter  *b,
+				gpointer      user_data G_GNUC_UNUSED)
 {
 	TerminalProfile *profile_a, *profile_b;
 	int retval;
@@ -563,8 +563,8 @@ profile_combo_box_changed_cb (CtkWidget *widget,
 }
 
 static void
-profile_list_treeview_refill (TerminalApp *app,
-                              CtkWidget *widget)
+profile_list_treeview_refill (TerminalApp *app G_GNUC_UNUSED,
+			      CtkWidget   *widget)
 {
 	CtkTreeView *tree_view = CTK_TREE_VIEW (widget);
 	CtkTreeIter iter;
@@ -597,7 +597,7 @@ profile_list_treeview_refill (TerminalApp *app,
 }
 
 static CtkWidget*
-profile_list_treeview_create (TerminalApp *app)
+profile_list_treeview_create (TerminalApp *app G_GNUC_UNUSED)
 {
 	CtkWidget *tree_view;
 	CtkTreeSelection *selection;
@@ -658,8 +658,8 @@ cafe_dialog_add_button (CtkDialog   *dialog,
 }
 
 static void
-profile_list_delete_button_clicked_cb (CtkWidget *button,
-                                       CtkWidget *widget)
+profile_list_delete_button_clicked_cb (CtkWidget *button G_GNUC_UNUSED,
+				       CtkWidget *widget)
 {
 	CtkTreeView *tree_view = CTK_TREE_VIEW (widget);
 	CtkTreeSelection *selection;
@@ -712,8 +712,8 @@ profile_list_delete_button_clicked_cb (CtkWidget *button,
 }
 
 static void
-profile_list_new_button_clicked_cb (CtkWidget   *button,
-                                    gpointer data)
+profile_list_new_button_clicked_cb (CtkWidget *button G_GNUC_UNUSED,
+				    gpointer   data G_GNUC_UNUSED)
 {
 	TerminalApp *app;
 
@@ -722,8 +722,8 @@ profile_list_new_button_clicked_cb (CtkWidget   *button,
 }
 
 static void
-profile_list_edit_button_clicked_cb (CtkWidget *button,
-                                     CtkWidget *widget)
+profile_list_edit_button_clicked_cb (CtkWidget *button G_GNUC_UNUSED,
+				     CtkWidget *widget)
 {
 	CtkTreeView *tree_view = CTK_TREE_VIEW (widget);
 	CtkTreeSelection *selection;
@@ -750,9 +750,9 @@ profile_list_edit_button_clicked_cb (CtkWidget *button,
 
 static void
 profile_list_row_activated_cb (CtkTreeView       *tree_view,
-                               CtkTreePath       *path,
-                               CtkTreeViewColumn *column,
-                               gpointer data)
+			       CtkTreePath       *path,
+			       CtkTreeViewColumn *column G_GNUC_UNUSED,
+			       gpointer           data G_GNUC_UNUSED)
 {
 	CtkTreeIter iter;
 	CtkTreeModel *model;
@@ -955,9 +955,9 @@ compare_encodings (TerminalEncoding *a,
 }
 
 static void
-encoding_mark_active (gpointer key,
-                      gpointer value,
-                      gpointer data)
+encoding_mark_active (gpointer key G_GNUC_UNUSED,
+		      gpointer value,
+		      gpointer data)
 {
 	TerminalEncoding *encoding = (TerminalEncoding *) value;
 	guint active = GPOINTER_TO_UINT (data);
@@ -1207,8 +1207,8 @@ new_profile_name_entry_changed_cb (CtkEntry *entry,
 
 void
 terminal_app_new_profile (TerminalApp     *app,
-                          TerminalProfile *default_base_profile,
-                          CtkWindow       *transient_parent)
+			  TerminalProfile *default_base_profile G_GNUC_UNUSED,
+			  CtkWindow       *transient_parent)
 {
 	if (app->new_profile_dialog == NULL)
 	{
@@ -1287,8 +1287,8 @@ profile_list_response_cb (CtkWidget *dialog,
 }
 
 static void
-profile_list_destroyed_cb (CtkWidget   *manage_profiles_dialog,
-                           TerminalApp *app)
+profile_list_destroyed_cb (CtkWidget   *manage_profiles_dialog G_GNUC_UNUSED,
+			   TerminalApp *app)
 {
 	g_signal_handlers_disconnect_by_func (app, G_CALLBACK (profile_list_treeview_refill), app->manage_profiles_list);
 	g_signal_handlers_disconnect_by_func (app, G_CALLBACK (profile_combo_box_refill), app->manage_profiles_default_menu);
@@ -1379,16 +1379,16 @@ terminal_app_manage_profiles (TerminalApp     *app,
 }
 
 static void
-terminal_app_save_state_cb (EggSMClient *client,
-                            GKeyFile *key_file,
-                            TerminalApp *app)
+terminal_app_save_state_cb (EggSMClient *client G_GNUC_UNUSED,
+			    GKeyFile    *key_file,
+			    TerminalApp *app)
 {
 	terminal_app_save_config (app, key_file);
 }
 
 static void
-terminal_app_client_quit_cb (EggSMClient *client,
-                             TerminalApp *app)
+terminal_app_client_quit_cb (EggSMClient *client G_GNUC_UNUSED,
+			     TerminalApp *app)
 {
 	g_signal_emit (app, signals[QUIT], 0);
 }
@@ -1596,7 +1596,7 @@ terminal_app_set_property (GObject *object,
 }
 
 static void
-terminal_app_real_quit (TerminalApp *app)
+terminal_app_real_quit (TerminalApp *app G_GNUC_UNUSED)
 {
 	ctk_main_quit();
 }
@@ -1909,24 +1909,24 @@ terminal_app_new_terminal (TerminalApp     *app,
 }
 
 void
-terminal_app_edit_profile (TerminalApp     *app,
-                           TerminalProfile *profile,
-                           CtkWindow       *transient_parent,
-                           const char      *widget_name)
+terminal_app_edit_profile (TerminalApp     *app G_GNUC_UNUSED,
+			   TerminalProfile *profile,
+			   CtkWindow       *transient_parent,
+			   const char      *widget_name)
 {
 	terminal_profile_edit (profile, transient_parent, widget_name);
 }
 
 void
-terminal_app_edit_keybindings (TerminalApp     *app,
-                               CtkWindow       *transient_parent)
+terminal_app_edit_keybindings (TerminalApp *app G_GNUC_UNUSED,
+			       CtkWindow   *transient_parent)
 {
 	terminal_edit_keys_dialog_show (transient_parent);
 }
 
 void
-terminal_app_edit_encodings (TerminalApp     *app,
-                             CtkWindow       *transient_parent)
+terminal_app_edit_encodings (TerminalApp *app G_GNUC_UNUSED,
+			     CtkWindow   *transient_parent)
 {
 	terminal_encoding_dialog_show (transient_parent);
 }

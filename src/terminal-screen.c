@@ -259,9 +259,9 @@ free_tag_data (TagData *tagdata)
 }
 
 static void
-terminal_screen_class_enable_menu_bar_accel_notify_cb (TerminalApp *app,
-        GParamSpec *pspec,
-        TerminalScreenClass *klass)
+terminal_screen_class_enable_menu_bar_accel_notify_cb (TerminalApp         *app,
+						       GParamSpec          *pspec G_GNUC_UNUSED,
+						       TerminalScreenClass *klass)
 {
 	static gboolean is_enabled = TRUE; /* the binding is enabled by default since CtkWidgetClass installs it */
 	gboolean enable;
@@ -673,7 +673,9 @@ terminal_screen_finalize (GObject *object)
 }
 
 static gboolean
-terminal_screen_image_draw_cb (CtkWidget *widget, cairo_t *cr, void *userdata)
+terminal_screen_image_draw_cb (CtkWidget *widget,
+			       cairo_t   *cr,
+			       void      *userdata G_GNUC_UNUSED)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPrivate *priv = screen->priv;
@@ -1198,9 +1200,9 @@ terminal_screen_set_font (TerminalScreen *screen)
 }
 
 static void
-terminal_screen_system_font_notify_cb (TerminalApp *app,
-                                       GParamSpec *pspec,
-                                       TerminalScreen *screen)
+terminal_screen_system_font_notify_cb (TerminalApp    *app G_GNUC_UNUSED,
+				       GParamSpec     *pspec G_GNUC_UNUSED,
+				       TerminalScreen *screen)
 {
 	TerminalScreenPrivate *priv = screen->priv;
 
@@ -1225,8 +1227,8 @@ terminal_screen_change_font (TerminalScreen *screen)
 }
 
 static void
-profile_forgotten_callback (TerminalProfile *profile,
-                            TerminalScreen  *screen)
+profile_forgotten_callback (TerminalProfile *profile G_GNUC_UNUSED,
+			    TerminalScreen  *screen)
 {
 	TerminalProfile *new_profile;
 
@@ -1544,7 +1546,7 @@ static void handle_error_child (TerminalScreen *screen,
 static void term_spawn_callback (CtkWidget *terminal,
 				 GPid       pid,
 				 GError    *error,
-				 gpointer   user_data)
+				 gpointer   user_data G_GNUC_UNUSED)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (terminal);
 
@@ -1936,8 +1938,8 @@ terminal_screen_icon_title_changed (BteTerminal *bte_terminal,
 }
 
 static void
-terminal_screen_text_inserted (BteTerminal *bte_terminal,
-                               TerminalScreen *screen)
+terminal_screen_text_inserted (BteTerminal    *bte_terminal G_GNUC_UNUSED,
+			       TerminalScreen *screen)
 {
 	if (g_settings_get_boolean (settings_global, "notifications") == FALSE)
 		return;
@@ -2044,12 +2046,12 @@ terminal_screen_set_user_title (TerminalScreen *screen,
 
 static void
 terminal_screen_drag_data_received (CtkWidget        *widget,
-                                    CdkDragContext   *context,
-                                    gint              x,
-                                    gint              y,
-                                    CtkSelectionData *selection_data,
-                                    guint             info,
-                                    guint             timestamp)
+				    CdkDragContext   *context,
+				    gint              x G_GNUC_UNUSED,
+				    gint              y G_GNUC_UNUSED,
+				    CtkSelectionData *selection_data,
+				    guint             info,
+				    guint             timestamp)
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPrivate *priv = screen->priv;

@@ -124,8 +124,8 @@ widget_and_labels_set_sensitive (CtkWidget *widget, gboolean sensitive)
 }
 
 static void
-profile_forgotten_cb (TerminalProfile *profile,
-                      CtkWidget *editor)
+profile_forgotten_cb (TerminalProfile *profile G_GNUC_UNUSED,
+		      CtkWidget       *editor)
 {
 	ctk_widget_destroy (editor);
 }
@@ -341,9 +341,9 @@ profile_notify_sensitivity_cb (TerminalProfile *profile,
 }
 
 static void
-color_scheme_combo_changed_cb (CtkWidget *combo,
-                               GParamSpec *pspec,
-                               TerminalProfile *profile)
+color_scheme_combo_changed_cb (CtkWidget       *combo,
+			       GParamSpec      *pspec G_GNUC_UNUSED,
+			       TerminalProfile *profile)
 {
 	guint i;
 
@@ -366,8 +366,8 @@ color_scheme_combo_changed_cb (CtkWidget *combo,
 
 static void
 profile_colors_notify_scheme_combo_cb (TerminalProfile *profile,
-                                       GParamSpec *pspec,
-                                       CtkComboBox *combo)
+				       GParamSpec      *pspec G_GNUC_UNUSED,
+				       CtkComboBox     *combo)
 {
 	const CdkRGBA *fg, *bg;
 	guint i;
@@ -396,9 +396,9 @@ profile_colors_notify_scheme_combo_cb (TerminalProfile *profile,
 }
 
 static void
-palette_scheme_combo_changed_cb (CtkComboBox *combo,
-                                 GParamSpec *pspec,
-                                 TerminalProfile *profile)
+palette_scheme_combo_changed_cb (CtkComboBox     *combo,
+				 GParamSpec      *pspec G_GNUC_UNUSED,
+				 TerminalProfile *profile)
 {
 	int i;
 
@@ -416,8 +416,8 @@ palette_scheme_combo_changed_cb (CtkComboBox *combo,
 
 static void
 profile_palette_notify_scheme_combo_cb (TerminalProfile *profile,
-                                        GParamSpec *pspec,
-                                        CtkComboBox *combo)
+					GParamSpec      *pspec G_GNUC_UNUSED,
+					CtkComboBox     *combo)
 {
 	guint i;
 
@@ -434,8 +434,8 @@ profile_palette_notify_scheme_combo_cb (TerminalProfile *profile,
 
 static void
 palette_color_notify_cb (CtkColorChooser *button,
-                         GParamSpec *pspec,
-                         TerminalProfile *profile)
+			 GParamSpec      *pspec G_GNUC_UNUSED,
+			 TerminalProfile *profile)
 {
 	CtkWidget *editor;
 	CdkRGBA color;
@@ -452,8 +452,8 @@ palette_color_notify_cb (CtkColorChooser *button,
 
 static void
 profile_palette_notify_colorpickers_cb (TerminalProfile *profile,
-                                        GParamSpec *pspec,
-                                        CtkWidget *editor)
+					GParamSpec      *pspec G_GNUC_UNUSED,
+					CtkWidget       *editor)
 {
 	CdkRGBA colors[TERMINAL_PALETTE_SIZE];
 	guint n_colors, i;
@@ -517,8 +517,8 @@ visible_name_entry_changed_cb (CtkEntry *entry,
 }
 
 static void
-reset_compat_defaults_cb (CtkWidget       *button,
-                          TerminalProfile *profile)
+reset_compat_defaults_cb (CtkWidget       *button G_GNUC_UNUSED,
+			  TerminalProfile *profile)
 {
 	terminal_profile_reset_property (profile, TERMINAL_PROFILE_DELETE_BINDING);
 	terminal_profile_reset_property (profile, TERMINAL_PROFILE_BACKSPACE_BINDING);
@@ -554,9 +554,9 @@ init_color_scheme_menu (CtkWidget *widget)
 }
 
 static char*
-format_percent_value (CtkScale *scale,
-                      double    val,
-                      void     *data)
+format_percent_value (CtkScale *scale G_GNUC_UNUSED,
+		      double    val,
+		      void     *data G_GNUC_UNUSED)
 {
 	return g_strdup_printf ("%d%%", (int) (val * 100.0 + 0.5));
 }
@@ -571,8 +571,8 @@ init_background_darkness_scale (CtkWidget *scale)
 
 static void
 editor_response_cb (CtkWidget *editor,
-                    int response,
-                    gpointer use_data)
+		    int        response,
+		    gpointer   use_data G_GNUC_UNUSED)
 {
 	if (response == CTK_RESPONSE_HELP)
 	{
@@ -584,8 +584,8 @@ editor_response_cb (CtkWidget *editor,
 }
 
 static void
-setup_background_filechooser (CtkWidget *filechooser,
-                              TerminalProfile *profile)
+setup_background_filechooser (CtkWidget       *filechooser,
+			      TerminalProfile *profile G_GNUC_UNUSED)
 {
 	CtkFileFilter *filter;
 	const char *home_dir;

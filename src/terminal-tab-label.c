@@ -54,16 +54,16 @@ G_DEFINE_TYPE_WITH_PRIVATE (TerminalTabLabel, terminal_tab_label, CTK_TYPE_BOX);
 /* helper functions */
 
 static void
-close_button_clicked_cb (CtkWidget *widget,
-                         TerminalTabLabel *tab_label)
+close_button_clicked_cb (CtkWidget        *widget G_GNUC_UNUSED,
+			 TerminalTabLabel *tab_label)
 {
 	g_signal_emit (tab_label, signals[CLOSE_BUTTON_CLICKED], 0);
 }
 
 static void
 sync_tab_label (TerminalScreen *screen,
-                GParamSpec *pspec,
-                CtkWidget *label)
+		GParamSpec     *pspec G_GNUC_UNUSED,
+		CtkWidget      *label)
 {
 	CtkWidget *hbox;
 	const char *title;

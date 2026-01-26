@@ -169,9 +169,9 @@ add_new_window (TerminalOptions *options,
 /* handle deprecated command line options */
 static gboolean
 unsupported_option_callback (const gchar *option_name,
-                             const gchar *value,
-                             gpointer     data,
-                             GError     **error)
+			     const gchar *value G_GNUC_UNUSED,
+			     gpointer     data G_GNUC_UNUSED,
+			     GError     **error G_GNUC_UNUSED)
 {
 	g_printerr (_("Option \"%s\" is no longer supported in this version of cafe-terminal;"
 	              " you might want to create a profile with the desired setting, and use"
@@ -181,10 +181,10 @@ unsupported_option_callback (const gchar *option_name,
 
 
 static gboolean G_GNUC_NORETURN
-option_version_cb (const gchar *option_name,
-                   const gchar *value,
-                   gpointer     data,
-                   GError     **error)
+option_version_cb (const gchar *option_name G_GNUC_UNUSED,
+		   const gchar *value G_GNUC_UNUSED,
+		   gpointer     data G_GNUC_UNUSED,
+		   GError     **error G_GNUC_UNUSED)
 {
 	g_print ("%s %s\n", _("CAFE Terminal"), VERSION);
 
@@ -192,10 +192,10 @@ option_version_cb (const gchar *option_name,
 }
 
 static gboolean
-option_command_callback (const gchar *option_name,
-                         const gchar *value,
-                         gpointer     data,
-                         GError     **error)
+option_command_callback (const gchar *option_name G_GNUC_UNUSED,
+			 const gchar *value,
+			 gpointer     data,
+			 GError     **error)
 {
 	TerminalOptions *options = data;
 	GError *err = NULL;
@@ -230,10 +230,10 @@ option_command_callback (const gchar *option_name,
 }
 
 static gboolean
-option_profile_cb (const gchar *option_name,
-                   const gchar *value,
-                   gpointer     data,
-                   GError     **error)
+option_profile_cb (const gchar *option_name G_GNUC_UNUSED,
+		   const gchar *value,
+		   gpointer     data,
+		   GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -256,10 +256,10 @@ option_profile_cb (const gchar *option_name,
 }
 
 static gboolean
-option_profile_id_cb (const gchar *option_name,
-                      const gchar *value,
-                      gpointer     data,
-                      GError     **error)
+option_profile_id_cb (const gchar *option_name G_GNUC_UNUSED,
+		      const gchar *value,
+		      gpointer     data,
+		      GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -284,9 +284,9 @@ option_profile_id_cb (const gchar *option_name,
 
 static gboolean
 option_window_callback (const gchar *option_name,
-                        const gchar *value,
-                        gpointer     data,
-                        GError     **error)
+			const gchar *value,
+			gpointer     data,
+			GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 	gboolean is_profile_id;
@@ -300,9 +300,9 @@ option_window_callback (const gchar *option_name,
 
 static gboolean
 option_tab_callback (const gchar *option_name,
-                     const gchar *value,
-                     gpointer     data,
-                     GError     **error)
+		     const gchar *value,
+		     gpointer     data,
+		     GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 	gboolean is_profile_id;
@@ -328,10 +328,10 @@ option_tab_callback (const gchar *option_name,
 }
 
 static gboolean
-option_role_callback (const gchar *option_name,
-                      const gchar *value,
-                      gpointer     data,
-                      GError     **error)
+option_role_callback (const gchar *option_name G_GNUC_UNUSED,
+		      const gchar *value,
+		      gpointer     data,
+		      GError     **error)
 {
 	TerminalOptions *options = data;
 
@@ -355,10 +355,10 @@ option_role_callback (const gchar *option_name,
 }
 
 static gboolean
-option_show_menubar_callback (const gchar *option_name,
-                              const gchar *value,
-                              gpointer     data,
-                              GError     **error)
+option_show_menubar_callback (const gchar *option_name G_GNUC_UNUSED,
+			      const gchar *value G_GNUC_UNUSED,
+			      gpointer     data,
+			      GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -388,10 +388,10 @@ option_show_menubar_callback (const gchar *option_name,
 }
 
 static gboolean
-option_hide_menubar_callback (const gchar *option_name,
-                              const gchar *value,
-                              gpointer     data,
-                              GError     **error)
+option_hide_menubar_callback (const gchar *option_name G_GNUC_UNUSED,
+			      const gchar *value G_GNUC_UNUSED,
+			      gpointer     data,
+			      GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -421,10 +421,10 @@ option_hide_menubar_callback (const gchar *option_name,
 }
 
 static gboolean
-option_maximize_callback (const gchar *option_name,
-                          const gchar *value,
-                          gpointer     data,
-                          GError     **error)
+option_maximize_callback (const gchar *option_name G_GNUC_UNUSED,
+			  const gchar *value G_GNUC_UNUSED,
+			  gpointer     data,
+			  GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -442,10 +442,10 @@ option_maximize_callback (const gchar *option_name,
 }
 
 static gboolean
-option_fullscreen_callback (const gchar *option_name,
-                            const gchar *value,
-                            gpointer     data,
-                            GError     **error)
+option_fullscreen_callback (const gchar *option_name G_GNUC_UNUSED,
+			    const gchar *value G_GNUC_UNUSED,
+			    gpointer     data,
+			    GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -463,10 +463,10 @@ option_fullscreen_callback (const gchar *option_name,
 }
 
 static gboolean
-option_geometry_callback (const gchar *option_name,
-                          const gchar *value,
-                          gpointer     data,
-                          GError     **error)
+option_geometry_callback (const gchar *option_name G_GNUC_UNUSED,
+			  const gchar *value,
+			  gpointer     data,
+			  GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -484,10 +484,10 @@ option_geometry_callback (const gchar *option_name,
 }
 
 static gboolean
-option_disable_factory_callback (const gchar *option_name,
-                                 const gchar *value,
-                                 gpointer     data,
-                                 GError     **error)
+option_disable_factory_callback (const gchar *option_name G_GNUC_UNUSED,
+				 const gchar *value G_GNUC_UNUSED,
+				 gpointer     data,
+				 GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -519,10 +519,10 @@ option_load_save_config_cb (const gchar *option_name,
 }
 
 static gboolean
-option_title_callback (const gchar *option_name,
-                       const gchar *value,
-                       gpointer     data,
-                       GError     **error)
+option_title_callback (const gchar *option_name G_GNUC_UNUSED,
+		       const gchar *value,
+		       gpointer     data,
+		       GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -543,10 +543,10 @@ option_title_callback (const gchar *option_name,
 }
 
 static gboolean
-option_working_directory_callback (const gchar *option_name,
-                                   const gchar *value,
-                                   gpointer     data,
-                                   GError     **error)
+option_working_directory_callback (const gchar *option_name G_GNUC_UNUSED,
+				   const gchar *value,
+				   gpointer     data,
+				   GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 
@@ -567,10 +567,10 @@ option_working_directory_callback (const gchar *option_name,
 }
 
 static gboolean
-option_active_callback (const gchar *option_name,
-                        const gchar *value,
-                        gpointer     data,
-                        GError     **error)
+option_active_callback (const gchar *option_name G_GNUC_UNUSED,
+			const gchar *value G_GNUC_UNUSED,
+			gpointer     data,
+			GError     **error G_GNUC_UNUSED)
 {
 	TerminalOptions *options = data;
 	InitialTab *it;
@@ -582,10 +582,10 @@ option_active_callback (const gchar *option_name,
 }
 
 static gboolean
-option_zoom_callback (const gchar *option_name,
-                      const gchar *value,
-                      gpointer     data,
-                      GError     **error)
+option_zoom_callback (const gchar *option_name G_GNUC_UNUSED,
+		      const gchar *value,
+		      gpointer     data,
+		      GError     **error)
 {
 	TerminalOptions *options = data;
 	double zoom;
@@ -638,10 +638,10 @@ option_zoom_callback (const gchar *option_name,
 
 /* Evaluation of the arguments given to the command line options */
 static gboolean
-digest_options_callback (GOptionContext *context,
-                         GOptionGroup *group,
-                         gpointer      data,
-                         GError      **error)
+digest_options_callback (GOptionContext *context G_GNUC_UNUSED,
+			 GOptionGroup   *group G_GNUC_UNUSED,
+			 gpointer        data,
+			 GError        **error)
 {
 	TerminalOptions *options = data;
 

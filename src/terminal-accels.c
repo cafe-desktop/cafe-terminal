@@ -483,9 +483,9 @@ update_model_foreach (CtkTreeModel *model,
 }
 
 static void
-keys_change_notify (GSettings *settings,
-                    const gchar *key,
-                    gpointer user_data)
+keys_change_notify (GSettings   *settings,
+		    const gchar *key,
+		    gpointer     user_data G_GNUC_UNUSED)
 {
 	GVariant *val;
 	KeyEntry *key_entry;
@@ -567,11 +567,11 @@ keys_change_notify (GSettings *settings,
 }
 
 static void
-accel_changed_callback (CtkAccelGroup  *accel_group,
-                        guint           keyval,
-                        CdkModifierType modifier,
-                        GClosure       *accel_closure,
-                        gpointer        data)
+accel_changed_callback (CtkAccelGroup  *accel_group G_GNUC_UNUSED,
+			guint           keyval,
+			CdkModifierType modifier,
+			GClosure       *accel_closure,
+			gpointer        data G_GNUC_UNUSED)
 {
 	/* FIXME because CTK accel API is so nonsensical, we get
 	 * a notify for each closure, on both the added and the removed
@@ -647,9 +647,9 @@ binding_from_value (GVariant         *value,
 }
 
 static void
-add_key_entry_to_changeset (gpointer key,
-                            KeyEntry *key_entry,
-                            GSettings *changeset)
+add_key_entry_to_changeset (gpointer   key G_GNUC_UNUSED,
+			    KeyEntry  *key_entry,
+			    GSettings *changeset)
 {
 	CtkAccelKey ctk_key;
 
@@ -671,7 +671,7 @@ add_key_entry_to_changeset (gpointer key,
 }
 
 static gboolean
-sync_idle_cb (gpointer data)
+sync_idle_cb (gpointer data G_GNUC_UNUSED)
 {
 	GSettings *changeset;
 
@@ -697,11 +697,11 @@ sync_idle_cb (gpointer data)
  */
 
 static void
-accel_set_func (CtkTreeViewColumn *tree_column,
-                CtkCellRenderer   *cell,
-                CtkTreeModel      *model,
-                CtkTreeIter       *iter,
-                gpointer           data)
+accel_set_func (CtkTreeViewColumn *tree_column G_GNUC_UNUSED,
+		CtkCellRenderer   *cell,
+		CtkTreeModel      *model,
+		CtkTreeIter       *iter,
+		gpointer           data G_GNUC_UNUSED)
 {
 	KeyEntry *ke;
 
@@ -726,9 +726,9 @@ accel_set_func (CtkTreeViewColumn *tree_column,
 
 static int
 accel_compare_func (CtkTreeModel *model,
-                    CtkTreeIter  *a,
-                    CtkTreeIter  *b,
-                    gpointer      user_data)
+		    CtkTreeIter  *a,
+		    CtkTreeIter  *b,
+		    gpointer      user_data G_GNUC_UNUSED)
 {
 	KeyEntry *ke_a;
 	KeyEntry *ke_b;
@@ -775,22 +775,22 @@ accel_compare_func (CtkTreeModel *model,
 }
 
 static void
-treeview_accel_changed_cb (CtkAccelGroup  *accel_group,
-                           guint keyval,
-                           CdkModifierType modifier,
-                           GClosure *accel_closure,
-                           CtkTreeModel *model)
+treeview_accel_changed_cb (CtkAccelGroup  *accel_group G_GNUC_UNUSED,
+			   guint           keyval G_GNUC_UNUSED,
+			   CdkModifierType modifier G_GNUC_UNUSED,
+			   GClosure       *accel_closure,
+			   CtkTreeModel   *model)
 {
 	ctk_tree_model_foreach (model, update_model_foreach, accel_closure->data);
 }
 
 static void
-accel_edited_callback (CtkCellRendererAccel *cell,
-                       gchar                *path_string,
-                       guint                 keyval,
-                       CdkModifierType       mask,
-                       guint                 hardware_keycode,
-                       CtkTreeView          *view)
+accel_edited_callback (CtkCellRendererAccel *cell G_GNUC_UNUSED,
+		       gchar                *path_string,
+		       guint                 keyval,
+		       CdkModifierType       mask,
+		       guint                 hardware_keycode G_GNUC_UNUSED,
+		       CtkTreeView          *view)
 {
 	CtkTreeModel *model;
 	CtkTreePath *path;
@@ -885,9 +885,9 @@ other_key->user_visible_name ? _(other_key->user_visible_name) : other_key->gset
 }
 
 static void
-accel_cleared_callback (CtkCellRendererAccel *cell,
-                        gchar                *path_string,
-                        CtkTreeView          *view)
+accel_cleared_callback (CtkCellRendererAccel *cell G_GNUC_UNUSED,
+			gchar                *path_string,
+			CtkTreeView          *view)
 {
 	CtkTreeModel *model;
 	CtkTreePath *path;
@@ -931,8 +931,8 @@ accel_cleared_callback (CtkCellRendererAccel *cell,
 }
 
 static void
-edit_keys_dialog_destroy_cb (CtkWidget *widget,
-                             gpointer user_data)
+edit_keys_dialog_destroy_cb (CtkWidget *widget G_GNUC_UNUSED,
+			     gpointer   user_data)
 {
 	g_signal_handlers_disconnect_by_func (notification_group, G_CALLBACK (treeview_accel_changed_cb), user_data);
 	edit_keys_dialog = NULL;
@@ -941,8 +941,8 @@ edit_keys_dialog_destroy_cb (CtkWidget *widget,
 
 static void
 edit_keys_dialog_response_cb (CtkWidget *editor,
-                              int response,
-                              gpointer use_data)
+			      int        response,
+			      gpointer   use_data G_GNUC_UNUSED)
 {
 	if (response == CTK_RESPONSE_HELP)
 	{

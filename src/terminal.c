@@ -133,14 +133,14 @@ typedef struct
 } OwnData;
 
 static void
-method_call_cb (GDBusConnection *connection,
-                const char *sender,
-                const char *object_path,
-                const char *interface_name,
-                const char *method_name,
-                GVariant *parameters,
-                GDBusMethodInvocation *invocation,
-                gpointer user_data)
+method_call_cb (GDBusConnection       *connection G_GNUC_UNUSED,
+		const char            *sender G_GNUC_UNUSED,
+		const char            *object_path G_GNUC_UNUSED,
+		const char            *interface_name G_GNUC_UNUSED,
+		const char            *method_name,
+		GVariant              *parameters,
+		GDBusMethodInvocation *invocation,
+		gpointer               user_data G_GNUC_UNUSED)
 {
 	if (g_strcmp0 (method_name, "HandleArguments") == 0)
 	{
@@ -273,9 +273,9 @@ bus_acquired_cb (GDBusConnection *connection,
 }
 
 static void
-name_acquired_cb (GDBusConnection *connection,
-                  const char *name,
-                  gpointer user_data)
+name_acquired_cb (GDBusConnection *connection G_GNUC_UNUSED,
+		  const char      *name,
+		  gpointer         user_data)
 {
 	OwnData *data = (OwnData *) user_data;
 	GError *error = NULL;
