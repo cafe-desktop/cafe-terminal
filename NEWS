@@ -1,3 +1,15 @@
+### cafe-terminal 2.0.0
+
+  * terminal-window: add the ability to enable/disable Ctrl+D behavior
+  * terminal-screen: show notifications when a foreground process terminates
+  * gschema: add gsettings key to show notifications
+  * ci: some improvements
+  * Enable content saving in all versions
+  * add G_GNUC_UNUSED in unused parameters
+  * require bte 0.63.0
+  * update translations
+
+
 ### cafe-terminal 1.25.1
 
   * terminal-window: show ctk and bte version in about dialog
@@ -17,6 +29,7 @@
     - use-theme-colors disabled by default
   * build: remove obsolete AC_HEADER_STDC
   * update translations
+
 
 ### cafe-terminal 1.25.0
 
