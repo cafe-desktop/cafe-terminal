@@ -349,9 +349,7 @@ terminal_screen_init (TerminalScreen *screen)
 	priv = screen->priv = terminal_screen_get_instance_private (screen);
 
 	bte_terminal_set_mouse_autohide (BTE_TERMINAL (screen), TRUE);
-#if BTE_CHECK_VERSION (0, 52, 0)
 	bte_terminal_set_bold_is_bright (BTE_TERMINAL (screen), TRUE);
-#endif
 
 	priv->child_pid = -1;
 

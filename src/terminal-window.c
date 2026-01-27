@@ -1098,11 +1098,7 @@ terminal_window_update_copy_sensitivity (TerminalScreen *screen,
     ctk_action_set_sensitive (action, can_copy);
 
     if (can_copy && priv->copy_selection)
-#if BTE_CHECK_VERSION (0, 50, 0)
         bte_terminal_copy_clipboard_format (BTE_TERMINAL(screen), BTE_FORMAT_TEXT);
-#else
-        bte_terminal_copy_clipboard(BTE_TERMINAL(screen));
-#endif
 }
 
 static void
@@ -3685,11 +3681,7 @@ edit_copy_callback (CtkAction      *action G_GNUC_UNUSED,
     if (!priv->active_screen)
         return;
 
-#if BTE_CHECK_VERSION (0, 50, 0)
     bte_terminal_copy_clipboard_format (BTE_TERMINAL (priv->active_screen), BTE_FORMAT_TEXT);
-#else
-    bte_terminal_copy_clipboard (BTE_TERMINAL (priv->active_screen));
-#endif
 }
 
 typedef struct
