@@ -17,9 +17,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 1.25.1\n"
+"Project-Id-Version: cafe-terminal 2.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-01-27 09:12+0100\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: semicolon <mail@semicln.com>, 2020\n"
 "Language-Team: Japanese (https://www.transifex.com/cafe/teams/13566/ja/)\n"
@@ -29,8 +29,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:3
-#: src/terminal-options.c:189 src/terminal-window.c:4387
+#: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
+#: src/terminal-options.c:189 src/terminal-window.c:4364
 msgid "CAFE Terminal"
 msgstr "CAFE 端末"
 
@@ -53,12 +53,12 @@ msgid ""
 "please visit the project's home page."
 msgstr ""
 
-#: cafe-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:591
-#: src/terminal-profile.c:162 src/terminal-window.c:2149
+#: cafe-terminal.desktop.in.in:3 src/terminal-accels.c:336 src/terminal.c:591
+#: src/terminal-profile.c:162 src/terminal-window.c:2132
 msgid "Terminal"
 msgstr "端末"
 
-#: cafe-terminal.desktop.in.in:5
+#: cafe-terminal.desktop.in.in:4
 msgid "Use the command line"
 msgstr "コマンドラインを使用"
 
@@ -142,69 +142,89 @@ msgstr ""
 "bar-accel = \"whatever\") 経由でカスタマイズすることも可能です。このオプショ"
 "ンにより標準的なメニューバーアクセラレーターを無効にすることが可能です。"
 
-#: src/org.cafe.terminal.gschema.xml.in:68
+#: src/org.cafe.terminal.gschema.xml.in:69
+msgid "Whether the standard Ctrl+D behavior to exit current terminal"
+msgstr ""
+
+#: src/org.cafe.terminal.gschema.xml.in:70
+msgid ""
+"If enabled, Ctrl-D by itself (when nothing appears after the command prompt) "
+"terminates the shell, causing the terminal emulator to terminate as well."
+msgstr ""
+
+#: src/org.cafe.terminal.gschema.xml.in:73
 msgctxt "active-encodings"
 msgid "[ 'UTF-8', 'current' ]"
 msgstr "[ 'UTF-8', 'current' ]"
 
-#: src/org.cafe.terminal.gschema.xml.in:69
+#: src/org.cafe.terminal.gschema.xml.in:74
 msgid "List of available encodings"
 msgstr "利用可能なエンコーディングの一覧"
 
-#: src/org.cafe.terminal.gschema.xml.in:70
+#: src/org.cafe.terminal.gschema.xml.in:75
 msgid ""
 "A subset of possible encodings are presented in the \"Encoding\" submenu. "
 "This is a list of encodings to appear there. The special encoding name "
 "\"current\" means to display the encoding of the current locale."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:74
+#: src/org.cafe.terminal.gschema.xml.in:79
 msgid "Whether to ask for confirmation when closing terminal windows"
 msgstr "端末ウィンドウを閉じる際に確認するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:75
+#: src/org.cafe.terminal.gschema.xml.in:80
 msgid ""
 "Whether to ask for confirmation when closing a terminal window which has "
 "more than one open tab or any foreground subprocesses."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:79
+#: src/org.cafe.terminal.gschema.xml.in:84
 msgid "Close tabs with middle click"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:80
+#: src/org.cafe.terminal.gschema.xml.in:85
 msgid "If true, it enables the ability to close tabs using middle click."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:84
+#: src/org.cafe.terminal.gschema.xml.in:89
 msgid "Switch tabs with [Ctrl]+[Tab]"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:85
+#: src/org.cafe.terminal.gschema.xml.in:90
 msgid ""
 "If true, it enables the ability to switch tabs using [Ctrl+Tab] and "
 "[Ctrl+Shift+Tab]."
 msgstr ""
 
+#: src/org.cafe.terminal.gschema.xml.in:94
+msgid "Show notifications"
+msgstr ""
+
+#: src/org.cafe.terminal.gschema.xml.in:95
+msgid ""
+"Show notifications when a foreground process terminates and the window isn't "
+"active."
+msgstr ""
+
 #. Translators: keep the single quotes, please don't change it
-#: src/org.cafe.terminal.gschema.xml.in:93
+#: src/org.cafe.terminal.gschema.xml.in:103
 msgctxt "visible-name"
 msgid "'Default'"
 msgstr "'デフォルト'"
 
-#: src/org.cafe.terminal.gschema.xml.in:94
+#: src/org.cafe.terminal.gschema.xml.in:104
 msgid "Human-readable name of the profile"
 msgstr "プロファイルの可読な名前"
 
-#: src/org.cafe.terminal.gschema.xml.in:95
+#: src/org.cafe.terminal.gschema.xml.in:105
 msgid "Human-readable name of the profile."
 msgstr "プロファイルに読みやすい名前をつけます。"
 
-#: src/org.cafe.terminal.gschema.xml.in:99
+#: src/org.cafe.terminal.gschema.xml.in:109
 msgid "Whether to show menubar in new windows/tabs"
 msgstr "新しいウィンドウ/タブにメニューバーを表示するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:100
+#: src/org.cafe.terminal.gschema.xml.in:110
 msgid ""
 "True if the menubar should be shown in new windows, for windows/tabs with "
 "this profile."
@@ -212,11 +232,11 @@ msgstr ""
 "TRUE にすると、このプロファイルを使用しているウィンドウやタブで、ウィンドウ内"
 "にメニューバーが表示されます。"
 
-#: src/org.cafe.terminal.gschema.xml.in:104
+#: src/org.cafe.terminal.gschema.xml.in:114
 msgid "Default color of text in the terminal"
 msgstr "端末のテキストのデフォルト色"
 
-#: src/org.cafe.terminal.gschema.xml.in:105
+#: src/org.cafe.terminal.gschema.xml.in:115
 msgid ""
 "Default color of text in the terminal, as a color specification (can be HTML-"
 "style hex digits, or a color name such as \"red\")."
@@ -224,11 +244,11 @@ msgstr ""
 "端末のテキストのデフォルト色を、色指定子 (HTML スタイルの 16 進数もしくは "
 "\"red\" のような色の名前) で設定します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:109
+#: src/org.cafe.terminal.gschema.xml.in:119
 msgid "Default color of terminal background"
 msgstr "端末の背景のデフォルト色"
 
-#: src/org.cafe.terminal.gschema.xml.in:110
+#: src/org.cafe.terminal.gschema.xml.in:120
 msgid ""
 "Default color of terminal background, as a color specification (can be HTML-"
 "style hex digits, or a color name such as \"red\")."
@@ -236,11 +256,11 @@ msgstr ""
 "端末の背景のデフォルト色を、色指定子 (HTML スタイルの 16 進数もしくは "
 "\"red\" のような色の名前) で設定します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:114
+#: src/org.cafe.terminal.gschema.xml.in:124
 msgid "Default color of bold text in the terminal"
 msgstr "端末の太字テキストのデフォルト色"
 
-#: src/org.cafe.terminal.gschema.xml.in:115
+#: src/org.cafe.terminal.gschema.xml.in:125
 msgid ""
 "Default color of bold text in the terminal, as a color specification (can be "
 "HTML-style hex digits, or a color name such as \"red\"). This is ignored if "
@@ -250,20 +270,20 @@ msgstr ""
 "は \"red\" のような色の名前) で設定します。これは bold_color_same_as_fg が有"
 "効になっている場合に無視されます。"
 
-#: src/org.cafe.terminal.gschema.xml.in:119
+#: src/org.cafe.terminal.gschema.xml.in:129
 msgid "Whether bold text should use the same color as normal text"
 msgstr "太字テキストが通常のテキストと同じ文字色を使うかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:120
+#: src/org.cafe.terminal.gschema.xml.in:130
 msgid ""
 "If true, boldface text will be rendered using the same color as normal text."
 msgstr "有効にすると、太字のテキストは通常のテキストと同じ色で表示されます。"
 
-#: src/org.cafe.terminal.gschema.xml.in:124
+#: src/org.cafe.terminal.gschema.xml.in:134
 msgid "What to do with dynamic title"
 msgstr "動的なタイトルをどう扱うか"
 
-#: src/org.cafe.terminal.gschema.xml.in:125
+#: src/org.cafe.terminal.gschema.xml.in:135
 msgid ""
 "If the application in the terminal sets the title (most typically people "
 "have their shell set up to do this), the dynamically-set title can erase the "
@@ -276,16 +296,16 @@ msgstr ""
 "\"replace\"、\"before\"、\"after\"、\"ignore\""
 
 #. Translators: keep the single quotes, please don't change it
-#: src/org.cafe.terminal.gschema.xml.in:129
+#: src/org.cafe.terminal.gschema.xml.in:139
 msgctxt "title"
 msgid "'Terminal'"
 msgstr "'端末'"
 
-#: src/org.cafe.terminal.gschema.xml.in:130
+#: src/org.cafe.terminal.gschema.xml.in:140
 msgid "Title for terminal"
 msgstr "端末のタイトル"
 
-#: src/org.cafe.terminal.gschema.xml.in:131
+#: src/org.cafe.terminal.gschema.xml.in:141
 msgid ""
 "Title to display for the terminal window or tab. This title may be replaced "
 "by or combined with the title set by the application inside the terminal, "
@@ -295,21 +315,21 @@ msgstr ""
 "行中のアプリケーションによって置き換えられたり、追加されたりすることが可能"
 "で、title_mode の設定に依存します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:135
+#: src/org.cafe.terminal.gschema.xml.in:145
 msgid "Whether to allow bold text"
 msgstr "太字のフォントを許可するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:136
+#: src/org.cafe.terminal.gschema.xml.in:146
 msgid "If true, allow applications in the terminal to make text boldface."
 msgstr ""
 "TRUE にすると、端末で実行しているアプリケーションが太字のテキストを利用できる"
 "ようにします。"
 
-#: src/org.cafe.terminal.gschema.xml.in:140
+#: src/org.cafe.terminal.gschema.xml.in:150
 msgid "Whether to silence terminal bell"
 msgstr "端末ベルを消すかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:141
+#: src/org.cafe.terminal.gschema.xml.in:151
 msgid ""
 "If true, don't make a noise when applications send the escape sequence for "
 "the terminal bell."
@@ -317,19 +337,19 @@ msgstr ""
 "TRUE にすると、アプリケーションが端末ベルのエスケープシーケンスを送出しても音"
 "を出しません。"
 
-#: src/org.cafe.terminal.gschema.xml.in:145
+#: src/org.cafe.terminal.gschema.xml.in:155
 msgid "Copy selection to clipboard"
 msgstr "選択したテキストをクリップボードへコピー"
 
-#: src/org.cafe.terminal.gschema.xml.in:146
+#: src/org.cafe.terminal.gschema.xml.in:156
 msgid "If true, selection is automatically copied to clipboard buffer."
 msgstr "TRUEなら、選択範囲を自動的にクリップボードへコピー"
 
-#: src/org.cafe.terminal.gschema.xml.in:150
+#: src/org.cafe.terminal.gschema.xml.in:160
 msgid "Characters that are considered \"part of a word\""
 msgstr "\"単語の一部\" とみなす文字の指定"
 
-#: src/org.cafe.terminal.gschema.xml.in:151
+#: src/org.cafe.terminal.gschema.xml.in:161
 msgid ""
 "When selecting text by word, sequences of these characters are considered "
 "single words. Ranges can be given as \"A-Z\". Literal hyphen (not expressing "
@@ -339,11 +359,11 @@ msgstr ""
 "囲は \"A-Z\" で与えられます。リテラルのハイフン (範囲を示すハイフンではない) "
 "を指定する場合は先頭においてください。"
 
-#: src/org.cafe.terminal.gschema.xml.in:155
+#: src/org.cafe.terminal.gschema.xml.in:165
 msgid "Whether to use custom terminal size for new windows"
 msgstr "新しいウインドウに指定した大きさを使用するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:156
+#: src/org.cafe.terminal.gschema.xml.in:166
 msgid ""
 "If true, newly created terminal windows will have custom size specified by "
 "default_size_columns and default_size_rows."
@@ -351,11 +371,11 @@ msgstr ""
 "TRUE にすると、新しいウィンドウを default_size_columns と default_size_rows "
 "で指定されたサイズで作ります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:160
+#: src/org.cafe.terminal.gschema.xml.in:170
 msgid "Default number of columns"
 msgstr "デフォルトの列数"
 
-#: src/org.cafe.terminal.gschema.xml.in:161
+#: src/org.cafe.terminal.gschema.xml.in:171
 msgid ""
 "Number of columns in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
@@ -363,11 +383,11 @@ msgstr ""
 "新しく作成されるウインドウの列の数です。use_custom_size が有効でない場合は意"
 "味がありません。"
 
-#: src/org.cafe.terminal.gschema.xml.in:165
+#: src/org.cafe.terminal.gschema.xml.in:175
 msgid "Default number of rows"
 msgstr "デフォルトの行数"
 
-#: src/org.cafe.terminal.gschema.xml.in:166
+#: src/org.cafe.terminal.gschema.xml.in:176
 msgid ""
 "Number of rows in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
@@ -375,23 +395,23 @@ msgstr ""
 "新しく作成されるウインドウの行の数です。use_custom_size が有効でない場合は意"
 "味がありません。"
 
-#: src/org.cafe.terminal.gschema.xml.in:170
+#: src/org.cafe.terminal.gschema.xml.in:180
 msgid "Position of the scrollbar"
 msgstr "スクロールバーの位置"
 
-#: src/org.cafe.terminal.gschema.xml.in:171
+#: src/org.cafe.terminal.gschema.xml.in:181
 msgid ""
 "Where to put the terminal scrollbar. Possibilities are \"left\", \"right\", "
 "and \"hidden\"."
 msgstr ""
-"端末のスクロールバーを配置する場所を設定します。指定可能な値:"
-"\"left\"、\"right\"、\"hidden\""
+"端末のスクロールバーを配置する場所を設定します。指定可能な値:\"left\"、"
+"\"right\"、\"hidden\""
 
-#: src/org.cafe.terminal.gschema.xml.in:175
+#: src/org.cafe.terminal.gschema.xml.in:185
 msgid "Number of lines to keep in scrollback"
 msgstr "スクロール時に維持する行数"
 
-#: src/org.cafe.terminal.gschema.xml.in:176
+#: src/org.cafe.terminal.gschema.xml.in:186
 msgid ""
 "Number of scrollback lines to keep around. You can scroll back in the "
 "terminal by this number of lines; lines that don't fit in the scrollback are "
@@ -401,11 +421,11 @@ msgstr ""
 "ことが可能になり、古い行は破棄されます。crollback_unlimited が有効になってい"
 "る場合、この値は無視されます。"
 
-#: src/org.cafe.terminal.gschema.xml.in:180
+#: src/org.cafe.terminal.gschema.xml.in:190
 msgid "Whether an unlimited number of lines should be kept in scrollback"
 msgstr "スクロール時に維持する行数を無制限にするかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:181
+#: src/org.cafe.terminal.gschema.xml.in:191
 msgid ""
 "If true, scrollback lines will never be discarded. The scrollback history is "
 "stored on disk temporarily, so this may cause the system to run out of disk "
@@ -415,39 +435,39 @@ msgstr ""
 "ディスクに保存されるので、端末に大量の出力があった場合にシステムのディスクが"
 "不足するかもしれません。"
 
-#: src/org.cafe.terminal.gschema.xml.in:185
+#: src/org.cafe.terminal.gschema.xml.in:195
 msgid "Whether to scroll to the bottom when a key is pressed"
 msgstr "キーが押されたら下までスクロールするかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:186
+#: src/org.cafe.terminal.gschema.xml.in:196
 msgid "If true, pressing a key jumps the scrollbar to the bottom."
 msgstr "TRUE にすると、キー入力のたびにスクロールバーが下に移動します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:190
+#: src/org.cafe.terminal.gschema.xml.in:200
 msgid "Whether to scroll to the bottom when there's new output"
 msgstr "新しい出力があるたびに下までスクロールするかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:191
+#: src/org.cafe.terminal.gschema.xml.in:201
 msgid ""
 "If true, whenever there's new output the terminal will scroll to the bottom."
 msgstr "TRUE にすると、新しい出力が表示されるたびに下までスクロールします。"
 
-#: src/org.cafe.terminal.gschema.xml.in:195
+#: src/org.cafe.terminal.gschema.xml.in:205
 msgid "What to do with the terminal when the child command exits"
 msgstr "子プロセスのコマンドが終了した後の処理"
 
-#: src/org.cafe.terminal.gschema.xml.in:196
+#: src/org.cafe.terminal.gschema.xml.in:206
 msgid ""
 "Possible values are \"close\" to close the terminal, and \"restart\" to "
 "restart the command."
 msgstr ""
 "指定可能な値: \"close\" (端末を閉じる)、\"restart\" (コマンドを再実行する)"
 
-#: src/org.cafe.terminal.gschema.xml.in:200
+#: src/org.cafe.terminal.gschema.xml.in:210
 msgid "Whether to launch the command in the terminal as a login shell"
 msgstr "端末で実行するコマンドをログインシェルとして実行するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:201
+#: src/org.cafe.terminal.gschema.xml.in:211
 msgid ""
 "If true, the command inside the terminal will be launched as a login shell. "
 "(argv[0] will have a hyphen in front of it.)"
@@ -455,11 +475,11 @@ msgstr ""
 "TRUE にすると、端末内のコマンドをログインシェルとして起動します (argv[0] はそ"
 "の前にハイフンがつきます)。"
 
-#: src/org.cafe.terminal.gschema.xml.in:205
+#: src/org.cafe.terminal.gschema.xml.in:215
 msgid "Whether to run a custom command instead of the shell"
 msgstr "シェルの代わりに特定のコマンドを実行するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:206
+#: src/org.cafe.terminal.gschema.xml.in:216
 msgid ""
 "If true, the value of the custom_command setting will be used in place of "
 "running a shell."
@@ -467,50 +487,50 @@ msgstr ""
 "TRUE にすると、custom_command に設定された値が実行中のシェルの代わりに使用さ"
 "れます。"
 
-#: src/org.cafe.terminal.gschema.xml.in:210
+#: src/org.cafe.terminal.gschema.xml.in:220
 msgid "Whether to blink the cursor"
 msgstr "カーソルを点滅させるかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:211
+#: src/org.cafe.terminal.gschema.xml.in:221
 msgid ""
 "The possible values are \"system\" to use the global cursor blinking "
 "settings, or \"on\" or \"off\" to set the mode explicitly."
 msgstr ""
-"指定可能な値: \"system\" (システム全体の設定を使う)、\"on\" (点滅させ"
-"る)、\"off\" (点滅させない)"
+"指定可能な値: \"system\" (システム全体の設定を使う)、\"on\" (点滅させる)、"
+"\"off\" (点滅させない)"
 
-#: src/org.cafe.terminal.gschema.xml.in:215
+#: src/org.cafe.terminal.gschema.xml.in:225
 msgid "The cursor appearance"
 msgstr "端末に表示するカーソルの形状"
 
-#: src/org.cafe.terminal.gschema.xml.in:216
+#: src/org.cafe.terminal.gschema.xml.in:226
 msgid ""
 "The possible values are \"block\" to use a block cursor, \"ibeam\" to use a "
 "vertical line cursor, or \"underline\" to use an underline cursor."
 msgstr "指定可能な値: \"block\" (矩形)、\"ibeam\" (縦棒)、\"underline\" (下線)"
 
-#: src/org.cafe.terminal.gschema.xml.in:220
+#: src/org.cafe.terminal.gschema.xml.in:230
 msgid "Custom command to use instead of the shell"
 msgstr "シェルの代わりに使用するカスタムコマンド"
 
-#: src/org.cafe.terminal.gschema.xml.in:221
+#: src/org.cafe.terminal.gschema.xml.in:231
 msgid "Run this command in place of the shell, if use_custom_command is true."
 msgstr ""
 "use_custom_command が TRUE の場合、シェルの代わりにこのコマンドを実行します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:225
+#: src/org.cafe.terminal.gschema.xml.in:235
 msgid "Icon for terminal window"
 msgstr "端末ウィンドウのアイコン"
 
-#: src/org.cafe.terminal.gschema.xml.in:226
+#: src/org.cafe.terminal.gschema.xml.in:236
 msgid "Icon to use for tabs/windows containing this profile."
 msgstr "このプロファイルを適用するタブ/ウィンドウに使うアイコンを指定します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:230
+#: src/org.cafe.terminal.gschema.xml.in:240
 msgid "Palette for terminal applications"
 msgstr "端末で実行するアプリケーションのパレット"
 
-#: src/org.cafe.terminal.gschema.xml.in:231
+#: src/org.cafe.terminal.gschema.xml.in:241
 msgid ""
 "Terminals have a 16-color palette that applications inside the terminal can "
 "use. This is that palette, in the form of a colon-separated list of color "
@@ -520,21 +540,21 @@ msgstr ""
 "れは色の名前をコロンで区切った形式のパレットになっています。色の名前は "
 "\"#FF00FF\" のような 16 進フォーマットにしてください。"
 
-#: src/org.cafe.terminal.gschema.xml.in:235
+#: src/org.cafe.terminal.gschema.xml.in:245
 msgid "Font"
 msgstr "フォント"
 
-#: src/org.cafe.terminal.gschema.xml.in:236
+#: src/org.cafe.terminal.gschema.xml.in:246
 msgid "An Pango font name. Examples are \"Sans 12\" or \"Monospace Bold 14\"."
 msgstr ""
 "Pango フォント名を指定します。例えば \"Sans 12\" や \"Monospace Bold 14\" で"
 "す。"
 
-#: src/org.cafe.terminal.gschema.xml.in:240
+#: src/org.cafe.terminal.gschema.xml.in:250
 msgid "Background type"
 msgstr "背景の種類"
 
-#: src/org.cafe.terminal.gschema.xml.in:241
+#: src/org.cafe.terminal.gschema.xml.in:251
 msgid ""
 "Type of terminal background. May be \"solid\" for a solid color, \"image\" "
 "for an image, or \"transparent\" for either real transparency if a "
@@ -544,19 +564,19 @@ msgstr ""
 "像)、\"transparent\" (合成機能を持ったウィンドウマネージャーを利用している場"
 "合は実際に透過させ、それ以外は擬似的に透過する)"
 
-#: src/org.cafe.terminal.gschema.xml.in:245
+#: src/org.cafe.terminal.gschema.xml.in:255
 msgid "Background image"
 msgstr "背景の画像"
 
-#: src/org.cafe.terminal.gschema.xml.in:246
+#: src/org.cafe.terminal.gschema.xml.in:256
 msgid "Filename of a background image."
 msgstr "背景の画像ファイル名を指定します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:250
+#: src/org.cafe.terminal.gschema.xml.in:260
 msgid "Whether to scroll background image"
 msgstr "背景の画像をスクロールさせるかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:251
+#: src/org.cafe.terminal.gschema.xml.in:261
 msgid ""
 "If true, scroll the background image with the foreground text; if false, "
 "keep the image in a fixed position and scroll the text above it."
@@ -564,11 +584,11 @@ msgstr ""
 "TRUE にすると、背景の画像がテキストと一緒にスクロールします。FALSE にすると、"
 "画像はそのままでテキストだけがスクロールします。"
 
-#: src/org.cafe.terminal.gschema.xml.in:255
+#: src/org.cafe.terminal.gschema.xml.in:265
 msgid "How much to darken the background image"
 msgstr "背景の画像をどの程度暗くするか"
 
-#: src/org.cafe.terminal.gschema.xml.in:256
+#: src/org.cafe.terminal.gschema.xml.in:266
 msgid ""
 "A value between 0.0 and 1.0 indicating how much to darken the background "
 "image. 0.0 means no darkness, 1.0 means fully dark. In the current "
@@ -580,11 +600,11 @@ msgstr ""
 "の暗さしか使用できないので、0.0 で暗くする効果を無効にするという真偽値として"
 "動作しています。"
 
-#: src/org.cafe.terminal.gschema.xml.in:260
+#: src/org.cafe.terminal.gschema.xml.in:270
 msgid "Effect of the Backspace key"
 msgstr "Backspace キーの効果"
 
-#: src/org.cafe.terminal.gschema.xml.in:261
+#: src/org.cafe.terminal.gschema.xml.in:271
 msgid ""
 "Sets what code the backspace key generates. Possible values are \"ascii-"
 "del\" for the ASCII DEL character, \"control-h\" for Control-H (AKA the "
@@ -592,17 +612,16 @@ msgid ""
 "bound to backspace or delete. \"ascii-del\" is normally considered the "
 "correct setting for the Backspace key."
 msgstr ""
-"Backspace キーが生成するコードを設定します。指定可能な値: \"ascii-"
-"del\" (ASCII DELを生成する)、\"control-h\" (ASCII BS として知られる Control-"
-"H を生成する)、\"escape-sequence\" (Backspace もしくは Delete に典型的に割り"
-"付けられているエスケープシーケンスを生成する)。通常は \"ascii-dell\" を設定し"
-"ます。"
+"Backspace キーが生成するコードを設定します。指定可能な値: \"ascii-del\" "
+"(ASCII DELを生成する)、\"control-h\" (ASCII BS として知られる Control-H を生"
+"成する)、\"escape-sequence\" (Backspace もしくは Delete に典型的に割り付けら"
+"れているエスケープシーケンスを生成する)。通常は \"ascii-dell\" を設定します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:265
+#: src/org.cafe.terminal.gschema.xml.in:275
 msgid "Effect of the Delete key"
 msgstr "Delete キーの効果"
 
-#: src/org.cafe.terminal.gschema.xml.in:266
+#: src/org.cafe.terminal.gschema.xml.in:276
 msgid ""
 "Sets what code the delete key generates. Possible values are \"ascii-del\" "
 "for the ASCII DEL character, \"control-h\" for Control-H (AKA the ASCII BS "
@@ -616,11 +635,11 @@ msgstr ""
 "いるエスケープシーケンスを生成する)。通常は \"escape-sequence\" を設定しま"
 "す。"
 
-#: src/org.cafe.terminal.gschema.xml.in:270
+#: src/org.cafe.terminal.gschema.xml.in:280
 msgid "Whether to use the colors from the theme for the terminal widget"
 msgstr "端末ウィジェットに対してテーマ色を使用するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:271
+#: src/org.cafe.terminal.gschema.xml.in:281
 msgid ""
 "If true, the theme color scheme used for text entry boxes will be used for "
 "the terminal, instead of colors provided by the user."
@@ -628,11 +647,11 @@ msgstr ""
 "TRUE にすると、ユーザが指定した色の代わりに、テキスト入力ボックスに使われる"
 "テーマ色スキーマを使用します。"
 
-#: src/org.cafe.terminal.gschema.xml.in:275
+#: src/org.cafe.terminal.gschema.xml.in:285
 msgid "Whether to use the system font"
 msgstr "システムフォントを使用するかどうか"
 
-#: src/org.cafe.terminal.gschema.xml.in:276
+#: src/org.cafe.terminal.gschema.xml.in:286
 msgid ""
 "If true, the terminal will use the desktop-global standard font if it's "
 "monospace (and the most similar font it can come up with otherwise)."
@@ -641,11 +660,11 @@ msgstr ""
 "端末はそのフォントを使用します (そうでない場合は、最もよく似たフォントを使用"
 "します)。"
 
-#: src/org.cafe.terminal.gschema.xml.in:280
+#: src/org.cafe.terminal.gschema.xml.in:290
 msgid "Highlight S/Key challenges"
 msgstr "S/Key のチャレンジレスポンスを強調表示する"
 
-#: src/org.cafe.terminal.gschema.xml.in:281
+#: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Popup a dialog when an S/Key challenge response query is detected and "
 "clicked on. Typing a password into the dialog will send it to the terminal."
@@ -654,21 +673,21 @@ msgstr ""
 "ポップアップします。ダイアログにパスワードを入力すると、その値を端末に送りま"
 "す。"
 
-#: src/org.cafe.terminal.gschema.xml.in:285
+#: src/org.cafe.terminal.gschema.xml.in:295
 msgid "Highlight URLs under mouse pointer"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:286
+#: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "If true, URLs under mouse pointer are highlighted and can be opened by mouse "
 "click together with control key or used in context menu."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:292
+#: src/org.cafe.terminal.gschema.xml.in:302
 msgid "Keyboard shortcut to open a new tab"
 msgstr "新しいタブを開くショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:293
+#: src/org.cafe.terminal.gschema.xml.in:303
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -679,11 +698,11 @@ msgstr ""
 "と同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列をオプ"
 "ションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:297
+#: src/org.cafe.terminal.gschema.xml.in:307
 msgid "Keyboard shortcut to open a new window"
 msgstr "新しいウィンドウを開くショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:298
+#: src/org.cafe.terminal.gschema.xml.in:308
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -695,11 +714,11 @@ msgstr ""
 "列をオプションに指定した場合は、この操作に対するキーバインドは無効になりま"
 "す。"
 
-#: src/org.cafe.terminal.gschema.xml.in:302
+#: src/org.cafe.terminal.gschema.xml.in:312
 msgid "Keyboard shortcut to create a new profile"
 msgstr "新しいプロファイルを生成するショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:303
+#: src/org.cafe.terminal.gschema.xml.in:313
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
 "Expressed as a string in the same format used for CTK+ resource files. If "
@@ -711,11 +730,11 @@ msgstr ""
 "という特殊な文字列をオプションに指定した場合は、この操作に対するキーバインド"
 "は無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:307
+#: src/org.cafe.terminal.gschema.xml.in:317
 msgid "Keyboard shortcut to save the current tab contents to file"
 msgstr "現在のタブの内容をファイルに保存するショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:308
+#: src/org.cafe.terminal.gschema.xml.in:318
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -727,11 +746,11 @@ msgstr ""
 "という特殊な文字列をオプションに指定した場合は、この操作に対するキーバインド"
 "は無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:312
+#: src/org.cafe.terminal.gschema.xml.in:322
 msgid "Keyboard shortcut to close a tab"
 msgstr "タブを閉じるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:313
+#: src/org.cafe.terminal.gschema.xml.in:323
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -741,11 +760,11 @@ msgstr ""
 "じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列をオプショ"
 "ンに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:317
+#: src/org.cafe.terminal.gschema.xml.in:327
 msgid "Keyboard shortcut to close a window"
 msgstr "ウィンドウを閉じるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:318
+#: src/org.cafe.terminal.gschema.xml.in:328
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -756,11 +775,11 @@ msgstr ""
 "ルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列をオ"
 "プションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:322
+#: src/org.cafe.terminal.gschema.xml.in:332
 msgid "Keyboard shortcut to copy text"
 msgstr "テキストをコピーするショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:323
+#: src/org.cafe.terminal.gschema.xml.in:333
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -772,11 +791,11 @@ msgstr ""
 "な文字列をオプションに指定した場合は、この操作に対するキーバインドは無効にな"
 "ります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:327
+#: src/org.cafe.terminal.gschema.xml.in:337
 msgid "Keyboard shortcut to paste text"
 msgstr "テキストを貼り付けるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:328
+#: src/org.cafe.terminal.gschema.xml.in:338
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
 "terminal. Expressed as a string in the same format used for CTK+ resource "
@@ -784,11 +803,11 @@ msgid ""
 "will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:332
+#: src/org.cafe.terminal.gschema.xml.in:342
 msgid "Keyboard shortcut to select all text"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:333
+#: src/org.cafe.terminal.gschema.xml.in:343
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -796,11 +815,11 @@ msgid ""
 "shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:337
+#: src/org.cafe.terminal.gschema.xml.in:347
 msgid "Keyboard shortcut to show the find dialog"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:338
+#: src/org.cafe.terminal.gschema.xml.in:348
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -808,11 +827,11 @@ msgid ""
 "this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:342
+#: src/org.cafe.terminal.gschema.xml.in:352
 msgid "Keyboard shortcut to find the next occurrence of the search term"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:343
+#: src/org.cafe.terminal.gschema.xml.in:353
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
 "the terminal. Expressed as a string in the same format used for CTK+ "
@@ -820,11 +839,11 @@ msgid ""
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:347
+#: src/org.cafe.terminal.gschema.xml.in:357
 msgid "Keyboard shortcut to find the previous occurrence of the search term"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:348
+#: src/org.cafe.terminal.gschema.xml.in:358
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term "
 "in the terminal. Expressed as a string in the same format used for CTK+ "
@@ -832,11 +851,11 @@ msgid ""
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:352
+#: src/org.cafe.terminal.gschema.xml.in:362
 msgid "Keyboard shortcut to toggle full screen mode"
 msgstr "フルスクリーンモードに切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:353
+#: src/org.cafe.terminal.gschema.xml.in:363
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -848,11 +867,11 @@ msgstr ""
 "殊な文字列をオプションに指定した場合は、この操作に対するキーバインドは無効に"
 "なります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:357
+#: src/org.cafe.terminal.gschema.xml.in:367
 msgid "Keyboard shortcut to toggle the visibility of the menubar"
 msgstr "メニューバーの表示を切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:358
+#: src/org.cafe.terminal.gschema.xml.in:368
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
 "a string in the same format used for CTK+ resource files. If you set the "
@@ -864,11 +883,11 @@ msgstr ""
 "という特殊な文字列をオプションに指定した場合は、この操作に対するキーバインド"
 "は無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:362
+#: src/org.cafe.terminal.gschema.xml.in:372
 msgid "Keyboard shortcut to set the terminal title"
 msgstr "端末のタイトルを設定するショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:363
+#: src/org.cafe.terminal.gschema.xml.in:373
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -880,11 +899,11 @@ msgstr ""
 "列をオプションに指定した場合は、この操作に対するキーバインドは無効になりま"
 "す。"
 
-#: src/org.cafe.terminal.gschema.xml.in:367
+#: src/org.cafe.terminal.gschema.xml.in:377
 msgid "Keyboard shortcut to reset the terminal"
 msgstr "端末をリセットするショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:368
+#: src/org.cafe.terminal.gschema.xml.in:378
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -895,11 +914,11 @@ msgstr ""
 "ルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列をオ"
 "プションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:372
+#: src/org.cafe.terminal.gschema.xml.in:382
 msgid "Keyboard shortcut to reset and clear the terminal"
 msgstr "端末をリセットしクリアするショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:373
+#: src/org.cafe.terminal.gschema.xml.in:383
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -911,11 +930,11 @@ msgstr ""
 "な文字列をオプションに指定した場合は、この操作に対するキーバインドは無効にな"
 "ります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:377
+#: src/org.cafe.terminal.gschema.xml.in:387
 msgid "Keyboard shortcut to switch to the previous tab"
 msgstr "前のタブに切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:378
+#: src/org.cafe.terminal.gschema.xml.in:388
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -926,11 +945,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:382
+#: src/org.cafe.terminal.gschema.xml.in:392
 msgid "Keyboard shortcut to switch to the next tab"
 msgstr "次のタブに切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:383
+#: src/org.cafe.terminal.gschema.xml.in:393
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -941,11 +960,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:387
+#: src/org.cafe.terminal.gschema.xml.in:397
 msgid "Keyboard shortcut to switch to the previous profile"
 msgstr "前のプロファイルに切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:388
+#: src/org.cafe.terminal.gschema.xml.in:398
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
 "string in the same format used for CTK+ resource files. If you set the "
@@ -957,11 +976,11 @@ msgstr ""
 "な文字列をオプションに指定した場合は、この操作に対するキーバインドは無効にな"
 "ります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:392
+#: src/org.cafe.terminal.gschema.xml.in:402
 msgid "Keyboard shortcut to switch to the next profile"
 msgstr "次のプロファイルに切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:393
+#: src/org.cafe.terminal.gschema.xml.in:403
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -973,11 +992,11 @@ msgstr ""
 "な文字列をオプションに指定した場合は、この操作に対するキーバインドは無効にな"
 "ります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:397
+#: src/org.cafe.terminal.gschema.xml.in:407
 msgid "Accelerator to move the current tab to the left."
 msgstr "現在のタブを左へ移動するアクセラレーター"
 
-#: src/org.cafe.terminal.gschema.xml.in:398
+#: src/org.cafe.terminal.gschema.xml.in:408
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -989,11 +1008,11 @@ msgstr ""
 "列をオプションに指定した場合は、この操作に対するキーバインドは無効になりま"
 "す。"
 
-#: src/org.cafe.terminal.gschema.xml.in:402
+#: src/org.cafe.terminal.gschema.xml.in:412
 msgid "Accelerator to move the current tab to the right."
 msgstr "現在のタブを右へ移動するアクセラレーター"
 
-#: src/org.cafe.terminal.gschema.xml.in:403
+#: src/org.cafe.terminal.gschema.xml.in:413
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -1005,11 +1024,11 @@ msgstr ""
 "列をオプションに指定した場合は、この操作に対するキーバインドは無効になりま"
 "す。"
 
-#: src/org.cafe.terminal.gschema.xml.in:407
+#: src/org.cafe.terminal.gschema.xml.in:417
 msgid "Accelerator to detach current tab."
 msgstr "現在のタブを閉じるアクセラレーター"
 
-#: src/org.cafe.terminal.gschema.xml.in:408
+#: src/org.cafe.terminal.gschema.xml.in:418
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1019,11 +1038,11 @@ msgstr ""
 "ルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列をオ"
 "プションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:412
+#: src/org.cafe.terminal.gschema.xml.in:422
 msgid "Keyboard shortcut to switch to tab 1"
 msgstr "タブ 1 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:413
+#: src/org.cafe.terminal.gschema.xml.in:423
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1033,11 +1052,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:417
+#: src/org.cafe.terminal.gschema.xml.in:427
 msgid "Keyboard shortcut to switch to tab 2"
 msgstr "タブ 2 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:418
+#: src/org.cafe.terminal.gschema.xml.in:428
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1047,11 +1066,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:422
+#: src/org.cafe.terminal.gschema.xml.in:432
 msgid "Keyboard shortcut to switch to tab 3"
 msgstr "タブ 3 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:423
+#: src/org.cafe.terminal.gschema.xml.in:433
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1061,11 +1080,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:427
+#: src/org.cafe.terminal.gschema.xml.in:437
 msgid "Keyboard shortcut to switch to tab 4"
 msgstr "タブ 4 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:428
+#: src/org.cafe.terminal.gschema.xml.in:438
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1075,11 +1094,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:432
+#: src/org.cafe.terminal.gschema.xml.in:442
 msgid "Keyboard shortcut to switch to tab 5"
 msgstr "タブ 5 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:433
+#: src/org.cafe.terminal.gschema.xml.in:443
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1089,11 +1108,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:437
+#: src/org.cafe.terminal.gschema.xml.in:447
 msgid "Keyboard shortcut to switch to tab 6"
 msgstr "タブ 6 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:438
+#: src/org.cafe.terminal.gschema.xml.in:448
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1103,11 +1122,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:442
+#: src/org.cafe.terminal.gschema.xml.in:452
 msgid "Keyboard shortcut to switch to tab 7"
 msgstr "タブ 7 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:443
+#: src/org.cafe.terminal.gschema.xml.in:453
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1117,11 +1136,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:447
+#: src/org.cafe.terminal.gschema.xml.in:457
 msgid "Keyboard shortcut to switch to tab 8"
 msgstr "タブ 8 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:448
+#: src/org.cafe.terminal.gschema.xml.in:458
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1131,11 +1150,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:452
+#: src/org.cafe.terminal.gschema.xml.in:462
 msgid "Keyboard shortcut to switch to tab 9"
 msgstr "タブ 9 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:453
+#: src/org.cafe.terminal.gschema.xml.in:463
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1145,11 +1164,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:457
+#: src/org.cafe.terminal.gschema.xml.in:467
 msgid "Keyboard shortcut to switch to tab 10"
 msgstr "タブ 10 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:458
+#: src/org.cafe.terminal.gschema.xml.in:468
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1160,11 +1179,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:462
+#: src/org.cafe.terminal.gschema.xml.in:472
 msgid "Keyboard shortcut to switch to tab 11"
 msgstr "タブ 11 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:463
+#: src/org.cafe.terminal.gschema.xml.in:473
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1175,11 +1194,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:467
+#: src/org.cafe.terminal.gschema.xml.in:477
 msgid "Keyboard shortcut to switch to tab 12"
 msgstr "タブ 12 に切り替えるショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:468
+#: src/org.cafe.terminal.gschema.xml.in:478
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1190,11 +1209,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:472
+#: src/org.cafe.terminal.gschema.xml.in:482
 msgid "Keyboard shortcut to launch help"
 msgstr "ヘルプを起動するショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:473
+#: src/org.cafe.terminal.gschema.xml.in:483
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1204,11 +1223,11 @@ msgstr ""
 "と同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列をオプ"
 "ションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:477
+#: src/org.cafe.terminal.gschema.xml.in:487
 msgid "Keyboard shortcut to make font larger"
 msgstr "フォントを大きくするショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:478
+#: src/org.cafe.terminal.gschema.xml.in:488
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1219,11 +1238,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:482
+#: src/org.cafe.terminal.gschema.xml.in:492
 msgid "Keyboard shortcut to make font smaller"
 msgstr "フォントを小さくするショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:483
+#: src/org.cafe.terminal.gschema.xml.in:493
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1234,11 +1253,11 @@ msgstr ""
 "イルと同じフォーマットの文字列を指定します。\"disabled\" という特殊な文字列を"
 "オプションに指定した場合は、この操作に対するキーバインドは無効になります。"
 
-#: src/org.cafe.terminal.gschema.xml.in:487
+#: src/org.cafe.terminal.gschema.xml.in:497
 msgid "Keyboard shortcut to make font normal-size"
 msgstr "フォントを標準サイズに戻すショートカット"
 
-#: src/org.cafe.terminal.gschema.xml.in:488
+#: src/org.cafe.terminal.gschema.xml.in:498
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -1322,7 +1341,7 @@ msgstr "利用可能なエンコーディング(_V):"
 msgid "E_ncodings shown in menu:"
 msgstr "メニューに表示するエンコーディング(_N):"
 
-#: src/find-dialog.ui:14 src/terminal-accels.c:218
+#: src/find-dialog.ui:14 src/terminal-accels.c:204
 msgid "Find"
 msgstr "検索"
 
@@ -1375,7 +1394,7 @@ msgstr "プロファイル"
 msgid "_Profile used when launching a new terminal:"
 msgstr "新しい端末を起動する際に使用するプロファイル(_P):"
 
-#: src/profile-new-dialog.ui:8 src/terminal-accels.c:156
+#: src/profile-new-dialog.ui:8 src/terminal-accels.c:144
 msgid "New Profile"
 msgstr "新しいプロファイル"
 
@@ -1477,7 +1496,7 @@ msgid "On the right side"
 msgstr "右側"
 
 #. Translators: Scrollbar is: ...
-#: src/profile-preferences.ui:163 src/terminal-accels.c:408
+#: src/profile-preferences.ui:163 src/terminal-accels.c:394
 #: src/extra-strings.c:60
 msgid "Disabled"
 msgstr "無効"
@@ -1819,192 +1838,192 @@ msgstr "クリックした文字列は適切な S/Key チャレンジではな�
 msgid "The text you clicked on doesn't seem to be a valid OTP challenge."
 msgstr "クリックした文字列は適切な OTP チャレンジではないようです。"
 
-#: src/terminal-accels.c:148
+#: src/terminal-accels.c:136
 msgid "New Tab"
 msgstr "新しいタブを開く"
 
-#: src/terminal-accels.c:152
+#: src/terminal-accels.c:140
 msgid "New Window"
 msgstr "新しいウィンドウを開く"
 
-#: src/terminal-accels.c:161
+#: src/terminal-accels.c:148
 msgid "Save Contents"
 msgstr "内容を保存する"
 
-#: src/terminal-accels.c:166
+#: src/terminal-accels.c:152
 msgid "Close Tab"
 msgstr "タブを閉じる"
 
-#: src/terminal-accels.c:170
+#: src/terminal-accels.c:156
 msgid "Close Window"
 msgstr "ウィンドウを閉じる"
 
-#: src/terminal-accels.c:178
+#: src/terminal-accels.c:164
 msgid "Copy"
 msgstr "コピーする"
 
-#: src/terminal-accels.c:182
+#: src/terminal-accels.c:168
 msgid "Paste"
 msgstr "貼り付ける"
 
-#: src/terminal-accels.c:186
+#: src/terminal-accels.c:172
 msgid "Select All"
 msgstr "すべて選択"
 
-#: src/terminal-accels.c:194
+#: src/terminal-accels.c:180
 msgid "Hide and Show menubar"
 msgstr "メニューバーの表示/非表示"
 
-#: src/terminal-accels.c:198
+#: src/terminal-accels.c:184
 msgid "Full Screen"
 msgstr "フルスクリーンにする"
 
-#: src/terminal-accels.c:202
+#: src/terminal-accels.c:188
 msgid "Zoom In"
 msgstr "拡大"
 
-#: src/terminal-accels.c:206
+#: src/terminal-accels.c:192
 msgid "Zoom Out"
 msgstr "縮小"
 
-#: src/terminal-accels.c:210
+#: src/terminal-accels.c:196
 msgid "Normal Size"
 msgstr "通常のサイズに戻す"
 
-#: src/terminal-accels.c:222
+#: src/terminal-accels.c:208
 msgid "Find Next"
 msgstr "次を検索"
 
-#: src/terminal-accels.c:226
+#: src/terminal-accels.c:212
 msgid "Find Previous"
 msgstr "前を検索"
 
-#: src/terminal-accels.c:234 src/terminal-window.c:4165
+#: src/terminal-accels.c:220 src/terminal-window.c:4142
 msgid "Set Title"
 msgstr "タイトルを設定する"
 
-#: src/terminal-accels.c:238
+#: src/terminal-accels.c:224
 msgid "Reset"
 msgstr "リセット"
 
-#: src/terminal-accels.c:242
+#: src/terminal-accels.c:228
 msgid "Reset and Clear"
 msgstr "リセットしてクリアする"
 
-#: src/terminal-accels.c:246
+#: src/terminal-accels.c:232
 msgid "Switch to Previous Profile"
 msgstr "前のプロファイルに切り替える"
 
-#: src/terminal-accels.c:250
+#: src/terminal-accels.c:236
 msgid "Switch to Next Profile"
 msgstr "次のプロファイルに切り替える"
 
-#: src/terminal-accels.c:258
+#: src/terminal-accels.c:244
 msgid "Switch to Previous Tab"
 msgstr "前のタブに切り替える"
 
-#: src/terminal-accels.c:262
+#: src/terminal-accels.c:248
 msgid "Switch to Next Tab"
 msgstr "次のタブに切り替える"
 
-#: src/terminal-accels.c:266
+#: src/terminal-accels.c:252
 msgid "Move Tab to the Left"
 msgstr "タブを左へ移動する"
 
-#: src/terminal-accels.c:270
+#: src/terminal-accels.c:256
 msgid "Move Tab to the Right"
 msgstr "タブを右へ移動する"
 
-#: src/terminal-accels.c:274
+#: src/terminal-accels.c:260
 msgid "Detach Tab"
 msgstr "タブを閉じる"
 
-#: src/terminal-accels.c:278
+#: src/terminal-accels.c:264
 msgid "Switch to Tab 1"
 msgstr "タブ 1 に切り替える"
 
-#: src/terminal-accels.c:283
+#: src/terminal-accels.c:269
 msgid "Switch to Tab 2"
 msgstr "タブ 2 に切り替える"
 
-#: src/terminal-accels.c:288
+#: src/terminal-accels.c:274
 msgid "Switch to Tab 3"
 msgstr "タブ 3 に切り替える"
 
-#: src/terminal-accels.c:293
+#: src/terminal-accels.c:279
 msgid "Switch to Tab 4"
 msgstr "タブ 4 に切り替える"
 
-#: src/terminal-accels.c:298
+#: src/terminal-accels.c:284
 msgid "Switch to Tab 5"
 msgstr "タブ 5 に切り替える"
 
-#: src/terminal-accels.c:303
+#: src/terminal-accels.c:289
 msgid "Switch to Tab 6"
 msgstr "タブ 6 に切り替える"
 
-#: src/terminal-accels.c:308
+#: src/terminal-accels.c:294
 msgid "Switch to Tab 7"
 msgstr "タブ 7 に切り替える"
 
-#: src/terminal-accels.c:313
+#: src/terminal-accels.c:299
 msgid "Switch to Tab 8"
 msgstr "タブ 8 に切り替える"
 
-#: src/terminal-accels.c:318
+#: src/terminal-accels.c:304
 msgid "Switch to Tab 9"
 msgstr "タブ 9 に切り替える"
 
-#: src/terminal-accels.c:323
+#: src/terminal-accels.c:309
 msgid "Switch to Tab 10"
 msgstr "タブ 10 に切り替える"
 
-#: src/terminal-accels.c:328
+#: src/terminal-accels.c:314
 msgid "Switch to Tab 11"
 msgstr "タブ 11 に切り替える"
 
-#: src/terminal-accels.c:333
+#: src/terminal-accels.c:319
 msgid "Switch to Tab 12"
 msgstr "タブ 12 に切り替える"
 
-#: src/terminal-accels.c:341
+#: src/terminal-accels.c:327
 msgid "Contents"
 msgstr "目次"
 
-#: src/terminal-accels.c:346
+#: src/terminal-accels.c:332
 msgid "File"
 msgstr "ファイル"
 
-#: src/terminal-accels.c:347
+#: src/terminal-accels.c:333
 msgid "Edit"
 msgstr "編集"
 
-#: src/terminal-accels.c:348
+#: src/terminal-accels.c:334
 msgid "View"
 msgstr "表示"
 
-#: src/terminal-accels.c:349
+#: src/terminal-accels.c:335
 msgid "Search"
 msgstr "検索"
 
-#: src/terminal-accels.c:351
+#: src/terminal-accels.c:337
 msgid "Tabs"
 msgstr "タブ"
 
-#: src/terminal-accels.c:352
+#: src/terminal-accels.c:338
 msgid "Help"
 msgstr "ヘルプ"
 
-#: src/terminal-accels.c:855
+#: src/terminal-accels.c:841
 #, c-format
 msgid "The shortcut key “%s” is already bound to the “%s” action"
 msgstr "\"%s\" は既に \"%s\" というアクションに関連づけられています"
 
-#: src/terminal-accels.c:1011
+#: src/terminal-accels.c:997
 msgid "_Action"
 msgstr "操作(_A)"
 
-#: src/terminal-accels.c:1030
+#: src/terminal-accels.c:1016
 msgid "Shortcut _Key"
 msgstr "ショートカットキー(_K)"
 
@@ -2414,29 +2433,33 @@ msgstr "端末毎のオプションを表示する"
 msgid "Unnamed"
 msgstr "名前なし"
 
-#: src/terminal-screen.c:1521
+#: src/terminal-screen.c:1528
 msgid "_Profile Preferences"
 msgstr "プロファイルの設定(_P)"
 
-#: src/terminal-screen.c:1522 src/terminal-screen.c:1965
+#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
 msgid "_Relaunch"
 msgstr "再起動(_R)"
 
-#: src/terminal-screen.c:1525
+#: src/terminal-screen.c:1532
 msgid "There was an error creating the child process for this terminal"
 msgstr "この端末の子プロセスを作成中にエラーが発生しました"
 
-#: src/terminal-screen.c:1970
+#: src/terminal-screen.c:1952
+msgid "Process completed"
+msgstr ""
+
+#: src/terminal-screen.c:2000
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "子プロセスが終了コード %d で正常終了しました。"
 
-#: src/terminal-screen.c:1975
+#: src/terminal-screen.c:2005
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "子プロセスがシグナル %d で終了しました。"
 
-#: src/terminal-screen.c:1980
+#: src/terminal-screen.c:2010
 msgid "The child process was terminated."
 msgstr "子プロセスが終了しました。"
 
@@ -2493,7 +2516,7 @@ msgstr ""
 #. * _%d is used as the accelerator (with d between 1 and 9), and
 #. * the %s is the name of the terminal profile.
 #.
-#: src/terminal-window.c:613
+#: src/terminal-window.c:600
 #, c-format
 msgid "_%d. %s"
 msgstr "_%d. %s"
@@ -2502,238 +2525,238 @@ msgstr "_%d. %s"
 #. * _%c is used as the accelerator (it will be a character between A and Z),
 #. * and the %s is the name of the terminal profile.
 #.
-#: src/terminal-window.c:619
+#: src/terminal-window.c:606
 #, c-format
 msgid "_%c. %s"
 msgstr " _%c. %s "
 
-#: src/terminal-window.c:1820
+#: src/terminal-window.c:1803
 msgid "_File"
 msgstr "ファイル(_F)"
 
-#: src/terminal-window.c:1821 src/terminal-window.c:1834
-#: src/terminal-window.c:2075
+#: src/terminal-window.c:1804 src/terminal-window.c:1817
+#: src/terminal-window.c:2058
 msgid "Open _Terminal"
 msgstr "端末を開く(_T)"
 
-#: src/terminal-window.c:1822 src/terminal-window.c:1839
-#: src/terminal-window.c:2080
+#: src/terminal-window.c:1805 src/terminal-window.c:1822
+#: src/terminal-window.c:2063
 msgid "Open Ta_b"
 msgstr "新しいタブを開く(_B)"
 
-#: src/terminal-window.c:1823
+#: src/terminal-window.c:1806
 msgid "_Edit"
 msgstr "編集(_E)"
 
-#: src/terminal-window.c:1824
+#: src/terminal-window.c:1807
 msgid "_View"
 msgstr "表示(_V)"
 
-#: src/terminal-window.c:1825
+#: src/terminal-window.c:1808
 msgid "_Search"
 msgstr "検索(_S)"
 
-#: src/terminal-window.c:1826
+#: src/terminal-window.c:1809
 msgid "_Terminal"
 msgstr "端末(_T)"
 
-#: src/terminal-window.c:1827
+#: src/terminal-window.c:1810
 msgid "Ta_bs"
 msgstr "タブ(_B)"
 
-#: src/terminal-window.c:1828
+#: src/terminal-window.c:1811
 msgid "_Help"
 msgstr "ヘルプ(_H)"
 
-#: src/terminal-window.c:1844
+#: src/terminal-window.c:1827
 msgid "New _Profile…"
 msgstr "新しいプロファイル(_P)…"
 
-#: src/terminal-window.c:1849
+#: src/terminal-window.c:1832
 msgid "_Save Contents"
 msgstr "内容を保存する(_S)"
 
-#: src/terminal-window.c:1854 src/terminal-window.c:2090
+#: src/terminal-window.c:1837 src/terminal-window.c:2073
 msgid "C_lose Tab"
 msgstr "タブを閉じる(_L)"
 
-#: src/terminal-window.c:1859
+#: src/terminal-window.c:1842
 msgid "_Close Window"
 msgstr "ウィンドウを閉じる(_C)"
 
-#: src/terminal-window.c:1866 src/terminal-window.c:2060
+#: src/terminal-window.c:1849 src/terminal-window.c:2043
 msgid "_Copy"
 msgstr "コピー(_C)"
 
-#: src/terminal-window.c:1871 src/terminal-window.c:2065
+#: src/terminal-window.c:1854 src/terminal-window.c:2048
 msgid "_Paste"
 msgstr "貼り付け(_P)"
 
-#: src/terminal-window.c:1876 src/terminal-window.c:2070
+#: src/terminal-window.c:1859 src/terminal-window.c:2053
 msgid "Paste _Filenames"
 msgstr "ファイル名の貼り付け(_F)"
 
-#: src/terminal-window.c:1881
+#: src/terminal-window.c:1864
 msgid "Select _All"
 msgstr "すべて選択(_A)"
 
-#: src/terminal-window.c:1886
+#: src/terminal-window.c:1869
 msgid "P_rofiles…"
 msgstr "プロファイル(_R)…"
 
-#: src/terminal-window.c:1891
+#: src/terminal-window.c:1874
 msgid "_Keyboard Shortcuts…"
 msgstr "キーボードショートカット(_K)…"
 
-#: src/terminal-window.c:1896
+#: src/terminal-window.c:1879
 msgid "Pr_ofile Preferences"
 msgstr "プロファイルの設定(_O)"
 
-#: src/terminal-window.c:1903
+#: src/terminal-window.c:1886
 msgid "Zoom _In"
 msgstr "拡大(_I)"
 
-#: src/terminal-window.c:1908
+#: src/terminal-window.c:1891
 msgid "Zoom _Out"
 msgstr "縮小(_O)"
 
-#: src/terminal-window.c:1913
+#: src/terminal-window.c:1896
 msgid "_Normal Size"
 msgstr "元のサイズ(_N)"
 
-#: src/terminal-window.c:1920
+#: src/terminal-window.c:1903
 msgid "_Find..."
 msgstr "検索(_F)..."
 
-#: src/terminal-window.c:1925
+#: src/terminal-window.c:1908
 msgid "Find Ne_xt"
 msgstr "次を検索(_X)"
 
-#: src/terminal-window.c:1930
+#: src/terminal-window.c:1913
 msgid "Find Pre_vious"
 msgstr "前を検索(_V)"
 
-#: src/terminal-window.c:1935
+#: src/terminal-window.c:1918
 msgid "_Clear Highlight"
 msgstr "ハイライトを消去(_C)"
 
-#: src/terminal-window.c:1941
+#: src/terminal-window.c:1924
 msgid "Go to _Line..."
 msgstr "指定行へ移動(_L)..."
 
-#: src/terminal-window.c:1946
+#: src/terminal-window.c:1929
 msgid "_Incremental Search..."
 msgstr "インクリメンタル検索(_I)..."
 
-#: src/terminal-window.c:1953
+#: src/terminal-window.c:1936
 msgid "Change _Profile"
 msgstr "プロファイルの変更(_P)"
 
-#: src/terminal-window.c:1955
+#: src/terminal-window.c:1938
 msgid "_Previous Profile"
 msgstr "前のプロファイル(_P)"
 
-#: src/terminal-window.c:1960
+#: src/terminal-window.c:1943
 msgid "_Next Profile"
 msgstr "次のプロファイル(_N)"
 
-#: src/terminal-window.c:1965
+#: src/terminal-window.c:1948
 msgid "_Set Title…"
 msgstr "タイトルを指定する(_S)…"
 
-#: src/terminal-window.c:1969
+#: src/terminal-window.c:1952
 msgid "Set _Character Encoding"
 msgstr "文字コードの設定(_C)"
 
-#: src/terminal-window.c:1971
+#: src/terminal-window.c:1954
 msgid "_Reset"
 msgstr "リセット(_R)"
 
-#: src/terminal-window.c:1976
+#: src/terminal-window.c:1959
 msgid "Reset and C_lear"
 msgstr "リセットとクリア(_L)"
 
-#: src/terminal-window.c:1983
+#: src/terminal-window.c:1966
 msgid "_Add or Remove…"
 msgstr "追加/削除(_A)…"
 
-#: src/terminal-window.c:1990
+#: src/terminal-window.c:1973
 msgid "_Previous Tab"
 msgstr "前のタブへ(_P)"
 
-#: src/terminal-window.c:1995
+#: src/terminal-window.c:1978
 msgid "_Next Tab"
 msgstr "次のタブへ(_N)"
 
-#: src/terminal-window.c:2000
+#: src/terminal-window.c:1983
 msgid "Move Tab _Left"
 msgstr "タブを左へ移動(_L)"
 
-#: src/terminal-window.c:2005
+#: src/terminal-window.c:1988
 msgid "Move Tab _Right"
 msgstr "タブを右へ移動(_R)"
 
-#: src/terminal-window.c:2010
+#: src/terminal-window.c:1993
 msgid "_Detach tab"
 msgstr "タブを取り外す(_D)"
 
-#: src/terminal-window.c:2017
+#: src/terminal-window.c:2000
 msgid "_Contents"
 msgstr "目次(_C)"
 
-#: src/terminal-window.c:2022
+#: src/terminal-window.c:2005
 msgid "_About"
 msgstr "情報(_A)"
 
-#: src/terminal-window.c:2029
+#: src/terminal-window.c:2012
 msgid "_Send Mail To…"
 msgstr "メールを送信する(_S)…"
 
-#: src/terminal-window.c:2034
+#: src/terminal-window.c:2017
 msgid "_Copy E-mail Address"
 msgstr "メールアドレスのコピー(_C)"
 
-#: src/terminal-window.c:2039
+#: src/terminal-window.c:2022
 msgid "C_all To…"
 msgstr "呼び出す(_A)…"
 
-#: src/terminal-window.c:2044
+#: src/terminal-window.c:2027
 msgid "_Copy Call Address"
 msgstr "アドレスのコピー(_C)"
 
-#: src/terminal-window.c:2049
+#: src/terminal-window.c:2032
 msgid "_Open Link"
 msgstr "リンクを開く(_O)"
 
-#: src/terminal-window.c:2054
+#: src/terminal-window.c:2037
 msgid "_Copy Link Address"
 msgstr "リンクアドレスのコピー(_C)"
 
-#: src/terminal-window.c:2058
+#: src/terminal-window.c:2041
 msgid "P_rofiles"
 msgstr "プロファイル(_R)"
 
-#: src/terminal-window.c:2085 src/terminal-window.c:3566
+#: src/terminal-window.c:2068 src/terminal-window.c:3551
 msgid "C_lose Window"
 msgstr "ウィンドウを閉じる(_L)"
 
-#: src/terminal-window.c:2095
+#: src/terminal-window.c:2078
 msgid "L_eave Full Screen"
 msgstr "フルスクリーンを終了(_E)"
 
-#: src/terminal-window.c:2099
+#: src/terminal-window.c:2082
 msgid "_Input Methods"
 msgstr "入力メソッド(_I)"
 
-#: src/terminal-window.c:2106
+#: src/terminal-window.c:2089
 msgid "Show _Menubar"
 msgstr "メニューバーの表示(_M)"
 
-#: src/terminal-window.c:2112
+#: src/terminal-window.c:2095
 msgid "_Full Screen"
 msgstr "フルスクリーン(_F)"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3529
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
@@ -2741,7 +2764,7 @@ msgstr ""
 "このウィンドウには未だ実行中のプロセスが存在しているタブがあります。ここで"
 "ウィンドウを閉じるとそれらのプロセスをすべて強制終了します。"
 
-#: src/terminal-window.c:3547
+#: src/terminal-window.c:3532
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
@@ -2749,39 +2772,39 @@ msgstr ""
 "この端末には未だ実行中のプロセスが存在しています。ここで端末を閉じるとそのプ"
 "ロセスを強制終了します。"
 
-#: src/terminal-window.c:3550
+#: src/terminal-window.c:3535
 msgid "There are multiple tabs open in this window."
 msgstr ""
 
-#: src/terminal-window.c:3559
+#: src/terminal-window.c:3544
 msgid "Close this window?"
 msgstr "このウィンドウを閉じますか?"
 
-#: src/terminal-window.c:3559
+#: src/terminal-window.c:3544
 msgid "Close this terminal?"
 msgstr "この端末を閉じますか?"
 
-#: src/terminal-window.c:3566
+#: src/terminal-window.c:3551
 msgid "C_lose Terminal"
 msgstr "端末を閉じる(_L)"
 
-#: src/terminal-window.c:3632
+#: src/terminal-window.c:3616
 msgid "Could not save contents"
 msgstr "内容を保存できませんでした"
 
-#: src/terminal-window.c:3656
+#: src/terminal-window.c:3638
 msgid "Save as..."
 msgstr "別名で保存する..."
 
-#: src/terminal-window.c:4182
+#: src/terminal-window.c:4159
 msgid "_Title:"
 msgstr "役職(_T):"
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4343
 msgid "Contributors:"
 msgstr "貢献者:"
 
-#: src/terminal-window.c:4382
+#: src/terminal-window.c:4359
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2789,11 +2812,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4389
+#: src/terminal-window.c:4366
 msgid "About CAFE Terminal"
 msgstr ""
 
-#: src/terminal-window.c:4390
+#: src/terminal-window.c:4367
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2801,10 +2824,10 @@ msgid ""
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
 "Copyright © 2012-2020 MATE developers\n"
-"Copyright © 2020-2023 Pablo Barciela"
+"Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4403
+#: src/terminal-window.c:4380
 msgid "translator-credits"
 msgstr ""
 "相花 毅 <takeshi.aihana@gmail.com>\n"

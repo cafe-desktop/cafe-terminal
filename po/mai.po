@@ -8,9 +8,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 1.25.1\n"
+"Project-Id-Version: cafe-terminal 2.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-01-27 09:12+0100\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
 "Language-Team: Maithili (https://www.transifex.com/cafe/teams/13566/mai/)\n"
@@ -20,8 +20,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:3
-#: src/terminal-options.c:189 src/terminal-window.c:4387
+#: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
+#: src/terminal-options.c:189 src/terminal-window.c:4364
 msgid "CAFE Terminal"
 msgstr "गनोम टर्मिनल"
 
@@ -44,12 +44,12 @@ msgid ""
 "please visit the project's home page."
 msgstr ""
 
-#: cafe-terminal.desktop.in.in:4 src/terminal-accels.c:350 src/terminal.c:591
-#: src/terminal-profile.c:162 src/terminal-window.c:2149
+#: cafe-terminal.desktop.in.in:3 src/terminal-accels.c:336 src/terminal.c:591
+#: src/terminal-profile.c:162 src/terminal-window.c:2132
 msgid "Terminal"
 msgstr "टर्मिनल"
 
-#: cafe-terminal.desktop.in.in:5
+#: cafe-terminal.desktop.in.in:4
 msgid "Use the command line"
 msgstr "कमांड लाइन क' प्रयोग करू"
 
@@ -129,79 +129,99 @@ msgstr ""
 "= \"whatever\") सँ भ' कए पसंदीदा कएल जाए सकैत अछि ई विकल्प मानक मेनू बार त्वरककेँ "
 "निष्क्रिय करबाक अनुमति देत अछि."
 
-#: src/org.cafe.terminal.gschema.xml.in:68
+#: src/org.cafe.terminal.gschema.xml.in:69
+msgid "Whether the standard Ctrl+D behavior to exit current terminal"
+msgstr ""
+
+#: src/org.cafe.terminal.gschema.xml.in:70
+msgid ""
+"If enabled, Ctrl-D by itself (when nothing appears after the command prompt) "
+"terminates the shell, causing the terminal emulator to terminate as well."
+msgstr ""
+
+#: src/org.cafe.terminal.gschema.xml.in:73
 msgctxt "active-encodings"
 msgid "[ 'UTF-8', 'current' ]"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:69
+#: src/org.cafe.terminal.gschema.xml.in:74
 msgid "List of available encodings"
 msgstr "उपलब्घ एनकोडिंगसभ क' सूची"
 
-#: src/org.cafe.terminal.gschema.xml.in:70
+#: src/org.cafe.terminal.gschema.xml.in:75
 msgid ""
 "A subset of possible encodings are presented in the \"Encoding\" submenu. "
 "This is a list of encodings to appear there. The special encoding name "
 "\"current\" means to display the encoding of the current locale."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:74
+#: src/org.cafe.terminal.gschema.xml.in:79
 msgid "Whether to ask for confirmation when closing terminal windows"
 msgstr "की जखन टर्मिनल विंडो बन्न कएल जाए तँ पुष्टिकरण लेल पूछब"
 
-#: src/org.cafe.terminal.gschema.xml.in:75
+#: src/org.cafe.terminal.gschema.xml.in:80
 msgid ""
 "Whether to ask for confirmation when closing a terminal window which has "
 "more than one open tab or any foreground subprocesses."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:79
+#: src/org.cafe.terminal.gschema.xml.in:84
 msgid "Close tabs with middle click"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:80
+#: src/org.cafe.terminal.gschema.xml.in:85
 msgid "If true, it enables the ability to close tabs using middle click."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:84
+#: src/org.cafe.terminal.gschema.xml.in:89
 msgid "Switch tabs with [Ctrl]+[Tab]"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:85
+#: src/org.cafe.terminal.gschema.xml.in:90
 msgid ""
 "If true, it enables the ability to switch tabs using [Ctrl+Tab] and "
 "[Ctrl+Shift+Tab]."
 msgstr ""
 
+#: src/org.cafe.terminal.gschema.xml.in:94
+msgid "Show notifications"
+msgstr ""
+
+#: src/org.cafe.terminal.gschema.xml.in:95
+msgid ""
+"Show notifications when a foreground process terminates and the window isn't "
+"active."
+msgstr ""
+
 #. Translators: keep the single quotes, please don't change it
-#: src/org.cafe.terminal.gschema.xml.in:93
+#: src/org.cafe.terminal.gschema.xml.in:103
 msgctxt "visible-name"
 msgid "'Default'"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:94
+#: src/org.cafe.terminal.gschema.xml.in:104
 msgid "Human-readable name of the profile"
 msgstr "प्रोफ़ाइल क' मानव पठनीय नाम"
 
-#: src/org.cafe.terminal.gschema.xml.in:95
+#: src/org.cafe.terminal.gschema.xml.in:105
 msgid "Human-readable name of the profile."
 msgstr "एहि प्रोफ़ाइल क' मानव पठनीय नाम."
 
-#: src/org.cafe.terminal.gschema.xml.in:99
+#: src/org.cafe.terminal.gschema.xml.in:109
 msgid "Whether to show menubar in new windows/tabs"
 msgstr "की नवीन विंडोज़/टैबमे मेनू -पट्टी देखओनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:100
+#: src/org.cafe.terminal.gschema.xml.in:110
 msgid ""
 "True if the menubar should be shown in new windows, for windows/tabs with "
 "this profile."
 msgstr "सही जँ मेनू बार नवीन विंडोमे देखाओल जाएत अछि, एहि प्रोफाइल क' सँग विंडो/टैब."
 
-#: src/org.cafe.terminal.gschema.xml.in:104
+#: src/org.cafe.terminal.gschema.xml.in:114
 msgid "Default color of text in the terminal"
 msgstr "टर्मिनलमे पाठ क' मूलभूत रँग"
 
-#: src/org.cafe.terminal.gschema.xml.in:105
+#: src/org.cafe.terminal.gschema.xml.in:115
 msgid ""
 "Default color of text in the terminal, as a color specification (can be HTML-"
 "style hex digits, or a color name such as \"red\")."
@@ -209,11 +229,11 @@ msgstr ""
 "टर्मिनल पृष्ठभूमि क' मूलभूत रँग, रँग विशिष्टता क' रूपमे (HTML-style hex digits भ' सकैत "
 "अछि, अथवा जे रँग नाम जहिना जे \"red\")."
 
-#: src/org.cafe.terminal.gschema.xml.in:109
+#: src/org.cafe.terminal.gschema.xml.in:119
 msgid "Default color of terminal background"
 msgstr "टर्मिनल पृष्ठभूमि क' मूलभूत रँग"
 
-#: src/org.cafe.terminal.gschema.xml.in:110
+#: src/org.cafe.terminal.gschema.xml.in:120
 msgid ""
 "Default color of terminal background, as a color specification (can be HTML-"
 "style hex digits, or a color name such as \"red\")."
@@ -221,31 +241,31 @@ msgstr ""
 "टर्मिनल पृष्ठभूमि क' मूलभूत रँग, रँग विशिष्टता क' रूपमे (HTML-style hex digits, अथवा रँग "
 "नाम जहिना जे \"red\")."
 
-#: src/org.cafe.terminal.gschema.xml.in:114
+#: src/org.cafe.terminal.gschema.xml.in:124
 msgid "Default color of bold text in the terminal"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:115
+#: src/org.cafe.terminal.gschema.xml.in:125
 msgid ""
 "Default color of bold text in the terminal, as a color specification (can be "
 "HTML-style hex digits, or a color name such as \"red\"). This is ignored if "
 "bold_color_same_as_fg is true."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:119
+#: src/org.cafe.terminal.gschema.xml.in:129
 msgid "Whether bold text should use the same color as normal text"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:120
+#: src/org.cafe.terminal.gschema.xml.in:130
 msgid ""
 "If true, boldface text will be rendered using the same color as normal text."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:124
+#: src/org.cafe.terminal.gschema.xml.in:134
 msgid "What to do with dynamic title"
 msgstr "गतिमय शीर्षक क' सँग की कएल जाए"
 
-#: src/org.cafe.terminal.gschema.xml.in:125
+#: src/org.cafe.terminal.gschema.xml.in:135
 msgid ""
 "If the application in the terminal sets the title (most typically people "
 "have their shell set up to do this), the dynamically-set title can erase the "
@@ -258,16 +278,16 @@ msgstr ""
 "\"after\", आओर \"ignore\"."
 
 #. Translators: keep the single quotes, please don't change it
-#: src/org.cafe.terminal.gschema.xml.in:129
+#: src/org.cafe.terminal.gschema.xml.in:139
 msgctxt "title"
 msgid "'Terminal'"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:130
+#: src/org.cafe.terminal.gschema.xml.in:140
 msgid "Title for terminal"
 msgstr "टर्मिनल लेल शीर्षक"
 
-#: src/org.cafe.terminal.gschema.xml.in:131
+#: src/org.cafe.terminal.gschema.xml.in:141
 msgid ""
 "Title to display for the terminal window or tab. This title may be replaced "
 "by or combined with the title set by the application inside the terminal, "
@@ -277,37 +297,37 @@ msgstr ""
 "अथवा शीर्षक क' द्वारा सेट कएल जाएत अछि टर्मिनल क' अंदर अनुप्रयोग, title_mode जमावट "
 "पर निर्भर करैत."
 
-#: src/org.cafe.terminal.gschema.xml.in:135
+#: src/org.cafe.terminal.gschema.xml.in:145
 msgid "Whether to allow bold text"
 msgstr "की गाढ़ा पाठ स्वीकार कएनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:136
+#: src/org.cafe.terminal.gschema.xml.in:146
 msgid "If true, allow applications in the terminal to make text boldface."
 msgstr "जँ सही अछि अनुप्रयोगसभकेँ टर्मिनलमे पाठकेँ गहिर बनाबै लेल स्वीकारू."
 
-#: src/org.cafe.terminal.gschema.xml.in:140
+#: src/org.cafe.terminal.gschema.xml.in:150
 msgid "Whether to silence terminal bell"
 msgstr "की टर्मिनल घंटीकेँ चुप करओनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:141
+#: src/org.cafe.terminal.gschema.xml.in:151
 msgid ""
 "If true, don't make a noise when applications send the escape sequence for "
 "the terminal bell."
 msgstr "जँ सही अछि जखन अनुप्रयोग टर्मिनल घंटी लेल एस्केप सिक्वेंस भेजू."
 
-#: src/org.cafe.terminal.gschema.xml.in:145
+#: src/org.cafe.terminal.gschema.xml.in:155
 msgid "Copy selection to clipboard"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:146
+#: src/org.cafe.terminal.gschema.xml.in:156
 msgid "If true, selection is automatically copied to clipboard buffer."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:150
+#: src/org.cafe.terminal.gschema.xml.in:160
 msgid "Characters that are considered \"part of a word\""
 msgstr "संप्रतीक क' जे \"शब्द क' भाग\" बुझल जाए"
 
-#: src/org.cafe.terminal.gschema.xml.in:151
+#: src/org.cafe.terminal.gschema.xml.in:161
 msgid ""
 "When selecting text by word, sequences of these characters are considered "
 "single words. Ranges can be given as \"A-Z\". Literal hyphen (not expressing "
@@ -317,90 +337,90 @@ msgstr ""
 "परिसरकेँ \"A-Z\" क' रूपमे देल जाएत अछि. शाब्दिक हाइफन (परिसरकेँ अभिव्यक्त नहि करत) देल "
 "गेल पहला संप्रतीक होनाइ चाही."
 
-#: src/org.cafe.terminal.gschema.xml.in:155
+#: src/org.cafe.terminal.gschema.xml.in:165
 msgid "Whether to use custom terminal size for new windows"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:156
+#: src/org.cafe.terminal.gschema.xml.in:166
 msgid ""
 "If true, newly created terminal windows will have custom size specified by "
 "default_size_columns and default_size_rows."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:160
+#: src/org.cafe.terminal.gschema.xml.in:170
 msgid "Default number of columns"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:161
+#: src/org.cafe.terminal.gschema.xml.in:171
 msgid ""
 "Number of columns in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:165
+#: src/org.cafe.terminal.gschema.xml.in:175
 msgid "Default number of rows"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:166
+#: src/org.cafe.terminal.gschema.xml.in:176
 msgid ""
 "Number of rows in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:170
+#: src/org.cafe.terminal.gschema.xml.in:180
 msgid "Position of the scrollbar"
 msgstr "स्क्रॉल-पट्टी क' स्थिति"
 
-#: src/org.cafe.terminal.gschema.xml.in:171
+#: src/org.cafe.terminal.gschema.xml.in:181
 msgid ""
 "Where to put the terminal scrollbar. Possibilities are \"left\", \"right\", "
 "and \"hidden\"."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:175
+#: src/org.cafe.terminal.gschema.xml.in:185
 msgid "Number of lines to keep in scrollback"
 msgstr "स्क्रॉलबैकमे राखब लेल पंक्तिसभक सँख्या "
 
-#: src/org.cafe.terminal.gschema.xml.in:176
+#: src/org.cafe.terminal.gschema.xml.in:186
 msgid ""
 "Number of scrollback lines to keep around. You can scroll back in the "
 "terminal by this number of lines; lines that don't fit in the scrollback are "
 "discarded. If scrollback_unlimited is true, this value is ignored."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:180
+#: src/org.cafe.terminal.gschema.xml.in:190
 msgid "Whether an unlimited number of lines should be kept in scrollback"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:181
+#: src/org.cafe.terminal.gschema.xml.in:191
 msgid ""
 "If true, scrollback lines will never be discarded. The scrollback history is "
 "stored on disk temporarily, so this may cause the system to run out of disk "
 "space if there is a lot of output to the terminal."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:185
+#: src/org.cafe.terminal.gschema.xml.in:195
 msgid "Whether to scroll to the bottom when a key is pressed"
 msgstr "जखन एकटा कुँजीकेँ दाबल जाए तँ की तल पर स्क्रॉल करू"
 
-#: src/org.cafe.terminal.gschema.xml.in:186
+#: src/org.cafe.terminal.gschema.xml.in:196
 msgid "If true, pressing a key jumps the scrollbar to the bottom."
 msgstr "जँ सत्य अछि कोनो कुँजी दाबै पर स्क्रॉल-पट्टी तल पर कूदि जएताह."
 
-#: src/org.cafe.terminal.gschema.xml.in:190
+#: src/org.cafe.terminal.gschema.xml.in:200
 msgid "Whether to scroll to the bottom when there's new output"
 msgstr "जखन नवीन आउटपुट हुए तँ की तल पर स्क्रॉल करू"
 
-#: src/org.cafe.terminal.gschema.xml.in:191
+#: src/org.cafe.terminal.gschema.xml.in:201
 msgid ""
 "If true, whenever there's new output the terminal will scroll to the bottom."
 msgstr "जँ सत्य अछि, जखनो ओतए एकटा नवीन आउटपुट हाएत, टर्मिनल तल पर स्क्रॉल करताह."
 
-#: src/org.cafe.terminal.gschema.xml.in:195
+#: src/org.cafe.terminal.gschema.xml.in:205
 msgid "What to do with the terminal when the child command exits"
 msgstr "टर्मिनल क' सँग की कएल जाए जखन संतति कमांड बाहर भ' जाए"
 
-#: src/org.cafe.terminal.gschema.xml.in:196
+#: src/org.cafe.terminal.gschema.xml.in:206
 msgid ""
 "Possible values are \"close\" to close the terminal, and \"restart\" to "
 "restart the command."
@@ -408,11 +428,11 @@ msgstr ""
 "संभावित मान \"close\" अछि टर्मिनल बन्न करबाक लेल , आओर \"restart\" कमांड फिनु आरंभ "
 "करब  क'लेल ."
 
-#: src/org.cafe.terminal.gschema.xml.in:200
+#: src/org.cafe.terminal.gschema.xml.in:210
 msgid "Whether to launch the command in the terminal as a login shell"
 msgstr "की लॉगइन शैल क' रूपमे टर्मिनलमे कमांड चलाएब"
 
-#: src/org.cafe.terminal.gschema.xml.in:201
+#: src/org.cafe.terminal.gschema.xml.in:211
 msgid ""
 "If true, the command inside the terminal will be launched as a login shell. "
 "(argv[0] will have a hyphen in front of it.)"
@@ -420,57 +440,57 @@ msgstr ""
 "जँ सही अछि टर्मिनल क' अंदर क' कमांड एकटा लॉगिन शेल क' रूपमे लाँच हाएत. (argv[0] एकरा "
 "सामना एकटा हाइफन रखताह.)"
 
-#: src/org.cafe.terminal.gschema.xml.in:205
+#: src/org.cafe.terminal.gschema.xml.in:215
 msgid "Whether to run a custom command instead of the shell"
 msgstr "की शैल क' बदला अनुकूलित कमांड चलओनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:206
+#: src/org.cafe.terminal.gschema.xml.in:216
 msgid ""
 "If true, the value of the custom_command setting will be used in place of "
 "running a shell."
 msgstr "जँ सही अछि custom_command जमावट क' मान शेल क' चलाबै क' बजाय प्रयुक्त हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:210
+#: src/org.cafe.terminal.gschema.xml.in:220
 msgid "Whether to blink the cursor"
 msgstr "की कर्सरकेँ टिमटिमानाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:211
+#: src/org.cafe.terminal.gschema.xml.in:221
 msgid ""
 "The possible values are \"system\" to use the global cursor blinking "
 "settings, or \"on\" or \"off\" to set the mode explicitly."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:215
+#: src/org.cafe.terminal.gschema.xml.in:225
 msgid "The cursor appearance"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:216
+#: src/org.cafe.terminal.gschema.xml.in:226
 msgid ""
 "The possible values are \"block\" to use a block cursor, \"ibeam\" to use a "
 "vertical line cursor, or \"underline\" to use an underline cursor."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:220
+#: src/org.cafe.terminal.gschema.xml.in:230
 msgid "Custom command to use instead of the shell"
 msgstr "शैल क' बदला अनुकूलित कमांड जकरा चलओनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:221
+#: src/org.cafe.terminal.gschema.xml.in:231
 msgid "Run this command in place of the shell, if use_custom_command is true."
 msgstr "शेल पर ई कमांड चलाबू, जँ use_custom_command सही अछि."
 
-#: src/org.cafe.terminal.gschema.xml.in:225
+#: src/org.cafe.terminal.gschema.xml.in:235
 msgid "Icon for terminal window"
 msgstr "टर्मिनल विंडो लेल चिह्न"
 
-#: src/org.cafe.terminal.gschema.xml.in:226
+#: src/org.cafe.terminal.gschema.xml.in:236
 msgid "Icon to use for tabs/windows containing this profile."
 msgstr "एहि प्रोफ़ाइलमे टैब/विंडोज़ क' उपयोग लेल चिह्न"
 
-#: src/org.cafe.terminal.gschema.xml.in:230
+#: src/org.cafe.terminal.gschema.xml.in:240
 msgid "Palette for terminal applications"
 msgstr "टर्मिनल अनुप्रयोगसभ लेल पटल"
 
-#: src/org.cafe.terminal.gschema.xml.in:231
+#: src/org.cafe.terminal.gschema.xml.in:241
 msgid ""
 "Terminals have a 16-color palette that applications inside the terminal can "
 "use. This is that palette, in the form of a colon-separated list of color "
@@ -479,38 +499,38 @@ msgstr ""
 "टर्मिनलमे 16-रँग पैलेट अछि जे अनुप्रयोग ट्रमिनल क' अंदर प्रयोग करैत अछि. ई ओ पैलेट अछि रँग "
 "नाम क' कॉलन सँ अलग क' रूपमें. रँग क' नाम हेक्स प्रारूपमे रहनाइ चाही उदा. \"#FF00FF\""
 
-#: src/org.cafe.terminal.gschema.xml.in:235
+#: src/org.cafe.terminal.gschema.xml.in:245
 msgid "Font"
 msgstr "फ़ॉन्ट"
 
-#: src/org.cafe.terminal.gschema.xml.in:236
+#: src/org.cafe.terminal.gschema.xml.in:246
 msgid "An Pango font name. Examples are \"Sans 12\" or \"Monospace Bold 14\"."
 msgstr "एकटा पैंगो फ़ॉन्ट नाम. उदाहरण अछि \"संस 12\" अथवा \"मोनोस्पेस गाढ़ा 14\"."
 
-#: src/org.cafe.terminal.gschema.xml.in:240
+#: src/org.cafe.terminal.gschema.xml.in:250
 msgid "Background type"
 msgstr "पृष्ठभूमि प्रकार"
 
-#: src/org.cafe.terminal.gschema.xml.in:241
+#: src/org.cafe.terminal.gschema.xml.in:251
 msgid ""
 "Type of terminal background. May be \"solid\" for a solid color, \"image\" "
 "for an image, or \"transparent\" for either real transparency if a "
 "compositing window manager is running, or pseudo-transparency otherwise."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:245
+#: src/org.cafe.terminal.gschema.xml.in:255
 msgid "Background image"
 msgstr "पृष्ठभूमि बिंब"
 
-#: src/org.cafe.terminal.gschema.xml.in:246
+#: src/org.cafe.terminal.gschema.xml.in:256
 msgid "Filename of a background image."
 msgstr "पृष्ठभूमि बिंब क' फ़ाइलनाम."
 
-#: src/org.cafe.terminal.gschema.xml.in:250
+#: src/org.cafe.terminal.gschema.xml.in:260
 msgid "Whether to scroll background image"
 msgstr "की पृष्ठभूमि बिंब स्क्रॉल करू"
 
-#: src/org.cafe.terminal.gschema.xml.in:251
+#: src/org.cafe.terminal.gschema.xml.in:261
 msgid ""
 "If true, scroll the background image with the foreground text; if false, "
 "keep the image in a fixed position and scroll the text above it."
@@ -518,11 +538,11 @@ msgstr ""
 "जँ सही अछि पृष्ठभूमि विंबकेँ अग्रभूमि पाठ सँ स्क्रॉल करू; जँ गलत अछि विंबकेँ स्थिर स्थितिमे राखू "
 "आओर पाठकेँ उप्पर स्क्रॉल करू."
 
-#: src/org.cafe.terminal.gschema.xml.in:255
+#: src/org.cafe.terminal.gschema.xml.in:265
 msgid "How much to darken the background image"
 msgstr "पृष्ठभूमि बिंबकेँ कतेक गहिर कएनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:256
+#: src/org.cafe.terminal.gschema.xml.in:266
 msgid ""
 "A value between 0.0 and 1.0 indicating how much to darken the background "
 "image. 0.0 means no darkness, 1.0 means fully dark. In the current "
@@ -533,11 +553,11 @@ msgstr ""
 "कोनो गहिरपन नहि, 1.0 पूरी तरह सँ गहिर. वर्तमान कार्यान्वयनमे, दुइ स्तर क' गहिरपन संभव "
 "अछि ताकि जमावट बुलियन क' रूपमे आचरण करै, जतए 0.0 गहिरपन प्रभावकेँ निष्क्रिय करैत अछि."
 
-#: src/org.cafe.terminal.gschema.xml.in:260
+#: src/org.cafe.terminal.gschema.xml.in:270
 msgid "Effect of the Backspace key"
 msgstr "बैकस्पेस कुँजी क' प्रभाव"
 
-#: src/org.cafe.terminal.gschema.xml.in:261
+#: src/org.cafe.terminal.gschema.xml.in:271
 msgid ""
 "Sets what code the backspace key generates. Possible values are \"ascii-"
 "del\" for the ASCII DEL character, \"control-h\" for Control-H (AKA the "
@@ -550,11 +570,11 @@ msgstr ""
 "\"escape-sequence\" escape श्रृंखला backspace अथवा delete मे बान्हल रहैत अछि "
 "\"ascii-del\" Backspace कुँजी क'लेल सामान्य देखल गेल ."
 
-#: src/org.cafe.terminal.gschema.xml.in:265
+#: src/org.cafe.terminal.gschema.xml.in:275
 msgid "Effect of the Delete key"
 msgstr "मेटाबू कुँजी क' प्रभाव"
 
-#: src/org.cafe.terminal.gschema.xml.in:266
+#: src/org.cafe.terminal.gschema.xml.in:276
 msgid ""
 "Sets what code the delete key generates. Possible values are \"ascii-del\" "
 "for the ASCII DEL character, \"control-h\" for Control-H (AKA the ASCII BS "
@@ -567,11 +587,11 @@ msgstr ""
 "क' लेल, \"escape-sequence\" escape श्रृंखला क'लेल backspace अथवा deleteमें. "
 "\"escape-sequence\" सामान्यतः Delete कुँजी क'लेल सही जमावट मानल जाएत अछि."
 
-#: src/org.cafe.terminal.gschema.xml.in:270
+#: src/org.cafe.terminal.gschema.xml.in:280
 msgid "Whether to use the colors from the theme for the terminal widget"
 msgstr "की टर्मिनल विज़ेट लेल प्रसंग सँ रंग क' उपयोग कएनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:271
+#: src/org.cafe.terminal.gschema.xml.in:281
 msgid ""
 "If true, the theme color scheme used for text entry boxes will be used for "
 "the terminal, instead of colors provided by the user."
@@ -579,11 +599,11 @@ msgstr ""
 "जँ सही अछि थीम रँग स्कीम पाठ प्रविष्टि बाक्स क'लेल प्रयुक्त टर्मिनल क' प्रयुक्त हाएत, "
 "प्रयोक्ता द्वारा देल गेल रँग क' बजाय."
 
-#: src/org.cafe.terminal.gschema.xml.in:275
+#: src/org.cafe.terminal.gschema.xml.in:285
 msgid "Whether to use the system font"
 msgstr "की सिस्टम फ़ॉन्ट प्रयोग कएनाइ अछि"
 
-#: src/org.cafe.terminal.gschema.xml.in:276
+#: src/org.cafe.terminal.gschema.xml.in:286
 msgid ""
 "If true, the terminal will use the desktop-global standard font if it's "
 "monospace (and the most similar font it can come up with otherwise)."
@@ -591,11 +611,11 @@ msgstr ""
 "जँ सही अछि टर्मिनल डेस्कटाप वैश्विक मानक फोन्ट क' प्रयोग करताह जँ ई मोनोस्पेस अछि (आओर "
 "बेसी समान फोन्ट ई जकरा सँग आबि सकैत अछि अन्यथा)."
 
-#: src/org.cafe.terminal.gschema.xml.in:280
+#: src/org.cafe.terminal.gschema.xml.in:290
 msgid "Highlight S/Key challenges"
 msgstr "S/कुँजी चुनौती उभारू"
 
-#: src/org.cafe.terminal.gschema.xml.in:281
+#: src/org.cafe.terminal.gschema.xml.in:291
 msgid ""
 "Popup a dialog when an S/Key challenge response query is detected and "
 "clicked on. Typing a password into the dialog will send it to the terminal."
@@ -603,21 +623,21 @@ msgstr ""
 "एकटा समाद पॉपअप करू जखन एकटा S/key चुनौती अनुक्रिया प्रश्न जाँचल जाएत अछि आओर क्लिक "
 "कएल जाएत अछि. समाद पेटीमे शब्दकूट टाइप कएनाइ  एकरा टर्मिनलमे भेजताह."
 
-#: src/org.cafe.terminal.gschema.xml.in:285
+#: src/org.cafe.terminal.gschema.xml.in:295
 msgid "Highlight URLs under mouse pointer"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:286
+#: src/org.cafe.terminal.gschema.xml.in:296
 msgid ""
 "If true, URLs under mouse pointer are highlighted and can be opened by mouse "
 "click together with control key or used in context menu."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:292
+#: src/org.cafe.terminal.gschema.xml.in:302
 msgid "Keyboard shortcut to open a new tab"
 msgstr "नवीन टैब खोलब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:293
+#: src/org.cafe.terminal.gschema.xml.in:303
 msgid ""
 "Keyboard shortcut key for opening a new tab. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -628,11 +648,11 @@ msgstr ""
 "क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर नियत करैत "
 "छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:297
+#: src/org.cafe.terminal.gschema.xml.in:307
 msgid "Keyboard shortcut to open a new window"
 msgstr "एकटा नवीन विंडो खोलब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:298
+#: src/org.cafe.terminal.gschema.xml.in:308
 msgid ""
 "Keyboard shortcut key for opening a new window. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -643,11 +663,11 @@ msgstr ""
 "स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर "
 "नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:302
+#: src/org.cafe.terminal.gschema.xml.in:312
 msgid "Keyboard shortcut to create a new profile"
 msgstr "नवीन प्रोफ़ाइल बनाबै लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:303
+#: src/org.cafe.terminal.gschema.xml.in:313
 msgid ""
 "Keyboard shortcut key for bringing up the dialog for profile creation. "
 "Expressed as a string in the same format used for CTK+ resource files. If "
@@ -658,11 +678,11 @@ msgstr ""
 "जाएबला स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" "
 "पर नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:307
+#: src/org.cafe.terminal.gschema.xml.in:317
 msgid "Keyboard shortcut to save the current tab contents to file"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:308
+#: src/org.cafe.terminal.gschema.xml.in:318
 msgid ""
 "Keyboard shortcut key to save the current tab contents to a file. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -670,11 +690,11 @@ msgid ""
 "shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:312
+#: src/org.cafe.terminal.gschema.xml.in:322
 msgid "Keyboard shortcut to close a tab"
 msgstr "टैब बन्न करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:313
+#: src/org.cafe.terminal.gschema.xml.in:323
 msgid ""
 "Keyboard shortcut key for closing a tab. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -684,11 +704,11 @@ msgstr ""
 "स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर "
 "नियत करैत अछि तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:317
+#: src/org.cafe.terminal.gschema.xml.in:327
 msgid "Keyboard shortcut to close a window"
 msgstr "विंडो बन्न करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:318
+#: src/org.cafe.terminal.gschema.xml.in:328
 msgid ""
 "Keyboard shortcut key for closing a window. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -699,11 +719,11 @@ msgstr ""
 "क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर नियत करैत "
 "छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:322
+#: src/org.cafe.terminal.gschema.xml.in:332
 msgid "Keyboard shortcut to copy text"
 msgstr "पाठ कॉपी करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:323
+#: src/org.cafe.terminal.gschema.xml.in:333
 msgid ""
 "Keyboard shortcut key for copying selected text to the clipboard. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -714,11 +734,11 @@ msgstr ""
 "उपयोगमे लेल जाए बला स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट "
 "स्ट्रिंग \"अक्षम\" पर नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:327
+#: src/org.cafe.terminal.gschema.xml.in:337
 msgid "Keyboard shortcut to paste text"
 msgstr "पाठ साटब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:328
+#: src/org.cafe.terminal.gschema.xml.in:338
 msgid ""
 "Keyboard shortcut key for pasting the contents of the clipboard in the "
 "terminal. Expressed as a string in the same format used for CTK+ resource "
@@ -726,11 +746,11 @@ msgid ""
 "will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:332
+#: src/org.cafe.terminal.gschema.xml.in:342
 msgid "Keyboard shortcut to select all text"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:333
+#: src/org.cafe.terminal.gschema.xml.in:343
 msgid ""
 "Keyboard shortcut key for selecting all the text in the terminal. Expressed "
 "as a string in the same format used for CTK+ resource files. If you set the "
@@ -738,11 +758,11 @@ msgid ""
 "shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:337
+#: src/org.cafe.terminal.gschema.xml.in:347
 msgid "Keyboard shortcut to show the find dialog"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:338
+#: src/org.cafe.terminal.gschema.xml.in:348
 msgid ""
 "Keyboard shortcut key for showing the find dialog. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -750,11 +770,11 @@ msgid ""
 "this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:342
+#: src/org.cafe.terminal.gschema.xml.in:352
 msgid "Keyboard shortcut to find the next occurrence of the search term"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:343
+#: src/org.cafe.terminal.gschema.xml.in:353
 msgid ""
 "Keyboard shortcut key for finding the next occurrence of the search term in "
 "the terminal. Expressed as a string in the same format used for CTK+ "
@@ -762,11 +782,11 @@ msgid ""
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:347
+#: src/org.cafe.terminal.gschema.xml.in:357
 msgid "Keyboard shortcut to find the previous occurrence of the search term"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:348
+#: src/org.cafe.terminal.gschema.xml.in:358
 msgid ""
 "Keyboard shortcut key for finding the previous occurrence of the search term "
 "in the terminal. Expressed as a string in the same format used for CTK+ "
@@ -774,11 +794,11 @@ msgid ""
 "then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:352
+#: src/org.cafe.terminal.gschema.xml.in:362
 msgid "Keyboard shortcut to toggle full screen mode"
 msgstr "पूर्ण स्क्रीन मोड टॉगल करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:353
+#: src/org.cafe.terminal.gschema.xml.in:363
 msgid ""
 "Keyboard shortcut key for toggling full screen mode. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -789,11 +809,11 @@ msgstr ""
 "लेलजाएबला स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग "
 "\"अक्षम\" पर नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:357
+#: src/org.cafe.terminal.gschema.xml.in:367
 msgid "Keyboard shortcut to toggle the visibility of the menubar"
 msgstr "मेनू पट्टी क' दृश्यताकेँ टॉगल करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:358
+#: src/org.cafe.terminal.gschema.xml.in:368
 msgid ""
 "Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
 "a string in the same format used for CTK+ resource files. If you set the "
@@ -804,11 +824,11 @@ msgstr ""
 "जाए बला स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग "
 "\"अक्षम\" पर नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:362
+#: src/org.cafe.terminal.gschema.xml.in:372
 msgid "Keyboard shortcut to set the terminal title"
 msgstr "टर्मिनल क' शीर्षक नियत करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:363
+#: src/org.cafe.terminal.gschema.xml.in:373
 msgid ""
 "Keyboard shortcut key to set the terminal title. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -819,11 +839,11 @@ msgstr ""
 "लेलजाएबला स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग "
 "\"अक्षम\" पर नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:367
+#: src/org.cafe.terminal.gschema.xml.in:377
 msgid "Keyboard shortcut to reset the terminal"
 msgstr "टर्मिनल रीसेट करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:368
+#: src/org.cafe.terminal.gschema.xml.in:378
 msgid ""
 "Keyboard shortcut key to reset the terminal. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -834,11 +854,11 @@ msgstr ""
 "स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर "
 "नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:372
+#: src/org.cafe.terminal.gschema.xml.in:382
 msgid "Keyboard shortcut to reset and clear the terminal"
 msgstr "टर्मिनल रिसेट करब आओर साफ करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:373
+#: src/org.cafe.terminal.gschema.xml.in:383
 msgid ""
 "Keyboard shortcut key to reset and clear the terminal. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -849,11 +869,11 @@ msgstr ""
 "लेल जाए बला स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग "
 "\"अक्षम\" पर नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:377
+#: src/org.cafe.terminal.gschema.xml.in:387
 msgid "Keyboard shortcut to switch to the previous tab"
 msgstr "पछिला टैबमे स्विच करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:378
+#: src/org.cafe.terminal.gschema.xml.in:388
 msgid ""
 "Keyboard shortcut key to switch to the previous tab. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -864,11 +884,11 @@ msgstr ""
 "स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर "
 "नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:382
+#: src/org.cafe.terminal.gschema.xml.in:392
 msgid "Keyboard shortcut to switch to the next tab"
 msgstr "अगिला टैब पर स्विच करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:383
+#: src/org.cafe.terminal.gschema.xml.in:393
 msgid ""
 "Keyboard shortcut key to switch to the next tab. Expressed as a string in "
 "the same format used for CTK+ resource files. If you set the option to the "
@@ -879,11 +899,11 @@ msgstr ""
 "स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर "
 "नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:387
+#: src/org.cafe.terminal.gschema.xml.in:397
 msgid "Keyboard shortcut to switch to the previous profile"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:388
+#: src/org.cafe.terminal.gschema.xml.in:398
 msgid ""
 "Keyboard shortcut key to switch to the previous profile. Expressed as a "
 "string in the same format used for CTK+ resource files. If you set the "
@@ -891,11 +911,11 @@ msgid ""
 "shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:392
+#: src/org.cafe.terminal.gschema.xml.in:402
 msgid "Keyboard shortcut to switch to the next profile"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:393
+#: src/org.cafe.terminal.gschema.xml.in:403
 msgid ""
 "Keyboard shortcut key to switch to the next profile. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -903,11 +923,11 @@ msgid ""
 "this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:397
+#: src/org.cafe.terminal.gschema.xml.in:407
 msgid "Accelerator to move the current tab to the left."
 msgstr "बायाँ तरफ मोजुदा टैब चलाबै क'लेल त्वरक चलाबू"
 
-#: src/org.cafe.terminal.gschema.xml.in:398
+#: src/org.cafe.terminal.gschema.xml.in:408
 msgid ""
 "Accelerator key to move the current tab to the left. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -918,11 +938,11 @@ msgstr ""
 "बला स्ट्रिंग क' रूपमे अभिव्यक्त कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर "
 "नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:402
+#: src/org.cafe.terminal.gschema.xml.in:412
 msgid "Accelerator to move the current tab to the right."
 msgstr "दायाँ तरफ मोजुदा टैब चलाबै क'लेल त्वरक चलाबू"
 
-#: src/org.cafe.terminal.gschema.xml.in:403
+#: src/org.cafe.terminal.gschema.xml.in:413
 msgid ""
 "Accelerator key to move the current tab to the right. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -933,11 +953,11 @@ msgstr ""
 "बला स्ट्रिंग क' रूपमे अभिव्यक्त कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"निष्क्रिय\" "
 "पर नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:407
+#: src/org.cafe.terminal.gschema.xml.in:417
 msgid "Accelerator to detach current tab."
 msgstr "मोजुदा टैब सँ अलग करबाक लेल कुँजीपटल"
 
-#: src/org.cafe.terminal.gschema.xml.in:408
+#: src/org.cafe.terminal.gschema.xml.in:418
 msgid ""
 "Accelerator key to detach current tab. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -947,110 +967,110 @@ msgstr ""
 "क' रूपमे अभिव्यक्त कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"निष्क्रिय\" पर नियत "
 "करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:412
+#: src/org.cafe.terminal.gschema.xml.in:422
 msgid "Keyboard shortcut to switch to tab 1"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:413
+#: src/org.cafe.terminal.gschema.xml.in:423
 msgid ""
 "Keyboard shortcut key for switch to tab 1. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:417
+#: src/org.cafe.terminal.gschema.xml.in:427
 msgid "Keyboard shortcut to switch to tab 2"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:418
+#: src/org.cafe.terminal.gschema.xml.in:428
 msgid ""
 "Keyboard shortcut key for switch to tab 2. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:422
+#: src/org.cafe.terminal.gschema.xml.in:432
 msgid "Keyboard shortcut to switch to tab 3"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:423
+#: src/org.cafe.terminal.gschema.xml.in:433
 msgid ""
 "Keyboard shortcut key for switch to tab 3. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:427
+#: src/org.cafe.terminal.gschema.xml.in:437
 msgid "Keyboard shortcut to switch to tab 4"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:428
+#: src/org.cafe.terminal.gschema.xml.in:438
 msgid ""
 "Keyboard shortcut key for switch to tab 4. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:432
+#: src/org.cafe.terminal.gschema.xml.in:442
 msgid "Keyboard shortcut to switch to tab 5"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:433
+#: src/org.cafe.terminal.gschema.xml.in:443
 msgid ""
 "Keyboard shortcut key for switch to tab 5. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:437
+#: src/org.cafe.terminal.gschema.xml.in:447
 msgid "Keyboard shortcut to switch to tab 6"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:438
+#: src/org.cafe.terminal.gschema.xml.in:448
 msgid ""
 "Keyboard shortcut key for switch to tab 6. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:442
+#: src/org.cafe.terminal.gschema.xml.in:452
 msgid "Keyboard shortcut to switch to tab 7"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:443
+#: src/org.cafe.terminal.gschema.xml.in:453
 msgid ""
 "Keyboard shortcut key for switch to tab 7. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:447
+#: src/org.cafe.terminal.gschema.xml.in:457
 msgid "Keyboard shortcut to switch to tab 8"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:448
+#: src/org.cafe.terminal.gschema.xml.in:458
 msgid ""
 "Keyboard shortcut key for switch to tab 8. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:452
+#: src/org.cafe.terminal.gschema.xml.in:462
 msgid "Keyboard shortcut to switch to tab 9"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:453
+#: src/org.cafe.terminal.gschema.xml.in:463
 msgid ""
 "Keyboard shortcut key for switch to tab 9. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
 "string \"disabled\", then there will be no keyboard shortcut for this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:457
+#: src/org.cafe.terminal.gschema.xml.in:467
 msgid "Keyboard shortcut to switch to tab 10"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:458
+#: src/org.cafe.terminal.gschema.xml.in:468
 msgid ""
 "Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1058,11 +1078,11 @@ msgid ""
 "this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:462
+#: src/org.cafe.terminal.gschema.xml.in:472
 msgid "Keyboard shortcut to switch to tab 11"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:463
+#: src/org.cafe.terminal.gschema.xml.in:473
 msgid ""
 "Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1070,11 +1090,11 @@ msgid ""
 "this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:467
+#: src/org.cafe.terminal.gschema.xml.in:477
 msgid "Keyboard shortcut to switch to tab 12"
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:468
+#: src/org.cafe.terminal.gschema.xml.in:478
 msgid ""
 "Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1082,11 +1102,11 @@ msgid ""
 "this action."
 msgstr ""
 
-#: src/org.cafe.terminal.gschema.xml.in:472
+#: src/org.cafe.terminal.gschema.xml.in:482
 msgid "Keyboard shortcut to launch help"
 msgstr "मद्दति प्रारंभ करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:473
+#: src/org.cafe.terminal.gschema.xml.in:483
 msgid ""
 "Keyboard shortcut key for launching help. Expressed as a string in the same "
 "format used for CTK+ resource files. If you set the option to the special "
@@ -1096,11 +1116,11 @@ msgstr ""
 "बला स्ट्रिंग क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर "
 "नियत करैत छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:477
+#: src/org.cafe.terminal.gschema.xml.in:487
 msgid "Keyboard shortcut to make font larger"
 msgstr "फ़ॉन्ट पैघ करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:478
+#: src/org.cafe.terminal.gschema.xml.in:488
 msgid ""
 "Keyboard shortcut key for making font larger. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1111,11 +1131,11 @@ msgstr ""
 "क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर नियत करैत "
 "छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:482
+#: src/org.cafe.terminal.gschema.xml.in:492
 msgid "Keyboard shortcut to make font smaller"
 msgstr "फ़ॉन्ट छोट करब लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:483
+#: src/org.cafe.terminal.gschema.xml.in:493
 msgid ""
 "Keyboard shortcut key for making font smaller. Expressed as a string in the "
 "same format used for CTK+ resource files. If you set the option to the "
@@ -1126,11 +1146,11 @@ msgstr ""
 "क' रूपमे एक्सप्रेस्ड कएल जाएत अछि. जँ अहाँ विकल्पकेँ विशिष्ट स्ट्रिंग \"अक्षम\" पर नियत करैत "
 "छी तँ फिनु एहि क्रिया लेल कोनो कुँजीपटल शॉर्टकट नहि हाएत."
 
-#: src/org.cafe.terminal.gschema.xml.in:487
+#: src/org.cafe.terminal.gschema.xml.in:497
 msgid "Keyboard shortcut to make font normal-size"
 msgstr "फ़ॉन्टकेँ सामान्य-आकार बनाबै लेल कुँजीपटल शॉर्टकट"
 
-#: src/org.cafe.terminal.gschema.xml.in:488
+#: src/org.cafe.terminal.gschema.xml.in:498
 msgid ""
 "Keyboard shortcut key for making font the normal size. Expressed as a string "
 "in the same format used for CTK+ resource files. If you set the option to "
@@ -1213,7 +1233,7 @@ msgstr "उपलब्ध एनकोडिंग्स(_v):"
 msgid "E_ncodings shown in menu:"
 msgstr "मेनूमे देखाओल गए एनकोडिंग्स (_E):"
 
-#: src/find-dialog.ui:14 src/terminal-accels.c:218
+#: src/find-dialog.ui:14 src/terminal-accels.c:204
 msgid "Find"
 msgstr "खोजू"
 
@@ -1265,7 +1285,7 @@ msgstr "प्रोफाइल"
 msgid "_Profile used when launching a new terminal:"
 msgstr ""
 
-#: src/profile-new-dialog.ui:8 src/terminal-accels.c:156
+#: src/profile-new-dialog.ui:8 src/terminal-accels.c:144
 msgid "New Profile"
 msgstr "नवीन प्रोफाइल"
 
@@ -1367,7 +1387,7 @@ msgid "On the right side"
 msgstr ""
 
 #. Translators: Scrollbar is: ...
-#: src/profile-preferences.ui:163 src/terminal-accels.c:408
+#: src/profile-preferences.ui:163 src/terminal-accels.c:394
 #: src/extra-strings.c:60
 msgid "Disabled"
 msgstr "अक्षम"
@@ -1703,192 +1723,192 @@ msgstr "जे पाठ अहाँ क्लिक केने अछि ओ
 msgid "The text you clicked on doesn't seem to be a valid OTP challenge."
 msgstr "जे पाठ अहाँ क्लिक केने अछि ओ OTP चुनौती प्रतीत नहि हाएत अछि."
 
-#: src/terminal-accels.c:148
+#: src/terminal-accels.c:136
 msgid "New Tab"
 msgstr "नवीन टैब"
 
-#: src/terminal-accels.c:152
+#: src/terminal-accels.c:140
 msgid "New Window"
 msgstr "नवीन विंडो"
 
-#: src/terminal-accels.c:161
+#: src/terminal-accels.c:148
 msgid "Save Contents"
 msgstr ""
 
-#: src/terminal-accels.c:166
+#: src/terminal-accels.c:152
 msgid "Close Tab"
 msgstr "टैब बन्न करू"
 
-#: src/terminal-accels.c:170
+#: src/terminal-accels.c:156
 msgid "Close Window"
 msgstr "विंडो बन्न करू"
 
-#: src/terminal-accels.c:178
+#: src/terminal-accels.c:164
 msgid "Copy"
 msgstr "कॉपी करू"
 
-#: src/terminal-accels.c:182
+#: src/terminal-accels.c:168
 msgid "Paste"
 msgstr "साटू"
 
-#: src/terminal-accels.c:186
+#: src/terminal-accels.c:172
 msgid "Select All"
 msgstr ""
 
-#: src/terminal-accels.c:194
+#: src/terminal-accels.c:180
 msgid "Hide and Show menubar"
 msgstr "मेनू -पट्टी नुकाबू आओर देखाबू"
 
-#: src/terminal-accels.c:198
+#: src/terminal-accels.c:184
 msgid "Full Screen"
 msgstr "पूर्ण स्क्रीन"
 
-#: src/terminal-accels.c:202
+#: src/terminal-accels.c:188
 msgid "Zoom In"
 msgstr "ज़ूम इन"
 
-#: src/terminal-accels.c:206
+#: src/terminal-accels.c:192
 msgid "Zoom Out"
 msgstr "ज़ूम आउट"
 
-#: src/terminal-accels.c:210
+#: src/terminal-accels.c:196
 msgid "Normal Size"
 msgstr "सामान्य आकार"
 
-#: src/terminal-accels.c:222
+#: src/terminal-accels.c:208
 msgid "Find Next"
 msgstr ""
 
-#: src/terminal-accels.c:226
+#: src/terminal-accels.c:212
 msgid "Find Previous"
 msgstr ""
 
-#: src/terminal-accels.c:234 src/terminal-window.c:4165
+#: src/terminal-accels.c:220 src/terminal-window.c:4142
 msgid "Set Title"
 msgstr "शीर्षक नियत करू"
 
-#: src/terminal-accels.c:238
+#: src/terminal-accels.c:224
 msgid "Reset"
 msgstr "रिसेट करू"
 
-#: src/terminal-accels.c:242
+#: src/terminal-accels.c:228
 msgid "Reset and Clear"
 msgstr "रिसेट करू आओर साफ करू"
 
-#: src/terminal-accels.c:246
+#: src/terminal-accels.c:232
 msgid "Switch to Previous Profile"
 msgstr ""
 
-#: src/terminal-accels.c:250
+#: src/terminal-accels.c:236
 msgid "Switch to Next Profile"
 msgstr ""
 
-#: src/terminal-accels.c:258
+#: src/terminal-accels.c:244
 msgid "Switch to Previous Tab"
 msgstr "पछिला टैब पर जाउ"
 
-#: src/terminal-accels.c:262
+#: src/terminal-accels.c:248
 msgid "Switch to Next Tab"
 msgstr "अगिला टैब पर जाउ"
 
-#: src/terminal-accels.c:266
+#: src/terminal-accels.c:252
 msgid "Move Tab to the Left"
 msgstr "बायाँ टैब घसकाबू"
 
-#: src/terminal-accels.c:270
+#: src/terminal-accels.c:256
 msgid "Move Tab to the Right"
 msgstr "दायाँ टैब घसकाबू"
 
-#: src/terminal-accels.c:274
+#: src/terminal-accels.c:260
 msgid "Detach Tab"
 msgstr "टैब अलग करू"
 
-#: src/terminal-accels.c:278
+#: src/terminal-accels.c:264
 msgid "Switch to Tab 1"
 msgstr ""
 
-#: src/terminal-accels.c:283
+#: src/terminal-accels.c:269
 msgid "Switch to Tab 2"
 msgstr ""
 
-#: src/terminal-accels.c:288
+#: src/terminal-accels.c:274
 msgid "Switch to Tab 3"
 msgstr ""
 
-#: src/terminal-accels.c:293
+#: src/terminal-accels.c:279
 msgid "Switch to Tab 4"
 msgstr ""
 
-#: src/terminal-accels.c:298
+#: src/terminal-accels.c:284
 msgid "Switch to Tab 5"
 msgstr ""
 
-#: src/terminal-accels.c:303
+#: src/terminal-accels.c:289
 msgid "Switch to Tab 6"
 msgstr ""
 
-#: src/terminal-accels.c:308
+#: src/terminal-accels.c:294
 msgid "Switch to Tab 7"
 msgstr ""
 
-#: src/terminal-accels.c:313
+#: src/terminal-accels.c:299
 msgid "Switch to Tab 8"
 msgstr ""
 
-#: src/terminal-accels.c:318
+#: src/terminal-accels.c:304
 msgid "Switch to Tab 9"
 msgstr ""
 
-#: src/terminal-accels.c:323
+#: src/terminal-accels.c:309
 msgid "Switch to Tab 10"
 msgstr ""
 
-#: src/terminal-accels.c:328
+#: src/terminal-accels.c:314
 msgid "Switch to Tab 11"
 msgstr ""
 
-#: src/terminal-accels.c:333
+#: src/terminal-accels.c:319
 msgid "Switch to Tab 12"
 msgstr ""
 
-#: src/terminal-accels.c:341
+#: src/terminal-accels.c:327
 msgid "Contents"
 msgstr "विषय सूची"
 
-#: src/terminal-accels.c:346
+#: src/terminal-accels.c:332
 msgid "File"
 msgstr "फ़ाइल"
 
-#: src/terminal-accels.c:347
+#: src/terminal-accels.c:333
 msgid "Edit"
 msgstr "संपादन"
 
-#: src/terminal-accels.c:348
+#: src/terminal-accels.c:334
 msgid "View"
 msgstr "दृश्य"
 
-#: src/terminal-accels.c:349
+#: src/terminal-accels.c:335
 msgid "Search"
 msgstr "खोजू"
 
-#: src/terminal-accels.c:351
+#: src/terminal-accels.c:337
 msgid "Tabs"
 msgstr "टैब"
 
-#: src/terminal-accels.c:352
+#: src/terminal-accels.c:338
 msgid "Help"
 msgstr "मद्दति "
 
-#: src/terminal-accels.c:855
+#: src/terminal-accels.c:841
 #, c-format
 msgid "The shortcut key “%s” is already bound to the “%s” action"
 msgstr ""
 
-#: src/terminal-accels.c:1011
+#: src/terminal-accels.c:997
 msgid "_Action"
 msgstr "क्रिया (_A)"
 
-#: src/terminal-accels.c:1030
+#: src/terminal-accels.c:1016
 msgid "Shortcut _Key"
 msgstr "शॉर्टकट कुँजी (_K)"
 
@@ -2286,29 +2306,33 @@ msgstr ""
 msgid "Unnamed"
 msgstr "बेनाम"
 
-#: src/terminal-screen.c:1521
+#: src/terminal-screen.c:1528
 msgid "_Profile Preferences"
 msgstr ""
 
-#: src/terminal-screen.c:1522 src/terminal-screen.c:1965
+#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
 msgid "_Relaunch"
 msgstr ""
 
-#: src/terminal-screen.c:1525
+#: src/terminal-screen.c:1532
 msgid "There was an error creating the child process for this terminal"
 msgstr "एहि टर्मिनल लेल शिशु प्रक्रिया सृजित करबमे त्रुटि"
 
-#: src/terminal-screen.c:1970
+#: src/terminal-screen.c:1952
+msgid "Process completed"
+msgstr ""
+
+#: src/terminal-screen.c:2000
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr ""
 
-#: src/terminal-screen.c:1975
+#: src/terminal-screen.c:2005
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr ""
 
-#: src/terminal-screen.c:1980
+#: src/terminal-screen.c:2010
 msgid "The child process was terminated."
 msgstr ""
 
@@ -2356,7 +2380,7 @@ msgstr ""
 #. * _%d is used as the accelerator (with d between 1 and 9), and
 #. * the %s is the name of the terminal profile.
 #.
-#: src/terminal-window.c:613
+#: src/terminal-window.c:600
 #, c-format
 msgid "_%d. %s"
 msgstr "_%d. %s"
@@ -2365,282 +2389,282 @@ msgstr "_%d. %s"
 #. * _%c is used as the accelerator (it will be a character between A and Z),
 #. * and the %s is the name of the terminal profile.
 #.
-#: src/terminal-window.c:619
+#: src/terminal-window.c:606
 #, c-format
 msgid "_%c. %s"
 msgstr "_%c. %s"
 
-#: src/terminal-window.c:1820
+#: src/terminal-window.c:1803
 msgid "_File"
 msgstr "फाइल (_F)"
 
-#: src/terminal-window.c:1821 src/terminal-window.c:1834
-#: src/terminal-window.c:2075
+#: src/terminal-window.c:1804 src/terminal-window.c:1817
+#: src/terminal-window.c:2058
 msgid "Open _Terminal"
 msgstr "टर्मिनल खोलू (_T)"
 
-#: src/terminal-window.c:1822 src/terminal-window.c:1839
-#: src/terminal-window.c:2080
+#: src/terminal-window.c:1805 src/terminal-window.c:1822
+#: src/terminal-window.c:2063
 msgid "Open Ta_b"
 msgstr "टैब खोलू (_b)"
 
-#: src/terminal-window.c:1823
+#: src/terminal-window.c:1806
 msgid "_Edit"
 msgstr "संपादन (_E)"
 
-#: src/terminal-window.c:1824
+#: src/terminal-window.c:1807
 msgid "_View"
 msgstr "देखू (_V)"
 
-#: src/terminal-window.c:1825
+#: src/terminal-window.c:1808
 msgid "_Search"
 msgstr "खोजू (_S)"
 
-#: src/terminal-window.c:1826
+#: src/terminal-window.c:1809
 msgid "_Terminal"
 msgstr "टर्मिनल (_T)"
 
-#: src/terminal-window.c:1827
+#: src/terminal-window.c:1810
 msgid "Ta_bs"
 msgstr ""
 
-#: src/terminal-window.c:1828
+#: src/terminal-window.c:1811
 msgid "_Help"
 msgstr "मद्दति (_H)"
 
-#: src/terminal-window.c:1844
+#: src/terminal-window.c:1827
 msgid "New _Profile…"
 msgstr ""
 
-#: src/terminal-window.c:1849
+#: src/terminal-window.c:1832
 msgid "_Save Contents"
 msgstr ""
 
-#: src/terminal-window.c:1854 src/terminal-window.c:2090
+#: src/terminal-window.c:1837 src/terminal-window.c:2073
 msgid "C_lose Tab"
 msgstr "टैब बन्न करू (_l)"
 
-#: src/terminal-window.c:1859
+#: src/terminal-window.c:1842
 msgid "_Close Window"
 msgstr "विंडो बन्न करू (_C)"
 
-#: src/terminal-window.c:1866 src/terminal-window.c:2060
+#: src/terminal-window.c:1849 src/terminal-window.c:2043
 msgid "_Copy"
 msgstr "कॉपी करू (_C)"
 
-#: src/terminal-window.c:1871 src/terminal-window.c:2065
+#: src/terminal-window.c:1854 src/terminal-window.c:2048
 msgid "_Paste"
 msgstr "साटू (_P)"
 
-#: src/terminal-window.c:1876 src/terminal-window.c:2070
+#: src/terminal-window.c:1859 src/terminal-window.c:2053
 msgid "Paste _Filenames"
 msgstr ""
 
-#: src/terminal-window.c:1881
+#: src/terminal-window.c:1864
 msgid "Select _All"
 msgstr "सबहि चुनू (_A)"
 
-#: src/terminal-window.c:1886
+#: src/terminal-window.c:1869
 msgid "P_rofiles…"
 msgstr ""
 
-#: src/terminal-window.c:1891
+#: src/terminal-window.c:1874
 msgid "_Keyboard Shortcuts…"
 msgstr ""
 
-#: src/terminal-window.c:1896
+#: src/terminal-window.c:1879
 msgid "Pr_ofile Preferences"
 msgstr ""
 
-#: src/terminal-window.c:1903
+#: src/terminal-window.c:1886
 msgid "Zoom _In"
 msgstr "पैघ आकार (_I)"
 
-#: src/terminal-window.c:1908
+#: src/terminal-window.c:1891
 msgid "Zoom _Out"
 msgstr "छोट आकार (_O)"
 
-#: src/terminal-window.c:1913
+#: src/terminal-window.c:1896
 msgid "_Normal Size"
 msgstr "सामान्य आकार (_N)"
 
-#: src/terminal-window.c:1920
+#: src/terminal-window.c:1903
 msgid "_Find..."
 msgstr "खोजू (_F)..."
 
-#: src/terminal-window.c:1925
+#: src/terminal-window.c:1908
 msgid "Find Ne_xt"
 msgstr "अगिला खोजू (_x)"
 
-#: src/terminal-window.c:1930
+#: src/terminal-window.c:1913
 msgid "Find Pre_vious"
 msgstr "पछिला खोजू (_v)"
 
-#: src/terminal-window.c:1935
+#: src/terminal-window.c:1918
 msgid "_Clear Highlight"
 msgstr "हाइलाइट साफ करू (_C)"
 
-#: src/terminal-window.c:1941
+#: src/terminal-window.c:1924
 msgid "Go to _Line..."
 msgstr "पंक्ति पर जाउ (_L)..."
 
-#: src/terminal-window.c:1946
+#: src/terminal-window.c:1929
 msgid "_Incremental Search..."
 msgstr "संवर्द्धनात्मक खोज (_I)..."
 
-#: src/terminal-window.c:1953
+#: src/terminal-window.c:1936
 msgid "Change _Profile"
 msgstr "प्रोफ़ाइल बदलू (_P)"
 
-#: src/terminal-window.c:1955
+#: src/terminal-window.c:1938
 msgid "_Previous Profile"
 msgstr ""
 
-#: src/terminal-window.c:1960
+#: src/terminal-window.c:1943
 msgid "_Next Profile"
 msgstr ""
 
-#: src/terminal-window.c:1965
+#: src/terminal-window.c:1948
 msgid "_Set Title…"
 msgstr ""
 
-#: src/terminal-window.c:1969
+#: src/terminal-window.c:1952
 msgid "Set _Character Encoding"
 msgstr "संप्रतीक एनकोडिंग नियत करू (_C)"
 
-#: src/terminal-window.c:1971
+#: src/terminal-window.c:1954
 msgid "_Reset"
 msgstr "रिसेट करू (_R)"
 
-#: src/terminal-window.c:1976
+#: src/terminal-window.c:1959
 msgid "Reset and C_lear"
 msgstr "रिसेट करू आओर साफ करू (_l)"
 
-#: src/terminal-window.c:1983
+#: src/terminal-window.c:1966
 msgid "_Add or Remove…"
 msgstr ""
 
-#: src/terminal-window.c:1990
+#: src/terminal-window.c:1973
 msgid "_Previous Tab"
 msgstr "पछिला टैब (_P)"
 
-#: src/terminal-window.c:1995
+#: src/terminal-window.c:1978
 msgid "_Next Tab"
 msgstr "अगिला टैब (_N)"
 
-#: src/terminal-window.c:2000
+#: src/terminal-window.c:1983
 msgid "Move Tab _Left"
 msgstr "टैब बामाँ लए जाउ (_L)"
 
-#: src/terminal-window.c:2005
+#: src/terminal-window.c:1988
 msgid "Move Tab _Right"
 msgstr "टैब दहिन्ना लए जाउ (_R)"
 
-#: src/terminal-window.c:2010
+#: src/terminal-window.c:1993
 msgid "_Detach tab"
 msgstr ""
 
-#: src/terminal-window.c:2017
+#: src/terminal-window.c:2000
 msgid "_Contents"
 msgstr "विषय सूची (_C)"
 
-#: src/terminal-window.c:2022
+#: src/terminal-window.c:2005
 msgid "_About"
 msgstr "क' संबंधमे (_A)"
 
-#: src/terminal-window.c:2029
+#: src/terminal-window.c:2012
 msgid "_Send Mail To…"
 msgstr ""
 
-#: src/terminal-window.c:2034
+#: src/terminal-window.c:2017
 msgid "_Copy E-mail Address"
 msgstr "इमेल पता कॉपी करू (_C)"
 
-#: src/terminal-window.c:2039
+#: src/terminal-window.c:2022
 msgid "C_all To…"
 msgstr ""
 
-#: src/terminal-window.c:2044
+#: src/terminal-window.c:2027
 msgid "_Copy Call Address"
 msgstr ""
 
-#: src/terminal-window.c:2049
+#: src/terminal-window.c:2032
 msgid "_Open Link"
 msgstr "लिंक खोलू (_O)"
 
-#: src/terminal-window.c:2054
+#: src/terminal-window.c:2037
 msgid "_Copy Link Address"
 msgstr "लिंक पता कापी करू (_C)"
 
-#: src/terminal-window.c:2058
+#: src/terminal-window.c:2041
 msgid "P_rofiles"
 msgstr ""
 
-#: src/terminal-window.c:2085 src/terminal-window.c:3566
+#: src/terminal-window.c:2068 src/terminal-window.c:3551
 msgid "C_lose Window"
 msgstr "विंडो बन्न करू (_l)"
 
-#: src/terminal-window.c:2095
+#: src/terminal-window.c:2078
 msgid "L_eave Full Screen"
 msgstr ""
 
-#: src/terminal-window.c:2099
+#: src/terminal-window.c:2082
 msgid "_Input Methods"
 msgstr "इनपुट विधिसभ (_I)"
 
-#: src/terminal-window.c:2106
+#: src/terminal-window.c:2089
 msgid "Show _Menubar"
 msgstr "मेन्यू-पट्टी देखाबू (_M)"
 
-#: src/terminal-window.c:2112
+#: src/terminal-window.c:2095
 msgid "_Full Screen"
 msgstr "पूर्ण स्क्रीन (_F)"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3529
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
 msgstr ""
 
-#: src/terminal-window.c:3547
+#: src/terminal-window.c:3532
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
 msgstr ""
 
-#: src/terminal-window.c:3550
+#: src/terminal-window.c:3535
 msgid "There are multiple tabs open in this window."
 msgstr ""
 
-#: src/terminal-window.c:3559
+#: src/terminal-window.c:3544
 msgid "Close this window?"
 msgstr ""
 
-#: src/terminal-window.c:3559
+#: src/terminal-window.c:3544
 msgid "Close this terminal?"
 msgstr ""
 
-#: src/terminal-window.c:3566
+#: src/terminal-window.c:3551
 msgid "C_lose Terminal"
 msgstr ""
 
-#: src/terminal-window.c:3632
+#: src/terminal-window.c:3616
 msgid "Could not save contents"
 msgstr ""
 
-#: src/terminal-window.c:3656
+#: src/terminal-window.c:3638
 msgid "Save as..."
 msgstr ""
 
-#: src/terminal-window.c:4182
+#: src/terminal-window.c:4159
 msgid "_Title:"
 msgstr "शीर्षक (_T):"
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4343
 msgid "Contributors:"
 msgstr ""
 
-#: src/terminal-window.c:4382
+#: src/terminal-window.c:4359
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2648,11 +2672,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4389
+#: src/terminal-window.c:4366
 msgid "About CAFE Terminal"
 msgstr ""
 
-#: src/terminal-window.c:4390
+#: src/terminal-window.c:4367
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2660,10 +2684,10 @@ msgid ""
 "Copyright © 2007–2010 Christian Persch\n"
 "Copyright © 2011 Perberos\n"
 "Copyright © 2012-2020 MATE developers\n"
-"Copyright © 2020-2023 Pablo Barciela"
+"Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4403
+#: src/terminal-window.c:4380
 msgid "translator-credits"
 msgstr "संगीता कुमारी (sangeeta09@gmail.com)"
 
