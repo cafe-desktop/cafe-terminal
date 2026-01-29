@@ -37,12 +37,12 @@ requires:
 before_scripts:
   - ./html-cppcheck
   - ./debrepo-install 'libctk-3-dev gir1.2-ctk-3.0 libctk-3-common libctk-3-0'
-  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
+  - ./install-from-git https://github.com/cafe-desktop/cafe-common 3devel
   - ./install-from-git https://github.com/cafe-desktop/bte master meson
 
 build_scripts:
   - ./before-build
-  - ./make-scanbuild.sh --enable-compile-warnings=vbdgh
+  - ./make-scanbuild '--enable-compile-warnings=maximum'
   - ./after-build
 
 after_scripts:
