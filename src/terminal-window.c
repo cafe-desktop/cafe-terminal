@@ -2201,15 +2201,12 @@ terminal_window_init (TerminalWindow *window)
     ctk_ui_manager_insert_action_group (manager, action_group, 0);
     g_object_unref (action_group);
 
-   clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
-   g_signal_connect_swapped (clipboard, "owner-change",
+    clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window), CDK_SELECTION_CLIPBOARD);
+    g_signal_connect_swapped (clipboard, "owner-change",
                              G_CALLBACK (update_edit_menu), window);
-   update_edit_menu (window);
+    update_edit_menu (window);
     /* Idem for this action, since the window is not fullscreen. */
     action = ctk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
-    ctk_action_set_visible (action, FALSE);
-
-    action = ctk_action_group_get_action (priv->action_group, "FileSaveContents");
     ctk_action_set_visible (action, FALSE);
 
     /* Load the UI */
