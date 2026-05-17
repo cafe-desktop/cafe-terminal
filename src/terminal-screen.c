@@ -76,6 +76,8 @@ struct _TerminalScreenPrivate
 	guint launch_child_source_id;
 	gulong bg_image_callback_id;
 	GdkPixbuf *bg_image;
+	guint reset_ignore_id;
+	gboolean ignore_text_insert;
 };
 
 enum
@@ -295,6 +297,34 @@ terminal_screen_get_window (TerminalScreen *screen)
 	return TERMINAL_WINDOW (toplevel);
 }
 
+static gboolean
+terminal_screen_reset_ignore_timeout_cb (gpointer user_data)
+{
+	TerminalScreen *screen = TERMINAL_SCREEN (user_data);
+	TerminalScreenPrivate *priv = screen->priv;
+
+	priv->ignore_text_insert = FALSE;
+	priv->reset_ignore_id = 0;
+
+	return G_SOURCE_REMOVE;
+}
+
+static void
+terminal_screen_size_allocate (CtkWidget     *widget,
+			       CtkAllocation *allocation G_GNUC_UNUSED,
+			       gpointer       user_data G_GNUC_UNUSED)
+{
+	TerminalScreen *screen = TERMINAL_SCREEN (widget);
+	TerminalScreenPrivate *priv = screen->priv;
+
+	priv->ignore_text_insert = TRUE;
+
+	if (priv->reset_ignore_id != 0)
+		g_source_remove (priv->reset_ignore_id);
+
+	priv->reset_ignore_id = g_timeout_add (100, terminal_screen_reset_ignore_timeout_cb, screen);
+}
+
 static void
 terminal_screen_realize (CtkWidget *widget)
 {
@@ -391,6 +421,10 @@ terminal_screen_init (TerminalScreen *screen)
 
 	priv->bg_image_callback_id = 0;
 	priv->bg_image = NULL;
+
+	priv->ignore_text_insert = FALSE;
+	priv->reset_ignore_id = 0;
+	g_signal_connect (screen, "size-allocate", G_CALLBACK (terminal_screen_size_allocate), NULL);
 
 #ifdef CAFE_ENABLE_DEBUG
 	_TERMINAL_DEBUG_IF (TERMINAL_DEBUG_GEOMETRY)
@@ -635,6 +669,12 @@ terminal_screen_dispose (GObject *object)
 	{
 		g_source_remove (priv->launch_child_source_id);
 		priv->launch_child_source_id = 0;
+	}
+
+	if (priv->reset_ignore_id != 0)
+	{
+		g_source_remove (priv->reset_ignore_id);
+		priv->reset_ignore_id = 0;
 	}
 
 	G_OBJECT_CLASS (terminal_screen_parent_class)->dispose (object);
@@ -1939,7 +1979,10 @@ static void
 terminal_screen_text_inserted (BteTerminal    *bte_terminal G_GNUC_UNUSED,
 			       TerminalScreen *screen)
 {
-	if (g_settings_get_boolean (settings_global, "notifications") == FALSE)
+	TerminalScreenPrivate *priv = screen->priv;
+
+	if (priv->ignore_text_insert ||
+	    !g_settings_get_boolean (settings_global, "notifications"))
 		return;
 
 	if ((ctk_window_is_active (CTK_WINDOW (terminal_screen_get_window (screen))) == FALSE) &&
