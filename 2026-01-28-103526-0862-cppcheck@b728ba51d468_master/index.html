@@ -1,0 +1,402 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cppcheck - HTML report - cafe-terminal (cppcheck 2.19.0-3)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+    <script>
+      function getStyle(el, styleProp) {
+        var y;
+
+        if (el.currentStyle) {
+          y = el.currentStyle[styleProp];
+        } else if (window.getComputedStyle) {
+          y = document.defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
+        }
+
+        return y;
+      }
+
+      function toggle() {
+        var el = this.expandable_content;
+        var mark = this.expandable_marker;
+
+        if (el.style.display === "block") {
+          el.style.display = "none";
+          mark.textContent = "[+]";
+        } else {
+          el.style.display = "block";
+          mark.textContent = "[-]";
+        }
+      }
+
+      function initExpandables() {
+        var elements = document.querySelectorAll(".expandable");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var el = elements[i];
+          var clickable = el.querySelector("span");
+          var marker = clickable.querySelector(".marker");
+          var content = el.querySelector(".content");
+          var width = clickable.clientWidth - parseInt(getStyle(content, "padding-left")) - parseInt(getStyle(content, "padding-right"));
+          content.style.width = width + "px";
+          clickable.expandable_content = content;
+          clickable.expandable_marker = marker;
+          clickable.addEventListener("click", toggle);
+        }
+      }
+
+      function toggleDisplay(cb) {
+        var elements = document.querySelectorAll("." + cb.id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("id-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleSeverity(cb) {
+        cb.parentElement.classList.toggle("unchecked", !cb.checked);
+        var elements = document.querySelectorAll(".sev_" + cb.id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("severity-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+      
+      function toggleClassification(cb) {
+        cb.parentElement.classList.toggle("unchecked", !cb.checked);
+        var elements = document.querySelectorAll(".class_" + cb.id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("classification-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+    
+      function toggleTool(cb) {
+        cb.parentElement.classList.toggle("unchecked", !cb.checked);
+
+        var elements;
+        if (cb.id == "clang-tidy")
+            elements = document.querySelectorAll("[class^=clang-tidy-]");
+        else
+            elements = document.querySelectorAll(".issue:not([class^=clang-tidy-])");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("tool-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleAll() {
+        var elements = document.querySelectorAll(".idToggle");
+
+        // starting from 1 since 0 is the "toggle all" input
+        for (var i = 1, len = elements.length; i < len; i++) {
+          var changed = elements[i].checked != elements[0].checked;
+          if (changed) {
+            elements[i].checked = elements[0].checked;
+            toggleDisplay(elements[i]);
+          }
+        }
+      }
+
+      function filterFile(filter) {
+        var elements = document.querySelectorAll(".fileEntry");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = elements[i].querySelector("tr").querySelector("td").textContent.toLowerCase().includes(filter.toLowerCase());
+          elements[i].classList.toggle("text-filtered", !visible);
+        }
+      }
+
+      function filterText(text) {
+        filter = text.toLowerCase();
+        var elements = document.querySelectorAll(".issue");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = false;
+          var fields = elements[i].querySelectorAll("td");
+          for (var n = 0, num = fields.length; n < num; n++) {
+            if (fields[n].textContent.toLowerCase().includes(filter)) {
+              visible = true;
+              break;
+            }
+          }
+          elements[i].classList.toggle("text-filtered", !visible);
+        }
+
+        updateFileRows();
+      }
+
+      function updateFileRows(element) {
+        var elements = document.querySelectorAll(".fileEntry");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = elements[i].querySelector(".issue:not(.id-filtered):not(.severity-filtered):not(.classification-filtered):not(.tool-filtered):not(.text-filtered)");
+          elements[i].classList.toggle("file-filtered", !visible);
+        }
+      }
+
+      function reapplyFilters() {
+        // Reapply ID filters
+        var idToggles = document.querySelectorAll(".idToggle");
+        for (var i = 1; i < idToggles.length; i++) {
+          var cb = idToggles[i];
+          var elements = document.querySelectorAll("." + cb.id);
+          for (var j = 0; j < elements.length; j++) {
+            elements[j].classList.toggle("id-filtered", !cb.checked);
+          }
+        }
+
+        // Reapply severity filters
+        var sevToggles = document.querySelectorAll(".sev_toggle");
+        for (var i = 0; i < sevToggles.length; i++) {
+          var cb = sevToggles[i];
+            var elements = document.querySelectorAll(".sev_" + cb.id);
+          for (var j = 0; j < elements.length; j++) {
+            elements[j].classList.toggle("severity-filtered", !cb.checked);
+          }
+        }
+
+        // Reapply classification filters
+        var classToggles = document.querySelectorAll(".class_toggle");
+        for (var i = 0; i < classToggles.length; i++) {
+          var cb = classToggles[i];
+          var elements = document.querySelectorAll(".class_" + cb.id);
+          for (var j = 0; j < elements.length; j++) {
+            elements[j].classList.toggle("classification-filtered", !cb.checked);
+          }
+        }
+
+        // Reapply tool filters
+        var toolToggles = document.querySelectorAll(".tool_toggle");
+        for (var i = 0; i < toolToggles.length; i++) {
+          var cb = toolToggles[i];
+          var elements;
+          if (cb.id == "clang-tidy")
+            elements = document.querySelectorAll("[class^=clang-tidy-]");
+          else
+            elements = document.querySelectorAll(".issue:not([class^=clang-tidy-])");
+
+          for (var j = 0; j < elements.length; j++) {
+            elements[j].classList.toggle("tool-filtered", !cb.checked);
+          }
+        }
+
+        // Update file rows
+        updateFileRows();
+      }
+
+      window.addEventListener("pageshow", reapplyFilters);
+      window.addEventListener("load", initExpandables);
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+    <div id="header" class="header">
+      <h1>Cppcheck report - cafe-terminal (cppcheck 2.19.0-3)</h1>
+      <div id="filters">
+
+        <label class="checkBtn"><input type="checkbox" onclick="toggleTool(this)" id="cppcheck" checked>cppcheck</label>
+        <label class="checkBtn disabled"><input type="checkbox" onclick="toggleTool(this)" id="clang-tidy" disabled>clang-tidy</label>
+        | 
+        <label class="severityHeader">File: <input type="search" oninput="filterFile(this.value)"></label>
+        <label class="severityHeader">Filter: <input type="search" oninput="filterText(this.value)"></label>
+      </div>
+
+    </div>
+
+    <div id="menu_index">
+     <p><a href="index.html">Defect summary</a> </p>
+
+       <label><input type="checkbox" class="idToggle" onclick="toggleAll()" checked> Toggle all</label>
+       <table>
+           <tr><th>Show</th><th>#</th><th>Defect ID</th></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="nullPointerOutOfMemory" name="nullPointerOutOfMemory" checked></td><td>22</td><td>nullPointerOutOfMemory</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="staticFunction" name="staticFunction" checked></td><td>20</td><td>staticFunction</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="constParameterPointer" name="constParameterPointer" checked></td><td>14</td><td>constParameterPointer</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="constVariablePointer" name="constVariablePointer" checked></td><td>14</td><td>constVariablePointer</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="unknownMacro" name="unknownMacro" checked></td><td>11</td><td>unknownMacro</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="constParameterCallback" name="constParameterCallback" checked></td><td>4</td><td>constParameterCallback</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="varFuncNullUB" name="varFuncNullUB" checked></td><td>4</td><td>varFuncNullUB</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="ctunullpointerOutOfMemory" name="ctunullpointerOutOfMemory" checked></td><td>3</td><td>ctunullpointerOutOfMemory</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="variableScope" name="variableScope" checked></td><td>3</td><td>variableScope</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="oppositeInnerCondition" name="oppositeInnerCondition" checked></td><td>2</td><td>oppositeInnerCondition</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="unusedStructMember" name="unusedStructMember" checked></td><td>2</td><td>unusedStructMember</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="checkersReport" name="checkersReport" checked></td><td>1</td><td>checkersReport</td></tr>
+           <tr><td></td><td>100</td><td>total</td></tr>
+       </table>
+       <p><a href="stats.html">Statistics</a></p>
+    </div>
+    <div id="content_index">
+
+       <table class="summaryTable">
+       <tr><th>Line</th><th>Id</th><th>CWE</th><th>Severity</th><th>Message</th><th>Timestamp</th></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="22.html"></a></td></tr>
+         <tr class="checkersReport sev_information class_ issue"><td></td><td>checkersReport</td><td></td><td>information</td><td>Active checkers: There was critical errors (use --checkers-report=&lt;filename&gt; to see details)</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="0.html">src/cafevaluearray.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="0.html#line-65">65</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_BOXED_TYPE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="1.html">src/eggdesktopfile.c</a></td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="1.html#line-57">57</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;egg_desktop_file_new&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="1.html#line-155">155</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;egg_desktop_file_new_from_key_file&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="1.html#line-312">312</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;egg_desktop_file_free&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-330">330</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-344">344</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-358">358</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-379">379</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="variableScope sev_style class_ issue"><td><a href="1.html#line-483">483</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;found&apos; can be reduced.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-568">568</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-587">587</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-603">603</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="1.html#line-603">603</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;egg_desktop_file_accepts_uris&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="1.html#line-642">642</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="1.html#line-649">649</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;d&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="1.html#line-650">650</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;doc&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="1.html#line-817">817</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;d&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="1.html#line-1404">1404</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;egg_desktop_file_error_quark&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="2.html">src/eggsmclient-xsmp.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="2.html#line-173">173</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="3.html">src/eggsmclient.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="3.html#line-49">49</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="4.html">src/extra-strings.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="4.html#line-24">24</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If N_ is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="5.html">src/profile-editor.c</a></td></tr>
+         <tr class="constParameterCallback sev_style class_ issue"><td><a href="5.html#line-135">135</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;pspec&apos; can be declared as pointer to const. However it seems that &apos;profile_notify_sensitivity_cb&apos; is a callback function, if &apos;pspec&apos; is declared with const you might also need to cast function pointer(s).</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterCallback sev_style class_ issue"><td><a href="5.html#line-557">557</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;G_GNUC_UNUSED&apos; can be declared as pointer to const. However it seems that &apos;format_percent_value&apos; is a callback function, if &apos;G_GNUC_UNUSED&apos; is declared with const you might also need to cast function pointer(s).</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterCallback sev_style class_ issue"><td><a href="5.html#line-559">559</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;G_GNUC_UNUSED&apos; can be declared as pointer to const. However it seems that &apos;format_percent_value&apos; is a callback function, if &apos;G_GNUC_UNUSED&apos; is declared with const you might also need to cast function pointer(s).</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="6.html">src/skey-popup.c</a></td></tr>
+         <tr class="oppositeInnerCondition sev_warning class_ issue"><td><a href="6.html#line-93">93</a></td><td>oppositeInnerCondition</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>warning</td><td class="warning">Opposite inner &apos;if&apos; condition leads to a dead code block.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="oppositeInnerCondition sev_warning class_ issue"><td><a href="6.html#line-109">109</a></td><td>oppositeInnerCondition</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>warning</td><td class="warning">Opposite inner &apos;if&apos; condition leads to a dead code block.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="varFuncNullUB sev_portability class_ issue"><td><a href="6.html#line-187">187</a></td><td>varFuncNullUB</td><td><a href="https://cwe.mitre.org/data/definitions/475.html">475</a></td><td>portability</td><td>Passing NULL after the last typed argument to a variadic function leads to undefined behaviour.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="7.html">src/skey/btoe.c</a></td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="7.html#line-247">247</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;md&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="7.html#line-283">283</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;s&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="8.html">src/skey/md4.c</a></td></tr>
+         <tr class="variableScope sev_style class_ issue"><td><a href="8.html#line-44">44</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;t&apos; can be reduced.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="8.html#line-62">62</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;MD4Init&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-64">64</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="ctunullpointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-64">64</a></td><td>ctunullpointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-65">65</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-66">66</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-67">67</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-69">69</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-70">70</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="8.html#line-77">77</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;MD4Update&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-84">84</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="ctunullpointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-84">84</a></td><td>ctunullpointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-85">85</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-87">87</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-113">113</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-115">115</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-115">115</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-122">122</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="8.html#line-129">129</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;MD4Final&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-135">135</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="ctunullpointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-135">135</a></td><td>ctunullpointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-139">139</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-164">164</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-164">164</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-165">165</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-165">165</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-167">167</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-167">167</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="nullPointerOutOfMemory sev_warning class_ issue"><td><a href="8.html#line-172">172</a></td><td>nullPointerOutOfMemory</td><td><a href="https://cwe.mitre.org/data/definitions/476.html">476</a></td><td>warning</td><td class="warning">If memory allocation fails, then there is a possible null pointer dereference: ctx</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="8.html#line-198">198</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;MD4Transform&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="9.html">src/skey/sha1.c</a></td></tr>
+         <tr class="variableScope sev_style class_ issue"><td><a href="9.html#line-27">27</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;t&apos; can be reduced.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="10.html">src/terminal-accels.c</a></td></tr>
+         <tr class="varFuncNullUB sev_portability class_ issue"><td><a href="10.html#line-985">985</a></td><td>varFuncNullUB</td><td><a href="https://cwe.mitre.org/data/definitions/475.html">475</a></td><td>portability</td><td>Passing NULL after the last typed argument to a variadic function leads to undefined behaviour.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="11.html">src/terminal-app.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="11.html#line-1398">1398</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="12.html">src/terminal-close-button.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="12.html#line-30">30</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="13.html">src/terminal-encoding.c</a></td></tr>
+         <tr class="unusedStructMember sev_style class_ issue"><td><a href="13.html#line-139">139</a></td><td>unusedStructMember</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>struct member &apos;EncodingDialogData::available_model&apos; is never used.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="unusedStructMember sev_style class_ issue"><td><a href="13.html#line-142">142</a></td><td>unusedStructMember</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>struct member &apos;EncodingDialogData::active_model&apos; is never used.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="13.html#line-150">150</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_encoding_new&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="13.html#line-169">169</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_encoding_ref&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="13.html#line-178">178</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_encoding_unref&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="13.html#line-189">189</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;encoding&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="13.html#line-189">189</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_encoding_get_id&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="13.html#line-197">197</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;encoding&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="13.html#line-197">197</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_encoding_get_charset&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="13.html#line-213">213</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_encoding_is_valid&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="13.html#line-273">273</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_encoding_get_type&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterCallback sev_style class_ issue"><td><a href="13.html#line-350">350</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;button&apos; can be declared as pointer to const. However it seems that &apos;button_clicked_cb&apos; is a callback function, if &apos;button&apos; is declared with const you might also need to cast function pointer(s).</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="varFuncNullUB sev_portability class_ issue"><td><a href="13.html#line-480">480</a></td><td>varFuncNullUB</td><td><a href="https://cwe.mitre.org/data/definitions/475.html">475</a></td><td>portability</td><td>Passing NULL after the last typed argument to a variadic function leads to undefined behaviour.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="14.html">src/terminal-info-bar.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="14.html#line-30">30</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="15.html">src/terminal-profile.c</a></td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-458">458</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-508">508</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-728">728</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-770">770</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;color&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-821">821</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;color&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-1168">1168</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="15.html#line-1351">1351</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;_terminal_profile_forget&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-1565">1565</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;pspec&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-1595">1595</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-1610">1610</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;color&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-1663">1663</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constVariablePointer sev_style class_ issue"><td><a href="15.html#line-1666">1666</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;old_color&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="16.html">src/terminal-screen-container.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="16.html#line-53">53</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="17.html">src/terminal-screen.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="17.html#line-198">198</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="18.html">src/terminal-search-dialog.c</a></td></tr>
+         <tr class="varFuncNullUB sev_portability class_ issue"><td><a href="18.html#line-97">97</a></td><td>varFuncNullUB</td><td><a href="https://cwe.mitre.org/data/definitions/475.html">475</a></td><td>portability</td><td>Passing NULL after the last typed argument to a variadic function leads to undefined behaviour.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="18.html#line-311">311</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_search_dialog_get_search_text&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="18.html#line-344">344</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_search_dialog_get_regex&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="19.html">src/terminal-tabs-menu.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="19.html#line-67">67</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="20.html">src/terminal-util.c</a></td></tr>
+         <tr class="staticFunction sev_style class_ issue"><td><a href="20.html#line-390">390</a></td><td>staticFunction</td><td></td><td>style</td><td>The function &apos;terminal_util_key_file_set_string_escape&apos; should have static linkage since it is not used outside of its translation unit.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="20.html#line-657">657</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;G_GNUC_UNUSED&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+         <tr class="constParameterPointer sev_style class_ issue"><td><a href="20.html#line-658">658</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;G_GNUC_UNUSED&apos; can be declared as pointer to const</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="6"><a href="21.html">src/terminal-window.c</a></td></tr>
+         <tr class="unknownMacro sev_error class_ issue"><td><a href="21.html#line-255">255</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td><td>Wed Jan 28 10:32:58 2026</td></tr>
+      </tbody>
+       </table>
+    </div>
+    <div id="footer" class="footer">
+      <p>
+        Created by Cppcheck 2.19.0 (<a href="https://cppcheck.sourceforge.io">Sourceforge</a>, <a href="irc://irc.libera.chat/#cppcheck">IRC</a>)
+      </p>
+    </div>
+    </div>
+  </body>
+</html>
