@@ -17,9 +17,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 2.0.0\n"
+"Project-Id-Version: cafe-terminal 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2026-01-27 09:12+0100\n"
+"POT-Creation-Date: 2026-08-13 11:42+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Angelos Chraniotis <chraniotis@gmail.com>, 2020\n"
 "Language-Team: Greek (https://www.transifex.com/cafe/teams/13566/el/)\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
-#: src/terminal-options.c:189 src/terminal-window.c:4364
+#: src/terminal-options.c:189 src/terminal-window.c:4361
 msgid "CAFE Terminal"
 msgstr "Τερματικό CAFE"
 
@@ -1963,7 +1963,7 @@ msgstr "Εύρεση επόμενου"
 msgid "Find Previous"
 msgstr "Εύρεση προηγούμενου"
 
-#: src/terminal-accels.c:220 src/terminal-window.c:4142
+#: src/terminal-accels.c:220 src/terminal-window.c:4139
 msgid "Set Title"
 msgstr "Ορισμός τίτλου"
 
@@ -2509,34 +2509,34 @@ msgstr "Προβολή επιλογών ανά τερματικό"
 msgid "Unnamed"
 msgstr "Χωρίς όνομα"
 
-#: src/terminal-screen.c:1528
+#: src/terminal-screen.c:1568
 msgid "_Profile Preferences"
 msgstr "_Προτιμήσεις προφίλ"
 
-#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
+#: src/terminal-screen.c:1569 src/terminal-screen.c:2038
 msgid "_Relaunch"
 msgstr "Επα_νεκκίνηση"
 
-#: src/terminal-screen.c:1532
+#: src/terminal-screen.c:1572
 msgid "There was an error creating the child process for this terminal"
 msgstr ""
 "Σφάλμα κατά τη δημιουργία της θυγατρικής διεργασίας για αυτό το τερματικό"
 
-#: src/terminal-screen.c:1952
+#: src/terminal-screen.c:1995
 msgid "Process completed"
 msgstr ""
 
-#: src/terminal-screen.c:2000
+#: src/terminal-screen.c:2043
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "Η θυγατρική διεργασία τερματίσθηκε κανονικά με κατάσταση %d."
 
-#: src/terminal-screen.c:2005
+#: src/terminal-screen.c:2048
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "Η θυγατρική διεργασία τερματίστηκε από το σήμα %d."
 
-#: src/terminal-screen.c:2010
+#: src/terminal-screen.c:2053
 msgid "The child process was terminated."
 msgstr "Η θυγατρική διεργασία τερματίσθηκε."
 
@@ -2816,7 +2816,7 @@ msgstr "Αντι_γραφή διεύθυνσης δεσμού"
 msgid "P_rofiles"
 msgstr "_Προφίλ"
 
-#: src/terminal-window.c:2068 src/terminal-window.c:3551
+#: src/terminal-window.c:2068 src/terminal-window.c:3548
 msgid "C_lose Window"
 msgstr "_Κλείσιμο παραθύρου"
 
@@ -2836,7 +2836,7 @@ msgstr "Εμφάνιση γραμμής _μενού"
 msgid "_Full Screen"
 msgstr "_Πλήρης οθόνη"
 
-#: src/terminal-window.c:3529
+#: src/terminal-window.c:3526
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
@@ -2844,7 +2844,7 @@ msgstr ""
 "Εκτελούνται ακόμη διεργασίες στα τερματικά αυτού του παραθύρου. Αν κλείσετε "
 "το τερματικό, θα τερματιστούν όλες οι διεργασίες."
 
-#: src/terminal-window.c:3532
+#: src/terminal-window.c:3529
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
@@ -2852,39 +2852,39 @@ msgstr ""
 "Εκτελείται μία διεργασία. Αν κλείσετε το τερματικό, η διεργασία θα "
 "τερματιστεί."
 
-#: src/terminal-window.c:3535
+#: src/terminal-window.c:3532
 msgid "There are multiple tabs open in this window."
 msgstr ""
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this window?"
 msgstr "Κλείσιμο παραθύρου;"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this terminal?"
 msgstr "Κλείσιμο τερματικού;"
 
-#: src/terminal-window.c:3551
+#: src/terminal-window.c:3548
 msgid "C_lose Terminal"
 msgstr "Κλείσιμο τε_ρματικού"
 
-#: src/terminal-window.c:3616
+#: src/terminal-window.c:3613
 msgid "Could not save contents"
 msgstr "Αδύνατη η αποθήκευση του περιεχομένου"
 
-#: src/terminal-window.c:3638
+#: src/terminal-window.c:3635
 msgid "Save as..."
 msgstr "Αποθήκευση ως…"
 
-#: src/terminal-window.c:4159
+#: src/terminal-window.c:4156
 msgid "_Title:"
 msgstr "_Τίτλος:"
 
-#: src/terminal-window.c:4343
+#: src/terminal-window.c:4340
 msgid "Contributors:"
 msgstr "Συντελεστές:"
 
-#: src/terminal-window.c:4359
+#: src/terminal-window.c:4356
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2892,11 +2892,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4363
 msgid "About CAFE Terminal"
 msgstr ""
 
-#: src/terminal-window.c:4367
+#: src/terminal-window.c:4364
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2907,13 +2907,10 @@ msgid ""
 "Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4380
+#: src/terminal-window.c:4377
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα CAFE\n"
 " Αλέξανδρος Μουχτσής <alexandros@gnugr.org>\n"
 "\n"
 "Για περισσότερες πληροφορίες, επισκεφθείτε την σελίδα http://www.cafe.gr/"
-
-#~ msgid "A terminal emulator for the CAFE desktop"
-#~ msgstr "Προσομοιωτής τερματικού για την επιφάνεια εργασίας του CAFE"

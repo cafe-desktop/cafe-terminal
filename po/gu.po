@@ -9,9 +9,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 2.0.0\n"
+"Project-Id-Version: cafe-terminal 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2026-01-27 09:12+0100\n"
+"POT-Creation-Date: 2026-08-13 11:42+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
 "Language-Team: Gujarati (https://www.transifex.com/cafe/teams/13566/gu/)\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
-#: src/terminal-options.c:189 src/terminal-window.c:4364
+#: src/terminal-options.c:189 src/terminal-window.c:4361
 msgid "CAFE Terminal"
 msgstr "જીનોમ ટર્મિનલ"
 
@@ -1854,7 +1854,7 @@ msgstr "આગળ શોધો"
 msgid "Find Previous"
 msgstr "પહેલાંનું શોધો"
 
-#: src/terminal-accels.c:220 src/terminal-window.c:4142
+#: src/terminal-accels.c:220 src/terminal-window.c:4139
 msgid "Set Title"
 msgstr "શીર્ષકની ગોઠવણી કરો"
 
@@ -2388,33 +2388,33 @@ msgstr "પ્રતિ-ટર્મિનલ વિકલ્પો બતાવ
 msgid "Unnamed"
 msgstr "નામવીહિન"
 
-#: src/terminal-screen.c:1528
+#: src/terminal-screen.c:1568
 msgid "_Profile Preferences"
 msgstr "રૂપરેખા પસંદગીઓ (_P)"
 
-#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
+#: src/terminal-screen.c:1569 src/terminal-screen.c:2038
 msgid "_Relaunch"
 msgstr "પુન:શરૂ કરો (_R)"
 
-#: src/terminal-screen.c:1532
+#: src/terminal-screen.c:1572
 msgid "There was an error creating the child process for this terminal"
 msgstr "આ ટર્મિનલ માટે બાળ પ્રક્રિયા બનાવવામાં ભૂલ હતી"
 
-#: src/terminal-screen.c:1952
+#: src/terminal-screen.c:1995
 msgid "Process completed"
 msgstr ""
 
-#: src/terminal-screen.c:2000
+#: src/terminal-screen.c:2043
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "બાળ પ્રક્રિયા સામાન્ય રીતે પરિસ્થિતિ %d સાથે બહાર નીકળેલ છે."
 
-#: src/terminal-screen.c:2005
+#: src/terminal-screen.c:2048
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "બાળ પ્રક્રિયા સંકેત %d દ્દારા અંત આવી ગયો હતો."
 
-#: src/terminal-screen.c:2010
+#: src/terminal-screen.c:2053
 msgid "The child process was terminated."
 msgstr "બાળ પ્રક્રિયાનો અંત આવી ગયો હતો."
 
@@ -2689,7 +2689,7 @@ msgstr "કડી સરનામાની નકલ કરો (_C)"
 msgid "P_rofiles"
 msgstr "રૂપરેખાઓ (_r)"
 
-#: src/terminal-window.c:2068 src/terminal-window.c:3551
+#: src/terminal-window.c:2068 src/terminal-window.c:3548
 msgid "C_lose Window"
 msgstr "વિન્ડો બંધ કરો (_l)"
 
@@ -2709,7 +2709,7 @@ msgstr "મેનુપટ્ટી બતાવો (_M)"
 msgid "_Full Screen"
 msgstr "આખી સ્ક્રિન (_F)"
 
-#: src/terminal-window.c:3529
+#: src/terminal-window.c:3526
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
@@ -2717,45 +2717,45 @@ msgstr ""
 "આ વિન્ડો માં કેટલાક ટર્મિનલોમાં હજુ પ્રક્રિયાઓ ચાલી રહી છે. વિન્ડો ને બંધ કરવા દરમ્યાન "
 "તેઓનાં બધાને મારશે."
 
-#: src/terminal-window.c:3532
+#: src/terminal-window.c:3529
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
 msgstr "આ ટર્મિનલ માં હજુ પ્રક્રિયા ચાલુ રહી છે. ટર્મિનલમાં બંધ કરવા દરમ્યાન તેને મારશે."
 
-#: src/terminal-window.c:3535
+#: src/terminal-window.c:3532
 msgid "There are multiple tabs open in this window."
 msgstr ""
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this window?"
 msgstr "શું આ વિન્ડો બંધ કરવી છે?"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this terminal?"
 msgstr "આ ટર્મિનલ ને બંધ કરો?"
 
-#: src/terminal-window.c:3551
+#: src/terminal-window.c:3548
 msgid "C_lose Terminal"
 msgstr "ટર્મિનલ ને બંધ કરો (_l)"
 
-#: src/terminal-window.c:3616
+#: src/terminal-window.c:3613
 msgid "Could not save contents"
 msgstr "સમાવિષ્ટોને સંગ્રહી શક્યા નહિં"
 
-#: src/terminal-window.c:3638
+#: src/terminal-window.c:3635
 msgid "Save as..."
 msgstr "આ રીતે સંગ્રહો..."
 
-#: src/terminal-window.c:4159
+#: src/terminal-window.c:4156
 msgid "_Title:"
 msgstr "શીર્ષક (_T):"
 
-#: src/terminal-window.c:4343
+#: src/terminal-window.c:4340
 msgid "Contributors:"
 msgstr "ફાળો આપનારો:"
 
-#: src/terminal-window.c:4359
+#: src/terminal-window.c:4356
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2763,11 +2763,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4363
 msgid "About CAFE Terminal"
 msgstr ""
 
-#: src/terminal-window.c:4367
+#: src/terminal-window.c:4364
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2778,9 +2778,6 @@ msgid ""
 "Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4380
+#: src/terminal-window.c:4377
 msgid "translator-credits"
 msgstr "અનુવાદક સન્માન"
-
-#~ msgid "A terminal emulator for the CAFE desktop"
-#~ msgstr "CAFE ડેસ્કટોપ માટે ટર્મિનલ ઈમ્યુલેટર"

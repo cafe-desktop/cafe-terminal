@@ -17,9 +17,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 2.0.0\n"
+"Project-Id-Version: cafe-terminal 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2026-01-27 09:12+0100\n"
+"POT-Creation-Date: 2026-08-13 11:42+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/cafe/teams/13566/"
@@ -31,7 +31,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
-#: src/terminal-options.c:189 src/terminal-window.c:4364
+#: src/terminal-options.c:189 src/terminal-window.c:4361
 msgid "CAFE Terminal"
 msgstr "CAFE 终端"
 
@@ -1830,7 +1830,7 @@ msgstr "查找下一个"
 msgid "Find Previous"
 msgstr "查找上一个"
 
-#: src/terminal-accels.c:220 src/terminal-window.c:4142
+#: src/terminal-accels.c:220 src/terminal-window.c:4139
 msgid "Set Title"
 msgstr "设置标题"
 
@@ -2360,33 +2360,33 @@ msgstr "显示每个终端的选项"
 msgid "Unnamed"
 msgstr "未命名"
 
-#: src/terminal-screen.c:1528
+#: src/terminal-screen.c:1568
 msgid "_Profile Preferences"
 msgstr "配置文件首选项(_P)"
 
-#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
+#: src/terminal-screen.c:1569 src/terminal-screen.c:2038
 msgid "_Relaunch"
 msgstr "重新启动(_R)"
 
-#: src/terminal-screen.c:1532
+#: src/terminal-screen.c:1572
 msgid "There was an error creating the child process for this terminal"
 msgstr "创建此终端的子进程时出错"
 
-#: src/terminal-screen.c:1952
+#: src/terminal-screen.c:1995
 msgid "Process completed"
 msgstr ""
 
-#: src/terminal-screen.c:2000
+#: src/terminal-screen.c:2043
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "子进程以状态%d正常的退出。"
 
-#: src/terminal-screen.c:2005
+#: src/terminal-screen.c:2048
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "子进程被信号%d中断。"
 
-#: src/terminal-screen.c:2010
+#: src/terminal-screen.c:2053
 msgid "The child process was terminated."
 msgstr "子进程被中断。"
 
@@ -2662,7 +2662,7 @@ msgstr "复制链接地址(_C)"
 msgid "P_rofiles"
 msgstr "配置文件(_R)"
 
-#: src/terminal-window.c:2068 src/terminal-window.c:3551
+#: src/terminal-window.c:2068 src/terminal-window.c:3548
 msgid "C_lose Window"
 msgstr "关闭窗口(_L)"
 
@@ -2682,51 +2682,51 @@ msgstr "显示菜单栏(_M)"
 msgid "_Full Screen"
 msgstr "全屏(_F)"
 
-#: src/terminal-window.c:3529
+#: src/terminal-window.c:3526
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
 msgstr "在这个窗口的一些终端中仍然有进程在运行。关闭该窗口将杀死所有这些进程。"
 
-#: src/terminal-window.c:3532
+#: src/terminal-window.c:3529
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
 msgstr "该终端中仍然有一个进程在运行。关闭终端将杀死该进程。"
 
-#: src/terminal-window.c:3535
+#: src/terminal-window.c:3532
 msgid "There are multiple tabs open in this window."
 msgstr "此窗口中打开了多个选项栏。"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this window?"
 msgstr "关闭这个窗口？"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this terminal?"
 msgstr "关闭此终端？"
 
-#: src/terminal-window.c:3551
+#: src/terminal-window.c:3548
 msgid "C_lose Terminal"
 msgstr "关闭终端(_L)"
 
-#: src/terminal-window.c:3616
+#: src/terminal-window.c:3613
 msgid "Could not save contents"
 msgstr "无法保存内容"
 
-#: src/terminal-window.c:3638
+#: src/terminal-window.c:3635
 msgid "Save as..."
 msgstr "另存为…"
 
-#: src/terminal-window.c:4159
+#: src/terminal-window.c:4156
 msgid "_Title:"
 msgstr "称谓(_T)："
 
-#: src/terminal-window.c:4343
+#: src/terminal-window.c:4340
 msgid "Contributors:"
 msgstr "贡献者："
 
-#: src/terminal-window.c:4359
+#: src/terminal-window.c:4356
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2734,11 +2734,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4363
 msgid "About CAFE Terminal"
 msgstr "关于 CAFE 终端"
 
-#: src/terminal-window.c:4367
+#: src/terminal-window.c:4364
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2749,7 +2749,7 @@ msgid ""
 "Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4380
+#: src/terminal-window.c:4377
 msgid "translator-credits"
 msgstr ""
 "Christopher Meng <i@cicku.me>, 2012-2013\n"
@@ -2763,9 +2763,3 @@ msgstr ""
 "白铭骢 <jeffbai@aosc.xyz>, 2015-2016\n"
 "刘子兴 <liushuyu@aosc.xyz>, 2015-2016\n"
 "Mingtian Yang <i@skylee.xyz>, 2020"
-
-#~ msgid "utilities-terminal"
-#~ msgstr "utilities-terminal"
-
-#~ msgid "A terminal emulator for the CAFE desktop"
-#~ msgstr "CAFE 桌面的终端模拟器"

@@ -9,9 +9,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 2.0.0\n"
+"Project-Id-Version: cafe-terminal 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2026-01-27 09:12+0100\n"
+"POT-Creation-Date: 2026-08-13 11:42+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
 "Language-Team: Panjabi (Punjabi) (https://www.transifex.com/cafe/teams/13566/"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
-#: src/terminal-options.c:189 src/terminal-window.c:4364
+#: src/terminal-options.c:189 src/terminal-window.c:4361
 msgid "CAFE Terminal"
 msgstr "ਗਨੋਮ ਟਰਮੀਨਲ"
 
@@ -1851,7 +1851,7 @@ msgstr "ਅੱਗੇ ਲੱਭੋ"
 msgid "Find Previous"
 msgstr "ਪਿੱਛੇ ਲੱਭੋ"
 
-#: src/terminal-accels.c:220 src/terminal-window.c:4142
+#: src/terminal-accels.c:220 src/terminal-window.c:4139
 msgid "Set Title"
 msgstr "ਟਾਈਟਲ ਸੈੱਟ ਕਰੋ"
 
@@ -2380,33 +2380,33 @@ msgstr "ਹਰ-ਟਰਮੀਨਲ ਚੋਣਾਂ ਵੇਖੋ"
 msgid "Unnamed"
 msgstr "ਬਿਨ-ਨਾਂ"
 
-#: src/terminal-screen.c:1528
+#: src/terminal-screen.c:1568
 msgid "_Profile Preferences"
 msgstr "ਪਰੋਫਾਇਲ ਪਸੰਦ(_P)"
 
-#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
+#: src/terminal-screen.c:1569 src/terminal-screen.c:2038
 msgid "_Relaunch"
 msgstr "ਮੁੜ-ਚਲਾਓ(_R)"
 
-#: src/terminal-screen.c:1532
+#: src/terminal-screen.c:1572
 msgid "There was an error creating the child process for this terminal"
 msgstr "ਇਸ ਟਰਮੀਨਲ ਲਈ ਚਲਾਇਡ ਕਾਰਜ ਬਣਾਉਣ ਵਿੱਚ ਗਲਤੀ ਆਈ ਹੈ"
 
-#: src/terminal-screen.c:1952
+#: src/terminal-screen.c:1995
 msgid "Process completed"
 msgstr ""
 
-#: src/terminal-screen.c:2000
+#: src/terminal-screen.c:2043
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "ਚਲਾਈਡ ਪਰੋਸੈਸ ਅਚਾਨਕ ਹੀ %d ਹਾਲਤ ਨਾਲ ਬੰਦ ਹੋ ਗਿਆ।"
 
-#: src/terminal-screen.c:2005
+#: src/terminal-screen.c:2048
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "ਚਲਾਈਡ ਪਰੋਸੈੱਸ ਨੂੰ ਸਿਗਨਲ %d ਵਲੋਂ ਬੰਦ ਕੀਤਾ ਗਿਆ ਹੈ।"
 
-#: src/terminal-screen.c:2010
+#: src/terminal-screen.c:2053
 msgid "The child process was terminated."
 msgstr "ਚਲਾਈਡ ਪਰੋਸੈੱਸ ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ ਹੈ।"
 
@@ -2683,7 +2683,7 @@ msgstr "ਲਿੰਕ ਐਡਰੈੱਸ ਕਾਪੀ ਕਰੋ(_C)"
 msgid "P_rofiles"
 msgstr "ਪਰੋਫਾਇਲ(_r)"
 
-#: src/terminal-window.c:2068 src/terminal-window.c:3551
+#: src/terminal-window.c:2068 src/terminal-window.c:3548
 msgid "C_lose Window"
 msgstr "ਵਿੰਡੋ ਬੰਦ ਕਰੋ(_l)"
 
@@ -2703,7 +2703,7 @@ msgstr "ਮੇਨੂ-ਪੱਟੀ ਵੇਖੋ(_M)"
 msgid "_Full Screen"
 msgstr "ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ(_F)"
 
-#: src/terminal-window.c:3529
+#: src/terminal-window.c:3526
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
@@ -2711,7 +2711,7 @@ msgstr ""
 "ਇਸ ਵਿੰਡੋ ਦੇ ਕੁਝ ਟਰਮੀਨਲਾਂ ਵਿੱਚ ਕਾਰਵਾਈਆਂ ਹਾਲੇ ਜਾਰੀ ਹਨ। ਵਿੰਡੋ ਬੰਦ ਕਰਨ ਨਾਲ ਉਨ੍ਹਾਂ ਨੂੰ ਖਤਮ "
 "(kill) ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
 
-#: src/terminal-window.c:3532
+#: src/terminal-window.c:3529
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
@@ -2719,39 +2719,39 @@ msgstr ""
 "ਇਸ ਟਰਮੀਨਲ ਵਿੱਚ ਹਾਲੇ ਵੀ ਇੱਕ ਕਾਰਵਾਈ ਚੱਲ ਰਹੀ ਹੈ। ਟਰਮੀਨਲ ਬੰਦ ਹੋਣ ਨਾਲ ਇਸ ਨੂੰ ਖਤਮ (kill) ਕਰ "
 "ਦਿੱਤਾ ਜਾਵੇਗਾ।"
 
-#: src/terminal-window.c:3535
+#: src/terminal-window.c:3532
 msgid "There are multiple tabs open in this window."
 msgstr ""
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this window?"
 msgstr "ਇਹ ਵਿੰਡੋ ਬੰਦ ਕਰਨੀ?"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this terminal?"
 msgstr "ਇਹ ਟਰਮੀਨਲ ਬੰਦ ਕਰਨਾ?"
 
-#: src/terminal-window.c:3551
+#: src/terminal-window.c:3548
 msgid "C_lose Terminal"
 msgstr "ਟਰਮੀਨਲ ਬੰਦ ਕਰੋ(_l)"
 
-#: src/terminal-window.c:3616
+#: src/terminal-window.c:3613
 msgid "Could not save contents"
 msgstr "ਸਮੱਗਰੀ ਸੰਭਾਲੀ ਨਹੀਂ ਜਾ ਸਕੀ"
 
-#: src/terminal-window.c:3638
+#: src/terminal-window.c:3635
 msgid "Save as..."
 msgstr "...ਵਜੋਂ ਸੰਭਾਲੋ"
 
-#: src/terminal-window.c:4159
+#: src/terminal-window.c:4156
 msgid "_Title:"
 msgstr "ਨਾਂ(_T):"
 
-#: src/terminal-window.c:4343
+#: src/terminal-window.c:4340
 msgid "Contributors:"
 msgstr "ਯੋਗਦਾਨੀ:"
 
-#: src/terminal-window.c:4359
+#: src/terminal-window.c:4356
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2759,11 +2759,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4363
 msgid "About CAFE Terminal"
 msgstr ""
 
-#: src/terminal-window.c:4367
+#: src/terminal-window.c:4364
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2774,13 +2774,10 @@ msgid ""
 "Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4380
+#: src/terminal-window.c:4377
 msgid "translator-credits"
 msgstr ""
 "ਜਸਵਿੰਦਰ ਸਿੰਘ ਫੂਲੇਵਾਲਾ ੨੦੦੪\n"
 "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮਵਾਲਾ ੨੦੦੪-੨੦੧੦\n"
 "ਪੰਜਾਬੀ ਓਪਨ ਸੋਰਸ ਟੀਮ (POST)\n"
 "http://www.satluj.com"
-
-#~ msgid "A terminal emulator for the CAFE desktop"
-#~ msgstr "ਗਨੋਮ ਡੈਸਕਟਾਪ ਲਈ ਇੱਕ ਟਰਮੀਨਲ ਸਮਰੂਪ ਹੈ।"

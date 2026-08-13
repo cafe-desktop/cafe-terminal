@@ -18,9 +18,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 2.0.0\n"
+"Project-Id-Version: cafe-terminal 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2026-01-27 09:12+0100\n"
+"POT-Creation-Date: 2026-08-13 11:42+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/cafe/teams/13566/sv/)\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
-#: src/terminal-options.c:189 src/terminal-window.c:4364
+#: src/terminal-options.c:189 src/terminal-window.c:4361
 msgid "CAFE Terminal"
 msgstr "CAFE-terminal"
 
@@ -1967,7 +1967,7 @@ msgstr "Sök nästa"
 msgid "Find Previous"
 msgstr "Sök föregående"
 
-#: src/terminal-accels.c:220 src/terminal-window.c:4142
+#: src/terminal-accels.c:220 src/terminal-window.c:4139
 msgid "Set Title"
 msgstr "Ställ in titel"
 
@@ -2505,33 +2505,33 @@ msgstr "Visa flaggor för per-terminal"
 msgid "Unnamed"
 msgstr "Namnlös"
 
-#: src/terminal-screen.c:1528
+#: src/terminal-screen.c:1568
 msgid "_Profile Preferences"
 msgstr "Profil_inställningar"
 
-#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
+#: src/terminal-screen.c:1569 src/terminal-screen.c:2038
 msgid "_Relaunch"
 msgstr "Sta_rta igen"
 
-#: src/terminal-screen.c:1532
+#: src/terminal-screen.c:1572
 msgid "There was an error creating the child process for this terminal"
 msgstr "Ett fel uppstod vid skapande av barnprocessen för denna terminal"
 
-#: src/terminal-screen.c:1952
+#: src/terminal-screen.c:1995
 msgid "Process completed"
 msgstr ""
 
-#: src/terminal-screen.c:2000
+#: src/terminal-screen.c:2043
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "Barnprocessen avslutades normalt med status %d."
 
-#: src/terminal-screen.c:2005
+#: src/terminal-screen.c:2048
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "Barnprocessen terminerades av signal %d."
 
-#: src/terminal-screen.c:2010
+#: src/terminal-screen.c:2053
 msgid "The child process was terminated."
 msgstr "Barnprocessen terminerades."
 
@@ -2810,7 +2810,7 @@ msgstr "_Kopiera länkadress"
 msgid "P_rofiles"
 msgstr "P_rofiler"
 
-#: src/terminal-window.c:2068 src/terminal-window.c:3551
+#: src/terminal-window.c:2068 src/terminal-window.c:3548
 msgid "C_lose Window"
 msgstr "Stän_g fönster"
 
@@ -2830,7 +2830,7 @@ msgstr "Visa _menyrad"
 msgid "_Full Screen"
 msgstr "_Helskärmsläge"
 
-#: src/terminal-window.c:3529
+#: src/terminal-window.c:3526
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
@@ -2838,7 +2838,7 @@ msgstr ""
 "Det finns fortfarande processer igång i några terminaler i detta fönster. "
 "Stängning av fönstret kommer att döda dem alla."
 
-#: src/terminal-window.c:3532
+#: src/terminal-window.c:3529
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
@@ -2846,39 +2846,39 @@ msgstr ""
 "Det finns fortfarande en process igång i denna terminal. Stängning av "
 "terminalen kommer att döda den."
 
-#: src/terminal-window.c:3535
+#: src/terminal-window.c:3532
 msgid "There are multiple tabs open in this window."
 msgstr "Det finns flera öppna flikar i det här fönstret."
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this window?"
 msgstr "Stäng detta fönster?"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this terminal?"
 msgstr "Stäng denna terminal?"
 
-#: src/terminal-window.c:3551
+#: src/terminal-window.c:3548
 msgid "C_lose Terminal"
 msgstr "S_täng terminal"
 
-#: src/terminal-window.c:3616
+#: src/terminal-window.c:3613
 msgid "Could not save contents"
 msgstr "Kunde inte spara innehåll"
 
-#: src/terminal-window.c:3638
+#: src/terminal-window.c:3635
 msgid "Save as..."
 msgstr "Spara som..."
 
-#: src/terminal-window.c:4159
+#: src/terminal-window.c:4156
 msgid "_Title:"
 msgstr "_Titel:"
 
-#: src/terminal-window.c:4343
+#: src/terminal-window.c:4340
 msgid "Contributors:"
 msgstr "Bidragsgivare:"
 
-#: src/terminal-window.c:4359
+#: src/terminal-window.c:4356
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2886,11 +2886,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4363
 msgid "About CAFE Terminal"
 msgstr "Om CAFE Terminal"
 
-#: src/terminal-window.c:4367
+#: src/terminal-window.c:4364
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2901,27 +2901,6 @@ msgid ""
 "Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4380
+#: src/terminal-window.c:4377
 msgid "translator-credits"
 msgstr "Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>"
-
-#~ msgid "utilities-terminal"
-#~ msgstr "utilities-terminal"
-
-#~ msgid ""
-#~ "Copyright © 2002–2004 Havoc Pennington\n"
-#~ "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
-#~ "Copyright © 2006 Guilherme de S. Pastore\n"
-#~ "Copyright © 2007–2010 Christian Persch\n"
-#~ "Copyright © 2011 Perberos\n"
-#~ "Copyright © 2012-2020 CAFE developers"
-#~ msgstr ""
-#~ "Copyright © 2002–2004 Havoc Pennington\n"
-#~ "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
-#~ "Copyright © 2006 Guilherme de S. Pastore\n"
-#~ "Copyright © 2007–2010 Christian Persch\n"
-#~ "Copyright © 2011 Perberos\n"
-#~ "Copyright © 2012-2020 CAFE developers"
-
-#~ msgid "A terminal emulator for the CAFE desktop"
-#~ msgstr "En terminalemulator för skrivbordsmiljön CAFE"

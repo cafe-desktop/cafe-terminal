@@ -14,9 +14,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-terminal 2.0.0\n"
+"Project-Id-Version: cafe-terminal 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/cafe-terminal/issues\n"
-"POT-Creation-Date: 2026-01-27 09:12+0100\n"
+"POT-Creation-Date: 2026-08-13 11:42+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/cafe/teams/13566/lt/)\n"
@@ -29,7 +29,7 @@ msgstr ""
 "1 : n % 1 != 0 ? 2: 3);\n"
 
 #: cafe-terminal.appdata.xml.in:7 cafe-terminal.desktop.in.in:2
-#: src/terminal-options.c:189 src/terminal-window.c:4364
+#: src/terminal-options.c:189 src/terminal-window.c:4361
 msgid "CAFE Terminal"
 msgstr "CAFE terminalas"
 
@@ -1918,7 +1918,7 @@ msgstr "Rasti kitą"
 msgid "Find Previous"
 msgstr "Rasti ankstesnį"
 
-#: src/terminal-accels.c:220 src/terminal-window.c:4142
+#: src/terminal-accels.c:220 src/terminal-window.c:4139
 msgid "Set Title"
 msgstr "Nustatyti pavadinimą"
 
@@ -2454,33 +2454,33 @@ msgstr "Rodyti terminalo parametrus"
 msgid "Unnamed"
 msgstr "Nepavadinta"
 
-#: src/terminal-screen.c:1528
+#: src/terminal-screen.c:1568
 msgid "_Profile Preferences"
 msgstr "Profilio _nustatymai"
 
-#: src/terminal-screen.c:1529 src/terminal-screen.c:1995
+#: src/terminal-screen.c:1569 src/terminal-screen.c:2038
 msgid "_Relaunch"
 msgstr "_Paleisti iš naujo"
 
-#: src/terminal-screen.c:1532
+#: src/terminal-screen.c:1572
 msgid "There was an error creating the child process for this terminal"
 msgstr "Klaida bandant sukurti šio terminalo antrinį procesą"
 
-#: src/terminal-screen.c:1952
+#: src/terminal-screen.c:1995
 msgid "Process completed"
 msgstr ""
 
-#: src/terminal-screen.c:2000
+#: src/terminal-screen.c:2043
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "Antrinis procesas baigtas įprastai grąžinant būsena %d."
 
-#: src/terminal-screen.c:2005
+#: src/terminal-screen.c:2048
 #, c-format
 msgid "The child process was terminated by signal %d."
 msgstr "Antrinis procesas baigtas signalu %d."
 
-#: src/terminal-screen.c:2010
+#: src/terminal-screen.c:2053
 msgid "The child process was terminated."
 msgstr "Antrinis procesas buvo baigtas."
 
@@ -2759,7 +2759,7 @@ msgstr "_Kopijuoti nuorodos adresą"
 msgid "P_rofiles"
 msgstr "P_rofiliai"
 
-#: src/terminal-window.c:2068 src/terminal-window.c:3551
+#: src/terminal-window.c:2068 src/terminal-window.c:3548
 msgid "C_lose Window"
 msgstr "_Užverti langą"
 
@@ -2779,7 +2779,7 @@ msgstr "Rodyti _meniu"
 msgid "_Full Screen"
 msgstr "_Visame ekrane"
 
-#: src/terminal-window.c:3529
+#: src/terminal-window.c:3526
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
@@ -2787,7 +2787,7 @@ msgstr ""
 "Yra procesų, veikiančių šio lango terminaluose. Jei užversite langą, jie "
 "visi bus nutraukti."
 
-#: src/terminal-window.c:3532
+#: src/terminal-window.c:3529
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
@@ -2795,39 +2795,39 @@ msgstr ""
 "Šiame terminale vis dar veikia procesas. Jei užversite terminalą, jis bus "
 "nutrauktas."
 
-#: src/terminal-window.c:3535
+#: src/terminal-window.c:3532
 msgid "There are multiple tabs open in this window."
 msgstr "Šiame lange yra kelios atvertos kortelės."
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this window?"
 msgstr "Užverti langą?"
 
-#: src/terminal-window.c:3544
+#: src/terminal-window.c:3541
 msgid "Close this terminal?"
 msgstr "Užverti terminalą?"
 
-#: src/terminal-window.c:3551
+#: src/terminal-window.c:3548
 msgid "C_lose Terminal"
 msgstr "_Užverti terminalą"
 
-#: src/terminal-window.c:3616
+#: src/terminal-window.c:3613
 msgid "Could not save contents"
 msgstr "Nepavyko įrašyti turinio"
 
-#: src/terminal-window.c:3638
+#: src/terminal-window.c:3635
 msgid "Save as..."
 msgstr "Įrašyti kaip..."
 
-#: src/terminal-window.c:4159
+#: src/terminal-window.c:4156
 msgid "_Title:"
 msgstr "_Pareigos:"
 
-#: src/terminal-window.c:4343
+#: src/terminal-window.c:4340
 msgid "Contributors:"
 msgstr "Pagalbininkai:"
 
-#: src/terminal-window.c:4359
+#: src/terminal-window.c:4356
 #, c-format
 msgid ""
 "A terminal emulator for the CAFE desktop\n"
@@ -2835,11 +2835,11 @@ msgid ""
 "and BTE %d.%d.%d"
 msgstr ""
 
-#: src/terminal-window.c:4366
+#: src/terminal-window.c:4363
 msgid "About CAFE Terminal"
 msgstr "Apie CAFE terminalą"
 
-#: src/terminal-window.c:4367
+#: src/terminal-window.c:4364
 msgid ""
 "Copyright © 2002–2004 Havoc Pennington\n"
 "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
@@ -2850,7 +2850,7 @@ msgid ""
 "Copyright © 2020-2026 Pablo Barciela"
 msgstr ""
 
-#: src/terminal-window.c:4380
+#: src/terminal-window.c:4377
 msgid "translator-credits"
 msgstr ""
 "Vertėjai:\n"
@@ -2863,24 +2863,3 @@ msgstr ""
 "Tomas Kuliavas <tokul@users.sourceforge.net>\n"
 "Gediminas Paulauskas <menesis@chatsubo.lt>\n"
 "Moo"
-
-#~ msgid "utilities-terminal"
-#~ msgstr "utilities-terminal"
-
-#~ msgid ""
-#~ "Copyright © 2002–2004 Havoc Pennington\n"
-#~ "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
-#~ "Copyright © 2006 Guilherme de S. Pastore\n"
-#~ "Copyright © 2007–2010 Christian Persch\n"
-#~ "Copyright © 2011 Perberos\n"
-#~ "Copyright © 2012-2020 CAFE developers"
-#~ msgstr ""
-#~ "Autorių teisės © 2002–2004 Havoc Pennington\n"
-#~ "Autorių teisės © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
-#~ "Autorių teisės © 2006 Guilherme de S. Pastore\n"
-#~ "Autorių teisės © 2007–2010 Christian Persch\n"
-#~ "Autorių teisės © 2011 Perberos\n"
-#~ "Autorių teisės © 2012-2020 CAFE kūrėjai"
-
-#~ msgid "A terminal emulator for the CAFE desktop"
-#~ msgstr "Terminalo emuliatorius CAFE darbo aplinkai"
