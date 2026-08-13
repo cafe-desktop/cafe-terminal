@@ -75,7 +75,7 @@ struct _TerminalScreenPrivate
 	GSList *match_tags;
 	guint launch_child_source_id;
 	gulong bg_image_callback_id;
-	GdkPixbuf *bg_image;
+	CdkPixbuf *bg_image;
 	guint reset_ignore_id;
 	gboolean ignore_text_insert;
 };
@@ -717,7 +717,7 @@ terminal_screen_image_draw_cb (CtkWidget *widget,
 {
 	TerminalScreen *screen = TERMINAL_SCREEN (widget);
 	TerminalScreenPrivate *priv = screen->priv;
-	GdkPixbuf *bg_image = priv->bg_image;
+	CdkPixbuf *bg_image = priv->bg_image;
 	CdkRectangle target_rect;
 	CtkAllocation alloc;
 	cairo_surface_t *child_surface;
