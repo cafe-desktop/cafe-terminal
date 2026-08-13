@@ -1,3 +1,11 @@
+### cafe-terminal 2.1.0
+
+  * terminal-window: Don't hide FileSaveContents
+  * terminal-screen: avoid notifications while resizing
+  * port from GdkPixbuf to CdkPixbuf
+  * update translations
+
+
 ### cafe-terminal 2.0.0
 
   * terminal-window: add the ability to enable/disable Ctrl+D behavior
