@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-08-13 11:51+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/cafe/teams/13566/da/)\n"
@@ -1639,8 +1639,8 @@ msgid ""
 "Select this option to insert a new entry in the login records when a new "
 "shell is opened."
 msgstr ""
-"Vælg denne indstilling for at indsætte et nyt element i log ind-opførslerne ,"
-"når en ny skal åbnes."
+"Vælg denne indstilling for at indsætte et nyt element i log ind-"
+"opførslerne ,når en ny skal åbnes."
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:870
@@ -2159,8 +2159,8 @@ msgid ""
 "<_:orderedlist-1/>"
 msgstr ""
 "DETTE DOKUMENT OG MODIFICEREDE VERSIONER GØRES TILGÆNGELIGT UNDER "
-"BETINGELSERNE I GNU FREE DOCUMENTATION LICENSE UNDER DEN FORUDSÆTNING AT: <_:"
-"orderedlist-1/>"
+"BETINGELSERNE I GNU FREE DOCUMENTATION LICENSE UNDER DEN FORUDSÆTNING AT: "
+"<_:orderedlist-1/>"
 
 #. (itstool) path: formalpara/title
 #: C/legal.xml:77

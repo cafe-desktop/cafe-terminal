@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-08-13 11:51+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/cafe/teams/13566/lt/)\n"
@@ -1777,8 +1777,8 @@ msgid ""
 "<_:orderedlist-1/>"
 msgstr ""
 "DOKUMENTAS IR MODIFIKUOTOS JO VERSIJOS PATEIKIAMOS GNU LAISVOSIOS "
-"DOKUMENTACIJOS LICENCIJOS SĄLYGOMIS SU TOLESNIU SUPRATIMU, KAD: <_:"
-"orderedlist-1/>"
+"DOKUMENTACIJOS LICENCIJOS SĄLYGOMIS SU TOLESNIU SUPRATIMU, KAD: "
+"<_:orderedlist-1/>"
 
 #. (itstool) path: formalpara/title
 #: C/legal.xml:77

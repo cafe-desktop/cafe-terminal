@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-08-13 11:51+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Wolfgang Ulbrich <cafe@raveit.de>, 2020\n"
 "Language-Team: Galician (https://www.transifex.com/cafe/teams/13566/gl/)\n"
@@ -1781,8 +1781,8 @@ msgid ""
 "<_:orderedlist-1/>"
 msgstr ""
 "O DOCUMENTO E AS VERSIÓNS MODIFICADAS DO DOCUMENTO FORNÉCENSE BAIXO OS "
-"TERMOS DA LICENZA LIBRE DE DOCUMENTACIÓN DE GNU CO ACORDO ADICIONAL DE:<_:"
-"orderedlist-1/>"
+"TERMOS DA LICENZA LIBRE DE DOCUMENTACIÓN DE GNU CO ACORDO ADICIONAL DE:"
+"<_:orderedlist-1/>"
 
 #. (itstool) path: formalpara/title
 #: C/legal.xml:77

@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-08-13 11:51+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: René Devers <rene.devers@gmail.com>, 2020\n"
 "Language-Team: Dutch (https://www.transifex.com/cafe/teams/13566/nl/)\n"

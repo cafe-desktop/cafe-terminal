@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-08-13 11:51+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Alessandro Volturno <alelvb@inwind.it>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/cafe/teams/13566/it/)\n"
@@ -1747,9 +1747,9 @@ msgid ""
 msgstr ""
 "Seleziona l'opzione <guilabel>Usa i colori del tema di sistema</guilabel> "
 "per utilizzare i colori che sono specificati nel tema desktop CAFE che è "
-"selezionato nella scheda <guilabel>Tema</guilabel> della sezione <link xlink:"
-"href=\"help:cafe-user-guide/prefs-theme\"><application>Aspetto</application> "
-"dello strumento preferenze</link>."
+"selezionato nella scheda <guilabel>Tema</guilabel> della sezione <link "
+"xlink:href=\"help:cafe-user-guide/prefs-theme\"><application>Aspetto</"
+"application> dello strumento preferenze</link>."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:901

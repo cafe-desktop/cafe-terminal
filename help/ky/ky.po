@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-08-13 11:51+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: 41e38594a6ab66d45dbd71e8e44a0b16_36d21e8, 2020\n"
 "Language-Team: Kyrgyz (https://www.transifex.com/cafe/teams/13566/ky/)\n"

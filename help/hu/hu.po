@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-03-11 17:16+0100\n"
+"POT-Creation-Date: 2026-08-13 11:51+0200\n"
 "PO-Revision-Date: 2020-02-16 16:10+0000\n"
 "Last-Translator: Szabó Máté <cafeszabo2001@gmail.com>, 2020\n"
 "Language-Team: Hungarian (https://www.transifex.com/cafe/teams/13566/hu/)\n"
@@ -1781,8 +1781,8 @@ msgid ""
 "<_:orderedlist-1/>"
 msgstr ""
 "A DOKUMENTUM ÉS A DOKUMENTUM MÓDOSÍTOTT VERZIÓI A GNU FREE DOCUMENTATION "
-"LICENSE FELTÉTELEI SZERINT KERÜLNEK KÖZREADÁSRA, A TOVÁBBIAK ISMERETÉBEN: <_:"
-"orderedlist-1/>"
+"LICENSE FELTÉTELEI SZERINT KERÜLNEK KÖZREADÁSRA, A TOVÁBBIAK ISMERETÉBEN: "
+"<_:orderedlist-1/>"
 
 #. (itstool) path: formalpara/title
 #: C/legal.xml:77
