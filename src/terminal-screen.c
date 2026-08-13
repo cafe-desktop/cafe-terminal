@@ -29,7 +29,7 @@
 
 #include <cdk/cdk.h>
 #include <cdk/cdkx.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <cdk-pixbuf/cdk-pixbuf.h>
 #include <cairo.h>
 
 #include <libnotify/notify.h>
@@ -1184,7 +1184,7 @@ update_color_scheme (TerminalScreen *screen)
 			priv->bg_image_callback_id = g_signal_connect (screen, "draw", G_CALLBACK (terminal_screen_image_draw_cb), NULL);
 
 		g_clear_object (&priv->bg_image);
-		priv->bg_image = gdk_pixbuf_new_from_file (bg_image_file, &error);
+		priv->bg_image = cdk_pixbuf_new_from_file (bg_image_file, &error);
 
 		if (error) {
 			g_printerr ("Failed to load background image: %s\n", error->message);
