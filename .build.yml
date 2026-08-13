@@ -3,47 +3,12 @@
 ##########################################################
 requires:
   debian:
-    # Useful URL: https://github.com/cafe-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-cafe-team/cafe-terminal
-    - aptitude
-    - autoconf-archive
-    - autopoint
-    - clang
-    - clang-tools
-    - cppcheck
-    - expect #required for unbuffer
-    - gcc
-    - gettext
-    - git
-    - libdconf-dev
-    - libglib2.0-dev
-    - libnotify-dev
-    - libsm-dev
-    - libtool
-    - libx11-dev
-    - make
-    - wget
-    - yelp-tools
-
-    #packages required for bte
-    - gtk-doc-tools
-    - libgirepository1.0-dev
-    - libgnutls28-dev
-    - libpcre2-dev
-    - libsystemd-dev
-    - libxml2-utils
-    - meson
 
 before_scripts:
-  - ./html-cppcheck
-  - ./debrepo-install 'libctk-3-dev gir1.2-ctk-3.0 libctk-3-common libctk-3-0'
-  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
-  - ./install-from-git https://github.com/cafe-desktop/bte master meson
+  - ./debrepo-install
 
 build_scripts:
-  - ./before-build
-  - ./make-scanbuild '--enable-compile-warnings=maximum'
-  - ./after-build
+  - ./build-debs https://github.com/cafe-desktop/debian-packages devel cafe-terminal
 
 after_scripts:
   - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/cafe-icon-theme/raw/master/cafe/16x16/apps/utilities-terminal.png; fi
